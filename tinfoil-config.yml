@@ -11,6 +11,8 @@ containers:
       - MKL_NUM_THREADS: "4"
     secrets:
       - OPEN_JEV_API_KEY
+    tmpfs:
+      /tmp: rw,noexec,nosuid,nodev,size=64m,mode=1777
     restart: always
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/health', timeout=5)"]
