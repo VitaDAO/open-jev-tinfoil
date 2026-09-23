@@ -5,6 +5,11 @@ on:
     paths:
       - server.py
       - routing.py
+      - selector.py
+      - learned_selector.py
+      - plan_adapter.py
+      - metadata/**
+      - compat/**
       - adapters/**
       - examples/**
       - Dockerfile
@@ -22,6 +27,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8
+      - name: Reproduce read-only import behavior of deployed v0.2.1
+        run: |
+          image=ghcr.io/vitadao/open-jev-tinfoil@sha256:40e09453a5a74f7039ef59c65b2b1b790573a894c4be0c4480e400fde7212356
+          docker pull "$image"
+          set +e
+          docker run --rm --network none --read-only --cap-drop ALL --security-opt no-new-privileges --entrypoint python "$image" -c 'import torch; print("TORCH_IMPORT_OK")' > /tmp/readonly-import.txt 2>&1
+          status=$?
+          set -e
+          cat /tmp/readonly-import.txt
+          echo "readonly_without_tmpfs_exit=$status"
+          docker run --rm --network none --read-only --cap-drop ALL --security-opt no-new-privileges --tmpfs /tmp:rw,noexec,nosuid,nodev,size=64m,mode=1777 --entrypoint python "$image" -c 'import torch; print("TORCH_IMPORT_WITH_TMPFS_OK")'
       - name: Build CPU image with pinned model
         run: docker build -t ghcr.io/vitadao/open-jev-tinfoil:${{ github.sha }} .
       - name: Unit tests
@@ -30,7 +46,7 @@ jobs:
       - name: Real-model smoke with 8 GB and 4 CPUs
         run: |
           export OPEN_JEV_API_KEY=$(openssl rand -hex 32)
-          docker run -d --name smoke --memory 8g --cpus 4 -e OPEN_JEV_API_KEY -p 127.0.0.1:18080:8080 ghcr.io/vitadao/open-jev-tinfoil:${{ github.sha }}
+          docker run -d --name smoke --memory 8g --cpus 4 --read-only --cap-drop ALL --security-opt no-new-privileges --tmpfs /tmp:rw,noexec,nosuid,nodev,size=64m,mode=1777 -v "$PWD/scripts:/app/scripts:ro" -v "$PWD/tests:/app/tests:ro" -v "$PWD/evidence:/app/evidence:ro" -e ENABLE_EXPERIMENTAL_SELECTOR=1 -e OPEN_JEV_API_KEY -p 127.0.0.1:18080:8080 ghcr.io/vitadao/open-jev-tinfoil:${{ github.sha }}
           ready=false
           for i in $(seq 1 120); do
             if curl -fsS http://127.0.0.1:18080/health > /tmp/health.json; then ready=true; break; fi
@@ -40,6 +56,8 @@ jobs:
           if [ "$ready" != true ]; then docker logs smoke; exit 1; fi
           python scripts/smoke.py | tee /tmp/smoke.json
           python scripts/smoke_route.py | tee /tmp/route-smoke.json
+          docker exec -e BASE_URL=http://127.0.0.1:8080 smoke python scripts/evaluate_selector.py | tee /tmp/selector-baseline.json
+          docker exec -e BASE_URL=http://127.0.0.1:8080 -e SELECTOR_ENDPOINT=/v1/select -e SELECTOR_CASES=/app/evidence/selector-v1/model-heldout.json -e EVALUATION_LABEL=frozen_model_heldout smoke python scripts/evaluate_selector.py | tee /tmp/selector-model.json
           docker stats --no-stream --format '{{json .}}' smoke | tee /tmp/stats.json
           docker exec smoke cat /sys/fs/cgroup/memory.peak | tee /tmp/memory-peak.txt
           docker rm -f smoke

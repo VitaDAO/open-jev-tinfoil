@@ -6,7 +6,9 @@ RUN pip install --no-cache-dir --require-hashes --extra-index-url https://downlo
 COPY scripts/download_model.py scripts/pack_weights.py /app/scripts/
 RUN python scripts/download_model.py && python scripts/pack_weights.py /opt/model && rm -rf /opt/model/.cache
 COPY vendor /app/vendor
-COPY server.py routing.py /app/
+COPY server.py routing.py selector.py learned_selector.py plan_adapter.py /app/
+COPY metadata /app/metadata
+COPY compat /app/compat
 COPY adapters /app/adapters
 COPY examples /app/examples
 ENV MODEL_DIR=/opt/model PYTHONPATH=/app/vendor HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 HF_HUB_DISABLE_TELEMETRY=1 OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 TOKENIZERS_PARALLELISM=false PYTHONDONTWRITEBYTECODE=1

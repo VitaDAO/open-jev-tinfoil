@@ -1,0 +1,1933 @@
+{
+  "selector_sha256": "94e82c8fc795100c29e08bcb21b88166a000e126ee02f945386635e63bb7dd72",
+  "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+  "adapter_sha256": "52e885aefec1230c71b9f68f65cca7c94b67341cce962e03674430ef828ba69c",
+  "implementation": "open_jev_frozen_encoder_multihead_experimental",
+  "fixtures_sha256": "576e34e4cd0b5c78ced289a25d2fb1db67be22eade9a21d5a30409977eca830d",
+  "cases": 59,
+  "correct": 45,
+  "valid_requests": 27,
+  "selected_valid": 15,
+  "incorrect_selected": 2,
+  "notes": "Frozen new synthetic paraphrases/categories after learned adapter freeze. Assistant authored, not independent human labels. No retuning after this evaluation. Prior 36 cases and 449 training examples are development only.",
+  "supported_vita_requests": 54,
+  "fallback_count": 43,
+  "category_results": {
+    "aggregate": {
+      "n": 4,
+      "correct": 4,
+      "selected": 0
+    },
+    "ambiguous": {
+      "n": 2,
+      "correct": 2,
+      "selected": 0
+    },
+    "broad_language": {
+      "n": 5,
+      "correct": 3,
+      "selected": 3
+    },
+    "calendar": {
+      "n": 1,
+      "correct": 0,
+      "selected": 0
+    },
+    "comparison": {
+      "n": 2,
+      "correct": 2,
+      "selected": 0
+    },
+    "correlation": {
+      "n": 1,
+      "correct": 1,
+      "selected": 0
+    },
+    "dates": {
+      "n": 4,
+      "correct": 1,
+      "selected": 1
+    },
+    "descriptive_summary": {
+      "n": 3,
+      "correct": 1,
+      "selected": 1
+    },
+    "embedded_instruction": {
+      "n": 1,
+      "correct": 1,
+      "selected": 0
+    },
+    "followup": {
+      "n": 3,
+      "correct": 2,
+      "selected": 2
+    },
+    "invalid_date": {
+      "n": 1,
+      "correct": 1,
+      "selected": 0
+    },
+    "latest": {
+      "n": 3,
+      "correct": 1,
+      "selected": 2
+    },
+    "latest_n": {
+      "n": 2,
+      "correct": 1,
+      "selected": 1
+    },
+    "memory": {
+      "n": 2,
+      "correct": 2,
+      "selected": 0
+    },
+    "multi_part": {
+      "n": 1,
+      "correct": 1,
+      "selected": 0
+    },
+    "negation": {
+      "n": 2,
+      "correct": 2,
+      "selected": 0
+    },
+    "no_read": {
+      "n": 2,
+      "correct": 2,
+      "selected": 0
+    },
+    "non_english": {
+      "n": 2,
+      "correct": 2,
+      "selected": 0
+    },
+    "open_period": {
+      "n": 1,
+      "correct": 1,
+      "selected": 0
+    },
+    "profile_field": {
+      "n": 2,
+      "correct": 2,
+      "selected": 0
+    },
+    "quoted_text": {
+      "n": 1,
+      "correct": 1,
+      "selected": 0
+    },
+    "records": {
+      "n": 3,
+      "correct": 2,
+      "selected": 2
+    },
+    "research": {
+      "n": 1,
+      "correct": 1,
+      "selected": 1
+    },
+    "research_custom": {
+      "n": 1,
+      "correct": 1,
+      "selected": 0
+    },
+    "retrieved_injection": {
+      "n": 1,
+      "correct": 1,
+      "selected": 0
+    },
+    "source_filter": {
+      "n": 2,
+      "correct": 2,
+      "selected": 0
+    },
+    "subject_change": {
+      "n": 1,
+      "correct": 0,
+      "selected": 0
+    },
+    "trend": {
+      "n": 3,
+      "correct": 3,
+      "selected": 3
+    },
+    "write": {
+      "n": 2,
+      "correct": 2,
+      "selected": 0
+    }
+  },
+  "results": [
+    {
+      "id": "m01",
+      "correct": true,
+      "status": "selected",
+      "elapsed_ms": 126.262,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "trend",
+            "concepts": [
+              "apob",
+              "custom_metric",
+              "ldl_cholesterol",
+              "oxygen_saturation",
+              "respiratory_rate"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC"
+          },
+          {
+            "operation_id": 2,
+            "purpose": "trend",
+            "concepts": [
+              "sleep_efficiency",
+              "steps",
+              "total_sleep"
+            ],
+            "range": {
+              "kind": "relative",
+              "unit": "days",
+              "amount": 30
+            },
+            "time_zone": "UTC"
+          },
+          {
+            "operation_id": 3,
+            "purpose": "latest",
+            "record_types": [
+              "profile"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "profile_fields": [
+              "goals",
+              "chronic_conditions",
+              "medications",
+              "no_regular_medications",
+              "allergies",
+              "sex",
+              "birth_year",
+              "height_cm",
+              "weight_kg"
+            ]
+          },
+          {
+            "operation_id": 4,
+            "purpose": "latest",
+            "record_types": [
+              "workouts"
+            ],
+            "range": {
+              "kind": "relative",
+              "unit": "days",
+              "amount": 30
+            },
+            "time_zone": "UTC"
+          },
+          {
+            "operation_id": 5,
+            "purpose": "latest",
+            "record_types": [
+              "labs"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "record_detail_dataset": "labs.upload_metadata.v1",
+            "record_detail_limit": 3
+          },
+          {
+            "operation_id": 6,
+            "purpose": "latest",
+            "record_types": [
+              "calendar"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "record_detail_dataset": "calendar.events.v1",
+            "record_detail_limit": 8
+          }
+        ],
+        "required_operation_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "literature_reads": [
+          {
+            "operation_id": 7,
+            "question": "For adults, summarize systematic review and randomized trial evidence on sleep duration and regularity, physical activity, and diet for cardiometabolic health. Identify practical interventions, studied populations, and applicability limits; distinguish associations from intervention effects.",
+            "subject_basis": "general_overview_research",
+            "basis_source_ids": [],
+            "task": "evidence_summary",
+            "depth": "fast"
+          }
+        ]
+      },
+      "expected_selection": true,
+      "category": "broad_language",
+      "vita_supported": true,
+      "reason": null
+    },
+    {
+      "id": "m02",
+      "correct": false,
+      "status": "unsupported",
+      "elapsed_ms": 108.245,
+      "plan": null,
+      "expected_selection": true,
+      "category": "broad_language",
+      "vita_supported": true,
+      "reason": "uncertain_model_decision"
+    },
+    {
+      "id": "m03",
+      "correct": true,
+      "status": "selected",
+      "elapsed_ms": 115.203,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "trend",
+            "concepts": [
+              "apob",
+              "custom_metric",
+              "ldl_cholesterol",
+              "oxygen_saturation",
+              "respiratory_rate"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC"
+          },
+          {
+            "operation_id": 2,
+            "purpose": "trend",
+            "concepts": [
+              "sleep_efficiency",
+              "steps",
+              "total_sleep"
+            ],
+            "range": {
+              "kind": "relative",
+              "unit": "days",
+              "amount": 30
+            },
+            "time_zone": "UTC"
+          },
+          {
+            "operation_id": 3,
+            "purpose": "latest",
+            "record_types": [
+              "profile"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "profile_fields": [
+              "goals",
+              "chronic_conditions",
+              "medications",
+              "no_regular_medications",
+              "allergies",
+              "sex",
+              "birth_year",
+              "height_cm",
+              "weight_kg"
+            ]
+          },
+          {
+            "operation_id": 4,
+            "purpose": "latest",
+            "record_types": [
+              "workouts"
+            ],
+            "range": {
+              "kind": "relative",
+              "unit": "days",
+              "amount": 30
+            },
+            "time_zone": "UTC"
+          },
+          {
+            "operation_id": 5,
+            "purpose": "latest",
+            "record_types": [
+              "labs"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "record_detail_dataset": "labs.upload_metadata.v1",
+            "record_detail_limit": 3
+          },
+          {
+            "operation_id": 6,
+            "purpose": "latest",
+            "record_types": [
+              "calendar"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "record_detail_dataset": "calendar.events.v1",
+            "record_detail_limit": 8
+          }
+        ],
+        "required_operation_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "literature_reads": [
+          {
+            "operation_id": 7,
+            "question": "For adults, summarize systematic review and randomized trial evidence on sleep duration and regularity, physical activity, and diet for cardiometabolic health. Identify practical interventions, studied populations, and applicability limits; distinguish associations from intervention effects.",
+            "subject_basis": "general_overview_research",
+            "basis_source_ids": [],
+            "task": "evidence_summary",
+            "depth": "fast"
+          }
+        ]
+      },
+      "expected_selection": true,
+      "category": "broad_language",
+      "vita_supported": true,
+      "reason": null
+    },
+    {
+      "id": "m04",
+      "correct": false,
+      "status": "unsupported",
+      "elapsed_ms": 110.433,
+      "plan": null,
+      "expected_selection": true,
+      "category": "broad_language",
+      "vita_supported": true,
+      "reason": "uncertain_model_decision"
+    },
+    {
+      "id": "m05",
+      "correct": true,
+      "status": "selected",
+      "elapsed_ms": 109.882,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "trend",
+            "concepts": [
+              "apob",
+              "custom_metric",
+              "ldl_cholesterol",
+              "oxygen_saturation",
+              "respiratory_rate"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC"
+          },
+          {
+            "operation_id": 2,
+            "purpose": "trend",
+            "concepts": [
+              "sleep_efficiency",
+              "steps",
+              "total_sleep"
+            ],
+            "range": {
+              "kind": "relative",
+              "unit": "days",
+              "amount": 30
+            },
+            "time_zone": "UTC"
+          },
+          {
+            "operation_id": 3,
+            "purpose": "latest",
+            "record_types": [
+              "profile"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "profile_fields": [
+              "goals",
+              "chronic_conditions",
+              "medications",
+              "no_regular_medications",
+              "allergies",
+              "sex",
+              "birth_year",
+              "height_cm",
+              "weight_kg"
+            ]
+          },
+          {
+            "operation_id": 4,
+            "purpose": "latest",
+            "record_types": [
+              "workouts"
+            ],
+            "range": {
+              "kind": "relative",
+              "unit": "days",
+              "amount": 30
+            },
+            "time_zone": "UTC"
+          },
+          {
+            "operation_id": 5,
+            "purpose": "latest",
+            "record_types": [
+              "labs"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "record_detail_dataset": "labs.upload_metadata.v1",
+            "record_detail_limit": 3
+          },
+          {
+            "operation_id": 6,
+            "purpose": "latest",
+            "record_types": [
+              "calendar"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "record_detail_dataset": "calendar.events.v1",
+            "record_detail_limit": 8
+          }
+        ],
+        "required_operation_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "literature_reads": [
+          {
+            "operation_id": 7,
+            "question": "For adults, summarize systematic review and randomized trial evidence on sleep duration and regularity, physical activity, and diet for cardiometabolic health. Identify practical interventions, studied populations, and applicability limits; distinguish associations from intervention effects.",
+            "subject_basis": "general_overview_research",
+            "basis_source_ids": [],
+            "task": "evidence_summary",
+            "depth": "fast"
+          }
+        ]
+      },
+      "expected_selection": true,
+      "category": "broad_language",
+      "vita_supported": true,
+      "reason": null
+    },
+    {
+      "id": "m06",
+      "correct": true,
+      "status": "selected",
+      "elapsed_ms": 103.389,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "trend",
+            "concepts": [
+              "apob",
+              "custom_metric",
+              "ldl_cholesterol",
+              "oxygen_saturation",
+              "respiratory_rate",
+              "sleep_efficiency",
+              "steps",
+              "total_sleep"
+            ],
+            "range": {
+              "kind": "calendar",
+              "period": "week"
+            },
+            "time_zone": "UTC"
+          },
+          {
+            "operation_id": 2,
+            "purpose": "latest",
+            "record_types": [
+              "profile"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "profile_fields": [
+              "goals",
+              "chronic_conditions",
+              "medications",
+              "no_regular_medications",
+              "allergies",
+              "sex",
+              "birth_year",
+              "height_cm",
+              "weight_kg"
+            ]
+          },
+          {
+            "operation_id": 3,
+            "purpose": "latest",
+            "record_types": [
+              "workouts"
+            ],
+            "range": {
+              "kind": "calendar",
+              "period": "week"
+            },
+            "time_zone": "UTC"
+          },
+          {
+            "operation_id": 4,
+            "purpose": "latest",
+            "record_types": [
+              "labs"
+            ],
+            "range": {
+              "kind": "calendar",
+              "period": "week"
+            },
+            "time_zone": "UTC",
+            "record_detail_dataset": "labs.upload_metadata.v1",
+            "record_detail_limit": 3
+          },
+          {
+            "operation_id": 5,
+            "purpose": "latest",
+            "record_types": [
+              "calendar"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "record_detail_dataset": "calendar.events.v1",
+            "record_detail_limit": 8
+          }
+        ],
+        "required_operation_ids": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "expected_selection": true,
+      "category": "descriptive_summary",
+      "vita_supported": true,
+      "reason": null
+    },
+    {
+      "id": "m07",
+      "correct": false,
+      "status": "unsupported",
+      "elapsed_ms": 106.116,
+      "plan": null,
+      "expected_selection": true,
+      "category": "descriptive_summary",
+      "vita_supported": true,
+      "reason": "uncertain_model_decision"
+    },
+    {
+      "id": "m08",
+      "correct": false,
+      "status": "unsupported",
+      "elapsed_ms": 123.959,
+      "plan": null,
+      "expected_selection": true,
+      "category": "descriptive_summary",
+      "vita_supported": true,
+      "reason": "uncertain_model_decision"
+    },
+    {
+      "id": "m09",
+      "correct": false,
+      "status": "selected",
+      "elapsed_ms": 143.064,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "trend",
+            "concepts": [
+              "respiratory_rate"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "expected_selection": true,
+      "category": "latest",
+      "vita_supported": true,
+      "reason": null
+    },
+    {
+      "id": "m10",
+      "correct": true,
+      "status": "selected",
+      "elapsed_ms": 114.638,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "latest",
+            "concepts": [
+              "apob"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "expected_selection": true,
+      "category": "latest",
+      "vita_supported": true,
+      "reason": null
+    },
+    {
+      "id": "m11",
+      "correct": false,
+      "status": "unsupported",
+      "elapsed_ms": 109.922,
+      "plan": null,
+      "expected_selection": true,
+      "category": "latest",
+      "vita_supported": true,
+      "reason": "unresolved_metric_or_record"
+    },
+    {
+      "id": "m12",
+      "correct": true,
+      "status": "selected",
+      "elapsed_ms": 104.193,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "trend",
+            "concepts": [
+              "oxygen_saturation"
+            ],
+            "range": {
+              "kind": "between",
+              "start_at": "2026-09-14",
+              "end_at": "2026-09-20"
+            },
+            "time_zone": "UTC"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "expected_selection": true,
+      "category": "trend",
+      "vita_supported": true,
+      "reason": null
+    },
+    {
+      "id": "m13",
+      "correct": true,
+      "status": "selected",
+      "elapsed_ms": 103.732,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "trend",
+            "concepts": [
+              "custom_metric"
+            ],
+            "range": {
+              "kind": "relative",
+              "amount": 7,
+              "unit": "days"
+            },
+            "time_zone": "UTC"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "expected_selection": true,
+      "category": "trend",
+      "vita_supported": true,
+      "reason": null
+    },
+    {
+      "id": "m14",
+      "correct": true,
+      "status": "selected",
+      "elapsed_ms": 105.228,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "trend",
+            "concepts": [
+              "sleep_efficiency"
+            ],
+            "range": {
+              "kind": "between",
+              "start_at": "2026-01-01",
+              "end_at": "2026-09-23T12:00:00+00:00"
+            },
+            "time_zone": "UTC"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "expected_selection": true,
+      "category": "trend",
+      "vita_supported": true,
+      "reason": null
+    },
+    {
+      "id": "m15",
+      "correct": true,
+      "status": "selected",
+      "elapsed_ms": 105.361,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "trend",
+            "concepts": [
+              "steps"
+            ],
+            "range": {
+              "kind": "between",
+              "start_at": "2025-01-01",
+              "end_at": "2025-01-31"
+            },
+            "time_zone": "UTC"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "expected_selection": true,
+      "category": "dates",
+      "vita_supported": true,
+      "reason": null
+    },
+    {
+      "id": "m16",
+      "correct": false,
+      "status": "unsupported",
+      "elapsed_ms": 105.515,
+      "plan": null,
+      "expected_selection": true,
+      "category": "dates",
+      "vita_supported": true,
+      "reason": "unresolved_period"
+    },
+    {
+      "id": "m17",
+      "correct": false,
+      "status": "unsupported",
+      "elapsed_ms": 106.861,
+      "plan": null,
+      "expected_selection": true,
+      "category": "dates",
+      "vita_supported": true,
+      "reason": "unsupported_read_form"
+    },
+    {
+      "id": "m18",
+      "correct": false,
+      "status": "unsupported",
+      "elapsed_ms": 107.368,
+      "plan": null,
+      "expected_selection": true,
+      "category": "dates",
+      "vita_supported": true,
+      "reason": "unresolved_period"
+    },
+    {
+      "id": "m19",
+      "correct": true,
+      "status": "selected",
+      "elapsed_ms": 107.449,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "trend",
+            "concepts": [
+              "respiratory_rate"
+            ],
+            "range": {
+              "kind": "between",
+              "start_at": "2025-01-01",
+              "end_at": "2025-12-31"
+            },
+            "time_zone": "UTC"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "expected_selection": true,
+      "category": "followup",
+      "vita_supported": true,
+      "reason": null
+    },
+    {
+      "id": "m20",
+      "correct": true,
+      "status": "selected",
+      "elapsed_ms": 106.082,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "latest",
+            "concepts": [
+              "apob"
+            ],
+            "range": {
+              "kind": "between",
+              "start_at": "2025-01-01",
+              "end_at": "2025-12-31"
+            },
+            "time_zone": "UTC"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "expected_selection": true,
+      "category": "followup",
+      "vita_supported": true,
+      "reason": null
+    },
+    {
+      "id": "m21",
+      "correct": false,
+      "status": "unsupported",
+      "elapsed_ms": 109.892,
+      "plan": null,
+      "expected_selection": true,
+      "category": "followup",
+      "vita_supported": true,
+      "reason": "unresolved_metric_or_record"
+    },
+    {
+      "id": "m22",
+      "correct": false,
+      "status": "unsupported",
+      "elapsed_ms": 111.067,
+      "plan": null,
+      "expected_selection": true,
+      "category": "subject_change",
+      "vita_supported": true,
+      "reason": "unresolved_period"
+    },
+    {
+      "id": "m23",
+      "correct": true,
+      "status": "selected",
+      "elapsed_ms": 103.378,
+      "plan": {
+        "health_reads": [],
+        "required_operation_ids": [
+          1
+        ],
+        "literature_reads": [
+          {
+            "operation_id": 1,
+            "question": "For adults, what systematic review and randomized trial evidence supports improving sleep duration and regularity and physical activity? Describe practical interventions, outcomes, and applicability limits.",
+            "subject_basis": "general_overview_research",
+            "basis_source_ids": [],
+            "task": "evidence_summary",
+            "depth": "fast"
+          }
+        ]
+      },
+      "expected_selection": true,
+      "category": "research",
+      "vita_supported": true,
+      "reason": null
+    },
+    {
+      "id": "m24",
+      "correct": true,
+      "status": "selected",
+      "elapsed_ms": 106.111,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "latest",
+            "record_types": [
+              "profile"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "profile_fields": [
+              "goals",
+              "chronic_conditions",
+              "medications",
+              "no_regular_medications",
+              "allergies",
+              "sex",
+              "birth_year",
+              "height_cm",
+              "weight_kg"
+            ]
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "expected_selection": true,
+      "category": "records",
+      "vita_supported": true,
+      "reason": null
+    },
+    {
+      "id": "m25",
+      "correct": false,
+      "status": "unsupported",
+      "elapsed_ms": 108.69,
+      "plan": null,
+      "expected_selection": true,
+      "category": "records",
+      "vita_supported": true,
+      "reason": "unresolved_metric_or_record"
+    },
+    {
+      "id": "m26",
+      "correct": true,
+      "status": "selected",
+      "elapsed_ms": 107.257,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "latest",
+            "record_types": [
+              "labs"
+            ],
+            "range": {
+              "kind": "between",
+              "start_at": "2025-02-01",
+              "end_at": "2025-02-28"
+            },
+            "time_zone": "UTC",
+            "record_detail_dataset": "labs.upload_metadata.v1",
+            "record_detail_limit": 3
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "expected_selection": true,
+      "category": "records",
+      "vita_supported": true,
+      "reason": null
+    },
+    {
+      "id": "m27",
+      "correct": false,
+      "status": "unsupported",
+      "elapsed_ms": 105.648,
+      "plan": null,
+      "expected_selection": true,
+      "category": "calendar",
+      "vita_supported": true,
+      "reason": "uncertain_model_decision"
+    },
+    {
+      "id": "m28",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 111.612,
+      "plan": null,
+      "expected_selection": false,
+      "category": "comparison",
+      "vita_supported": true,
+      "reason": "unresolved_period"
+    },
+    {
+      "id": "m29",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 107.701,
+      "plan": null,
+      "expected_selection": false,
+      "category": "comparison",
+      "vita_supported": true,
+      "reason": "source_qualified_query_requires_existing_tools"
+    },
+    {
+      "id": "m30",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 109.022,
+      "plan": null,
+      "expected_selection": false,
+      "category": "correlation",
+      "vita_supported": true,
+      "reason": "unresolved_metric_or_record"
+    },
+    {
+      "id": "m31",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 107.068,
+      "plan": null,
+      "expected_selection": false,
+      "category": "source_filter",
+      "vita_supported": true,
+      "reason": "source_qualified_query_requires_existing_tools"
+    },
+    {
+      "id": "m32",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 106.721,
+      "plan": null,
+      "expected_selection": false,
+      "category": "source_filter",
+      "vita_supported": true,
+      "reason": "unresolved_metric_or_record"
+    },
+    {
+      "id": "m33",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 109.211,
+      "plan": null,
+      "expected_selection": false,
+      "category": "aggregate",
+      "vita_supported": true,
+      "reason": "aggregate_or_unit_request_requires_existing_tools"
+    },
+    {
+      "id": "m34",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 110.268,
+      "plan": null,
+      "expected_selection": false,
+      "category": "aggregate",
+      "vita_supported": true,
+      "reason": "inconsistent_scope"
+    },
+    {
+      "id": "m35",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 111.052,
+      "plan": null,
+      "expected_selection": false,
+      "category": "aggregate",
+      "vita_supported": true,
+      "reason": "unresolved_metric_or_record"
+    },
+    {
+      "id": "m36",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 107.177,
+      "plan": null,
+      "expected_selection": false,
+      "category": "aggregate",
+      "vita_supported": true,
+      "reason": "unresolved_metric_or_record"
+    },
+    {
+      "id": "m37",
+      "correct": false,
+      "status": "selected",
+      "elapsed_ms": 113.041,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "latest",
+            "record_types": [
+              "labs"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "record_detail_dataset": "labs.upload_metadata.v1",
+            "record_detail_limit": 3
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "expected_selection": false,
+      "category": "latest_n",
+      "vita_supported": true,
+      "reason": null
+    },
+    {
+      "id": "m38",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 102.244,
+      "plan": null,
+      "expected_selection": false,
+      "category": "latest_n",
+      "vita_supported": true,
+      "reason": "unresolved_metric_or_record"
+    },
+    {
+      "id": "m39",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 114.652,
+      "plan": null,
+      "expected_selection": false,
+      "category": "profile_field",
+      "vita_supported": true,
+      "reason": "unresolved_metric_or_record"
+    },
+    {
+      "id": "m40",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 129.733,
+      "plan": null,
+      "expected_selection": false,
+      "category": "profile_field",
+      "vita_supported": true,
+      "reason": "unresolved_metric_or_record"
+    },
+    {
+      "id": "m41",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 183.007,
+      "plan": null,
+      "expected_selection": false,
+      "category": "memory",
+      "vita_supported": true,
+      "reason": "inconsistent_scope"
+    },
+    {
+      "id": "m42",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 144.345,
+      "plan": null,
+      "expected_selection": false,
+      "category": "memory",
+      "vita_supported": true,
+      "reason": "no_available_research"
+    },
+    {
+      "id": "m43",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 109.019,
+      "plan": null,
+      "expected_selection": false,
+      "category": "write",
+      "vita_supported": true,
+      "reason": "unresolved_period"
+    },
+    {
+      "id": "m44",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 107.424,
+      "plan": null,
+      "expected_selection": false,
+      "category": "write",
+      "vita_supported": true,
+      "reason": "unresolved_period"
+    },
+    {
+      "id": "m45",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 104.805,
+      "plan": null,
+      "expected_selection": false,
+      "category": "no_read",
+      "vita_supported": true,
+      "reason": "no_supported_read"
+    },
+    {
+      "id": "m46",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 109.266,
+      "plan": null,
+      "expected_selection": false,
+      "category": "no_read",
+      "vita_supported": true,
+      "reason": "no_supported_read"
+    },
+    {
+      "id": "m47",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 105.138,
+      "plan": null,
+      "expected_selection": false,
+      "category": "negation",
+      "vita_supported": true,
+      "reason": "unresolved_period"
+    },
+    {
+      "id": "m48",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 103.679,
+      "plan": null,
+      "expected_selection": false,
+      "category": "negation",
+      "vita_supported": true,
+      "reason": "unresolved_period"
+    },
+    {
+      "id": "m49",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 111.124,
+      "plan": null,
+      "expected_selection": false,
+      "category": "multi_part",
+      "vita_supported": true,
+      "reason": "inconsistent_scope"
+    },
+    {
+      "id": "m50",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 108.372,
+      "plan": null,
+      "expected_selection": false,
+      "category": "research_custom",
+      "vita_supported": true,
+      "reason": "unsupported_research"
+    },
+    {
+      "id": "m51",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 104.506,
+      "plan": null,
+      "expected_selection": false,
+      "category": "non_english",
+      "vita_supported": true,
+      "reason": "uncertain_model_decision"
+    },
+    {
+      "id": "m52",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 104.941,
+      "plan": null,
+      "expected_selection": false,
+      "category": "non_english",
+      "vita_supported": true,
+      "reason": "unresolved_metric_or_record"
+    },
+    {
+      "id": "m53",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 108.591,
+      "plan": null,
+      "expected_selection": false,
+      "category": "ambiguous",
+      "vita_supported": false,
+      "reason": "unsupported_qualifier_or_action"
+    },
+    {
+      "id": "m54",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 110.918,
+      "plan": null,
+      "expected_selection": false,
+      "category": "ambiguous",
+      "vita_supported": false,
+      "reason": "no_supported_read"
+    },
+    {
+      "id": "m55",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 103.659,
+      "plan": null,
+      "expected_selection": false,
+      "category": "invalid_date",
+      "vita_supported": false,
+      "reason": "unresolved_period"
+    },
+    {
+      "id": "m56",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 106.13,
+      "plan": null,
+      "expected_selection": false,
+      "category": "open_period",
+      "vita_supported": true,
+      "reason": "unresolved_period"
+    },
+    {
+      "id": "m57",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 108.397,
+      "plan": null,
+      "expected_selection": false,
+      "category": "quoted_text",
+      "vita_supported": true,
+      "reason": "unresolved_period"
+    },
+    {
+      "id": "m58",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 108.786,
+      "plan": null,
+      "expected_selection": false,
+      "category": "embedded_instruction",
+      "vita_supported": false,
+      "reason": "unsupported_qualifier_or_action"
+    },
+    {
+      "id": "m59",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 105.625,
+      "plan": null,
+      "expected_selection": false,
+      "category": "retrieved_injection",
+      "vita_supported": false,
+      "reason": "unresolved_metric_or_record"
+    }
+  ],
+  "full_selector_and_plan": {
+    "cold_process_setup_ms": 3320.1184169738553,
+    "first_request_ms": 125.73962501483038,
+    "warm_n": 100,
+    "warm_p50_ms": 107.93081298470497,
+    "warm_p95_ms": 119.10945799900219,
+    "inventory_size": 120,
+    "plan_status_counts": {
+      "planned": 101
+    },
+    "operation_count": 8,
+    "target_warm_ms": 1000,
+    "scope": "local HTTP one Open-JEV encoder pass + deterministic plan; no database reads, WAN, TLS attestation, Fable or hosted CPU timing. Cold process may use warm OS file cache."
+  },
+  "analyze_me_answer": {
+    "schema_version": "vita-selector/v1",
+    "status": "selected",
+    "reason": null,
+    "answers": {
+      "task": {
+        "choice": "health"
+      },
+      "coverage": {
+        "choice": "broad"
+      },
+      "purpose": {
+        "choice": "trend"
+      },
+      "calendar_basis": {
+        "choice": "current_plans"
+      },
+      "period_kind": {
+        "choice": "unstated"
+      },
+      "calendar_unit": {
+        "choice": "none"
+      },
+      "calendar_offset": {
+        "choice": "none"
+      },
+      "rolling_amount": {
+        "choice": "none"
+      },
+      "rolling_unit": {
+        "choice": "none"
+      },
+      "start_year": {
+        "choice": "none"
+      },
+      "start_month": {
+        "choice": "none"
+      },
+      "start_day": {
+        "choice": "none"
+      },
+      "end_year": {
+        "choice": "none"
+      },
+      "end_month": {
+        "choice": "none"
+      },
+      "end_day": {
+        "choice": "none"
+      },
+      "research": {
+        "choice": "broad_overview"
+      },
+      "metric__activity_hr_average": {
+        "choice": "skip"
+      },
+      "metric__activity_hr_max": {
+        "choice": "skip"
+      },
+      "metric__activity_hr_min": {
+        "choice": "skip"
+      },
+      "metric__activity_score": {
+        "choice": "skip"
+      },
+      "metric__apob": {
+        "choice": "skip"
+      },
+      "metric__awake_time": {
+        "choice": "skip"
+      },
+      "metric__basal_metabolic_rate": {
+        "choice": "skip"
+      },
+      "metric__bedtime_hour": {
+        "choice": "skip"
+      },
+      "metric__blood_pressure": {
+        "choice": "skip"
+      },
+      "metric__bmi": {
+        "choice": "skip"
+      },
+      "metric__body_fat": {
+        "choice": "skip"
+      },
+      "metric__body_temp_deviation": {
+        "choice": "skip"
+      },
+      "metric__body_temperature": {
+        "choice": "skip"
+      },
+      "metric__bone_mass": {
+        "choice": "skip"
+      },
+      "metric__breathing_disturbance_index": {
+        "choice": "skip"
+      },
+      "metric__calories_active": {
+        "choice": "skip"
+      },
+      "metric__calories_burned": {
+        "choice": "skip"
+      },
+      "metric__cardiovascular_age": {
+        "choice": "skip"
+      },
+      "metric__cholesterol": {
+        "choice": "skip"
+      },
+      "metric__day_avg_hr": {
+        "choice": "skip"
+      },
+      "metric__day_max_hr": {
+        "choice": "skip"
+      },
+      "metric__day_strain": {
+        "choice": "skip"
+      },
+      "metric__diastolic_blood_pressure": {
+        "choice": "skip"
+      },
+      "metric__distance": {
+        "choice": "skip"
+      },
+      "metric__ecg_afib_classification": {
+        "choice": "skip"
+      },
+      "metric__electrochemical_skin_conductance": {
+        "choice": "skip"
+      },
+      "metric__elevation": {
+        "choice": "skip"
+      },
+      "metric__extracellular_water": {
+        "choice": "skip"
+      },
+      "metric__fasting_glucose": {
+        "choice": "skip"
+      },
+      "metric__fat_free_mass": {
+        "choice": "skip"
+      },
+      "metric__fat_free_mass_left_arm": {
+        "choice": "skip"
+      },
+      "metric__fat_free_mass_left_leg": {
+        "choice": "skip"
+      },
+      "metric__fat_free_mass_right_arm": {
+        "choice": "skip"
+      },
+      "metric__fat_free_mass_right_leg": {
+        "choice": "skip"
+      },
+      "metric__fat_free_mass_torso": {
+        "choice": "skip"
+      },
+      "metric__fat_mass": {
+        "choice": "skip"
+      },
+      "metric__fat_mass_left_arm": {
+        "choice": "skip"
+      },
+      "metric__fat_mass_left_leg": {
+        "choice": "skip"
+      },
+      "metric__fat_mass_right_arm": {
+        "choice": "skip"
+      },
+      "metric__fat_mass_right_leg": {
+        "choice": "skip"
+      },
+      "metric__fat_mass_torso": {
+        "choice": "skip"
+      },
+      "metric__glucose": {
+        "choice": "skip"
+      },
+      "metric__hba1c": {
+        "choice": "skip"
+      },
+      "metric__hdl": {
+        "choice": "skip"
+      },
+      "metric__heart_rate": {
+        "choice": "skip"
+      },
+      "metric__heart_rate_variability": {
+        "choice": "skip"
+      },
+      "metric__height": {
+        "choice": "skip"
+      },
+      "metric__homocysteine": {
+        "choice": "skip"
+      },
+      "metric__hr_zone_0": {
+        "choice": "skip"
+      },
+      "metric__hr_zone_1": {
+        "choice": "skip"
+      },
+      "metric__hr_zone_2": {
+        "choice": "skip"
+      },
+      "metric__hr_zone_3": {
+        "choice": "skip"
+      },
+      "metric__hr_zone_4": {
+        "choice": "skip"
+      },
+      "metric__hr_zone_5": {
+        "choice": "skip"
+      },
+      "metric__hs_crp": {
+        "choice": "skip"
+      },
+      "metric__hydration": {
+        "choice": "skip"
+      },
+      "metric__intense_activity_duration": {
+        "choice": "skip"
+      },
+      "metric__intracellular_water": {
+        "choice": "skip"
+      },
+      "metric__ldl": {
+        "choice": "skip"
+      },
+      "metric__lean_mass_percent": {
+        "choice": "skip"
+      },
+      "metric__light_activity_duration": {
+        "choice": "skip"
+      },
+      "metric__moderate_activity_duration": {
+        "choice": "skip"
+      },
+      "metric__muscle_mass": {
+        "choice": "skip"
+      },
+      "metric__muscle_mass_left_arm": {
+        "choice": "skip"
+      },
+      "metric__muscle_mass_left_leg": {
+        "choice": "skip"
+      },
+      "metric__muscle_mass_right_arm": {
+        "choice": "skip"
+      },
+      "metric__muscle_mass_right_leg": {
+        "choice": "skip"
+      },
+      "metric__muscle_mass_torso": {
+        "choice": "skip"
+      },
+      "metric__nerve_health_score_feet_max": {
+        "choice": "skip"
+      },
+      "metric__nerve_health_score_left_foot": {
+        "choice": "skip"
+      },
+      "metric__nerve_health_score_right_foot": {
+        "choice": "skip"
+      },
+      "metric__nerve_response_score": {
+        "choice": "skip"
+      },
+      "metric__pulse_wave_velocity": {
+        "choice": "skip"
+      },
+      "metric__readiness_score": {
+        "choice": "skip"
+      },
+      "metric__recovery_high_duration": {
+        "choice": "skip"
+      },
+      "metric__recovery_score": {
+        "choice": "skip"
+      },
+      "metric__resilience_daytime_recovery": {
+        "choice": "skip"
+      },
+      "metric__resilience_level": {
+        "choice": "skip"
+      },
+      "metric__resilience_sleep_recovery": {
+        "choice": "skip"
+      },
+      "metric__resilience_stress": {
+        "choice": "skip"
+      },
+      "metric__respiratory_rate": {
+        "choice": "skip"
+      },
+      "metric__resting_heart_rate": {
+        "choice": "skip"
+      },
+      "metric__sedentary_time": {
+        "choice": "skip"
+      },
+      "metric__skin_temp": {
+        "choice": "skip"
+      },
+      "metric__sleep_consistency": {
+        "choice": "skip"
+      },
+      "metric__sleep_deep": {
+        "choice": "skip"
+      },
+      "metric__sleep_efficiency": {
+        "choice": "skip"
+      },
+      "metric__sleep_hr_average": {
+        "choice": "skip"
+      },
+      "metric__sleep_hr_max": {
+        "choice": "skip"
+      },
+      "metric__sleep_latency": {
+        "choice": "skip"
+      },
+      "metric__sleep_light": {
+        "choice": "skip"
+      },
+      "metric__sleep_performance": {
+        "choice": "skip"
+      },
+      "metric__sleep_rem": {
+        "choice": "skip"
+      },
+      "metric__sleep_rr_max": {
+        "choice": "skip"
+      },
+      "metric__sleep_rr_min": {
+        "choice": "skip"
+      },
+      "metric__sleep_score": {
+        "choice": "skip"
+      },
+      "metric__snoring_duration": {
+        "choice": "skip"
+      },
+      "metric__snoring_episodes": {
+        "choice": "skip"
+      },
+      "metric__spo2": {
+        "choice": "skip"
+      },
+      "metric__steps": {
+        "choice": "skip"
+      },
+      "metric__strain_score": {
+        "choice": "skip"
+      },
+      "metric__stress_high_duration": {
+        "choice": "skip"
+      },
+      "metric__stress_summary": {
+        "choice": "skip"
+      },
+      "metric__systolic_blood_pressure": {
+        "choice": "skip"
+      },
+      "metric__total_sleep": {
+        "choice": "skip"
+      },
+      "metric__triglycerides": {
+        "choice": "skip"
+      },
+      "metric__visceral_fat": {
+        "choice": "skip"
+      },
+      "metric__vita_sleep_score": {
+        "choice": "skip"
+      },
+      "metric__vitamin_d": {
+        "choice": "skip"
+      },
+      "metric__vo2_max": {
+        "choice": "skip"
+      },
+      "metric__wake_hour": {
+        "choice": "skip"
+      },
+      "metric__wakeup_count": {
+        "choice": "skip"
+      },
+      "metric__wakeup_duration": {
+        "choice": "skip"
+      },
+      "metric__wakeup_latency": {
+        "choice": "skip"
+      },
+      "metric__weight": {
+        "choice": "skip"
+      },
+      "metric__workout_avg_hr": {
+        "choice": "skip"
+      },
+      "metric__workout_calories": {
+        "choice": "skip"
+      },
+      "metric__workout_distance": {
+        "choice": "skip"
+      },
+      "metric__workout_intensity": {
+        "choice": "skip"
+      },
+      "metric__workout_max_hr": {
+        "choice": "skip"
+      },
+      "profile": {
+        "noul": 1.0
+      },
+      "workouts": {
+        "noul": 1.0
+      },
+      "labs": {
+        "noul": 1.0
+      },
+      "calendar": {
+        "noul": 1.0
+      }
+    },
+    "advisory": true,
+    "selector_sha256": "94e82c8fc795100c29e08bcb21b88166a000e126ee02f945386635e63bb7dd72",
+    "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+    "adapter_sha256": "52e885aefec1230c71b9f68f65cca7c94b67341cce962e03674430ef828ba69c",
+    "implementation": "open_jev_frozen_encoder_multihead_experimental",
+    "decision_margins": {
+      "task": 0.810294463239533,
+      "coverage": 0.9759243076045594,
+      "purpose": 0.26470886508883806,
+      "research": 0.9829201232585896,
+      "period_kind": 1.077098351335228,
+      "calendar_basis": 1.0037345181714552,
+      "context": 1.0503365805289209,
+      "profile": 0.9856346958421274,
+      "workouts": 0.9921221369577421,
+      "labs": 0.9858150721555454,
+      "calendar": 0.6077195667221909
+    },
+    "elapsed_ms": 106.7
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "source_directory": "/Users/alexdobrin/Documents/vita-agent-deepseek-v32/backbone",
+  "files": {
+    "local_jev.py": "e987a75f131eb1fee20ca27151d3aecc8a058090046e8cb80cf8421bd47bde5a",
+    "jev_dates.py": "8a78fc5a1e2961b73360dec7a6e532dfcb15bd98844f3a4563f41a58650e39c8"
+  },
+  "extraction": "read_arguments and constants verbatim; jev_dates unchanged; test-only, never runtime imports"
+}

@@ -32,7 +32,8 @@ nominal question/option counts. Errors: 401 unauthorized, 413 oversized body,
 
 ## Privacy and attestation
 
-- Code, vendored loader and exact model snapshot are bundled in a digest-pinned image.
+- Code, vendored loader, pinned-source model weights and the exact adapter are
+  bundled in a digest-pinned image. The backbone uses the documented FP16 storage derivation.
 - Hash-locked Python dependencies and pinned Python base image.
 - Model file SHA-256 manifest is included at `/opt/model/manifest.json`.
 - Tinfoil release workflow measures configuration and signs/publishes attestation.
@@ -44,7 +45,7 @@ nominal question/option counts. Errors: 401 unauthorized, 413 oversized body,
 - Dedicated service key; no shared Vita credentials. Keep the key in the Vita
   agent enclave, never in browser JavaScript. Authentication does not replace
   consent or capability checks in Vita.
-- `examples/vita_client.py` additionally pins the approved v0.2.0 release digest,
+- `examples/vita_client.py` additionally pins the approved v0.2.1 release digest,
   and refuses a different release before reading/sending the application key.
 - No debug SSH, automatic updates, GPU or production Vita integration.
 
@@ -117,3 +118,17 @@ and the small generic head and learned adapter are unchanged. The model manifest
 records source/derived hashes and the API reports storage/compute dtype. This
 rounds weights and requires prediction-parity testing; it is not lossless
 compression. See `evidence/ramdisk-investigation.md` for measurements and sources.
+
+## Experimental full selector and database plan adapter
+
+A new one-pass learned Open-JEV selector and pure Vita retrieval-plan adapter are
+under development. They are **not approved to replace Venice**: frozen language
+validation contains two incorrect accepts and substantial fallback. `/v1/select`
+is disabled by default; `ENABLE_EXPERIMENTAL_SELECTOR=1` is only for synthetic
+experiments. No selector release is deployed or approved for private requests.
+
+See [measured results and API](evidence/selector-v1/README.md),
+[query coverage and limitations](evidence/selector-v1/query-coverage.md),
+`examples/selector_client.py`, and `plan_adapter.py`. The optional grammar baseline
+is distinct from the learned model. Local selector speed is not hosted readiness
+or proof that queried evidence reaches Vita's final model.
