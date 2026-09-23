@@ -1,6 +1,8 @@
 # Experimental Vita selector and retrieval-plan adapter
 
-**Not approved to replace Venice. Not deployed.** `/v1/select` is disabled by default and requires `ENABLE_EXPERIMENTAL_SELECTOR=1` for synthetic experiments. The existing hosted v0.2.1 enclave has failed application health. No Vita code, settings, secrets, or deployment was changed by this work.
+**Not approved to replace Venice. Not deployed.** `/v1/select` is disabled by default and requires `ENABLE_EXPERIMENTAL_SELECTOR=1` for synthetic experiments. No Vita code, settings, secrets, or deployment was changed by this selector work.
+
+**Evaluation correction, 2026-09-24:** the 59-case scores below measure coarse labels and fallback behavior, not exact-plan accuracy. They cannot rank the native Open-JEV and Laya models. The Laya harness additionally has missing-question and truncation bugs. Read [the evaluation audit and recommended direction](model-direction.md) before using any headline score. Raw results are preserved.
 
 ## Model and measured result
 
@@ -77,5 +79,5 @@ The original59-case results are preserved at checkpoint5f1fa06. After Alex reque
 1. Learned intent/temporal/record coverage and two false accepts fail the replacement gate. More representative, independently labelled supported-query training/evaluation is needed; preserve this frozen set as evidence if it becomes development data.
 2. Current selector does not represent source filters, N-limits, custom aggregation, comparisons/correlations, arbitrary research, recall or writes. It must hand those to existing supported tools, not remove them. See `query-coverage.md`.
 3. Vita-side summary admission integration, resolver/database oracle fixtures and real acceptance remain with the integration task. The standalone repo cannot make retained data visible merely by selecting IDs.
-4. Hosted v0.2.1 is failed. A read-only-root/tmpfs reproduction is prepared in CI; no unverified runtime diagnosis, new enclave release, pin weakening or deployment is claimed.
+4. The original service's runtime repair is a separate workstream. A working generic `/decide` or `/route` service does not establish a hosted selector result; this selector has no attested deployment or hosted accuracy/latency acceptance.
 5. No approved attested selector release exists. Default-disabled endpoint, draft status and exact pin requirements remain until quality and hosted checks pass.

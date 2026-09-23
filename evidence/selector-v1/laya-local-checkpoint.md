@@ -1,5 +1,11 @@
 # Local Laya-MLX Vita selector diagnostic
 
+**Correction, 2026-09-24:** this run is not a valid model-accuracy comparison.
+The questionnaire omits required metric questions, large option lists silently
+truncate instructions and the user request, and the scorer does not verify exact
+plans. The raw outputs and timings below are preserved as historical diagnostic
+evidence. See [the evaluation audit and direction](model-direction.md).
+
 Run on 2026-09-24 on the user's Apple M5 Max, 128 GB Mac. This is a local
 synthetic diagnostic, not a hosted Tinfoil or Vita deployment.
 
@@ -20,9 +26,10 @@ Model: `aac6fef/laya-mlx` at
 59 synthetic cases, fixture SHA-256
 `576e34e4cd0b5c78ced289a25d2fb1db67be22eade9a21d5a30409977eca830d`.
 
-- 24/59 correct selector dispositions and plans.
-- 15/27 expected selectable cases accepted.
-- 23 incorrect plans accepted; 36 requests produced no Vita plan.
+- 24/59 under the original coarse-label/fallback scorer, not exact-plan accuracy.
+- 15/27 expected selectable cases accepted; this does not mean they were correct.
+- 23 executable plans, all marked incorrect by that scorer; 36 requests produced
+  no Vita plan, including compiler failures incorrectly counted as fallback.
 - Warm model-questionnaire prediction median 1,230.43 ms; P95 1,413.69 ms.
   This excludes model load, date/metric parsing, database reads and network.
   The first model load took 180.3 ms from a local cached checkpoint.
@@ -49,12 +56,15 @@ This measures joint **head labels**, not full Vita plans.
 | Typed decisions | Structured current/history | Original | 1/27 | 10.20 ms | 10/27 |
 
 The specialized checkpoint was `aac6fef/laya-typed-decisions-mlx` at
-`f9e501c2080cc57c13d6887820329758f5351125`. These results reject a
-prompt-only or checkpoint-swap replacement. They do not prove Laya is
-unfixable: domain-specific training plus independent Vita labels could change
-the result, but that work and its compute budget have not been approved or
-measured. Exact dates, counts, metric identity and database permissions should
-still be handled by code, and any model proposal must pass plan validation.
+`f9e501c2080cc57c13d6887820329758f5351125`. The option-order changes are evidence
+of instability under these prompts. The joint-accuracy figures have additional
+limitations: plain-text inputs omit history, and the compact research question
+asks about explicit research requests while some expected labels require
+research implicitly. These results do not establish the best achievable adapter
+or rank model quality. Fix instruction/label agreement and input completeness
+before repeating the comparison. Domain-specific training and independent Vita
+labels remain possible next steps. Exact date/count handling, canonical metric
+binding, permissions and plan validation remain software responsibilities.
 
 The local Mac MLX timings do not predict Linux Tinfoil CPU latency. No Laya
 candidate is deployed, and the existing Vita selector remains active.
