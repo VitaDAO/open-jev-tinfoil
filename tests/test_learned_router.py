@@ -24,3 +24,9 @@ def test_invalid_adapter_is_rejected(mutation):
 def test_invalid_state_is_rejected_before_inference(state):
     router = LocalLearnedRouter.__new__(LocalLearnedRouter)
     with pytest.raises(ValueError): router.route(state)
+
+
+def test_modified_adapter_digest_rejected_before_model_load(tmp_path):
+    path=tmp_path/'changed.json';path.write_text(json.dumps(ARTIFACT)+' ')
+    with pytest.raises(ValueError,match='digest mismatch'):
+        LocalLearnedRouter(adapter_path=path)

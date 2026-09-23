@@ -22,4 +22,5 @@ shim:
   paths:
     - /health
     - /decide
+    - /route
 # No networks declared: closed outbound connectivity under CVM >= 0.10.0.

@@ -4,6 +4,9 @@ on:
     branches: [main]
     paths:
       - server.py
+      - routing.py
+      - adapters/**
+      - examples/**
       - Dockerfile
       - requirements-linux.lock
       - vendor/**
@@ -35,6 +38,7 @@ jobs:
           done
           if [ "$ready" != true ]; then docker logs smoke; exit 1; fi
           python scripts/smoke.py | tee /tmp/smoke.json
+          python scripts/smoke_route.py | tee /tmp/route-smoke.json
           docker stats --no-stream --format '{{json .}}' smoke | tee /tmp/stats.json
           docker exec smoke cat /sys/fs/cgroup/memory.peak | tee /tmp/memory-peak.txt
           docker rm -f smoke
