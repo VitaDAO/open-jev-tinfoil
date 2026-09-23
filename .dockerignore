@@ -1,0 +1,8 @@
+.git
+.venv
+model
+__pycache__
+.pytest_cache
+*.key
+.env*
+evidence

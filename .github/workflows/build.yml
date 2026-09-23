@@ -1,0 +1,38 @@
+name: Build and test serving image
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  packages: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8
+      - name: Build CPU image with pinned model
+        run: docker build -t ghcr.io/vitadao/open-jev-tinfoil:${{ github.sha }} .
+      - name: Unit tests
+        run: |
+          docker run --rm --entrypoint sh --user 0 -v "$PWD/tests:/app/tests:ro" ghcr.io/vitadao/open-jev-tinfoil:${{ github.sha }} -c 'pip install pytest==9.1.1 httpx==0.28.1 >/dev/null && PYTHONPATH=/app:/app/vendor python -m pytest -q tests'
+      - name: Real-model smoke with 8 GB and 4 CPUs
+        run: |
+          export OPEN_JEV_API_KEY=$(openssl rand -hex 32)
+          docker run -d --name smoke --memory 8g --cpus 4 -e OPEN_JEV_API_KEY -p 127.0.0.1:18080:8080 ghcr.io/vitadao/open-jev-tinfoil:${{ github.sha }}
+          ready=false
+          for i in $(seq 1 120); do
+            if curl -fsS http://127.0.0.1:18080/health > /tmp/health.json; then ready=true; break; fi
+            sleep 2
+          done
+          if [ "$ready" != true ]; then docker logs smoke; exit 1; fi
+          python scripts/smoke.py | tee /tmp/smoke.json
+          docker stats --no-stream --format '{{json .}}' smoke | tee /tmp/stats.json
+          docker exec smoke cat /sys/fs/cgroup/memory.peak | tee /tmp/memory-peak.txt
+          docker rm -f smoke
+      - name: Push tested image
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "$GH_TOKEN" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
+          docker push ghcr.io/vitadao/open-jev-tinfoil:${{ github.sha }}
