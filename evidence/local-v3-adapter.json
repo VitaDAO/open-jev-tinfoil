@@ -1,0 +1,1366 @@
+{
+  "training_cases": 58,
+  "method": "frozen backbone mean state embedding, L2 normalized; linear ridge outputs; lambda selected by analytic leave-one-out total correct; ties prefer larger lambda. No calibrated probabilities.",
+  "regularization": 0.01,
+  "loo": [
+    [
+      113,
+      0.0001
+    ],
+    [
+      113,
+      0.001
+    ],
+    [
+      113,
+      0.01
+    ],
+    [
+      107,
+      0.1
+    ],
+    [
+      82,
+      1.0
+    ],
+    [
+      53,
+      10.0
+    ]
+  ],
+  "fresh_sha256": "16f6b4a943c621a6e5fc1ef656e7cee52ae2b59809d853cd583557d726899e8d",
+  "results": {
+    "train": {
+      "rows": [
+        {
+          "case": "sleep-read",
+          "action": "read existing data",
+          "record_access": true,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            1.0277703754522662,
+            -0.04077024800201187,
+            0.014712389146871296,
+            -0.026057858855160387,
+            1.0277703754522662
+          ],
+          "ms": 0.02820801455527544
+        },
+        {
+          "case": "sleep-explain",
+          "action": "explain a concept",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.03787804116916773,
+            0.9879641089271944,
+            -0.023360312404625414,
+            0.9646037965225515,
+            0.03787804116916773
+          ],
+          "ms": 0.011000025551766157
+        },
+        {
+          "case": "notifications",
+          "action": "change settings",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            -0.039397183927190535,
+            0.07125585530552499,
+            0.968824352260075,
+            1.0400802075655828,
+            -0.039397183927190535
+          ],
+          "ms": 0.009791983757168055
+        },
+        {
+          "case": "steps-read",
+          "action": "read existing data",
+          "record_access": true,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.9315681235032653,
+            0.06956732377408767,
+            -0.0010080028780040844,
+            0.0685593208960653,
+            0.9315681235032653
+          ],
+          "ms": 0.008457980584353209
+        },
+        {
+          "case": "hrv-explain",
+          "action": "explain a concept",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            -0.013302487336300264,
+            1.0144760589668347,
+            -0.005005872867545487,
+            1.0094701860992719,
+            -0.013302487336300264
+          ],
+          "ms": 0.008333998266607523
+        },
+        {
+          "case": "units",
+          "action": "change settings",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            -0.02926856200562909,
+            0.08429317493577541,
+            0.9448256373742383,
+            1.0291188123099924,
+            -0.02926856200562909
+          ],
+          "ms": 0.008040980901569128
+        },
+        {
+          "case": "negated-read",
+          "action": "explain a concept",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.2704031048977411,
+            0.7519995951634616,
+            -0.021631417225604122,
+            0.730368177937839,
+            0.2704031048977411
+          ],
+          "ms": 0.008333998266607523
+        },
+        {
+          "case": "read-only",
+          "action": "read existing data",
+          "record_access": true,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.832196427295747,
+            0.1118554990962858,
+            0.05621525704595545,
+            0.1680707561422231,
+            0.832196427295747
+          ],
+          "ms": 0.008167000487446785
+        },
+        {
+          "case": "urgent-setting",
+          "action": "change settings",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.03405415462530117,
+            -0.032678428417022815,
+            0.9965266227748248,
+            0.9638481943577839,
+            0.03405415462530117
+          ],
+          "ms": 0.007666007149964571
+        },
+        {
+          "case": "comparison",
+          "action": "read existing data",
+          "record_access": true,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.9704399098164769,
+            -0.023168017872201623,
+            0.05285334956156898,
+            0.029685331689348764,
+            0.9704399098164769
+          ],
+          "ms": 0.008583010639995337
+        },
+        {
+          "case": "h01",
+          "action": "read existing data",
+          "record_access": true,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.8786663521924108,
+            0.08143662621514391,
+            0.03530599833554506,
+            0.11674262455067072,
+            0.8786663521924108
+          ],
+          "ms": 0.008583010639995337
+        },
+        {
+          "case": "h02",
+          "action": "read existing data",
+          "record_access": true,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.9040302034466053,
+            0.0935975276384303,
+            0.005142847591718708,
+            0.09874037523012948,
+            0.9040302034466053
+          ],
+          "ms": 0.008040980901569128
+        },
+        {
+          "case": "h03",
+          "action": "read existing data",
+          "record_access": true,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.9495369988261904,
+            0.06417164587237185,
+            -0.013139201920054236,
+            0.05103244395229972,
+            0.9495369988261904
+          ],
+          "ms": 0.007707974873483181
+        },
+        {
+          "case": "h04",
+          "action": "read existing data",
+          "record_access": true,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.9191563267132318,
+            0.13530736577153368,
+            -0.05245443043063186,
+            0.082852935340883,
+            0.9191563267132318
+          ],
+          "ms": 0.0077080330811440945
+        },
+        {
+          "case": "h05",
+          "action": "read existing data",
+          "record_access": true,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.8282767340999464,
+            0.08470237659844318,
+            0.08448342687787772,
+            0.16918580347630124,
+            0.8282767340999464
+          ],
+          "ms": 0.007707974873483181
+        },
+        {
+          "case": "h06",
+          "action": "read existing data",
+          "record_access": true,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.9886464174041093,
+            -0.10200287799190519,
+            0.11056682195867128,
+            0.008563943966746333,
+            0.9886464174041093
+          ],
+          "ms": 0.007542024832218885
+        },
+        {
+          "case": "h07",
+          "action": "read existing data",
+          "record_access": true,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.7880074443185687,
+            0.12516322206519195,
+            0.08983851993165942,
+            0.2150017419968323,
+            0.7880074443185687
+          ],
+          "ms": 0.0075830030255019665
+        },
+        {
+          "case": "h08",
+          "action": "read existing data",
+          "record_access": true,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.9110414242196528,
+            0.01995792013773715,
+            0.06941231083305541,
+            0.08937023097077368,
+            0.9110414242196528
+          ],
+          "ms": 0.007458031177520752
+        },
+        {
+          "case": "h09",
+          "action": "explain a concept",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.03379804925911825,
+            0.8409230608744451,
+            0.12499195985763582,
+            0.9659150207320605,
+            0.03379804925911825
+          ],
+          "ms": 0.028292008209973574
+        },
+        {
+          "case": "h10",
+          "action": "explain a concept",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.05260302648967459,
+            0.8412261119980854,
+            0.10748911316565682,
+            0.948715225163725,
+            0.05260302648967459
+          ],
+          "ms": 0.016625039279460907
+        },
+        {
+          "case": "h11",
+          "action": "explain a concept",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.04271985805164705,
+            0.9551608900666287,
+            0.0015461011241658371,
+            0.9567069911907781,
+            0.04271985805164705
+          ],
+          "ms": 0.009957992006093264
+        },
+        {
+          "case": "h12",
+          "action": "explain a concept",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.047817796260123654,
+            0.9374334114432828,
+            0.017020294829789662,
+            0.9544537062730541,
+            0.047817796260123654
+          ],
+          "ms": 0.008791976142674685
+        },
+        {
+          "case": "h13",
+          "action": "explain a concept",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.09378842276790142,
+            0.7880117303981984,
+            0.1165214771802765,
+            0.9045332075784568,
+            0.09378842276790142
+          ],
+          "ms": 0.008375034667551517
+        },
+        {
+          "case": "h14",
+          "action": "explain a concept",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.08559458925583459,
+            0.8711547940218416,
+            0.04243824290382531,
+            0.9135930369256503,
+            0.08559458925583459
+          ],
+          "ms": 0.008082948625087738
+        },
+        {
+          "case": "h15",
+          "action": "explain a concept",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            -0.013786066739349649,
+            0.898665251078615,
+            0.11396753291763023,
+            1.0126327839962295,
+            -0.013786066739349649
+          ],
+          "ms": 0.008207978680729866
+        },
+        {
+          "case": "h16",
+          "action": "explain a concept",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.11237001789057492,
+            0.9391072601782511,
+            -0.05145846047530164,
+            0.8876487997029331,
+            0.11237001789057492
+          ],
+          "ms": 0.008792034350335598
+        },
+        {
+          "case": "h17",
+          "action": "change settings",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.07107260070403586,
+            0.030057170009559014,
+            0.8965416718160211,
+            0.9265988418255633,
+            0.07107260070403586
+          ],
+          "ms": 0.008582952432334423
+        },
+        {
+          "case": "h18",
+          "action": "change settings",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.09501231889839643,
+            -0.0004079504878770711,
+            0.905052508572668,
+            0.9046445580847711,
+            0.09501231889839643
+          ],
+          "ms": 0.008209026418626308
+        },
+        {
+          "case": "h19",
+          "action": "change settings",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            -0.002753373877730221,
+            0.129724143543073,
+            0.8756304555114917,
+            1.0053545990545485,
+            -0.002753373877730221
+          ],
+          "ms": 0.008333008736371994
+        },
+        {
+          "case": "h20",
+          "action": "change settings",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            -0.025240494496985094,
+            0.04841075974006323,
+            0.9750171260942928,
+            1.0234278858343386,
+            -0.025240494496985094
+          ],
+          "ms": 0.007709022611379623
+        },
+        {
+          "case": "h21",
+          "action": "change settings",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.14272336106852096,
+            -0.1436110400437748,
+            1.0031879379434872,
+            0.8595768978996952,
+            0.14272336106852096
+          ],
+          "ms": 0.0076249707490205765
+        },
+        {
+          "case": "h22",
+          "action": "change settings",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.06336105246541789,
+            0.01763723706205576,
+            0.9198064852622966,
+            0.9374437223243327,
+            0.06336105246541789
+          ],
+          "ms": 0.007541966624557972
+        },
+        {
+          "case": "h23",
+          "action": "change settings",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            -0.011375694470205406,
+            0.18750255023965312,
+            0.8239889307414666,
+            1.0114914809810995,
+            -0.011375694470205406
+          ],
+          "ms": 0.0076249707490205765
+        },
+        {
+          "case": "h24",
+          "action": "change settings",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.11809333522460978,
+            -0.055678527743473205,
+            0.938157162301481,
+            0.8824786345579874,
+            0.11809333522460978
+          ],
+          "ms": 0.0075830030255019665
+        },
+        {
+          "case": "c01",
+          "action": "read existing data",
+          "record_access": true,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            1.0020270954549793,
+            -0.04914958384687613,
+            0.043737850705787874,
+            -0.005411733141108502,
+            1.0020270954549793
+          ],
+          "ms": 0.0077909789979457855
+        },
+        {
+          "case": "c02",
+          "action": "read existing data",
+          "record_access": true,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.8954915887953169,
+            0.08641692204574912,
+            0.01619475861150861,
+            0.10261168065723958,
+            0.8954915887953169
+          ],
+          "ms": 0.007874972652643919
+        },
+        {
+          "case": "c03",
+          "action": "read existing data",
+          "record_access": true,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.8890187650360565,
+            0.05101867445543698,
+            0.06027247152733849,
+            0.11129114598275591,
+            0.8890187650360565
+          ],
+          "ms": 0.007915950845927
+        },
+        {
+          "case": "c04",
+          "action": "read existing data",
+          "record_access": true,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.9122848215794157,
+            0.05950162539436639,
+            0.02921706621474895,
+            0.08871869160909704,
+            0.9122848215794157
+          ],
+          "ms": 0.00762502895668149
+        },
+        {
+          "case": "c05",
+          "action": "read existing data",
+          "record_access": true,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.9028911405863104,
+            0.0028248362127754724,
+            0.09514404864549614,
+            0.09796888485825274,
+            0.9028911405863104
+          ],
+          "ms": 0.007500057108700275
+        },
+        {
+          "case": "c06",
+          "action": "read existing data",
+          "record_access": true,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.8758311887372905,
+            0.2124523607485715,
+            -0.08843800287402999,
+            0.12401435787452256,
+            0.8758311887372905
+          ],
+          "ms": 0.007374968845397234
+        },
+        {
+          "case": "c07",
+          "action": "read existing data",
+          "record_access": true,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.9396459586090739,
+            0.05871576255306532,
+            0.0019068861645038272,
+            0.06062264871755088,
+            0.9396459586090739
+          ],
+          "ms": 0.0074579729698598385
+        },
+        {
+          "case": "c08",
+          "action": "read existing data",
+          "record_access": true,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.93556162159045,
+            -0.06471972229653318,
+            0.12616716090285326,
+            0.061447438606300635,
+            0.93556162159045
+          ],
+          "ms": 0.007542024832218885
+        },
+        {
+          "case": "c09",
+          "action": "explain a concept",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.020126702345962446,
+            0.9597235011541787,
+            0.015649846325911165,
+            0.9753733474800732,
+            0.020126702345962446
+          ],
+          "ms": 0.007499998901039362
+        },
+        {
+          "case": "c10",
+          "action": "explain a concept",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.08313234630656278,
+            0.8850349568439592,
+            0.030163857755245743,
+            0.9151988145991867,
+            0.08313234630656278
+          ],
+          "ms": 0.007458031177520752
+        },
+        {
+          "case": "c11",
+          "action": "explain a concept",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            -0.01023409571847186,
+            1.0141194143472338,
+            -0.00046640666357387753,
+            1.0136530076836412,
+            -0.01023409571847186
+          ],
+          "ms": 0.00762502895668149
+        },
+        {
+          "case": "c12",
+          "action": "explain a concept",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.1511398720193642,
+            0.8070824194838517,
+            0.039653090307133765,
+            0.8467355097909672,
+            0.1511398720193642
+          ],
+          "ms": 0.007416994776576757
+        },
+        {
+          "case": "c13",
+          "action": "explain a concept",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            -0.09330236763221746,
+            0.9060870003180058,
+            0.18708470839087452,
+            1.093171708708862,
+            -0.09330236763221746
+          ],
+          "ms": 0.007416994776576757
+        },
+        {
+          "case": "c14",
+          "action": "explain a concept",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            -0.0683339570061653,
+            0.9833646731331931,
+            0.08298520407243888,
+            1.0663498772056113,
+            -0.0683339570061653
+          ],
+          "ms": 0.007374968845397234
+        },
+        {
+          "case": "c15",
+          "action": "explain a concept",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.10857831131941026,
+            0.8977944741915183,
+            -0.003098885249476685,
+            0.8946955889420243,
+            0.10857831131941026
+          ],
+          "ms": 0.007375027053058147
+        },
+        {
+          "case": "c16",
+          "action": "explain a concept",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.03588807496894336,
+            0.8887194654902141,
+            0.07498260741517336,
+            0.9637020729053678,
+            0.03588807496894336
+          ],
+          "ms": 0.007333990652114153
+        },
+        {
+          "case": "c17",
+          "action": "change settings",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.0683199408340953,
+            0.07473412981255736,
+            0.8568076273318994,
+            0.9315417571444382,
+            0.0683199408340953
+          ],
+          "ms": 0.0074579729698598385
+        },
+        {
+          "case": "c18",
+          "action": "change settings",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.06544325870563703,
+            0.04563328173654388,
+            0.8918422015163819,
+            0.9374754832529064,
+            0.06544325870563703
+          ],
+          "ms": 0.007416994776576757
+        },
+        {
+          "case": "c19",
+          "action": "change settings",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.0653277079981653,
+            0.05240228567401946,
+            0.8812741269392336,
+            0.9336764126132335,
+            0.0653277079981653
+          ],
+          "ms": 0.007415947038680315
+        },
+        {
+          "case": "c20",
+          "action": "change settings",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.010717254334500565,
+            0.058951504053095516,
+            0.9275680051126327,
+            0.9865195091657082,
+            0.010717254334500565
+          ],
+          "ms": 0.007540977094322443
+        },
+        {
+          "case": "c21",
+          "action": "change settings",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.07138977938531564,
+            0.03547553414566593,
+            0.8945843286481391,
+            0.9300598627937869,
+            0.07138977938531564
+          ],
+          "ms": 0.007499998901039362
+        },
+        {
+          "case": "c22",
+          "action": "change settings",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.012407138813414122,
+            -0.04380325252203066,
+            1.0286943259231236,
+            0.9848910734010708,
+            0.012407138813414122
+          ],
+          "ms": 0.007374968845397234
+        },
+        {
+          "case": "c23",
+          "action": "change settings",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.018906962342204407,
+            0.21921617385870798,
+            0.764073356662846,
+            0.9832895305215358,
+            0.018906962342204407
+          ],
+          "ms": 0.00762502895668149
+        },
+        {
+          "case": "c24",
+          "action": "change settings",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.007337969329503973,
+            0.07035808045661988,
+            0.9215580124439291,
+            0.9919160929005287,
+            0.007337969329503973
+          ],
+          "ms": 0.007541966624557972
+        }
+      ],
+      "choice_correct": 58,
+      "record_correct": 58
+    },
+    "fresh": {
+      "rows": [
+        {
+          "case": "f01",
+          "action": "read existing data",
+          "record_access": true,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.8645060854625071,
+            0.17527379074104807,
+            -0.042274687939423114,
+            0.13299910280160754,
+            0.8645060854625071
+          ],
+          "ms": 96.75266704289243
+        },
+        {
+          "case": "f02",
+          "action": "read existing data",
+          "record_access": true,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            1.1287471074677722,
+            -0.12640817587842598,
+            -0.003958018826795841,
+            -0.13036619470524086,
+            1.1287471074677722
+          ],
+          "ms": 106.20591696351767
+        },
+        {
+          "case": "f03",
+          "action": "read existing data",
+          "record_access": true,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.865803349766814,
+            0.18365865995213265,
+            -0.0533208619091643,
+            0.13033779804294987,
+            0.865803349766814
+          ],
+          "ms": 109.12970796925947
+        },
+        {
+          "case": "f04",
+          "action": "read existing data",
+          "record_access": true,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.5634831229459432,
+            0.22994842704534477,
+            0.195245029877378,
+            0.42519345692270366,
+            0.5634831229459432
+          ],
+          "ms": 93.20195799227804
+        },
+        {
+          "case": "f05",
+          "action": "read existing data",
+          "record_access": true,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.6535675379571579,
+            0.13814134773687683,
+            0.19732919869904042,
+            0.3354705464358984,
+            0.6535675379571579
+          ],
+          "ms": 106.30795900942758
+        },
+        {
+          "case": "f06",
+          "action": "read existing data",
+          "record_access": true,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.9254416770080878,
+            0.14787730842731506,
+            -0.07491728668398524,
+            0.0729600217433103,
+            0.9254416770080878
+          ],
+          "ms": 90.90491698589176
+        },
+        {
+          "case": "f07",
+          "action": "read existing data",
+          "record_access": true,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.518929194979287,
+            0.12232508374294264,
+            0.34156762856806105,
+            0.4638927123109842,
+            0.518929194979287
+          ],
+          "ms": 90.32437502173707
+        },
+        {
+          "case": "f08",
+          "action": "read existing data",
+          "record_access": true,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.7405529239970535,
+            0.15884218679576387,
+            0.09744969180616365,
+            0.2562918786019082,
+            0.7405529239970535
+          ],
+          "ms": 90.53708304418251
+        },
+        {
+          "case": "f09",
+          "action": "read existing data",
+          "record_access": true,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.6709050809204654,
+            0.25215891251449235,
+            0.07898034685561019,
+            0.3311392593700851,
+            0.6709050809204654
+          ],
+          "ms": 106.0440830187872
+        },
+        {
+          "case": "f10",
+          "action": "read existing data",
+          "record_access": true,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.9618985292254769,
+            -0.1377069714801337,
+            0.1730412800025519,
+            0.035334308522399015,
+            0.9618985292254769
+          ],
+          "ms": 95.38866602815688
+        },
+        {
+          "case": "f11",
+          "action": "explain a concept",
+          "record_access": true,
+          "choice_correct": true,
+          "record_correct": false,
+          "scores": [
+            0.5082289205919266,
+            0.6501706532777835,
+            -0.1666368671230321,
+            0.4835337861547336,
+            0.5082289205919266
+          ],
+          "ms": 110.77004199614748
+        },
+        {
+          "case": "f12",
+          "action": "explain a concept",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            -0.16214858626884215,
+            1.1606878838682888,
+            0.0017753898058257796,
+            1.1624632736740985,
+            -0.16214858626884215
+          ],
+          "ms": 91.93691599648446
+        },
+        {
+          "case": "f13",
+          "action": "explain a concept",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            -0.06514962543211526,
+            0.9195689934494057,
+            0.14554619869533686,
+            1.0651151921447226,
+            -0.06514962543211526
+          ],
+          "ms": 91.37029096018523
+        },
+        {
+          "case": "f14",
+          "action": "explain a concept",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.35485932692526484,
+            0.6317033365705771,
+            0.014248623148518397,
+            0.6459519597190767,
+            0.35485932692526484
+          ],
+          "ms": 107.24229196785018
+        },
+        {
+          "case": "f15",
+          "action": "explain a concept",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.026368916327221173,
+            0.9827432285078408,
+            -0.0038477510259370133,
+            0.9788954774818862,
+            0.026368916327221173
+          ],
+          "ms": 105.47895898343995
+        },
+        {
+          "case": "f16",
+          "action": "explain a concept",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.006930398544251109,
+            0.840047653039966,
+            0.15085406139511706,
+            0.9909017144350649,
+            0.006930398544251109
+          ],
+          "ms": 105.97366600995883
+        },
+        {
+          "case": "f17",
+          "action": "explain a concept",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.33528040686210553,
+            0.6848875468727351,
+            -0.016631642577151995,
+            0.6682559042955671,
+            0.33528040686210553
+          ],
+          "ms": 93.44999998575076
+        },
+        {
+          "case": "f18",
+          "action": "explain a concept",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.16016194914901963,
+            0.7421497699784283,
+            0.10153009624250288,
+            0.8436798662209118,
+            0.16016194914901963
+          ],
+          "ms": 90.70433297893032
+        },
+        {
+          "case": "f19",
+          "action": "explain a concept",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.18349898917507523,
+            0.7630069872326659,
+            0.055867048658628675,
+            0.8188740358912769,
+            0.18349898917507523
+          ],
+          "ms": 90.78633395256475
+        },
+        {
+          "case": "f20",
+          "action": "explain a concept",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.21239809492669817,
+            0.7530477859135616,
+            0.03983990908726122,
+            0.792887695000804,
+            0.21239809492669817
+          ],
+          "ms": 94.82287499122322
+        },
+        {
+          "case": "f21",
+          "action": "change settings",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.1934337772814179,
+            0.005520738560267579,
+            0.8025171859287696,
+            0.8080379244890172,
+            0.1934337772814179
+          ],
+          "ms": 93.00291596446186
+        },
+        {
+          "case": "f22",
+          "action": "change settings",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            -0.028362946602307048,
+            -0.06490311669761421,
+            1.0851641815937159,
+            1.0202610648960813,
+            -0.028362946602307048
+          ],
+          "ms": 89.91995803080499
+        },
+        {
+          "case": "f23",
+          "action": "change settings",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.05304088339510055,
+            0.08517522661616067,
+            0.8653095889314728,
+            0.9504848155476148,
+            0.05304088339510055
+          ],
+          "ms": 89.2736249952577
+        },
+        {
+          "case": "f24",
+          "action": "change settings",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.034756994549669504,
+            -0.01952223591481368,
+            0.9880987333378873,
+            0.9685764974230544,
+            0.034756994549669504
+          ],
+          "ms": 89.87183397402987
+        },
+        {
+          "case": "f25",
+          "action": "change settings",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.16555069989965185,
+            -0.07957352309606947,
+            0.9152980637793576,
+            0.8357245406832664,
+            0.16555069989965185
+          ],
+          "ms": 89.75575002841651
+        },
+        {
+          "case": "f26",
+          "action": "change settings",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            -0.09507284423489475,
+            0.1780304899627238,
+            0.9179433694921831,
+            1.0959738594548882,
+            -0.09507284423489475
+          ],
+          "ms": 90.94295901013538
+        },
+        {
+          "case": "f27",
+          "action": "change settings",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.15619304612944515,
+            0.2753419620191417,
+            0.5684049613682141,
+            0.8437469233873369,
+            0.15619304612944515
+          ],
+          "ms": 91.46574995247647
+        },
+        {
+          "case": "f28",
+          "action": "change settings",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            -0.09363633066417026,
+            0.27753283110097815,
+            0.8051095598616624,
+            1.0826423909626217,
+            -0.09363633066417026
+          ],
+          "ms": 88.81749998545274
+        },
+        {
+          "case": "f29",
+          "action": "change settings",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.19103661092173038,
+            -0.010156786541917394,
+            0.8229193822361573,
+            0.8127625956942204,
+            0.19103661092173038
+          ],
+          "ms": 90.34966601757333
+        },
+        {
+          "case": "f30",
+          "action": "change settings",
+          "record_access": false,
+          "choice_correct": true,
+          "record_correct": true,
+          "scores": [
+            0.41561051900453755,
+            -0.19507114195805125,
+            0.7832051587912302,
+            0.5881340168331601,
+            0.41561051900453755
+          ],
+          "ms": 90.78387502813712
+        }
+      ],
+      "choice_correct": 30,
+      "record_correct": 29
+    }
+  }
+}

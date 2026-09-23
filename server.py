@@ -11,6 +11,7 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, ConfigDict, Field, StringConstraints, model_validator
 from starlette.concurrency import run_in_threadpool
+from routing import LocalLearnedRouter, ADAPTER_SHA256
 
 MODEL_REVISION = '19bf9a64815add579fbf6c907bef584d9277a8e4'
 Text = Annotated[str, StringConstraints(strict=True, strip_whitespace=True, min_length=1, max_length=4096)]
@@ -31,6 +32,10 @@ class Question(BaseModel):
         if self.options and len(set(self.options)) != len(self.options):
             raise ValueError('duplicate options')
         return self
+
+class RouteRequest(BaseModel):
+    model_config = ConfigDict(extra='forbid')
+    state: Annotated[str, StringConstraints(strict=True, strip_whitespace=True, min_length=1, max_length=16384)]
 
 class DecisionRequest(BaseModel):
     model_config = ConfigDict(extra='forbid')
@@ -81,7 +86,12 @@ class Engine:
         # Upstream Collator caches input strings indefinitely. Use no cache at all.
         self.model.collator._ids = lambda text: self.model.tok(text, add_special_tokens=False)['input_ids']
         self.model.collator._cache.clear()
+        self.router = LocalLearnedRouter(model=self.model)
+        self.router.route('This is a test.')
         self.decide(DecisionRequest(state='This is a test.', questions=[Question(type='noul', instructions='This is a test.')]))
+
+    def route(self, request):
+        return self.router.route(request.state)
 
     def decide(self, request):
         state_tokens = len(self.model.tok(request.state, add_special_tokens=False)['input_ids'])
@@ -112,7 +122,7 @@ def create_app(engine_factory=Engine, token=None):
     @app.get('/health')
     async def health():
         return {'status': 'ready', 'model_revision': MODEL_REVISION, 'device': 'cpu',
-                'max_state_tokens': 256, 'max_sequence_tokens': 512}
+                'max_state_tokens': 256, 'max_sequence_tokens': 512, 'adapter_sha256': ADAPTER_SHA256}
     @app.post('/decide')
     async def decide(request: DecisionRequest):
         if lock.locked():
@@ -120,6 +130,17 @@ def create_app(engine_factory=Engine, token=None):
         async with lock:
             try:
                 return await run_in_threadpool(app.state.engine.decide, request)
+            except ValueError:
+                raise HTTPException(422, 'Input exceeds model token limits') from None
+            except Exception:
+                raise HTTPException(500, 'Inference failed') from None
+    @app.post('/route')
+    async def route(request: RouteRequest):
+        if lock.locked():
+            raise HTTPException(429, 'Inference busy; retry later', headers={'Retry-After': '1'})
+        async with lock:
+            try:
+                return await run_in_threadpool(app.state.engine.route, request)
             except ValueError:
                 raise HTTPException(422, 'Input exceeds model token limits') from None
             except Exception:

@@ -1,0 +1,1728 @@
+{
+  "fixture_sha256": "f97df2a447b8b2c37ac2055aae48625945ad9ac1d589853ce59f7e1a6852df7f",
+  "selection": "After first validation, preserve joint choice/score and replace only noul with isolated call. No thresholds or weights changed.",
+  "runs": {
+    "baseline": [
+      {
+        "case": "c01",
+        "elapsed_ms": 120.84,
+        "choice_correct": true,
+        "noul_correct": true,
+        "result": {
+          "action": "read existing data",
+          "record_access_probability": 0.9071034789085388,
+          "urgency_score": 0.6791821718215942,
+          "answers": [
+            {
+              "choice": "read existing data",
+              "probabilities": {
+                "read existing data": 0.8735992908477783,
+                "explain a concept": 0.06079874187707901,
+                "change settings": 0.06560194492340088
+              },
+              "confidence": 0.8735992908477783
+            },
+            {
+              "noul": 0.9071034789085388
+            },
+            {
+              "score": 0.6791821718215942,
+              "probabilities": {
+                "not urgent": 0.39315739274024963,
+                "moderately urgent": 0.5345029830932617,
+                "very urgent": 0.07233959436416626
+              },
+              "confidence": 0.5345029830932617
+            }
+          ]
+        }
+      },
+      {
+        "case": "c02",
+        "elapsed_ms": 129.66,
+        "choice_correct": false,
+        "noul_correct": false,
+        "result": {
+          "action": "change settings",
+          "record_access_probability": 0.27698659896850586,
+          "urgency_score": 0.3594488501548767,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.082916259765625,
+                "explain a concept": 0.06272649765014648,
+                "change settings": 0.8543573021888733
+              },
+              "confidence": 0.8543573021888733
+            },
+            {
+              "noul": 0.27698659896850586
+            },
+            {
+              "score": 0.3594488501548767,
+              "probabilities": {
+                "not urgent": 0.679872453212738,
+                "moderately urgent": 0.2808063328266144,
+                "very urgent": 0.039321258664131165
+              },
+              "confidence": 0.679872453212738
+            }
+          ]
+        }
+      },
+      {
+        "case": "c03",
+        "elapsed_ms": 121.58,
+        "choice_correct": true,
+        "noul_correct": true,
+        "result": {
+          "action": "read existing data",
+          "record_access_probability": 0.912051796913147,
+          "urgency_score": 0.6638479977846146,
+          "answers": [
+            {
+              "choice": "read existing data",
+              "probabilities": {
+                "read existing data": 0.8386499881744385,
+                "explain a concept": 0.1117260754108429,
+                "change settings": 0.04962391406297684
+              },
+              "confidence": 0.8386499881744385
+            },
+            {
+              "noul": 0.912051796913147
+            },
+            {
+              "score": 0.6638479977846146,
+              "probabilities": {
+                "not urgent": 0.4095158278942108,
+                "moderately urgent": 0.517120361328125,
+                "very urgent": 0.07336381822824478
+              },
+              "confidence": 0.517120361328125
+            }
+          ]
+        }
+      },
+      {
+        "case": "c04",
+        "elapsed_ms": 117.13,
+        "choice_correct": true,
+        "noul_correct": true,
+        "result": {
+          "action": "read existing data",
+          "record_access_probability": 0.5221058130264282,
+          "urgency_score": 0.6110619455575943,
+          "answers": [
+            {
+              "choice": "read existing data",
+              "probabilities": {
+                "read existing data": 0.5234794616699219,
+                "explain a concept": 0.2521752715110779,
+                "change settings": 0.22434529662132263
+              },
+              "confidence": 0.5234794616699219
+            },
+            {
+              "noul": 0.5221058130264282
+            },
+            {
+              "score": 0.6110619455575943,
+              "probabilities": {
+                "not urgent": 0.4517047107219696,
+                "moderately urgent": 0.4855285584926605,
+                "very urgent": 0.06276669353246689
+              },
+              "confidence": 0.4855285584926605
+            }
+          ]
+        }
+      },
+      {
+        "case": "c05",
+        "elapsed_ms": 116.72,
+        "choice_correct": true,
+        "noul_correct": true,
+        "result": {
+          "action": "read existing data",
+          "record_access_probability": 0.6723487377166748,
+          "urgency_score": 0.6558662950992584,
+          "answers": [
+            {
+              "choice": "read existing data",
+              "probabilities": {
+                "read existing data": 0.7425022125244141,
+                "explain a concept": 0.12485739588737488,
+                "change settings": 0.13264039158821106
+              },
+              "confidence": 0.7425022125244141
+            },
+            {
+              "noul": 0.6723487377166748
+            },
+            {
+              "score": 0.6558662950992584,
+              "probabilities": {
+                "not urgent": 0.42053771018981934,
+                "moderately urgent": 0.503058135509491,
+                "very urgent": 0.07640407979488373
+              },
+              "confidence": 0.503058135509491
+            }
+          ]
+        }
+      },
+      {
+        "case": "c06",
+        "elapsed_ms": 138.51,
+        "choice_correct": true,
+        "noul_correct": true,
+        "result": {
+          "action": "read existing data",
+          "record_access_probability": 0.5647903680801392,
+          "urgency_score": 0.3515508994460106,
+          "answers": [
+            {
+              "choice": "read existing data",
+              "probabilities": {
+                "read existing data": 0.7840002179145813,
+                "explain a concept": 0.11065792292356491,
+                "change settings": 0.10534186661243439
+              },
+              "confidence": 0.7840002179145813
+            },
+            {
+              "noul": 0.5647903680801392
+            },
+            {
+              "score": 0.3515508994460106,
+              "probabilities": {
+                "not urgent": 0.6809167265892029,
+                "moderately urgent": 0.28661561012268066,
+                "very urgent": 0.03246764466166496
+              },
+              "confidence": 0.6809167265892029
+            }
+          ]
+        }
+      },
+      {
+        "case": "c07",
+        "elapsed_ms": 137.03,
+        "choice_correct": true,
+        "noul_correct": true,
+        "result": {
+          "action": "read existing data",
+          "record_access_probability": 0.6894310712814331,
+          "urgency_score": 0.3731694221496582,
+          "answers": [
+            {
+              "choice": "read existing data",
+              "probabilities": {
+                "read existing data": 0.7132567167282104,
+                "explain a concept": 0.1316508948802948,
+                "change settings": 0.15509237349033356
+              },
+              "confidence": 0.7132567167282104
+            },
+            {
+              "noul": 0.6894310712814331
+            },
+            {
+              "score": 0.3731694221496582,
+              "probabilities": {
+                "not urgent": 0.6602380275726318,
+                "moderately urgent": 0.3063545525074005,
+                "very urgent": 0.033407434821128845
+              },
+              "confidence": 0.6602380275726318
+            }
+          ]
+        }
+      },
+      {
+        "case": "c08",
+        "elapsed_ms": 115.36,
+        "choice_correct": true,
+        "noul_correct": true,
+        "result": {
+          "action": "read existing data",
+          "record_access_probability": 0.6586300730705261,
+          "urgency_score": 0.6686962395906448,
+          "answers": [
+            {
+              "choice": "read existing data",
+              "probabilities": {
+                "read existing data": 0.6142396926879883,
+                "explain a concept": 0.0988110899925232,
+                "change settings": 0.28694915771484375
+              },
+              "confidence": 0.6142396926879883
+            },
+            {
+              "noul": 0.6586300730705261
+            },
+            {
+              "score": 0.6686962395906448,
+              "probabilities": {
+                "not urgent": 0.40163445472717285,
+                "moderately urgent": 0.5280348658561707,
+                "very urgent": 0.07033068686723709
+              },
+              "confidence": 0.5280348658561707
+            }
+          ]
+        }
+      },
+      {
+        "case": "c09",
+        "elapsed_ms": 116.38,
+        "choice_correct": true,
+        "noul_correct": false,
+        "result": {
+          "action": "explain a concept",
+          "record_access_probability": 0.5263375639915466,
+          "urgency_score": 0.5231667459011078,
+          "answers": [
+            {
+              "choice": "explain a concept",
+              "probabilities": {
+                "read existing data": 0.08830030262470245,
+                "explain a concept": 0.7775701284408569,
+                "change settings": 0.13412953913211823
+              },
+              "confidence": 0.7775701284408569
+            },
+            {
+              "noul": 0.5263375639915466
+            },
+            {
+              "score": 0.5231667459011078,
+              "probabilities": {
+                "not urgent": 0.5310646295547485,
+                "moderately urgent": 0.41470396518707275,
+                "very urgent": 0.05423139035701752
+              },
+              "confidence": 0.5310646295547485
+            }
+          ]
+        }
+      },
+      {
+        "case": "c10",
+        "elapsed_ms": 128.2,
+        "choice_correct": true,
+        "noul_correct": true,
+        "result": {
+          "action": "explain a concept",
+          "record_access_probability": 0.07858385890722275,
+          "urgency_score": 0.28384216874837875,
+          "answers": [
+            {
+              "choice": "explain a concept",
+              "probabilities": {
+                "read existing data": 0.10560227930545807,
+                "explain a concept": 0.5676692724227905,
+                "change settings": 0.326728492975235
+              },
+              "confidence": 0.5676692724227905
+            },
+            {
+              "noul": 0.07858385890722275
+            },
+            {
+              "score": 0.28384216874837875,
+              "probabilities": {
+                "not urgent": 0.7481532096862793,
+                "moderately urgent": 0.21985141932964325,
+                "very urgent": 0.03199537470936775
+              },
+              "confidence": 0.7481532096862793
+            }
+          ]
+        }
+      },
+      {
+        "case": "c11",
+        "elapsed_ms": 114.12,
+        "choice_correct": true,
+        "noul_correct": false,
+        "result": {
+          "action": "explain a concept",
+          "record_access_probability": 0.6273379325866699,
+          "urgency_score": 0.5590780526399612,
+          "answers": [
+            {
+              "choice": "explain a concept",
+              "probabilities": {
+                "read existing data": 0.12838773429393768,
+                "explain a concept": 0.7459921836853027,
+                "change settings": 0.12562012672424316
+              },
+              "confidence": 0.7459921836853027
+            },
+            {
+              "noul": 0.6273379325866699
+            },
+            {
+              "score": 0.5590780526399612,
+              "probabilities": {
+                "not urgent": 0.4995289742946625,
+                "moderately urgent": 0.4418639838695526,
+                "very urgent": 0.058607034385204315
+              },
+              "confidence": 0.4995289742946625
+            }
+          ]
+        }
+      },
+      {
+        "case": "c12",
+        "elapsed_ms": 128.38,
+        "choice_correct": true,
+        "noul_correct": true,
+        "result": {
+          "action": "explain a concept",
+          "record_access_probability": 0.09747852385044098,
+          "urgency_score": 0.24189824610948563,
+          "answers": [
+            {
+              "choice": "explain a concept",
+              "probabilities": {
+                "read existing data": 0.20063722133636475,
+                "explain a concept": 0.641615629196167,
+                "change settings": 0.15774713456630707
+              },
+              "confidence": 0.641615629196167
+            },
+            {
+              "noul": 0.09747852385044098
+            },
+            {
+              "score": 0.24189824610948563,
+              "probabilities": {
+                "not urgent": 0.7881486415863037,
+                "moderately urgent": 0.18180438876152039,
+                "very urgent": 0.03004692867398262
+              },
+              "confidence": 0.7881486415863037
+            }
+          ]
+        }
+      },
+      {
+        "case": "c13",
+        "elapsed_ms": 115.0,
+        "choice_correct": true,
+        "noul_correct": false,
+        "result": {
+          "action": "explain a concept",
+          "record_access_probability": 0.7318947911262512,
+          "urgency_score": 0.6554333120584488,
+          "answers": [
+            {
+              "choice": "explain a concept",
+              "probabilities": {
+                "read existing data": 0.29699355363845825,
+                "explain a concept": 0.4098704159259796,
+                "change settings": 0.2931360602378845
+              },
+              "confidence": 0.4098704159259796
+            },
+            {
+              "noul": 0.7318947911262512
+            },
+            {
+              "score": 0.6554333120584488,
+              "probabilities": {
+                "not urgent": 0.41951224207878113,
+                "moderately urgent": 0.5055422186851501,
+                "very urgent": 0.07494554668664932
+              },
+              "confidence": 0.5055422186851501
+            }
+          ]
+        }
+      },
+      {
+        "case": "c14",
+        "elapsed_ms": 116.67,
+        "choice_correct": true,
+        "noul_correct": false,
+        "result": {
+          "action": "explain a concept",
+          "record_access_probability": 0.6625291109085083,
+          "urgency_score": 0.5897005647420883,
+          "answers": [
+            {
+              "choice": "explain a concept",
+              "probabilities": {
+                "read existing data": 0.25452739000320435,
+                "explain a concept": 0.4828241467475891,
+                "change settings": 0.26264846324920654
+              },
+              "confidence": 0.4828241467475891
+            },
+            {
+              "noul": 0.6625291109085083
+            },
+            {
+              "score": 0.5897005647420883,
+              "probabilities": {
+                "not urgent": 0.47797518968582153,
+                "moderately urgent": 0.45434918999671936,
+                "very urgent": 0.06767568737268448
+              },
+              "confidence": 0.47797518968582153
+            }
+          ]
+        }
+      },
+      {
+        "case": "c15",
+        "elapsed_ms": 126.32,
+        "choice_correct": false,
+        "noul_correct": true,
+        "result": {
+          "action": "change settings",
+          "record_access_probability": 0.3110659122467041,
+          "urgency_score": 0.4444836974143982,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.050327688455581665,
+                "explain a concept": 0.29194310307502747,
+                "change settings": 0.6577291488647461
+              },
+              "confidence": 0.6577291488647461
+            },
+            {
+              "noul": 0.3110659122467041
+            },
+            {
+              "score": 0.4444836974143982,
+              "probabilities": {
+                "not urgent": 0.6175671815872192,
+                "moderately urgent": 0.32038190960884094,
+                "very urgent": 0.062050893902778625
+              },
+              "confidence": 0.6175671815872192
+            }
+          ]
+        }
+      },
+      {
+        "case": "c16",
+        "elapsed_ms": 125.11,
+        "choice_correct": true,
+        "noul_correct": true,
+        "result": {
+          "action": "explain a concept",
+          "record_access_probability": 0.052484434098005295,
+          "urgency_score": 0.6145472079515457,
+          "answers": [
+            {
+              "choice": "explain a concept",
+              "probabilities": {
+                "read existing data": 0.02088947407901287,
+                "explain a concept": 0.9531992673873901,
+                "change settings": 0.025911370292305946
+              },
+              "confidence": 0.9531992673873901
+            },
+            {
+              "noul": 0.052484434098005295
+            },
+            {
+              "score": 0.6145472079515457,
+              "probabilities": {
+                "not urgent": 0.45708921551704407,
+                "moderately urgent": 0.4712742865085602,
+                "very urgent": 0.07163646072149277
+              },
+              "confidence": 0.4712742865085602
+            }
+          ]
+        }
+      },
+      {
+        "case": "c17",
+        "elapsed_ms": 112.84,
+        "choice_correct": true,
+        "noul_correct": false,
+        "result": {
+          "action": "change settings",
+          "record_access_probability": 0.7302187085151672,
+          "urgency_score": 0.5995117127895355,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.2645512521266937,
+                "explain a concept": 0.07886694371700287,
+                "change settings": 0.6565817594528198
+              },
+              "confidence": 0.6565817594528198
+            },
+            {
+              "noul": 0.7302187085151672
+            },
+            {
+              "score": 0.5995117127895355,
+              "probabilities": {
+                "not urgent": 0.47203195095062256,
+                "moderately urgent": 0.456424355506897,
+                "very urgent": 0.07154367864131927
+              },
+              "confidence": 0.47203195095062256
+            }
+          ]
+        }
+      },
+      {
+        "case": "c18",
+        "elapsed_ms": 113.95,
+        "choice_correct": true,
+        "noul_correct": true,
+        "result": {
+          "action": "change settings",
+          "record_access_probability": 0.485271155834198,
+          "urgency_score": 0.696694552898407,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.027895363047719002,
+                "explain a concept": 0.07252096384763718,
+                "change settings": 0.8995836973190308
+              },
+              "confidence": 0.8995836973190308
+            },
+            {
+              "noul": 0.485271155834198
+            },
+            {
+              "score": 0.696694552898407,
+              "probabilities": {
+                "not urgent": 0.3911284804344177,
+                "moderately urgent": 0.521048367023468,
+                "very urgent": 0.08782309293746948
+              },
+              "confidence": 0.521048367023468
+            }
+          ]
+        }
+      },
+      {
+        "case": "c19",
+        "elapsed_ms": 116.64,
+        "choice_correct": true,
+        "noul_correct": true,
+        "result": {
+          "action": "change settings",
+          "record_access_probability": 0.3507744371891022,
+          "urgency_score": 0.6576111912727356,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.05061914771795273,
+                "explain a concept": 0.10570620000362396,
+                "change settings": 0.8436746597290039
+              },
+              "confidence": 0.8436746597290039
+            },
+            {
+              "noul": 0.3507744371891022
+            },
+            {
+              "score": 0.6576111912727356,
+              "probabilities": {
+                "not urgent": 0.417930543422699,
+                "moderately urgent": 0.5065276622772217,
+                "very urgent": 0.07554176449775696
+              },
+              "confidence": 0.5065276622772217
+            }
+          ]
+        }
+      },
+      {
+        "case": "c20",
+        "elapsed_ms": 118.31,
+        "choice_correct": true,
+        "noul_correct": true,
+        "result": {
+          "action": "change settings",
+          "record_access_probability": 0.24090179800987244,
+          "urgency_score": 0.6195414662361145,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.010694294236600399,
+                "explain a concept": 0.09149855375289917,
+                "change settings": 0.8978071212768555
+              },
+              "confidence": 0.8978071212768555
+            },
+            {
+              "noul": 0.24090179800987244
+            },
+            {
+              "score": 0.6195414662361145,
+              "probabilities": {
+                "not urgent": 0.4551416039466858,
+                "moderately urgent": 0.47017544507980347,
+                "very urgent": 0.07468301057815552
+              },
+              "confidence": 0.47017544507980347
+            }
+          ]
+        }
+      },
+      {
+        "case": "c21",
+        "elapsed_ms": 115.78,
+        "choice_correct": true,
+        "noul_correct": false,
+        "result": {
+          "action": "change settings",
+          "record_access_probability": 0.5968724489212036,
+          "urgency_score": 0.47588804364204407,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.09523769468069077,
+                "explain a concept": 0.10439763218164444,
+                "change settings": 0.8003646731376648
+              },
+              "confidence": 0.8003646731376648
+            },
+            {
+              "noul": 0.5968724489212036
+            },
+            {
+              "score": 0.47588804364204407,
+              "probabilities": {
+                "not urgent": 0.5744837522506714,
+                "moderately urgent": 0.3751443922519684,
+                "very urgent": 0.05037182569503784
+              },
+              "confidence": 0.5744837522506714
+            }
+          ]
+        }
+      },
+      {
+        "case": "c22",
+        "elapsed_ms": 115.91,
+        "choice_correct": true,
+        "noul_correct": true,
+        "result": {
+          "action": "change settings",
+          "record_access_probability": 0.3157103359699249,
+          "urgency_score": 0.5568660348653793,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.017402514815330505,
+                "explain a concept": 0.030064010992646217,
+                "change settings": 0.952533483505249
+              },
+              "confidence": 0.952533483505249
+            },
+            {
+              "noul": 0.3157103359699249
+            },
+            {
+              "score": 0.5568660348653793,
+              "probabilities": {
+                "not urgent": 0.4927884638309479,
+                "moderately urgent": 0.45755699276924133,
+                "very urgent": 0.049654521048069
+              },
+              "confidence": 0.4927884638309479
+            }
+          ]
+        }
+      },
+      {
+        "case": "c23",
+        "elapsed_ms": 120.15,
+        "choice_correct": true,
+        "noul_correct": true,
+        "result": {
+          "action": "change settings",
+          "record_access_probability": 0.19412235915660858,
+          "urgency_score": 0.42671023309230804,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.00868966244161129,
+                "explain a concept": 0.03877568617463112,
+                "change settings": 0.9525346755981445
+              },
+              "confidence": 0.9525346755981445
+            },
+            {
+              "noul": 0.19412235915660858
+            },
+            {
+              "score": 0.42671023309230804,
+              "probabilities": {
+                "not urgent": 0.6158786416053772,
+                "moderately urgent": 0.341532438993454,
+                "very urgent": 0.04258889704942703
+              },
+              "confidence": 0.6158786416053772
+            }
+          ]
+        }
+      },
+      {
+        "case": "c24",
+        "elapsed_ms": 113.1,
+        "choice_correct": true,
+        "noul_correct": true,
+        "result": {
+          "action": "change settings",
+          "record_access_probability": 0.43020570278167725,
+          "urgency_score": 0.7068538218736649,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.055573977530002594,
+                "explain a concept": 0.07071857154369354,
+                "change settings": 0.8737074732780457
+              },
+              "confidence": 0.8737074732780457
+            },
+            {
+              "noul": 0.43020570278167725
+            },
+            {
+              "score": 0.7068538218736649,
+              "probabilities": {
+                "not urgent": 0.37833207845687866,
+                "moderately urgent": 0.5364821553230286,
+                "very urgent": 0.08518583327531815
+              },
+              "confidence": 0.5364821553230286
+            }
+          ]
+        }
+      }
+    ],
+    "hybrid": [
+      {
+        "case": "c01",
+        "elapsed_ms": 208.95,
+        "choice_correct": true,
+        "noul_correct": true,
+        "result": {
+          "action": "read existing data",
+          "record_access_probability": 0.8176631331443787,
+          "urgency_score": 0.6791821718215942,
+          "answers": [
+            {
+              "choice": "read existing data",
+              "probabilities": {
+                "read existing data": 0.8735992908477783,
+                "explain a concept": 0.06079874187707901,
+                "change settings": 0.06560194492340088
+              },
+              "confidence": 0.8735992908477783
+            },
+            {
+              "noul": 0.8176631331443787
+            },
+            {
+              "score": 0.6791821718215942,
+              "probabilities": {
+                "not urgent": 0.39315739274024963,
+                "moderately urgent": 0.5345029830932617,
+                "very urgent": 0.07233959436416626
+              },
+              "confidence": 0.5345029830932617
+            }
+          ],
+          "elapsed_ms": 208.95,
+          "mode": "isolated_record_check",
+          "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+        }
+      },
+      {
+        "case": "c02",
+        "elapsed_ms": 232.55,
+        "choice_correct": false,
+        "noul_correct": false,
+        "result": {
+          "action": "change settings",
+          "record_access_probability": 0.3562338352203369,
+          "urgency_score": 0.3594488501548767,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.082916259765625,
+                "explain a concept": 0.06272649765014648,
+                "change settings": 0.8543573021888733
+              },
+              "confidence": 0.8543573021888733
+            },
+            {
+              "noul": 0.3562338352203369
+            },
+            {
+              "score": 0.3594488501548767,
+              "probabilities": {
+                "not urgent": 0.679872453212738,
+                "moderately urgent": 0.2808063328266144,
+                "very urgent": 0.039321258664131165
+              },
+              "confidence": 0.679872453212738
+            }
+          ],
+          "elapsed_ms": 232.55,
+          "mode": "isolated_record_check",
+          "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+        }
+      },
+      {
+        "case": "c03",
+        "elapsed_ms": 225.94,
+        "choice_correct": true,
+        "noul_correct": true,
+        "result": {
+          "action": "read existing data",
+          "record_access_probability": 0.8244707584381104,
+          "urgency_score": 0.6638479977846146,
+          "answers": [
+            {
+              "choice": "read existing data",
+              "probabilities": {
+                "read existing data": 0.8386499881744385,
+                "explain a concept": 0.1117260754108429,
+                "change settings": 0.04962391406297684
+              },
+              "confidence": 0.8386499881744385
+            },
+            {
+              "noul": 0.8244707584381104
+            },
+            {
+              "score": 0.6638479977846146,
+              "probabilities": {
+                "not urgent": 0.4095158278942108,
+                "moderately urgent": 0.517120361328125,
+                "very urgent": 0.07336381822824478
+              },
+              "confidence": 0.517120361328125
+            }
+          ],
+          "elapsed_ms": 225.93,
+          "mode": "isolated_record_check",
+          "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+        }
+      },
+      {
+        "case": "c04",
+        "elapsed_ms": 210.85,
+        "choice_correct": true,
+        "noul_correct": true,
+        "result": {
+          "action": "read existing data",
+          "record_access_probability": 0.5105867981910706,
+          "urgency_score": 0.6110619455575943,
+          "answers": [
+            {
+              "choice": "read existing data",
+              "probabilities": {
+                "read existing data": 0.5234794616699219,
+                "explain a concept": 0.2521752715110779,
+                "change settings": 0.22434529662132263
+              },
+              "confidence": 0.5234794616699219
+            },
+            {
+              "noul": 0.5105867981910706
+            },
+            {
+              "score": 0.6110619455575943,
+              "probabilities": {
+                "not urgent": 0.4517047107219696,
+                "moderately urgent": 0.4855285584926605,
+                "very urgent": 0.06276669353246689
+              },
+              "confidence": 0.4855285584926605
+            }
+          ],
+          "elapsed_ms": 210.84,
+          "mode": "isolated_record_check",
+          "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+        }
+      },
+      {
+        "case": "c05",
+        "elapsed_ms": 208.77,
+        "choice_correct": true,
+        "noul_correct": true,
+        "result": {
+          "action": "read existing data",
+          "record_access_probability": 0.6355789303779602,
+          "urgency_score": 0.6558662950992584,
+          "answers": [
+            {
+              "choice": "read existing data",
+              "probabilities": {
+                "read existing data": 0.7425022125244141,
+                "explain a concept": 0.12485739588737488,
+                "change settings": 0.13264039158821106
+              },
+              "confidence": 0.7425022125244141
+            },
+            {
+              "noul": 0.6355789303779602
+            },
+            {
+              "score": 0.6558662950992584,
+              "probabilities": {
+                "not urgent": 0.42053771018981934,
+                "moderately urgent": 0.503058135509491,
+                "very urgent": 0.07640407979488373
+              },
+              "confidence": 0.503058135509491
+            }
+          ],
+          "elapsed_ms": 208.76,
+          "mode": "isolated_record_check",
+          "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+        }
+      },
+      {
+        "case": "c06",
+        "elapsed_ms": 239.08,
+        "choice_correct": true,
+        "noul_correct": true,
+        "result": {
+          "action": "read existing data",
+          "record_access_probability": 0.5614483952522278,
+          "urgency_score": 0.3515508994460106,
+          "answers": [
+            {
+              "choice": "read existing data",
+              "probabilities": {
+                "read existing data": 0.7840002179145813,
+                "explain a concept": 0.11065792292356491,
+                "change settings": 0.10534186661243439
+              },
+              "confidence": 0.7840002179145813
+            },
+            {
+              "noul": 0.5614483952522278
+            },
+            {
+              "score": 0.3515508994460106,
+              "probabilities": {
+                "not urgent": 0.6809167265892029,
+                "moderately urgent": 0.28661561012268066,
+                "very urgent": 0.03246764466166496
+              },
+              "confidence": 0.6809167265892029
+            }
+          ],
+          "elapsed_ms": 239.08,
+          "mode": "isolated_record_check",
+          "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+        }
+      },
+      {
+        "case": "c07",
+        "elapsed_ms": 240.5,
+        "choice_correct": true,
+        "noul_correct": true,
+        "result": {
+          "action": "read existing data",
+          "record_access_probability": 0.6467804312705994,
+          "urgency_score": 0.3731694221496582,
+          "answers": [
+            {
+              "choice": "read existing data",
+              "probabilities": {
+                "read existing data": 0.7132567167282104,
+                "explain a concept": 0.1316508948802948,
+                "change settings": 0.15509237349033356
+              },
+              "confidence": 0.7132567167282104
+            },
+            {
+              "noul": 0.6467804312705994
+            },
+            {
+              "score": 0.3731694221496582,
+              "probabilities": {
+                "not urgent": 0.6602380275726318,
+                "moderately urgent": 0.3063545525074005,
+                "very urgent": 0.033407434821128845
+              },
+              "confidence": 0.6602380275726318
+            }
+          ],
+          "elapsed_ms": 240.5,
+          "mode": "isolated_record_check",
+          "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+        }
+      },
+      {
+        "case": "c08",
+        "elapsed_ms": 204.02,
+        "choice_correct": true,
+        "noul_correct": true,
+        "result": {
+          "action": "read existing data",
+          "record_access_probability": 0.7484267354011536,
+          "urgency_score": 0.6686962395906448,
+          "answers": [
+            {
+              "choice": "read existing data",
+              "probabilities": {
+                "read existing data": 0.6142396926879883,
+                "explain a concept": 0.0988110899925232,
+                "change settings": 0.28694915771484375
+              },
+              "confidence": 0.6142396926879883
+            },
+            {
+              "noul": 0.7484267354011536
+            },
+            {
+              "score": 0.6686962395906448,
+              "probabilities": {
+                "not urgent": 0.40163445472717285,
+                "moderately urgent": 0.5280348658561707,
+                "very urgent": 0.07033068686723709
+              },
+              "confidence": 0.5280348658561707
+            }
+          ],
+          "elapsed_ms": 204.02,
+          "mode": "isolated_record_check",
+          "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+        }
+      },
+      {
+        "case": "c09",
+        "elapsed_ms": 211.26,
+        "choice_correct": true,
+        "noul_correct": true,
+        "result": {
+          "action": "explain a concept",
+          "record_access_probability": 0.4676288366317749,
+          "urgency_score": 0.5231667459011078,
+          "answers": [
+            {
+              "choice": "explain a concept",
+              "probabilities": {
+                "read existing data": 0.08830030262470245,
+                "explain a concept": 0.7775701284408569,
+                "change settings": 0.13412953913211823
+              },
+              "confidence": 0.7775701284408569
+            },
+            {
+              "noul": 0.4676288366317749
+            },
+            {
+              "score": 0.5231667459011078,
+              "probabilities": {
+                "not urgent": 0.5310646295547485,
+                "moderately urgent": 0.41470396518707275,
+                "very urgent": 0.05423139035701752
+              },
+              "confidence": 0.5310646295547485
+            }
+          ],
+          "elapsed_ms": 211.25,
+          "mode": "isolated_record_check",
+          "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+        }
+      },
+      {
+        "case": "c10",
+        "elapsed_ms": 241.95,
+        "choice_correct": true,
+        "noul_correct": true,
+        "result": {
+          "action": "explain a concept",
+          "record_access_probability": 0.1629699021577835,
+          "urgency_score": 0.28384216874837875,
+          "answers": [
+            {
+              "choice": "explain a concept",
+              "probabilities": {
+                "read existing data": 0.10560227930545807,
+                "explain a concept": 0.5676692724227905,
+                "change settings": 0.326728492975235
+              },
+              "confidence": 0.5676692724227905
+            },
+            {
+              "noul": 0.1629699021577835
+            },
+            {
+              "score": 0.28384216874837875,
+              "probabilities": {
+                "not urgent": 0.7481532096862793,
+                "moderately urgent": 0.21985141932964325,
+                "very urgent": 0.03199537470936775
+              },
+              "confidence": 0.7481532096862793
+            }
+          ],
+          "elapsed_ms": 241.95,
+          "mode": "isolated_record_check",
+          "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+        }
+      },
+      {
+        "case": "c11",
+        "elapsed_ms": 225.28,
+        "choice_correct": true,
+        "noul_correct": true,
+        "result": {
+          "action": "explain a concept",
+          "record_access_probability": 0.2108466923236847,
+          "urgency_score": 0.5590780526399612,
+          "answers": [
+            {
+              "choice": "explain a concept",
+              "probabilities": {
+                "read existing data": 0.12838773429393768,
+                "explain a concept": 0.7459921836853027,
+                "change settings": 0.12562012672424316
+              },
+              "confidence": 0.7459921836853027
+            },
+            {
+              "noul": 0.2108466923236847
+            },
+            {
+              "score": 0.5590780526399612,
+              "probabilities": {
+                "not urgent": 0.4995289742946625,
+                "moderately urgent": 0.4418639838695526,
+                "very urgent": 0.058607034385204315
+              },
+              "confidence": 0.4995289742946625
+            }
+          ],
+          "elapsed_ms": 225.28,
+          "mode": "isolated_record_check",
+          "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+        }
+      },
+      {
+        "case": "c12",
+        "elapsed_ms": 248.07,
+        "choice_correct": true,
+        "noul_correct": true,
+        "result": {
+          "action": "explain a concept",
+          "record_access_probability": 0.1558477133512497,
+          "urgency_score": 0.24189824610948563,
+          "answers": [
+            {
+              "choice": "explain a concept",
+              "probabilities": {
+                "read existing data": 0.20063722133636475,
+                "explain a concept": 0.641615629196167,
+                "change settings": 0.15774713456630707
+              },
+              "confidence": 0.641615629196167
+            },
+            {
+              "noul": 0.1558477133512497
+            },
+            {
+              "score": 0.24189824610948563,
+              "probabilities": {
+                "not urgent": 0.7881486415863037,
+                "moderately urgent": 0.18180438876152039,
+                "very urgent": 0.03004692867398262
+              },
+              "confidence": 0.7881486415863037
+            }
+          ],
+          "elapsed_ms": 248.07,
+          "mode": "isolated_record_check",
+          "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+        }
+      },
+      {
+        "case": "c13",
+        "elapsed_ms": 209.3,
+        "choice_correct": true,
+        "noul_correct": false,
+        "result": {
+          "action": "explain a concept",
+          "record_access_probability": 0.5326786637306213,
+          "urgency_score": 0.6554333120584488,
+          "answers": [
+            {
+              "choice": "explain a concept",
+              "probabilities": {
+                "read existing data": 0.29699355363845825,
+                "explain a concept": 0.4098704159259796,
+                "change settings": 0.2931360602378845
+              },
+              "confidence": 0.4098704159259796
+            },
+            {
+              "noul": 0.5326786637306213
+            },
+            {
+              "score": 0.6554333120584488,
+              "probabilities": {
+                "not urgent": 0.41951224207878113,
+                "moderately urgent": 0.5055422186851501,
+                "very urgent": 0.07494554668664932
+              },
+              "confidence": 0.5055422186851501
+            }
+          ],
+          "elapsed_ms": 209.29,
+          "mode": "isolated_record_check",
+          "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+        }
+      },
+      {
+        "case": "c14",
+        "elapsed_ms": 207.83,
+        "choice_correct": true,
+        "noul_correct": true,
+        "result": {
+          "action": "explain a concept",
+          "record_access_probability": 0.4403406083583832,
+          "urgency_score": 0.5897005647420883,
+          "answers": [
+            {
+              "choice": "explain a concept",
+              "probabilities": {
+                "read existing data": 0.25452739000320435,
+                "explain a concept": 0.4828241467475891,
+                "change settings": 0.26264846324920654
+              },
+              "confidence": 0.4828241467475891
+            },
+            {
+              "noul": 0.4403406083583832
+            },
+            {
+              "score": 0.5897005647420883,
+              "probabilities": {
+                "not urgent": 0.47797518968582153,
+                "moderately urgent": 0.45434918999671936,
+                "very urgent": 0.06767568737268448
+              },
+              "confidence": 0.47797518968582153
+            }
+          ],
+          "elapsed_ms": 207.83,
+          "mode": "isolated_record_check",
+          "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+        }
+      },
+      {
+        "case": "c15",
+        "elapsed_ms": 243.49,
+        "choice_correct": false,
+        "noul_correct": true,
+        "result": {
+          "action": "change settings",
+          "record_access_probability": 0.38541820645332336,
+          "urgency_score": 0.4444836974143982,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.050327688455581665,
+                "explain a concept": 0.29194310307502747,
+                "change settings": 0.6577291488647461
+              },
+              "confidence": 0.6577291488647461
+            },
+            {
+              "noul": 0.38541820645332336
+            },
+            {
+              "score": 0.4444836974143982,
+              "probabilities": {
+                "not urgent": 0.6175671815872192,
+                "moderately urgent": 0.32038190960884094,
+                "very urgent": 0.062050893902778625
+              },
+              "confidence": 0.6175671815872192
+            }
+          ],
+          "elapsed_ms": 243.48,
+          "mode": "isolated_record_check",
+          "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+        }
+      },
+      {
+        "case": "c16",
+        "elapsed_ms": 220.71,
+        "choice_correct": true,
+        "noul_correct": true,
+        "result": {
+          "action": "explain a concept",
+          "record_access_probability": 0.16554388403892517,
+          "urgency_score": 0.6145472079515457,
+          "answers": [
+            {
+              "choice": "explain a concept",
+              "probabilities": {
+                "read existing data": 0.02088947407901287,
+                "explain a concept": 0.9531992673873901,
+                "change settings": 0.025911370292305946
+              },
+              "confidence": 0.9531992673873901
+            },
+            {
+              "noul": 0.16554388403892517
+            },
+            {
+              "score": 0.6145472079515457,
+              "probabilities": {
+                "not urgent": 0.45708921551704407,
+                "moderately urgent": 0.4712742865085602,
+                "very urgent": 0.07163646072149277
+              },
+              "confidence": 0.4712742865085602
+            }
+          ],
+          "elapsed_ms": 220.71,
+          "mode": "isolated_record_check",
+          "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+        }
+      },
+      {
+        "case": "c17",
+        "elapsed_ms": 208.23,
+        "choice_correct": true,
+        "noul_correct": true,
+        "result": {
+          "action": "change settings",
+          "record_access_probability": 0.4935709238052368,
+          "urgency_score": 0.5995117127895355,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.2645512521266937,
+                "explain a concept": 0.07886694371700287,
+                "change settings": 0.6565817594528198
+              },
+              "confidence": 0.6565817594528198
+            },
+            {
+              "noul": 0.4935709238052368
+            },
+            {
+              "score": 0.5995117127895355,
+              "probabilities": {
+                "not urgent": 0.47203195095062256,
+                "moderately urgent": 0.456424355506897,
+                "very urgent": 0.07154367864131927
+              },
+              "confidence": 0.47203195095062256
+            }
+          ],
+          "elapsed_ms": 208.22,
+          "mode": "isolated_record_check",
+          "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+        }
+      },
+      {
+        "case": "c18",
+        "elapsed_ms": 212.26,
+        "choice_correct": true,
+        "noul_correct": false,
+        "result": {
+          "action": "change settings",
+          "record_access_probability": 0.5560337901115417,
+          "urgency_score": 0.696694552898407,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.027895363047719002,
+                "explain a concept": 0.07252096384763718,
+                "change settings": 0.8995836973190308
+              },
+              "confidence": 0.8995836973190308
+            },
+            {
+              "noul": 0.5560337901115417
+            },
+            {
+              "score": 0.696694552898407,
+              "probabilities": {
+                "not urgent": 0.3911284804344177,
+                "moderately urgent": 0.521048367023468,
+                "very urgent": 0.08782309293746948
+              },
+              "confidence": 0.521048367023468
+            }
+          ],
+          "elapsed_ms": 212.26,
+          "mode": "isolated_record_check",
+          "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+        }
+      },
+      {
+        "case": "c19",
+        "elapsed_ms": 206.81,
+        "choice_correct": true,
+        "noul_correct": true,
+        "result": {
+          "action": "change settings",
+          "record_access_probability": 0.3237818777561188,
+          "urgency_score": 0.6576111912727356,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.05061914771795273,
+                "explain a concept": 0.10570620000362396,
+                "change settings": 0.8436746597290039
+              },
+              "confidence": 0.8436746597290039
+            },
+            {
+              "noul": 0.3237818777561188
+            },
+            {
+              "score": 0.6576111912727356,
+              "probabilities": {
+                "not urgent": 0.417930543422699,
+                "moderately urgent": 0.5065276622772217,
+                "very urgent": 0.07554176449775696
+              },
+              "confidence": 0.5065276622772217
+            }
+          ],
+          "elapsed_ms": 206.81,
+          "mode": "isolated_record_check",
+          "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+        }
+      },
+      {
+        "case": "c20",
+        "elapsed_ms": 211.32,
+        "choice_correct": true,
+        "noul_correct": true,
+        "result": {
+          "action": "change settings",
+          "record_access_probability": 0.4161946177482605,
+          "urgency_score": 0.6195414662361145,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.010694294236600399,
+                "explain a concept": 0.09149855375289917,
+                "change settings": 0.8978071212768555
+              },
+              "confidence": 0.8978071212768555
+            },
+            {
+              "noul": 0.4161946177482605
+            },
+            {
+              "score": 0.6195414662361145,
+              "probabilities": {
+                "not urgent": 0.4551416039466858,
+                "moderately urgent": 0.47017544507980347,
+                "very urgent": 0.07468301057815552
+              },
+              "confidence": 0.47017544507980347
+            }
+          ],
+          "elapsed_ms": 211.31,
+          "mode": "isolated_record_check",
+          "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+        }
+      },
+      {
+        "case": "c21",
+        "elapsed_ms": 219.7,
+        "choice_correct": true,
+        "noul_correct": true,
+        "result": {
+          "action": "change settings",
+          "record_access_probability": 0.23247496783733368,
+          "urgency_score": 0.47588804364204407,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.09523769468069077,
+                "explain a concept": 0.10439763218164444,
+                "change settings": 0.8003646731376648
+              },
+              "confidence": 0.8003646731376648
+            },
+            {
+              "noul": 0.23247496783733368
+            },
+            {
+              "score": 0.47588804364204407,
+              "probabilities": {
+                "not urgent": 0.5744837522506714,
+                "moderately urgent": 0.3751443922519684,
+                "very urgent": 0.05037182569503784
+              },
+              "confidence": 0.5744837522506714
+            }
+          ],
+          "elapsed_ms": 219.7,
+          "mode": "isolated_record_check",
+          "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+        }
+      },
+      {
+        "case": "c22",
+        "elapsed_ms": 203.72,
+        "choice_correct": true,
+        "noul_correct": true,
+        "result": {
+          "action": "change settings",
+          "record_access_probability": 0.3598099648952484,
+          "urgency_score": 0.5568660348653793,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.017402514815330505,
+                "explain a concept": 0.030064010992646217,
+                "change settings": 0.952533483505249
+              },
+              "confidence": 0.952533483505249
+            },
+            {
+              "noul": 0.3598099648952484
+            },
+            {
+              "score": 0.5568660348653793,
+              "probabilities": {
+                "not urgent": 0.4927884638309479,
+                "moderately urgent": 0.45755699276924133,
+                "very urgent": 0.049654521048069
+              },
+              "confidence": 0.4927884638309479
+            }
+          ],
+          "elapsed_ms": 203.72,
+          "mode": "isolated_record_check",
+          "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+        }
+      },
+      {
+        "case": "c23",
+        "elapsed_ms": 202.73,
+        "choice_correct": true,
+        "noul_correct": true,
+        "result": {
+          "action": "change settings",
+          "record_access_probability": 0.3179776966571808,
+          "urgency_score": 0.42671023309230804,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.00868966244161129,
+                "explain a concept": 0.03877568617463112,
+                "change settings": 0.9525346755981445
+              },
+              "confidence": 0.9525346755981445
+            },
+            {
+              "noul": 0.3179776966571808
+            },
+            {
+              "score": 0.42671023309230804,
+              "probabilities": {
+                "not urgent": 0.6158786416053772,
+                "moderately urgent": 0.341532438993454,
+                "very urgent": 0.04258889704942703
+              },
+              "confidence": 0.6158786416053772
+            }
+          ],
+          "elapsed_ms": 202.73,
+          "mode": "isolated_record_check",
+          "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+        }
+      },
+      {
+        "case": "c24",
+        "elapsed_ms": 211.17,
+        "choice_correct": true,
+        "noul_correct": true,
+        "result": {
+          "action": "change settings",
+          "record_access_probability": 0.3331491947174072,
+          "urgency_score": 0.7068538218736649,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.055573977530002594,
+                "explain a concept": 0.07071857154369354,
+                "change settings": 0.8737074732780457
+              },
+              "confidence": 0.8737074732780457
+            },
+            {
+              "noul": 0.3331491947174072
+            },
+            {
+              "score": 0.7068538218736649,
+              "probabilities": {
+                "not urgent": 0.37833207845687866,
+                "moderately urgent": 0.5364821553230286,
+                "very urgent": 0.08518583327531815
+              },
+              "confidence": 0.5364821553230286
+            }
+          ],
+          "elapsed_ms": 211.16,
+          "mode": "isolated_record_check",
+          "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+        }
+      }
+    ]
+  },
+  "summary": {
+    "baseline": {
+      "cases": 24,
+      "choice_correct": 22,
+      "noul_correct": 17,
+      "median_ms": 116.925
+    },
+    "hybrid": {
+      "cases": 24,
+      "choice_correct": 22,
+      "noul_correct": 21,
+      "median_ms": 211.29
+    }
+  }
+}

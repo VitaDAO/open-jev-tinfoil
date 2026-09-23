@@ -14,7 +14,14 @@ Independent reproduction of the Jev interface; not TypeSafe's proprietary Jev.
 
 Returns `answers`, `model_revision`, and `inference_ms`. Choice and score include
 probability distributions; score is a zero-based expected level, and noul is p(yes).
-`GET /health` is public and reports readiness after model load and warm-up.
+`POST /route` requires the same bearer key and accepts `{"state":"Show my saved step goal."}`.
+It returns `action`, `record_access`, uncalibrated `decision_scores`, `elapsed_ms`,
+`model_revision`, `adapter_sha256`, and `advisory: true`. It does not produce an
+urgency score or authorize any operation. It shares the encoder and inference
+lock with `/decide`, so concurrent work is rejected with429 rather than queued.
+The adapter is digest-checked before startup; changed weights require a new pin
+and release. `GET /health` is public and reports readiness and adapter identity
+after model load and warm-up.
 
 Limits: 64 KiB body, 32 questions, 256 state tokens, 512 total tokens including
 questions/options. Oversized states are rejected rather than silently truncated.
@@ -71,3 +78,31 @@ Loader files under `vendor/typed_decisions` are unmodified from the pinned model
 snapshot, with the upstream Apache-2.0 license and notice. Base model
 `microsoft/deberta-v3-large` is MIT. Dataset provenance and model limitations:
 https://huggingface.co/com-kotobalabs/open-jev-deberta-v3-large
+
+## Experimental local Vita routing
+
+`examples/local_vita_router.py` preserves joint routing/urgency and separately
+rechecks record access. On 24 fresh synthetic confirmation cases, record-access
+correctness improved from 17/24 to 21/24, routing stayed 22/24, and local median
+latency increased from 117 to 211 ms. This optional client does not change weights,
+server behavior or the attested release. See `evidence/local-tuning.md` for the
+selection process, regressions and limits; outputs are advisory, never permission grants.
+
+### Learned local adapter
+
+The newer `examples/local_learned_router.py` fits a small task-specific head over
+the frozen Open Jev encoder. It reaches 24/24 on the requested set after using
+that set for training. On 30 freshly frozen synthetic examples it scores30/30
+routing and29/30 record access, versus24/30 and25/30 for the original model.
+Local median for these two decisions is100ms. It does not produce urgency;
+its scores are not calibrated probabilities. This optional in-process path does
+not change `/decide` or the attested release. See `evidence/local-v3.md` for
+training provenance, remaining error, reproducibility and evaluation limits.
+
+The shared router implementation is now `routing.py`; the local example imports
+that same implementation. `scripts/smoke_route.py` verifies all54 recorded
+predictions against HTTP. `examples/vita_client.py` exposes `.route(state)` and
+checks the attested release, model revision, adapter digest and response types.
+`scripts/verify_route_live.py` runs the synthetic route suite through that verified
+client. See issue1 for the actual deployed release/readiness; code presence is
+not evidence of deployment.

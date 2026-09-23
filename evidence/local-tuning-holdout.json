@@ -1,0 +1,1514 @@
+{
+  "selected_on_dev": "isolated_baseline",
+  "holdout_sha256": "13df87689f4156cd47bf953783972b0222f6e3db2e1615b895c47948d11da7dd",
+  "results": {
+    "baseline": {
+      "runs": [
+        {
+          "case": "h01",
+          "choice": "read existing data",
+          "noul": 0.8244813680648804,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 116.33,
+          "answers": [
+            {
+              "choice": "read existing data",
+              "probabilities": {
+                "read existing data": 0.627451479434967,
+                "explain a concept": 0.23329021036624908,
+                "change settings": 0.13925832509994507
+              },
+              "confidence": 0.627451479434967
+            },
+            {
+              "noul": 0.8244813680648804
+            },
+            {
+              "score": 0.5943136289715767,
+              "probabilities": {
+                "not urgent": 0.4670238792896271,
+                "moderately urgent": 0.4716385304927826,
+                "very urgent": 0.06133754923939705
+              },
+              "confidence": 0.4716385304927826
+            }
+          ]
+        },
+        {
+          "case": "h02",
+          "choice": "read existing data",
+          "noul": 0.8337683081626892,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 112.55,
+          "answers": [
+            {
+              "choice": "read existing data",
+              "probabilities": {
+                "read existing data": 0.8911553025245667,
+                "explain a concept": 0.05739506334066391,
+                "change settings": 0.05144966021180153
+              },
+              "confidence": 0.8911553025245667
+            },
+            {
+              "noul": 0.8337683081626892
+            },
+            {
+              "score": 0.5701290220022202,
+              "probabilities": {
+                "not urgent": 0.4814825654029846,
+                "moderately urgent": 0.46690574288368225,
+                "very urgent": 0.05161163955926895
+              },
+              "confidence": 0.4814825654029846
+            }
+          ]
+        },
+        {
+          "case": "h03",
+          "choice": "change settings",
+          "noul": 0.30868780612945557,
+          "choice_correct": false,
+          "noul_correct": false,
+          "elapsed_ms": 122.85,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.08531606942415237,
+                "explain a concept": 0.08810172975063324,
+                "change settings": 0.8265821933746338
+              },
+              "confidence": 0.8265821933746338
+            },
+            {
+              "noul": 0.30868780612945557
+            },
+            {
+              "score": 0.36377640068531036,
+              "probabilities": {
+                "not urgent": 0.6763730049133301,
+                "moderately urgent": 0.2834776043891907,
+                "very urgent": 0.040149398148059845
+              },
+              "confidence": 0.6763730049133301
+            }
+          ]
+        },
+        {
+          "case": "h04",
+          "choice": "change settings",
+          "noul": 0.4473516345024109,
+          "choice_correct": false,
+          "noul_correct": false,
+          "elapsed_ms": 112.86,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.3441770672798157,
+                "explain a concept": 0.1651022732257843,
+                "change settings": 0.49072062969207764
+              },
+              "confidence": 0.49072062969207764
+            },
+            {
+              "noul": 0.4473516345024109
+            },
+            {
+              "score": 0.5836749002337456,
+              "probabilities": {
+                "not urgent": 0.4755830764770508,
+                "moderately urgent": 0.4651588499546051,
+                "very urgent": 0.059258025139570236
+              },
+              "confidence": 0.4755830764770508
+            }
+          ]
+        },
+        {
+          "case": "h05",
+          "choice": "read existing data",
+          "noul": 0.7439549565315247,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 114.16,
+          "answers": [
+            {
+              "choice": "read existing data",
+              "probabilities": {
+                "read existing data": 0.7896029353141785,
+                "explain a concept": 0.10527148097753525,
+                "change settings": 0.10512562841176987
+              },
+              "confidence": 0.7896029353141785
+            },
+            {
+              "noul": 0.7439549565315247
+            },
+            {
+              "score": 0.5129547938704491,
+              "probabilities": {
+                "not urgent": 0.5358785390853882,
+                "moderately urgent": 0.4152882993221283,
+                "very urgent": 0.048833247274160385
+              },
+              "confidence": 0.5358785390853882
+            }
+          ]
+        },
+        {
+          "case": "h06",
+          "choice": "read existing data",
+          "noul": 0.8816660642623901,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 114.11,
+          "answers": [
+            {
+              "choice": "read existing data",
+              "probabilities": {
+                "read existing data": 0.8392843008041382,
+                "explain a concept": 0.07888317108154297,
+                "change settings": 0.08183249086141586
+              },
+              "confidence": 0.8392843008041382
+            },
+            {
+              "noul": 0.8816660642623901
+            },
+            {
+              "score": 0.7018822282552719,
+              "probabilities": {
+                "not urgent": 0.3798219561576843,
+                "moderately urgent": 0.5384738445281982,
+                "very urgent": 0.08170419186353683
+              },
+              "confidence": 0.5384738445281982
+            }
+          ]
+        },
+        {
+          "case": "h07",
+          "choice": "read existing data",
+          "noul": 0.5474880337715149,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 126.58,
+          "answers": [
+            {
+              "choice": "read existing data",
+              "probabilities": {
+                "read existing data": 0.7390551567077637,
+                "explain a concept": 0.1444743126630783,
+                "change settings": 0.11647052317857742
+              },
+              "confidence": 0.7390551567077637
+            },
+            {
+              "noul": 0.5474880337715149
+            },
+            {
+              "score": 0.39096806943416595,
+              "probabilities": {
+                "not urgent": 0.6445410847663879,
+                "moderately urgent": 0.3199497163295746,
+                "very urgent": 0.035509176552295685
+              },
+              "confidence": 0.6445410847663879
+            }
+          ]
+        },
+        {
+          "case": "h08",
+          "choice": "read existing data",
+          "noul": 0.6111358404159546,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 124.17,
+          "answers": [
+            {
+              "choice": "read existing data",
+              "probabilities": {
+                "read existing data": 0.4934168756008148,
+                "explain a concept": 0.11942964047193527,
+                "change settings": 0.3871534466743469
+              },
+              "confidence": 0.4934168756008148
+            },
+            {
+              "noul": 0.6111358404159546
+            },
+            {
+              "score": 0.6457420662045479,
+              "probabilities": {
+                "not urgent": 0.405960351228714,
+                "moderately urgent": 0.5423372387886047,
+                "very urgent": 0.05170241370797157
+              },
+              "confidence": 0.5423372387886047
+            }
+          ]
+        },
+        {
+          "case": "h09",
+          "choice": "explain a concept",
+          "noul": 0.2202419489622116,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 124.95,
+          "answers": [
+            {
+              "choice": "explain a concept",
+              "probabilities": {
+                "read existing data": 0.05870431661605835,
+                "explain a concept": 0.784722626209259,
+                "change settings": 0.15657305717468262
+              },
+              "confidence": 0.784722626209259
+            },
+            {
+              "noul": 0.2202419489622116
+            },
+            {
+              "score": 0.5394834354519844,
+              "probabilities": {
+                "not urgent": 0.5162253975868225,
+                "moderately urgent": 0.42806580662727356,
+                "very urgent": 0.05570881441235542
+              },
+              "confidence": 0.5162253975868225
+            }
+          ]
+        },
+        {
+          "case": "h10",
+          "choice": "explain a concept",
+          "noul": 0.670164942741394,
+          "choice_correct": true,
+          "noul_correct": false,
+          "elapsed_ms": 113.32,
+          "answers": [
+            {
+              "choice": "explain a concept",
+              "probabilities": {
+                "read existing data": 0.1979762613773346,
+                "explain a concept": 0.6134252548217773,
+                "change settings": 0.18859851360321045
+              },
+              "confidence": 0.6134252548217773
+            },
+            {
+              "noul": 0.670164942741394
+            },
+            {
+              "score": 0.602726936340332,
+              "probabilities": {
+                "not urgent": 0.4649830460548401,
+                "moderately urgent": 0.46730709075927734,
+                "very urgent": 0.06770992279052734
+              },
+              "confidence": 0.46730709075927734
+            }
+          ]
+        },
+        {
+          "case": "h11",
+          "choice": "explain a concept",
+          "noul": 0.27653685212135315,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 127.81,
+          "answers": [
+            {
+              "choice": "explain a concept",
+              "probabilities": {
+                "read existing data": 0.08255761861801147,
+                "explain a concept": 0.6994612216949463,
+                "change settings": 0.217981219291687
+              },
+              "confidence": 0.6994612216949463
+            },
+            {
+              "noul": 0.27653685212135315
+            },
+            {
+              "score": 0.3984355181455612,
+              "probabilities": {
+                "not urgent": 0.6563572287559509,
+                "moderately urgent": 0.28884994983673096,
+                "very urgent": 0.05479278415441513
+              },
+              "confidence": 0.6563572287559509
+            }
+          ]
+        },
+        {
+          "case": "h12",
+          "choice": "explain a concept",
+          "noul": 0.8109553456306458,
+          "choice_correct": true,
+          "noul_correct": false,
+          "elapsed_ms": 115.31,
+          "answers": [
+            {
+              "choice": "explain a concept",
+              "probabilities": {
+                "read existing data": 0.34755149483680725,
+                "explain a concept": 0.4620874524116516,
+                "change settings": 0.19036109745502472
+              },
+              "confidence": 0.4620874524116516
+            },
+            {
+              "noul": 0.8109553456306458
+            },
+            {
+              "score": 0.6483028084039688,
+              "probabilities": {
+                "not urgent": 0.42724430561065674,
+                "moderately urgent": 0.49720853567123413,
+                "very urgent": 0.07554713636636734
+              },
+              "confidence": 0.49720853567123413
+            }
+          ]
+        },
+        {
+          "case": "h13",
+          "choice": "explain a concept",
+          "noul": 0.6494699120521545,
+          "choice_correct": true,
+          "noul_correct": false,
+          "elapsed_ms": 117.76,
+          "answers": [
+            {
+              "choice": "explain a concept",
+              "probabilities": {
+                "read existing data": 0.2984955906867981,
+                "explain a concept": 0.5726058483123779,
+                "change settings": 0.12889856100082397
+              },
+              "confidence": 0.5726058483123779
+            },
+            {
+              "noul": 0.6494699120521545
+            },
+            {
+              "score": 0.6542527675628662,
+              "probabilities": {
+                "not urgent": 0.4198162257671356,
+                "moderately urgent": 0.5061147809028625,
+                "very urgent": 0.07406899333000183
+              },
+              "confidence": 0.5061147809028625
+            }
+          ]
+        },
+        {
+          "case": "h14",
+          "choice": "change settings",
+          "noul": 0.059412602335214615,
+          "choice_correct": false,
+          "noul_correct": true,
+          "elapsed_ms": 131.26,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.08392386883497238,
+                "explain a concept": 0.2844228148460388,
+                "change settings": 0.631653368473053
+              },
+              "confidence": 0.631653368473053
+            },
+            {
+              "noul": 0.059412602335214615
+            },
+            {
+              "score": 0.36394529789686203,
+              "probabilities": {
+                "not urgent": 0.6817236542701721,
+                "moderately urgent": 0.2726075351238251,
+                "very urgent": 0.04566888138651848
+              },
+              "confidence": 0.6817236542701721
+            }
+          ]
+        },
+        {
+          "case": "h15",
+          "choice": "explain a concept",
+          "noul": 0.39658674597740173,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 129.11,
+          "answers": [
+            {
+              "choice": "explain a concept",
+              "probabilities": {
+                "read existing data": 0.21130980551242828,
+                "explain a concept": 0.519180953502655,
+                "change settings": 0.2695092558860779
+              },
+              "confidence": 0.519180953502655
+            },
+            {
+              "noul": 0.39658674597740173
+            },
+            {
+              "score": 0.6291405260562897,
+              "probabilities": {
+                "not urgent": 0.4645891487598419,
+                "moderately urgent": 0.4416811168193817,
+                "very urgent": 0.09372970461845398
+              },
+              "confidence": 0.4645891487598419
+            }
+          ]
+        },
+        {
+          "case": "h16",
+          "choice": "explain a concept",
+          "noul": 0.5726504921913147,
+          "choice_correct": true,
+          "noul_correct": false,
+          "elapsed_ms": 115.25,
+          "answers": [
+            {
+              "choice": "explain a concept",
+              "probabilities": {
+                "read existing data": 0.06629237532615662,
+                "explain a concept": 0.8895302414894104,
+                "change settings": 0.044177450239658356
+              },
+              "confidence": 0.8895302414894104
+            },
+            {
+              "noul": 0.5726504921913147
+            },
+            {
+              "score": 0.5614482313394547,
+              "probabilities": {
+                "not urgent": 0.4961879551410675,
+                "moderately urgent": 0.4461759924888611,
+                "very urgent": 0.05763611942529678
+              },
+              "confidence": 0.4961879551410675
+            }
+          ]
+        },
+        {
+          "case": "h17",
+          "choice": "change settings",
+          "noul": 0.3397185802459717,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 111.99,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.020198212936520576,
+                "explain a concept": 0.10180161148309708,
+                "change settings": 0.8780001997947693
+              },
+              "confidence": 0.8780001997947693
+            },
+            {
+              "noul": 0.3397185802459717
+            },
+            {
+              "score": 0.7013543397188187,
+              "probabilities": {
+                "not urgent": 0.3832014501094818,
+                "moderately urgent": 0.5322427153587341,
+                "very urgent": 0.08455581218004227
+              },
+              "confidence": 0.5322427153587341
+            }
+          ]
+        },
+        {
+          "case": "h18",
+          "choice": "change settings",
+          "noul": 0.43496936559677124,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 111.58,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.03294571489095688,
+                "explain a concept": 0.05336711183190346,
+                "change settings": 0.9136872291564941
+              },
+              "confidence": 0.9136872291564941
+            },
+            {
+              "noul": 0.43496936559677124
+            },
+            {
+              "score": 0.6395324170589447,
+              "probabilities": {
+                "not urgent": 0.43838736414909363,
+                "moderately urgent": 0.48369285464286804,
+                "very urgent": 0.07791978120803833
+              },
+              "confidence": 0.48369285464286804
+            }
+          ]
+        },
+        {
+          "case": "h19",
+          "choice": "change settings",
+          "noul": 0.31132861971855164,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 112.82,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.028663992881774902,
+                "explain a concept": 0.02567855268716812,
+                "change settings": 0.94565749168396
+              },
+              "confidence": 0.94565749168396
+            },
+            {
+              "noul": 0.31132861971855164
+            },
+            {
+              "score": 0.6037607938051224,
+              "probabilities": {
+                "not urgent": 0.46715396642684937,
+                "moderately urgent": 0.4619312286376953,
+                "very urgent": 0.07091478258371353
+              },
+              "confidence": 0.46715396642684937
+            }
+          ]
+        },
+        {
+          "case": "h20",
+          "choice": "change settings",
+          "noul": 0.55769282579422,
+          "choice_correct": true,
+          "noul_correct": false,
+          "elapsed_ms": 113.07,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.11960011720657349,
+                "explain a concept": 0.09359223395586014,
+                "change settings": 0.786807656288147
+              },
+              "confidence": 0.786807656288147
+            },
+            {
+              "noul": 0.55769282579422
+            },
+            {
+              "score": 0.5521317571401596,
+              "probabilities": {
+                "not urgent": 0.5086131691932678,
+                "moderately urgent": 0.43064185976982117,
+                "very urgent": 0.06074494868516922
+              },
+              "confidence": 0.5086131691932678
+            }
+          ]
+        },
+        {
+          "case": "h21",
+          "choice": "change settings",
+          "noul": 0.3891238570213318,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 112.8,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.01824227347970009,
+                "explain a concept": 0.05076709762215614,
+                "change settings": 0.9309905767440796
+              },
+              "confidence": 0.9309905767440796
+            },
+            {
+              "noul": 0.3891238570213318
+            },
+            {
+              "score": 0.5605101361870766,
+              "probabilities": {
+                "not urgent": 0.49552828073501587,
+                "moderately urgent": 0.44843339920043945,
+                "very urgent": 0.05603836849331856
+              },
+              "confidence": 0.49552828073501587
+            }
+          ]
+        },
+        {
+          "case": "h22",
+          "choice": "change settings",
+          "noul": 0.1825101375579834,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 112.18,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.007726515643298626,
+                "explain a concept": 0.036500364542007446,
+                "change settings": 0.9557730555534363
+              },
+              "confidence": 0.9557730555534363
+            },
+            {
+              "noul": 0.1825101375579834
+            },
+            {
+              "score": 0.7846396565437317,
+              "probabilities": {
+                "not urgent": 0.3171829581260681,
+                "moderately urgent": 0.5809942483901978,
+                "very urgent": 0.10182270407676697
+              },
+              "confidence": 0.5809942483901978
+            }
+          ]
+        },
+        {
+          "case": "h23",
+          "choice": "change settings",
+          "noul": 0.11207414418458939,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 122.92,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.006810271181166172,
+                "explain a concept": 0.016186736524105072,
+                "change settings": 0.9770029783248901
+              },
+              "confidence": 0.9770029783248901
+            },
+            {
+              "noul": 0.11207414418458939
+            },
+            {
+              "score": 0.32165950536727905,
+              "probabilities": {
+                "not urgent": 0.71333909034729,
+                "moderately urgent": 0.25166237354278564,
+                "very urgent": 0.034998565912246704
+              },
+              "confidence": 0.71333909034729
+            }
+          ]
+        },
+        {
+          "case": "h24",
+          "choice": "change settings",
+          "noul": 0.3309936821460724,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 114.43,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.019225824624300003,
+                "explain a concept": 0.04668847471475601,
+                "change settings": 0.9340857267379761
+              },
+              "confidence": 0.9340857267379761
+            },
+            {
+              "noul": 0.3309936821460724
+            },
+            {
+              "score": 0.6677819192409515,
+              "probabilities": {
+                "not urgent": 0.40996047854423523,
+                "moderately urgent": 0.5122970342636108,
+                "very urgent": 0.07774244248867035
+              },
+              "confidence": 0.5122970342636108
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "cases": 24,
+        "choice_correct": 21,
+        "noul_correct": 17,
+        "median_ms": 114.84
+      }
+    },
+    "isolated_baseline": {
+      "runs": [
+        {
+          "case": "h01",
+          "choice": "read existing data",
+          "noul": 0.662878692150116,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 271.58,
+          "answers": [
+            {
+              "choice": "read existing data",
+              "probabilities": {
+                "read existing data": 0.5768321752548218,
+                "explain a concept": 0.2232724130153656,
+                "change settings": 0.19989542663097382
+              },
+              "confidence": 0.5768321752548218
+            },
+            {
+              "noul": 0.662878692150116
+            },
+            {
+              "score": 0.5969470292329788,
+              "probabilities": {
+                "not urgent": 0.4726695716381073,
+                "moderately urgent": 0.45771387219429016,
+                "very urgent": 0.06961657851934433
+              },
+              "confidence": 0.4726695716381073
+            }
+          ]
+        },
+        {
+          "case": "h02",
+          "choice": "read existing data",
+          "noul": 0.7428101897239685,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 267.99,
+          "answers": [
+            {
+              "choice": "read existing data",
+              "probabilities": {
+                "read existing data": 0.6620191931724548,
+                "explain a concept": 0.13759984076023102,
+                "change settings": 0.20038098096847534
+              },
+              "confidence": 0.6620191931724548
+            },
+            {
+              "noul": 0.7428101897239685
+            },
+            {
+              "score": 0.6843728572130203,
+              "probabilities": {
+                "not urgent": 0.39526426792144775,
+                "moderately urgent": 0.525098443031311,
+                "very urgent": 0.07963720709085464
+              },
+              "confidence": 0.525098443031311
+            }
+          ]
+        },
+        {
+          "case": "h03",
+          "choice": "change settings",
+          "noul": 0.3239687383174896,
+          "choice_correct": false,
+          "noul_correct": false,
+          "elapsed_ms": 280.18,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.11655435711145401,
+                "explain a concept": 0.11348385363817215,
+                "change settings": 0.7699618339538574
+              },
+              "confidence": 0.7699618339538574
+            },
+            {
+              "noul": 0.3239687383174896
+            },
+            {
+              "score": 0.4421979561448097,
+              "probabilities": {
+                "not urgent": 0.6100907921791077,
+                "moderately urgent": 0.33762049674987793,
+                "very urgent": 0.0522887296974659
+              },
+              "confidence": 0.6100907921791077
+            }
+          ]
+        },
+        {
+          "case": "h04",
+          "choice": "change settings",
+          "noul": 0.4382530450820923,
+          "choice_correct": false,
+          "noul_correct": false,
+          "elapsed_ms": 265.55,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.28157931566238403,
+                "explain a concept": 0.1447559893131256,
+                "change settings": 0.573664665222168
+              },
+              "confidence": 0.573664665222168
+            },
+            {
+              "noul": 0.4382530450820923
+            },
+            {
+              "score": 0.5524127185344696,
+              "probabilities": {
+                "not urgent": 0.5165522694587708,
+                "moderately urgent": 0.41448286175727844,
+                "very urgent": 0.06896492838859558
+              },
+              "confidence": 0.5165522694587708
+            }
+          ]
+        },
+        {
+          "case": "h05",
+          "choice": "read existing data",
+          "noul": 0.7403339743614197,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 265.82,
+          "answers": [
+            {
+              "choice": "read existing data",
+              "probabilities": {
+                "read existing data": 0.5908122658729553,
+                "explain a concept": 0.16617757081985474,
+                "change settings": 0.24301020801067352
+              },
+              "confidence": 0.5908122658729553
+            },
+            {
+              "noul": 0.7403339743614197
+            },
+            {
+              "score": 0.5072908326983452,
+              "probabilities": {
+                "not urgent": 0.5472209453582764,
+                "moderately urgent": 0.39826714992523193,
+                "very urgent": 0.054511841386556625
+              },
+              "confidence": 0.5472209453582764
+            }
+          ]
+        },
+        {
+          "case": "h06",
+          "choice": "read existing data",
+          "noul": 0.7965288758277893,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 272.25,
+          "answers": [
+            {
+              "choice": "read existing data",
+              "probabilities": {
+                "read existing data": 0.7132211327552795,
+                "explain a concept": 0.1221250370144844,
+                "change settings": 0.16465377807617188
+              },
+              "confidence": 0.7132211327552795
+            },
+            {
+              "noul": 0.7965288758277893
+            },
+            {
+              "score": 0.6752471923828125,
+              "probabilities": {
+                "not urgent": 0.406662255525589,
+                "moderately urgent": 0.51142817735672,
+                "very urgent": 0.08190950751304626
+              },
+              "confidence": 0.51142817735672
+            }
+          ]
+        },
+        {
+          "case": "h07",
+          "choice": "read existing data",
+          "noul": 0.6088855862617493,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 312.62,
+          "answers": [
+            {
+              "choice": "read existing data",
+              "probabilities": {
+                "read existing data": 0.42156079411506653,
+                "explain a concept": 0.26867833733558655,
+                "change settings": 0.30976080894470215
+              },
+              "confidence": 0.42156079411506653
+            },
+            {
+              "noul": 0.6088855862617493
+            },
+            {
+              "score": 0.5276782289147377,
+              "probabilities": {
+                "not urgent": 0.5302499532699585,
+                "moderately urgent": 0.41182175278663635,
+                "very urgent": 0.057928238064050674
+              },
+              "confidence": 0.5302499532699585
+            }
+          ]
+        },
+        {
+          "case": "h08",
+          "choice": "change settings",
+          "noul": 0.40318194031715393,
+          "choice_correct": false,
+          "noul_correct": false,
+          "elapsed_ms": 281.76,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.30377185344696045,
+                "explain a concept": 0.12388338148593903,
+                "change settings": 0.5723447799682617
+              },
+              "confidence": 0.5723447799682617
+            },
+            {
+              "noul": 0.40318194031715393
+            },
+            {
+              "score": 0.6061414778232574,
+              "probabilities": {
+                "not urgent": 0.4492436647415161,
+                "moderately urgent": 0.4953712522983551,
+                "very urgent": 0.05538511276245117
+              },
+              "confidence": 0.4953712522983551
+            }
+          ]
+        },
+        {
+          "case": "h09",
+          "choice": "explain a concept",
+          "noul": 0.2941112220287323,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 279.06,
+          "answers": [
+            {
+              "choice": "explain a concept",
+              "probabilities": {
+                "read existing data": 0.11843491345643997,
+                "explain a concept": 0.7888761162757874,
+                "change settings": 0.09268894791603088
+              },
+              "confidence": 0.7888761162757874
+            },
+            {
+              "noul": 0.2941112220287323
+            },
+            {
+              "score": 0.56270432472229,
+              "probabilities": {
+                "not urgent": 0.4986093044281006,
+                "moderately urgent": 0.4400770664215088,
+                "very urgent": 0.061313629150390625
+              },
+              "confidence": 0.4986093044281006
+            }
+          ]
+        },
+        {
+          "case": "h10",
+          "choice": "explain a concept",
+          "noul": 0.47398075461387634,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 265.78,
+          "answers": [
+            {
+              "choice": "explain a concept",
+              "probabilities": {
+                "read existing data": 0.13256774842739105,
+                "explain a concept": 0.6480558514595032,
+                "change settings": 0.21937642991542816
+              },
+              "confidence": 0.6480558514595032
+            },
+            {
+              "noul": 0.47398075461387634
+            },
+            {
+              "score": 0.8075931966304779,
+              "probabilities": {
+                "not urgent": 0.3306185007095337,
+                "moderately urgent": 0.5311697125434875,
+                "very urgent": 0.13821174204349518
+              },
+              "confidence": 0.5311697125434875
+            }
+          ]
+        },
+        {
+          "case": "h11",
+          "choice": "explain a concept",
+          "noul": 0.25909045338630676,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 308.87,
+          "answers": [
+            {
+              "choice": "explain a concept",
+              "probabilities": {
+                "read existing data": 0.11967764049768448,
+                "explain a concept": 0.7617698907852173,
+                "change settings": 0.11855242401361465
+              },
+              "confidence": 0.7617698907852173
+            },
+            {
+              "noul": 0.25909045338630676
+            },
+            {
+              "score": 0.43168216943740845,
+              "probabilities": {
+                "not urgent": 0.6335338354110718,
+                "moderately urgent": 0.3012502193450928,
+                "very urgent": 0.06521597504615784
+              },
+              "confidence": 0.6335338354110718
+            }
+          ]
+        },
+        {
+          "case": "h12",
+          "choice": "explain a concept",
+          "noul": 0.5329678654670715,
+          "choice_correct": true,
+          "noul_correct": false,
+          "elapsed_ms": 260.54,
+          "answers": [
+            {
+              "choice": "explain a concept",
+              "probabilities": {
+                "read existing data": 0.2155291736125946,
+                "explain a concept": 0.6099623441696167,
+                "change settings": 0.17450861632823944
+              },
+              "confidence": 0.6099623441696167
+            },
+            {
+              "noul": 0.5329678654670715
+            },
+            {
+              "score": 0.7901646792888641,
+              "probabilities": {
+                "not urgent": 0.3268575370311737,
+                "moderately urgent": 0.5561202764511108,
+                "very urgent": 0.11702220141887665
+              },
+              "confidence": 0.5561202764511108
+            }
+          ]
+        },
+        {
+          "case": "h13",
+          "choice": "explain a concept",
+          "noul": 0.41658279299736023,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 265.04,
+          "answers": [
+            {
+              "choice": "explain a concept",
+              "probabilities": {
+                "read existing data": 0.2402295470237732,
+                "explain a concept": 0.5871689319610596,
+                "change settings": 0.17260153591632843
+              },
+              "confidence": 0.5871689319610596
+            },
+            {
+              "noul": 0.41658279299736023
+            },
+            {
+              "score": 0.7707899659872055,
+              "probabilities": {
+                "not urgent": 0.3401445746421814,
+                "moderately urgent": 0.5489208698272705,
+                "very urgent": 0.1109345480799675
+              },
+              "confidence": 0.5489208698272705
+            }
+          ]
+        },
+        {
+          "case": "h14",
+          "choice": "change settings",
+          "noul": 0.21145470440387726,
+          "choice_correct": false,
+          "noul_correct": true,
+          "elapsed_ms": 310.84,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.15711434185504913,
+                "explain a concept": 0.37370821833610535,
+                "change settings": 0.4691774249076843
+              },
+              "confidence": 0.4691774249076843
+            },
+            {
+              "noul": 0.21145470440387726
+            },
+            {
+              "score": 0.5813739448785782,
+              "probabilities": {
+                "not urgent": 0.495624840259552,
+                "moderately urgent": 0.427376389503479,
+                "very urgent": 0.07699877768754959
+              },
+              "confidence": 0.495624840259552
+            }
+          ]
+        },
+        {
+          "case": "h15",
+          "choice": "explain a concept",
+          "noul": 0.24318556487560272,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 283.88,
+          "answers": [
+            {
+              "choice": "explain a concept",
+              "probabilities": {
+                "read existing data": 0.16182471811771393,
+                "explain a concept": 0.6018078923225403,
+                "change settings": 0.23636740446090698
+              },
+              "confidence": 0.6018078923225403
+            },
+            {
+              "noul": 0.24318556487560272
+            },
+            {
+              "score": 0.6620346009731293,
+              "probabilities": {
+                "not urgent": 0.4643506705760956,
+                "moderately urgent": 0.4092641770839691,
+                "very urgent": 0.12638521194458008
+              },
+              "confidence": 0.4643506705760956
+            }
+          ]
+        },
+        {
+          "case": "h16",
+          "choice": "explain a concept",
+          "noul": 0.47876402735710144,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 268.43,
+          "answers": [
+            {
+              "choice": "explain a concept",
+              "probabilities": {
+                "read existing data": 0.07359125465154648,
+                "explain a concept": 0.8781179189682007,
+                "change settings": 0.048290833830833435
+              },
+              "confidence": 0.8781179189682007
+            },
+            {
+              "noul": 0.47876402735710144
+            },
+            {
+              "score": 0.712545707821846,
+              "probabilities": {
+                "not urgent": 0.37459608912467957,
+                "moderately urgent": 0.5382620096206665,
+                "very urgent": 0.08714184910058975
+              },
+              "confidence": 0.5382620096206665
+            }
+          ]
+        },
+        {
+          "case": "h17",
+          "choice": "change settings",
+          "noul": 0.38694629073143005,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 274.14,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.08421259373426437,
+                "explain a concept": 0.13565215468406677,
+                "change settings": 0.7801352739334106
+              },
+              "confidence": 0.7801352739334106
+            },
+            {
+              "noul": 0.38694629073143005
+            },
+            {
+              "score": 0.7453561276197433,
+              "probabilities": {
+                "not urgent": 0.3570946455001831,
+                "moderately urgent": 0.5404547452926636,
+                "very urgent": 0.10245069116353989
+              },
+              "confidence": 0.5404547452926636
+            }
+          ]
+        },
+        {
+          "case": "h18",
+          "choice": "change settings",
+          "noul": 0.41073718667030334,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 277.26,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.11527197808027267,
+                "explain a concept": 0.13426919281482697,
+                "change settings": 0.750458836555481
+              },
+              "confidence": 0.750458836555481
+            },
+            {
+              "noul": 0.41073718667030334
+            },
+            {
+              "score": 0.7418435364961624,
+              "probabilities": {
+                "not urgent": 0.36963438987731934,
+                "moderately urgent": 0.5188877582550049,
+                "very urgent": 0.11147788912057877
+              },
+              "confidence": 0.5188877582550049
+            }
+          ]
+        },
+        {
+          "case": "h19",
+          "choice": "change settings",
+          "noul": 0.36747726798057556,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 269.13,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.0947931706905365,
+                "explain a concept": 0.11009807139635086,
+                "change settings": 0.7951087355613708
+              },
+              "confidence": 0.7951087355613708
+            },
+            {
+              "noul": 0.36747726798057556
+            },
+            {
+              "score": 0.7312715649604797,
+              "probabilities": {
+                "not urgent": 0.3691568076610565,
+                "moderately urgent": 0.530414879322052,
+                "very urgent": 0.10042834281921387
+              },
+              "confidence": 0.530414879322052
+            }
+          ]
+        },
+        {
+          "case": "h20",
+          "choice": "change settings",
+          "noul": 0.21211034059524536,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 266.22,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.13354027271270752,
+                "explain a concept": 0.17429904639720917,
+                "change settings": 0.6921606659889221
+              },
+              "confidence": 0.6921606659889221
+            },
+            {
+              "noul": 0.21211034059524536
+            },
+            {
+              "score": 0.5567582994699478,
+              "probabilities": {
+                "not urgent": 0.5153955221176147,
+                "moderately urgent": 0.4124507009983063,
+                "very urgent": 0.07215379923582077
+              },
+              "confidence": 0.5153955221176147
+            }
+          ]
+        },
+        {
+          "case": "h21",
+          "choice": "change settings",
+          "noul": 0.5580878257751465,
+          "choice_correct": true,
+          "noul_correct": false,
+          "elapsed_ms": 277.24,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.0652163103222847,
+                "explain a concept": 0.10910230129957199,
+                "change settings": 0.8256813287734985
+              },
+              "confidence": 0.8256813287734985
+            },
+            {
+              "noul": 0.5580878257751465
+            },
+            {
+              "score": 0.5987036675214767,
+              "probabilities": {
+                "not urgent": 0.4685746431350708,
+                "moderately urgent": 0.4641469717025757,
+                "very urgent": 0.06727834790945053
+              },
+              "confidence": 0.4685746431350708
+            }
+          ]
+        },
+        {
+          "case": "h22",
+          "choice": "change settings",
+          "noul": 0.23903223872184753,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 262.16,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.05179848521947861,
+                "explain a concept": 0.06553042680025101,
+                "change settings": 0.8826711177825928
+              },
+              "confidence": 0.8826711177825928
+            },
+            {
+              "noul": 0.23903223872184753
+            },
+            {
+              "score": 0.9192373156547546,
+              "probabilities": {
+                "not urgent": 0.21958421170711517,
+                "moderately urgent": 0.6415943503379822,
+                "very urgent": 0.13882148265838623
+              },
+              "confidence": 0.6415943503379822
+            }
+          ]
+        },
+        {
+          "case": "h23",
+          "choice": "change settings",
+          "noul": 0.1547822207212448,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 271.98,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.02062119171023369,
+                "explain a concept": 0.04624096676707268,
+                "change settings": 0.9331378936767578
+              },
+              "confidence": 0.9331378936767578
+            },
+            {
+              "noul": 0.1547822207212448
+            },
+            {
+              "score": 0.48709268867969513,
+              "probabilities": {
+                "not urgent": 0.5763745307922363,
+                "moderately urgent": 0.3601582646369934,
+                "very urgent": 0.06346721202135086
+              },
+              "confidence": 0.5763745307922363
+            }
+          ]
+        },
+        {
+          "case": "h24",
+          "choice": "change settings",
+          "noul": 0.4425452947616577,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 255.17,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.06118381768465042,
+                "explain a concept": 0.07345017045736313,
+                "change settings": 0.8653659820556641
+              },
+              "confidence": 0.8653659820556641
+            },
+            {
+              "noul": 0.4425452947616577
+            },
+            {
+              "score": 0.6952488422393799,
+              "probabilities": {
+                "not urgent": 0.4067285358905792,
+                "moderately urgent": 0.49129408597946167,
+                "very urgent": 0.1019773781299591
+              },
+              "confidence": 0.49129408597946167
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "cases": 24,
+        "choice_correct": 20,
+        "noul_correct": 19,
+        "median_ms": 271.78
+      }
+    }
+  }
+}
