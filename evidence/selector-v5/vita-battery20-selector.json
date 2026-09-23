@@ -1,0 +1,337 @@
+{
+  "scope": "Exact canonical prompt sequence with last four user prompts only; synthetic full catalog inventory, no user records, no assistant answers, no browser, DeepSeek or final answer evaluation.",
+  "selector_sha256": "f9cecdb0fdf09167da7bb62c5ef8ce6891ac4480a16a9b8820c108d30365dd46",
+  "prompt_source_sha256": "2a7497e66caa2c5c48792b8c11ceaaa05d2c452ed44c44a5d652cc0a3527d774",
+  "script_sha256": "662beec15a1ff8564046f642b11ed7ae9629bf11f410cff5fb5d948cacb57ec6",
+  "metric_inventory_count": 120,
+  "planned": 7,
+  "handoff": 13,
+  "total": 20,
+  "rows": [
+    {
+      "id": 1,
+      "status": "handoff",
+      "queries": [],
+      "reasons": [
+        "unsupported_operation"
+      ],
+      "operation_count": 0,
+      "elapsed_ms": 224.20420800335705
+    },
+    {
+      "id": 2,
+      "status": "handoff",
+      "queries": [],
+      "reasons": [
+        "unsupported_operation"
+      ],
+      "operation_count": 0,
+      "elapsed_ms": 182.20791697967798
+    },
+    {
+      "id": 3,
+      "status": "handoff",
+      "queries": [],
+      "reasons": [
+        "unsupported_operation"
+      ],
+      "operation_count": 0,
+      "elapsed_ms": 163.7115830089897
+    },
+    {
+      "id": 4,
+      "status": "handoff",
+      "queries": [],
+      "reasons": [
+        "query_contract_unrepresentable"
+      ],
+      "operation_count": 0,
+      "elapsed_ms": 349.78300001239404
+    },
+    {
+      "id": 5,
+      "status": "planned",
+      "queries": [
+        {
+          "kind": "health",
+          "metrics": [
+            "resilience_sleep_recovery",
+            "sleep_consistency",
+            "sleep_deep",
+            "sleep_efficiency",
+            "sleep_hr_average",
+            "sleep_hr_max",
+            "sleep_latency",
+            "sleep_light",
+            "sleep_performance",
+            "sleep_rem",
+            "sleep_rr_max",
+            "sleep_rr_min",
+            "sleep_score",
+            "total_sleep",
+            "vita_sleep_score"
+          ],
+          "records": [],
+          "operation": "trend",
+          "period": {
+            "kind": "relative",
+            "amount": 6,
+            "unit": "months"
+          },
+          "source": null,
+          "profile_fields": [],
+          "limit": null,
+          "date_basis": "observed_at"
+        }
+      ],
+      "reasons": [],
+      "operation_count": 2,
+      "elapsed_ms": 393.09579198015854
+    },
+    {
+      "id": 6,
+      "status": "planned",
+      "queries": [
+        {
+          "kind": "health",
+          "metrics": [
+            "heart_rate_variability"
+          ],
+          "records": [],
+          "operation": "trend",
+          "period": {
+            "kind": "relative",
+            "amount": 7,
+            "unit": "days"
+          },
+          "source": null,
+          "profile_fields": [],
+          "limit": null,
+          "date_basis": "observed_at"
+        }
+      ],
+      "reasons": [],
+      "operation_count": 1,
+      "elapsed_ms": 348.60850003315136
+    },
+    {
+      "id": 7,
+      "status": "handoff",
+      "queries": [],
+      "reasons": [
+        "source_filter"
+      ],
+      "operation_count": 0,
+      "elapsed_ms": 192.2804579953663
+    },
+    {
+      "id": 8,
+      "status": "handoff",
+      "queries": [],
+      "reasons": [
+        "unresolved_temporal_phrase"
+      ],
+      "operation_count": 0,
+      "elapsed_ms": 168.77491696504876
+    },
+    {
+      "id": 9,
+      "status": "planned",
+      "queries": [
+        {
+          "kind": "health",
+          "metrics": [
+            "apob"
+          ],
+          "records": [],
+          "operation": "trend",
+          "period": {
+            "kind": "all_history"
+          },
+          "source": null,
+          "profile_fields": [],
+          "limit": null,
+          "date_basis": "observed_at"
+        }
+      ],
+      "reasons": [],
+      "operation_count": 1,
+      "elapsed_ms": 180.89183297706768
+    },
+    {
+      "id": 10,
+      "status": "planned",
+      "queries": [
+        {
+          "kind": "health",
+          "metrics": [
+            "fasting_glucose",
+            "hba1c",
+            "hs_crp"
+          ],
+          "records": [],
+          "operation": "trend",
+          "period": {
+            "kind": "all_history"
+          },
+          "source": null,
+          "profile_fields": [],
+          "limit": null,
+          "date_basis": "observed_at"
+        }
+      ],
+      "reasons": [],
+      "operation_count": 1,
+      "elapsed_ms": 476.92679101601243
+    },
+    {
+      "id": 11,
+      "status": "planned",
+      "queries": [
+        {
+          "kind": "health",
+          "metrics": [],
+          "records": [
+            "profile"
+          ],
+          "operation": "latest",
+          "period": {
+            "kind": "all_history"
+          },
+          "source": null,
+          "profile_fields": [
+            "allergies",
+            "medications"
+          ],
+          "limit": null,
+          "date_basis": "current_snapshot"
+        }
+      ],
+      "reasons": [],
+      "operation_count": 1,
+      "elapsed_ms": 30.67787503823638
+    },
+    {
+      "id": 12,
+      "status": "planned",
+      "queries": [
+        {
+          "kind": "health",
+          "metrics": [],
+          "records": [
+            "profile"
+          ],
+          "operation": "latest",
+          "period": {
+            "kind": "all_history"
+          },
+          "source": null,
+          "profile_fields": [
+            "goals"
+          ],
+          "limit": null,
+          "date_basis": "current_snapshot"
+        }
+      ],
+      "reasons": [],
+      "operation_count": 1,
+      "elapsed_ms": 17.57666701450944
+    },
+    {
+      "id": 13,
+      "status": "planned",
+      "queries": [
+        {
+          "kind": "health",
+          "metrics": [],
+          "records": [
+            "profile"
+          ],
+          "operation": "latest",
+          "period": {
+            "kind": "all_history"
+          },
+          "source": null,
+          "profile_fields": [
+            "chronic_conditions"
+          ],
+          "limit": null,
+          "date_basis": "current_snapshot"
+        }
+      ],
+      "reasons": [],
+      "operation_count": 1,
+      "elapsed_ms": 17.155958979856223
+    },
+    {
+      "id": 14,
+      "status": "handoff",
+      "queries": [],
+      "reasons": [
+        "query_contract_unrepresentable"
+      ],
+      "operation_count": 0,
+      "elapsed_ms": 513.2622090168297
+    },
+    {
+      "id": 15,
+      "status": "handoff",
+      "queries": [],
+      "reasons": [
+        "profile_history_unavailable"
+      ],
+      "operation_count": 0,
+      "elapsed_ms": 34.83429102925584
+    },
+    {
+      "id": 16,
+      "status": "handoff",
+      "queries": [],
+      "reasons": [
+        "clock_or_timezone_qualifier_unavailable"
+      ],
+      "operation_count": 0,
+      "elapsed_ms": 3.288750012870878
+    },
+    {
+      "id": 17,
+      "status": "handoff",
+      "queries": [],
+      "reasons": [
+        "unresolved_temporal_phrase"
+      ],
+      "operation_count": 0,
+      "elapsed_ms": 200.90304204495624
+    },
+    {
+      "id": 18,
+      "status": "handoff",
+      "queries": [],
+      "reasons": [
+        "profile_read_intent_unconfirmed"
+      ],
+      "operation_count": 0,
+      "elapsed_ms": 34.98400002717972
+    },
+    {
+      "id": 19,
+      "status": "handoff",
+      "queries": [],
+      "reasons": [
+        "operation_budget_exceeded"
+      ],
+      "operation_count": 0,
+      "elapsed_ms": 187.71591602126136
+    },
+    {
+      "id": 20,
+      "status": "handoff",
+      "queries": [],
+      "reasons": [
+        "unresolved_metric_or_record"
+      ],
+      "operation_count": 0,
+      "elapsed_ms": 215.69683396955952
+    }
+  ]
+}

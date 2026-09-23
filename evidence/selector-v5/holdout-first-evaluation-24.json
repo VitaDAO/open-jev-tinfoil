@@ -1,0 +1,1614 @@
+{
+  "selector_sha256": "6d8d720b859b8f4dab1027545f4b8b674a1b852d268ebd5ce83ba91b225e5b83",
+  "fixture_sha256": "197ee23f1ba6ff218a27916dfae3b7e2b0567deffeb753928218fea6903adcae",
+  "evaluator_sha256": "e78683257704b07048b09977b870d041ddbce5cd72f8523329eaf0f343394052",
+  "outcomes": {
+    "correct_plan": 12,
+    "correct_handoff": 12,
+    "missed_plan": 0,
+    "wrong_plan": 0
+  },
+  "compile_failures": 0,
+  "rows": [
+    {
+      "id": "h01",
+      "request": "Show my latest 4 lab reports in 2024",
+      "history": [],
+      "expected_queries": [
+        {
+          "kind": "health",
+          "metrics": [],
+          "records": [
+            "labs"
+          ],
+          "operation": "latest",
+          "period": {
+            "kind": "between",
+            "start_at": "2024-01-01",
+            "end_at": "2024-12-31"
+          },
+          "source": null,
+          "profile_fields": [],
+          "limit": 4,
+          "date_basis": "exam_date"
+        }
+      ],
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [],
+            "records": [
+              "labs"
+            ],
+            "operation": "latest",
+            "period": {
+              "kind": "between",
+              "start_at": "2024-01-01",
+              "end_at": "2024-12-31"
+            },
+            "source": null,
+            "profile_fields": [],
+            "limit": 4,
+            "date_basis": "exam_date"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "6d8d720b859b8f4dab1027545f4b8b674a1b852d268ebd5ce83ba91b225e5b83",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "89da2007431d7c9d5148666142e335d4f5a9b85531e1d5ededd313b502ba7ea4",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            }
+          ]
+        }
+      },
+      "grade": "correct_plan",
+      "batch": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "concepts": [],
+            "record_types": [
+              "labs"
+            ],
+            "profile_fields": [],
+            "purpose": "latest",
+            "range": {
+              "kind": "between",
+              "start_at": "2024-01-01",
+              "end_at": "2024-12-31"
+            },
+            "time_zone": "UTC",
+            "grouping": "none",
+            "result_view": "summary",
+            "record_detail_dataset": "labs.upload_metadata.v1",
+            "record_detail_limit": 4
+          }
+        ],
+        "literature_reads": [],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "compile_error": null,
+      "elapsed_ms": 107.84570901887491
+    },
+    {
+      "id": "h02",
+      "request": "Show my goals and family history",
+      "history": [],
+      "expected_queries": [
+        {
+          "kind": "health",
+          "metrics": [],
+          "records": [
+            "profile"
+          ],
+          "operation": "latest",
+          "period": {
+            "kind": "all_history"
+          },
+          "source": null,
+          "profile_fields": [
+            "family_history",
+            "goals"
+          ],
+          "limit": null,
+          "date_basis": "current_snapshot"
+        }
+      ],
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [],
+            "records": [
+              "profile"
+            ],
+            "operation": "latest",
+            "period": {
+              "kind": "all_history"
+            },
+            "source": null,
+            "profile_fields": [
+              "family_history",
+              "goals"
+            ],
+            "limit": null,
+            "date_basis": "current_snapshot"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "6d8d720b859b8f4dab1027545f4b8b674a1b852d268ebd5ce83ba91b225e5b83",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "a33367d516f8eed148073da50fb42092d3dbf8bfeb155b740d49baf4fff68368",
+        "diagnostics": {}
+      },
+      "grade": "correct_plan",
+      "batch": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "concepts": [],
+            "record_types": [
+              "profile"
+            ],
+            "profile_fields": [
+              "family_history",
+              "goals"
+            ],
+            "purpose": "latest",
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "grouping": "none",
+            "result_view": "summary"
+          }
+        ],
+        "literature_reads": [],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "compile_error": null,
+      "elapsed_ms": 3.0230419943109155
+    },
+    {
+      "id": "h03",
+      "request": "Show my steps from Garmin yesterday",
+      "history": [],
+      "expected_queries": [
+        {
+          "kind": "health",
+          "metrics": [
+            "steps"
+          ],
+          "records": [],
+          "operation": "trend",
+          "period": {
+            "kind": "between",
+            "start_at": "2026-09-22",
+            "end_at": "2026-09-22"
+          },
+          "source": "garmin",
+          "profile_fields": [],
+          "limit": null,
+          "date_basis": "observed_at"
+        }
+      ],
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [
+              "steps"
+            ],
+            "records": [],
+            "operation": "trend",
+            "period": {
+              "kind": "between",
+              "start_at": "2026-09-22",
+              "end_at": "2026-09-22"
+            },
+            "source": "garmin",
+            "profile_fields": [],
+            "limit": null,
+            "date_basis": "observed_at"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "6d8d720b859b8f4dab1027545f4b8b674a1b852d268ebd5ce83ba91b225e5b83",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "b772caee2110a30b714cfa58014ebd8857d7419e171f92b799823b1a11578a59",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            }
+          ]
+        }
+      },
+      "grade": "correct_plan",
+      "batch": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "concepts": [
+              "steps"
+            ],
+            "record_types": [],
+            "profile_fields": [],
+            "purpose": "trend",
+            "range": {
+              "kind": "between",
+              "start_at": "2026-09-22",
+              "end_at": "2026-09-22"
+            },
+            "time_zone": "UTC",
+            "grouping": "auto",
+            "result_view": "summary",
+            "source": "garmin"
+          }
+        ],
+        "literature_reads": [],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "compile_error": null,
+      "elapsed_ms": 106.93587496643886
+    },
+    {
+      "id": "h04",
+      "request": "Show my ApoB in 2023; show my steps in 2024",
+      "history": [],
+      "expected_queries": [
+        {
+          "kind": "health",
+          "metrics": [
+            "apob"
+          ],
+          "records": [],
+          "operation": "trend",
+          "period": {
+            "kind": "between",
+            "start_at": "2023-01-01",
+            "end_at": "2023-12-31"
+          },
+          "source": null,
+          "profile_fields": [],
+          "limit": null,
+          "date_basis": "observed_at"
+        },
+        {
+          "kind": "health",
+          "metrics": [
+            "steps"
+          ],
+          "records": [],
+          "operation": "trend",
+          "period": {
+            "kind": "between",
+            "start_at": "2024-01-01",
+            "end_at": "2024-12-31"
+          },
+          "source": null,
+          "profile_fields": [],
+          "limit": null,
+          "date_basis": "observed_at"
+        }
+      ],
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [
+              "apob"
+            ],
+            "records": [],
+            "operation": "trend",
+            "period": {
+              "kind": "between",
+              "start_at": "2023-01-01",
+              "end_at": "2023-12-31"
+            },
+            "source": null,
+            "profile_fields": [],
+            "limit": null,
+            "date_basis": "observed_at"
+          },
+          {
+            "kind": "health",
+            "metrics": [
+              "steps"
+            ],
+            "records": [],
+            "operation": "trend",
+            "period": {
+              "kind": "between",
+              "start_at": "2024-01-01",
+              "end_at": "2024-12-31"
+            },
+            "source": null,
+            "profile_fields": [],
+            "limit": null,
+            "date_basis": "observed_at"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "6d8d720b859b8f4dab1027545f4b8b674a1b852d268ebd5ce83ba91b225e5b83",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "6c43eff0a6475f6b7d2a23e77e625e734b959b628ef05e0093a925dbe8f22b19",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            },
+            {
+              "status": "selected",
+              "reason_codes": []
+            }
+          ]
+        }
+      },
+      "grade": "correct_plan",
+      "batch": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "concepts": [
+              "apob"
+            ],
+            "record_types": [],
+            "profile_fields": [],
+            "purpose": "trend",
+            "range": {
+              "kind": "between",
+              "start_at": "2023-01-01",
+              "end_at": "2023-12-31"
+            },
+            "time_zone": "UTC",
+            "grouping": "auto",
+            "result_view": "summary"
+          },
+          {
+            "operation_id": 2,
+            "concepts": [
+              "steps"
+            ],
+            "record_types": [],
+            "profile_fields": [],
+            "purpose": "trend",
+            "range": {
+              "kind": "between",
+              "start_at": "2024-01-01",
+              "end_at": "2024-12-31"
+            },
+            "time_zone": "UTC",
+            "grouping": "auto",
+            "result_view": "summary"
+          }
+        ],
+        "literature_reads": [],
+        "required_operation_ids": [
+          1,
+          2
+        ]
+      },
+      "compile_error": null,
+      "elapsed_ms": 216.70745802111924
+    },
+    {
+      "id": "h05",
+      "request": "Show my complete profile; show my lab reports in 2024",
+      "history": [],
+      "expected_queries": [
+        {
+          "kind": "health",
+          "metrics": [],
+          "records": [
+            "profile"
+          ],
+          "operation": "latest",
+          "period": {
+            "kind": "all_history"
+          },
+          "source": null,
+          "profile_fields": [
+            "all"
+          ],
+          "limit": null,
+          "date_basis": "current_snapshot"
+        },
+        {
+          "kind": "health",
+          "metrics": [],
+          "records": [
+            "labs"
+          ],
+          "operation": "latest",
+          "period": {
+            "kind": "between",
+            "start_at": "2024-01-01",
+            "end_at": "2024-12-31"
+          },
+          "source": null,
+          "profile_fields": [],
+          "limit": null,
+          "date_basis": "exam_date"
+        }
+      ],
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [],
+            "records": [
+              "profile"
+            ],
+            "operation": "latest",
+            "period": {
+              "kind": "all_history"
+            },
+            "source": null,
+            "profile_fields": [
+              "all"
+            ],
+            "limit": null,
+            "date_basis": "current_snapshot"
+          },
+          {
+            "kind": "health",
+            "metrics": [],
+            "records": [
+              "labs"
+            ],
+            "operation": "latest",
+            "period": {
+              "kind": "between",
+              "start_at": "2024-01-01",
+              "end_at": "2024-12-31"
+            },
+            "source": null,
+            "profile_fields": [],
+            "limit": null,
+            "date_basis": "exam_date"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "6d8d720b859b8f4dab1027545f4b8b674a1b852d268ebd5ce83ba91b225e5b83",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "f64b21e8ab126f279ddc1c75524a5562d9ea3421c320540aba93b9124b4995a8",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            }
+          ]
+        }
+      },
+      "grade": "correct_plan",
+      "batch": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "concepts": [],
+            "record_types": [
+              "profile"
+            ],
+            "profile_fields": [
+              "all"
+            ],
+            "purpose": "latest",
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "grouping": "none",
+            "result_view": "summary"
+          },
+          {
+            "operation_id": 2,
+            "concepts": [],
+            "record_types": [
+              "labs"
+            ],
+            "profile_fields": [],
+            "purpose": "latest",
+            "range": {
+              "kind": "between",
+              "start_at": "2024-01-01",
+              "end_at": "2024-12-31"
+            },
+            "time_zone": "UTC",
+            "grouping": "none",
+            "result_view": "summary",
+            "record_detail_dataset": "labs.upload_metadata.v1",
+            "record_detail_limit": 200
+          }
+        ],
+        "literature_reads": [],
+        "required_operation_ids": [
+          1,
+          2
+        ]
+      },
+      "compile_error": null,
+      "elapsed_ms": 110.55245803436264
+    },
+    {
+      "id": "h06",
+      "request": "Show my respiratory rate from Garmin last month",
+      "history": [],
+      "expected_queries": [
+        {
+          "kind": "health",
+          "metrics": [
+            "respiratory_rate"
+          ],
+          "records": [],
+          "operation": "trend",
+          "period": {
+            "kind": "between",
+            "start_at": "2026-08-01",
+            "end_at": "2026-08-31"
+          },
+          "source": "garmin",
+          "profile_fields": [],
+          "limit": null,
+          "date_basis": "observed_at"
+        }
+      ],
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [
+              "respiratory_rate"
+            ],
+            "records": [],
+            "operation": "trend",
+            "period": {
+              "kind": "between",
+              "start_at": "2026-08-01",
+              "end_at": "2026-08-31"
+            },
+            "source": "garmin",
+            "profile_fields": [],
+            "limit": null,
+            "date_basis": "observed_at"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "6d8d720b859b8f4dab1027545f4b8b674a1b852d268ebd5ce83ba91b225e5b83",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "76e1b771e2986825703a43cfe0a866b8b7bf656e5774776693f1a01ac1b6f7a6",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            }
+          ]
+        }
+      },
+      "grade": "correct_plan",
+      "batch": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "concepts": [
+              "respiratory_rate"
+            ],
+            "record_types": [],
+            "profile_fields": [],
+            "purpose": "trend",
+            "range": {
+              "kind": "between",
+              "start_at": "2026-08-01",
+              "end_at": "2026-08-31"
+            },
+            "time_zone": "UTC",
+            "grouping": "auto",
+            "result_view": "summary",
+            "source": "garmin"
+          }
+        ],
+        "literature_reads": [],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "compile_error": null,
+      "elapsed_ms": 108.79108303925022
+    },
+    {
+      "id": "h07",
+      "request": "May I view my sleep efficiency in May 2024?",
+      "history": [],
+      "expected_queries": [
+        {
+          "kind": "health",
+          "metrics": [
+            "sleep_efficiency"
+          ],
+          "records": [],
+          "operation": "trend",
+          "period": {
+            "kind": "between",
+            "start_at": "2024-05-01",
+            "end_at": "2024-05-31"
+          },
+          "source": null,
+          "profile_fields": [],
+          "limit": null,
+          "date_basis": "observed_at"
+        }
+      ],
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [
+              "sleep_efficiency"
+            ],
+            "records": [],
+            "operation": "trend",
+            "period": {
+              "kind": "between",
+              "start_at": "2024-05-01",
+              "end_at": "2024-05-31"
+            },
+            "source": null,
+            "profile_fields": [],
+            "limit": null,
+            "date_basis": "observed_at"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "6d8d720b859b8f4dab1027545f4b8b674a1b852d268ebd5ce83ba91b225e5b83",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "0099215d5da2e3ff49661e3c459507f23b4416905eb559c847483fe9ea530847",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            }
+          ]
+        }
+      },
+      "grade": "correct_plan",
+      "batch": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "concepts": [
+              "sleep_efficiency"
+            ],
+            "record_types": [],
+            "profile_fields": [],
+            "purpose": "trend",
+            "range": {
+              "kind": "between",
+              "start_at": "2024-05-01",
+              "end_at": "2024-05-31"
+            },
+            "time_zone": "UTC",
+            "grouping": "auto",
+            "result_view": "summary"
+          }
+        ],
+        "literature_reads": [],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "compile_error": null,
+      "elapsed_ms": 356.53824999462813
+    },
+    {
+      "id": "h08",
+      "request": "Show my latest 6 workouts yesterday",
+      "history": [],
+      "expected_queries": [
+        {
+          "kind": "health",
+          "metrics": [],
+          "records": [
+            "workouts"
+          ],
+          "operation": "latest",
+          "period": {
+            "kind": "between",
+            "start_at": "2026-09-22",
+            "end_at": "2026-09-22"
+          },
+          "source": null,
+          "profile_fields": [],
+          "limit": 6,
+          "date_basis": "started_at"
+        }
+      ],
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [],
+            "records": [
+              "workouts"
+            ],
+            "operation": "latest",
+            "period": {
+              "kind": "between",
+              "start_at": "2026-09-22",
+              "end_at": "2026-09-22"
+            },
+            "source": null,
+            "profile_fields": [],
+            "limit": 6,
+            "date_basis": "started_at"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "6d8d720b859b8f4dab1027545f4b8b674a1b852d268ebd5ce83ba91b225e5b83",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "f5083c592187920cd020ea9acb9baa8caa37beff742f5e39ccf421f36792706f",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            }
+          ]
+        }
+      },
+      "grade": "correct_plan",
+      "batch": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "concepts": [],
+            "record_types": [
+              "workouts"
+            ],
+            "profile_fields": [],
+            "purpose": "latest",
+            "range": {
+              "kind": "between",
+              "start_at": "2026-09-22",
+              "end_at": "2026-09-22"
+            },
+            "time_zone": "UTC",
+            "grouping": "none",
+            "result_view": "summary",
+            "record_detail_dataset": "workouts.sessions.v1",
+            "record_detail_limit": 6
+          }
+        ],
+        "literature_reads": [],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "compile_error": null,
+      "elapsed_ms": 109.96349999913946
+    },
+    {
+      "id": "h09",
+      "request": "Find studies about diet for lowering ApoB",
+      "history": [],
+      "expected_queries": [
+        {
+          "kind": "research",
+          "targets": [
+            "apob"
+          ],
+          "interventions": [
+            "diet"
+          ],
+          "goal": "lower"
+        }
+      ],
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "research",
+            "targets": [
+              "apob"
+            ],
+            "interventions": [
+              "diet"
+            ],
+            "goal": "lower"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "6d8d720b859b8f4dab1027545f4b8b674a1b852d268ebd5ce83ba91b225e5b83",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "ae8acd2f7c8b59cbc496a7a1d7b7ec4ac8dcedbeee39f7284c32739c1f634fc8",
+        "diagnostics": {}
+      },
+      "grade": "correct_plan",
+      "batch": {
+        "health_reads": [],
+        "literature_reads": [
+          {
+            "operation_id": 1,
+            "question": "For adults, what systematic reviews and randomized trials evaluate dietary changes to lower ApoB? Include outcomes, studied populations and applicability limits.",
+            "task": "evidence_summary",
+            "depth": "fast",
+            "subject_basis": "general_overview_research",
+            "basis_source_ids": []
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "compile_error": null,
+      "elapsed_ms": 0.7866670493967831
+    },
+    {
+      "id": "h10",
+      "request": "Show my sleep in 2024; find trials about exercise for improving it",
+      "history": [],
+      "expected_queries": [
+        {
+          "kind": "health",
+          "metrics": [
+            "sleep_efficiency",
+            "total_sleep"
+          ],
+          "records": [],
+          "operation": "trend",
+          "period": {
+            "kind": "between",
+            "start_at": "2024-01-01",
+            "end_at": "2024-12-31"
+          },
+          "source": null,
+          "profile_fields": [],
+          "limit": null,
+          "date_basis": "observed_at"
+        },
+        {
+          "kind": "research",
+          "targets": [
+            "sleep"
+          ],
+          "interventions": [
+            "exercise"
+          ],
+          "goal": "improve"
+        }
+      ],
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [
+              "sleep_efficiency",
+              "total_sleep"
+            ],
+            "records": [],
+            "operation": "trend",
+            "period": {
+              "kind": "between",
+              "start_at": "2024-01-01",
+              "end_at": "2024-12-31"
+            },
+            "source": null,
+            "profile_fields": [],
+            "limit": null,
+            "date_basis": "observed_at"
+          },
+          {
+            "kind": "research",
+            "targets": [
+              "sleep"
+            ],
+            "interventions": [
+              "exercise"
+            ],
+            "goal": "improve"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "6d8d720b859b8f4dab1027545f4b8b674a1b852d268ebd5ce83ba91b225e5b83",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "efc2ca0a222707dfe1ebff6cc82ba1335a4f2fe2f18b71e326a451bafa89616b",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            }
+          ]
+        }
+      },
+      "grade": "correct_plan",
+      "batch": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "concepts": [
+              "sleep_efficiency",
+              "total_sleep"
+            ],
+            "record_types": [],
+            "profile_fields": [],
+            "purpose": "trend",
+            "range": {
+              "kind": "between",
+              "start_at": "2024-01-01",
+              "end_at": "2024-12-31"
+            },
+            "time_zone": "UTC",
+            "grouping": "auto",
+            "result_view": "summary"
+          }
+        ],
+        "literature_reads": [
+          {
+            "operation_id": 2,
+            "question": "For adults, what systematic reviews and randomized trials evaluate exercise to improve sleep duration and quality? Include outcomes, studied populations and applicability limits.",
+            "task": "evidence_summary",
+            "depth": "fast",
+            "subject_basis": "general_overview_research",
+            "basis_source_ids": []
+          }
+        ],
+        "required_operation_ids": [
+          1,
+          2
+        ]
+      },
+      "compile_error": null,
+      "elapsed_ms": 113.21929097175598
+    },
+    {
+      "id": "h11",
+      "request": "Show only my smoking status",
+      "history": [],
+      "expected_queries": [
+        {
+          "kind": "health",
+          "metrics": [],
+          "records": [
+            "profile"
+          ],
+          "operation": "latest",
+          "period": {
+            "kind": "all_history"
+          },
+          "source": null,
+          "profile_fields": [
+            "smoking_status"
+          ],
+          "limit": null,
+          "date_basis": "current_snapshot"
+        }
+      ],
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [],
+            "records": [
+              "profile"
+            ],
+            "operation": "latest",
+            "period": {
+              "kind": "all_history"
+            },
+            "source": null,
+            "profile_fields": [
+              "smoking_status"
+            ],
+            "limit": null,
+            "date_basis": "current_snapshot"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "6d8d720b859b8f4dab1027545f4b8b674a1b852d268ebd5ce83ba91b225e5b83",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "47adcb32808e6f09c6ec54d2902a213394067c6ce2ec253160c2b762b2c3f948",
+        "diagnostics": {}
+      },
+      "grade": "correct_plan",
+      "batch": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "concepts": [],
+            "record_types": [
+              "profile"
+            ],
+            "profile_fields": [
+              "smoking_status"
+            ],
+            "purpose": "latest",
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "grouping": "none",
+            "result_view": "summary"
+          }
+        ],
+        "literature_reads": [],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "compile_error": null,
+      "elapsed_ms": 2.506916003767401
+    },
+    {
+      "id": "h12",
+      "request": "Show my steps in 2025; show my allergies",
+      "history": [],
+      "expected_queries": [
+        {
+          "kind": "health",
+          "metrics": [
+            "steps"
+          ],
+          "records": [],
+          "operation": "trend",
+          "period": {
+            "kind": "between",
+            "start_at": "2025-01-01",
+            "end_at": "2025-12-31"
+          },
+          "source": null,
+          "profile_fields": [],
+          "limit": null,
+          "date_basis": "observed_at"
+        },
+        {
+          "kind": "health",
+          "metrics": [],
+          "records": [
+            "profile"
+          ],
+          "operation": "latest",
+          "period": {
+            "kind": "all_history"
+          },
+          "source": null,
+          "profile_fields": [
+            "allergies"
+          ],
+          "limit": null,
+          "date_basis": "current_snapshot"
+        }
+      ],
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [
+              "steps"
+            ],
+            "records": [],
+            "operation": "trend",
+            "period": {
+              "kind": "between",
+              "start_at": "2025-01-01",
+              "end_at": "2025-12-31"
+            },
+            "source": null,
+            "profile_fields": [],
+            "limit": null,
+            "date_basis": "observed_at"
+          },
+          {
+            "kind": "health",
+            "metrics": [],
+            "records": [
+              "profile"
+            ],
+            "operation": "latest",
+            "period": {
+              "kind": "all_history"
+            },
+            "source": null,
+            "profile_fields": [
+              "allergies"
+            ],
+            "limit": null,
+            "date_basis": "current_snapshot"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "6d8d720b859b8f4dab1027545f4b8b674a1b852d268ebd5ce83ba91b225e5b83",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "2f10cced28634f873a90a321660cb1d40a41ebea9489b07bb496c070c0a4b2cb",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            }
+          ]
+        }
+      },
+      "grade": "correct_plan",
+      "batch": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "concepts": [
+              "steps"
+            ],
+            "record_types": [],
+            "profile_fields": [],
+            "purpose": "trend",
+            "range": {
+              "kind": "between",
+              "start_at": "2025-01-01",
+              "end_at": "2025-12-31"
+            },
+            "time_zone": "UTC",
+            "grouping": "auto",
+            "result_view": "summary"
+          },
+          {
+            "operation_id": 2,
+            "concepts": [],
+            "record_types": [
+              "profile"
+            ],
+            "profile_fields": [
+              "allergies"
+            ],
+            "purpose": "latest",
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "grouping": "none",
+            "result_view": "summary"
+          }
+        ],
+        "literature_reads": [],
+        "required_operation_ids": [
+          1,
+          2
+        ]
+      },
+      "compile_error": null,
+      "elapsed_ms": 109.8907080013305
+    },
+    {
+      "id": "h13",
+      "request": "Show my profile from Oura",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "profile_source_or_limit_unavailable"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "6d8d720b859b8f4dab1027545f4b8b674a1b852d268ebd5ce83ba91b225e5b83",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "79ed34efa2d0b5ca7410828244683ac63a85ec433ea24340ccc2b436df298b54",
+        "diagnostics": {}
+      },
+      "grade": "correct_handoff",
+      "batch": null,
+      "compile_error": null,
+      "elapsed_ms": 2.5819159927777946
+    },
+    {
+      "id": "h14",
+      "request": "Show my allergies except penicillin",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "unbound_profile_qualifier"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "6d8d720b859b8f4dab1027545f4b8b674a1b852d268ebd5ce83ba91b225e5b83",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "f4bba77e8bbaae02e1c1b725cc7cfffad0daa6cf5e070cea01497e0c04d3be5f",
+        "diagnostics": {}
+      },
+      "grade": "correct_handoff",
+      "batch": null,
+      "compile_error": null,
+      "elapsed_ms": 1.102500013075769
+    },
+    {
+      "id": "h15",
+      "request": "Show my latest 6 steps measurements",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "unbound_quantity"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "6d8d720b859b8f4dab1027545f4b8b674a1b852d268ebd5ce83ba91b225e5b83",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "b9b978b12f6cc43d171f1c8c80f5e6e787530888468c613f33e30fb092f9a3b2",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "unsupported",
+              "reason_codes": [
+                "unbound_quantity"
+              ]
+            }
+          ]
+        }
+      },
+      "grade": "correct_handoff",
+      "batch": null,
+      "compile_error": null,
+      "elapsed_ms": 107.21620795084164
+    },
+    {
+      "id": "h16",
+      "request": "Show my steps from Garmin and Oura yesterday",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "source_filter"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "6d8d720b859b8f4dab1027545f4b8b674a1b852d268ebd5ce83ba91b225e5b83",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "5324a0e3692db9dea4125d73964f54829cc9d43533c4c9133d4b7827de9cd422",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "unsupported",
+              "reason_codes": [
+                "source_filter"
+              ]
+            }
+          ]
+        }
+      },
+      "grade": "correct_handoff",
+      "batch": null,
+      "compile_error": null,
+      "elapsed_ms": 108.85945800691843
+    },
+    {
+      "id": "h17",
+      "request": "Show my ApoB from Garmin",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "query_contract_unrepresentable"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "6d8d720b859b8f4dab1027545f4b8b674a1b852d268ebd5ce83ba91b225e5b83",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "8a112af03028f20b3ee33604b0ca4d16e296b3aac9f2e99c33f93efde7b55e69",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            }
+          ]
+        }
+      },
+      "grade": "correct_handoff",
+      "batch": null,
+      "compile_error": null,
+      "elapsed_ms": 110.20508303772658
+    },
+    {
+      "id": "h18",
+      "request": "Show my latest 5 lab reports ordered by upload date",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "upload_order_not_available"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "6d8d720b859b8f4dab1027545f4b8b674a1b852d268ebd5ce83ba91b225e5b83",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "db621c181d2afbd4ce1e02d713d9d3c0dc781bc87062e2d96a6e1826cafe6ce8",
+        "diagnostics": {}
+      },
+      "grade": "correct_handoff",
+      "batch": null,
+      "compile_error": null,
+      "elapsed_ms": 0.9249580325558782
+    },
+    {
+      "id": "h19",
+      "request": "Show my goals as they were in 2024",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "profile_history_unavailable"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "6d8d720b859b8f4dab1027545f4b8b674a1b852d268ebd5ce83ba91b225e5b83",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "0ce90f2d7ba1d4cb8b4ff28557a86fb0f5b093679993773ca283d661b83f9402",
+        "diagnostics": {}
+      },
+      "grade": "correct_handoff",
+      "batch": null,
+      "compile_error": null,
+      "elapsed_ms": 1.8058749847114086
+    },
+    {
+      "id": "h20",
+      "request": "Show my steps yesterday; delete my lab reports",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "write_or_external_action"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "6d8d720b859b8f4dab1027545f4b8b674a1b852d268ebd5ce83ba91b225e5b83",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "d522a42e743148d6193c3cf233f4f5b0861b104939ea12221e33408894418c38",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            },
+            {
+              "status": "unsupported",
+              "reason_codes": [
+                "write_or_external_action"
+              ]
+            }
+          ]
+        }
+      },
+      "grade": "correct_handoff",
+      "batch": null,
+      "compile_error": null,
+      "elapsed_ms": 209.24933295464143
+    },
+    {
+      "id": "h21",
+      "request": "Show my steps yesterday; show my ferritin last year",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "unresolved_metric_or_record"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "6d8d720b859b8f4dab1027545f4b8b674a1b852d268ebd5ce83ba91b225e5b83",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "eb0c0d8126c0172c8215d063c830f427a172d76d54c0ff9cba782c6c146a8daf",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            },
+            {
+              "status": "unsupported",
+              "reason_codes": [
+                "unresolved_metric_or_record"
+              ]
+            }
+          ]
+        }
+      },
+      "grade": "correct_handoff",
+      "batch": null,
+      "compile_error": null,
+      "elapsed_ms": 210.44379199156538
+    },
+    {
+      "id": "h22",
+      "request": "Find trials about exercise for lowering ApoB in children",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "unbound_research_qualifier"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "6d8d720b859b8f4dab1027545f4b8b674a1b852d268ebd5ce83ba91b225e5b83",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "464d5824079d506d8ce3ccc24ad2a29f0db63e5f28ed13fa28b6d9115dd94f18",
+        "diagnostics": {}
+      },
+      "grade": "correct_handoff",
+      "batch": null,
+      "compile_error": null,
+      "elapsed_ms": 0.7818749872967601
+    },
+    {
+      "id": "h23",
+      "request": "Find evidence about diet for my ApoB of 120",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "unbound_research_qualifier"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "6d8d720b859b8f4dab1027545f4b8b674a1b852d268ebd5ce83ba91b225e5b83",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "f57eac4427a0a1743b99dfc156d26ec69da00a0fec1bc1ad7529f5350c8ba8df",
+        "diagnostics": {}
+      },
+      "grade": "correct_handoff",
+      "batch": null,
+      "compile_error": null,
+      "elapsed_ms": 0.3422499867156148
+    },
+    {
+      "id": "h24",
+      "request": "Show my sleep last night excluding naps",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "exclusion_or_filter"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "6d8d720b859b8f4dab1027545f4b8b674a1b852d268ebd5ce83ba91b225e5b83",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "4050c101d0b9c1a59b6b3d2c5358231331b63f6895336245a6b9205e428270d1",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "unsupported",
+              "reason_codes": [
+                "exclusion_or_filter"
+              ]
+            }
+          ]
+        }
+      },
+      "grade": "correct_handoff",
+      "batch": null,
+      "compile_error": null,
+      "elapsed_ms": 106.86608299147338
+    }
+  ]
+}

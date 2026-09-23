@@ -6,7 +6,7 @@ RUN pip install --no-cache-dir --require-hashes --extra-index-url https://downlo
 COPY scripts/download_model.py scripts/pack_weights.py /app/scripts/
 RUN python scripts/download_model.py && python scripts/pack_weights.py /opt/model && rm -rf /opt/model/.cache
 COPY vendor /app/vendor
-COPY server.py routing.py selector.py learned_selector.py proposal_selector.py trained_proposal_selector.py proposal_binding.py schema_index.py plan_adapter.py query_ir.py direct_selector.py entity_candidates.py temporal_spans.py /app/
+COPY server.py routing.py selector.py learned_selector.py proposal_selector.py trained_proposal_selector.py proposal_binding.py schema_index.py plan_adapter.py query_ir.py direct_selector.py entity_candidates.py temporal_spans.py query_plan.py query_selector.py query_execution.py /app/
 COPY metadata /app/metadata
 COPY compat /app/compat
 COPY adapters /app/adapters

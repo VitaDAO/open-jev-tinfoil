@@ -75,25 +75,7 @@ def evaluate(call):
             'results':rows}
 
 if __name__=='__main__':
-    base=os.environ.get('BASE_URL')
-    if base:
-        import urllib.request
-        from contextlib import nullcontext
-        with nullcontext():
-            def call(body):
-                req=urllib.request.Request(base+os.environ.get('SELECTOR_ENDPOINT','/v1/select-baseline'),data=json.dumps(body).encode(),
-                    headers={'Authorization':'Bearer '+os.environ['OPEN_JEV_API_KEY'],'Content-Type':'application/json'})
-                with urllib.request.urlopen(req,timeout=15) as response:
-                    return json.load(response)
-            report=evaluate(call)
-            times=[]
-            # Full 512-identifier request: first request separately, then warm.
-            b=payload({'request':'Analyze me','history':[]},['metric_'+str(n) for n in range(512)])
-            for _ in range(101):
-                t=time.perf_counter();call(b);times.append((time.perf_counter()-t)*1000)
-            warm=sorted(times[1:])
-            report['full_512_http']={'first_ms':times[0],'warm_n':100,'p50_ms':statistics.median(warm),'p95_ms':warm[94],
-                                     'scope':'loopback HTTP; excludes attestation, WAN and process startup; '+report['implementation']}
-    else:
-        report=evaluate(lambda body:select(SelectorRequest.model_validate(body)))
+    if os.environ.get('BASE_URL'):
+        raise SystemExit('Legacy fixtures are offline only; use scripts/smoke_proposal.py for the single current API')
+    report=evaluate(lambda body:select(SelectorRequest.model_validate(body)))
     print(json.dumps(report,indent=2))

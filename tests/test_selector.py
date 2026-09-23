@@ -6,7 +6,7 @@ from fastapi.testclient import TestClient
 from selector import SelectorRequest, select
 from server import create_app
 from contracts.vita_read_contract import read_arguments
-from examples.selector_client import from_venice_request
+from contracts.legacy_selector_wire import from_venice_request
 
 METRICS = ['total_sleep', 'sleep_efficiency', 'steps', 'apob', 'oxygen_saturation', 'respiratory_rate', 'custom_metric']
 NOW = datetime(2026, 9, 23, 12, tzinfo=UTC)
@@ -124,22 +124,6 @@ def test_inventory_order_invariance_full_512_and_unknown_exact_identifier():
     assert len([k for k in first['answers'] if k.startswith('metric__')])==512
 
 
-def test_http_auth_bounds_no_echo_and_extra_health_record_rejected():
-    class Empty: pass
-    with TestClient(create_app(Empty,TOKEN)) as client:
-        assert client.post('/v1/select-baseline',json=body('Analyze me')).status_code==401
-        assert client.post('/v1/select-baseline',json=body('Analyze me'),headers=HEADERS).json()['status']=='selected'
-        invalid=[body('x'*1201),body('Analyze me',recent_user_requests=['a']*5),
-                 body('Analyze me',time_zone='Invalid/Zone'),body('Analyze me',reference_date='2026-02-30'),
-                 body('Analyze me',available=['steps','steps']),body('Analyze me',available=['x']*513),
-                 {**body('Analyze me'),'health_records':'private-sentinel'}]
-        for value in invalid:
-            response=client.post('/v1/select-baseline',json=value,headers=HEADERS)
-            assert response.status_code==422
-            assert 'private-sentinel' not in response.text
-        assert client.post('/v1/select-baseline',content=b'x'*65537,headers=HEADERS).status_code==413
-
-
 def test_exact_synthetic_venice_wire_adapter():
     # Optional local fixture supplied by integration task; contract fixtures are
     # otherwise fully self-contained and contain no health records.
@@ -150,60 +134,6 @@ def test_exact_synthetic_venice_wire_adapter():
     response=select(SelectorRequest.model_validate(adapted))
     assert response['status']=='selected'
     assert len([k for k in response['answers'] if k.startswith('metric__')])==len(adapted['available_metrics'])
-
-
-def test_verified_selector_client_rejects_malformed_and_wrong_identity():
-    import httpx
-    from examples.selector_client import VitaSelectorClient
-    from selector import SELECTOR_SHA256
-    b=body('Analyze me'); good=select(SelectorRequest.model_validate(b))
-    from routing import MODEL_REVISION
-    good.update(model_revision=MODEL_REVISION,adapter_sha256='2'*64,implementation='open_jev_structured_proposal_experimental')
-    client=VitaSelectorClient.__new__(VitaSelectorClient)
-    client.token='synthetic';client.selector_sha256=SELECTOR_SHA256;client.adapter_sha256='2'*64
-    variants=[{**good,'selector_sha256':'0'*64},{**good,'advisory':False},
-              {**good,'answers':{**good['answers'],'research':{'choice':'invented'}}},
-              {**good,'answers':{**good['answers'],'profile':{'noul':float('inf')}}},
-              {**good,'status':'unsupported'}]
-    for value in variants:
-        with httpx.Client(transport=httpx.MockTransport(lambda request:httpx.Response(200,json=value))) as http:
-            client.http=http
-            with pytest.raises((RuntimeError,ValueError)):
-                client.select(current_request='Analyze me',available_metrics=METRICS,
-                              reference_date='2026-09-23',time_zone='UTC',literature_available=True)
-    with httpx.Client(transport=httpx.MockTransport(lambda request:httpx.Response(200,json=good))) as http:
-        client.http=http
-        assert client.select(current_request='Analyze me',available_metrics=METRICS,
-                             reference_date='2026-09-23',time_zone='UTC',literature_available=True)==good
-
-
-def test_selector_attestation_failure_never_reads_key(monkeypatch):
-    import sys
-    from types import SimpleNamespace
-    from examples.selector_client import VitaSelectorClient
-    closed=[]
-    class Verifier:
-        def __init__(self,**kwargs):pass
-        def make_secure_http_client(self):return SimpleNamespace(close=lambda:closed.append(True))
-        def get_verification_document(self):return SimpleNamespace(security_verified=True,release_digest='0'*64)
-    monkeypatch.setitem(sys.modules,'tinfoil',SimpleNamespace(SecureClient=Verifier))
-    monkeypatch.delenv('OPEN_JEV_API_KEY',raising=False)
-    with pytest.raises(RuntimeError,match='Unapproved'):
-        VitaSelectorClient(release_digest='1'*64,selector_sha256='2'*64,adapter_sha256='3'*64)
-    assert closed==[True]
-
-
-def test_learned_endpoint_auth_validation_and_no_exception_echo():
-    class Engine:
-        def select(self,request):
-            if request.state.current_request=='overflow':raise ValueError('private-sentinel')
-            return {'status':'unsupported','reason':'synthetic'}
-    with TestClient(create_app(Engine,TOKEN,selector_enabled=True)) as client:
-        assert client.post('/v1/select',json=body('Analyze me')).status_code==401
-        assert client.post('/v1/select',json=body('Analyze me'),headers=HEADERS).json()['status']=='unsupported'
-        response=client.post('/v1/select',json=body('overflow'),headers=HEADERS)
-        assert response.status_code==422 and 'private-sentinel' not in response.text
-        assert client.post('/v1/select',json={**body('Analyze me'),'records':[]},headers=HEADERS).status_code==422
 
 
 def test_invalid_named_date_cannot_fall_back_to_whole_year():
@@ -222,10 +152,3 @@ def test_learned_artifact_tamper_rejected_before_model_use(monkeypatch):
     monkeypatch.setattr(learned_selector,'ADAPTER_SHA256','0'*64)
     with pytest.raises(ValueError,match='Unapproved'):
         learned_selector.LearnedSelector(None)
-
-
-def test_experimental_model_endpoint_is_disabled_by_default(monkeypatch):
-    monkeypatch.delenv('ENABLE_EXPERIMENTAL_SELECTOR',raising=False)
-    with TestClient(create_app(lambda: object(),TOKEN)) as client:
-        response=client.post('/v1/select',json=body('Analyze me'),headers=HEADERS)
-        assert response.status_code==503

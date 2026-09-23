@@ -45,8 +45,9 @@ nominal question/option counts. Errors: 401 unauthorized, 413 oversized body,
 - Dedicated service key; no shared Vita credentials. Keep the key in the Vita
   agent enclave, never in browser JavaScript. Authentication does not replace
   consent or capability checks in Vita.
-- `examples/vita_client.py` additionally pins the approved v0.2.1 release digest,
-  and refuses a different release before reading/sending the application key.
+- `examples/vita_client.py` is the single client. The caller supplies a reviewed
+  release digest; it refuses a different release before reading/sending the key.
+  Selector calls additionally require reviewed selector and adapter digests.
 - No debug SSH, automatic updates, GPU or production Vita integration.
 
 Attestation establishes which code is running, not the correctness of decisions.
@@ -119,29 +120,37 @@ records source/derived hashes and the API reports storage/compute dtype. This
 rounds weights and requires prediction-parity testing; it is not lossless
 compression. See `evidence/ramdisk-investigation.md` for measurements and sources.
 
-## Experimental full selector and database plan adapter
+## Current Vita selector
 
-A new one-pass learned Open-JEV selector and pure Vita retrieval-plan adapter are
-under development. They are **not approved to replace Venice**: frozen language
-validation contains two incorrect accepts and substantial fallback. `/v1/select`
-is disabled by default; `ENABLE_EXPERIMENTAL_SELECTOR=1` is only for synthetic
-experiments. No selector release is deployed or approved for private requests.
+Use one client, `VitaClient` in `examples/vita_client.py`, with one selector
+endpoint: `POST /v1/select`. The request schema is `vita-selector/v2`; the response
+is a closed `vita-query-plan/v2` containing explicit health/research clauses or an
+inert handoff. The old selector client, answer-map API and `/v1/select-baseline`
+serving route have been removed. `/decide` and `/route` remain separate model
+capabilities on the same client; neither is a second selector path.
 
-See [measured results and API](evidence/selector-v1/README.md),
-[query coverage and limitations](evidence/selector-v1/query-coverage.md),
-`examples/selector_client.py`, and `plan_adapter.py`. The optional grammar baseline
-is distinct from the learned model. Local selector speed is not hosted readiness
-or proof that queried evidence reaches Vita's final model.
+The selector is **disabled by default and not deployed**. Local synthetic runs
+set `ENABLE_EXPERIMENTAL_SELECTOR=1`. There is no approved selector release pin.
+The client verifies attested TLS and the caller's reviewed release before accessing
+the API key, then checks model/adapter/selector identities, the exact request hash,
+timezone, inventory, every clause and operation budget.
 
-## Experimental schema-aware selector
+See [the current API, execution contract and measured results](evidence/selector-v5/README.md).
 
-The current standalone candidate uses a schema index, per-request metric/record inventory,
-structured proposals and a small learned read-intent head. It remains disabled by default
-and is not deployed. See [the current evaluation and API](evidence/selector-v4/README.md):
-59/59 original regressions, 141/160 broader regressions, 47/48 previous cases,
-37/40 new cases after a discovered date bug was repaired, and 24/24 subsequent
-temporal cases. No wrong executable plans appeared in the final runs; substantial
-fallback remains. The report preserves the failed first evaluation and explains
-why complete-profile requests now hand off. These are local compiled-plan results
-plus a bounded synthetic record-ID execution check, not Vita database execution
-or production acceptance.
+`examples/vita_orchestrator.py` supplies `prepare_model_turn()` and a fixed
+orchestrator instruction block for the existing answering model. It keeps the
+original question, validates and executes supported plans through the caller's
+authorized callback, and preserves handoff/incomplete/research-review states.
+It adds no model call and sends nothing to a provider. This is integration code;
+the Vita/DeepSeek application wiring and full browser battery remain separate
+acceptance work.
+`query_plan.py` validates and compiles the plan. `query_execution.py` consumes it
+through a caller-provided authorized Vita operation callback. Missing coverage,
+incomplete paging or uncertain sleep timing stays explicit; research acquisition
+still requires Vita's evidence gate. The selector never reads the database,
+grants access, or supplies final medical answers.
+
+Historical v1-v4 adapters and fixtures remain offline regression references.
+Their results are preserved under `evidence/`; they are not alternate public
+clients or current serving contracts. This branch has not been integrated into
+Vita or verified in an enclave.

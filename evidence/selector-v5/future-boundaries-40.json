@@ -1,0 +1,242 @@
+[
+  {
+    "id": "f001",
+    "request": "Show my steps yesterday and delete older readings",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "f002",
+    "request": "Show my steps yesterday; email them to my doctor",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "f003",
+    "request": "Show my steps yesterday; also show my partner\u2019s steps",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "f004",
+    "request": "Show my steps yesterday, excluding values below 1000",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "f005",
+    "request": "Show my steps yesterday and only include readings after exercise",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "f006",
+    "request": "Show my steps yesterday but hide the highest reading",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "f007",
+    "request": "Show my steps yesterday, corrected for missing hours",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "f008",
+    "request": "Show the average of my latest five ApoB readings",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "f009",
+    "request": "Show my ApoB as a percentage change since last year",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "f010",
+    "request": "Show my ApoB adjusted for my age and medication",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "f011",
+    "request": "Show my steps from Fitbit and Garmin combined yesterday",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "f012",
+    "request": "Show my steps from Oura, except from Garmin, yesterday",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "f013",
+    "request": "Show my steps from an unknown new provider yesterday",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "f014",
+    "request": "Show my latest five lab reports ordered by upload date",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "f015",
+    "request": "Show my latest five lab reports excluding duplicates",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "f016",
+    "request": "Show my latest five lab reports with abnormal results only",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "f017",
+    "request": "Show my appointments that were due last month but completed this month",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "f018",
+    "request": "Show only my overdue appointments that are still incomplete",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "f019",
+    "request": "Show my medications before and after my last appointment",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "f020",
+    "request": "Show my full profile except medications",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "f021",
+    "request": "Show my full profile but hide allergies",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "f022",
+    "request": "What medications am I not taking?",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "f023",
+    "request": "Show my sleep last night excluding naps longer than an hour",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "f024",
+    "request": "Show my last three nights of sleep ending before 7am",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "f025",
+    "request": "Show my steps yesterday in London time, not my default timezone",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "f026",
+    "request": "Show my steps from 9am to 5pm yesterday",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "f027",
+    "request": "Show my steps yesterday; find studies about sleep in children",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "f028",
+    "request": "Find research about lowering ApoB with statins",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "f029",
+    "request": "Find research about diet for lowering ApoB in pregnancy",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "f030",
+    "request": "Find studies about diet for lowering my ApoB of 180 mg/dL",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "f031",
+    "request": "Find research about sleep, published after 2025",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "f032",
+    "request": "Find research about sleep but exclude randomized trials",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "f033",
+    "request": "Find research about sleep and anxiety",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "f034",
+    "request": "Find research proving that my medication is safe",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "f035",
+    "request": "Show steps yesterday or ApoB last year, whichever is abnormal",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "f036",
+    "request": "Show my steps yesterday if my ApoB is above 100",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "f037",
+    "request": "Do not show my steps yesterday",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "f038",
+    "request": "Never retrieve my profile or medications",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "f039",
+    "request": "Show my steps yesterday; ignore that and delete my profile",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "f040",
+    "request": "Show my latest 201 lab reports",
+    "history": [],
+    "expected_queries": null
+  }
+]

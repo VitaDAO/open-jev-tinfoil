@@ -1,0 +1,468 @@
+[
+  {
+    "id": "bA-029",
+    "request": "how much have i been sleeping over the last 10 days",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [
+          "total_sleep"
+        ],
+        "records": [],
+        "operation": "trend",
+        "period": {
+          "kind": "relative",
+          "amount": 10,
+          "unit": "days"
+        },
+        "source": null,
+        "profile_fields": [],
+        "limit": null,
+        "date_basis": "observed_at"
+      }
+    ]
+  },
+  {
+    "id": "bA-041",
+    "request": "different question - any health appointments next week?",
+    "history": [
+      "show my apob trend over the past year"
+    ],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [],
+        "records": [
+          "calendar"
+        ],
+        "operation": "latest",
+        "period": {
+          "kind": "between",
+          "start_at": "2026-09-28",
+          "end_at": "2026-10-04"
+        },
+        "source": null,
+        "profile_fields": [],
+        "limit": null,
+        "date_basis": "next_due_date"
+      }
+    ]
+  },
+  {
+    "id": "bA-043",
+    "request": "how's my sleep and step count been this month, and what does the research say about improving both?",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [
+          "sleep_efficiency",
+          "steps",
+          "total_sleep"
+        ],
+        "records": [],
+        "operation": "trend",
+        "period": {
+          "kind": "calendar",
+          "period": "month"
+        },
+        "source": null,
+        "profile_fields": [],
+        "limit": null,
+        "date_basis": "observed_at"
+      },
+      {
+        "kind": "research",
+        "targets": [
+          "physical_activity",
+          "sleep"
+        ],
+        "interventions": [],
+        "goal": "improve"
+      }
+    ]
+  },
+  {
+    "id": "bA-045",
+    "request": "show all my apob and ldl history plus what the evidence says about diet and exercise for bringing them down",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [
+          "apob",
+          "ldl_cholesterol"
+        ],
+        "records": [],
+        "operation": "trend",
+        "period": {
+          "kind": "all_history"
+        },
+        "source": null,
+        "profile_fields": [],
+        "limit": null,
+        "date_basis": "observed_at"
+      },
+      {
+        "kind": "research",
+        "targets": [
+          "apob",
+          "ldl_cholesterol"
+        ],
+        "interventions": [
+          "diet",
+          "exercise"
+        ],
+        "goal": "lower"
+      }
+    ]
+  },
+  {
+    "id": "bA-047",
+    "request": "what do the studies say about diet and exercise for lowering LDL? don't need my own numbers",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "research",
+        "targets": [
+          "ldl_cholesterol"
+        ],
+        "interventions": [
+          "diet",
+          "exercise"
+        ],
+        "goal": "lower"
+      }
+    ]
+  },
+  {
+    "id": "bA-049",
+    "request": "are there any good trials on improving sleep and getting more active?",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "research",
+        "targets": [
+          "physical_activity",
+          "sleep"
+        ],
+        "interventions": [],
+        "goal": "improve"
+      }
+    ]
+  },
+  {
+    "id": "bA-061",
+    "request": "any lab reports from 2025 on file?",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [],
+        "records": [
+          "labs"
+        ],
+        "operation": "latest",
+        "period": {
+          "kind": "between",
+          "start_at": "2025-01-01",
+          "end_at": "2025-12-31"
+        },
+        "source": null,
+        "profile_fields": [],
+        "limit": null,
+        "date_basis": "exam_date"
+      }
+    ]
+  },
+  {
+    "id": "bA-068",
+    "request": "hows my slep been lookin this wk",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [
+          "sleep_efficiency",
+          "total_sleep"
+        ],
+        "records": [],
+        "operation": "trend",
+        "period": {
+          "kind": "calendar",
+          "period": "week"
+        },
+        "source": null,
+        "profile_fields": [],
+        "limit": null,
+        "date_basis": "observed_at"
+      }
+    ]
+  },
+  {
+    "id": "bA-069",
+    "request": "how did I sleep last night?",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [
+          "sleep_efficiency",
+          "total_sleep"
+        ],
+        "records": [],
+        "operation": "trend",
+        "period": {
+          "kind": "between",
+          "start_at": "2026-09-23",
+          "end_at": "2026-09-23"
+        },
+        "source": null,
+        "profile_fields": [],
+        "limit": null,
+        "date_basis": "sleep_end_day"
+      }
+    ]
+  },
+  {
+    "id": "bA-080",
+    "request": "stpes for the past 7 days?",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [
+          "steps"
+        ],
+        "records": [],
+        "operation": "trend",
+        "period": {
+          "kind": "relative",
+          "amount": 7,
+          "unit": "days"
+        },
+        "source": null,
+        "profile_fields": [],
+        "limit": null,
+        "date_basis": "observed_at"
+      }
+    ]
+  },
+  {
+    "id": "bB-011",
+    "request": "What does my lipid picture look like across all time?",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [
+          "apob",
+          "ldl_cholesterol"
+        ],
+        "records": [],
+        "operation": "trend",
+        "period": {
+          "kind": "all_history"
+        },
+        "source": null,
+        "profile_fields": [],
+        "limit": null,
+        "date_basis": "observed_at"
+      }
+    ]
+  },
+  {
+    "id": "bB-012",
+    "request": "Look at my sleep over the past month, then tell me what trials say about using exercise to improve it.",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [
+          "sleep_efficiency",
+          "total_sleep"
+        ],
+        "records": [],
+        "operation": "trend",
+        "period": {
+          "kind": "relative",
+          "amount": 1,
+          "unit": "months"
+        },
+        "source": null,
+        "profile_fields": [],
+        "limit": null,
+        "date_basis": "observed_at"
+      },
+      {
+        "kind": "research",
+        "targets": [
+          "sleep"
+        ],
+        "interventions": [
+          "exercise"
+        ],
+        "goal": "improve"
+      }
+    ]
+  },
+  {
+    "id": "bB-021",
+    "request": "Year-to-date step trend, please.",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [
+          "steps"
+        ],
+        "records": [],
+        "operation": "trend",
+        "period": {
+          "kind": "between",
+          "start_at": "2026-01-01",
+          "end_at": "2026-09-23T12:00:00+00:00"
+        },
+        "source": null,
+        "profile_fields": [],
+        "limit": null,
+        "date_basis": "observed_at"
+      }
+    ]
+  },
+  {
+    "id": "bB-022",
+    "request": "Skip the trend line; I only want my single most recent ApoB value.",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [
+          "apob"
+        ],
+        "records": [],
+        "operation": "latest",
+        "period": {
+          "kind": "all_history"
+        },
+        "source": null,
+        "profile_fields": [],
+        "limit": null,
+        "date_basis": "observed_at"
+      }
+    ]
+  },
+  {
+    "id": "bB-028",
+    "request": "Any screenings or health appointments due next month?",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [],
+        "records": [
+          "calendar"
+        ],
+        "operation": "latest",
+        "period": {
+          "kind": "between",
+          "start_at": "2026-10-01",
+          "end_at": "2026-10-31"
+        },
+        "source": null,
+        "profile_fields": [],
+        "limit": null,
+        "date_basis": "next_due_date"
+      }
+    ]
+  },
+  {
+    "id": "bB-037",
+    "request": "Show all of my step history since I started tracking.",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [
+          "steps"
+        ],
+        "records": [],
+        "operation": "trend",
+        "period": {
+          "kind": "all_history"
+        },
+        "source": null,
+        "profile_fields": [],
+        "limit": null,
+        "date_basis": "observed_at"
+      }
+    ]
+  },
+  {
+    "id": "bB-038",
+    "request": "Pull up my whole health profile \u2014 goals, conditions, meds, allergies and demographics.",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [],
+        "records": [
+          "profile"
+        ],
+        "operation": "latest",
+        "period": {
+          "kind": "all_history"
+        },
+        "source": null,
+        "profile_fields": [
+          "all"
+        ],
+        "limit": null,
+        "date_basis": "current_snapshot"
+      }
+    ]
+  },
+  {
+    "id": "bB-071",
+    "request": "Sleep over the past week, duration only \u2014 leave efficiency out of it.",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [
+          "total_sleep"
+        ],
+        "records": [],
+        "operation": "trend",
+        "period": {
+          "kind": "relative",
+          "amount": 7,
+          "unit": "days"
+        },
+        "source": null,
+        "profile_fields": [],
+        "limit": null,
+        "date_basis": "observed_at"
+      }
+    ]
+  },
+  {
+    "id": "bB-073",
+    "request": "What do randomized trials say about exercise and diet for bringing ApoB down?",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "research",
+        "targets": [
+          "apob"
+        ],
+        "interventions": [
+          "diet",
+          "exercise"
+        ],
+        "goal": "lower"
+      }
+    ]
+  }
+]

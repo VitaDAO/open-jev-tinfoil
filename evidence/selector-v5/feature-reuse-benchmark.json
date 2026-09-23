@@ -1,0 +1,112 @@
+{
+  "selector_sha256": "f9cecdb0fdf09167da7bb62c5ef8ce6891ac4480a16a9b8820c108d30365dd46",
+  "script_sha256": "9e39f09c72ca1150049279e6ced092ee1397bfbb7c93b3095651fb3825bb3896",
+  "scope": "Paired alternating local CPU 4-thread inference; identical model and checks, reuse toggled only. No HTTP, database or enclave.",
+  "rows": [
+    {
+      "path": "simple",
+      "samples_per_arm": 12,
+      "arms": {
+        "reused": {
+          "p50_ms": 145.6376664864365,
+          "p95_ms": 232.02158301137388,
+          "backbone_passes": [
+            1
+          ]
+        },
+        "uncached": {
+          "p50_ms": 142.13035450666212,
+          "p95_ms": 239.95204200036824,
+          "backbone_passes": [
+            1
+          ]
+        }
+      },
+      "identical_plans": true
+    },
+    {
+      "path": "semantic",
+      "samples_per_arm": 12,
+      "arms": {
+        "reused": {
+          "p50_ms": 305.92252098722383,
+          "p95_ms": 385.23745897691697,
+          "backbone_passes": [
+            2
+          ]
+        },
+        "uncached": {
+          "p50_ms": 417.9577289905865,
+          "p95_ms": 554.5229170238599,
+          "backbone_passes": [
+            3
+          ]
+        }
+      },
+      "identical_plans": true
+    },
+    {
+      "path": "two_clauses",
+      "samples_per_arm": 12,
+      "arms": {
+        "reused": {
+          "p50_ms": 255.3441250056494,
+          "p95_ms": 289.40366697497666,
+          "backbone_passes": [
+            2
+          ]
+        },
+        "uncached": {
+          "p50_ms": 252.00616649817675,
+          "p95_ms": 281.65458398871124,
+          "backbone_passes": [
+            2
+          ]
+        }
+      },
+      "identical_plans": true
+    },
+    {
+      "path": "profile",
+      "samples_per_arm": 12,
+      "arms": {
+        "reused": {
+          "p50_ms": 1.168583519756794,
+          "p95_ms": 2.1002499852329493,
+          "backbone_passes": [
+            0
+          ]
+        },
+        "uncached": {
+          "p50_ms": 1.195749529870227,
+          "p95_ms": 2.054082986433059,
+          "backbone_passes": [
+            0
+          ]
+        }
+      },
+      "identical_plans": true
+    },
+    {
+      "path": "repeated_semantic",
+      "samples_per_arm": 12,
+      "arms": {
+        "reused": {
+          "p50_ms": 444.9069789843634,
+          "p95_ms": 493.1900409865193,
+          "backbone_passes": [
+            3
+          ]
+        },
+        "uncached": {
+          "p50_ms": 819.4863954850007,
+          "p95_ms": 1014.0552090015262,
+          "backbone_passes": [
+            6
+          ]
+        }
+      },
+      "identical_plans": true
+    }
+  ]
+}

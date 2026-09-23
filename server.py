@@ -13,8 +13,8 @@ from fastapi.responses import JSONResponse
 from pydantic import BaseModel, ConfigDict, Field, StringConstraints, model_validator
 from starlette.concurrency import run_in_threadpool
 from routing import LocalLearnedRouter, ADAPTER_SHA256
-from selector import SelectorRequest, select as baseline_select
-from trained_proposal_selector import TrainedProposalSelector
+from query_plan import QueryRequest, QueryPlan
+from query_selector import QuerySelector, identity as selector_identity, INTENT_SHA256
 
 MODEL_REVISION = '19bf9a64815add579fbf6c907bef584d9277a8e4'
 Text = Annotated[str, StringConstraints(strict=True, strip_whitespace=True, min_length=1, max_length=4096)]
@@ -94,12 +94,12 @@ class Engine:
         self.model.collator._ids = lambda text: self.model.tok(text, add_special_tokens=False)['input_ids']
         self.model.collator._cache.clear()
         self.router = LocalLearnedRouter(model=self.model)
-        self.selector = TrainedProposalSelector(self.model)
+        self.selector = QuerySelector(self.model)
         self.router.route('This is a test.')
         self.decide(DecisionRequest(state='This is a test.', questions=[Question(type='noul', instructions='This is a test.')]))
 
     def select(self, request):
-        return self.selector.select(request)
+        return self.selector.select_query(request)
 
     def route(self, request):
         return {**self.router.route(request.state), 'weight_storage_dtype': self.weight_storage_dtype,
@@ -137,13 +137,12 @@ def create_app(engine_factory=Engine, token=None, selector_enabled=None):
     @app.get('/health')
     async def health():
         return {'status': 'ready', 'model_revision': MODEL_REVISION, 'device': 'cpu',
-                'max_state_tokens': 256, 'max_sequence_tokens': 512, 'adapter_sha256': ADAPTER_SHA256}
-    @app.post('/v1/select-baseline')
-    async def select_baseline(request: SelectorRequest):
-        return await run_in_threadpool(baseline_select, request)
+                'max_state_tokens': 256, 'max_sequence_tokens': 512, 'adapter_sha256': ADAPTER_SHA256,
+                'selector_enabled': selector_enabled, 'selector_schema': 'vita-selector/v2',
+                'selector_sha256': selector_identity(), 'selector_adapter_sha256': INTENT_SHA256}
 
-    @app.post('/v1/select')
-    async def select_reads(request: SelectorRequest):
+    @app.post('/v1/select', response_model=QueryPlan)
+    async def select_reads(request: QueryRequest):
         if not selector_enabled:
             raise HTTPException(503, "Experimental selector has not passed acceptance")
         if lock.locked():

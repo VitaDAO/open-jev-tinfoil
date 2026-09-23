@@ -96,9 +96,9 @@ def dataset_v2():
 
 def main():
     parser=argparse.ArgumentParser()
-    parser.add_argument('--version', choices=(1,2), type=int, default=1)
+    parser.add_argument('--version', choices=(1,2,3), type=int, default=1)
     args=parser.parse_args()
-    output=ROOT / ('evidence/selector-v3' if args.version==1 else 'evidence/selector-v4')
+    output=ROOT / {1:'evidence/selector-v3',2:'evidence/selector-v4',3:'evidence/selector-v5'}[args.version]
     import torch
     from typed_decisions.open_jev import OpenJev
     torch.set_num_threads(4)
@@ -107,6 +107,21 @@ def main():
     model.collator._cache.clear()
     encoder = LearnedSelector(model)
     train, calibration = (dataset if args.version==1 else dataset_v2)()
+    if args.version==3:
+        targets=['steps','ApoB','LDL cholesterol','oxygen saturation','respiratory rate',
+                 'sleep efficiency','total sleep','lab reports','health appointments']
+        positive=['Any {x} from 2023 on file?', '{x} trend this year',
+            'What does my {x} look like across all time?', 'My {x}, the newest one',
+            'Different question - show my {x}', 'Any {x} due next month?',
+            'I only want my single most recent {x}', 'Show {x} with no studies please',
+            'Look at my {x} records from last week', 'The newest {x} one, please',
+            'Any recorded {x} this week?', 'Not the trend, I want my latest {x}',
+            'For last month I would like to see {x}']
+        negative=['Could my {x} indicate cancer?', 'Do I need to change my {x}?',
+            'My {x} with only unusually high values', 'How is {x} defined?',
+            'What does my {x} mean for my diagnosis?']
+        train += [{'request':t.format(x=x),'label':label} for label,templates in
+                  [(1,positive),(0,negative)] for t in templates for x in targets]
     x = torch.stack([encoder.encode(canonicalize(r['request'])) for r in train])
     y = torch.tensor([2*r['label']-1 for r in train], dtype=torch.float64)
     cx = torch.stack([encoder.encode(canonicalize(r['request'])) for r in calibration])
@@ -124,7 +139,7 @@ def main():
     # can shift both classes toward a high acceptance threshold. Break ties by
     # calibration squared error against the training target, never eval scores.
     loss=lambda item:float(((item[4]-(cy.double()*2-1))**2).mean())
-    chosen=max(candidates,key=lambda item:(item[0],-loss(item),-item[1])) if args.version==2 else max(candidates,key=lambda item:(item[0],item[1]))
+    chosen=max(candidates,key=lambda item:(item[0],-loss(item),-item[1])) if args.version>=2 else max(candidates,key=lambda item:(item[0],item[1]))
     _,alpha,threshold,weights,scores=chosen
     report={'training_cases':len(train),'calibration_cases':len(calibration),'threshold':threshold,
         'alpha':alpha,'calibration_search':[{'accepted_correct':item[0],'alpha':item[1],
