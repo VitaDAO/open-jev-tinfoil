@@ -1,0 +1,26 @@
+{
+  "transport": "in-process ASGI with real CPU Engine; not network/enclave",
+  "selector_sha256": "fef4cd7a3762f1a5707b8fa37c59894771a8794b5856bb7de4b02d3023b72bc5",
+  "checks": [
+    {
+      "case": "unauthenticated",
+      "http": 401
+    },
+    {
+      "case": "latest respiratory rate yesterday",
+      "http": 200,
+      "status": "selected",
+      "elapsed_ms": 113.23395901126787,
+      "selector_sha256": "fef4cd7a3762f1a5707b8fa37c59894771a8794b5856bb7de4b02d3023b72bc5"
+    },
+    {
+      "case": "followup retains source restriction",
+      "http": 200,
+      "status": "unsupported"
+    },
+    {
+      "case": "default-disabled remains blocked",
+      "http": 503
+    }
+  ]
+}

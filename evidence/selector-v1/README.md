@@ -1,5 +1,9 @@
 # Experimental Vita selector and retrieval-plan adapter
 
+The subsequent [adapter repair and exact-plan evaluation](../selector-v2/README.md)
+records 58/59 regression outcomes but only 9/79 correct supported reads in the
+additional set. It remains unsuitable as a general replacement.
+
 **Not approved to replace Venice. Not deployed.** `/v1/select` is disabled by default and requires `ENABLE_EXPERIMENTAL_SELECTOR=1` for synthetic experiments. No Vita code, settings, secrets, or deployment was changed by this selector work.
 
 **Evaluation correction, 2026-09-24:** the 59-case scores below measure coarse labels and fallback behavior, not exact-plan accuracy. They cannot rank the native Open-JEV and Laya models. The Laya harness additionally has missing-question and truncation bugs. Read [the evaluation audit and recommended direction](model-direction.md) before using any headline score. Raw results are preserved.
