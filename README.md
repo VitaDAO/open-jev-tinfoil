@@ -106,3 +106,14 @@ checks the attested release, model revision, adapter digest and response types.
 `scripts/verify_route_live.py` runs the synthetic route suite through that verified
 client. See issue1 for the actual deployed release/readiness; code presence is
 not evidence of deployment.
+
+### Weight storage and enclave capacity
+
+Small CVM0.14.7 enclaves have a4GiB private RAM disk for image storage, separate
+from the model's inference working set. The original FP32 image exceeded that
+capacity when compressed and unpacked layers were combined. New builds derive
+FP16-stored backbone files from the pinned source; inference is explicitly FP32,
+and the small generic head and learned adapter are unchanged. The model manifest
+records source/derived hashes and the API reports storage/compute dtype. This
+rounds weights and requires prediction-parity testing; it is not lossless
+compression. See `evidence/ramdisk-investigation.md` for measurements and sources.
