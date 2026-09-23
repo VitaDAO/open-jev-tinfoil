@@ -6,6 +6,7 @@
     "vita/py/src/vita_agent/kernel/health_summary_evidence.py": "9f15ba0208187d5cf3d573a68a72aa19a2cbd96c97181435d282bfab0591bc80",
     "vita/py/src/vita_agent/kernel/source_batch_render.py": "2d7b041449bce428a42ac7575b61e9ca4c14906595164820ccbdb7cefe78a6ba"
   },
+  "typed_ir_integration_cases": 4,
   "inventory_metrics": 120,
   "operation_count": 8,
   "selected_metric_count": 32,
@@ -25,7 +26,7 @@
   "proposed_projection_installed_in_vita": false,
   "all_requested_delivered": false,
   "deferred_count": 91,
-  "elapsed_ms": 77.25,
+  "elapsed_ms": 98.87,
   "tests": "typed validation, canonical aliases, broad bounded parallel reads, exact windows, latest vs averages, multiple sources, actual summary pagination and final serializer, omitted pages, unavailable and empty outcomes",
   "limitations": "Synthetic post-query payloads exercise actual projection; no database/provider query or resolver execution, dedup/import-date oracle, clinical correctness, or end-to-end Fable acceptance is established.",
   "plan": {

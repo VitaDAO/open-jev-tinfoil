@@ -138,9 +138,22 @@ def main():
     research=plan('Find research on sleep and physical activity')
     assert research['batch']['health_reads']==[]
     SourceBatchRequest.model_validate(normalize_health_ranges(research['batch']))
+    from query_ir import compile_ir
+    ir_cases=[
+      [{'kind':'health','operation':'trend','metrics':['steps'],'sources':['oura','garmin'],'time_range':{'kind':'calendar','period':'week'}}],
+      [{'kind':'health','operation':'correlate','metrics':['steps','total_sleep'],'grouping':'day','time_range':{'kind':'relative','amount':30,'unit':'days'}}],
+      [{'kind':'health','operation':'latest','metrics':[],'record_types':['profile'],'profile_fields':['goals'],'time_range':{'kind':'all_history'}}],
+      [{'kind':'memory_recall','query':'sleep goal'},{'kind':'conversation_search','query':'fasting','match_mode':'phrase'}],
+    ]
+    for clauses in ir_cases:
+        compiled=compile_ir({'inventory_version':'canonical120','time_zone':'UTC','clauses':clauses},
+            available_metrics=INVENTORY,authorized_record_types=('profile',),
+            enabled_read_capabilities=('health','memory','conversation'))
+        assert compiled['status']=='compiled'
+        SourceBatchRequest.model_validate(normalize_health_ranges(compiled['batch']))
     files=['vita/py/src/vita_agent/kernel/source_batch_contracts.py','vita/py/src/vita_agent/kernel/health_result_pages.py','vita/py/src/vita_agent/kernel/health_summary_evidence.py','vita/py/src/vita_agent/kernel/source_batch_render.py']
     return {'actual_vita_source':str(VITA),'source_sha256':{f:hashlib.sha256((VITA/f).read_bytes()).hexdigest() for f in files},
-            'inventory_metrics':len(INVENTORY),'operation_count':len(broad['batch']['required_operation_ids']),
+            'typed_ir_integration_cases':len(ir_cases),'inventory_metrics':len(INVENTORY),'operation_count':len(broad['batch']['required_operation_ids']),
             'selected_metric_count':sum(len(op.concepts) for op in request.health_reads),
             'synthetic_retained_series':sum(len(x.result.get('series',[])) for x in state.results_by_source_id.values()),
             'model_visible_tokens':used,'domains_with_initial_evidence':sorted(essential),

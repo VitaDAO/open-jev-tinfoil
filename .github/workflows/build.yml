@@ -8,6 +8,7 @@ on:
       - selector.py
       - learned_selector.py
       - plan_adapter.py
+      - query_ir.py
       - metadata/**
       - compat/**
       - adapters/**
@@ -19,6 +20,11 @@ on:
       - tests/**
       - .github/workflows/build.yml
   workflow_dispatch:
+    inputs:
+      runtime_probe_only:
+        description: Test only the exact deployed image startup; no build or push
+        type: boolean
+        default: false
 permissions:
   contents: read
   packages: write
@@ -38,12 +44,25 @@ jobs:
           cat /tmp/readonly-import.txt
           echo "readonly_without_tmpfs_exit=$status"
           docker run --rm --network none --read-only --cap-drop ALL --security-opt no-new-privileges --tmpfs /tmp:rw,noexec,nosuid,nodev,size=64m,mode=1777 --entrypoint python "$image" -c 'import torch; print("TORCH_IMPORT_WITH_TMPFS_OK")'
+      - name: Reproduce full model initialization of deployed v0.2.1
+        run: |
+          image=ghcr.io/vitadao/open-jev-tinfoil@sha256:40e09453a5a74f7039ef59c65b2b1b790573a894c4be0c4480e400fde7212356
+          set +e
+          docker run --rm --memory 8g --cpus 4 --network none --read-only --cap-drop ALL --security-opt no-new-privileges --entrypoint python "$image" -c 'from server import Engine; Engine(); print("READONLY_ENGINE_OK")' > /tmp/readonly-engine.txt 2>&1
+          status=$?
+          set -e
+          cat /tmp/readonly-engine.txt
+          echo "readonly_engine_without_tmpfs_exit=$status"
+          docker run --rm --memory 8g --cpus 4 --network none --read-only --cap-drop ALL --security-opt no-new-privileges --tmpfs /tmp:rw,noexec,nosuid,nodev,size=64m,mode=1777 --entrypoint python "$image" -c 'from server import Engine; Engine(); print("READONLY_ENGINE_WITH_TMPFS_OK")'
       - name: Build CPU image with pinned model
+        if: ${{ !inputs.runtime_probe_only }}
         run: docker build -t ghcr.io/vitadao/open-jev-tinfoil:${{ github.sha }} .
       - name: Unit tests
+        if: ${{ !inputs.runtime_probe_only }}
         run: |
           docker run --rm --entrypoint sh --user 0 -v "$PWD/tests:/app/tests:ro" ghcr.io/vitadao/open-jev-tinfoil:${{ github.sha }} -c 'pip install pytest==9.1.1 httpx==0.28.1 >/dev/null && PYTHONPATH=/app:/app/vendor python -m pytest -q tests'
       - name: Real-model smoke with 8 GB and 4 CPUs
+        if: ${{ !inputs.runtime_probe_only }}
         run: |
           export OPEN_JEV_API_KEY=$(openssl rand -hex 32)
           docker run -d --name smoke --memory 8g --cpus 4 --read-only --cap-drop ALL --security-opt no-new-privileges --tmpfs /tmp:rw,noexec,nosuid,nodev,size=64m,mode=1777 -v "$PWD/scripts:/app/scripts:ro" -v "$PWD/tests:/app/tests:ro" -v "$PWD/evidence:/app/evidence:ro" -e ENABLE_EXPERIMENTAL_SELECTOR=1 -e OPEN_JEV_API_KEY -p 127.0.0.1:18080:8080 ghcr.io/vitadao/open-jev-tinfoil:${{ github.sha }}
@@ -62,6 +81,7 @@ jobs:
           docker exec smoke cat /sys/fs/cgroup/memory.peak | tee /tmp/memory-peak.txt
           docker rm -f smoke
       - name: Push tested image
+        if: ${{ !inputs.runtime_probe_only }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |

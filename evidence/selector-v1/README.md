@@ -68,6 +68,10 @@ Current paged projection gets evidence from all six domains but misses some sele
 
 This verifies **typed planning and actual model-summary projection**, not execution against a database/provider. Duplicate-upload/session dedup, delayed-import timestamp filtering, authorization enforcement, source aggregates, actual row counts, real scans, and end-to-end Fable behavior remain unverified here; use existing Vita resolver/session tests and integration acceptance. Do not report zero follow-up model calls from this fixture.
 
+## Subsequent development
+
+The original59-case results are preserved at checkpoint5f1fa06. After Alex requested ablations, those cases became diagnostic development evidence. See `ablation-checkpoint.md` for the rejected conditional mask and typed query IR/compiler work; neither establishes fresh final acceptance.
+
 ## Remaining blockers and next work
 
 1. Learned intent/temporal/record coverage and two false accepts fail the replacement gate. More representative, independently labelled supported-query training/evaluation is needed; preserve this frozen set as evidence if it becomes development data.
