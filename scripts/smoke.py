@@ -24,7 +24,7 @@ def post(payload, auth=True):
 assert post(body, False)[0] == 401
 assert post({'state':'test','questions':[]})[0] == 422
 assert post({**body, 'state': 'word ' * 300})[0] == 422
-assert post({**body, 'questions': [body['questions'][0]] * 32})[0] == 422
+assert post({**body, 'questions': [{**body['questions'][0], 'instructions': 'word ' * 30}] * 32})[0] == 422
 elapsed, inference = [], []
 for _ in range(10):
     start = time.perf_counter()
