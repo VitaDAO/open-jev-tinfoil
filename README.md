@@ -80,3 +80,14 @@ correctness improved from 17/24 to 21/24, routing stayed 22/24, and local median
 latency increased from 117 to 211 ms. This optional client does not change weights,
 server behavior or the attested release. See `evidence/local-tuning.md` for the
 selection process, regressions and limits; outputs are advisory, never permission grants.
+
+### Learned local adapter
+
+The newer `examples/local_learned_router.py` fits a small task-specific head over
+the frozen Open Jev encoder. It reaches 24/24 on the requested set after using
+that set for training. On 30 freshly frozen synthetic examples it scores30/30
+routing and29/30 record access, versus24/30 and25/30 for the original model.
+Local median for these two decisions is100ms. It does not produce urgency;
+its scores are not calibrated probabilities. This optional in-process path does
+not change `/decide` or the attested release. See `evidence/local-v3.md` for
+training provenance, remaining error, reproducibility and evaluation limits.

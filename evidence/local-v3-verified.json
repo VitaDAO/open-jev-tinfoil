@@ -1,0 +1,1270 @@
+{
+  "load_ms": 1952.12683302816,
+  "results": {
+    "target24": {
+      "rows": [
+        {
+          "case": "c01",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "read existing data",
+            "record_access": true,
+            "decision_scores": {
+              "action": {
+                "read existing data": 1.0020270795248583,
+                "explain a concept": -0.04914958078273999,
+                "change settings": 0.043737831404906995
+              },
+              "record_access": {
+                "no": -0.0054117265606465756,
+                "yes": 1.0020270795248583
+              }
+            },
+            "elapsed_ms": 178.24,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "c02",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "read existing data",
+            "record_access": true,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.8954915689239411,
+                "explain a concept": 0.08641693359881554,
+                "change settings": 0.016194741274681502
+              },
+              "record_access": {
+                "no": 0.10261168579591615,
+                "yes": 0.8954915689239411
+              }
+            },
+            "elapsed_ms": 106.56,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "c03",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "read existing data",
+            "record_access": true,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.8890187445972788,
+                "explain a concept": 0.05101867680084538,
+                "change settings": 0.06027245076087025
+              },
+              "record_access": {
+                "no": 0.11129115099781184,
+                "yes": 0.8890187445972788
+              }
+            },
+            "elapsed_ms": 91.22,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "c04",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "read existing data",
+            "record_access": true,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.9122848038540392,
+                "explain a concept": 0.059501632347425164,
+                "change settings": 0.02921704848231768
+              },
+              "record_access": {
+                "no": 0.08871870211110561,
+                "yes": 0.9122848038540392
+              }
+            },
+            "elapsed_ms": 91.89,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "c05",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "read existing data",
+            "record_access": true,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.9028911184913612,
+                "explain a concept": 0.002824838916145465,
+                "change settings": 0.0951440282842828
+              },
+              "record_access": {
+                "no": 0.09796889171821631,
+                "yes": 0.9028911184913612
+              }
+            },
+            "elapsed_ms": 111.1,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "c06",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "read existing data",
+            "record_access": true,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.8758311667031679,
+                "explain a concept": 0.21245237255296232,
+                "change settings": -0.08843802130897409
+              },
+              "record_access": {
+                "no": 0.12401436576327436,
+                "yes": 0.8758311667031679
+              }
+            },
+            "elapsed_ms": 111.47,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "c07",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "read existing data",
+            "record_access": true,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.9396459375797549,
+                "explain a concept": 0.058715770416668436,
+                "change settings": 0.00190686814551257
+              },
+              "record_access": {
+                "no": 0.06062265599626712,
+                "yes": 0.9396459375797549
+              }
+            },
+            "elapsed_ms": 110.08,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "c08",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "read existing data",
+            "record_access": true,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.9355615994885895,
+                "explain a concept": -0.0647197177937722,
+                "change settings": 0.12616713972853702
+              },
+              "record_access": {
+                "no": 0.061447445049717844,
+                "yes": 0.9355615994885895
+              }
+            },
+            "elapsed_ms": 91.02,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "c09",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "explain a concept",
+            "record_access": false,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.02012667969243204,
+                "explain a concept": 0.9597235137002669,
+                "change settings": 0.015649828512181222
+              },
+              "record_access": {
+                "no": 0.9753733584353504,
+                "yes": 0.02012667969243204
+              }
+            },
+            "elapsed_ms": 93.74,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "c10",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "explain a concept",
+            "record_access": false,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.08313231929964147,
+                "explain a concept": 0.8850349679313355,
+                "change settings": 0.0301638346033844
+              },
+              "record_access": {
+                "no": 0.9151988252133558,
+                "yes": 0.08313231929964147
+              }
+            },
+            "elapsed_ms": 105.92,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "c11",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "explain a concept",
+            "record_access": false,
+            "decision_scores": {
+              "action": {
+                "read existing data": -0.010234119598261496,
+                "explain a concept": 1.0141194254681067,
+                "change settings": -0.0004664240457478432
+              },
+              "record_access": {
+                "no": 1.0136530145897569,
+                "yes": -0.010234119598261496
+              }
+            },
+            "elapsed_ms": 90.53,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "c12",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "explain a concept",
+            "record_access": false,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.15113985779524092,
+                "explain a concept": 0.8070824271143233,
+                "change settings": 0.03965306942826315
+              },
+              "record_access": {
+                "no": 0.8467355145882987,
+                "yes": 0.15113985779524092
+              }
+            },
+            "elapsed_ms": 105.17,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "c13",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "explain a concept",
+            "record_access": false,
+            "decision_scores": {
+              "action": {
+                "read existing data": -0.09330239569656702,
+                "explain a concept": 0.9060870126237953,
+                "change settings": 0.1870846901961927
+              },
+              "record_access": {
+                "no": 1.0931717178231735,
+                "yes": -0.09330239569656702
+              }
+            },
+            "elapsed_ms": 90.37,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "c14",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "explain a concept",
+            "record_access": false,
+            "decision_scores": {
+              "action": {
+                "read existing data": -0.06833398140605496,
+                "explain a concept": 0.9833646856391212,
+                "change settings": 0.08298518132029176
+              },
+              "record_access": {
+                "no": 1.0663498874656823,
+                "yes": -0.06833398140605496
+              }
+            },
+            "elapsed_ms": 92.1,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "c15",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "explain a concept",
+            "record_access": false,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.10857829033313206,
+                "explain a concept": 0.8977944864437721,
+                "change settings": -0.0030989048766293424
+              },
+              "record_access": {
+                "no": 0.8946956009424191,
+                "yes": 0.10857829033313206
+              }
+            },
+            "elapsed_ms": 109.78,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "c16",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "explain a concept",
+            "record_access": false,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.03588805167437312,
+                "explain a concept": 0.8887194741716571,
+                "change settings": 0.07498258967883788
+              },
+              "record_access": {
+                "no": 0.9637020835425474,
+                "yes": 0.03588805167437312
+              }
+            },
+            "elapsed_ms": 107.06,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "c17",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "change settings",
+            "record_access": false,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.06831991995183456,
+                "explain a concept": 0.07473413504303993,
+                "change settings": 0.8568076094477836
+              },
+              "record_access": {
+                "no": 0.9315417638285985,
+                "yes": 0.06831991995183456
+              }
+            },
+            "elapsed_ms": 89.87,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "c18",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "change settings",
+            "record_access": false,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.06544323749802679,
+                "explain a concept": 0.04563328644153987,
+                "change settings": 0.8918421829874926
+              },
+              "record_access": {
+                "no": 0.9374754933662012,
+                "yes": 0.06544323749802679
+              }
+            },
+            "elapsed_ms": 89.56,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "c19",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "change settings",
+            "record_access": false,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.06532768657908776,
+                "explain a concept": 0.05240229372374419,
+                "change settings": 0.8812741087093809
+              },
+              "record_access": {
+                "no": 0.9336764194586715,
+                "yes": 0.06532768657908776
+              }
+            },
+            "elapsed_ms": 91.47,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "c20",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "change settings",
+            "record_access": false,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.010717231553744875,
+                "explain a concept": 0.05895150506466821,
+                "change settings": 0.9275679844338588
+              },
+              "record_access": {
+                "no": 0.9865195201942932,
+                "yes": 0.010717231553744875
+              }
+            },
+            "elapsed_ms": 90.35,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "c21",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "change settings",
+            "record_access": false,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.07138975765193543,
+                "explain a concept": 0.03547553854672215,
+                "change settings": 0.8945843085177378
+              },
+              "record_access": {
+                "no": 0.9300598687868011,
+                "yes": 0.07138975765193543
+              }
+            },
+            "elapsed_ms": 94.29,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "c22",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "change settings",
+            "record_access": false,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.0124071254475109,
+                "explain a concept": -0.04380324212118976,
+                "change settings": 1.0286943094711367
+              },
+              "record_access": {
+                "no": 0.9848910803425236,
+                "yes": 0.0124071254475109
+              }
+            },
+            "elapsed_ms": 91.71,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "c23",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "change settings",
+            "record_access": false,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.01890694085625822,
+                "explain a concept": 0.21921618291974135,
+                "change settings": 0.7640733354235575
+              },
+              "record_access": {
+                "no": 0.9832895370289517,
+                "yes": 0.01890694085625822
+              }
+            },
+            "elapsed_ms": 95.92,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "c24",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "change settings",
+            "record_access": false,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.007337949447593964,
+                "explain a concept": 0.07035808329751746,
+                "change settings": 0.9215579903652739
+              },
+              "record_access": {
+                "no": 0.9919160983190999,
+                "yes": 0.007337949447593964
+              }
+            },
+            "elapsed_ms": 90.2,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        }
+      ],
+      "summary": {
+        "cases": 24,
+        "choice_correct": 24,
+        "record_correct": 24,
+        "median_ms": 92.91999999999999,
+        "max_ms": 178.24
+      }
+    },
+    "fresh30": {
+      "rows": [
+        {
+          "case": "f01",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "read existing data",
+            "record_access": true,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.8645060656659151,
+                "explain a concept": 0.17527379746189117,
+                "change settings": -0.04227470608322349
+              },
+              "record_access": {
+                "no": 0.13299910932436323,
+                "yes": 0.8645060656659151
+              }
+            },
+            "elapsed_ms": 90.39,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "f02",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "read existing data",
+            "record_access": true,
+            "decision_scores": {
+              "action": {
+                "read existing data": 1.1287470867367515,
+                "explain a concept": -0.12640817547592834,
+                "change settings": -0.00395804121796693
+              },
+              "record_access": {
+                "no": -0.13036618785876264,
+                "yes": 1.1287470867367515
+              }
+            },
+            "elapsed_ms": 97.51,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "f03",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "read existing data",
+            "record_access": true,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.8658033276664308,
+                "explain a concept": 0.18365866814885803,
+                "change settings": -0.05332088046025884
+              },
+              "record_access": {
+                "no": 0.13033780804218215,
+                "yes": 0.8658033276664308
+              }
+            },
+            "elapsed_ms": 108.66,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "f04",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "read existing data",
+            "record_access": true,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.5634830971124696,
+                "explain a concept": 0.22994843064448017,
+                "change settings": 0.19524500975911777
+              },
+              "record_access": {
+                "no": 0.42519346365476257,
+                "yes": 0.5634830971124696
+              }
+            },
+            "elapsed_ms": 95.15,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "f05",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "read existing data",
+            "record_access": true,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.6535675140265123,
+                "explain a concept": 0.13814135739431088,
+                "change settings": 0.19732917885508727
+              },
+              "record_access": {
+                "no": 0.3354705521952516,
+                "yes": 0.6535675140265123
+              }
+            },
+            "elapsed_ms": 121.73,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "f06",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "read existing data",
+            "record_access": true,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.9254416566696476,
+                "explain a concept": 0.1478773144076331,
+                "change settings": -0.07491730597670215
+              },
+              "record_access": {
+                "no": 0.07296002710081795,
+                "yes": 0.9254416566696476
+              }
+            },
+            "elapsed_ms": 110.43,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "f07",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "read existing data",
+            "record_access": true,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.5189291706010427,
+                "explain a concept": 0.12232508719085632,
+                "change settings": 0.3415676063534727
+              },
+              "record_access": {
+                "no": 0.4638927136394685,
+                "yes": 0.5189291706010427
+              }
+            },
+            "elapsed_ms": 125.76,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "f08",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "read existing data",
+            "record_access": true,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.7405529051945152,
+                "explain a concept": 0.15884219131061023,
+                "change settings": 0.09744967210981448
+              },
+              "record_access": {
+                "no": 0.25629188661823804,
+                "yes": 0.7405529051945152
+              }
+            },
+            "elapsed_ms": 140.58,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "f09",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "read existing data",
+            "record_access": true,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.6709050608444229,
+                "explain a concept": 0.25215892242295757,
+                "change settings": 0.07898032610592662
+              },
+              "record_access": {
+                "no": 0.33113926339175237,
+                "yes": 0.6709050608444229
+              }
+            },
+            "elapsed_ms": 116.45,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "f10",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "read existing data",
+            "record_access": true,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.9618985122414131,
+                "explain a concept": -0.13770697453984837,
+                "change settings": 0.17304125804326467
+              },
+              "record_access": {
+                "no": 0.03533431560299967,
+                "yes": 0.9618985122414131
+              }
+            },
+            "elapsed_ms": 92.01,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "f11",
+          "choice_correct": true,
+          "record_correct": false,
+          "result": {
+            "action": "explain a concept",
+            "record_access": true,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.5082288956039376,
+                "explain a concept": 0.6501706647992197,
+                "change settings": -0.1666368867947404
+              },
+              "record_access": {
+                "no": 0.48353379517610223,
+                "yes": 0.5082288956039376
+              }
+            },
+            "elapsed_ms": 117.02,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "f12",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "explain a concept",
+            "record_access": false,
+            "decision_scores": {
+              "action": {
+                "read existing data": -0.16214860891772695,
+                "explain a concept": 1.1606878997073546,
+                "change settings": 0.0017753717079632783
+              },
+              "record_access": {
+                "no": 1.162463283573318,
+                "yes": -0.16214860891772695
+              }
+            },
+            "elapsed_ms": 99.69,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "f13",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "explain a concept",
+            "record_access": false,
+            "decision_scores": {
+              "action": {
+                "read existing data": -0.06514965013006609,
+                "explain a concept": 0.9195689997786977,
+                "change settings": 0.14554618138504596
+              },
+              "record_access": {
+                "no": 1.0651152021327284,
+                "yes": -0.06514965013006609
+              }
+            },
+            "elapsed_ms": 98.3,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "f14",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "explain a concept",
+            "record_access": false,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.35485930696863444,
+                "explain a concept": 0.6317033429995285,
+                "change settings": 0.014248604646126171
+              },
+              "record_access": {
+                "no": 0.6459519712587376,
+                "yes": 0.35485930696863444
+              }
+            },
+            "elapsed_ms": 111.93,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "f15",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "explain a concept",
+            "record_access": false,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.02636889720596102,
+                "explain a concept": 0.9827432388653846,
+                "change settings": -0.0038477705227431963
+              },
+              "record_access": {
+                "no": 0.9788954858039561,
+                "yes": 0.02636889720596102
+              }
+            },
+            "elapsed_ms": 109.68,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "f16",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "explain a concept",
+            "record_access": false,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.006930376202555284,
+                "explain a concept": 0.8400476653647961,
+                "change settings": 0.15085404114633927
+              },
+              "record_access": {
+                "no": 0.9909017237334423,
+                "yes": 0.006930376202555284
+              }
+            },
+            "elapsed_ms": 111.77,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "f17",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "explain a concept",
+            "record_access": false,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.3352803866834149,
+                "explain a concept": 0.6848875587897864,
+                "change settings": -0.016631661290688497
+              },
+              "record_access": {
+                "no": 0.6682559106631156,
+                "yes": 0.3352803866834149
+              }
+            },
+            "elapsed_ms": 97.63,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "f18",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "explain a concept",
+            "record_access": false,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.16016192959642161,
+                "explain a concept": 0.7421497758127964,
+                "change settings": 0.1015300761210353
+              },
+              "record_access": {
+                "no": 0.8436798801333572,
+                "yes": 0.16016192959642161
+              }
+            },
+            "elapsed_ms": 98.32,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "f19",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "explain a concept",
+            "record_access": false,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.18349896944304922,
+                "explain a concept": 0.7630070001688858,
+                "change settings": 0.05586702918446581
+              },
+              "record_access": {
+                "no": 0.8188740461619928,
+                "yes": 0.18349896944304922
+              }
+            },
+            "elapsed_ms": 101.49,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "f20",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "explain a concept",
+            "record_access": false,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.2123980722399418,
+                "explain a concept": 0.7530477966250679,
+                "change settings": 0.039839888417061
+              },
+              "record_access": {
+                "no": 0.792887703637167,
+                "yes": 0.2123980722399418
+              }
+            },
+            "elapsed_ms": 109.37,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "f21",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "change settings",
+            "record_access": false,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.1934337564364159,
+                "explain a concept": 0.005520743161852739,
+                "change settings": 0.8025171671990786
+              },
+              "record_access": {
+                "no": 0.8080379311625914,
+                "yes": 0.1934337564364159
+              }
+            },
+            "elapsed_ms": 93.76,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "f22",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "change settings",
+            "record_access": false,
+            "decision_scores": {
+              "action": {
+                "read existing data": -0.028362963503913676,
+                "explain a concept": -0.0649031150125988,
+                "change settings": 1.0851641622078019
+              },
+              "record_access": {
+                "no": 1.0202610738054254,
+                "yes": -0.028362963503913676
+              }
+            },
+            "elapsed_ms": 90.0,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "f23",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "change settings",
+            "record_access": false,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.05304086271207485,
+                "explain a concept": 0.08517523641648943,
+                "change settings": 0.8653095695996967
+              },
+              "record_access": {
+                "no": 0.9504848225063807,
+                "yes": 0.05304086271207485
+              }
+            },
+            "elapsed_ms": 88.64,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "f24",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "change settings",
+            "record_access": false,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.03475697745612459,
+                "explain a concept": -0.01952223262053695,
+                "change settings": 0.9880987134179894
+              },
+              "record_access": {
+                "no": 0.9685765052237182,
+                "yes": 0.03475697745612459
+              }
+            },
+            "elapsed_ms": 100.4,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "f25",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "change settings",
+            "record_access": false,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.1655506856689338,
+                "explain a concept": -0.07957352072383957,
+                "change settings": 0.9152980453492354
+              },
+              "record_access": {
+                "no": 0.8357245473920212,
+                "yes": 0.1655506856689338
+              }
+            },
+            "elapsed_ms": 125.28,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "f26",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "change settings",
+            "record_access": false,
+            "decision_scores": {
+              "action": {
+                "read existing data": -0.09507285962683454,
+                "explain a concept": 0.17803050198905218,
+                "change settings": 0.917943351846176
+              },
+              "record_access": {
+                "no": 1.0959738695699797,
+                "yes": -0.09507285962683454
+              }
+            },
+            "elapsed_ms": 104.9,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "f27",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "change settings",
+            "record_access": false,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.1561930274372519,
+                "explain a concept": 0.27534196820195844,
+                "change settings": 0.5684049434940828
+              },
+              "record_access": {
+                "no": 0.8437469320041916,
+                "yes": 0.1561930274372519
+              }
+            },
+            "elapsed_ms": 93.12,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "f28",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "change settings",
+            "record_access": false,
+            "decision_scores": {
+              "action": {
+                "read existing data": -0.09363635446715676,
+                "explain a concept": 0.277532837715015,
+                "change settings": 0.8051095400688808
+              },
+              "record_access": {
+                "no": 1.082642397807183,
+                "yes": -0.09363635446715676
+              }
+            },
+            "elapsed_ms": 96.95,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "f29",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "change settings",
+            "record_access": false,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.19103659194457612,
+                "explain a concept": -0.01015678254454111,
+                "change settings": 0.8229193605473166
+              },
+              "record_access": {
+                "no": 0.8127626006725852,
+                "yes": 0.19103659194457612
+              }
+            },
+            "elapsed_ms": 96.0,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        },
+        {
+          "case": "f30",
+          "choice_correct": true,
+          "record_correct": true,
+          "result": {
+            "action": "change settings",
+            "record_access": false,
+            "decision_scores": {
+              "action": {
+                "read existing data": 0.41561050084792317,
+                "explain a concept": -0.19507113951987542,
+                "change settings": 0.7832051415078237
+              },
+              "record_access": {
+                "no": 0.5881340252413528,
+                "yes": 0.41561050084792317
+              }
+            },
+            "elapsed_ms": 94.71,
+            "mode": "frozen_encoder_learned_adapter",
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4"
+          }
+        }
+      ],
+      "summary": {
+        "cases": 30,
+        "choice_correct": 30,
+        "record_correct": 29,
+        "median_ms": 100.045,
+        "max_ms": 140.58
+      }
+    }
+  },
+  "negative_checks": "empty and overlong rejected; request cache stays empty; serialized predictions match"
+}

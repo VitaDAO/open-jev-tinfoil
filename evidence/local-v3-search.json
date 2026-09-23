@@ -1,0 +1,5517 @@
+{
+  "fresh_sha256": "16f6b4a943c621a6e5fc1ef656e7cee52ae2b59809d853cd583557d726899e8d",
+  "choice": [
+    {
+      "question": {
+        "type": "choice",
+        "instructions": "What does the user want?",
+        "options": [
+          "view personal information",
+          "learn general information",
+          "modify a setting"
+        ]
+      },
+      "correct": 13,
+      "rows": [
+        {
+          "case": "c01",
+          "correct": false,
+          "answer": {
+            "choice": "modify a setting",
+            "probabilities": {
+              "view personal information": 0.24533450603485107,
+              "learn general information": 0.2857375144958496,
+              "modify a setting": 0.46892794966697693
+            },
+            "confidence": 0.46892794966697693
+          },
+          "ms": 112.20058298204094
+        },
+        {
+          "case": "c02",
+          "correct": false,
+          "answer": {
+            "choice": "modify a setting",
+            "probabilities": {
+              "view personal information": 0.11804566532373428,
+              "learn general information": 0.16832105815410614,
+              "modify a setting": 0.7136332988739014
+            },
+            "confidence": 0.7136332988739014
+          },
+          "ms": 105.95520801143721
+        },
+        {
+          "case": "c03",
+          "correct": true,
+          "answer": {
+            "choice": "view personal information",
+            "probabilities": {
+              "view personal information": 0.5535460710525513,
+              "learn general information": 0.25728586316108704,
+              "modify a setting": 0.18916794657707214
+            },
+            "confidence": 0.5535460710525513
+          },
+          "ms": 99.9741250416264
+        },
+        {
+          "case": "c04",
+          "correct": false,
+          "answer": {
+            "choice": "modify a setting",
+            "probabilities": {
+              "view personal information": 0.19982855021953583,
+              "learn general information": 0.3805527687072754,
+              "modify a setting": 0.41961869597435
+            },
+            "confidence": 0.41961869597435
+          },
+          "ms": 96.23204200761393
+        },
+        {
+          "case": "c05",
+          "correct": false,
+          "answer": {
+            "choice": "modify a setting",
+            "probabilities": {
+              "view personal information": 0.24663814902305603,
+              "learn general information": 0.27495378255844116,
+              "modify a setting": 0.4784080684185028
+            },
+            "confidence": 0.4784080684185028
+          },
+          "ms": 101.46475001238286
+        },
+        {
+          "case": "c06",
+          "correct": false,
+          "answer": {
+            "choice": "learn general information",
+            "probabilities": {
+              "view personal information": 0.2692622244358063,
+              "learn general information": 0.44987544417381287,
+              "modify a setting": 0.28086230158805847
+            },
+            "confidence": 0.44987544417381287
+          },
+          "ms": 116.03812500834465
+        },
+        {
+          "case": "c07",
+          "correct": false,
+          "answer": {
+            "choice": "modify a setting",
+            "probabilities": {
+              "view personal information": 0.18929614126682281,
+              "learn general information": 0.26929202675819397,
+              "modify a setting": 0.541411817073822
+            },
+            "confidence": 0.541411817073822
+          },
+          "ms": 111.16508301347494
+        },
+        {
+          "case": "c08",
+          "correct": false,
+          "answer": {
+            "choice": "modify a setting",
+            "probabilities": {
+              "view personal information": 0.1372239589691162,
+              "learn general information": 0.2429891973733902,
+              "modify a setting": 0.6197868585586548
+            },
+            "confidence": 0.6197868585586548
+          },
+          "ms": 95.39724997011945
+        },
+        {
+          "case": "c09",
+          "correct": true,
+          "answer": {
+            "choice": "learn general information",
+            "probabilities": {
+              "view personal information": 0.11088825017213821,
+              "learn general information": 0.46533459424972534,
+              "modify a setting": 0.42377713322639465
+            },
+            "confidence": 0.46533459424972534
+          },
+          "ms": 99.53237499576062
+        },
+        {
+          "case": "c10",
+          "correct": false,
+          "answer": {
+            "choice": "modify a setting",
+            "probabilities": {
+              "view personal information": 0.11148090660572052,
+              "learn general information": 0.28646305203437805,
+              "modify a setting": 0.602056086063385
+            },
+            "confidence": 0.602056086063385
+          },
+          "ms": 112.7184170181863
+        },
+        {
+          "case": "c11",
+          "correct": true,
+          "answer": {
+            "choice": "learn general information",
+            "probabilities": {
+              "view personal information": 0.1628848761320114,
+              "learn general information": 0.5244671702384949,
+              "modify a setting": 0.3126479387283325
+            },
+            "confidence": 0.5244671702384949
+          },
+          "ms": 92.30875002685934
+        },
+        {
+          "case": "c12",
+          "correct": false,
+          "answer": {
+            "choice": "modify a setting",
+            "probabilities": {
+              "view personal information": 0.2967184782028198,
+              "learn general information": 0.347955584526062,
+              "modify a setting": 0.35532593727111816
+            },
+            "confidence": 0.35532593727111816
+          },
+          "ms": 109.17079099453986
+        },
+        {
+          "case": "c13",
+          "correct": true,
+          "answer": {
+            "choice": "learn general information",
+            "probabilities": {
+              "view personal information": 0.13352513313293457,
+              "learn general information": 0.4878261089324951,
+              "modify a setting": 0.3786487877368927
+            },
+            "confidence": 0.4878261089324951
+          },
+          "ms": 102.79283300042152
+        },
+        {
+          "case": "c14",
+          "correct": false,
+          "answer": {
+            "choice": "modify a setting",
+            "probabilities": {
+              "view personal information": 0.13496610522270203,
+              "learn general information": 0.3906840682029724,
+              "modify a setting": 0.47434985637664795
+            },
+            "confidence": 0.47434985637664795
+          },
+          "ms": 103.4460419905372
+        },
+        {
+          "case": "c15",
+          "correct": false,
+          "answer": {
+            "choice": "modify a setting",
+            "probabilities": {
+              "view personal information": 0.09835003316402435,
+              "learn general information": 0.319966197013855,
+              "modify a setting": 0.5816837549209595
+            },
+            "confidence": 0.5816837549209595
+          },
+          "ms": 116.3954579969868
+        },
+        {
+          "case": "c16",
+          "correct": true,
+          "answer": {
+            "choice": "learn general information",
+            "probabilities": {
+              "view personal information": 0.17249533534049988,
+              "learn general information": 0.6767411231994629,
+              "modify a setting": 0.15076355636119843
+            },
+            "confidence": 0.6767411231994629
+          },
+          "ms": 117.21674998989329
+        },
+        {
+          "case": "c17",
+          "correct": true,
+          "answer": {
+            "choice": "modify a setting",
+            "probabilities": {
+              "view personal information": 0.10511018335819244,
+              "learn general information": 0.13577952980995178,
+              "modify a setting": 0.7591102719306946
+            },
+            "confidence": 0.7591102719306946
+          },
+          "ms": 128.6173749831505
+        },
+        {
+          "case": "c18",
+          "correct": true,
+          "answer": {
+            "choice": "modify a setting",
+            "probabilities": {
+              "view personal information": 0.03564285486936569,
+              "learn general information": 0.08343681693077087,
+              "modify a setting": 0.8809203505516052
+            },
+            "confidence": 0.8809203505516052
+          },
+          "ms": 96.8482920434326
+        },
+        {
+          "case": "c19",
+          "correct": true,
+          "answer": {
+            "choice": "modify a setting",
+            "probabilities": {
+              "view personal information": 0.07467149198055267,
+              "learn general information": 0.1473609060049057,
+              "modify a setting": 0.7779675722122192
+            },
+            "confidence": 0.7779675722122192
+          },
+          "ms": 102.13483299594373
+        },
+        {
+          "case": "c20",
+          "correct": true,
+          "answer": {
+            "choice": "modify a setting",
+            "probabilities": {
+              "view personal information": 0.05273198336362839,
+              "learn general information": 0.15981315076351166,
+              "modify a setting": 0.7874547839164734
+            },
+            "confidence": 0.7874547839164734
+          },
+          "ms": 96.24879097100347
+        },
+        {
+          "case": "c21",
+          "correct": true,
+          "answer": {
+            "choice": "modify a setting",
+            "probabilities": {
+              "view personal information": 0.10923685133457184,
+              "learn general information": 0.143337681889534,
+              "modify a setting": 0.7474254965782166
+            },
+            "confidence": 0.7474254965782166
+          },
+          "ms": 94.78612500242889
+        },
+        {
+          "case": "c22",
+          "correct": true,
+          "answer": {
+            "choice": "modify a setting",
+            "probabilities": {
+              "view personal information": 0.038894135504961014,
+              "learn general information": 0.06406538188457489,
+              "modify a setting": 0.8970404863357544
+            },
+            "confidence": 0.8970404863357544
+          },
+          "ms": 108.91387501033023
+        },
+        {
+          "case": "c23",
+          "correct": true,
+          "answer": {
+            "choice": "modify a setting",
+            "probabilities": {
+              "view personal information": 0.06609764695167542,
+              "learn general information": 0.13519878685474396,
+              "modify a setting": 0.7987036108970642
+            },
+            "confidence": 0.7987036108970642
+          },
+          "ms": 95.76191601809114
+        },
+        {
+          "case": "c24",
+          "correct": true,
+          "answer": {
+            "choice": "modify a setting",
+            "probabilities": {
+              "view personal information": 0.05141875147819519,
+              "learn general information": 0.08093065023422241,
+              "modify a setting": 0.86765056848526
+            },
+            "confidence": 0.86765056848526
+          },
+          "ms": 95.0512089766562
+        }
+      ]
+    },
+    {
+      "question": {
+        "type": "choice",
+        "instructions": "Classify the requested action.",
+        "options": [
+          "read existing data",
+          "explain a concept",
+          "change settings"
+        ]
+      },
+      "correct": 21,
+      "rows": [
+        {
+          "case": "c01",
+          "correct": true,
+          "answer": {
+            "choice": "read existing data",
+            "probabilities": {
+              "read existing data": 0.5456807017326355,
+              "explain a concept": 0.23446795344352722,
+              "change settings": 0.2198512703180313
+            },
+            "confidence": 0.5456807017326355
+          },
+          "ms": 101.99216596083716
+        },
+        {
+          "case": "c02",
+          "correct": false,
+          "answer": {
+            "choice": "change settings",
+            "probabilities": {
+              "read existing data": 0.09548754245042801,
+              "explain a concept": 0.08827121555805206,
+              "change settings": 0.8162412047386169
+            },
+            "confidence": 0.8162412047386169
+          },
+          "ms": 118.21445799432695
+        },
+        {
+          "case": "c03",
+          "correct": true,
+          "answer": {
+            "choice": "read existing data",
+            "probabilities": {
+              "read existing data": 0.6376020908355713,
+              "explain a concept": 0.182489275932312,
+              "change settings": 0.17990867793560028
+            },
+            "confidence": 0.6376020908355713
+          },
+          "ms": 104.21970800962299
+        },
+        {
+          "case": "c04",
+          "correct": true,
+          "answer": {
+            "choice": "read existing data",
+            "probabilities": {
+              "read existing data": 0.5434187650680542,
+              "explain a concept": 0.21388934552669525,
+              "change settings": 0.24269187450408936
+            },
+            "confidence": 0.5434187650680542
+          },
+          "ms": 96.63079201709479
+        },
+        {
+          "case": "c05",
+          "correct": true,
+          "answer": {
+            "choice": "read existing data",
+            "probabilities": {
+              "read existing data": 0.5681657791137695,
+              "explain a concept": 0.1891067773103714,
+              "change settings": 0.24272742867469788
+            },
+            "confidence": 0.5681657791137695
+          },
+          "ms": 94.83012498822063
+        },
+        {
+          "case": "c06",
+          "correct": true,
+          "answer": {
+            "choice": "read existing data",
+            "probabilities": {
+              "read existing data": 0.5699424743652344,
+              "explain a concept": 0.203525111079216,
+              "change settings": 0.2265324592590332
+            },
+            "confidence": 0.5699424743652344
+          },
+          "ms": 114.90812501870096
+        },
+        {
+          "case": "c07",
+          "correct": true,
+          "answer": {
+            "choice": "read existing data",
+            "probabilities": {
+              "read existing data": 0.4957297444343567,
+              "explain a concept": 0.1942564994096756,
+              "change settings": 0.3100138008594513
+            },
+            "confidence": 0.4957297444343567
+          },
+          "ms": 113.60958300065249
+        },
+        {
+          "case": "c08",
+          "correct": false,
+          "answer": {
+            "choice": "change settings",
+            "probabilities": {
+              "read existing data": 0.2815016210079193,
+              "explain a concept": 0.1398552805185318,
+              "change settings": 0.5786430835723877
+            },
+            "confidence": 0.5786430835723877
+          },
+          "ms": 98.89833303168416
+        },
+        {
+          "case": "c09",
+          "correct": true,
+          "answer": {
+            "choice": "explain a concept",
+            "probabilities": {
+              "read existing data": 0.13428203761577606,
+              "explain a concept": 0.7602813839912415,
+              "change settings": 0.10543664544820786
+            },
+            "confidence": 0.7602813839912415
+          },
+          "ms": 98.46329101128504
+        },
+        {
+          "case": "c10",
+          "correct": true,
+          "answer": {
+            "choice": "explain a concept",
+            "probabilities": {
+              "read existing data": 0.19304925203323364,
+              "explain a concept": 0.532390296459198,
+              "change settings": 0.2745603621006012
+            },
+            "confidence": 0.532390296459198
+          },
+          "ms": 112.3662919853814
+        },
+        {
+          "case": "c11",
+          "correct": true,
+          "answer": {
+            "choice": "explain a concept",
+            "probabilities": {
+              "read existing data": 0.10469632595777512,
+              "explain a concept": 0.7773990035057068,
+              "change settings": 0.11790468543767929
+            },
+            "confidence": 0.7773990035057068
+          },
+          "ms": 100.90758302249014
+        },
+        {
+          "case": "c12",
+          "correct": true,
+          "answer": {
+            "choice": "explain a concept",
+            "probabilities": {
+              "read existing data": 0.22622762620449066,
+              "explain a concept": 0.6137177348136902,
+              "change settings": 0.16005456447601318
+            },
+            "confidence": 0.6137177348136902
+          },
+          "ms": 116.35550000937656
+        },
+        {
+          "case": "c13",
+          "correct": true,
+          "answer": {
+            "choice": "explain a concept",
+            "probabilities": {
+              "read existing data": 0.2031714767217636,
+              "explain a concept": 0.5468336939811707,
+              "change settings": 0.24999485909938812
+            },
+            "confidence": 0.5468336939811707
+          },
+          "ms": 98.68158301105723
+        },
+        {
+          "case": "c14",
+          "correct": true,
+          "answer": {
+            "choice": "explain a concept",
+            "probabilities": {
+              "read existing data": 0.21405279636383057,
+              "explain a concept": 0.5146363973617554,
+              "change settings": 0.2713107764720917
+            },
+            "confidence": 0.5146363973617554
+          },
+          "ms": 98.33645797334611
+        },
+        {
+          "case": "c15",
+          "correct": false,
+          "answer": {
+            "choice": "change settings",
+            "probabilities": {
+              "read existing data": 0.11117616295814514,
+              "explain a concept": 0.3312216103076935,
+              "change settings": 0.5576022863388062
+            },
+            "confidence": 0.5576022863388062
+          },
+          "ms": 115.02791702514514
+        },
+        {
+          "case": "c16",
+          "correct": true,
+          "answer": {
+            "choice": "explain a concept",
+            "probabilities": {
+              "read existing data": 0.0733422115445137,
+              "explain a concept": 0.8358460664749146,
+              "change settings": 0.09081177413463593
+            },
+            "confidence": 0.8358460664749146
+          },
+          "ms": 112.18454100890085
+        },
+        {
+          "case": "c17",
+          "correct": true,
+          "answer": {
+            "choice": "change settings",
+            "probabilities": {
+              "read existing data": 0.15874449908733368,
+              "explain a concept": 0.260389506816864,
+              "change settings": 0.5808659195899963
+            },
+            "confidence": 0.5808659195899963
+          },
+          "ms": 95.27995804091915
+        },
+        {
+          "case": "c18",
+          "correct": true,
+          "answer": {
+            "choice": "change settings",
+            "probabilities": {
+              "read existing data": 0.06493591517210007,
+              "explain a concept": 0.08216681331396103,
+              "change settings": 0.8528972864151001
+            },
+            "confidence": 0.8528972864151001
+          },
+          "ms": 95.37587501108646
+        },
+        {
+          "case": "c19",
+          "correct": true,
+          "answer": {
+            "choice": "change settings",
+            "probabilities": {
+              "read existing data": 0.13382741808891296,
+              "explain a concept": 0.15289625525474548,
+              "change settings": 0.7132763266563416
+            },
+            "confidence": 0.7132763266563416
+          },
+          "ms": 94.57799996016547
+        },
+        {
+          "case": "c20",
+          "correct": true,
+          "answer": {
+            "choice": "change settings",
+            "probabilities": {
+              "read existing data": 0.05889833718538284,
+              "explain a concept": 0.11777614802122116,
+              "change settings": 0.8233255743980408
+            },
+            "confidence": 0.8233255743980408
+          },
+          "ms": 94.44833395536989
+        },
+        {
+          "case": "c21",
+          "correct": true,
+          "answer": {
+            "choice": "change settings",
+            "probabilities": {
+              "read existing data": 0.10537127405405045,
+              "explain a concept": 0.22684746980667114,
+              "change settings": 0.6677812337875366
+            },
+            "confidence": 0.6677812337875366
+          },
+          "ms": 93.77691597910598
+        },
+        {
+          "case": "c22",
+          "correct": true,
+          "answer": {
+            "choice": "change settings",
+            "probabilities": {
+              "read existing data": 0.06012989208102226,
+              "explain a concept": 0.09365329891443253,
+              "change settings": 0.8462167978286743
+            },
+            "confidence": 0.8462167978286743
+          },
+          "ms": 100.48362496308982
+        },
+        {
+          "case": "c23",
+          "correct": true,
+          "answer": {
+            "choice": "change settings",
+            "probabilities": {
+              "read existing data": 0.053553640842437744,
+              "explain a concept": 0.11126457899808884,
+              "change settings": 0.8351818323135376
+            },
+            "confidence": 0.8351818323135376
+          },
+          "ms": 98.30054198391736
+        },
+        {
+          "case": "c24",
+          "correct": true,
+          "answer": {
+            "choice": "change settings",
+            "probabilities": {
+              "read existing data": 0.09402066469192505,
+              "explain a concept": 0.1260925978422165,
+              "change settings": 0.779886782169342
+            },
+            "confidence": 0.779886782169342
+          },
+          "ms": 98.7494169967249
+        }
+      ]
+    },
+    {
+      "question": {
+        "type": "choice",
+        "instructions": "What action is requested, rather than prohibited?",
+        "options": [
+          "read existing data",
+          "explain a concept",
+          "change settings"
+        ]
+      },
+      "correct": 22,
+      "rows": [
+        {
+          "case": "c01",
+          "correct": true,
+          "answer": {
+            "choice": "read existing data",
+            "probabilities": {
+              "read existing data": 0.6125780344009399,
+              "explain a concept": 0.18826007843017578,
+              "change settings": 0.19916191697120667
+            },
+            "confidence": 0.6125780344009399
+          },
+          "ms": 115.19958300050348
+        },
+        {
+          "case": "c02",
+          "correct": false,
+          "answer": {
+            "choice": "change settings",
+            "probabilities": {
+              "read existing data": 0.11646919697523117,
+              "explain a concept": 0.14466743171215057,
+              "change settings": 0.7388633489608765
+            },
+            "confidence": 0.7388633489608765
+          },
+          "ms": 108.6818749899976
+        },
+        {
+          "case": "c03",
+          "correct": true,
+          "answer": {
+            "choice": "read existing data",
+            "probabilities": {
+              "read existing data": 0.7029860615730286,
+              "explain a concept": 0.17256352305412292,
+              "change settings": 0.12445046007633209
+            },
+            "confidence": 0.7029860615730286
+          },
+          "ms": 109.43325003609061
+        },
+        {
+          "case": "c04",
+          "correct": true,
+          "answer": {
+            "choice": "read existing data",
+            "probabilities": {
+              "read existing data": 0.489923357963562,
+              "explain a concept": 0.2254883497953415,
+              "change settings": 0.2845883071422577
+            },
+            "confidence": 0.489923357963562
+          },
+          "ms": 101.43095802050084
+        },
+        {
+          "case": "c05",
+          "correct": true,
+          "answer": {
+            "choice": "read existing data",
+            "probabilities": {
+              "read existing data": 0.5607597231864929,
+              "explain a concept": 0.19452546536922455,
+              "change settings": 0.24471484124660492
+            },
+            "confidence": 0.5607597231864929
+          },
+          "ms": 106.01216700160876
+        },
+        {
+          "case": "c06",
+          "correct": true,
+          "answer": {
+            "choice": "read existing data",
+            "probabilities": {
+              "read existing data": 0.6359633207321167,
+              "explain a concept": 0.14854198694229126,
+              "change settings": 0.21549464762210846
+            },
+            "confidence": 0.6359633207321167
+          },
+          "ms": 122.43479199241847
+        },
+        {
+          "case": "c07",
+          "correct": true,
+          "answer": {
+            "choice": "read existing data",
+            "probabilities": {
+              "read existing data": 0.522800087928772,
+              "explain a concept": 0.1846214085817337,
+              "change settings": 0.29257842898368835
+            },
+            "confidence": 0.522800087928772
+          },
+          "ms": 117.69854102749377
+        },
+        {
+          "case": "c08",
+          "correct": true,
+          "answer": {
+            "choice": "read existing data",
+            "probabilities": {
+              "read existing data": 0.5005807280540466,
+              "explain a concept": 0.11584432423114777,
+              "change settings": 0.3835749626159668
+            },
+            "confidence": 0.5005807280540466
+          },
+          "ms": 98.13895897241309
+        },
+        {
+          "case": "c09",
+          "correct": true,
+          "answer": {
+            "choice": "explain a concept",
+            "probabilities": {
+              "read existing data": 0.25108298659324646,
+              "explain a concept": 0.4934774935245514,
+              "change settings": 0.25543951988220215
+            },
+            "confidence": 0.4934774935245514
+          },
+          "ms": 110.78575003193691
+        },
+        {
+          "case": "c10",
+          "correct": true,
+          "answer": {
+            "choice": "explain a concept",
+            "probabilities": {
+              "read existing data": 0.16080854833126068,
+              "explain a concept": 0.515384316444397,
+              "change settings": 0.32380715012550354
+            },
+            "confidence": 0.515384316444397
+          },
+          "ms": 111.66120902635157
+        },
+        {
+          "case": "c11",
+          "correct": true,
+          "answer": {
+            "choice": "explain a concept",
+            "probabilities": {
+              "read existing data": 0.20245613157749176,
+              "explain a concept": 0.5441209077835083,
+              "change settings": 0.25342288613319397
+            },
+            "confidence": 0.5441209077835083
+          },
+          "ms": 109.58045796724036
+        },
+        {
+          "case": "c12",
+          "correct": true,
+          "answer": {
+            "choice": "explain a concept",
+            "probabilities": {
+              "read existing data": 0.25637397170066833,
+              "explain a concept": 0.4786693751811981,
+              "change settings": 0.26495662331581116
+            },
+            "confidence": 0.4786693751811981
+          },
+          "ms": 109.46874995715916
+        },
+        {
+          "case": "c13",
+          "correct": true,
+          "answer": {
+            "choice": "explain a concept",
+            "probabilities": {
+              "read existing data": 0.1926388442516327,
+              "explain a concept": 0.41559162735939026,
+              "change settings": 0.39176955819129944
+            },
+            "confidence": 0.41559162735939026
+          },
+          "ms": 94.35187501367182
+        },
+        {
+          "case": "c14",
+          "correct": true,
+          "answer": {
+            "choice": "explain a concept",
+            "probabilities": {
+              "read existing data": 0.22468072175979614,
+              "explain a concept": 0.5933041572570801,
+              "change settings": 0.18201500177383423
+            },
+            "confidence": 0.5933041572570801
+          },
+          "ms": 95.00754199689254
+        },
+        {
+          "case": "c15",
+          "correct": false,
+          "answer": {
+            "choice": "change settings",
+            "probabilities": {
+              "read existing data": 0.16751445829868317,
+              "explain a concept": 0.3684268295764923,
+              "change settings": 0.46405863761901855
+            },
+            "confidence": 0.46405863761901855
+          },
+          "ms": 109.46804203558713
+        },
+        {
+          "case": "c16",
+          "correct": true,
+          "answer": {
+            "choice": "explain a concept",
+            "probabilities": {
+              "read existing data": 0.05110853537917137,
+              "explain a concept": 0.8867660164833069,
+              "change settings": 0.06212548539042473
+            },
+            "confidence": 0.8867660164833069
+          },
+          "ms": 108.87016699416563
+        },
+        {
+          "case": "c17",
+          "correct": true,
+          "answer": {
+            "choice": "change settings",
+            "probabilities": {
+              "read existing data": 0.04592403769493103,
+              "explain a concept": 0.06837355345487595,
+              "change settings": 0.8857024312019348
+            },
+            "confidence": 0.8857024312019348
+          },
+          "ms": 99.2529169889167
+        },
+        {
+          "case": "c18",
+          "correct": true,
+          "answer": {
+            "choice": "change settings",
+            "probabilities": {
+              "read existing data": 0.08445177972316742,
+              "explain a concept": 0.10326048731803894,
+              "change settings": 0.8122878074645996
+            },
+            "confidence": 0.8122878074645996
+          },
+          "ms": 97.88370900787413
+        },
+        {
+          "case": "c19",
+          "correct": true,
+          "answer": {
+            "choice": "change settings",
+            "probabilities": {
+              "read existing data": 0.10413786768913269,
+              "explain a concept": 0.15652932226657867,
+              "change settings": 0.7393328547477722
+            },
+            "confidence": 0.7393328547477722
+          },
+          "ms": 92.76174998376518
+        },
+        {
+          "case": "c20",
+          "correct": true,
+          "answer": {
+            "choice": "change settings",
+            "probabilities": {
+              "read existing data": 0.058708883821964264,
+              "explain a concept": 0.10572414845228195,
+              "change settings": 0.8355669975280762
+            },
+            "confidence": 0.8355669975280762
+          },
+          "ms": 106.40795895596966
+        },
+        {
+          "case": "c21",
+          "correct": true,
+          "answer": {
+            "choice": "change settings",
+            "probabilities": {
+              "read existing data": 0.07431993633508682,
+              "explain a concept": 0.19669996201992035,
+              "change settings": 0.7289801239967346
+            },
+            "confidence": 0.7289801239967346
+          },
+          "ms": 96.13495803205296
+        },
+        {
+          "case": "c22",
+          "correct": true,
+          "answer": {
+            "choice": "change settings",
+            "probabilities": {
+              "read existing data": 0.05288456752896309,
+              "explain a concept": 0.09243550896644592,
+              "change settings": 0.8546798825263977
+            },
+            "confidence": 0.8546798825263977
+          },
+          "ms": 109.98558299615979
+        },
+        {
+          "case": "c23",
+          "correct": true,
+          "answer": {
+            "choice": "change settings",
+            "probabilities": {
+              "read existing data": 0.048812150955200195,
+              "explain a concept": 0.0890226736664772,
+              "change settings": 0.8621651530265808
+            },
+            "confidence": 0.8621651530265808
+          },
+          "ms": 112.65145795186982
+        },
+        {
+          "case": "c24",
+          "correct": true,
+          "answer": {
+            "choice": "change settings",
+            "probabilities": {
+              "read existing data": 0.07240663468837738,
+              "explain a concept": 0.09288360923528671,
+              "change settings": 0.8347097635269165
+            },
+            "confidence": 0.8347097635269165
+          },
+          "ms": 94.95195897761732
+        }
+      ]
+    },
+    {
+      "question": {
+        "type": "choice",
+        "instructions": "What is the intent of this message?",
+        "options": [
+          "view saved information",
+          "ask for an explanation",
+          "change a preference"
+        ]
+      },
+      "correct": 20,
+      "rows": [
+        {
+          "case": "c01",
+          "correct": true,
+          "answer": {
+            "choice": "view saved information",
+            "probabilities": {
+              "view saved information": 0.7881119847297668,
+              "ask for an explanation": 0.07847683876752853,
+              "change a preference": 0.13341116905212402
+            },
+            "confidence": 0.7881119847297668
+          },
+          "ms": 171.06883396627381
+        },
+        {
+          "case": "c02",
+          "correct": false,
+          "answer": {
+            "choice": "change a preference",
+            "probabilities": {
+              "view saved information": 0.19862689077854156,
+              "ask for an explanation": 0.17125634849071503,
+              "change a preference": 0.6301167607307434
+            },
+            "confidence": 0.6301167607307434
+          },
+          "ms": 139.28987499093637
+        },
+        {
+          "case": "c03",
+          "correct": true,
+          "answer": {
+            "choice": "view saved information",
+            "probabilities": {
+              "view saved information": 0.7514041066169739,
+              "ask for an explanation": 0.1432790458202362,
+              "change a preference": 0.1053168848156929
+            },
+            "confidence": 0.7514041066169739
+          },
+          "ms": 100.60220799641684
+        },
+        {
+          "case": "c04",
+          "correct": true,
+          "answer": {
+            "choice": "view saved information",
+            "probabilities": {
+              "view saved information": 0.41524067521095276,
+              "ask for an explanation": 0.30511707067489624,
+              "change a preference": 0.2796422839164734
+            },
+            "confidence": 0.41524067521095276
+          },
+          "ms": 115.78283301787451
+        },
+        {
+          "case": "c05",
+          "correct": true,
+          "answer": {
+            "choice": "view saved information",
+            "probabilities": {
+              "view saved information": 0.48197251558303833,
+              "ask for an explanation": 0.18956559896469116,
+              "change a preference": 0.3284619152545929
+            },
+            "confidence": 0.48197251558303833
+          },
+          "ms": 112.94449999695644
+        },
+        {
+          "case": "c06",
+          "correct": false,
+          "answer": {
+            "choice": "ask for an explanation",
+            "probabilities": {
+              "view saved information": 0.35203832387924194,
+              "ask for an explanation": 0.3942849636077881,
+              "change a preference": 0.25367677211761475
+            },
+            "confidence": 0.3942849636077881
+          },
+          "ms": 114.80854102410376
+        },
+        {
+          "case": "c07",
+          "correct": false,
+          "answer": {
+            "choice": "change a preference",
+            "probabilities": {
+              "view saved information": 0.4047199785709381,
+              "ask for an explanation": 0.1408204585313797,
+              "change a preference": 0.4544594883918762
+            },
+            "confidence": 0.4544594883918762
+          },
+          "ms": 151.28574997652322
+        },
+        {
+          "case": "c08",
+          "correct": true,
+          "answer": {
+            "choice": "view saved information",
+            "probabilities": {
+              "view saved information": 0.7304157614707947,
+              "ask for an explanation": 0.10164311528205872,
+              "change a preference": 0.1679411083459854
+            },
+            "confidence": 0.7304157614707947
+          },
+          "ms": 116.49700003908947
+        },
+        {
+          "case": "c09",
+          "correct": true,
+          "answer": {
+            "choice": "ask for an explanation",
+            "probabilities": {
+              "view saved information": 0.2761610150337219,
+              "ask for an explanation": 0.5613643527030945,
+              "change a preference": 0.16247466206550598
+            },
+            "confidence": 0.5613643527030945
+          },
+          "ms": 108.58158295741305
+        },
+        {
+          "case": "c10",
+          "correct": true,
+          "answer": {
+            "choice": "ask for an explanation",
+            "probabilities": {
+              "view saved information": 0.094696544110775,
+              "ask for an explanation": 0.5339857935905457,
+              "change a preference": 0.37131762504577637
+            },
+            "confidence": 0.5339857935905457
+          },
+          "ms": 112.37654200522229
+        },
+        {
+          "case": "c11",
+          "correct": true,
+          "answer": {
+            "choice": "ask for an explanation",
+            "probabilities": {
+              "view saved information": 0.30174335837364197,
+              "ask for an explanation": 0.48642683029174805,
+              "change a preference": 0.21182973682880402
+            },
+            "confidence": 0.48642683029174805
+          },
+          "ms": 110.75379198882729
+        },
+        {
+          "case": "c12",
+          "correct": true,
+          "answer": {
+            "choice": "ask for an explanation",
+            "probabilities": {
+              "view saved information": 0.1938622146844864,
+              "ask for an explanation": 0.47735488414764404,
+              "change a preference": 0.32878294587135315
+            },
+            "confidence": 0.47735488414764404
+          },
+          "ms": 125.77141600195318
+        },
+        {
+          "case": "c13",
+          "correct": true,
+          "answer": {
+            "choice": "ask for an explanation",
+            "probabilities": {
+              "view saved information": 0.23614104092121124,
+              "ask for an explanation": 0.5690251588821411,
+              "change a preference": 0.19483378529548645
+            },
+            "confidence": 0.5690251588821411
+          },
+          "ms": 99.13466701982543
+        },
+        {
+          "case": "c14",
+          "correct": true,
+          "answer": {
+            "choice": "ask for an explanation",
+            "probabilities": {
+              "view saved information": 0.13849078118801117,
+              "ask for an explanation": 0.6939567923545837,
+              "change a preference": 0.16755245625972748
+            },
+            "confidence": 0.6939567923545837
+          },
+          "ms": 102.51104098279029
+        },
+        {
+          "case": "c15",
+          "correct": false,
+          "answer": {
+            "choice": "change a preference",
+            "probabilities": {
+              "view saved information": 0.16376404464244843,
+              "ask for an explanation": 0.3834800720214844,
+              "change a preference": 0.45275595784187317
+            },
+            "confidence": 0.45275595784187317
+          },
+          "ms": 117.14604200096801
+        },
+        {
+          "case": "c16",
+          "correct": true,
+          "answer": {
+            "choice": "ask for an explanation",
+            "probabilities": {
+              "view saved information": 0.09954716265201569,
+              "ask for an explanation": 0.8195550441741943,
+              "change a preference": 0.08089786022901535
+            },
+            "confidence": 0.8195550441741943
+          },
+          "ms": 116.57441704301164
+        },
+        {
+          "case": "c17",
+          "correct": true,
+          "answer": {
+            "choice": "change a preference",
+            "probabilities": {
+              "view saved information": 0.07241951674222946,
+              "ask for an explanation": 0.13605880737304688,
+              "change a preference": 0.7915216088294983
+            },
+            "confidence": 0.7915216088294983
+          },
+          "ms": 100.38520797388628
+        },
+        {
+          "case": "c18",
+          "correct": true,
+          "answer": {
+            "choice": "change a preference",
+            "probabilities": {
+              "view saved information": 0.1279381513595581,
+              "ask for an explanation": 0.1192130297422409,
+              "change a preference": 0.7528488636016846
+            },
+            "confidence": 0.7528488636016846
+          },
+          "ms": 112.73887503193691
+        },
+        {
+          "case": "c19",
+          "correct": true,
+          "answer": {
+            "choice": "change a preference",
+            "probabilities": {
+              "view saved information": 0.09111287444829941,
+              "ask for an explanation": 0.09118492901325226,
+              "change a preference": 0.8177021741867065
+            },
+            "confidence": 0.8177021741867065
+          },
+          "ms": 94.3144999910146
+        },
+        {
+          "case": "c20",
+          "correct": true,
+          "answer": {
+            "choice": "change a preference",
+            "probabilities": {
+              "view saved information": 0.13811863958835602,
+              "ask for an explanation": 0.10734748095273972,
+              "change a preference": 0.7545338869094849
+            },
+            "confidence": 0.7545338869094849
+          },
+          "ms": 113.21887496160343
+        },
+        {
+          "case": "c21",
+          "correct": true,
+          "answer": {
+            "choice": "change a preference",
+            "probabilities": {
+              "view saved information": 0.09285849332809448,
+              "ask for an explanation": 0.1776704639196396,
+              "change a preference": 0.7294710874557495
+            },
+            "confidence": 0.7294710874557495
+          },
+          "ms": 95.43058299459517
+        },
+        {
+          "case": "c22",
+          "correct": true,
+          "answer": {
+            "choice": "change a preference",
+            "probabilities": {
+              "view saved information": 0.09015977382659912,
+              "ask for an explanation": 0.07625562697649002,
+              "change a preference": 0.8335846066474915
+            },
+            "confidence": 0.8335846066474915
+          },
+          "ms": 113.80554101197049
+        },
+        {
+          "case": "c23",
+          "correct": true,
+          "answer": {
+            "choice": "change a preference",
+            "probabilities": {
+              "view saved information": 0.04756978526711464,
+              "ask for an explanation": 0.10118822753429413,
+              "change a preference": 0.851241946220398
+            },
+            "confidence": 0.851241946220398
+          },
+          "ms": 110.17474997788668
+        },
+        {
+          "case": "c24",
+          "correct": true,
+          "answer": {
+            "choice": "change a preference",
+            "probabilities": {
+              "view saved information": 0.07511558383703232,
+              "ask for an explanation": 0.07038189470767975,
+              "change a preference": 0.8545025587081909
+            },
+            "confidence": 0.8545025587081909
+          },
+          "ms": 114.13562495727092
+        }
+      ]
+    },
+    {
+      "question": {
+        "type": "choice",
+        "instructions": "What does the user ask the assistant to do?",
+        "options": [
+          "look up current data",
+          "explain a general concept",
+          "update account settings"
+        ]
+      },
+      "correct": 19,
+      "rows": [
+        {
+          "case": "c01",
+          "correct": true,
+          "answer": {
+            "choice": "look up current data",
+            "probabilities": {
+              "look up current data": 0.560249388217926,
+              "explain a general concept": 0.2903542220592499,
+              "update account settings": 0.14939643442630768
+            },
+            "confidence": 0.560249388217926
+          },
+          "ms": 115.45708298217505
+        },
+        {
+          "case": "c02",
+          "correct": false,
+          "answer": {
+            "choice": "explain a general concept",
+            "probabilities": {
+              "look up current data": 0.1999329924583435,
+              "explain a general concept": 0.4118284583091736,
+              "update account settings": 0.3882385194301605
+            },
+            "confidence": 0.4118284583091736
+          },
+          "ms": 114.74987503606826
+        },
+        {
+          "case": "c03",
+          "correct": true,
+          "answer": {
+            "choice": "look up current data",
+            "probabilities": {
+              "look up current data": 0.8091057538986206,
+              "explain a general concept": 0.13556410372257233,
+              "update account settings": 0.055330079048871994
+            },
+            "confidence": 0.8091057538986206
+          },
+          "ms": 113.63254196476191
+        },
+        {
+          "case": "c04",
+          "correct": true,
+          "answer": {
+            "choice": "look up current data",
+            "probabilities": {
+              "look up current data": 0.46113863587379456,
+              "explain a general concept": 0.4061742126941681,
+              "update account settings": 0.13268719613552094
+            },
+            "confidence": 0.46113863587379456
+          },
+          "ms": 115.54337502457201
+        },
+        {
+          "case": "c05",
+          "correct": true,
+          "answer": {
+            "choice": "look up current data",
+            "probabilities": {
+              "look up current data": 0.7629013657569885,
+              "explain a general concept": 0.16056686639785767,
+              "update account settings": 0.07653166353702545
+            },
+            "confidence": 0.7629013657569885
+          },
+          "ms": 113.17737499484792
+        },
+        {
+          "case": "c06",
+          "correct": true,
+          "answer": {
+            "choice": "look up current data",
+            "probabilities": {
+              "look up current data": 0.7812435626983643,
+              "explain a general concept": 0.1528627872467041,
+              "update account settings": 0.06589370220899582
+            },
+            "confidence": 0.7812435626983643
+          },
+          "ms": 112.27037495700642
+        },
+        {
+          "case": "c07",
+          "correct": true,
+          "answer": {
+            "choice": "look up current data",
+            "probabilities": {
+              "look up current data": 0.5725235939025879,
+              "explain a general concept": 0.2544366717338562,
+              "update account settings": 0.17303979396820068
+            },
+            "confidence": 0.5725235939025879
+          },
+          "ms": 114.58841699641198
+        },
+        {
+          "case": "c08",
+          "correct": true,
+          "answer": {
+            "choice": "look up current data",
+            "probabilities": {
+              "look up current data": 0.3507559299468994,
+              "explain a general concept": 0.3095877468585968,
+              "update account settings": 0.3396563231945038
+            },
+            "confidence": 0.3507559299468994
+          },
+          "ms": 113.87512501096353
+        },
+        {
+          "case": "c09",
+          "correct": true,
+          "answer": {
+            "choice": "explain a general concept",
+            "probabilities": {
+              "look up current data": 0.23201802372932434,
+              "explain a general concept": 0.7357580065727234,
+              "update account settings": 0.03222403675317764
+            },
+            "confidence": 0.7357580065727234
+          },
+          "ms": 109.63691701181233
+        },
+        {
+          "case": "c10",
+          "correct": true,
+          "answer": {
+            "choice": "explain a general concept",
+            "probabilities": {
+              "look up current data": 0.18598034977912903,
+              "explain a general concept": 0.7287613153457642,
+              "update account settings": 0.08525841683149338
+            },
+            "confidence": 0.7287613153457642
+          },
+          "ms": 110.31108302995563
+        },
+        {
+          "case": "c11",
+          "correct": true,
+          "answer": {
+            "choice": "explain a general concept",
+            "probabilities": {
+              "look up current data": 0.14043307304382324,
+              "explain a general concept": 0.8059023022651672,
+              "update account settings": 0.05366457626223564
+            },
+            "confidence": 0.8059023022651672
+          },
+          "ms": 111.83304199948907
+        },
+        {
+          "case": "c12",
+          "correct": true,
+          "answer": {
+            "choice": "explain a general concept",
+            "probabilities": {
+              "look up current data": 0.22035253047943115,
+              "explain a general concept": 0.6637692451477051,
+              "update account settings": 0.11587820947170258
+            },
+            "confidence": 0.6637692451477051
+          },
+          "ms": 112.36929200822487
+        },
+        {
+          "case": "c13",
+          "correct": true,
+          "answer": {
+            "choice": "explain a general concept",
+            "probabilities": {
+              "look up current data": 0.21093320846557617,
+              "explain a general concept": 0.7536097764968872,
+              "update account settings": 0.035457029938697815
+            },
+            "confidence": 0.7536097764968872
+          },
+          "ms": 110.99474999355152
+        },
+        {
+          "case": "c14",
+          "correct": true,
+          "answer": {
+            "choice": "explain a general concept",
+            "probabilities": {
+              "look up current data": 0.17854882776737213,
+              "explain a general concept": 0.7586914896965027,
+              "update account settings": 0.06275968253612518
+            },
+            "confidence": 0.7586914896965027
+          },
+          "ms": 110.62020796816796
+        },
+        {
+          "case": "c15",
+          "correct": true,
+          "answer": {
+            "choice": "explain a general concept",
+            "probabilities": {
+              "look up current data": 0.1987244188785553,
+              "explain a general concept": 0.45611995458602905,
+              "update account settings": 0.34515559673309326
+            },
+            "confidence": 0.45611995458602905
+          },
+          "ms": 124.09804196795449
+        },
+        {
+          "case": "c16",
+          "correct": true,
+          "answer": {
+            "choice": "explain a general concept",
+            "probabilities": {
+              "look up current data": 0.08461850881576538,
+              "explain a general concept": 0.8614113330841064,
+              "update account settings": 0.05397016927599907
+            },
+            "confidence": 0.8614113330841064
+          },
+          "ms": 114.43816701648757
+        },
+        {
+          "case": "c17",
+          "correct": false,
+          "answer": {
+            "choice": "explain a general concept",
+            "probabilities": {
+              "look up current data": 0.2877735495567322,
+              "explain a general concept": 0.4540085196495056,
+              "update account settings": 0.2582179009914398
+            },
+            "confidence": 0.4540085196495056
+          },
+          "ms": 109.59529102547094
+        },
+        {
+          "case": "c18",
+          "correct": true,
+          "answer": {
+            "choice": "update account settings",
+            "probabilities": {
+              "look up current data": 0.2503209710121155,
+              "explain a general concept": 0.19981804490089417,
+              "update account settings": 0.549860954284668
+            },
+            "confidence": 0.549860954284668
+          },
+          "ms": 113.65604196907952
+        },
+        {
+          "case": "c19",
+          "correct": false,
+          "answer": {
+            "choice": "explain a general concept",
+            "probabilities": {
+              "look up current data": 0.2327347993850708,
+              "explain a general concept": 0.43894970417022705,
+              "update account settings": 0.3283155560493469
+            },
+            "confidence": 0.43894970417022705
+          },
+          "ms": 112.57812497206032
+        },
+        {
+          "case": "c20",
+          "correct": true,
+          "answer": {
+            "choice": "update account settings",
+            "probabilities": {
+              "look up current data": 0.15783821046352386,
+              "explain a general concept": 0.2528965175151825,
+              "update account settings": 0.5892653465270996
+            },
+            "confidence": 0.5892653465270996
+          },
+          "ms": 109.65237498749048
+        },
+        {
+          "case": "c21",
+          "correct": false,
+          "answer": {
+            "choice": "explain a general concept",
+            "probabilities": {
+              "look up current data": 0.3008948862552643,
+              "explain a general concept": 0.4558332562446594,
+              "update account settings": 0.2432718724012375
+            },
+            "confidence": 0.4558332562446594
+          },
+          "ms": 107.62541700387374
+        },
+        {
+          "case": "c22",
+          "correct": true,
+          "answer": {
+            "choice": "update account settings",
+            "probabilities": {
+              "look up current data": 0.12962162494659424,
+              "explain a general concept": 0.21572665870189667,
+              "update account settings": 0.6546517014503479
+            },
+            "confidence": 0.6546517014503479
+          },
+          "ms": 128.49483400350437
+        },
+        {
+          "case": "c23",
+          "correct": false,
+          "answer": {
+            "choice": "explain a general concept",
+            "probabilities": {
+              "look up current data": 0.1938035935163498,
+              "explain a general concept": 0.4289166331291199,
+              "update account settings": 0.37727978825569153
+            },
+            "confidence": 0.4289166331291199
+          },
+          "ms": 114.98404201120138
+        },
+        {
+          "case": "c24",
+          "correct": true,
+          "answer": {
+            "choice": "update account settings",
+            "probabilities": {
+              "look up current data": 0.1604432463645935,
+              "explain a general concept": 0.21997731924057007,
+              "update account settings": 0.6195794939994812
+            },
+            "confidence": 0.6195794939994812
+          },
+          "ms": 116.16375000448897
+        }
+      ]
+    },
+    {
+      "question": {
+        "type": "choice",
+        "instructions": "Choose the action that the user actually requests. Respect negations.",
+        "options": [
+          "retrieve information",
+          "explain meaning",
+          "modify settings"
+        ]
+      },
+      "correct": 17,
+      "rows": [
+        {
+          "case": "c01",
+          "correct": true,
+          "answer": {
+            "choice": "retrieve information",
+            "probabilities": {
+              "retrieve information": 0.7347292304039001,
+              "explain meaning": 0.10417023301124573,
+              "modify settings": 0.16110055148601532
+            },
+            "confidence": 0.7347292304039001
+          },
+          "ms": 114.10587502177805
+        },
+        {
+          "case": "c02",
+          "correct": false,
+          "answer": {
+            "choice": "modify settings",
+            "probabilities": {
+              "retrieve information": 0.18158961832523346,
+              "explain meaning": 0.07022246718406677,
+              "modify settings": 0.7481878995895386
+            },
+            "confidence": 0.7481878995895386
+          },
+          "ms": 115.9485419630073
+        },
+        {
+          "case": "c03",
+          "correct": true,
+          "answer": {
+            "choice": "retrieve information",
+            "probabilities": {
+              "retrieve information": 0.8108859062194824,
+              "explain meaning": 0.07317449897527695,
+              "modify settings": 0.11593957990407944
+            },
+            "confidence": 0.8108859062194824
+          },
+          "ms": 117.85220802994445
+        },
+        {
+          "case": "c04",
+          "correct": true,
+          "answer": {
+            "choice": "retrieve information",
+            "probabilities": {
+              "retrieve information": 0.5494229793548584,
+              "explain meaning": 0.14671365916728973,
+              "modify settings": 0.3038633465766907
+            },
+            "confidence": 0.5494229793548584
+          },
+          "ms": 112.31599998427555
+        },
+        {
+          "case": "c05",
+          "correct": true,
+          "answer": {
+            "choice": "retrieve information",
+            "probabilities": {
+              "retrieve information": 0.6636400818824768,
+              "explain meaning": 0.1254722625017166,
+              "modify settings": 0.2108875811100006
+            },
+            "confidence": 0.6636400818824768
+          },
+          "ms": 109.64433295885101
+        },
+        {
+          "case": "c06",
+          "correct": true,
+          "answer": {
+            "choice": "retrieve information",
+            "probabilities": {
+              "retrieve information": 0.3968803584575653,
+              "explain meaning": 0.24508249759674072,
+              "modify settings": 0.3580370545387268
+            },
+            "confidence": 0.3968803584575653
+          },
+          "ms": 110.57870800141245
+        },
+        {
+          "case": "c07",
+          "correct": false,
+          "answer": {
+            "choice": "modify settings",
+            "probabilities": {
+              "retrieve information": 0.310829222202301,
+              "explain meaning": 0.1632952243089676,
+              "modify settings": 0.5258755087852478
+            },
+            "confidence": 0.5258755087852478
+          },
+          "ms": 138.32533301319927
+        },
+        {
+          "case": "c08",
+          "correct": false,
+          "answer": {
+            "choice": "modify settings",
+            "probabilities": {
+              "retrieve information": 0.18746191263198853,
+              "explain meaning": 0.12096951901912689,
+              "modify settings": 0.6915686130523682
+            },
+            "confidence": 0.6915686130523682
+          },
+          "ms": 127.67241703113541
+        },
+        {
+          "case": "c09",
+          "correct": true,
+          "answer": {
+            "choice": "explain meaning",
+            "probabilities": {
+              "retrieve information": 0.31762564182281494,
+              "explain meaning": 0.46675875782966614,
+              "modify settings": 0.21561554074287415
+            },
+            "confidence": 0.46675875782966614
+          },
+          "ms": 116.70750001212582
+        },
+        {
+          "case": "c10",
+          "correct": true,
+          "answer": {
+            "choice": "explain meaning",
+            "probabilities": {
+              "retrieve information": 0.28214171528816223,
+              "explain meaning": 0.4718455970287323,
+              "modify settings": 0.24601265788078308
+            },
+            "confidence": 0.4718455970287323
+          },
+          "ms": 109.79445796692744
+        },
+        {
+          "case": "c11",
+          "correct": true,
+          "answer": {
+            "choice": "explain meaning",
+            "probabilities": {
+              "retrieve information": 0.17809991538524628,
+              "explain meaning": 0.6353302001953125,
+              "modify settings": 0.18656979501247406
+            },
+            "confidence": 0.6353302001953125
+          },
+          "ms": 104.00054202182218
+        },
+        {
+          "case": "c12",
+          "correct": false,
+          "answer": {
+            "choice": "retrieve information",
+            "probabilities": {
+              "retrieve information": 0.39608556032180786,
+              "explain meaning": 0.24035370349884033,
+              "modify settings": 0.3635607361793518
+            },
+            "confidence": 0.39608556032180786
+          },
+          "ms": 113.93095896346495
+        },
+        {
+          "case": "c13",
+          "correct": false,
+          "answer": {
+            "choice": "modify settings",
+            "probabilities": {
+              "retrieve information": 0.33989980816841125,
+              "explain meaning": 0.3129213750362396,
+              "modify settings": 0.3471788465976715
+            },
+            "confidence": 0.3471788465976715
+          },
+          "ms": 112.27812495781109
+        },
+        {
+          "case": "c14",
+          "correct": false,
+          "answer": {
+            "choice": "modify settings",
+            "probabilities": {
+              "retrieve information": 0.2763444185256958,
+              "explain meaning": 0.3361537456512451,
+              "modify settings": 0.3875018060207367
+            },
+            "confidence": 0.3875018060207367
+          },
+          "ms": 108.90379204647616
+        },
+        {
+          "case": "c15",
+          "correct": false,
+          "answer": {
+            "choice": "modify settings",
+            "probabilities": {
+              "retrieve information": 0.20322947204113007,
+              "explain meaning": 0.3118736445903778,
+              "modify settings": 0.4848969280719757
+            },
+            "confidence": 0.4848969280719757
+          },
+          "ms": 110.97608396084979
+        },
+        {
+          "case": "c16",
+          "correct": true,
+          "answer": {
+            "choice": "explain meaning",
+            "probabilities": {
+              "retrieve information": 0.25929659605026245,
+              "explain meaning": 0.5910348296165466,
+              "modify settings": 0.1496686190366745
+            },
+            "confidence": 0.5910348296165466
+          },
+          "ms": 110.99429096793756
+        },
+        {
+          "case": "c17",
+          "correct": true,
+          "answer": {
+            "choice": "modify settings",
+            "probabilities": {
+              "retrieve information": 0.3682668209075928,
+              "explain meaning": 0.12951628863811493,
+              "modify settings": 0.5022168755531311
+            },
+            "confidence": 0.5022168755531311
+          },
+          "ms": 140.72575001046062
+        },
+        {
+          "case": "c18",
+          "correct": true,
+          "answer": {
+            "choice": "modify settings",
+            "probabilities": {
+              "retrieve information": 0.08710847049951553,
+              "explain meaning": 0.07542901486158371,
+              "modify settings": 0.8374625444412231
+            },
+            "confidence": 0.8374625444412231
+          },
+          "ms": 120.84187503205612
+        },
+        {
+          "case": "c19",
+          "correct": true,
+          "answer": {
+            "choice": "modify settings",
+            "probabilities": {
+              "retrieve information": 0.1337035447359085,
+              "explain meaning": 0.12142747640609741,
+              "modify settings": 0.7448689937591553
+            },
+            "confidence": 0.7448689937591553
+          },
+          "ms": 115.47512502875179
+        },
+        {
+          "case": "c20",
+          "correct": true,
+          "answer": {
+            "choice": "modify settings",
+            "probabilities": {
+              "retrieve information": 0.11369280517101288,
+              "explain meaning": 0.10099606961011887,
+              "modify settings": 0.7853111624717712
+            },
+            "confidence": 0.7853111624717712
+          },
+          "ms": 107.85708401817828
+        },
+        {
+          "case": "c21",
+          "correct": true,
+          "answer": {
+            "choice": "modify settings",
+            "probabilities": {
+              "retrieve information": 0.25334611535072327,
+              "explain meaning": 0.15902797877788544,
+              "modify settings": 0.5876258611679077
+            },
+            "confidence": 0.5876258611679077
+          },
+          "ms": 111.00716702640057
+        },
+        {
+          "case": "c22",
+          "correct": true,
+          "answer": {
+            "choice": "modify settings",
+            "probabilities": {
+              "retrieve information": 0.10085134208202362,
+              "explain meaning": 0.0846710130572319,
+              "modify settings": 0.8144776225090027
+            },
+            "confidence": 0.8144776225090027
+          },
+          "ms": 116.95016600424424
+        },
+        {
+          "case": "c23",
+          "correct": true,
+          "answer": {
+            "choice": "modify settings",
+            "probabilities": {
+              "retrieve information": 0.04673510417342186,
+              "explain meaning": 0.08712142705917358,
+              "modify settings": 0.8661434650421143
+            },
+            "confidence": 0.8661434650421143
+          },
+          "ms": 111.89683299744502
+        },
+        {
+          "case": "c24",
+          "correct": true,
+          "answer": {
+            "choice": "modify settings",
+            "probabilities": {
+              "retrieve information": 0.17138387262821198,
+              "explain meaning": 0.09205156564712524,
+              "modify settings": 0.736564576625824
+            },
+            "confidence": 0.736564576625824
+          },
+          "ms": 112.71312501048669
+        }
+      ]
+    },
+    {
+      "question": {
+        "type": "choice",
+        "instructions": "Which category best describes the request?",
+        "options": [
+          "question about personal data",
+          "general knowledge question",
+          "instruction to change a setting"
+        ]
+      },
+      "correct": 16,
+      "rows": [
+        {
+          "case": "c01",
+          "correct": false,
+          "answer": {
+            "choice": "instruction to change a setting",
+            "probabilities": {
+              "question about personal data": 0.3499598801136017,
+              "general knowledge question": 0.1610298603773117,
+              "instruction to change a setting": 0.4890103042125702
+            },
+            "confidence": 0.4890103042125702
+          },
+          "ms": 117.27350001456216
+        },
+        {
+          "case": "c02",
+          "correct": false,
+          "answer": {
+            "choice": "instruction to change a setting",
+            "probabilities": {
+              "question about personal data": 0.33318451046943665,
+              "general knowledge question": 0.10267487913370132,
+              "instruction to change a setting": 0.5641405582427979
+            },
+            "confidence": 0.5641405582427979
+          },
+          "ms": 114.84087497228757
+        },
+        {
+          "case": "c03",
+          "correct": true,
+          "answer": {
+            "choice": "question about personal data",
+            "probabilities": {
+              "question about personal data": 0.7835416793823242,
+              "general knowledge question": 0.14035122096538544,
+              "instruction to change a setting": 0.07610709965229034
+            },
+            "confidence": 0.7835416793823242
+          },
+          "ms": 108.71199995744973
+        },
+        {
+          "case": "c04",
+          "correct": false,
+          "answer": {
+            "choice": "instruction to change a setting",
+            "probabilities": {
+              "question about personal data": 0.3017982840538025,
+              "general knowledge question": 0.33497440814971924,
+              "instruction to change a setting": 0.36322730779647827
+            },
+            "confidence": 0.36322730779647827
+          },
+          "ms": 112.48474998865277
+        },
+        {
+          "case": "c05",
+          "correct": true,
+          "answer": {
+            "choice": "question about personal data",
+            "probabilities": {
+              "question about personal data": 0.48517000675201416,
+              "general knowledge question": 0.1207800805568695,
+              "instruction to change a setting": 0.39404991269111633
+            },
+            "confidence": 0.48517000675201416
+          },
+          "ms": 114.2815420171246
+        },
+        {
+          "case": "c06",
+          "correct": false,
+          "answer": {
+            "choice": "instruction to change a setting",
+            "probabilities": {
+              "question about personal data": 0.36936455965042114,
+              "general knowledge question": 0.22060248255729675,
+              "instruction to change a setting": 0.4100329279899597
+            },
+            "confidence": 0.4100329279899597
+          },
+          "ms": 110.64054199960083
+        },
+        {
+          "case": "c07",
+          "correct": false,
+          "answer": {
+            "choice": "instruction to change a setting",
+            "probabilities": {
+              "question about personal data": 0.3519270718097687,
+              "general knowledge question": 0.2359156757593155,
+              "instruction to change a setting": 0.41215723752975464
+            },
+            "confidence": 0.41215723752975464
+          },
+          "ms": 111.19625001447275
+        },
+        {
+          "case": "c08",
+          "correct": true,
+          "answer": {
+            "choice": "question about personal data",
+            "probabilities": {
+              "question about personal data": 0.4546216130256653,
+              "general knowledge question": 0.22466225922107697,
+              "instruction to change a setting": 0.32071608304977417
+            },
+            "confidence": 0.4546216130256653
+          },
+          "ms": 117.65320796985179
+        },
+        {
+          "case": "c09",
+          "correct": true,
+          "answer": {
+            "choice": "general knowledge question",
+            "probabilities": {
+              "question about personal data": 0.1302952617406845,
+              "general knowledge question": 0.6453098058700562,
+              "instruction to change a setting": 0.22439493238925934
+            },
+            "confidence": 0.6453098058700562
+          },
+          "ms": 131.2885000370443
+        },
+        {
+          "case": "c10",
+          "correct": false,
+          "answer": {
+            "choice": "question about personal data",
+            "probabilities": {
+              "question about personal data": 0.5687837600708008,
+              "general knowledge question": 0.14747026562690735,
+              "instruction to change a setting": 0.2837459444999695
+            },
+            "confidence": 0.5687837600708008
+          },
+          "ms": 118.75537497689947
+        },
+        {
+          "case": "c11",
+          "correct": true,
+          "answer": {
+            "choice": "general knowledge question",
+            "probabilities": {
+              "question about personal data": 0.3027769923210144,
+              "general knowledge question": 0.4501815736293793,
+              "instruction to change a setting": 0.24704137444496155
+            },
+            "confidence": 0.4501815736293793
+          },
+          "ms": 111.96541698882356
+        },
+        {
+          "case": "c12",
+          "correct": false,
+          "answer": {
+            "choice": "question about personal data",
+            "probabilities": {
+              "question about personal data": 0.463446706533432,
+              "general knowledge question": 0.2980843484401703,
+              "instruction to change a setting": 0.23846891522407532
+            },
+            "confidence": 0.463446706533432
+          },
+          "ms": 109.27608405472711
+        },
+        {
+          "case": "c13",
+          "correct": true,
+          "answer": {
+            "choice": "general knowledge question",
+            "probabilities": {
+              "question about personal data": 0.2625941038131714,
+              "general knowledge question": 0.461431622505188,
+              "instruction to change a setting": 0.2759743332862854
+            },
+            "confidence": 0.461431622505188
+          },
+          "ms": 114.14837499614805
+        },
+        {
+          "case": "c14",
+          "correct": true,
+          "answer": {
+            "choice": "general knowledge question",
+            "probabilities": {
+              "question about personal data": 0.26074808835983276,
+              "general knowledge question": 0.3802848756313324,
+              "instruction to change a setting": 0.35896703600883484
+            },
+            "confidence": 0.3802848756313324
+          },
+          "ms": 110.12525000842288
+        },
+        {
+          "case": "c15",
+          "correct": false,
+          "answer": {
+            "choice": "question about personal data",
+            "probabilities": {
+              "question about personal data": 0.46576187014579773,
+              "general knowledge question": 0.2958057224750519,
+              "instruction to change a setting": 0.23843242228031158
+            },
+            "confidence": 0.46576187014579773
+          },
+          "ms": 112.87416599225253
+        },
+        {
+          "case": "c16",
+          "correct": true,
+          "answer": {
+            "choice": "general knowledge question",
+            "probabilities": {
+              "question about personal data": 0.0999961569905281,
+              "general knowledge question": 0.7856552004814148,
+              "instruction to change a setting": 0.11434862017631531
+            },
+            "confidence": 0.7856552004814148
+          },
+          "ms": 111.91470798803493
+        },
+        {
+          "case": "c17",
+          "correct": true,
+          "answer": {
+            "choice": "instruction to change a setting",
+            "probabilities": {
+              "question about personal data": 0.06470157951116562,
+              "general knowledge question": 0.09633754938840866,
+              "instruction to change a setting": 0.8389608860015869
+            },
+            "confidence": 0.8389608860015869
+          },
+          "ms": 108.94883394939825
+        },
+        {
+          "case": "c18",
+          "correct": true,
+          "answer": {
+            "choice": "instruction to change a setting",
+            "probabilities": {
+              "question about personal data": 0.09603236615657806,
+              "general knowledge question": 0.061284519731998444,
+              "instruction to change a setting": 0.8426831364631653
+            },
+            "confidence": 0.8426831364631653
+          },
+          "ms": 117.93841701000929
+        },
+        {
+          "case": "c19",
+          "correct": true,
+          "answer": {
+            "choice": "instruction to change a setting",
+            "probabilities": {
+              "question about personal data": 0.06136607006192207,
+              "general knowledge question": 0.06794269382953644,
+              "instruction to change a setting": 0.870691180229187
+            },
+            "confidence": 0.870691180229187
+          },
+          "ms": 128.24300001375377
+        },
+        {
+          "case": "c20",
+          "correct": true,
+          "answer": {
+            "choice": "instruction to change a setting",
+            "probabilities": {
+              "question about personal data": 0.2057732194662094,
+              "general knowledge question": 0.11466392129659653,
+              "instruction to change a setting": 0.6795629262924194
+            },
+            "confidence": 0.6795629262924194
+          },
+          "ms": 111.23079201206565
+        },
+        {
+          "case": "c21",
+          "correct": true,
+          "answer": {
+            "choice": "instruction to change a setting",
+            "probabilities": {
+              "question about personal data": 0.10743768513202667,
+              "general knowledge question": 0.0818943902850151,
+              "instruction to change a setting": 0.810667872428894
+            },
+            "confidence": 0.810667872428894
+          },
+          "ms": 110.59662501793355
+        },
+        {
+          "case": "c22",
+          "correct": true,
+          "answer": {
+            "choice": "instruction to change a setting",
+            "probabilities": {
+              "question about personal data": 0.06379984319210052,
+              "general knowledge question": 0.05570482462644577,
+              "instruction to change a setting": 0.8804953694343567
+            },
+            "confidence": 0.8804953694343567
+          },
+          "ms": 111.12750001484528
+        },
+        {
+          "case": "c23",
+          "correct": true,
+          "answer": {
+            "choice": "instruction to change a setting",
+            "probabilities": {
+              "question about personal data": 0.07852735370397568,
+              "general knowledge question": 0.057629235088825226,
+              "instruction to change a setting": 0.8638433814048767
+            },
+            "confidence": 0.8638433814048767
+          },
+          "ms": 109.89145800704136
+        },
+        {
+          "case": "c24",
+          "correct": true,
+          "answer": {
+            "choice": "instruction to change a setting",
+            "probabilities": {
+              "question about personal data": 0.07354730367660522,
+              "general knowledge question": 0.04443532973527908,
+              "instruction to change a setting": 0.8820173740386963
+            },
+            "confidence": 0.8820173740386963
+          },
+          "ms": 111.05362500529736
+        }
+      ]
+    },
+    {
+      "question": {
+        "type": "choice",
+        "instructions": "Is the user asking to read, understand, or change something?",
+        "options": [
+          "read",
+          "understand",
+          "change"
+        ]
+      },
+      "correct": 17,
+      "rows": [
+        {
+          "case": "c01",
+          "correct": true,
+          "answer": {
+            "choice": "read",
+            "probabilities": {
+              "read": 0.5101857781410217,
+              "understand": 0.31087127327919006,
+              "change": 0.17894290387630463
+            },
+            "confidence": 0.5101857781410217
+          },
+          "ms": 129.01912501547486
+        },
+        {
+          "case": "c02",
+          "correct": false,
+          "answer": {
+            "choice": "change",
+            "probabilities": {
+              "read": 0.2037099301815033,
+              "understand": 0.23816156387329102,
+              "change": 0.5581284761428833
+            },
+            "confidence": 0.5581284761428833
+          },
+          "ms": 112.87316703237593
+        },
+        {
+          "case": "c03",
+          "correct": true,
+          "answer": {
+            "choice": "read",
+            "probabilities": {
+              "read": 0.4602329432964325,
+              "understand": 0.3876960277557373,
+              "change": 0.1520709991455078
+            },
+            "confidence": 0.4602329432964325
+          },
+          "ms": 97.27895795367658
+        },
+        {
+          "case": "c04",
+          "correct": false,
+          "answer": {
+            "choice": "understand",
+            "probabilities": {
+              "read": 0.2680434584617615,
+              "understand": 0.3757869005203247,
+              "change": 0.3561696708202362
+            },
+            "confidence": 0.3757869005203247
+          },
+          "ms": 94.23808299470693
+        },
+        {
+          "case": "c05",
+          "correct": true,
+          "answer": {
+            "choice": "read",
+            "probabilities": {
+              "read": 0.6267879605293274,
+              "understand": 0.28774294257164,
+              "change": 0.0854690819978714
+            },
+            "confidence": 0.6267879605293274
+          },
+          "ms": 95.19308403832838
+        },
+        {
+          "case": "c06",
+          "correct": false,
+          "answer": {
+            "choice": "change",
+            "probabilities": {
+              "read": 0.2268698364496231,
+              "understand": 0.23852849006652832,
+              "change": 0.5346016883850098
+            },
+            "confidence": 0.5346016883850098
+          },
+          "ms": 133.5010000038892
+        },
+        {
+          "case": "c07",
+          "correct": false,
+          "answer": {
+            "choice": "change",
+            "probabilities": {
+              "read": 0.2709220051765442,
+              "understand": 0.3620491921901703,
+              "change": 0.3670288026332855
+            },
+            "confidence": 0.3670288026332855
+          },
+          "ms": 118.74549998901784
+        },
+        {
+          "case": "c08",
+          "correct": true,
+          "answer": {
+            "choice": "read",
+            "probabilities": {
+              "read": 0.6444880366325378,
+              "understand": 0.17183396220207214,
+              "change": 0.18367797136306763
+            },
+            "confidence": 0.6444880366325378
+          },
+          "ms": 93.53483404265717
+        },
+        {
+          "case": "c09",
+          "correct": true,
+          "answer": {
+            "choice": "understand",
+            "probabilities": {
+              "read": 0.4034612476825714,
+              "understand": 0.5008438229560852,
+              "change": 0.09569497406482697
+            },
+            "confidence": 0.5008438229560852
+          },
+          "ms": 109.94887503329664
+        },
+        {
+          "case": "c10",
+          "correct": true,
+          "answer": {
+            "choice": "understand",
+            "probabilities": {
+              "read": 0.2814350724220276,
+              "understand": 0.49010133743286133,
+              "change": 0.2284635603427887
+            },
+            "confidence": 0.49010133743286133
+          },
+          "ms": 116.80770799284801
+        },
+        {
+          "case": "c11",
+          "correct": true,
+          "answer": {
+            "choice": "understand",
+            "probabilities": {
+              "read": 0.28179797530174255,
+              "understand": 0.4470689594745636,
+              "change": 0.27113303542137146
+            },
+            "confidence": 0.4470689594745636
+          },
+          "ms": 113.86933299945667
+        },
+        {
+          "case": "c12",
+          "correct": false,
+          "answer": {
+            "choice": "read",
+            "probabilities": {
+              "read": 0.39914655685424805,
+              "understand": 0.376681923866272,
+              "change": 0.22417151927947998
+            },
+            "confidence": 0.39914655685424805
+          },
+          "ms": 113.02225000690669
+        },
+        {
+          "case": "c13",
+          "correct": true,
+          "answer": {
+            "choice": "understand",
+            "probabilities": {
+              "read": 0.3457612991333008,
+              "understand": 0.4693361222743988,
+              "change": 0.18490253388881683
+            },
+            "confidence": 0.4693361222743988
+          },
+          "ms": 101.66437504813075
+        },
+        {
+          "case": "c14",
+          "correct": false,
+          "answer": {
+            "choice": "read",
+            "probabilities": {
+              "read": 0.42271143198013306,
+              "understand": 0.3806922733783722,
+              "change": 0.19659624993801117
+            },
+            "confidence": 0.42271143198013306
+          },
+          "ms": 102.11824998259544
+        },
+        {
+          "case": "c15",
+          "correct": false,
+          "answer": {
+            "choice": "change",
+            "probabilities": {
+              "read": 0.18854080140590668,
+              "understand": 0.25465843081474304,
+              "change": 0.5568007230758667
+            },
+            "confidence": 0.5568007230758667
+          },
+          "ms": 113.9350839657709
+        },
+        {
+          "case": "c16",
+          "correct": true,
+          "answer": {
+            "choice": "understand",
+            "probabilities": {
+              "read": 0.31397247314453125,
+              "understand": 0.615059494972229,
+              "change": 0.07096802443265915
+            },
+            "confidence": 0.615059494972229
+          },
+          "ms": 115.37379201035947
+        },
+        {
+          "case": "c17",
+          "correct": true,
+          "answer": {
+            "choice": "change",
+            "probabilities": {
+              "read": 0.296237051486969,
+              "understand": 0.29055485129356384,
+              "change": 0.41320809721946716
+            },
+            "confidence": 0.41320809721946716
+          },
+          "ms": 102.06791700329632
+        },
+        {
+          "case": "c18",
+          "correct": true,
+          "answer": {
+            "choice": "change",
+            "probabilities": {
+              "read": 0.028265299275517464,
+              "understand": 0.03688916563987732,
+              "change": 0.934845507144928
+            },
+            "confidence": 0.934845507144928
+          },
+          "ms": 98.95549999782816
+        },
+        {
+          "case": "c19",
+          "correct": true,
+          "answer": {
+            "choice": "change",
+            "probabilities": {
+              "read": 0.2767571210861206,
+              "understand": 0.28869810700416565,
+              "change": 0.43454474210739136
+            },
+            "confidence": 0.43454474210739136
+          },
+          "ms": 96.16679203463718
+        },
+        {
+          "case": "c20",
+          "correct": true,
+          "answer": {
+            "choice": "change",
+            "probabilities": {
+              "read": 0.03916912153363228,
+              "understand": 0.056807778775691986,
+              "change": 0.9040230512619019
+            },
+            "confidence": 0.9040230512619019
+          },
+          "ms": 112.18604200985283
+        },
+        {
+          "case": "c21",
+          "correct": true,
+          "answer": {
+            "choice": "change",
+            "probabilities": {
+              "read": 0.23503313958644867,
+              "understand": 0.37501418590545654,
+              "change": 0.3899526298046112
+            },
+            "confidence": 0.3899526298046112
+          },
+          "ms": 104.51974999159575
+        },
+        {
+          "case": "c22",
+          "correct": true,
+          "answer": {
+            "choice": "change",
+            "probabilities": {
+              "read": 0.028353150933980942,
+              "understand": 0.040422115474939346,
+              "change": 0.9312247037887573
+            },
+            "confidence": 0.9312247037887573
+          },
+          "ms": 117.65920801553875
+        },
+        {
+          "case": "c23",
+          "correct": true,
+          "answer": {
+            "choice": "change",
+            "probabilities": {
+              "read": 0.08845744282007217,
+              "understand": 0.10143299400806427,
+              "change": 0.8101096153259277
+            },
+            "confidence": 0.8101096153259277
+          },
+          "ms": 130.77824999345466
+        },
+        {
+          "case": "c24",
+          "correct": true,
+          "answer": {
+            "choice": "change",
+            "probabilities": {
+              "read": 0.32653477787971497,
+              "understand": 0.24500684440135956,
+              "change": 0.4284583628177643
+            },
+            "confidence": 0.4284583628177643
+          },
+          "ms": 99.98129203449935
+        }
+      ]
+    },
+    {
+      "question": {
+        "type": "choice",
+        "instructions": "What is the request?",
+        "options": [
+          "show existing records or settings",
+          "explain a topic",
+          "edit settings"
+        ]
+      },
+      "correct": 21,
+      "rows": [
+        {
+          "case": "c01",
+          "correct": true,
+          "answer": {
+            "choice": "show existing records or settings",
+            "probabilities": {
+              "show existing records or settings": 0.7569044828414917,
+              "explain a topic": 0.13323098421096802,
+              "edit settings": 0.10986453294754028
+            },
+            "confidence": 0.7569044828414917
+          },
+          "ms": 111.42774997279048
+        },
+        {
+          "case": "c02",
+          "correct": false,
+          "answer": {
+            "choice": "edit settings",
+            "probabilities": {
+              "show existing records or settings": 0.16483040153980255,
+              "explain a topic": 0.08782101422548294,
+              "edit settings": 0.7473485469818115
+            },
+            "confidence": 0.7473485469818115
+          },
+          "ms": 113.53308300022036
+        },
+        {
+          "case": "c03",
+          "correct": true,
+          "answer": {
+            "choice": "show existing records or settings",
+            "probabilities": {
+              "show existing records or settings": 0.7295425534248352,
+              "explain a topic": 0.14025890827178955,
+              "edit settings": 0.13019849359989166
+            },
+            "confidence": 0.7295425534248352
+          },
+          "ms": 99.75308302091435
+        },
+        {
+          "case": "c04",
+          "correct": true,
+          "answer": {
+            "choice": "show existing records or settings",
+            "probabilities": {
+              "show existing records or settings": 0.6696262359619141,
+              "explain a topic": 0.1709664911031723,
+              "edit settings": 0.15940730273723602
+            },
+            "confidence": 0.6696262359619141
+          },
+          "ms": 101.85120801907033
+        },
+        {
+          "case": "c05",
+          "correct": true,
+          "answer": {
+            "choice": "show existing records or settings",
+            "probabilities": {
+              "show existing records or settings": 0.6221574544906616,
+              "explain a topic": 0.1686512976884842,
+              "edit settings": 0.209191232919693
+            },
+            "confidence": 0.6221574544906616
+          },
+          "ms": 96.42137499758974
+        },
+        {
+          "case": "c06",
+          "correct": true,
+          "answer": {
+            "choice": "show existing records or settings",
+            "probabilities": {
+              "show existing records or settings": 0.4796675145626068,
+              "explain a topic": 0.1913234442472458,
+              "edit settings": 0.3290090262889862
+            },
+            "confidence": 0.4796675145626068
+          },
+          "ms": 133.2339160144329
+        },
+        {
+          "case": "c07",
+          "correct": true,
+          "answer": {
+            "choice": "show existing records or settings",
+            "probabilities": {
+              "show existing records or settings": 0.6623411774635315,
+              "explain a topic": 0.1286371499300003,
+              "edit settings": 0.20902171730995178
+            },
+            "confidence": 0.6623411774635315
+          },
+          "ms": 117.34891700325534
+        },
+        {
+          "case": "c08",
+          "correct": true,
+          "answer": {
+            "choice": "show existing records or settings",
+            "probabilities": {
+              "show existing records or settings": 0.5979049801826477,
+              "explain a topic": 0.0979844480752945,
+              "edit settings": 0.3041105568408966
+            },
+            "confidence": 0.5979049801826477
+          },
+          "ms": 101.98491695336998
+        },
+        {
+          "case": "c09",
+          "correct": true,
+          "answer": {
+            "choice": "explain a topic",
+            "probabilities": {
+              "show existing records or settings": 0.14659282565116882,
+              "explain a topic": 0.7195490002632141,
+              "edit settings": 0.13385815918445587
+            },
+            "confidence": 0.7195490002632141
+          },
+          "ms": 98.38845895137638
+        },
+        {
+          "case": "c10",
+          "correct": true,
+          "answer": {
+            "choice": "explain a topic",
+            "probabilities": {
+              "show existing records or settings": 0.21621593832969666,
+              "explain a topic": 0.47581666707992554,
+              "edit settings": 0.3079673647880554
+            },
+            "confidence": 0.47581666707992554
+          },
+          "ms": 114.88033301429823
+        },
+        {
+          "case": "c11",
+          "correct": true,
+          "answer": {
+            "choice": "explain a topic",
+            "probabilities": {
+              "show existing records or settings": 0.1958751380443573,
+              "explain a topic": 0.6263567209243774,
+              "edit settings": 0.17776815593242645
+            },
+            "confidence": 0.6263567209243774
+          },
+          "ms": 100.86879198206589
+        },
+        {
+          "case": "c12",
+          "correct": false,
+          "answer": {
+            "choice": "show existing records or settings",
+            "probabilities": {
+              "show existing records or settings": 0.4097791314125061,
+              "explain a topic": 0.37158268690109253,
+              "edit settings": 0.21863819658756256
+            },
+            "confidence": 0.4097791314125061
+          },
+          "ms": 114.48479199316353
+        },
+        {
+          "case": "c13",
+          "correct": true,
+          "answer": {
+            "choice": "explain a topic",
+            "probabilities": {
+              "show existing records or settings": 0.19991223514080048,
+              "explain a topic": 0.6968037486076355,
+              "edit settings": 0.10328405350446701
+            },
+            "confidence": 0.6968037486076355
+          },
+          "ms": 96.42120799981058
+        },
+        {
+          "case": "c14",
+          "correct": true,
+          "answer": {
+            "choice": "explain a topic",
+            "probabilities": {
+              "show existing records or settings": 0.29365572333335876,
+              "explain a topic": 0.5535063743591309,
+              "edit settings": 0.15283799171447754
+            },
+            "confidence": 0.5535063743591309
+          },
+          "ms": 95.9250419982709
+        },
+        {
+          "case": "c15",
+          "correct": false,
+          "answer": {
+            "choice": "edit settings",
+            "probabilities": {
+              "show existing records or settings": 0.1648259460926056,
+              "explain a topic": 0.2636238932609558,
+              "edit settings": 0.5715501308441162
+            },
+            "confidence": 0.5715501308441162
+          },
+          "ms": 112.5189169542864
+        },
+        {
+          "case": "c16",
+          "correct": true,
+          "answer": {
+            "choice": "explain a topic",
+            "probabilities": {
+              "show existing records or settings": 0.24154695868492126,
+              "explain a topic": 0.6756436228752136,
+              "edit settings": 0.08280935883522034
+            },
+            "confidence": 0.6756436228752136
+          },
+          "ms": 114.51954103540629
+        },
+        {
+          "case": "c17",
+          "correct": true,
+          "answer": {
+            "choice": "edit settings",
+            "probabilities": {
+              "show existing records or settings": 0.09635533392429352,
+              "explain a topic": 0.07884813845157623,
+              "edit settings": 0.8247965574264526
+            },
+            "confidence": 0.8247965574264526
+          },
+          "ms": 96.36674995999783
+        },
+        {
+          "case": "c18",
+          "correct": true,
+          "answer": {
+            "choice": "edit settings",
+            "probabilities": {
+              "show existing records or settings": 0.11390051990747452,
+              "explain a topic": 0.09308647364377975,
+              "edit settings": 0.7930130958557129
+            },
+            "confidence": 0.7930130958557129
+          },
+          "ms": 97.41504199337214
+        },
+        {
+          "case": "c19",
+          "correct": true,
+          "answer": {
+            "choice": "edit settings",
+            "probabilities": {
+              "show existing records or settings": 0.15155062079429626,
+              "explain a topic": 0.0838942676782608,
+              "edit settings": 0.7645550966262817
+            },
+            "confidence": 0.7645550966262817
+          },
+          "ms": 93.75712496694177
+        },
+        {
+          "case": "c20",
+          "correct": true,
+          "answer": {
+            "choice": "edit settings",
+            "probabilities": {
+              "show existing records or settings": 0.157597154378891,
+              "explain a topic": 0.08199630677700043,
+              "edit settings": 0.7604065537452698
+            },
+            "confidence": 0.7604065537452698
+          },
+          "ms": 92.19183400273323
+        },
+        {
+          "case": "c21",
+          "correct": true,
+          "answer": {
+            "choice": "edit settings",
+            "probabilities": {
+              "show existing records or settings": 0.16947069764137268,
+              "explain a topic": 0.1370173841714859,
+              "edit settings": 0.693511962890625
+            },
+            "confidence": 0.693511962890625
+          },
+          "ms": 94.97687499970198
+        },
+        {
+          "case": "c22",
+          "correct": true,
+          "answer": {
+            "choice": "edit settings",
+            "probabilities": {
+              "show existing records or settings": 0.1168370321393013,
+              "explain a topic": 0.06799011677503586,
+              "edit settings": 0.8151728510856628
+            },
+            "confidence": 0.8151728510856628
+          },
+          "ms": 109.74562499905005
+        },
+        {
+          "case": "c23",
+          "correct": true,
+          "answer": {
+            "choice": "edit settings",
+            "probabilities": {
+              "show existing records or settings": 0.10788751393556595,
+              "explain a topic": 0.09716333448886871,
+              "edit settings": 0.7949490547180176
+            },
+            "confidence": 0.7949490547180176
+          },
+          "ms": 98.43474999070168
+        },
+        {
+          "case": "c24",
+          "correct": true,
+          "answer": {
+            "choice": "edit settings",
+            "probabilities": {
+              "show existing records or settings": 0.11274049431085587,
+              "explain a topic": 0.056188926100730896,
+              "edit settings": 0.831070601940155
+            },
+            "confidence": 0.831070601940155
+          },
+          "ms": 97.58775000227615
+        }
+      ]
+    },
+    {
+      "question": {
+        "type": "choice",
+        "instructions": "Which action should be performed?",
+        "options": [
+          "retrieve",
+          "explain",
+          "update"
+        ]
+      },
+      "correct": 21,
+      "rows": [
+        {
+          "case": "c01",
+          "correct": true,
+          "answer": {
+            "choice": "retrieve",
+            "probabilities": {
+              "retrieve": 0.8455079197883606,
+              "explain": 0.07559211552143097,
+              "update": 0.07889997959136963
+            },
+            "confidence": 0.8455079197883606
+          },
+          "ms": 99.78099999716505
+        },
+        {
+          "case": "c02",
+          "correct": false,
+          "answer": {
+            "choice": "update",
+            "probabilities": {
+              "retrieve": 0.22463801503181458,
+              "explain": 0.11393270641565323,
+              "update": 0.661429226398468
+            },
+            "confidence": 0.661429226398468
+          },
+          "ms": 97.03191695734859
+        },
+        {
+          "case": "c03",
+          "correct": true,
+          "answer": {
+            "choice": "retrieve",
+            "probabilities": {
+              "retrieve": 0.8760092854499817,
+              "explain": 0.05726110562682152,
+              "update": 0.0667295902967453
+            },
+            "confidence": 0.8760092854499817
+          },
+          "ms": 94.89058301551268
+        },
+        {
+          "case": "c04",
+          "correct": true,
+          "answer": {
+            "choice": "retrieve",
+            "probabilities": {
+              "retrieve": 0.40340590476989746,
+              "explain": 0.23322390019893646,
+              "update": 0.3633701801300049
+            },
+            "confidence": 0.40340590476989746
+          },
+          "ms": 99.93699996266514
+        },
+        {
+          "case": "c05",
+          "correct": true,
+          "answer": {
+            "choice": "retrieve",
+            "probabilities": {
+              "retrieve": 0.7927460670471191,
+              "explain": 0.04393924027681351,
+              "update": 0.16331477463245392
+            },
+            "confidence": 0.7927460670471191
+          },
+          "ms": 98.95958396373317
+        },
+        {
+          "case": "c06",
+          "correct": true,
+          "answer": {
+            "choice": "retrieve",
+            "probabilities": {
+              "retrieve": 0.4406985640525818,
+              "explain": 0.168601855635643,
+              "update": 0.3906995952129364
+            },
+            "confidence": 0.4406985640525818
+          },
+          "ms": 95.52166698267683
+        },
+        {
+          "case": "c07",
+          "correct": true,
+          "answer": {
+            "choice": "retrieve",
+            "probabilities": {
+              "retrieve": 0.639419436454773,
+              "explain": 0.06290917098522186,
+              "update": 0.2976714074611664
+            },
+            "confidence": 0.639419436454773
+          },
+          "ms": 97.81033301260322
+        },
+        {
+          "case": "c08",
+          "correct": true,
+          "answer": {
+            "choice": "retrieve",
+            "probabilities": {
+              "retrieve": 0.8696737885475159,
+              "explain": 0.0499599315226078,
+              "update": 0.0803663432598114
+            },
+            "confidence": 0.8696737885475159
+          },
+          "ms": 100.75216699624434
+        },
+        {
+          "case": "c09",
+          "correct": true,
+          "answer": {
+            "choice": "explain",
+            "probabilities": {
+              "retrieve": 0.22800996899604797,
+              "explain": 0.5980700254440308,
+              "update": 0.17391999065876007
+            },
+            "confidence": 0.5980700254440308
+          },
+          "ms": 102.40575001807883
+        },
+        {
+          "case": "c10",
+          "correct": true,
+          "answer": {
+            "choice": "explain",
+            "probabilities": {
+              "retrieve": 0.19431990385055542,
+              "explain": 0.6890882253646851,
+              "update": 0.1165919154882431
+            },
+            "confidence": 0.6890882253646851
+          },
+          "ms": 96.83320898329839
+        },
+        {
+          "case": "c11",
+          "correct": true,
+          "answer": {
+            "choice": "explain",
+            "probabilities": {
+              "retrieve": 0.15351760387420654,
+              "explain": 0.6701620817184448,
+              "update": 0.17632031440734863
+            },
+            "confidence": 0.6701620817184448
+          },
+          "ms": 96.65308299008757
+        },
+        {
+          "case": "c12",
+          "correct": true,
+          "answer": {
+            "choice": "explain",
+            "probabilities": {
+              "retrieve": 0.3563840985298157,
+              "explain": 0.4971812963485718,
+              "update": 0.14643462002277374
+            },
+            "confidence": 0.4971812963485718
+          },
+          "ms": 107.11937496671453
+        },
+        {
+          "case": "c13",
+          "correct": true,
+          "answer": {
+            "choice": "explain",
+            "probabilities": {
+              "retrieve": 0.2043021321296692,
+              "explain": 0.6447423696517944,
+              "update": 0.15095557272434235
+            },
+            "confidence": 0.6447423696517944
+          },
+          "ms": 99.46850000414997
+        },
+        {
+          "case": "c14",
+          "correct": true,
+          "answer": {
+            "choice": "explain",
+            "probabilities": {
+              "retrieve": 0.17391107976436615,
+              "explain": 0.6886022686958313,
+              "update": 0.13748662173748016
+            },
+            "confidence": 0.6886022686958313
+          },
+          "ms": 101.00091696949676
+        },
+        {
+          "case": "c15",
+          "correct": true,
+          "answer": {
+            "choice": "explain",
+            "probabilities": {
+              "retrieve": 0.11240791529417038,
+              "explain": 0.4846230447292328,
+              "update": 0.40296897292137146
+            },
+            "confidence": 0.4846230447292328
+          },
+          "ms": 161.9603750295937
+        },
+        {
+          "case": "c16",
+          "correct": true,
+          "answer": {
+            "choice": "explain",
+            "probabilities": {
+              "retrieve": 0.04888477921485901,
+              "explain": 0.8826722502708435,
+              "update": 0.0684429183602333
+            },
+            "confidence": 0.8826722502708435
+          },
+          "ms": 173.38445800123736
+        },
+        {
+          "case": "c17",
+          "correct": true,
+          "answer": {
+            "choice": "update",
+            "probabilities": {
+              "retrieve": 0.14478570222854614,
+              "explain": 0.30616629123687744,
+              "update": 0.5490479469299316
+            },
+            "confidence": 0.5490479469299316
+          },
+          "ms": 108.24362502899021
+        },
+        {
+          "case": "c18",
+          "correct": true,
+          "answer": {
+            "choice": "update",
+            "probabilities": {
+              "retrieve": 0.06348789483308792,
+              "explain": 0.24897876381874084,
+              "update": 0.6875333189964294
+            },
+            "confidence": 0.6875333189964294
+          },
+          "ms": 97.44245803449303
+        },
+        {
+          "case": "c19",
+          "correct": true,
+          "answer": {
+            "choice": "update",
+            "probabilities": {
+              "retrieve": 0.22236165404319763,
+              "explain": 0.35114386677742004,
+              "update": 0.42649441957473755
+            },
+            "confidence": 0.42649441957473755
+          },
+          "ms": 95.62924999045208
+        },
+        {
+          "case": "c20",
+          "correct": false,
+          "answer": {
+            "choice": "explain",
+            "probabilities": {
+              "retrieve": 0.1553913801908493,
+              "explain": 0.4632608890533447,
+              "update": 0.3813476860523224
+            },
+            "confidence": 0.4632608890533447
+          },
+          "ms": 116.9822090305388
+        },
+        {
+          "case": "c21",
+          "correct": false,
+          "answer": {
+            "choice": "explain",
+            "probabilities": {
+              "retrieve": 0.1894746720790863,
+              "explain": 0.464016854763031,
+              "update": 0.3465085029602051
+            },
+            "confidence": 0.464016854763031
+          },
+          "ms": 102.38362499512732
+        },
+        {
+          "case": "c22",
+          "correct": true,
+          "answer": {
+            "choice": "update",
+            "probabilities": {
+              "retrieve": 0.04266459867358208,
+              "explain": 0.0718965083360672,
+              "update": 0.885438859462738
+            },
+            "confidence": 0.885438859462738
+          },
+          "ms": 101.16791597101837
+        },
+        {
+          "case": "c23",
+          "correct": true,
+          "answer": {
+            "choice": "update",
+            "probabilities": {
+              "retrieve": 0.12233784049749374,
+              "explain": 0.35569649934768677,
+              "update": 0.5219656825065613
+            },
+            "confidence": 0.5219656825065613
+          },
+          "ms": 99.21433305134997
+        },
+        {
+          "case": "c24",
+          "correct": true,
+          "answer": {
+            "choice": "update",
+            "probabilities": {
+              "retrieve": 0.04986506327986717,
+              "explain": 0.08027288317680359,
+              "update": 0.8698620796203613
+            },
+            "confidence": 0.8698620796203613
+          },
+          "ms": 96.51154204038903
+        }
+      ]
+    }
+  ],
+  "noul": [
+    {
+      "question": {
+        "type": "noul",
+        "instructions": "Does the user ask to access their existing personal records?"
+      },
+      "correct": 21,
+      "rows": [
+        {
+          "case": "c01",
+          "correct": true,
+          "answer": {
+            "noul": 0.8176631331443787
+          },
+          "ms": 101.7659169738181
+        },
+        {
+          "case": "c02",
+          "correct": false,
+          "answer": {
+            "noul": 0.3562338352203369
+          },
+          "ms": 101.6304999939166
+        },
+        {
+          "case": "c03",
+          "correct": true,
+          "answer": {
+            "noul": 0.8244707584381104
+          },
+          "ms": 101.65283299284056
+        },
+        {
+          "case": "c04",
+          "correct": true,
+          "answer": {
+            "noul": 0.5105867981910706
+          },
+          "ms": 100.36008298629895
+        },
+        {
+          "case": "c05",
+          "correct": true,
+          "answer": {
+            "noul": 0.6355789303779602
+          },
+          "ms": 107.83329198602587
+        },
+        {
+          "case": "c06",
+          "correct": true,
+          "answer": {
+            "noul": 0.5614483952522278
+          },
+          "ms": 119.35891699977219
+        },
+        {
+          "case": "c07",
+          "correct": true,
+          "answer": {
+            "noul": 0.6467804312705994
+          },
+          "ms": 135.7868339982815
+        },
+        {
+          "case": "c08",
+          "correct": true,
+          "answer": {
+            "noul": 0.7484267354011536
+          },
+          "ms": 99.41224998328835
+        },
+        {
+          "case": "c09",
+          "correct": true,
+          "answer": {
+            "noul": 0.4676288366317749
+          },
+          "ms": 102.70362498704344
+        },
+        {
+          "case": "c10",
+          "correct": true,
+          "answer": {
+            "noul": 0.1629699021577835
+          },
+          "ms": 115.99670798750594
+        },
+        {
+          "case": "c11",
+          "correct": true,
+          "answer": {
+            "noul": 0.2108466923236847
+          },
+          "ms": 97.2745000035502
+        },
+        {
+          "case": "c12",
+          "correct": true,
+          "answer": {
+            "noul": 0.1558477133512497
+          },
+          "ms": 112.52337496262044
+        },
+        {
+          "case": "c13",
+          "correct": false,
+          "answer": {
+            "noul": 0.5326786637306213
+          },
+          "ms": 95.65620898501948
+        },
+        {
+          "case": "c14",
+          "correct": true,
+          "answer": {
+            "noul": 0.4403406083583832
+          },
+          "ms": 102.4486250244081
+        },
+        {
+          "case": "c15",
+          "correct": true,
+          "answer": {
+            "noul": 0.38541820645332336
+          },
+          "ms": 126.60775001859292
+        },
+        {
+          "case": "c16",
+          "correct": true,
+          "answer": {
+            "noul": 0.16554388403892517
+          },
+          "ms": 102.23691596183926
+        },
+        {
+          "case": "c17",
+          "correct": true,
+          "answer": {
+            "noul": 0.4935709238052368
+          },
+          "ms": 102.24183299578726
+        },
+        {
+          "case": "c18",
+          "correct": false,
+          "answer": {
+            "noul": 0.5560337901115417
+          },
+          "ms": 102.02204203233123
+        },
+        {
+          "case": "c19",
+          "correct": true,
+          "answer": {
+            "noul": 0.3237818777561188
+          },
+          "ms": 99.73675000946969
+        },
+        {
+          "case": "c20",
+          "correct": true,
+          "answer": {
+            "noul": 0.4161946177482605
+          },
+          "ms": 111.84262501774356
+        },
+        {
+          "case": "c21",
+          "correct": true,
+          "answer": {
+            "noul": 0.23247496783733368
+          },
+          "ms": 111.99170799227431
+        },
+        {
+          "case": "c22",
+          "correct": true,
+          "answer": {
+            "noul": 0.3598099648952484
+          },
+          "ms": 104.41979096503928
+        },
+        {
+          "case": "c23",
+          "correct": true,
+          "answer": {
+            "noul": 0.3179776966571808
+          },
+          "ms": 99.96770799625665
+        },
+        {
+          "case": "c24",
+          "correct": true,
+          "answer": {
+            "noul": 0.3331491947174072
+          },
+          "ms": 98.74041599687189
+        }
+      ]
+    },
+    {
+      "question": {
+        "type": "noul",
+        "instructions": "The user asks to see information already stored in their account."
+      },
+      "correct": 18,
+      "rows": [
+        {
+          "case": "c01",
+          "correct": true,
+          "answer": {
+            "noul": 0.750886082649231
+          },
+          "ms": 99.66995799914002
+        },
+        {
+          "case": "c02",
+          "correct": true,
+          "answer": {
+            "noul": 0.5142324566841125
+          },
+          "ms": 96.22516698436812
+        },
+        {
+          "case": "c03",
+          "correct": true,
+          "answer": {
+            "noul": 0.833066463470459
+          },
+          "ms": 104.49204099131748
+        },
+        {
+          "case": "c04",
+          "correct": true,
+          "answer": {
+            "noul": 0.5653109550476074
+          },
+          "ms": 100.06712499307469
+        },
+        {
+          "case": "c05",
+          "correct": true,
+          "answer": {
+            "noul": 0.6787872910499573
+          },
+          "ms": 95.91212501982227
+        },
+        {
+          "case": "c06",
+          "correct": true,
+          "answer": {
+            "noul": 0.6536442041397095
+          },
+          "ms": 112.71266703261063
+        },
+        {
+          "case": "c07",
+          "correct": true,
+          "answer": {
+            "noul": 0.8005192875862122
+          },
+          "ms": 113.86933299945667
+        },
+        {
+          "case": "c08",
+          "correct": true,
+          "answer": {
+            "noul": 0.9088176488876343
+          },
+          "ms": 97.69004100235179
+        },
+        {
+          "case": "c09",
+          "correct": false,
+          "answer": {
+            "noul": 0.5629028081893921
+          },
+          "ms": 97.18924999469891
+        },
+        {
+          "case": "c10",
+          "correct": true,
+          "answer": {
+            "noul": 0.10564963519573212
+          },
+          "ms": 115.42695801472291
+        },
+        {
+          "case": "c11",
+          "correct": true,
+          "answer": {
+            "noul": 0.38292989134788513
+          },
+          "ms": 102.00087504927069
+        },
+        {
+          "case": "c12",
+          "correct": true,
+          "answer": {
+            "noul": 0.23378446698188782
+          },
+          "ms": 114.42774999886751
+        },
+        {
+          "case": "c13",
+          "correct": false,
+          "answer": {
+            "noul": 0.5072315335273743
+          },
+          "ms": 96.71641601016745
+        },
+        {
+          "case": "c14",
+          "correct": true,
+          "answer": {
+            "noul": 0.4005451798439026
+          },
+          "ms": 100.8109159884043
+        },
+        {
+          "case": "c15",
+          "correct": false,
+          "answer": {
+            "noul": 0.5502393245697021
+          },
+          "ms": 113.5497089708224
+        },
+        {
+          "case": "c16",
+          "correct": true,
+          "answer": {
+            "noul": 0.17840051651000977
+          },
+          "ms": 101.44129203399643
+        },
+        {
+          "case": "c17",
+          "correct": false,
+          "answer": {
+            "noul": 0.6339917182922363
+          },
+          "ms": 100.56708299089223
+        },
+        {
+          "case": "c18",
+          "correct": false,
+          "answer": {
+            "noul": 0.5042704939842224
+          },
+          "ms": 134.97804099461064
+        },
+        {
+          "case": "c19",
+          "correct": true,
+          "answer": {
+            "noul": 0.3624829053878784
+          },
+          "ms": 97.57108299527317
+        },
+        {
+          "case": "c20",
+          "correct": true,
+          "answer": {
+            "noul": 0.4812798798084259
+          },
+          "ms": 100.29687499627471
+        },
+        {
+          "case": "c21",
+          "correct": true,
+          "answer": {
+            "noul": 0.48458123207092285
+          },
+          "ms": 106.92654101876542
+        },
+        {
+          "case": "c22",
+          "correct": true,
+          "answer": {
+            "noul": 0.4964979588985443
+          },
+          "ms": 101.6364159877412
+        },
+        {
+          "case": "c23",
+          "correct": true,
+          "answer": {
+            "noul": 0.34259334206581116
+          },
+          "ms": 99.14062498137355
+        },
+        {
+          "case": "c24",
+          "correct": false,
+          "answer": {
+            "noul": 0.5102077722549438
+          },
+          "ms": 101.23541695065796
+        }
+      ]
+    },
+    {
+      "question": {
+        "type": "noul",
+        "instructions": "The user wants to retrieve their own saved data or current settings."
+      },
+      "correct": 16,
+      "rows": [
+        {
+          "case": "c01",
+          "correct": true,
+          "answer": {
+            "noul": 0.8526905179023743
+          },
+          "ms": 99.29608303355053
+        },
+        {
+          "case": "c02",
+          "correct": true,
+          "answer": {
+            "noul": 0.5207362771034241
+          },
+          "ms": 110.22187495836988
+        },
+        {
+          "case": "c03",
+          "correct": true,
+          "answer": {
+            "noul": 0.926375687122345
+          },
+          "ms": 93.75395899405703
+        },
+        {
+          "case": "c04",
+          "correct": true,
+          "answer": {
+            "noul": 0.739975094795227
+          },
+          "ms": 132.34812498558313
+        },
+        {
+          "case": "c05",
+          "correct": true,
+          "answer": {
+            "noul": 0.716995894908905
+          },
+          "ms": 117.11291701067239
+        },
+        {
+          "case": "c06",
+          "correct": true,
+          "answer": {
+            "noul": 0.6247406601905823
+          },
+          "ms": 124.78625000221655
+        },
+        {
+          "case": "c07",
+          "correct": true,
+          "answer": {
+            "noul": 0.6516821980476379
+          },
+          "ms": 116.13562499405816
+        },
+        {
+          "case": "c08",
+          "correct": true,
+          "answer": {
+            "noul": 0.933552622795105
+          },
+          "ms": 97.12308301823214
+        },
+        {
+          "case": "c09",
+          "correct": true,
+          "answer": {
+            "noul": 0.4964456558227539
+          },
+          "ms": 98.57208299217746
+        },
+        {
+          "case": "c10",
+          "correct": true,
+          "answer": {
+            "noul": 0.22554631531238556
+          },
+          "ms": 120.43170799734071
+        },
+        {
+          "case": "c11",
+          "correct": true,
+          "answer": {
+            "noul": 0.46218806505203247
+          },
+          "ms": 101.82187496684492
+        },
+        {
+          "case": "c12",
+          "correct": true,
+          "answer": {
+            "noul": 0.22116324305534363
+          },
+          "ms": 117.01729201013222
+        },
+        {
+          "case": "c13",
+          "correct": false,
+          "answer": {
+            "noul": 0.6081034541130066
+          },
+          "ms": 104.41995901055634
+        },
+        {
+          "case": "c14",
+          "correct": false,
+          "answer": {
+            "noul": 0.5582007169723511
+          },
+          "ms": 105.53391597932205
+        },
+        {
+          "case": "c15",
+          "correct": false,
+          "answer": {
+            "noul": 0.602139949798584
+          },
+          "ms": 118.86962497374043
+        },
+        {
+          "case": "c16",
+          "correct": true,
+          "answer": {
+            "noul": 0.4153798520565033
+          },
+          "ms": 128.88908298918977
+        },
+        {
+          "case": "c17",
+          "correct": false,
+          "answer": {
+            "noul": 0.5998810529708862
+          },
+          "ms": 127.42258299840614
+        },
+        {
+          "case": "c18",
+          "correct": false,
+          "answer": {
+            "noul": 0.5333545207977295
+          },
+          "ms": 135.0369169958867
+        },
+        {
+          "case": "c19",
+          "correct": true,
+          "answer": {
+            "noul": 0.4285683333873749
+          },
+          "ms": 116.63370800670236
+        },
+        {
+          "case": "c20",
+          "correct": true,
+          "answer": {
+            "noul": 0.46631407737731934
+          },
+          "ms": 114.00008399505168
+        },
+        {
+          "case": "c21",
+          "correct": false,
+          "answer": {
+            "noul": 0.5539172291755676
+          },
+          "ms": 116.02612503338605
+        },
+        {
+          "case": "c22",
+          "correct": false,
+          "answer": {
+            "noul": 0.5026460886001587
+          },
+          "ms": 113.71612502261996
+        },
+        {
+          "case": "c23",
+          "correct": true,
+          "answer": {
+            "noul": 0.4731803238391876
+          },
+          "ms": 106.69133299961686
+        },
+        {
+          "case": "c24",
+          "correct": false,
+          "answer": {
+            "noul": 0.5482818484306335
+          },
+          "ms": 100.99954099860042
+        }
+      ]
+    },
+    {
+      "question": {
+        "type": "noul",
+        "instructions": "Does answering the request require looking up information in the user account?"
+      },
+      "correct": 12,
+      "rows": [
+        {
+          "case": "c01",
+          "correct": true,
+          "answer": {
+            "noul": 0.9443410634994507
+          },
+          "ms": 130.1867080037482
+        },
+        {
+          "case": "c02",
+          "correct": true,
+          "answer": {
+            "noul": 0.5706114768981934
+          },
+          "ms": 143.84533296106383
+        },
+        {
+          "case": "c03",
+          "correct": true,
+          "answer": {
+            "noul": 0.9178627133369446
+          },
+          "ms": 115.07962498581037
+        },
+        {
+          "case": "c04",
+          "correct": true,
+          "answer": {
+            "noul": 0.7867761850357056
+          },
+          "ms": 115.39166601141915
+        },
+        {
+          "case": "c05",
+          "correct": true,
+          "answer": {
+            "noul": 0.8450828790664673
+          },
+          "ms": 106.68070800602436
+        },
+        {
+          "case": "c06",
+          "correct": true,
+          "answer": {
+            "noul": 0.8410106897354126
+          },
+          "ms": 123.78687498858199
+        },
+        {
+          "case": "c07",
+          "correct": true,
+          "answer": {
+            "noul": 0.8079847693443298
+          },
+          "ms": 137.05004198709503
+        },
+        {
+          "case": "c08",
+          "correct": true,
+          "answer": {
+            "noul": 0.7861559391021729
+          },
+          "ms": 97.7973339613527
+        },
+        {
+          "case": "c09",
+          "correct": false,
+          "answer": {
+            "noul": 0.6874970197677612
+          },
+          "ms": 103.97941700648516
+        },
+        {
+          "case": "c10",
+          "correct": true,
+          "answer": {
+            "noul": 0.3058357536792755
+          },
+          "ms": 119.40045899245888
+        },
+        {
+          "case": "c11",
+          "correct": false,
+          "answer": {
+            "noul": 0.6447856426239014
+          },
+          "ms": 101.20158398058265
+        },
+        {
+          "case": "c12",
+          "correct": false,
+          "answer": {
+            "noul": 0.5025451183319092
+          },
+          "ms": 119.11416699877009
+        },
+        {
+          "case": "c13",
+          "correct": false,
+          "answer": {
+            "noul": 0.6731436252593994
+          },
+          "ms": 99.4764999486506
+        },
+        {
+          "case": "c14",
+          "correct": false,
+          "answer": {
+            "noul": 0.7304008603096008
+          },
+          "ms": 96.758208994288
+        },
+        {
+          "case": "c15",
+          "correct": false,
+          "answer": {
+            "noul": 0.6382099986076355
+          },
+          "ms": 116.72358401119709
+        },
+        {
+          "case": "c16",
+          "correct": true,
+          "answer": {
+            "noul": 0.13149645924568176
+          },
+          "ms": 138.33012501709163
+        },
+        {
+          "case": "c17",
+          "correct": false,
+          "answer": {
+            "noul": 0.5471164584159851
+          },
+          "ms": 102.2674169507809
+        },
+        {
+          "case": "c18",
+          "correct": false,
+          "answer": {
+            "noul": 0.6627247929573059
+          },
+          "ms": 100.55954102426767
+        },
+        {
+          "case": "c19",
+          "correct": true,
+          "answer": {
+            "noul": 0.42172443866729736
+          },
+          "ms": 114.43037498975173
+        },
+        {
+          "case": "c20",
+          "correct": false,
+          "answer": {
+            "noul": 0.6828835606575012
+          },
+          "ms": 94.35916697839275
+        },
+        {
+          "case": "c21",
+          "correct": false,
+          "answer": {
+            "noul": 0.5681669116020203
+          },
+          "ms": 93.73620798578486
+        },
+        {
+          "case": "c22",
+          "correct": false,
+          "answer": {
+            "noul": 0.6822577118873596
+          },
+          "ms": 99.29795796051621
+        },
+        {
+          "case": "c23",
+          "correct": true,
+          "answer": {
+            "noul": 0.46944931149482727
+          },
+          "ms": 98.4547910047695
+        },
+        {
+          "case": "c24",
+          "correct": false,
+          "answer": {
+            "noul": 0.5746247172355652
+          },
+          "ms": 99.09654199145734
+        }
+      ]
+    },
+    {
+      "question": {
+        "type": "noul",
+        "instructions": "Is the user asking to view or retrieve existing personal data or current account settings?"
+      },
+      "correct": 19,
+      "rows": [
+        {
+          "case": "c01",
+          "correct": true,
+          "answer": {
+            "noul": 0.750821590423584
+          },
+          "ms": 120.59958401368931
+        },
+        {
+          "case": "c02",
+          "correct": false,
+          "answer": {
+            "noul": 0.188932403922081
+          },
+          "ms": 149.59500002441928
+        },
+        {
+          "case": "c03",
+          "correct": true,
+          "answer": {
+            "noul": 0.7409670948982239
+          },
+          "ms": 109.35854201670736
+        },
+        {
+          "case": "c04",
+          "correct": false,
+          "answer": {
+            "noul": 0.3248932957649231
+          },
+          "ms": 115.38579198531806
+        },
+        {
+          "case": "c05",
+          "correct": false,
+          "answer": {
+            "noul": 0.22222480177879333
+          },
+          "ms": 116.13587499596179
+        },
+        {
+          "case": "c06",
+          "correct": false,
+          "answer": {
+            "noul": 0.4143374562263489
+          },
+          "ms": 118.95987502066419
+        },
+        {
+          "case": "c07",
+          "correct": false,
+          "answer": {
+            "noul": 0.4650224447250366
+          },
+          "ms": 114.43583300570026
+        },
+        {
+          "case": "c08",
+          "correct": true,
+          "answer": {
+            "noul": 0.6195173859596252
+          },
+          "ms": 97.50995796639472
+        },
+        {
+          "case": "c09",
+          "correct": true,
+          "answer": {
+            "noul": 0.30033642053604126
+          },
+          "ms": 117.05416697077453
+        },
+        {
+          "case": "c10",
+          "correct": true,
+          "answer": {
+            "noul": 0.154876247048378
+          },
+          "ms": 153.09612499549985
+        },
+        {
+          "case": "c11",
+          "correct": true,
+          "answer": {
+            "noul": 0.09121975302696228
+          },
+          "ms": 196.23279199004173
+        },
+        {
+          "case": "c12",
+          "correct": true,
+          "answer": {
+            "noul": 0.11659763753414154
+          },
+          "ms": 123.86750004952773
+        },
+        {
+          "case": "c13",
+          "correct": true,
+          "answer": {
+            "noul": 0.23766610026359558
+          },
+          "ms": 95.56970797711983
+        },
+        {
+          "case": "c14",
+          "correct": true,
+          "answer": {
+            "noul": 0.10302028059959412
+          },
+          "ms": 96.31824999814853
+        },
+        {
+          "case": "c15",
+          "correct": true,
+          "answer": {
+            "noul": 0.2756709158420563
+          },
+          "ms": 118.4603750007227
+        },
+        {
+          "case": "c16",
+          "correct": true,
+          "answer": {
+            "noul": 0.07828225940465927
+          },
+          "ms": 110.57329102186486
+        },
+        {
+          "case": "c17",
+          "correct": true,
+          "answer": {
+            "noul": 0.4082866907119751
+          },
+          "ms": 96.33558400673792
+        },
+        {
+          "case": "c18",
+          "correct": true,
+          "answer": {
+            "noul": 0.23658952116966248
+          },
+          "ms": 112.41216695634648
+        },
+        {
+          "case": "c19",
+          "correct": true,
+          "answer": {
+            "noul": 0.15242744982242584
+          },
+          "ms": 96.85483301291242
+        },
+        {
+          "case": "c20",
+          "correct": true,
+          "answer": {
+            "noul": 0.09578847885131836
+          },
+          "ms": 109.99112500576302
+        },
+        {
+          "case": "c21",
+          "correct": true,
+          "answer": {
+            "noul": 0.20483942329883575
+          },
+          "ms": 90.46883299015462
+        },
+        {
+          "case": "c22",
+          "correct": true,
+          "answer": {
+            "noul": 0.0934583842754364
+          },
+          "ms": 107.44845803128555
+        },
+        {
+          "case": "c23",
+          "correct": true,
+          "answer": {
+            "noul": 0.14879333972930908
+          },
+          "ms": 107.02366597251967
+        },
+        {
+          "case": "c24",
+          "correct": true,
+          "answer": {
+            "noul": 0.1566624790430069
+          },
+          "ms": 104.74179097218439
+        }
+      ]
+    },
+    {
+      "question": {
+        "type": "noul",
+        "instructions": "The user asks to read existing information, not change settings or explain a general concept."
+      },
+      "correct": 11,
+      "rows": [
+        {
+          "case": "c01",
+          "correct": true,
+          "answer": {
+            "noul": 0.6986643075942993
+          },
+          "ms": 109.23120798543096
+        },
+        {
+          "case": "c02",
+          "correct": true,
+          "answer": {
+            "noul": 0.6437711119651794
+          },
+          "ms": 172.51324997050688
+        },
+        {
+          "case": "c03",
+          "correct": true,
+          "answer": {
+            "noul": 0.7424764037132263
+          },
+          "ms": 112.71987500367686
+        },
+        {
+          "case": "c04",
+          "correct": true,
+          "answer": {
+            "noul": 0.7786966562271118
+          },
+          "ms": 110.83029198925942
+        },
+        {
+          "case": "c05",
+          "correct": true,
+          "answer": {
+            "noul": 0.732233464717865
+          },
+          "ms": 127.04679201124236
+        },
+        {
+          "case": "c06",
+          "correct": true,
+          "answer": {
+            "noul": 0.7722116708755493
+          },
+          "ms": 118.56475000968203
+        },
+        {
+          "case": "c07",
+          "correct": true,
+          "answer": {
+            "noul": 0.7504556179046631
+          },
+          "ms": 118.47887502517551
+        },
+        {
+          "case": "c08",
+          "correct": true,
+          "answer": {
+            "noul": 0.7568041682243347
+          },
+          "ms": 98.8397910259664
+        },
+        {
+          "case": "c09",
+          "correct": false,
+          "answer": {
+            "noul": 0.7947174906730652
+          },
+          "ms": 110.1282499730587
+        },
+        {
+          "case": "c10",
+          "correct": false,
+          "answer": {
+            "noul": 0.6563735604286194
+          },
+          "ms": 114.20166702009737
+        },
+        {
+          "case": "c11",
+          "correct": false,
+          "answer": {
+            "noul": 0.734460711479187
+          },
+          "ms": 117.27062496356666
+        },
+        {
+          "case": "c12",
+          "correct": false,
+          "answer": {
+            "noul": 0.5795406699180603
+          },
+          "ms": 132.12616700911894
+        },
+        {
+          "case": "c13",
+          "correct": false,
+          "answer": {
+            "noul": 0.7522671818733215
+          },
+          "ms": 98.38500001933426
+        },
+        {
+          "case": "c14",
+          "correct": false,
+          "answer": {
+            "noul": 0.7321015000343323
+          },
+          "ms": 100.51641601603478
+        },
+        {
+          "case": "c15",
+          "correct": false,
+          "answer": {
+            "noul": 0.7363738417625427
+          },
+          "ms": 113.75129205407575
+        },
+        {
+          "case": "c16",
+          "correct": false,
+          "answer": {
+            "noul": 0.7594268918037415
+          },
+          "ms": 108.38266700739041
+        },
+        {
+          "case": "c17",
+          "correct": false,
+          "answer": {
+            "noul": 0.623677134513855
+          },
+          "ms": 96.77016700152308
+        },
+        {
+          "case": "c18",
+          "correct": true,
+          "answer": {
+            "noul": 0.44713184237480164
+          },
+          "ms": 115.86870899191126
+        },
+        {
+          "case": "c19",
+          "correct": false,
+          "answer": {
+            "noul": 0.5766533017158508
+          },
+          "ms": 100.4663750063628
+        },
+        {
+          "case": "c20",
+          "correct": false,
+          "answer": {
+            "noul": 0.5195068717002869
+          },
+          "ms": 115.43141701258719
+        },
+        {
+          "case": "c21",
+          "correct": false,
+          "answer": {
+            "noul": 0.6465225219726562
+          },
+          "ms": 103.49791700718924
+        },
+        {
+          "case": "c22",
+          "correct": true,
+          "answer": {
+            "noul": 0.4759860038757324
+          },
+          "ms": 114.57450001034886
+        },
+        {
+          "case": "c23",
+          "correct": false,
+          "answer": {
+            "noul": 0.6207164525985718
+          },
+          "ms": 114.6785420132801
+        },
+        {
+          "case": "c24",
+          "correct": true,
+          "answer": {
+            "noul": 0.443477064371109
+          },
+          "ms": 114.99045800883323
+        }
+      ]
+    },
+    {
+      "question": {
+        "type": "noul",
+        "instructions": "Is the user requesting a lookup of their own data?"
+      },
+      "correct": 17,
+      "rows": [
+        {
+          "case": "c01",
+          "correct": true,
+          "answer": {
+            "noul": 0.8997503519058228
+          },
+          "ms": 98.39404199738055
+        },
+        {
+          "case": "c02",
+          "correct": false,
+          "answer": {
+            "noul": 0.23197099566459656
+          },
+          "ms": 106.84870899422094
+        },
+        {
+          "case": "c03",
+          "correct": true,
+          "answer": {
+            "noul": 0.9110490679740906
+          },
+          "ms": 111.8026670301333
+        },
+        {
+          "case": "c04",
+          "correct": true,
+          "answer": {
+            "noul": 0.7989921569824219
+          },
+          "ms": 97.65470802085474
+        },
+        {
+          "case": "c05",
+          "correct": true,
+          "answer": {
+            "noul": 0.8871663808822632
+          },
+          "ms": 102.65979100950062
+        },
+        {
+          "case": "c06",
+          "correct": true,
+          "answer": {
+            "noul": 0.7097263336181641
+          },
+          "ms": 120.19666598644108
+        },
+        {
+          "case": "c07",
+          "correct": true,
+          "answer": {
+            "noul": 0.679277777671814
+          },
+          "ms": 112.52304102526978
+        },
+        {
+          "case": "c08",
+          "correct": true,
+          "answer": {
+            "noul": 0.8373958468437195
+          },
+          "ms": 94.71395902801305
+        },
+        {
+          "case": "c09",
+          "correct": false,
+          "answer": {
+            "noul": 0.6469345688819885
+          },
+          "ms": 100.31999996863306
+        },
+        {
+          "case": "c10",
+          "correct": true,
+          "answer": {
+            "noul": 0.2777372896671295
+          },
+          "ms": 114.16320799617097
+        },
+        {
+          "case": "c11",
+          "correct": true,
+          "answer": {
+            "noul": 0.3588920831680298
+          },
+          "ms": 96.67233400978148
+        },
+        {
+          "case": "c12",
+          "correct": true,
+          "answer": {
+            "noul": 0.10836641490459442
+          },
+          "ms": 110.21108296699822
+        },
+        {
+          "case": "c13",
+          "correct": false,
+          "answer": {
+            "noul": 0.5835159420967102
+          },
+          "ms": 92.49908401397988
+        },
+        {
+          "case": "c14",
+          "correct": false,
+          "answer": {
+            "noul": 0.6373691558837891
+          },
+          "ms": 97.37687499728054
+        },
+        {
+          "case": "c15",
+          "correct": true,
+          "answer": {
+            "noul": 0.4375135898590088
+          },
+          "ms": 111.20070901233703
+        },
+        {
+          "case": "c16",
+          "correct": true,
+          "answer": {
+            "noul": 0.20648622512817383
+          },
+          "ms": 116.95920798229054
+        },
+        {
+          "case": "c17",
+          "correct": false,
+          "answer": {
+            "noul": 0.6626417636871338
+          },
+          "ms": 111.50308401556686
+        },
+        {
+          "case": "c18",
+          "correct": false,
+          "answer": {
+            "noul": 0.5304773449897766
+          },
+          "ms": 121.79595895577222
+        },
+        {
+          "case": "c19",
+          "correct": true,
+          "answer": {
+            "noul": 0.3164547085762024
+          },
+          "ms": 102.5444160331972
+        },
+        {
+          "case": "c20",
+          "correct": false,
+          "answer": {
+            "noul": 0.6208326816558838
+          },
+          "ms": 96.34091600310057
+        },
+        {
+          "case": "c21",
+          "correct": true,
+          "answer": {
+            "noul": 0.45761191844940186
+          },
+          "ms": 98.62487501231954
+        },
+        {
+          "case": "c22",
+          "correct": true,
+          "answer": {
+            "noul": 0.2683430016040802
+          },
+          "ms": 95.50075000151992
+        },
+        {
+          "case": "c23",
+          "correct": true,
+          "answer": {
+            "noul": 0.2963648736476898
+          },
+          "ms": 93.76841702032834
+        },
+        {
+          "case": "c24",
+          "correct": true,
+          "answer": {
+            "noul": 0.4756584167480469
+          },
+          "ms": 97.30954200495034
+        }
+      ]
+    },
+    {
+      "question": {
+        "type": "noul",
+        "instructions": "Does the user want to know a value already saved in their account?"
+      },
+      "correct": 15,
+      "rows": [
+        {
+          "case": "c01",
+          "correct": true,
+          "answer": {
+            "noul": 0.9479269981384277
+          },
+          "ms": 119.04512497130781
+        },
+        {
+          "case": "c02",
+          "correct": false,
+          "answer": {
+            "noul": 0.45908793807029724
+          },
+          "ms": 110.2780420333147
+        },
+        {
+          "case": "c03",
+          "correct": true,
+          "answer": {
+            "noul": 0.9676719903945923
+          },
+          "ms": 95.83987499354407
+        },
+        {
+          "case": "c04",
+          "correct": false,
+          "answer": {
+            "noul": 0.4974847137928009
+          },
+          "ms": 93.15504098776728
+        },
+        {
+          "case": "c05",
+          "correct": true,
+          "answer": {
+            "noul": 0.9127348065376282
+          },
+          "ms": 98.9556250278838
+        },
+        {
+          "case": "c06",
+          "correct": true,
+          "answer": {
+            "noul": 0.8854056000709534
+          },
+          "ms": 115.9554579644464
+        },
+        {
+          "case": "c07",
+          "correct": true,
+          "answer": {
+            "noul": 0.7784707546234131
+          },
+          "ms": 108.2940410124138
+        },
+        {
+          "case": "c08",
+          "correct": true,
+          "answer": {
+            "noul": 0.9704492688179016
+          },
+          "ms": 96.7550830100663
+        },
+        {
+          "case": "c09",
+          "correct": false,
+          "answer": {
+            "noul": 0.652923047542572
+          },
+          "ms": 100.3970840247348
+        },
+        {
+          "case": "c10",
+          "correct": true,
+          "answer": {
+            "noul": 0.05610107630491257
+          },
+          "ms": 110.40512495674193
+        },
+        {
+          "case": "c11",
+          "correct": true,
+          "answer": {
+            "noul": 0.4570324718952179
+          },
+          "ms": 115.67766696680337
+        },
+        {
+          "case": "c12",
+          "correct": true,
+          "answer": {
+            "noul": 0.14544443786144257
+          },
+          "ms": 120.54129096213728
+        },
+        {
+          "case": "c13",
+          "correct": false,
+          "answer": {
+            "noul": 0.714545726776123
+          },
+          "ms": 102.31054201722145
+        },
+        {
+          "case": "c14",
+          "correct": false,
+          "answer": {
+            "noul": 0.5654327869415283
+          },
+          "ms": 109.68854103703052
+        },
+        {
+          "case": "c15",
+          "correct": false,
+          "answer": {
+            "noul": 0.5100626945495605
+          },
+          "ms": 111.58225004328415
+        },
+        {
+          "case": "c16",
+          "correct": true,
+          "answer": {
+            "noul": 0.27482375502586365
+          },
+          "ms": 125.7930839783512
+        },
+        {
+          "case": "c17",
+          "correct": false,
+          "answer": {
+            "noul": 0.6628681421279907
+          },
+          "ms": 106.08854203019291
+        },
+        {
+          "case": "c18",
+          "correct": true,
+          "answer": {
+            "noul": 0.4874795079231262
+          },
+          "ms": 96.87091701198369
+        },
+        {
+          "case": "c19",
+          "correct": false,
+          "answer": {
+            "noul": 0.5767210721969604
+          },
+          "ms": 105.18875002162531
+        },
+        {
+          "case": "c20",
+          "correct": true,
+          "answer": {
+            "noul": 0.4184425175189972
+          },
+          "ms": 105.83870799746364
+        },
+        {
+          "case": "c21",
+          "correct": true,
+          "answer": {
+            "noul": 0.2640811502933502
+          },
+          "ms": 102.05362498527393
+        },
+        {
+          "case": "c22",
+          "correct": true,
+          "answer": {
+            "noul": 0.38996872305870056
+          },
+          "ms": 118.64587501622736
+        },
+        {
+          "case": "c23",
+          "correct": true,
+          "answer": {
+            "noul": 0.20987331867218018
+          },
+          "ms": 103.27541595324874
+        },
+        {
+          "case": "c24",
+          "correct": false,
+          "answer": {
+            "noul": 0.7057949304580688
+          },
+          "ms": 99.4342080084607
+        }
+      ]
+    },
+    {
+      "question": {
+        "type": "noul",
+        "instructions": "The user wants the assistant to show their stored information."
+      },
+      "correct": 14,
+      "rows": [
+        {
+          "case": "c01",
+          "correct": true,
+          "answer": {
+            "noul": 0.8991029262542725
+          },
+          "ms": 98.16608397522941
+        },
+        {
+          "case": "c02",
+          "correct": false,
+          "answer": {
+            "noul": 0.32741257548332214
+          },
+          "ms": 110.26466701878235
+        },
+        {
+          "case": "c03",
+          "correct": true,
+          "answer": {
+            "noul": 0.9130638837814331
+          },
+          "ms": 135.80266601638868
+        },
+        {
+          "case": "c04",
+          "correct": true,
+          "answer": {
+            "noul": 0.6861578822135925
+          },
+          "ms": 156.053000013344
+        },
+        {
+          "case": "c05",
+          "correct": true,
+          "answer": {
+            "noul": 0.8326957821846008
+          },
+          "ms": 108.78708300879225
+        },
+        {
+          "case": "c06",
+          "correct": true,
+          "answer": {
+            "noul": 0.7666184306144714
+          },
+          "ms": 111.49070895044133
+        },
+        {
+          "case": "c07",
+          "correct": true,
+          "answer": {
+            "noul": 0.6031466126441956
+          },
+          "ms": 113.67487499956042
+        },
+        {
+          "case": "c08",
+          "correct": true,
+          "answer": {
+            "noul": 0.8936011791229248
+          },
+          "ms": 122.23266699584201
+        },
+        {
+          "case": "c09",
+          "correct": false,
+          "answer": {
+            "noul": 0.5472977161407471
+          },
+          "ms": 99.23158399760723
+        },
+        {
+          "case": "c10",
+          "correct": true,
+          "answer": {
+            "noul": 0.0793246328830719
+          },
+          "ms": 110.50908302422613
+        },
+        {
+          "case": "c11",
+          "correct": false,
+          "answer": {
+            "noul": 0.5836247205734253
+          },
+          "ms": 97.09437499986961
+        },
+        {
+          "case": "c12",
+          "correct": true,
+          "answer": {
+            "noul": 0.11284380406141281
+          },
+          "ms": 116.87479098327458
+        },
+        {
+          "case": "c13",
+          "correct": false,
+          "answer": {
+            "noul": 0.7065812349319458
+          },
+          "ms": 94.86820898018777
+        },
+        {
+          "case": "c14",
+          "correct": true,
+          "answer": {
+            "noul": 0.48556309938430786
+          },
+          "ms": 98.92133297398686
+        },
+        {
+          "case": "c15",
+          "correct": false,
+          "answer": {
+            "noul": 0.6584457159042358
+          },
+          "ms": 112.32125002425164
+        },
+        {
+          "case": "c16",
+          "correct": true,
+          "answer": {
+            "noul": 0.24354732036590576
+          },
+          "ms": 96.97616600897163
+        },
+        {
+          "case": "c17",
+          "correct": false,
+          "answer": {
+            "noul": 0.7183330655097961
+          },
+          "ms": 97.70266595296562
+        },
+        {
+          "case": "c18",
+          "correct": false,
+          "answer": {
+            "noul": 0.5619417428970337
+          },
+          "ms": 109.22354098875076
+        },
+        {
+          "case": "c19",
+          "correct": false,
+          "answer": {
+            "noul": 0.5269664525985718
+          },
+          "ms": 102.36829100176692
+        },
+        {
+          "case": "c20",
+          "correct": true,
+          "answer": {
+            "noul": 0.44817832112312317
+          },
+          "ms": 100.16274999361485
+        },
+        {
+          "case": "c21",
+          "correct": false,
+          "answer": {
+            "noul": 0.5004368424415588
+          },
+          "ms": 99.03541597304866
+        },
+        {
+          "case": "c22",
+          "correct": true,
+          "answer": {
+            "noul": 0.40485644340515137
+          },
+          "ms": 99.4936249917373
+        },
+        {
+          "case": "c23",
+          "correct": true,
+          "answer": {
+            "noul": 0.4386266767978668
+          },
+          "ms": 101.19020804995671
+        },
+        {
+          "case": "c24",
+          "correct": false,
+          "answer": {
+            "noul": 0.7369464635848999
+          },
+          "ms": 102.1869580144994
+        }
+      ]
+    },
+    {
+      "question": {
+        "type": "noul",
+        "instructions": "Does the request ask for existing records, measurements or currently configured settings?"
+      },
+      "correct": 20,
+      "rows": [
+        {
+          "case": "c01",
+          "correct": true,
+          "answer": {
+            "noul": 0.8525809645652771
+          },
+          "ms": 115.95558299450204
+        },
+        {
+          "case": "c02",
+          "correct": false,
+          "answer": {
+            "noul": 0.3520906865596771
+          },
+          "ms": 116.69308296404779
+        },
+        {
+          "case": "c03",
+          "correct": true,
+          "answer": {
+            "noul": 0.8800247311592102
+          },
+          "ms": 93.68399996310472
+        },
+        {
+          "case": "c04",
+          "correct": true,
+          "answer": {
+            "noul": 0.5810892581939697
+          },
+          "ms": 91.86566696735099
+        },
+        {
+          "case": "c05",
+          "correct": true,
+          "answer": {
+            "noul": 0.8344870209693909
+          },
+          "ms": 109.95879204710945
+        },
+        {
+          "case": "c06",
+          "correct": true,
+          "answer": {
+            "noul": 0.734266459941864
+          },
+          "ms": 116.96795898023993
+        },
+        {
+          "case": "c07",
+          "correct": true,
+          "answer": {
+            "noul": 0.8340970277786255
+          },
+          "ms": 112.67558299005032
+        },
+        {
+          "case": "c08",
+          "correct": true,
+          "answer": {
+            "noul": 0.8737730979919434
+          },
+          "ms": 94.04891700251028
+        },
+        {
+          "case": "c09",
+          "correct": false,
+          "answer": {
+            "noul": 0.5675352215766907
+          },
+          "ms": 98.17554196342826
+        },
+        {
+          "case": "c10",
+          "correct": true,
+          "answer": {
+            "noul": 0.294744074344635
+          },
+          "ms": 117.13758402038366
+        },
+        {
+          "case": "c11",
+          "correct": true,
+          "answer": {
+            "noul": 0.196596160531044
+          },
+          "ms": 94.81779095949605
+        },
+        {
+          "case": "c12",
+          "correct": true,
+          "answer": {
+            "noul": 0.2833274006843567
+          },
+          "ms": 107.85654204664752
+        },
+        {
+          "case": "c13",
+          "correct": false,
+          "answer": {
+            "noul": 0.617489755153656
+          },
+          "ms": 99.37308402732015
+        },
+        {
+          "case": "c14",
+          "correct": false,
+          "answer": {
+            "noul": 0.5667202472686768
+          },
+          "ms": 99.34733295813203
+        },
+        {
+          "case": "c15",
+          "correct": true,
+          "answer": {
+            "noul": 0.3859764635562897
+          },
+          "ms": 116.72995903063565
+        },
+        {
+          "case": "c16",
+          "correct": true,
+          "answer": {
+            "noul": 0.08290169388055801
+          },
+          "ms": 118.68424998829141
+        },
+        {
+          "case": "c17",
+          "correct": true,
+          "answer": {
+            "noul": 0.19559858739376068
+          },
+          "ms": 96.85149998404086
+        },
+        {
+          "case": "c18",
+          "correct": true,
+          "answer": {
+            "noul": 0.27385735511779785
+          },
+          "ms": 99.16133398655802
+        },
+        {
+          "case": "c19",
+          "correct": true,
+          "answer": {
+            "noul": 0.11779063940048218
+          },
+          "ms": 111.81512498296797
+        },
+        {
+          "case": "c20",
+          "correct": true,
+          "answer": {
+            "noul": 0.20703630149364471
+          },
+          "ms": 108.30254200845957
+        },
+        {
+          "case": "c21",
+          "correct": true,
+          "answer": {
+            "noul": 0.13891290128231049
+          },
+          "ms": 108.32420899532735
+        },
+        {
+          "case": "c22",
+          "correct": true,
+          "answer": {
+            "noul": 0.3234972357749939
+          },
+          "ms": 116.91820796113461
+        },
+        {
+          "case": "c23",
+          "correct": true,
+          "answer": {
+            "noul": 0.21404215693473816
+          },
+          "ms": 103.12725004041567
+        },
+        {
+          "case": "c24",
+          "correct": true,
+          "answer": {
+            "noul": 0.2672637104988098
+          },
+          "ms": 110.23737501818687
+        }
+      ]
+    }
+  ]
+}
