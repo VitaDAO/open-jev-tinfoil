@@ -1,0 +1,34 @@
+{
+  "requests": 10,
+  "p50_ms": 128.5,
+  "max_ms": 169.39,
+  "inference_p50_ms": 127.25,
+  "last_response": {
+    "answers": [
+      {
+        "choice": "billing",
+        "probabilities": {
+          "billing": 0.5633112192153931,
+          "technical support": 0.3357144594192505,
+          "sales": 0.10097429901361465
+        },
+        "confidence": 0.5633112192153931
+      },
+      {
+        "score": 0.46541493386030197,
+        "probabilities": {
+          "negative": 0.5569271445274353,
+          "neutral": 0.4207307696342468,
+          "positive": 0.022342082113027573
+        },
+        "confidence": 0.5569271445274353
+      },
+      {
+        "noul": 0.9043208956718445
+      }
+    ],
+    "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+    "inference_ms": 132.23
+  },
+  "negative_checks": "unauthenticated, empty questions, state overflow, total context overflow passed"
+}

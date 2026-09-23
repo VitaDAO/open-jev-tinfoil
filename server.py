@@ -1,6 +1,7 @@
 """Authenticated, bounded CPU inference. No request logging or text retention."""
 import asyncio
 import hmac
+import json
 import os
 import time
 from contextlib import asynccontextmanager
@@ -83,6 +84,10 @@ class Engine:
         torch.set_num_threads(int(os.environ.get('OMP_NUM_THREADS', '4')))
         torch.set_num_interop_threads(1)
         self.model = OpenJev.from_pretrained(os.environ.get('MODEL_DIR', '/opt/model'), device='cpu')
+        if next(self.model.model.backbone.parameters()).dtype != torch.float32:
+            raise RuntimeError('Backbone must compute in FP32')
+        with open(os.path.join(os.environ.get('MODEL_DIR', '/opt/model'), 'manifest.json')) as manifest:
+            self.weight_storage_dtype = json.load(manifest).get('weight_storage_dtype', 'float32')
         # Upstream Collator caches input strings indefinitely. Use no cache at all.
         self.model.collator._ids = lambda text: self.model.tok(text, add_special_tokens=False)['input_ids']
         self.model.collator._cache.clear()
@@ -91,7 +96,8 @@ class Engine:
         self.decide(DecisionRequest(state='This is a test.', questions=[Question(type='noul', instructions='This is a test.')]))
 
     def route(self, request):
-        return self.router.route(request.state)
+        return {**self.router.route(request.state), 'weight_storage_dtype': self.weight_storage_dtype,
+                'backbone_compute_dtype': 'float32'}
 
     def decide(self, request):
         state_tokens = len(self.model.tok(request.state, add_special_tokens=False)['input_ids'])
@@ -101,7 +107,8 @@ class Engine:
         started = time.perf_counter()
         answers = self.model.decide(request.state, questions)
         return {'answers': answers, 'model_revision': MODEL_REVISION,
-                'inference_ms': round((time.perf_counter() - started) * 1000, 2)}
+                'inference_ms': round((time.perf_counter() - started) * 1000, 2),
+                'weight_storage_dtype': self.weight_storage_dtype, 'backbone_compute_dtype': 'float32'}
 
 def create_app(engine_factory=Engine, token=None):
     token = token if token is not None else os.environ.get('OPEN_JEV_API_KEY', '')

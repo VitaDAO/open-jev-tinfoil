@@ -24,6 +24,7 @@ for name,file in [('target24','confirmation.json'),('fresh30','fresh-v3.json')]:
         assert status==200,(status,data)
         assert data['model_revision']=='19bf9a64815add579fbf6c907bef584d9277a8e4'
         assert data['adapter_sha256']==expected_sha and data['advisory'] is True
+        assert data['weight_storage_dtype']=='float16' and data['backbone_compute_dtype']=='float32'
         assert (data['action'],data['record_access'])==(ref[case]['action'],ref[case]['record_access']),case
     results[name]={'n':len(times),'median_ms':statistics.median(times),'max_ms':max(times)}
 print(json.dumps({'adapter_sha256':expected_sha,'prediction_parity':'all54 match recorded results','timings':results},indent=2))

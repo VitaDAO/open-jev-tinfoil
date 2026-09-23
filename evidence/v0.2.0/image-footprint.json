@@ -1,0 +1,63 @@
+{
+  "layers": [
+    {
+      "compressed": 29153837,
+      "uncompressed_tar": 77905920
+    },
+    {
+      "compressed": 3533359,
+      "uncompressed_tar": 9604096
+    },
+    {
+      "compressed": 13671799,
+      "uncompressed_tar": 41617920
+    },
+    {
+      "compressed": 249,
+      "uncompressed_tar": 5120
+    },
+    {
+      "compressed": 93,
+      "uncompressed_tar": 1536
+    },
+    {
+      "compressed": 218222,
+      "uncompressed_tar": 720384
+    },
+    {
+      "compressed": 28402,
+      "uncompressed_tar": 69120
+    },
+    {
+      "compressed": 300164789,
+      "uncompressed_tar": 1085140992
+    },
+    {
+      "compressed": 648,
+      "uncompressed_tar": 3584
+    },
+    {
+      "compressed": 1545973830,
+      "uncompressed_tar": 1760691200
+    },
+    {
+      "compressed": 6648,
+      "uncompressed_tar": 25088
+    },
+    {
+      "compressed": 3778,
+      "uncompressed_tar": 13824
+    },
+    {
+      "compressed": 42400,
+      "uncompressed_tar": 108544
+    },
+    {
+      "compressed": 2419,
+      "uncompressed_tar": 10752
+    }
+  ],
+  "compressed_bytes": 1892800473,
+  "uncompressed_tar_bytes": 2975918080,
+  "combined_bytes": 4868718553
+}

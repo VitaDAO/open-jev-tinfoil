@@ -1,0 +1,16 @@
+{
+  "adapter_sha256": "35fbdc0351280e1720dd61776a4f6492d270f1bf689858162bd6deacfcfc12a6",
+  "prediction_parity": "all54 match recorded results",
+  "timings": {
+    "target24": {
+      "n": 24,
+      "median_ms": 95.26806249050424,
+      "max_ms": 112.52537497784942
+    },
+    "fresh30": {
+      "n": 30,
+      "median_ms": 92.66910399310291,
+      "max_ms": 124.85920899780467
+    }
+  }
+}
