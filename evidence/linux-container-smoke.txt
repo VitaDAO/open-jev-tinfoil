@@ -1,0 +1,55 @@
+﻿2026-09-23T17:54:15.0012064Z ##[group]Run export OPEN_JEV_API_KEY=$(openssl rand -hex 32)
+2026-09-23T17:54:15.0012345Z [36;1mexport OPEN_JEV_API_KEY=$(openssl rand -hex 32)[0m
+2026-09-23T17:54:15.0012766Z [36;1mdocker run -d --name smoke --memory 8g --cpus 4 -e OPEN_JEV_API_KEY -p 127.0.0.1:18080:8080 ghcr.io/vitadao/open-jev-tinfoil:047464bc748a7a6654b77705d8030f9819cf4a1a[0m
+2026-09-23T17:54:15.0013144Z [36;1mready=false[0m
+2026-09-23T17:54:15.0013264Z [36;1mfor i in $(seq 1 120); do[0m
+2026-09-23T17:54:15.0013509Z [36;1m  if curl -fsS http://127.0.0.1:18080/health > /tmp/health.json; then ready=true; break; fi[0m
+2026-09-23T17:54:15.0013743Z [36;1m  sleep 2[0m
+2026-09-23T17:54:15.0013853Z [36;1mdone[0m
+2026-09-23T17:54:15.0014000Z [36;1mif [ "$ready" != true ]; then docker logs smoke; exit 1; fi[0m
+2026-09-23T17:54:15.0014209Z [36;1mpython scripts/smoke.py | tee /tmp/smoke.json[0m
+2026-09-23T17:54:15.0014446Z [36;1mdocker stats --no-stream --format '{{json .}}' smoke | tee /tmp/stats.json[0m
+2026-09-23T17:54:15.0014757Z [36;1mdocker exec smoke cat /sys/fs/cgroup/memory.peak | tee /tmp/memory-peak.txt[0m
+2026-09-23T17:54:15.0014975Z [36;1mdocker rm -f smoke[0m
+2026-09-23T17:54:15.0045011Z shell: /usr/bin/bash -e {0}
+2026-09-23T17:54:15.0045158Z ##[endgroup]
+2026-09-23T17:54:15.0331791Z 1a8a63950ce9284235bde1094f03b1395b8698f28b672363f3a05c9ad80676dd
+2026-09-23T17:54:15.1396691Z curl: (56) Recv failure: Connection reset by peer
+2026-09-23T17:54:17.1472550Z curl: (56) Recv failure: Connection reset by peer
+2026-09-23T17:54:24.8683763Z {
+2026-09-23T17:54:24.8684056Z   "requests": 10,
+2026-09-23T17:54:24.8684284Z   "p50_ms": 561.7,
+2026-09-23T17:54:24.8684467Z   "max_ms": 580.55,
+2026-09-23T17:54:24.8684657Z   "inference_p50_ms": 559.57,
+2026-09-23T17:54:24.8684877Z   "last_response": {
+2026-09-23T17:54:24.8685055Z     "answers": [
+2026-09-23T17:54:24.8685220Z       {
+2026-09-23T17:54:24.8685383Z         "choice": "billing",
+2026-09-23T17:54:24.8685591Z         "probabilities": {
+2026-09-23T17:54:24.8685794Z           "billing": 0.5627607107162476,
+2026-09-23T17:54:24.8686076Z           "technical support": 0.3360973298549652,
+2026-09-23T17:54:24.8686317Z           "sales": 0.1011420264840126
+2026-09-23T17:54:24.8686467Z         },
+2026-09-23T17:54:24.8686576Z         "confidence": 0.5627607107162476
+2026-09-23T17:54:24.8686718Z       },
+2026-09-23T17:54:24.8686815Z       {
+2026-09-23T17:54:24.8687250Z         "score": 0.46517297998070717,
+2026-09-23T17:54:24.8687391Z         "probabilities": {
+2026-09-23T17:54:24.8687522Z           "negative": 0.5572102665901184,
+2026-09-23T17:54:24.8687665Z           "neutral": 0.42040640115737915,
+2026-09-23T17:54:24.8687805Z           "positive": 0.02238328941166401
+2026-09-23T17:54:24.8687937Z         },
+2026-09-23T17:54:24.8688041Z         "confidence": 0.5572102665901184
+2026-09-23T17:54:24.8688173Z       },
+2026-09-23T17:54:24.8688430Z       {
+2026-09-23T17:54:24.8688579Z         "noul": 0.9041085243225098
+2026-09-23T17:54:24.8688709Z       }
+2026-09-23T17:54:24.8688803Z     ],
+2026-09-23T17:54:24.8688957Z     "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+2026-09-23T17:54:24.8689145Z     "inference_ms": 571.73
+2026-09-23T17:54:24.8689269Z   },
+2026-09-23T17:54:24.8689484Z   "negative_checks": "unauthenticated, empty questions, state overflow, total context overflow passed"
+2026-09-23T17:54:24.8689730Z }
+2026-09-23T17:54:26.3939947Z {"BlockIO":"0B / 0B","CPUPerc":"0.13%","Container":"smoke","ID":"1a8a63950ce9","MemPerc":"7.38%","MemUsage":"604.3MiB / 8GiB","Name":"smoke","NetIO":"27.7kB / 14.6kB","PIDs":"14"}
+2026-09-23T17:54:26.4268598Z 641630208
+2026-09-23T17:54:26.5884369Z smoke

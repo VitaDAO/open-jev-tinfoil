@@ -1,0 +1,17 @@
+{
+  "platform": "macOS-26.4.1-arm64-arm-64bit",
+  "machine": "arm64",
+  "sequence_tokens": 504,
+  "state_tokens": 256,
+  "response": {
+    "answers": [
+      {
+        "noul": 0.6995557546615601
+      }
+    ],
+    "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+    "inference_ms": 525.36
+  },
+  "upstream_cache_entries": 0,
+  "process_peak_rss_bytes_macos": 1866366976
+}

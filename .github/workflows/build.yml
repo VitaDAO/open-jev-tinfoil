@@ -2,6 +2,14 @@ name: Build and test serving image
 on:
   push:
     branches: [main]
+    paths:
+      - server.py
+      - Dockerfile
+      - requirements-linux.lock
+      - vendor/**
+      - scripts/**
+      - tests/**
+      - .github/workflows/build.yml
   workflow_dispatch:
 permissions:
   contents: read

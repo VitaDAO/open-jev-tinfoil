@@ -1,0 +1,25 @@
+# Standalone Open Jev service. Model weights are bundled in the measured image.
+# Tested source: 047464b (GitHub Actions run 35898655313).
+cvm-version: 0.14.7
+cpus: 4
+memory: 8192
+containers:
+  - name: open-jev
+    image: ghcr.io/vitadao/open-jev-tinfoil@sha256:0a77296a8d730081c316205f96d4bbd427e2ebc1ebf231d30fd7fffebdf54bd3
+    env:
+      - OMP_NUM_THREADS: "4"
+      - MKL_NUM_THREADS: "4"
+    secrets:
+      - OPEN_JEV_API_KEY
+    restart: always
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/health', timeout=5)"]
+      interval: 30s
+      timeout: 10s
+      start_period: 180s
+shim:
+  upstream-port: 8080
+  paths:
+    - /health
+    - /decide
+# No networks declared: closed outbound connectivity under CVM >= 0.10.0.
