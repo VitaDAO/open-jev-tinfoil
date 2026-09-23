@@ -71,3 +71,12 @@ Loader files under `vendor/typed_decisions` are unmodified from the pinned model
 snapshot, with the upstream Apache-2.0 license and notice. Base model
 `microsoft/deberta-v3-large` is MIT. Dataset provenance and model limitations:
 https://huggingface.co/com-kotobalabs/open-jev-deberta-v3-large
+
+## Experimental local Vita routing
+
+`examples/local_vita_router.py` preserves joint routing/urgency and separately
+rechecks record access. On 24 fresh synthetic confirmation cases, record-access
+correctness improved from 17/24 to 21/24, routing stayed 22/24, and local median
+latency increased from 117 to 211 ms. This optional client does not change weights,
+server behavior or the attested release. See `evidence/local-tuning.md` for the
+selection process, regressions and limits; outputs are advisory, never permission grants.

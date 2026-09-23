@@ -1,0 +1,1743 @@
+{
+  "holdout_sha256": "13df87689f4156cd47bf953783972b0222f6e3db2e1615b895c47948d11da7dd",
+  "variants": {
+    "baseline": {
+      "questions": [
+        {
+          "type": "choice",
+          "instructions": "Classify the requested action.",
+          "options": [
+            "read existing data",
+            "explain a concept",
+            "change settings"
+          ]
+        },
+        {
+          "type": "noul",
+          "instructions": "Does the user ask to access their existing personal records?"
+        },
+        {
+          "type": "score",
+          "instructions": "How urgent is this request?",
+          "options": [
+            "not urgent",
+            "moderately urgent",
+            "very urgent"
+          ]
+        }
+      ],
+      "isolated": false
+    },
+    "statement": {
+      "questions": [
+        {
+          "type": "choice",
+          "instructions": "Classify the requested action.",
+          "options": [
+            "read existing data",
+            "explain a concept",
+            "change settings"
+          ]
+        },
+        {
+          "type": "noul",
+          "instructions": "The user wants to retrieve or view information already stored in their own account."
+        },
+        {
+          "type": "score",
+          "instructions": "How urgent is this request?",
+          "options": [
+            "not urgent",
+            "moderately urgent",
+            "very urgent"
+          ]
+        }
+      ],
+      "isolated": false
+    },
+    "described": {
+      "questions": [
+        {
+          "type": "choice",
+          "instructions": "What does the user want the assistant to do?",
+          "options": [
+            "view or retrieve saved personal data or current account settings without changing them",
+            "explain a general concept without accessing personal data",
+            "modify, enable, disable or update an account setting"
+          ]
+        },
+        {
+          "type": "noul",
+          "instructions": "The user wants to retrieve or view information already stored in their own account."
+        },
+        {
+          "type": "score",
+          "instructions": "How urgent is this request?",
+          "options": [
+            "not urgent",
+            "moderately urgent",
+            "very urgent"
+          ]
+        }
+      ],
+      "isolated": false
+    },
+    "isolated_baseline": {
+      "questions": [
+        {
+          "type": "choice",
+          "instructions": "Classify the requested action.",
+          "options": [
+            "read existing data",
+            "explain a concept",
+            "change settings"
+          ]
+        },
+        {
+          "type": "noul",
+          "instructions": "Does the user ask to access their existing personal records?"
+        },
+        {
+          "type": "score",
+          "instructions": "How urgent is this request?",
+          "options": [
+            "not urgent",
+            "moderately urgent",
+            "very urgent"
+          ]
+        }
+      ],
+      "isolated": true
+    },
+    "isolated_described": {
+      "questions": [
+        {
+          "type": "choice",
+          "instructions": "What does the user want the assistant to do?",
+          "options": [
+            "view or retrieve saved personal data or current account settings without changing them",
+            "explain a general concept without accessing personal data",
+            "modify, enable, disable or update an account setting"
+          ]
+        },
+        {
+          "type": "noul",
+          "instructions": "The user wants to retrieve or view information already stored in their own account."
+        },
+        {
+          "type": "score",
+          "instructions": "How urgent is this request?",
+          "options": [
+            "not urgent",
+            "moderately urgent",
+            "very urgent"
+          ]
+        }
+      ],
+      "isolated": true
+    }
+  },
+  "results": {
+    "baseline": {
+      "runs": [
+        {
+          "case": "sleep-read",
+          "choice": "read existing data",
+          "noul": 0.7475326657295227,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 117.75,
+          "answers": [
+            {
+              "choice": "read existing data",
+              "probabilities": {
+                "read existing data": 0.6624460220336914,
+                "explain a concept": 0.18271639943122864,
+                "change settings": 0.15483757853507996
+              },
+              "confidence": 0.6624460220336914
+            },
+            {
+              "noul": 0.7475326657295227
+            },
+            {
+              "score": 0.6417801231145859,
+              "probabilities": {
+                "not urgent": 0.42884334921836853,
+                "moderately urgent": 0.5005332827568054,
+                "very urgent": 0.07062342017889023
+              },
+              "confidence": 0.5005332827568054
+            }
+          ]
+        },
+        {
+          "case": "sleep-explain",
+          "choice": "explain a concept",
+          "noul": 0.6139727830886841,
+          "choice_correct": true,
+          "noul_correct": false,
+          "elapsed_ms": 113.73,
+          "answers": [
+            {
+              "choice": "explain a concept",
+              "probabilities": {
+                "read existing data": 0.11194638907909393,
+                "explain a concept": 0.822868824005127,
+                "change settings": 0.0651848092675209
+              },
+              "confidence": 0.822868824005127
+            },
+            {
+              "noul": 0.6139727830886841
+            },
+            {
+              "score": 0.6004665344953537,
+              "probabilities": {
+                "not urgent": 0.4648378789424896,
+                "moderately urgent": 0.4698576331138611,
+                "very urgent": 0.06530445069074631
+              },
+              "confidence": 0.4698576331138611
+            }
+          ]
+        },
+        {
+          "case": "notifications",
+          "choice": "change settings",
+          "noul": 0.549138069152832,
+          "choice_correct": true,
+          "noul_correct": false,
+          "elapsed_ms": 112.3,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.03902169317007065,
+                "explain a concept": 0.08194483816623688,
+                "change settings": 0.8790335059165955
+              },
+              "confidence": 0.8790335059165955
+            },
+            {
+              "noul": 0.549138069152832
+            },
+            {
+              "score": 0.540813684463501,
+              "probabilities": {
+                "not urgent": 0.5325788259506226,
+                "moderately urgent": 0.3940284252166748,
+                "very urgent": 0.07339262962341309
+              },
+              "confidence": 0.5325788259506226
+            }
+          ]
+        },
+        {
+          "case": "steps-read",
+          "choice": "read existing data",
+          "noul": 0.7590827345848083,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 114.22,
+          "answers": [
+            {
+              "choice": "read existing data",
+              "probabilities": {
+                "read existing data": 0.6593917608261108,
+                "explain a concept": 0.2085149586200714,
+                "change settings": 0.13209331035614014
+              },
+              "confidence": 0.6593917608261108
+            },
+            {
+              "noul": 0.7590827345848083
+            },
+            {
+              "score": 0.5845242142677307,
+              "probabilities": {
+                "not urgent": 0.47748368978500366,
+                "moderately urgent": 0.46050843596458435,
+                "very urgent": 0.06200788915157318
+              },
+              "confidence": 0.47748368978500366
+            }
+          ]
+        },
+        {
+          "case": "hrv-explain",
+          "choice": "explain a concept",
+          "noul": 0.6299397349357605,
+          "choice_correct": true,
+          "noul_correct": false,
+          "elapsed_ms": 113.91,
+          "answers": [
+            {
+              "choice": "explain a concept",
+              "probabilities": {
+                "read existing data": 0.1725083738565445,
+                "explain a concept": 0.6936099529266357,
+                "change settings": 0.13388176262378693
+              },
+              "confidence": 0.6936099529266357
+            },
+            {
+              "noul": 0.6299397349357605
+            },
+            {
+              "score": 0.6897679567337036,
+              "probabilities": {
+                "not urgent": 0.3910563886165619,
+                "moderately urgent": 0.5281192660331726,
+                "very urgent": 0.0808243453502655
+              },
+              "confidence": 0.5281192660331726
+            }
+          ]
+        },
+        {
+          "case": "units",
+          "choice": "change settings",
+          "noul": 0.34865787625312805,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 116.43,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.08474669605493546,
+                "explain a concept": 0.05774003639817238,
+                "change settings": 0.8575132489204407
+              },
+              "confidence": 0.8575132489204407
+            },
+            {
+              "noul": 0.34865787625312805
+            },
+            {
+              "score": 0.6265419870615005,
+              "probabilities": {
+                "not urgent": 0.4512856900691986,
+                "moderately urgent": 0.47088661789894104,
+                "very urgent": 0.07782768458127975
+              },
+              "confidence": 0.47088661789894104
+            }
+          ]
+        },
+        {
+          "case": "negated-read",
+          "choice": "explain a concept",
+          "noul": 0.03844085708260536,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 125.65,
+          "answers": [
+            {
+              "choice": "explain a concept",
+              "probabilities": {
+                "read existing data": 0.044015537947416306,
+                "explain a concept": 0.9085818529129028,
+                "change settings": 0.04740258306264877
+              },
+              "confidence": 0.9085818529129028
+            },
+            {
+              "noul": 0.03844085708260536
+            },
+            {
+              "score": 0.2560453899204731,
+              "probabilities": {
+                "not urgent": 0.7689056396484375,
+                "moderately urgent": 0.20614320039749146,
+                "very urgent": 0.024951094761490822
+              },
+              "confidence": 0.7689056396484375
+            }
+          ]
+        },
+        {
+          "case": "read-only",
+          "choice": "change settings",
+          "noul": 0.33339813351631165,
+          "choice_correct": false,
+          "noul_correct": false,
+          "elapsed_ms": 113.81,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.3024182617664337,
+                "explain a concept": 0.2245357632637024,
+                "change settings": 0.4730460047721863
+              },
+              "confidence": 0.4730460047721863
+            },
+            {
+              "noul": 0.33339813351631165
+            },
+            {
+              "score": 0.42830514907836914,
+              "probabilities": {
+                "not urgent": 0.6055616736412048,
+                "moderately urgent": 0.36057159304618835,
+                "very urgent": 0.03386677801609039
+              },
+              "confidence": 0.6055616736412048
+            }
+          ]
+        },
+        {
+          "case": "urgent-setting",
+          "choice": "change settings",
+          "noul": 0.3353254497051239,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 114.52,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.02754436805844307,
+                "explain a concept": 0.09629009664058685,
+                "change settings": 0.8761654496192932
+              },
+              "confidence": 0.8761654496192932
+            },
+            {
+              "noul": 0.3353254497051239
+            },
+            {
+              "score": 1.7182004153728485,
+              "probabilities": {
+                "not urgent": 0.02861468866467476,
+                "moderately urgent": 0.2245701253414154,
+                "very urgent": 0.7468151450157166
+              },
+              "confidence": 0.7468151450157166
+            }
+          ]
+        },
+        {
+          "case": "comparison",
+          "choice": "read existing data",
+          "noul": 0.5411091446876526,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 124.68,
+          "answers": [
+            {
+              "choice": "read existing data",
+              "probabilities": {
+                "read existing data": 0.5411185622215271,
+                "explain a concept": 0.25900858640670776,
+                "change settings": 0.19987289607524872
+              },
+              "confidence": 0.5411185622215271
+            },
+            {
+              "noul": 0.5411091446876526
+            },
+            {
+              "score": 0.550772562623024,
+              "probabilities": {
+                "not urgent": 0.49941179156303406,
+                "moderately urgent": 0.45040395855903625,
+                "very urgent": 0.050184302031993866
+              },
+              "confidence": 0.49941179156303406
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "cases": 10,
+        "choice_correct": 9,
+        "noul_correct": 6,
+        "median_ms": 114.37
+      }
+    },
+    "statement": {
+      "runs": [
+        {
+          "case": "sleep-read",
+          "choice": "read existing data",
+          "noul": 0.821171224117279,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 125.49,
+          "answers": [
+            {
+              "choice": "read existing data",
+              "probabilities": {
+                "read existing data": 0.6980081796646118,
+                "explain a concept": 0.1695033609867096,
+                "change settings": 0.1324884295463562
+              },
+              "confidence": 0.6980081796646118
+            },
+            {
+              "noul": 0.821171224117279
+            },
+            {
+              "score": 0.6317986696958542,
+              "probabilities": {
+                "not urgent": 0.4409436583518982,
+                "moderately urgent": 0.48631393909454346,
+                "very urgent": 0.07274236530065536
+              },
+              "confidence": 0.48631393909454346
+            }
+          ]
+        },
+        {
+          "case": "sleep-explain",
+          "choice": "explain a concept",
+          "noul": 0.8164173364639282,
+          "choice_correct": true,
+          "noul_correct": false,
+          "elapsed_ms": 124.72,
+          "answers": [
+            {
+              "choice": "explain a concept",
+              "probabilities": {
+                "read existing data": 0.2955096364021301,
+                "explain a concept": 0.6520431637763977,
+                "change settings": 0.052447181195020676
+              },
+              "confidence": 0.6520431637763977
+            },
+            {
+              "noul": 0.8164173364639282
+            },
+            {
+              "score": 0.567978709936142,
+              "probabilities": {
+                "not urgent": 0.4956051707267761,
+                "moderately urgent": 0.44081082940101624,
+                "very urgent": 0.06358394026756287
+              },
+              "confidence": 0.4956051707267761
+            }
+          ]
+        },
+        {
+          "case": "notifications",
+          "choice": "change settings",
+          "noul": 0.8034913539886475,
+          "choice_correct": true,
+          "noul_correct": false,
+          "elapsed_ms": 115.37,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.2343241572380066,
+                "explain a concept": 0.1127057820558548,
+                "change settings": 0.6529700756072998
+              },
+              "confidence": 0.6529700756072998
+            },
+            {
+              "noul": 0.8034913539886475
+            },
+            {
+              "score": 0.44386719167232513,
+              "probabilities": {
+                "not urgent": 0.6125317215919495,
+                "moderately urgent": 0.33106932044029236,
+                "very urgent": 0.05639893561601639
+              },
+              "confidence": 0.6125317215919495
+            }
+          ]
+        },
+        {
+          "case": "steps-read",
+          "choice": "read existing data",
+          "noul": 0.8493960499763489,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 127.8,
+          "answers": [
+            {
+              "choice": "read existing data",
+              "probabilities": {
+                "read existing data": 0.7014301419258118,
+                "explain a concept": 0.19464364647865295,
+                "change settings": 0.10392624884843826
+              },
+              "confidence": 0.7014301419258118
+            },
+            {
+              "noul": 0.8493960499763489
+            },
+            {
+              "score": 0.5699630677700043,
+              "probabilities": {
+                "not urgent": 0.492442786693573,
+                "moderately urgent": 0.4451512396335602,
+                "very urgent": 0.062405914068222046
+              },
+              "confidence": 0.492442786693573
+            }
+          ]
+        },
+        {
+          "case": "hrv-explain",
+          "choice": "explain a concept",
+          "noul": 0.8580402135848999,
+          "choice_correct": true,
+          "noul_correct": false,
+          "elapsed_ms": 114.89,
+          "answers": [
+            {
+              "choice": "explain a concept",
+              "probabilities": {
+                "read existing data": 0.300594687461853,
+                "explain a concept": 0.6192053556442261,
+                "change settings": 0.08019992709159851
+              },
+              "confidence": 0.6192053556442261
+            },
+            {
+              "noul": 0.8580402135848999
+            },
+            {
+              "score": 0.6585707664489746,
+              "probabilities": {
+                "not urgent": 0.4202573001384735,
+                "moderately urgent": 0.5009147524833679,
+                "very urgent": 0.07882800698280334
+              },
+              "confidence": 0.5009147524833679
+            }
+          ]
+        },
+        {
+          "case": "units",
+          "choice": "change settings",
+          "noul": 0.8069289922714233,
+          "choice_correct": true,
+          "noul_correct": false,
+          "elapsed_ms": 120.02,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.3858434855937958,
+                "explain a concept": 0.07465071231126785,
+                "change settings": 0.5395058393478394
+              },
+              "confidence": 0.5395058393478394
+            },
+            {
+              "noul": 0.8069289922714233
+            },
+            {
+              "score": 0.5799034386873245,
+              "probabilities": {
+                "not urgent": 0.48760032653808594,
+                "moderately urgent": 0.44489583373069763,
+                "very urgent": 0.06750380247831345
+              },
+              "confidence": 0.48760032653808594
+            }
+          ]
+        },
+        {
+          "case": "negated-read",
+          "choice": "explain a concept",
+          "noul": 0.029505694285035133,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 162.98,
+          "answers": [
+            {
+              "choice": "explain a concept",
+              "probabilities": {
+                "read existing data": 0.046107083559036255,
+                "explain a concept": 0.9302988648414612,
+                "change settings": 0.023594064638018608
+              },
+              "confidence": 0.9302988648414612
+            },
+            {
+              "noul": 0.029505694285035133
+            },
+            {
+              "score": 0.22596168518066406,
+              "probabilities": {
+                "not urgent": 0.7955231666564941,
+                "moderately urgent": 0.18299192190170288,
+                "very urgent": 0.02148488163948059
+              },
+              "confidence": 0.7955231666564941
+            }
+          ]
+        },
+        {
+          "case": "read-only",
+          "choice": "change settings",
+          "noul": 0.6946693658828735,
+          "choice_correct": false,
+          "noul_correct": true,
+          "elapsed_ms": 137.92,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.36321231722831726,
+                "explain a concept": 0.20045976340770721,
+                "change settings": 0.4363279342651367
+              },
+              "confidence": 0.4363279342651367
+            },
+            {
+              "noul": 0.6946693658828735
+            },
+            {
+              "score": 0.44812432676553726,
+              "probabilities": {
+                "not urgent": 0.5899229645729065,
+                "moderately urgent": 0.3720298707485199,
+                "very urgent": 0.03804722800850868
+              },
+              "confidence": 0.5899229645729065
+            }
+          ]
+        },
+        {
+          "case": "urgent-setting",
+          "choice": "change settings",
+          "noul": 0.25234735012054443,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 127.28,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.040167298167943954,
+                "explain a concept": 0.11129142343997955,
+                "change settings": 0.8485413193702698
+              },
+              "confidence": 0.8485413193702698
+            },
+            {
+              "noul": 0.25234735012054443
+            },
+            {
+              "score": 1.6734379827976227,
+              "probabilities": {
+                "not urgent": 0.04108557477593422,
+                "moderately urgent": 0.24439087510108948,
+                "very urgent": 0.7145235538482666
+              },
+              "confidence": 0.7145235538482666
+            }
+          ]
+        },
+        {
+          "case": "comparison",
+          "choice": "read existing data",
+          "noul": 0.8169366121292114,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 129.1,
+          "answers": [
+            {
+              "choice": "read existing data",
+              "probabilities": {
+                "read existing data": 0.6390325427055359,
+                "explain a concept": 0.18712010979652405,
+                "change settings": 0.1738472878932953
+              },
+              "confidence": 0.6390325427055359
+            },
+            {
+              "noul": 0.8169366121292114
+            },
+            {
+              "score": 0.5134886726737022,
+              "probabilities": {
+                "not urgent": 0.5355783104896545,
+                "moderately urgent": 0.41535472869873047,
+                "very urgent": 0.049066971987485886
+              },
+              "confidence": 0.5355783104896545
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "cases": 10,
+        "choice_correct": 9,
+        "noul_correct": 6,
+        "median_ms": 126.38499999999999
+      }
+    },
+    "described": {
+      "runs": [
+        {
+          "case": "sleep-read",
+          "choice": "explain a concept",
+          "noul": 0.7908592820167542,
+          "choice_correct": false,
+          "noul_correct": true,
+          "elapsed_ms": 135.52,
+          "answers": [
+            {
+              "choice": "explain a general concept without accessing personal data",
+              "probabilities": {
+                "view or retrieve saved personal data or current account settings without changing them": 0.4177197813987732,
+                "explain a general concept without accessing personal data": 0.4334332048892975,
+                "modify, enable, disable or update an account setting": 0.1488470584154129
+              },
+              "confidence": 0.4334332048892975
+            },
+            {
+              "noul": 0.7908592820167542
+            },
+            {
+              "score": 0.5412694811820984,
+              "probabilities": {
+                "not urgent": 0.5055059790611267,
+                "moderately urgent": 0.4477185308933258,
+                "very urgent": 0.04677547514438629
+              },
+              "confidence": 0.5055059790611267
+            }
+          ]
+        },
+        {
+          "case": "sleep-explain",
+          "choice": "explain a concept",
+          "noul": 0.4490737318992615,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 136.62,
+          "answers": [
+            {
+              "choice": "explain a general concept without accessing personal data",
+              "probabilities": {
+                "view or retrieve saved personal data or current account settings without changing them": 0.09881069511175156,
+                "explain a general concept without accessing personal data": 0.847375214099884,
+                "modify, enable, disable or update an account setting": 0.053814154118299484
+              },
+              "confidence": 0.847375214099884
+            },
+            {
+              "noul": 0.4490737318992615
+            },
+            {
+              "score": 0.5133354589343071,
+              "probabilities": {
+                "not urgent": 0.5328176021575928,
+                "moderately urgent": 0.4210294187068939,
+                "very urgent": 0.04615302011370659
+              },
+              "confidence": 0.5328176021575928
+            }
+          ]
+        },
+        {
+          "case": "notifications",
+          "choice": "explain a concept",
+          "noul": 0.6915535926818848,
+          "choice_correct": false,
+          "noul_correct": false,
+          "elapsed_ms": 132.42,
+          "answers": [
+            {
+              "choice": "explain a general concept without accessing personal data",
+              "probabilities": {
+                "view or retrieve saved personal data or current account settings without changing them": 0.343885600566864,
+                "explain a general concept without accessing personal data": 0.39321377873420715,
+                "modify, enable, disable or update an account setting": 0.26290062069892883
+              },
+              "confidence": 0.39321377873420715
+            },
+            {
+              "noul": 0.6915535926818848
+            },
+            {
+              "score": 0.18832633271813393,
+              "probabilities": {
+                "not urgent": 0.8335029482841492,
+                "moderately urgent": 0.1446676254272461,
+                "very urgent": 0.021829353645443916
+              },
+              "confidence": 0.8335029482841492
+            }
+          ]
+        },
+        {
+          "case": "steps-read",
+          "choice": "explain a concept",
+          "noul": 0.6481467485427856,
+          "choice_correct": false,
+          "noul_correct": true,
+          "elapsed_ms": 133.2,
+          "answers": [
+            {
+              "choice": "explain a general concept without accessing personal data",
+              "probabilities": {
+                "view or retrieve saved personal data or current account settings without changing them": 0.3944452404975891,
+                "explain a general concept without accessing personal data": 0.39540234208106995,
+                "modify, enable, disable or update an account setting": 0.21015244722366333
+              },
+              "confidence": 0.39540234208106995
+            },
+            {
+              "noul": 0.6481467485427856
+            },
+            {
+              "score": 0.4394884705543518,
+              "probabilities": {
+                "not urgent": 0.5969282388687134,
+                "moderately urgent": 0.36665505170822144,
+                "very urgent": 0.036416709423065186
+              },
+              "confidence": 0.5969282388687134
+            }
+          ]
+        },
+        {
+          "case": "hrv-explain",
+          "choice": "explain a concept",
+          "noul": 0.6793656945228577,
+          "choice_correct": true,
+          "noul_correct": false,
+          "elapsed_ms": 138.62,
+          "answers": [
+            {
+              "choice": "explain a general concept without accessing personal data",
+              "probabilities": {
+                "view or retrieve saved personal data or current account settings without changing them": 0.15013150870800018,
+                "explain a general concept without accessing personal data": 0.782077968120575,
+                "modify, enable, disable or update an account setting": 0.06779056787490845
+              },
+              "confidence": 0.782077968120575
+            },
+            {
+              "noul": 0.6793656945228577
+            },
+            {
+              "score": 0.5265662148594856,
+              "probabilities": {
+                "not urgent": 0.5219239592552185,
+                "moderately urgent": 0.4295858144760132,
+                "very urgent": 0.04849020019173622
+              },
+              "confidence": 0.5219239592552185
+            }
+          ]
+        },
+        {
+          "case": "units",
+          "choice": "explain a concept",
+          "noul": 0.6910211443901062,
+          "choice_correct": false,
+          "noul_correct": false,
+          "elapsed_ms": 135.98,
+          "answers": [
+            {
+              "choice": "explain a general concept without accessing personal data",
+              "probabilities": {
+                "view or retrieve saved personal data or current account settings without changing them": 0.3683236241340637,
+                "explain a general concept without accessing personal data": 0.4121139645576477,
+                "modify, enable, disable or update an account setting": 0.219562366604805
+              },
+              "confidence": 0.4121139645576477
+            },
+            {
+              "noul": 0.6910211443901062
+            },
+            {
+              "score": 0.5497157648205757,
+              "probabilities": {
+                "not urgent": 0.5062824487686157,
+                "moderately urgent": 0.4377194046974182,
+                "very urgent": 0.05599818006157875
+              },
+              "confidence": 0.5062824487686157
+            }
+          ]
+        },
+        {
+          "case": "negated-read",
+          "choice": "explain a concept",
+          "noul": 0.03479446843266487,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 144.03,
+          "answers": [
+            {
+              "choice": "explain a general concept without accessing personal data",
+              "probabilities": {
+                "view or retrieve saved personal data or current account settings without changing them": 0.03141007572412491,
+                "explain a general concept without accessing personal data": 0.9521313905715942,
+                "modify, enable, disable or update an account setting": 0.01645849458873272
+              },
+              "confidence": 0.9521313905715942
+            },
+            {
+              "noul": 0.03479446843266487
+            },
+            {
+              "score": 0.35667020082473755,
+              "probabilities": {
+                "not urgent": 0.6749885082244873,
+                "moderately urgent": 0.2933528423309326,
+                "very urgent": 0.031658679246902466
+              },
+              "confidence": 0.6749885082244873
+            }
+          ]
+        },
+        {
+          "case": "read-only",
+          "choice": "read existing data",
+          "noul": 0.5804992318153381,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 140.04,
+          "answers": [
+            {
+              "choice": "view or retrieve saved personal data or current account settings without changing them",
+              "probabilities": {
+                "view or retrieve saved personal data or current account settings without changing them": 0.6321730017662048,
+                "explain a general concept without accessing personal data": 0.21224217116832733,
+                "modify, enable, disable or update an account setting": 0.15558484196662903
+              },
+              "confidence": 0.6321730017662048
+            },
+            {
+              "noul": 0.5804992318153381
+            },
+            {
+              "score": 0.3473454490303993,
+              "probabilities": {
+                "not urgent": 0.6770005226135254,
+                "moderately urgent": 0.29865339398384094,
+                "very urgent": 0.02434602752327919
+              },
+              "confidence": 0.6770005226135254
+            }
+          ]
+        },
+        {
+          "case": "urgent-setting",
+          "choice": "explain a concept",
+          "noul": 0.4090174734592438,
+          "choice_correct": false,
+          "noul_correct": true,
+          "elapsed_ms": 528.83,
+          "answers": [
+            {
+              "choice": "explain a general concept without accessing personal data",
+              "probabilities": {
+                "view or retrieve saved personal data or current account settings without changing them": 0.3235628306865692,
+                "explain a general concept without accessing personal data": 0.3627299964427948,
+                "modify, enable, disable or update an account setting": 0.3137071132659912
+              },
+              "confidence": 0.3627299964427948
+            },
+            {
+              "noul": 0.4090174734592438
+            },
+            {
+              "score": 1.5991743505001068,
+              "probabilities": {
+                "not urgent": 0.03681236132979393,
+                "moderately urgent": 0.32720085978507996,
+                "very urgent": 0.6359867453575134
+              },
+              "confidence": 0.6359867453575134
+            }
+          ]
+        },
+        {
+          "case": "comparison",
+          "choice": "explain a concept",
+          "noul": 0.6870984435081482,
+          "choice_correct": false,
+          "noul_correct": true,
+          "elapsed_ms": 195.76,
+          "answers": [
+            {
+              "choice": "explain a general concept without accessing personal data",
+              "probabilities": {
+                "view or retrieve saved personal data or current account settings without changing them": 0.3731829822063446,
+                "explain a general concept without accessing personal data": 0.4163814187049866,
+                "modify, enable, disable or update an account setting": 0.21043556928634644
+              },
+              "confidence": 0.4163814187049866
+            },
+            {
+              "noul": 0.6870984435081482
+            },
+            {
+              "score": 0.5014855116605759,
+              "probabilities": {
+                "not urgent": 0.5405876636505127,
+                "moderately urgent": 0.4173390865325928,
+                "very urgent": 0.04207321256399155
+              },
+              "confidence": 0.5405876636505127
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "cases": 10,
+        "choice_correct": 4,
+        "noul_correct": 7,
+        "median_ms": 137.62
+      }
+    },
+    "isolated_baseline": {
+      "runs": [
+        {
+          "case": "sleep-read",
+          "choice": "read existing data",
+          "noul": 0.6345245242118835,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 328.81,
+          "answers": [
+            {
+              "choice": "read existing data",
+              "probabilities": {
+                "read existing data": 0.6076796650886536,
+                "explain a concept": 0.18960429728031158,
+                "change settings": 0.20271602272987366
+              },
+              "confidence": 0.6076796650886536
+            },
+            {
+              "noul": 0.6345245242118835
+            },
+            {
+              "score": 0.6775370240211487,
+              "probabilities": {
+                "not urgent": 0.4150645434856415,
+                "moderately urgent": 0.4923339784145355,
+                "very urgent": 0.09260152280330658
+              },
+              "confidence": 0.4923339784145355
+            }
+          ]
+        },
+        {
+          "case": "sleep-explain",
+          "choice": "explain a concept",
+          "noul": 0.38948988914489746,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 306.36,
+          "answers": [
+            {
+              "choice": "explain a concept",
+              "probabilities": {
+                "read existing data": 0.1313927173614502,
+                "explain a concept": 0.7500983476638794,
+                "change settings": 0.11850886791944504
+              },
+              "confidence": 0.7500983476638794
+            },
+            {
+              "noul": 0.38948988914489746
+            },
+            {
+              "score": 0.7455051839351654,
+              "probabilities": {
+                "not urgent": 0.353709876537323,
+                "moderately urgent": 0.547075092792511,
+                "very urgent": 0.09921504557132721
+              },
+              "confidence": 0.547075092792511
+            }
+          ]
+        },
+        {
+          "case": "notifications",
+          "choice": "change settings",
+          "noul": 0.2845305800437927,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 288.58,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.10065554827451706,
+                "explain a concept": 0.15654659271240234,
+                "change settings": 0.7427978515625
+              },
+              "confidence": 0.7427978515625
+            },
+            {
+              "noul": 0.2845305800437927
+            },
+            {
+              "score": 0.5436320006847382,
+              "probabilities": {
+                "not urgent": 0.549007773399353,
+                "moderately urgent": 0.3583523631095886,
+                "very urgent": 0.09263981878757477
+              },
+              "confidence": 0.549007773399353
+            }
+          ]
+        },
+        {
+          "case": "steps-read",
+          "choice": "read existing data",
+          "noul": 0.613563597202301,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 283.66,
+          "answers": [
+            {
+              "choice": "read existing data",
+              "probabilities": {
+                "read existing data": 0.500373899936676,
+                "explain a concept": 0.29615354537963867,
+                "change settings": 0.20347252488136292
+              },
+              "confidence": 0.500373899936676
+            },
+            {
+              "noul": 0.613563597202301
+            },
+            {
+              "score": 0.6075807958841324,
+              "probabilities": {
+                "not urgent": 0.466788113117218,
+                "moderately urgent": 0.45884305238723755,
+                "very urgent": 0.07436887174844742
+              },
+              "confidence": 0.466788113117218
+            }
+          ]
+        },
+        {
+          "case": "hrv-explain",
+          "choice": "explain a concept",
+          "noul": 0.41390517354011536,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 281.07,
+          "answers": [
+            {
+              "choice": "explain a concept",
+              "probabilities": {
+                "read existing data": 0.10879530012607574,
+                "explain a concept": 0.8352781534194946,
+                "change settings": 0.05592659115791321
+              },
+              "confidence": 0.8352781534194946
+            },
+            {
+              "noul": 0.41390517354011536
+            },
+            {
+              "score": 0.787334218621254,
+              "probabilities": {
+                "not urgent": 0.3355059027671814,
+                "moderately urgent": 0.5416540503501892,
+                "very urgent": 0.12284008413553238
+              },
+              "confidence": 0.5416540503501892
+            }
+          ]
+        },
+        {
+          "case": "units",
+          "choice": "change settings",
+          "noul": 0.3500412106513977,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 269.31,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.10550199449062347,
+                "explain a concept": 0.12447194010019302,
+                "change settings": 0.7700260877609253
+              },
+              "confidence": 0.7700260877609253
+            },
+            {
+              "noul": 0.3500412106513977
+            },
+            {
+              "score": 0.729748860001564,
+              "probabilities": {
+                "not urgent": 0.3853178322315216,
+                "moderately urgent": 0.4996154308319092,
+                "very urgent": 0.11506671458482742
+              },
+              "confidence": 0.4996154308319092
+            }
+          ]
+        },
+        {
+          "case": "negated-read",
+          "choice": "explain a concept",
+          "noul": 0.1315443366765976,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 326.74,
+          "answers": [
+            {
+              "choice": "explain a concept",
+              "probabilities": {
+                "read existing data": 0.16396431624889374,
+                "explain a concept": 0.7622195482254028,
+                "change settings": 0.07381607592105865
+              },
+              "confidence": 0.7622195482254028
+            },
+            {
+              "noul": 0.1315443366765976
+            },
+            {
+              "score": 0.4911764934659004,
+              "probabilities": {
+                "not urgent": 0.5605875253677368,
+                "moderately urgent": 0.3876485526561737,
+                "very urgent": 0.05176397040486336
+              },
+              "confidence": 0.5605875253677368
+            }
+          ]
+        },
+        {
+          "case": "read-only",
+          "choice": "change settings",
+          "noul": 0.31074753403663635,
+          "choice_correct": false,
+          "noul_correct": false,
+          "elapsed_ms": 267.07,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.17627747356891632,
+                "explain a concept": 0.19358621537685394,
+                "change settings": 0.6301363110542297
+              },
+              "confidence": 0.6301363110542297
+            },
+            {
+              "noul": 0.31074753403663635
+            },
+            {
+              "score": 0.5248021110892296,
+              "probabilities": {
+                "not urgent": 0.5221859216690063,
+                "moderately urgent": 0.4308261275291443,
+                "very urgent": 0.04698799178004265
+              },
+              "confidence": 0.5221859216690063
+            }
+          ]
+        },
+        {
+          "case": "urgent-setting",
+          "choice": "change settings",
+          "noul": 0.3804742991924286,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 296.06,
+          "answers": [
+            {
+              "choice": "change settings",
+              "probabilities": {
+                "read existing data": 0.11111900955438614,
+                "explain a concept": 0.14990279078483582,
+                "change settings": 0.7389782071113586
+              },
+              "confidence": 0.7389782071113586
+            },
+            {
+              "noul": 0.3804742991924286
+            },
+            {
+              "score": 1.7023189961910248,
+              "probabilities": {
+                "not urgent": 0.030965503305196762,
+                "moderately urgent": 0.23574993014335632,
+                "very urgent": 0.7332845330238342
+              },
+              "confidence": 0.7332845330238342
+            }
+          ]
+        },
+        {
+          "case": "comparison",
+          "choice": "read existing data",
+          "noul": 0.644352912902832,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 298.0,
+          "answers": [
+            {
+              "choice": "read existing data",
+              "probabilities": {
+                "read existing data": 0.35918721556663513,
+                "explain a concept": 0.32611995935440063,
+                "change settings": 0.31469279527664185
+              },
+              "confidence": 0.35918721556663513
+            },
+            {
+              "noul": 0.644352912902832
+            },
+            {
+              "score": 0.6237166225910187,
+              "probabilities": {
+                "not urgent": 0.4501644968986511,
+                "moderately urgent": 0.47595441341400146,
+                "very urgent": 0.0738811045885086
+              },
+              "confidence": 0.47595441341400146
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "cases": 10,
+        "choice_correct": 9,
+        "noul_correct": 9,
+        "median_ms": 292.32
+      }
+    },
+    "isolated_described": {
+      "runs": [
+        {
+          "case": "sleep-read",
+          "choice": "explain a concept",
+          "noul": 0.8332829475402832,
+          "choice_correct": false,
+          "noul_correct": true,
+          "elapsed_ms": 295.02,
+          "answers": [
+            {
+              "choice": "explain a general concept without accessing personal data",
+              "probabilities": {
+                "view or retrieve saved personal data or current account settings without changing them": 0.289468377828598,
+                "explain a general concept without accessing personal data": 0.4955746531486511,
+                "modify, enable, disable or update an account setting": 0.21495693922042847
+              },
+              "confidence": 0.4955746531486511
+            },
+            {
+              "noul": 0.8332829475402832
+            },
+            {
+              "score": 0.6775370240211487,
+              "probabilities": {
+                "not urgent": 0.4150645434856415,
+                "moderately urgent": 0.4923339784145355,
+                "very urgent": 0.09260152280330658
+              },
+              "confidence": 0.4923339784145355
+            }
+          ]
+        },
+        {
+          "case": "sleep-explain",
+          "choice": "explain a concept",
+          "noul": 0.5344550609588623,
+          "choice_correct": true,
+          "noul_correct": false,
+          "elapsed_ms": 295.04,
+          "answers": [
+            {
+              "choice": "explain a general concept without accessing personal data",
+              "probabilities": {
+                "view or retrieve saved personal data or current account settings without changing them": 0.09455247223377228,
+                "explain a general concept without accessing personal data": 0.8022454380989075,
+                "modify, enable, disable or update an account setting": 0.10320202261209488
+              },
+              "confidence": 0.8022454380989075
+            },
+            {
+              "noul": 0.5344550609588623
+            },
+            {
+              "score": 0.7455051839351654,
+              "probabilities": {
+                "not urgent": 0.353709876537323,
+                "moderately urgent": 0.547075092792511,
+                "very urgent": 0.09921504557132721
+              },
+              "confidence": 0.547075092792511
+            }
+          ]
+        },
+        {
+          "case": "notifications",
+          "choice": "explain a concept",
+          "noul": 0.7216681241989136,
+          "choice_correct": false,
+          "noul_correct": false,
+          "elapsed_ms": 286.11,
+          "answers": [
+            {
+              "choice": "explain a general concept without accessing personal data",
+              "probabilities": {
+                "view or retrieve saved personal data or current account settings without changing them": 0.21774423122406006,
+                "explain a general concept without accessing personal data": 0.41859978437423706,
+                "modify, enable, disable or update an account setting": 0.3636559844017029
+              },
+              "confidence": 0.41859978437423706
+            },
+            {
+              "noul": 0.7216681241989136
+            },
+            {
+              "score": 0.5436320006847382,
+              "probabilities": {
+                "not urgent": 0.549007773399353,
+                "moderately urgent": 0.3583523631095886,
+                "very urgent": 0.09263981878757477
+              },
+              "confidence": 0.549007773399353
+            }
+          ]
+        },
+        {
+          "case": "steps-read",
+          "choice": "explain a concept",
+          "noul": 0.7717423439025879,
+          "choice_correct": false,
+          "noul_correct": true,
+          "elapsed_ms": 288.29,
+          "answers": [
+            {
+              "choice": "explain a general concept without accessing personal data",
+              "probabilities": {
+                "view or retrieve saved personal data or current account settings without changing them": 0.2740090787410736,
+                "explain a general concept without accessing personal data": 0.48853516578674316,
+                "modify, enable, disable or update an account setting": 0.23745566606521606
+              },
+              "confidence": 0.48853516578674316
+            },
+            {
+              "noul": 0.7717423439025879
+            },
+            {
+              "score": 0.6075807958841324,
+              "probabilities": {
+                "not urgent": 0.466788113117218,
+                "moderately urgent": 0.45884305238723755,
+                "very urgent": 0.07436887174844742
+              },
+              "confidence": 0.466788113117218
+            }
+          ]
+        },
+        {
+          "case": "hrv-explain",
+          "choice": "explain a concept",
+          "noul": 0.6597705483436584,
+          "choice_correct": true,
+          "noul_correct": false,
+          "elapsed_ms": 289.94,
+          "answers": [
+            {
+              "choice": "explain a general concept without accessing personal data",
+              "probabilities": {
+                "view or retrieve saved personal data or current account settings without changing them": 0.11081062257289886,
+                "explain a general concept without accessing personal data": 0.7692590355873108,
+                "modify, enable, disable or update an account setting": 0.11993037164211273
+              },
+              "confidence": 0.7692590355873108
+            },
+            {
+              "noul": 0.6597705483436584
+            },
+            {
+              "score": 0.787334218621254,
+              "probabilities": {
+                "not urgent": 0.3355059027671814,
+                "moderately urgent": 0.5416540503501892,
+                "very urgent": 0.12284008413553238
+              },
+              "confidence": 0.5416540503501892
+            }
+          ]
+        },
+        {
+          "case": "units",
+          "choice": "explain a concept",
+          "noul": 0.7694851160049438,
+          "choice_correct": false,
+          "noul_correct": false,
+          "elapsed_ms": 290.85,
+          "answers": [
+            {
+              "choice": "explain a general concept without accessing personal data",
+              "probabilities": {
+                "view or retrieve saved personal data or current account settings without changing them": 0.2473011016845703,
+                "explain a general concept without accessing personal data": 0.41134345531463623,
+                "modify, enable, disable or update an account setting": 0.3413553535938263
+              },
+              "confidence": 0.41134345531463623
+            },
+            {
+              "noul": 0.7694851160049438
+            },
+            {
+              "score": 0.729748860001564,
+              "probabilities": {
+                "not urgent": 0.3853178322315216,
+                "moderately urgent": 0.4996154308319092,
+                "very urgent": 0.11506671458482742
+              },
+              "confidence": 0.4996154308319092
+            }
+          ]
+        },
+        {
+          "case": "negated-read",
+          "choice": "explain a concept",
+          "noul": 0.10825688391923904,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 338.75,
+          "answers": [
+            {
+              "choice": "explain a general concept without accessing personal data",
+              "probabilities": {
+                "view or retrieve saved personal data or current account settings without changing them": 0.029490752145648003,
+                "explain a general concept without accessing personal data": 0.9395449757575989,
+                "modify, enable, disable or update an account setting": 0.030964355915784836
+              },
+              "confidence": 0.9395449757575989
+            },
+            {
+              "noul": 0.10825688391923904
+            },
+            {
+              "score": 0.4911764934659004,
+              "probabilities": {
+                "not urgent": 0.5605875253677368,
+                "moderately urgent": 0.3876485526561737,
+                "very urgent": 0.05176397040486336
+              },
+              "confidence": 0.5605875253677368
+            }
+          ]
+        },
+        {
+          "case": "read-only",
+          "choice": "read existing data",
+          "noul": 0.5943172574043274,
+          "choice_correct": true,
+          "noul_correct": true,
+          "elapsed_ms": 310.28,
+          "answers": [
+            {
+              "choice": "view or retrieve saved personal data or current account settings without changing them",
+              "probabilities": {
+                "view or retrieve saved personal data or current account settings without changing them": 0.5160069465637207,
+                "explain a general concept without accessing personal data": 0.26286324858665466,
+                "modify, enable, disable or update an account setting": 0.2211298793554306
+              },
+              "confidence": 0.5160069465637207
+            },
+            {
+              "noul": 0.5943172574043274
+            },
+            {
+              "score": 0.5248021110892296,
+              "probabilities": {
+                "not urgent": 0.5221859216690063,
+                "moderately urgent": 0.4308261275291443,
+                "very urgent": 0.04698799178004265
+              },
+              "confidence": 0.5221859216690063
+            }
+          ]
+        },
+        {
+          "case": "urgent-setting",
+          "choice": "change settings",
+          "noul": 0.7429417967796326,
+          "choice_correct": true,
+          "noul_correct": false,
+          "elapsed_ms": 299.24,
+          "answers": [
+            {
+              "choice": "modify, enable, disable or update an account setting",
+              "probabilities": {
+                "view or retrieve saved personal data or current account settings without changing them": 0.24798068404197693,
+                "explain a general concept without accessing personal data": 0.3649885654449463,
+                "modify, enable, disable or update an account setting": 0.387030690908432
+              },
+              "confidence": 0.387030690908432
+            },
+            {
+              "noul": 0.7429417967796326
+            },
+            {
+              "score": 1.7023189961910248,
+              "probabilities": {
+                "not urgent": 0.030965503305196762,
+                "moderately urgent": 0.23574993014335632,
+                "very urgent": 0.7332845330238342
+              },
+              "confidence": 0.7332845330238342
+            }
+          ]
+        },
+        {
+          "case": "comparison",
+          "choice": "explain a concept",
+          "noul": 0.7874515056610107,
+          "choice_correct": false,
+          "noul_correct": true,
+          "elapsed_ms": 317.09,
+          "answers": [
+            {
+              "choice": "explain a general concept without accessing personal data",
+              "probabilities": {
+                "view or retrieve saved personal data or current account settings without changing them": 0.26485803723335266,
+                "explain a general concept without accessing personal data": 0.49486586451530457,
+                "modify, enable, disable or update an account setting": 0.24027609825134277
+              },
+              "confidence": 0.49486586451530457
+            },
+            {
+              "noul": 0.7874515056610107
+            },
+            {
+              "score": 0.6237166225910187,
+              "probabilities": {
+                "not urgent": 0.4501644968986511,
+                "moderately urgent": 0.47595441341400146,
+                "very urgent": 0.0738811045885086
+              },
+              "confidence": 0.47595441341400146
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "cases": 10,
+        "choice_correct": 5,
+        "noul_correct": 5,
+        "median_ms": 295.03
+      }
+    }
+  },
+  "selected": "isolated_baseline"
+}
