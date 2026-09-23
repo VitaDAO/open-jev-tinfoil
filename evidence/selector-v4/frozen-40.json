@@ -1,0 +1,842 @@
+[
+  {
+    "id": "n01",
+    "request": "May I view the most recent respiratory rate measurement that is on file?",
+    "history": [],
+    "canonical_equivalent": "Show my latest respiratory rate",
+    "gold": {
+      "acceptable_plans": [
+        {
+          "health_reads": [
+            {
+              "operation_id": 1,
+              "purpose": "latest",
+              "concepts": [
+                "respiratory_rate"
+              ],
+              "range": {
+                "kind": "all_history"
+              },
+              "time_zone": "UTC"
+            }
+          ],
+          "required_operation_ids": [
+            1
+          ]
+        }
+      ],
+      "handoff_ok": false
+    }
+  },
+  {
+    "id": "n02",
+    "request": "The newest oxygen saturation one, can you pull it up?",
+    "history": [],
+    "canonical_equivalent": "Show my latest blood oxygen",
+    "gold": {
+      "acceptable_plans": [
+        {
+          "health_reads": [
+            {
+              "operation_id": 1,
+              "purpose": "latest",
+              "concepts": [
+                "oxygen_saturation"
+              ],
+              "range": {
+                "kind": "all_history"
+              },
+              "time_zone": "UTC"
+            }
+          ],
+          "required_operation_ids": [
+            1
+          ]
+        }
+      ],
+      "handoff_ok": false
+    }
+  },
+  {
+    "id": "n03",
+    "request": "I would like my steps from the last 13 days.",
+    "history": [],
+    "canonical_equivalent": "Show my steps past 13 days",
+    "gold": {
+      "acceptable_plans": [
+        {
+          "health_reads": [
+            {
+              "operation_id": 1,
+              "purpose": "trend",
+              "concepts": [
+                "steps"
+              ],
+              "range": {
+                "kind": "relative",
+                "amount": 13,
+                "unit": "days"
+              },
+              "time_zone": "UTC"
+            }
+          ],
+          "required_operation_ids": [
+            1
+          ]
+        }
+      ],
+      "handoff_ok": false
+    }
+  },
+  {
+    "id": "n04",
+    "request": "What health appointments do I have due tomorrow?",
+    "history": [],
+    "canonical_equivalent": "Show my health plans due tomorrow",
+    "gold": {
+      "acceptable_plans": [
+        {
+          "health_reads": [
+            {
+              "operation_id": 1,
+              "purpose": "latest",
+              "record_types": [
+                "calendar"
+              ],
+              "range": {
+                "kind": "between",
+                "start_at": "2026-09-24",
+                "end_at": "2026-09-24"
+              },
+              "time_zone": "UTC",
+              "record_detail_dataset": "calendar.events.v1",
+              "record_detail_limit": 8,
+              "calendar_date_basis": "next_due_date"
+            }
+          ],
+          "required_operation_ids": [
+            1
+          ]
+        }
+      ],
+      "handoff_ok": false
+    }
+  },
+  {
+    "id": "n05",
+    "request": "Can I take a look at my full health profile?",
+    "history": [],
+    "canonical_equivalent": "Show my profile",
+    "gold": {
+      "acceptable_plans": [
+        {
+          "health_reads": [
+            {
+              "operation_id": 1,
+              "purpose": "latest",
+              "record_types": [
+                "profile"
+              ],
+              "range": {
+                "kind": "all_history"
+              },
+              "time_zone": "UTC",
+              "profile_fields": [
+                "goals",
+                "chronic_conditions",
+                "medications",
+                "no_regular_medications",
+                "allergies",
+                "sex",
+                "birth_year",
+                "height_cm",
+                "weight_kg"
+              ]
+            }
+          ],
+          "required_operation_ids": [
+            1
+          ]
+        }
+      ],
+      "handoff_ok": false
+    }
+  },
+  {
+    "id": "n06",
+    "request": "Display the steps I have recorded during 2023.",
+    "history": [],
+    "canonical_equivalent": "Show my steps in 2023",
+    "gold": {
+      "acceptable_plans": [
+        {
+          "health_reads": [
+            {
+              "operation_id": 1,
+              "purpose": "trend",
+              "concepts": [
+                "steps"
+              ],
+              "range": {
+                "kind": "between",
+                "start_at": "2023-01-01",
+                "end_at": "2023-12-31"
+              },
+              "time_zone": "UTC"
+            }
+          ],
+          "required_operation_ids": [
+            1
+          ]
+        }
+      ],
+      "handoff_ok": false
+    }
+  },
+  {
+    "id": "n07",
+    "request": "For this year, let me see how my respiratory rate developed.",
+    "history": [],
+    "canonical_equivalent": "Show my respiratory rate this year",
+    "gold": {
+      "acceptable_plans": [
+        {
+          "health_reads": [
+            {
+              "operation_id": 1,
+              "purpose": "trend",
+              "concepts": [
+                "respiratory_rate"
+              ],
+              "range": {
+                "kind": "between",
+                "start_at": "2026-01-01",
+                "end_at": "2026-09-23T12:00:00+00:00"
+              },
+              "time_zone": "UTC"
+            }
+          ],
+          "required_operation_ids": [
+            1
+          ]
+        }
+      ],
+      "handoff_ok": false
+    }
+  },
+  {
+    "id": "n08",
+    "request": "What lab reports have been stored for me?",
+    "history": [],
+    "canonical_equivalent": "Show my lab reports",
+    "gold": {
+      "acceptable_plans": [
+        {
+          "health_reads": [
+            {
+              "operation_id": 1,
+              "purpose": "latest",
+              "record_types": [
+                "labs"
+              ],
+              "range": {
+                "kind": "all_history"
+              },
+              "time_zone": "UTC",
+              "record_detail_dataset": "labs.upload_metadata.v1",
+              "record_detail_limit": 3
+            }
+          ],
+          "required_operation_ids": [
+            1
+          ]
+        }
+      ],
+      "handoff_ok": false
+    }
+  },
+  {
+    "id": "n09",
+    "request": "List the exercise sessions I have on file from the past 8 days.",
+    "history": [],
+    "canonical_equivalent": "Show my workouts past 8 days",
+    "gold": {
+      "acceptable_plans": [
+        {
+          "health_reads": [
+            {
+              "operation_id": 1,
+              "purpose": "latest",
+              "record_types": [
+                "workouts"
+              ],
+              "range": {
+                "kind": "relative",
+                "amount": 8,
+                "unit": "days"
+              },
+              "time_zone": "UTC"
+            }
+          ],
+          "required_operation_ids": [
+            1
+          ]
+        }
+      ],
+      "handoff_ok": false
+    }
+  },
+  {
+    "id": "n10",
+    "request": "Now do the past 4 weeks",
+    "history": [
+      "Show my steps in 2025"
+    ],
+    "canonical_equivalent": "Show my steps past 4 weeks",
+    "gold": {
+      "acceptable_plans": [
+        {
+          "health_reads": [
+            {
+              "operation_id": 1,
+              "purpose": "trend",
+              "concepts": [
+                "steps"
+              ],
+              "range": {
+                "kind": "relative",
+                "amount": 28,
+                "unit": "days"
+              },
+              "time_zone": "UTC"
+            }
+          ],
+          "required_operation_ids": [
+            1
+          ]
+        }
+      ],
+      "handoff_ok": false
+    }
+  },
+  {
+    "id": "n11",
+    "request": "Actually make it the previous month",
+    "history": [
+      "Show my sleep this week"
+    ],
+    "canonical_equivalent": "Show my sleep last month",
+    "gold": {
+      "acceptable_plans": [
+        {
+          "health_reads": [
+            {
+              "operation_id": 1,
+              "purpose": "trend",
+              "concepts": [
+                "sleep_efficiency",
+                "total_sleep"
+              ],
+              "range": {
+                "kind": "between",
+                "start_at": "2026-08-01",
+                "end_at": "2026-08-31"
+              },
+              "time_zone": "UTC"
+            }
+          ],
+          "required_operation_ids": [
+            1
+          ]
+        }
+      ],
+      "handoff_ok": false
+    }
+  },
+  {
+    "id": "n12",
+    "request": "Show my ApoB and oxygen saturation from the past 21 days.",
+    "history": [],
+    "canonical_equivalent": "Show apob and blood oxygen past 21 days",
+    "gold": {
+      "acceptable_plans": [
+        {
+          "health_reads": [
+            {
+              "operation_id": 1,
+              "purpose": "trend",
+              "concepts": [
+                "apob",
+                "oxygen_saturation"
+              ],
+              "range": {
+                "kind": "relative",
+                "amount": 21,
+                "unit": "days"
+              },
+              "time_zone": "UTC"
+            }
+          ],
+          "required_operation_ids": [
+            1
+          ]
+        }
+      ],
+      "handoff_ok": false
+    }
+  },
+  {
+    "id": "n13",
+    "request": "During last year, how did my LDL look?",
+    "history": [],
+    "canonical_equivalent": "Show my LDL last year",
+    "gold": {
+      "acceptable_plans": [
+        {
+          "health_reads": [
+            {
+              "operation_id": 1,
+              "purpose": "trend",
+              "concepts": [
+                "ldl_cholesterol"
+              ],
+              "range": {
+                "kind": "between",
+                "start_at": "2025-01-01",
+                "end_at": "2025-12-31"
+              },
+              "time_zone": "UTC"
+            }
+          ],
+          "required_operation_ids": [
+            1
+          ]
+        }
+      ],
+      "handoff_ok": false
+    }
+  },
+  {
+    "id": "n14",
+    "request": "Is there any health plan due next week?",
+    "history": [],
+    "canonical_equivalent": "Show my health plans due next week",
+    "gold": {
+      "acceptable_plans": [
+        {
+          "health_reads": [
+            {
+              "operation_id": 1,
+              "purpose": "latest",
+              "record_types": [
+                "calendar"
+              ],
+              "range": {
+                "kind": "between",
+                "start_at": "2026-09-28",
+                "end_at": "2026-10-04"
+              },
+              "time_zone": "UTC",
+              "record_detail_dataset": "calendar.events.v1",
+              "record_detail_limit": 8,
+              "calendar_date_basis": "next_due_date"
+            }
+          ],
+          "required_operation_ids": [
+            1
+          ]
+        }
+      ],
+      "handoff_ok": false
+    }
+  },
+  {
+    "id": "n15",
+    "request": "Pull up the latest ApoB value that I have recorded.",
+    "history": [],
+    "canonical_equivalent": "Show my latest ApoB",
+    "gold": {
+      "acceptable_plans": [
+        {
+          "health_reads": [
+            {
+              "operation_id": 1,
+              "purpose": "latest",
+              "concepts": [
+                "apob"
+              ],
+              "range": {
+                "kind": "all_history"
+              },
+              "time_zone": "UTC"
+            }
+          ],
+          "required_operation_ids": [
+            1
+          ]
+        }
+      ],
+      "handoff_ok": false
+    }
+  },
+  {
+    "id": "n16",
+    "request": "How was my sleep efficiency doing throughout June 2024?",
+    "history": [],
+    "canonical_equivalent": "Show my sleep efficiency in June 2024",
+    "gold": {
+      "acceptable_plans": [
+        {
+          "health_reads": [
+            {
+              "operation_id": 1,
+              "purpose": "trend",
+              "concepts": [
+                "sleep_efficiency"
+              ],
+              "range": {
+                "kind": "between",
+                "start_at": "2024-06-01",
+                "end_at": "2024-06-30"
+              },
+              "time_zone": "UTC"
+            }
+          ],
+          "required_operation_ids": [
+            1
+          ]
+        }
+      ],
+      "handoff_ok": false
+    }
+  },
+  {
+    "id": "n17",
+    "request": "I want a view of my complete profile.",
+    "history": [],
+    "canonical_equivalent": "Show my profile",
+    "gold": {
+      "acceptable_plans": [
+        {
+          "health_reads": [
+            {
+              "operation_id": 1,
+              "purpose": "latest",
+              "record_types": [
+                "profile"
+              ],
+              "range": {
+                "kind": "all_history"
+              },
+              "time_zone": "UTC",
+              "profile_fields": [
+                "goals",
+                "chronic_conditions",
+                "medications",
+                "no_regular_medications",
+                "allergies",
+                "sex",
+                "birth_year",
+                "height_cm",
+                "weight_kg"
+              ]
+            }
+          ],
+          "required_operation_ids": [
+            1
+          ]
+        }
+      ],
+      "handoff_ok": false
+    }
+  },
+  {
+    "id": "n18",
+    "request": "Let me see my workouts and steps from the previous month.",
+    "history": [],
+    "canonical_equivalent": "Show workouts and steps last month",
+    "gold": {
+      "acceptable_plans": [
+        {
+          "health_reads": [
+            {
+              "operation_id": 1,
+              "purpose": "trend",
+              "concepts": [
+                "steps"
+              ],
+              "range": {
+                "kind": "between",
+                "start_at": "2026-08-01",
+                "end_at": "2026-08-31"
+              },
+              "time_zone": "UTC"
+            },
+            {
+              "operation_id": 2,
+              "purpose": "latest",
+              "record_types": [
+                "workouts"
+              ],
+              "range": {
+                "kind": "between",
+                "start_at": "2026-08-01",
+                "end_at": "2026-08-31"
+              },
+              "time_zone": "UTC"
+            }
+          ],
+          "required_operation_ids": [
+            1,
+            2
+          ]
+        }
+      ],
+      "handoff_ok": false
+    }
+  },
+  {
+    "id": "n19",
+    "request": "Skip the trend; display my latest LDL.",
+    "history": [],
+    "canonical_equivalent": "Show my latest LDL",
+    "gold": {
+      "acceptable_plans": [
+        {
+          "health_reads": [
+            {
+              "operation_id": 1,
+              "purpose": "latest",
+              "concepts": [
+                "ldl_cholesterol"
+              ],
+              "range": {
+                "kind": "all_history"
+              },
+              "time_zone": "UTC"
+            }
+          ],
+          "required_operation_ids": [
+            1
+          ]
+        }
+      ],
+      "handoff_ok": false
+    }
+  },
+  {
+    "id": "n20",
+    "request": "No studies, just show my steps from the past week.",
+    "history": [],
+    "canonical_equivalent": "Show my steps past week",
+    "gold": {
+      "acceptable_plans": [
+        {
+          "health_reads": [
+            {
+              "operation_id": 1,
+              "purpose": "trend",
+              "concepts": [
+                "steps"
+              ],
+              "range": {
+                "kind": "relative",
+                "amount": 7,
+                "unit": "days"
+              },
+              "time_zone": "UTC"
+            }
+          ],
+          "required_operation_ids": [
+            1
+          ]
+        }
+      ],
+      "handoff_ok": false
+    }
+  },
+  {
+    "id": "n21",
+    "request": "Is the most recent ApoB number I have normal?",
+    "history": [],
+    "gold": {
+      "acceptable_plans": [],
+      "handoff_ok": true
+    }
+  },
+  {
+    "id": "n22",
+    "request": "Show me the newest three oxygen saturation readings.",
+    "history": [],
+    "gold": {
+      "acceptable_plans": [],
+      "handoff_ok": true
+    }
+  },
+  {
+    "id": "n23",
+    "request": "Display my steps from the Polar app during May.",
+    "history": [],
+    "gold": {
+      "acceptable_plans": [],
+      "handoff_ok": true
+    }
+  },
+  {
+    "id": "n24",
+    "request": "What health appointments does my partner have tomorrow?",
+    "history": [],
+    "gold": {
+      "acceptable_plans": [],
+      "handoff_ok": true
+    }
+  },
+  {
+    "id": "n25",
+    "request": "Show my full profile except medications.",
+    "history": [],
+    "gold": {
+      "acceptable_plans": [],
+      "handoff_ok": true
+    }
+  },
+  {
+    "id": "n26",
+    "request": "How many steps did I record during 2023?",
+    "history": [],
+    "gold": {
+      "acceptable_plans": [],
+      "handoff_ok": true
+    }
+  },
+  {
+    "id": "n27",
+    "request": "Please convert my respiratory rate into breaths per hour.",
+    "history": [],
+    "gold": {
+      "acceptable_plans": [],
+      "handoff_ok": true
+    }
+  },
+  {
+    "id": "n28",
+    "request": "Read the last two lab reports.",
+    "history": [],
+    "gold": {
+      "acceptable_plans": [],
+      "handoff_ok": true
+    }
+  },
+  {
+    "id": "n29",
+    "request": "Show exercise sessions longer than 45 minutes.",
+    "history": [],
+    "gold": {
+      "acceptable_plans": [],
+      "handoff_ok": true
+    }
+  },
+  {
+    "id": "n30",
+    "request": "Now do the past 4 weeks",
+    "history": [
+      "Show my steps from Garmin in 2025"
+    ],
+    "gold": {
+      "acceptable_plans": [],
+      "handoff_ok": true
+    }
+  },
+  {
+    "id": "n31",
+    "request": "Actually make it the previous month",
+    "history": [
+      "Show my sleep excluding naps this week"
+    ],
+    "gold": {
+      "acceptable_plans": [],
+      "handoff_ok": true
+    }
+  },
+  {
+    "id": "n32",
+    "request": "Compare ApoB with oxygen saturation over the past 21 days.",
+    "history": [],
+    "gold": {
+      "acceptable_plans": [],
+      "handoff_ok": true
+    }
+  },
+  {
+    "id": "n33",
+    "request": "Was my LDL better last year than this year?",
+    "history": [],
+    "gold": {
+      "acceptable_plans": [],
+      "handoff_ok": true
+    }
+  },
+  {
+    "id": "n34",
+    "request": "Create a health plan for next week.",
+    "history": [],
+    "gold": {
+      "acceptable_plans": [],
+      "handoff_ok": true
+    }
+  },
+  {
+    "id": "n35",
+    "request": "What does the latest ApoB number mean?",
+    "history": [],
+    "gold": {
+      "acceptable_plans": [],
+      "handoff_ok": true
+    }
+  },
+  {
+    "id": "n36",
+    "request": "Show sleep efficiency during February 30, 2024.",
+    "history": [],
+    "gold": {
+      "acceptable_plans": [],
+      "handoff_ok": true
+    }
+  },
+  {
+    "id": "n37",
+    "request": "Show just the allergies from my profile.",
+    "history": [],
+    "gold": {
+      "acceptable_plans": [],
+      "handoff_ok": true
+    }
+  },
+  {
+    "id": "n38",
+    "request": "Show workouts and steps from 2025 but exclude cycling.",
+    "history": [],
+    "gold": {
+      "acceptable_plans": [],
+      "handoff_ok": true
+    }
+  },
+  {
+    "id": "n39",
+    "request": "Skip the trend; show my latest LDL from the Quest lab.",
+    "history": [],
+    "gold": {
+      "acceptable_plans": [],
+      "handoff_ok": true
+    }
+  },
+  {
+    "id": "n40",
+    "request": "No studies, show my steps and email the chart to my doctor.",
+    "history": [],
+    "gold": {
+      "acceptable_plans": [],
+      "handoff_ok": true
+    }
+  }
+]

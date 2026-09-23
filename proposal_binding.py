@@ -61,10 +61,16 @@ def canonicalize(text):
 
 def entities(text, available):
     labels = {m: [m] for m in available}
-    labels.update(metric_labels(available))
-    labels.update({k: [v] for k, v in {**ALIASES, **METRIC_LABELS}.items() if v in available})
+    for label, values in metric_labels(available).items():
+        labels.setdefault(label, values)
+    for label, value in {**ALIASES, **METRIC_LABELS}.items():
+        if value in available:
+            labels.setdefault(label, [value])
+    ambiguous = {label for label, values in labels.items() if len(values) > 1}
     labels.update({k: dynamic_metrics(k, available) for k in AREAS})
-    labels = {k: [('metric', v) for v in vals] for k, vals in labels.items() if vals}
+    # Only explicit domain names intentionally expand to several metrics.
+    labels = {k: [('ambiguous' if k in ambiguous and k not in AREAS else 'metric', v)
+                  for v in vals] for k, vals in labels.items() if vals}
     labels.update({k: [('record', v)] for k, v in RECORD_LABELS.items()})
     # Known but unavailable measurements must not disappear next to an available
     # one. Only fill absent labels so exact inventory IDs keep their identity.
@@ -91,8 +97,41 @@ def erase(text, spans):
     return ''.join(chars)
 
 
+def date_context_spans(text, spans):
+    """Consume only prepositions/articles immediately attached to bound dates."""
+    expanded = []
+    for start, end in spans:
+        prefix = re.search(r'\b(?:(?:from|for|over|during|in|on|throughout)\s+)?(?:the\s+)?$', text[:start])
+        expanded.append((prefix.start() if prefix else start, end))
+    return expanded
+
+
+def operation_signals(text):
+    # Negation applies to this operator only, never to arbitrary following text.
+    negative = [(m.start(), m.end()) for m in re.finditer(
+        r'\b(?:skip|not after) (?:the |a )?(?:trend(?: line)?|one number)(?=[ ,;.!?]|$)', text)]
+    positive = erase(text, negative)
+    positive = re.sub(r'\blatest (?=trend\b)', '       ', positive)
+    latest = bool(re.search(r'\b(?:latest|newest|most recent)\b', positive))
+    trend = bool(re.search(r'\b(?:trends?|trended|trending|over time)\b', positive))
+    return latest, trend, negative
+
+
+def research_requested(text):
+    # A bounded opt-out clause cannot suppress another positive research clause.
+    negative = [(m.start(), m.end()) for m in re.finditer(
+        r'\bno (?:studies|research|recommendations)(?: please)?(?=\s*[,;.!?]|$)', text)]
+    return bool(re.search(r'\b(?:research|evidence|studies|trials)\b', erase(text, negative)))
+
+
 def temporal(text, reference):
     """Extract one complete period wherever it occurs; reject partial dates."""
+    # Modal permission questions are not the month May. Preserve offsets and
+    # leave independently stated dates, including a later "in May", untouched.
+    text = re.sub(r'\bmay(?=\s+(?:i|we)\b)', '   ', text)
+    # "Not after one number" negates a result shape, not a date boundary.
+    _, _, negated_operators = operation_signals(text)
+    text = erase(text, negated_operators)
     # Explicit named spans with inherited end month/year, including month ranges.
     named = re.compile(r'\b(' + MONTHS + r')\s+(\d{1,2}(?!\d)(?:,?\s+\d{4})?|\d{4})\s+(?:to|through|and)\s+(?:(' + MONTHS + r')\s+)?(?:the\s+)?(\d{1,2}(?!\d)(?:,?\s+\d{4})?|\d{4})\b')
     match = named.search(text)
@@ -160,6 +199,32 @@ def resolve_context(request):
     reference = request.state.reference_date
     def resolve(text, history):
         text = canonicalize(text)
+        # A projection correction may select only an already-bound parent metric.
+        correction = re.fullmatch(r'actually[,]? just (?:the )?(.+)', text)
+        if correction:
+            if not history: raise ValueError('unresolved_followup')
+            parent = resolve(history[-1], history[:-1])
+            old = entities(parent, request.available_metrics)
+            candidates = {value for _,_,values in old for kind,value in values
+                          if kind == 'metric' and correction[1] in value.replace('_', ' ').split()}
+            if len(old) != 1 or len(candidates) != 1:
+                raise ValueError('ambiguous_followup_subject')
+            start,end,_ = old[0]
+            return parent[:start] + next(iter(candidates)).replace('_', ' ') + parent[end:]
+        trend_follow = re.fullmatch(r'and how has it (?:trended|been trending) (.+)', text)
+        if trend_follow:
+            if not history: raise ValueError('unresolved_followup')
+            parent = resolve(history[-1], history[:-1])
+            if len(entities(parent, request.available_metrics)) != 1:
+                raise ValueError('ambiguous_followup_subject')
+            _,spans,error = temporal(trend_follow[1],reference)
+            if error or not spans or erase(trend_follow[1],date_context_spans(trend_follow[1],spans)).strip(' ,?!.'):
+                raise ValueError('unresolved_followup')
+            _,old_spans,error = temporal(parent,reference)
+            if error: raise ValueError('unresolved_inherited_period')
+            parent = erase(parent,date_context_spans(parent,old_spans))
+            parent = re.sub(r'\b(?:latest|newest|most recent)\b','',parent)
+            return parent.strip() + ' trend ' + trend_follow[1]
         replacement = re.fullmatch(r'(?:what about (?:my )?|same window for |no,? i meant )(.+?)(?: then)?', text)
         if replacement and entities(replacement[1], request.available_metrics):
             if not history: raise ValueError('unresolved_followup')
@@ -171,12 +236,12 @@ def resolve_context(request):
             # Replace only the old subject, preserving its dates and constraints.
             start, end, _ = old_entities[0]
             return parent[:start] + replacement[1] + parent[end:]
-        follow = re.fullmatch(r'(?:what about|how about|and|(?:actually,? )?make (?:that|it)|now do|sorry[,]? i meant) (.+)', text)
+        follow = re.fullmatch(r'(?:what about|how about|and|(?:actually,? )?make (?:that|it)|now do|sorry[,]? i meant|(?:can you )?redo that but only looking at) (.+)', text)
         if not follow:
             return text
         period, spans, error = temporal(follow[1], reference)
         # Only period-only fragments qualify. Entity-bearing followups stay explicit.
-        residue = erase(follow[1], spans).strip(' ,?!.')
+        residue = erase(follow[1], date_context_spans(follow[1], spans)).strip(' ,?!.')
         if error or not spans or residue:
             if entities(follow[1], request.available_metrics):
                 raise ValueError('unresolved_followup')
@@ -187,7 +252,7 @@ def resolve_context(request):
         _, parent_spans, parent_error = temporal(parent, reference)
         if parent_error:
             raise ValueError('unresolved_inherited_period')
-        return erase(parent, parent_spans).strip() + ' ' + follow[1]
+        return erase(parent, date_context_spans(parent, parent_spans)).strip() + ' ' + follow[1]
     return resolve(request.state.current_request, request.state.recent_user_requests)
 
 
@@ -198,7 +263,7 @@ CONSTRAINT_PATTERNS = {
     'exclusion_or_filter': r'\b(?:excluding|except|without|apart from|omit\w*|leave\b.*\bout|weekdays?|weekends?|mornings?|evenings?|awake|asleep|fasting|above|below|exceeded|under|over \d|only from)\b',
     'relationship_question': r'\b(?:does|do|can)\b.*\b(?:help|affect|cause|lead to)\b',
     'unsupported_operation': r'\b(?:compare|comparison|versus|vs|correlat\w*|affect|average|median|sum|how many|count the|in total|difference|higher than|lower than|better than|worse than|first|earliest|oldest|top|highest|lowest|worst|best)\b',
-    'write_or_external_action': r'\b(?:delete|remove|log|add|set|update|change|email|send|upload|share|schedule|remind)\b',
+    'write_or_external_action': r'\b(?:create|delete|remove|log|add|set|update|change|email|send|upload|share|schedule|remind)\b',
     'other_person': r"\b(?:partner|spouse|wife|husband|daughter|son|mother|father|patient|someone else)(?:'s)?\b",
     'unit_conversion': r'\b(?:in hours|in minutes|in seconds|pounds|kilograms|convert\w*|instead of|rather than)\b',
     'instruction_override': r'\b(?:system|override|ignore|questionnaire|selector|coverage|task:)\b',
@@ -207,7 +272,11 @@ CONSTRAINT_PATTERNS = {
 
 
 def constraints(text, entity_spans, date_spans):
-    rest = erase(text, entity_spans + date_spans)
+    latest, trend, operator_negations = operation_signals(text)
+    rest = erase(text, entity_spans + date_context_spans(text, date_spans) + operator_negations)
+    if latest and not trend:
+        # A singular anaphor denotes the latest value; arbitrary counts remain.
+        rest = re.sub(r'\b((?:latest|newest|most recent)\s+)one\b', r'\1   ', rest)
     found = []
     for kind, pattern in CONSTRAINT_PATTERNS.items():
         for match in re.finditer(pattern, rest):

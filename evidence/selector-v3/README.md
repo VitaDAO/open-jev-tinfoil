@@ -1,5 +1,10 @@
 # Structured proposals, schema index and request inventory
 
+Historical v3 checkpoint. See [v4](../selector-v4/README.md) for the current
+candidate. These 48 cases are now regression data. In particular, the fixed
+legacy profile projection does not prove that a "complete profile" request is
+fully covered; v4 deliberately hands that request off.
+
 Local synthetic experiment, 2026-09-24. This candidate remains disabled by
 default and is not approved for deployment or Vita integration.
 

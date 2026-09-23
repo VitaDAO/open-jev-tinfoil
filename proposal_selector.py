@@ -11,7 +11,7 @@ import time
 from pathlib import Path
 
 from learned_selector import LearnedSelector, ADAPTER_SHA256
-from proposal_binding import ReadProposal, canonicalize, entities, erase, temporal, resolve_context, constraints
+from proposal_binding import ReadProposal, canonicalize, entities, erase, temporal, resolve_context, constraints, operation_signals, research_requested
 from routing import MODEL_REVISION
 from schema_index import describe_targets
 from selector import SCHEMA, _base, _interpret
@@ -114,11 +114,15 @@ class ProposalSelector(LearnedSelector):
         entity_spans = entities(current, request.available_metrics)
         if any(k == 'unavailable' for _, _, values in entity_spans for k, _ in values):
             reasons.append('requested_metric_unavailable')
+        if any(k == 'ambiguous' for _, _, values in entity_spans for k, _ in values):
+            reasons.append('ambiguous_metric_alias')
         metrics = sorted({v for _, _, values in entity_spans for k, v in values if k == 'metric'})
         records = sorted({v for _, _, values in entity_spans for k, v in values if k == 'record'})
         bound_constraints = constraints(current, entity_spans, date_spans)
         reasons.extend(c.kind for c in bound_constraints if not c.supported)
         subject = erase(current, date_spans)
+        if 'profile' in records and re.search(r'\b(?:whole|complete|full) (?:health )?profile\b', subject):
+            reasons.append('legacy_profile_projection_incomplete')
         # Profile projections are not expressible by this legacy consumer.
         if re.search(r'\b(?:goals|medications|meds|allergies|birth year|weight|conditions)\b', subject):
             if not re.search(r'\b(?:whole|complete|full) (?:health )?profile\b', subject):
@@ -126,10 +130,16 @@ class ProposalSelector(LearnedSelector):
         if predicted and period is not None:
             task = predicted['task']
             coverage = 'targeted' if metrics or records else predicted['coverage']
+            # The dedicated read-intent head and full-proposal check arbitrate
+            # bound reads; the older coarse task head is not an additional veto.
+            if (metrics or records) and not research_requested(subject):
+                task = 'health'
+            broad = bool(re.search(r'\b(?:all (?:of )?(?:my )?health data|overall health|health (?:summary|overview))\b', subject))
+            if broad and not metrics and not records:
+                task = 'health'; coverage = 'broad'
             # Exact operator wording owns explicit latest/trend intent. Learned
             # coverage check must confirm a default trend when no operator is explicit.
-            latest = bool(re.search(r'\b(?:latest|newest|most recent)\b', subject))
-            trend = bool(re.search(r'\b(?:trends?|trended|trending|over time)\b', subject))
+            latest, trend, _ = operation_signals(subject)
             if latest and trend:
                 reasons.append('conflicting_latest_and_trend')
             operation = 'latest' if latest else 'trend'
@@ -159,7 +169,7 @@ class ProposalSelector(LearnedSelector):
             # A named target cannot absorb a simultaneous broad health request.
             elif re.search(r'\b(?:overall health|all (?:my )?health|health summary|analyze my health|analyse my health)\b', subject):
                 reasons.append('mixed_broad_and_targeted_scope')
-            if task == 'health' and coverage == 'targeted' and re.search(r'\b(?:research|evidence|studies|trials)\b', subject):
+            if task == 'health' and coverage == 'targeted' and research_requested(subject):
                 reasons.append('targeted_research_binding_unavailable')
             basis = 'current_plans'
             if 'calendar' in records and coverage != 'broad':
@@ -172,7 +182,7 @@ class ProposalSelector(LearnedSelector):
             if coverage == 'broad' and set(request.available_record_types) != {'profile','workouts','labs','calendar'}:
                 # The legacy broad flag would re-enable absent categories in an old consumer.
                 reasons.append('broad_record_inventory_requires_new_contract')
-            if margins['task'] < .10:
+            if margins['task'] < .10 and not (metrics or records or broad):
                 reasons.append('uncertain_model_task')
             proposal = ReadProposal(task=task, coverage=coverage, operation=operation,
                                     metrics=metrics, records=records, period=period,
@@ -189,7 +199,9 @@ class ProposalSelector(LearnedSelector):
                     period={key:research_decision[key] for key in period},
                     calendar_basis=research_decision['calendar_basis'], research=research_decision['research'])
                 actual = proposal.model_copy(update={'records':sorted(set(proposal.records))})
-                certified = expected == actual
+                # A grammar that accepts "what is ApoB" cannot independently
+                # certify personal-read intent when the coarse head disagrees.
+                certified = expected == actual and predicted['task'] == task
             if not reasons:
                 if certified:
                     native, error = {'method':'complete_grammar_binding'}, None
@@ -212,7 +224,7 @@ class ProposalSelector(LearnedSelector):
                 'answers':answers, 'advisory':True, 'selector_sha256':identity(),
                 'model_revision':MODEL_REVISION, 'adapter_sha256':ADAPTER_SHA256,
                 'implementation':'open_jev_structured_proposal_experimental',
-                'diagnostics':{'confidence_policy':'proposal_v3', 'predicted_decisions':predicted,
+                'diagnostics':{'confidence_policy':'proposal_v4', 'predicted_decisions':predicted,
                                'decision_margins':margins, 'semantic_coverage':native,
                                'proposal':proposal.model_dump() if proposal else None},
                 'elapsed_ms':round((time.perf_counter() - started) * 1000, 3)}

@@ -1,0 +1,495 @@
+[
+  {
+    "id": "d01",
+    "request": "May I see my latest ApoB?",
+    "history": [],
+    "canonical_equivalent": "Show my latest ApoB",
+    "gold": {
+      "acceptable_plans": [
+        {
+          "health_reads": [
+            {
+              "operation_id": 1,
+              "purpose": "latest",
+              "concepts": [
+                "apob"
+              ],
+              "range": {
+                "kind": "all_history"
+              },
+              "time_zone": "UTC"
+            }
+          ],
+          "required_operation_ids": [
+            1
+          ]
+        }
+      ],
+      "handoff_ok": false
+    }
+  },
+  {
+    "id": "d02",
+    "request": "May we look at my steps from June 2025?",
+    "history": [],
+    "canonical_equivalent": "Show my steps in June 2025",
+    "gold": {
+      "acceptable_plans": [
+        {
+          "health_reads": [
+            {
+              "operation_id": 1,
+              "purpose": "trend",
+              "concepts": [
+                "steps"
+              ],
+              "range": {
+                "kind": "between",
+                "start_at": "2025-06-01",
+                "end_at": "2025-06-30"
+              },
+              "time_zone": "UTC"
+            }
+          ],
+          "required_operation_ids": [
+            1
+          ]
+        }
+      ],
+      "handoff_ok": false
+    }
+  },
+  {
+    "id": "d03",
+    "request": "Show my steps in May.",
+    "history": [],
+    "canonical_equivalent": "Show my steps in May",
+    "gold": {
+      "acceptable_plans": [
+        {
+          "health_reads": [
+            {
+              "operation_id": 1,
+              "purpose": "trend",
+              "concepts": [
+                "steps"
+              ],
+              "range": {
+                "kind": "between",
+                "start_at": "2026-05-01",
+                "end_at": "2026-05-31"
+              },
+              "time_zone": "UTC"
+            }
+          ],
+          "required_operation_ids": [
+            1
+          ]
+        }
+      ],
+      "handoff_ok": false
+    }
+  },
+  {
+    "id": "d04",
+    "request": "May I see my sleep efficiency during May 2024?",
+    "history": [],
+    "canonical_equivalent": "Show my sleep efficiency in May 2024",
+    "gold": {
+      "acceptable_plans": [
+        {
+          "health_reads": [
+            {
+              "operation_id": 1,
+              "purpose": "trend",
+              "concepts": [
+                "sleep_efficiency"
+              ],
+              "range": {
+                "kind": "between",
+                "start_at": "2024-05-01",
+                "end_at": "2024-05-31"
+              },
+              "time_zone": "UTC"
+            }
+          ],
+          "required_operation_ids": [
+            1
+          ]
+        }
+      ],
+      "handoff_ok": false
+    }
+  },
+  {
+    "id": "d05",
+    "request": "Show my respiratory rate on May 12, 2026.",
+    "history": [],
+    "canonical_equivalent": "Show my respiratory rate on May 12, 2026",
+    "gold": {
+      "acceptable_plans": [
+        {
+          "health_reads": [
+            {
+              "operation_id": 1,
+              "purpose": "trend",
+              "concepts": [
+                "respiratory_rate"
+              ],
+              "range": {
+                "kind": "between",
+                "start_at": "2026-05-12",
+                "end_at": "2026-05-12"
+              },
+              "time_zone": "UTC"
+            }
+          ],
+          "required_operation_ids": [
+            1
+          ]
+        }
+      ],
+      "handoff_ok": false
+    }
+  },
+  {
+    "id": "d06",
+    "request": "May I view my steps yesterday?",
+    "history": [],
+    "canonical_equivalent": "Show my steps yesterday",
+    "gold": {
+      "acceptable_plans": [
+        {
+          "health_reads": [
+            {
+              "operation_id": 1,
+              "purpose": "trend",
+              "concepts": [
+                "steps"
+              ],
+              "range": {
+                "kind": "between",
+                "start_at": "2026-09-22",
+                "end_at": "2026-09-22"
+              },
+              "time_zone": "UTC"
+            }
+          ],
+          "required_operation_ids": [
+            1
+          ]
+        }
+      ],
+      "handoff_ok": false
+    }
+  },
+  {
+    "id": "d07",
+    "request": "May I inspect my profile?",
+    "history": [],
+    "canonical_equivalent": "Show my profile",
+    "gold": {
+      "acceptable_plans": [
+        {
+          "health_reads": [
+            {
+              "operation_id": 1,
+              "purpose": "latest",
+              "record_types": [
+                "profile"
+              ],
+              "range": {
+                "kind": "all_history"
+              },
+              "time_zone": "UTC",
+              "profile_fields": [
+                "goals",
+                "chronic_conditions",
+                "medications",
+                "no_regular_medications",
+                "allergies",
+                "sex",
+                "birth_year",
+                "height_cm",
+                "weight_kg"
+              ]
+            }
+          ],
+          "required_operation_ids": [
+            1
+          ]
+        }
+      ],
+      "handoff_ok": false
+    }
+  },
+  {
+    "id": "d08",
+    "request": "May I look at my lab reports from 2024?",
+    "history": [],
+    "canonical_equivalent": "Show my lab reports in 2024",
+    "gold": {
+      "acceptable_plans": [
+        {
+          "health_reads": [
+            {
+              "operation_id": 1,
+              "purpose": "latest",
+              "record_types": [
+                "labs"
+              ],
+              "range": {
+                "kind": "between",
+                "start_at": "2024-01-01",
+                "end_at": "2024-12-31"
+              },
+              "time_zone": "UTC",
+              "record_detail_dataset": "labs.upload_metadata.v1",
+              "record_detail_limit": 3
+            }
+          ],
+          "required_operation_ids": [
+            1
+          ]
+        }
+      ],
+      "handoff_ok": false
+    }
+  },
+  {
+    "id": "d09",
+    "request": "What about May?",
+    "history": [
+      "Show my steps in 2025"
+    ],
+    "canonical_equivalent": "Show my steps in May",
+    "gold": {
+      "acceptable_plans": [
+        {
+          "health_reads": [
+            {
+              "operation_id": 1,
+              "purpose": "trend",
+              "concepts": [
+                "steps"
+              ],
+              "range": {
+                "kind": "between",
+                "start_at": "2026-05-01",
+                "end_at": "2026-05-31"
+              },
+              "time_zone": "UTC"
+            }
+          ],
+          "required_operation_ids": [
+            1
+          ]
+        }
+      ],
+      "handoff_ok": false
+    }
+  },
+  {
+    "id": "d10",
+    "request": "May I view my steps between May 3 and May 17?",
+    "history": [],
+    "canonical_equivalent": "Show my steps from 2026-05-03 to 2026-05-17",
+    "gold": {
+      "acceptable_plans": [
+        {
+          "health_reads": [
+            {
+              "operation_id": 1,
+              "purpose": "trend",
+              "concepts": [
+                "steps"
+              ],
+              "range": {
+                "kind": "between",
+                "start_at": "2026-05-03",
+                "end_at": "2026-05-17"
+              },
+              "time_zone": "UTC"
+            }
+          ],
+          "required_operation_ids": [
+            1
+          ]
+        }
+      ],
+      "handoff_ok": false
+    }
+  },
+  {
+    "id": "d11",
+    "request": "May I view my total sleep from the past 12 days?",
+    "history": [],
+    "canonical_equivalent": "Show my total sleep past 12 days",
+    "gold": {
+      "acceptable_plans": [
+        {
+          "health_reads": [
+            {
+              "operation_id": 1,
+              "purpose": "trend",
+              "concepts": [
+                "total_sleep"
+              ],
+              "range": {
+                "kind": "relative",
+                "amount": 12,
+                "unit": "days"
+              },
+              "time_zone": "UTC"
+            }
+          ],
+          "required_operation_ids": [
+            1
+          ]
+        }
+      ],
+      "handoff_ok": false
+    }
+  },
+  {
+    "id": "d12",
+    "request": "Show my LDL in May 2025, please.",
+    "history": [],
+    "canonical_equivalent": "Show my LDL in May 2025",
+    "gold": {
+      "acceptable_plans": [
+        {
+          "health_reads": [
+            {
+              "operation_id": 1,
+              "purpose": "trend",
+              "concepts": [
+                "ldl_cholesterol"
+              ],
+              "range": {
+                "kind": "between",
+                "start_at": "2025-05-01",
+                "end_at": "2025-05-31"
+              },
+              "time_zone": "UTC"
+            }
+          ],
+          "required_operation_ids": [
+            1
+          ]
+        }
+      ],
+      "handoff_ok": false
+    }
+  },
+  {
+    "id": "d13",
+    "request": "May I see steps from Oura yesterday?",
+    "history": [],
+    "gold": {
+      "acceptable_plans": [],
+      "handoff_ok": true
+    }
+  },
+  {
+    "id": "d14",
+    "request": "May I see my steps on May 32, 2026?",
+    "history": [],
+    "gold": {
+      "acceptable_plans": [],
+      "handoff_ok": true
+    }
+  },
+  {
+    "id": "d15",
+    "request": "May I compare May and June step counts?",
+    "history": [],
+    "gold": {
+      "acceptable_plans": [],
+      "handoff_ok": true
+    }
+  },
+  {
+    "id": "d16",
+    "request": "May I see my lab reports from Mayfield Clinic?",
+    "history": [],
+    "gold": {
+      "acceptable_plans": [],
+      "handoff_ok": true
+    }
+  },
+  {
+    "id": "d17",
+    "request": "May I see the latest 4 ApoB values?",
+    "history": [],
+    "gold": {
+      "acceptable_plans": [],
+      "handoff_ok": true
+    }
+  },
+  {
+    "id": "d18",
+    "request": "May I see my partner's steps in May?",
+    "history": [],
+    "gold": {
+      "acceptable_plans": [],
+      "handoff_ok": true
+    }
+  },
+  {
+    "id": "d19",
+    "request": "May I delete my health plans?",
+    "history": [],
+    "gold": {
+      "acceptable_plans": [],
+      "handoff_ok": true
+    }
+  },
+  {
+    "id": "d20",
+    "request": "May I see steps in May and LDL in June?",
+    "history": [],
+    "gold": {
+      "acceptable_plans": [],
+      "handoff_ok": true
+    }
+  },
+  {
+    "id": "d21",
+    "request": "What about May?",
+    "history": [
+      "Show my steps from Oura in 2025"
+    ],
+    "gold": {
+      "acceptable_plans": [],
+      "handoff_ok": true
+    }
+  },
+  {
+    "id": "d22",
+    "request": "May I see my steps before May 2024?",
+    "history": [],
+    "gold": {
+      "acceptable_plans": [],
+      "handoff_ok": true
+    }
+  },
+  {
+    "id": "d23",
+    "request": "May I see my sleep excluding naps yesterday?",
+    "history": [],
+    "gold": {
+      "acceptable_plans": [],
+      "handoff_ok": true
+    }
+  },
+  {
+    "id": "d24",
+    "request": "May I understand what ApoB means?",
+    "history": [],
+    "gold": {
+      "acceptable_plans": [],
+      "handoff_ok": true
+    }
+  }
+]

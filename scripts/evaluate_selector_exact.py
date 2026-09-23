@@ -87,7 +87,7 @@ def main():
     cases = json.loads(args.cases.read_text())
     if len({c['id'] for c in cases}) != len(cases):
         raise ValueError('Duplicate case IDs')
-    source_paths = ('trained_proposal_selector.py', 'adapters/vita-read-intent-v1.json', 'proposal_selector.py', 'proposal_binding.py', 'temporal_spans.py',
+    source_paths = ('trained_proposal_selector.py', 'adapters/vita-read-intent-v1.json', 'adapters/vita-read-intent-v2.json', 'proposal_selector.py', 'proposal_binding.py', 'temporal_spans.py',
                     'metadata/health_metrics.v1.json', 'metadata/selector-index.v1.json',
                     'schema_index.py', 'learned_selector.py', 'selector.py',
                     'scripts/evaluate_selector_exact.py', 'tests/contracts/vita_read_contract.py',
@@ -106,13 +106,30 @@ def main():
         model = OpenJev.from_pretrained(str(ROOT / 'model-fp16'), device='cpu')
         model.collator._ids = lambda t: model.tok(t, add_special_tokens=False)['input_ids']
         model.collator._cache.clear()
-        call = {'trained':TrainedProposalSelector, 'proposal':ProposalSelector, 'ridge':LearnedSelector}[args.model](model).select
+        selector_call = {'trained':TrainedProposalSelector, 'proposal':ProposalSelector, 'ridge':LearnedSelector}[args.model](model).select
+        counter={'passes':0}
+        def count_forward(*_):counter['passes']+=1
+        model.model.backbone.register_forward_hook(count_forward)
+        def call(request):
+            before=counter['passes']
+            result=selector_call(request)
+            result.setdefault('diagnostics',{})['encoder_passes']=counter['passes']-before
+            return result
     load_ms = round((time.perf_counter() - started) * 1000, 3)
     rows = evaluate(cases, call)
     if hashes() != source_hashes:
         raise RuntimeError('Source changed during evaluation; discard this run')
     times = sorted(r['elapsed_ms'] for r in rows[1:])
     model_times = sorted(r['elapsed_ms'] for r in rows[1:] if r['model_evaluated'])
+    def timing(status):
+        values=sorted(r['elapsed_ms'] for r in rows[1:] if r['status']==status)
+        return {'requests':len(values),'p50_ms':statistics.median(values) if values else None,
+                'p95_ms':values[int(.95*(len(values)-1))] if values else None}
+    pass_counts={}
+    for row in rows:
+        key=str((row.get('diagnostics') or {}).get('encoder_passes','unmeasured'))
+        by_status=pass_counts.setdefault(row['status'],{})
+        by_status[key]=by_status.get(key,0)+1
     result = {'candidate': args.model, 'scope': 'Local 4-thread CPU; compiled legacy plans; no DB, WAN or attestation',
               'fixture_sha256': hashlib.sha256(args.cases.read_bytes()).hexdigest(),
               'source_sha256': source_hashes,
@@ -121,6 +138,8 @@ def main():
               'warm_model_requests': len(model_times),
               'warm_model_p50_ms': statistics.median(model_times) if model_times else None,
               'warm_model_p95_ms': model_times[int(.95 * (len(model_times) - 1))] if model_times else None,
+              'warm_selected_latency':timing('selected'),'warm_handoff_latency':timing('unsupported'),
+              'encoder_pass_counts':pass_counts,
               'all_author_labels': summary(rows), 'consensus': summary(rows, consensus_only=True), 'rows': rows}
     if all('reviewer_gold' in c for c in cases):
         result['all_reviewer_labels'] = summary(rows, 'reviewer_gold')

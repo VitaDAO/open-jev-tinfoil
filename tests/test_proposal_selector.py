@@ -175,3 +175,102 @@ def test_complete_grammar_binding_does_not_need_a_learned_veto():
 def test_profile_snapshot_cannot_claim_historical_fields():
     result,plan=run('Show my profile in 2024')
     assert result['status']=='unsupported' and plan is None
+
+
+@pytest.mark.parametrize('text',[
+    'Show my steps from the past 11 days',
+    'From the past 11 days, show my steps',
+    'Show my steps and workouts from the past 11 days',
+])
+def test_bound_date_article_is_not_a_provider(text):
+    result,plan=run(text)
+    assert result['status']=='selected',result['reason_codes']
+    assert plan['health_reads'][0]['range']=={'kind':'relative','unit':'days','amount':11}
+
+
+def test_period_article_followup_preserves_provider():
+    _,plan=run('Now do the past 3 months',['Show my respiratory rate past week'])
+    assert plan['health_reads'][0]['concepts']==['respiratory_rate']
+    assert plan['health_reads'][0]['range']=={'kind':'relative','unit':'months','amount':3}
+    result,plan=run('Now do the past 3 months',['Show my respiratory rate from Oura past week'])
+    assert plan is None and 'source_filter' in result['reason_codes']
+
+
+def test_latest_anaphor_does_not_enable_arbitrary_counts():
+    result,plan=run('Show my ApoB measurement, the newest one')
+    assert result['status']=='selected' and plan['health_reads'][0]['purpose']=='latest'
+    for text in ['Show my newest two ApoB measurements','Show one ApoB measurement from each month']:
+        result,plan=run(text)
+        assert result['status']=='unsupported' and plan is None
+
+
+@pytest.mark.parametrize('text,purpose',[
+    ('Skip the trend line; I only want my single most recent ApoB value','latest'),
+    ('Show the latest trend in my step count this month','trend'),
+    ('No studies please, just show my steps this week','trend'),
+])
+def test_bounded_operator_opt_out(text,purpose):
+    result,plan=run(text)
+    assert result['status']=='selected',result['reason_codes']
+    assert plan['health_reads'][0]['purpose']==purpose
+
+
+@pytest.mark.parametrize('text',[
+    'No studies, show steps and find trials about exercise',
+    'Skip the trend; show latest ApoB from Oura',
+    'Show latest ApoB and the trend',
+    'Create a health plan tomorrow',
+])
+def test_operator_opt_out_cannot_erase_another_constraint(text):
+    result,plan=run(text)
+    assert result['status']=='unsupported' and plan is None
+
+
+def test_legacy_profile_summary_is_not_complete_profile():
+    result,plan=run('Show my complete health profile')
+    assert result['status']=='unsupported' and plan is None
+    assert 'legacy_profile_projection_incomplete' in result['reason_codes']
+    _,plan=run('Show my profile')
+    assert plan['health_reads'][0]['profile_fields']
+
+
+def test_followup_projection_is_limited_to_parent_scope():
+    _,plan=run('Actually just the efficiency',['Show sleep this week'])
+    assert plan['health_reads'][0]['concepts']==['sleep_efficiency']
+    result,plan=run('Actually just the efficiency',['Show steps this week'])
+    assert result['status']=='unsupported' and plan is None
+    result,plan=run('Actually just the efficiency',['Show sleep from Oura this week'])
+    assert result['status']=='unsupported' and plan is None
+
+
+def test_followup_trend_overrides_latest_but_not_source():
+    _,plan=run('And how has it trended over the last 2 years?',['Show latest ApoB'])
+    assert plan['health_reads'][0]['purpose']=='trend'
+    assert plan['health_reads'][0]['range']=={'kind':'relative','unit':'months','amount':24}
+    result,plan=run('And how has it trended over the last 2 years?',['Show latest ApoB from Quest'])
+    assert result['status']=='unsupported' and plan is None
+
+
+def test_bound_entity_does_not_certify_a_definition_request():
+    result,plan=run('What is ApoB?',task='other',semantic_error='learned_read_intent_unconfirmed')
+    assert result['status']=='unsupported' and plan is None
+
+
+def test_colliding_alias_does_not_silently_choose_an_inventory_id():
+    selector=ProposalSelector.__new__(ProposalSelector)
+    result=selector.select(request('Show LDL cholesterol',metrics=['ldl','ldl_cholesterol']),
+        prediction=({'task':'health','coverage':'targeted','purpose':'trend','research':'none'},{'task':.8}),
+        coverage_decision=({},None))
+    assert result['status']=='unsupported'
+    assert 'ambiguous_metric_alias' in result['reason_codes']
+    from proposal_binding import entities
+    assert entities('ldl_cholesterol',['ldl','ldl_cholesterol'])[0][2]==[('metric','ldl_cholesterol')]
+
+
+def test_modal_may_is_not_a_month_filter():
+    _,plan=run('May I view my latest respiratory rate?')
+    assert plan['health_reads'][0]['range']=={'kind':'all_history'}
+    _,plan=run('May I view my respiratory rate in May 2024?')
+    assert plan['health_reads'][0]['range']=={'kind':'between','start_at':'2024-05-01','end_at':'2024-05-31'}
+    result,plan=run('May I view my respiratory rate from Oura in May 2024?')
+    assert result['status']=='unsupported' and plan is None

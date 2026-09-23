@@ -2,13 +2,15 @@
 import hashlib
 import json
 import math
+import re
 from pathlib import Path
 
 from proposal_selector import ProposalSelector, identity as proposal_identity
 from routing import MODEL_REVISION
+from schema_index import INDEX
 
 ROOT = Path(__file__).resolve().parent
-INTENT_SHA256 = 'aa67ad90ebfe34be36d9c4799f665ccb7df71d2bd50e4dde184c2e19ba97539c'
+INTENT_SHA256 = '45946119ca98492c1d781a76eb3f153bdba0fe89cdeb2409fb9615707a93f757'
 
 
 def identity():
@@ -18,7 +20,7 @@ def identity():
 class TrainedProposalSelector(ProposalSelector):
     def __init__(self, model):
         super().__init__(model)
-        raw = (ROOT / 'adapters/vita-read-intent-v1.json').read_bytes()
+        raw = (ROOT / 'adapters/vita-read-intent-v2.json').read_bytes()
         if hashlib.sha256(raw).hexdigest() != INTENT_SHA256:
             raise ValueError('Unapproved read-intent adapter')
         data = json.loads(raw)
@@ -32,7 +34,12 @@ class TrainedProposalSelector(ProposalSelector):
             raise ValueError('Invalid read-intent adapter')
 
     def intent_check(self, current):
-        score = float(self.encode(current) @ self.intent_weights)
+        # Align schema synonyms with training feature names. The full original
+        # request still reaches the separate proposal-coverage decision.
+        aliases=INDEX['metric_aliases']
+        pattern=r'(?<!\w)(?:'+'|'.join(re.escape(x) for x in sorted(aliases,key=len,reverse=True))+r')(?!\w)'
+        normalized=re.sub(pattern,lambda m:aliases[m[0]].replace('_',' '),current)
+        score = float(self.encode(normalized) @ self.intent_weights)
         accepted = score >= self.intent_threshold
         return {'choice':'recorded_health_read' if accepted else 'handoff',
                 'score':score, 'threshold':self.intent_threshold,

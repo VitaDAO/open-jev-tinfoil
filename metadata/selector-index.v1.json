@@ -13,7 +13,8 @@
     "oxygen saturation": "oxygen_saturation",
     "sleep duration": "total_sleep",
     "time asleep": "total_sleep",
-    "ldl cholesterol": "ldl_cholesterol"
+    "ldl cholesterol": "ldl_cholesterol",
+    "step": "steps"
   },
   "inventory_to_catalog": {
     "ldl_cholesterol": "ldl",
@@ -130,7 +131,9 @@
         "health appointments",
         "screenings",
         "checkups",
-        "calendar"
+        "calendar",
+        "health plan",
+        "health appointment"
       ],
       "backend_fields": [
         "cadence",

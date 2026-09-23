@@ -1,5 +1,6 @@
 """Synthetic loopback API/adapter smoke; does not perform enclave attestation."""
 import hashlib
+import argparse
 import json
 import os
 import statistics
@@ -19,13 +20,16 @@ from trained_proposal_selector import identity
 
 
 def main():
+    parser=argparse.ArgumentParser()
+    parser.add_argument('--output',type=Path,default=ROOT/'evidence/selector-v3/http-smoke.json')
+    args=parser.parse_args()
     url=os.environ.get('BASE_URL','http://127.0.0.1:18126')
     if not url.startswith('http://127.0.0.1:'):
         raise ValueError('This smoke is limited to a local synthetic service')
     token=os.environ['OPEN_JEV_API_KEY']
     headers={'Authorization':'Bearer '+token}
     def body(text,history=(),records=('profile','workouts','labs','calendar')):
-        return {'schema_version':'vita-selector/v1','available_metrics':['steps','respiratory_rate','sleep_efficiency'],
+        return {'schema_version':'vita-selector/v1','available_metrics':['steps','respiratory_rate','sleep_efficiency','apob'],
             'available_record_types':list(records),'literature_available':False,
             'state':{'current_request':text,'recent_user_requests':list(history),'reference_date':'2026-09-23','time_zone':'UTC'}}
     rows=[]
@@ -35,6 +39,7 @@ def main():
         for text,history,records,expected in [
             ('Show my latest respiratory rate yesterday',(),('profile','workouts','labs','calendar'),'selected'),
             ('During 2024, how was my sleep efficiency doing?',(),('profile','workouts','labs','calendar'),'selected'),
+            ('What is the most recent ApoB value I have?',(),('profile','workouts','labs','calendar'),'selected'),
             ('Now do last month',['Show my steps from Oura this week'],('profile','workouts','labs','calendar'),'unsupported'),
             ('Show my lab reports',(),(),'unsupported'),
         ]:
@@ -49,6 +54,9 @@ def main():
                 assert plan['health_reads'][0]['range']=={'kind':'between','start_at':'2026-09-22','end_at':'2026-09-22'}
             if text.startswith('During'):
                 assert plan['health_reads'][0]['range']=={'kind':'between','start_at':'2024-01-01','end_at':'2024-12-31'}
+            if text.startswith('What is'):
+                assert plan['health_reads'][0]['concepts']==['apob']
+                assert plan['health_reads'][0]['purpose']=='latest'
             rows.append({'request':text,'status':value['status'],'reason_codes':value['reason_codes'],'plan':plan})
         # Exercise the shipped response validation against actual local responses;
         # construction deliberately bypasses attestation for this loopback test.
@@ -78,7 +86,7 @@ def main():
         'selector_sha256':identity(),'api_sha256':hashlib.sha256((ROOT/'server.py').read_bytes()).hexdigest(),
         'client_sha256':hashlib.sha256((ROOT/'examples/selector_client.py').read_bytes()).hexdigest(),
         'unauthenticated':401,'disabled':503,'response_adapter':'passed','rows':rows,'latency':timings}
-    (ROOT/'evidence/selector-v3/http-smoke.json').write_text(json.dumps(result,indent=2)+'\n')
+    args.output.write_text(json.dumps(result,indent=2)+'\n')
     print(json.dumps({'checks':'passed','latency':timings},indent=2))
 
 

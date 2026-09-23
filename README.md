@@ -137,7 +137,11 @@ or proof that queried evidence reaches Vita's final model.
 
 The current standalone candidate uses a schema index, per-request metric/record inventory,
 structured proposals and a small learned read-intent head. It remains disabled by default
-and is not deployed. See [the current evaluation and API](evidence/selector-v3/README.md):
-58/59 regressions, 124/160 broader regressions and 43/48 fresh synthetic cases, with no
-wrong executable plans observed but substantial remaining fallback. These are local
-compiled-plan results, not database execution or production acceptance.
+and is not deployed. See [the current evaluation and API](evidence/selector-v4/README.md):
+59/59 original regressions, 141/160 broader regressions, 47/48 previous cases,
+37/40 new cases after a discovered date bug was repaired, and 24/24 subsequent
+temporal cases. No wrong executable plans appeared in the final runs; substantial
+fallback remains. The report preserves the failed first evaluation and explains
+why complete-profile requests now hand off. These are local compiled-plan results
+plus a bounded synthetic record-ID execution check, not Vita database execution
+or production acceptance.
