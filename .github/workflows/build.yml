@@ -9,6 +9,9 @@ on:
       - learned_selector.py
       - plan_adapter.py
       - query_ir.py
+      - direct_selector.py
+      - entity_candidates.py
+      - temporal_spans.py
       - metadata/**
       - compat/**
       - adapters/**
