@@ -9,6 +9,7 @@ from tinfoil import SecureClient
 
 HOST = 'open-jev.vitality-now.containers.tinfoil.dev'
 REPO = 'VitaDAO/open-jev-tinfoil'
+RELEASE_DIGEST = '9e0a92b4f38ab6944457c24c7c787bc6ef322c7997f87f3bfa4efb9d8b6dc25a'
 MODEL_REVISION = '19bf9a64815add579fbf6c907bef584d9277a8e4'
 
 class VitaDecisionClient:
@@ -16,6 +17,10 @@ class VitaDecisionClient:
         self.verifier = SecureClient(enclave=HOST, repo=REPO, transport='tls')
         # Attestation verifies code against signed repo release, and binds TLS.
         self.http = self.verifier.make_secure_http_client()
+        document = self.verifier.get_verification_document()
+        if document is None or not document.security_verified or document.release_digest != RELEASE_DIGEST:
+            self.http.close()
+            raise RuntimeError('Enclave does not match the approved v0.1.0 release')
         self.token = os.environ['OPEN_JEV_API_KEY']
 
     def decide(self, state, questions):

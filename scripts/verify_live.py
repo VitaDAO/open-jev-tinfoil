@@ -1,5 +1,7 @@
 """Verify attestation before synthetic inference, and prove a wrong pin fails."""
 import json
+from concurrent.futures import ThreadPoolExecutor
+from threading import Barrier
 import os
 import statistics
 import time
@@ -41,9 +43,18 @@ for mode in ['tls', 'ehbp']:
             assert 0 <= data['answers'][1]['score'] <= 2
             assert 0 <= data['answers'][2]['noul'] <= 1
             inferences.append(data['inference_ms'])
+        assert client.post(f'https://{host}/decide', content=b'x' * 65537, headers=headers, timeout=30).status_code == 413
+        barrier = Barrier(4)
+        def parallel_request(_):
+            barrier.wait()
+            return client.post(f'https://{host}/decide', json=body, headers=headers, timeout=30).status_code
+        with ThreadPoolExecutor(max_workers=4) as pool:
+            parallel_statuses = list(pool.map(parallel_request, range(4)))
+        assert 200 in parallel_statuses and 429 in parallel_statuses, parallel_statuses
+        assert set(parallel_statuses) <= {200, 429}
         boundary = client.post(f'https://{host}/decide', json={'state':'word '*256,'questions':[{'type':'noul','instructions':'word '*240}]},headers=headers,timeout=30)
         boundary.raise_for_status()
-        results[mode] = {'health':health.json(),'verification_ms':round(verification_ms,2),'requests':10,'p50_ms':round(statistics.median(durations),2),'max_ms':round(max(durations),2),'inference_p50_ms':round(statistics.median(inferences),2),'boundary_inference_ms':boundary.json()['inference_ms'],'last_response':data,'verification':verifier.get_verification_document().to_dict()}
+        results[mode] = {'health':health.json(),'parallel_statuses':parallel_statuses,'verification_ms':round(verification_ms,2),'requests':10,'p50_ms':round(statistics.median(durations),2),'max_ms':round(max(durations),2),'inference_p50_ms':round(statistics.median(inferences),2),'boundary_inference_ms':boundary.json()['inference_ms'],'last_response':data,'verification':verifier.get_verification_document().to_dict()}
 # No application key or body is supplied to this deliberately wrong workload pin.
 wrong = SecureClient(enclave=host, measurement={'snp_measurement':'0'*96}, transport='tls')
 try:

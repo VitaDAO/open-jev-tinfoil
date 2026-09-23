@@ -1,0 +1,2435 @@
+{
+  "started_at": "2026-09-23T18:16:19.348952+00:00",
+  "method": "10 frozen synthetic cases x 3 repetitions, 3 questions each. Persistent client per arm; alternating order; no retries. Local arm excludes WAN and enclave overhead. Not a held-out accuracy benchmark.",
+  "cases": [
+    [
+      "sleep-read",
+      "Show my sleep duration from last night.",
+      "read existing data",
+      true
+    ],
+    [
+      "sleep-explain",
+      "Explain what REM sleep means in general.",
+      "explain a concept",
+      false
+    ],
+    [
+      "notifications",
+      "Turn off all push notifications.",
+      "change settings",
+      false
+    ],
+    [
+      "steps-read",
+      "What was my total step count yesterday?",
+      "read existing data",
+      true
+    ],
+    [
+      "hrv-explain",
+      "What does heart rate variability mean?",
+      "explain a concept",
+      false
+    ],
+    [
+      "units",
+      "Switch the distance unit to kilometers.",
+      "change settings",
+      false
+    ],
+    [
+      "negated-read",
+      "Do not look up my records; just explain how sleep scores are calculated.",
+      "explain a concept",
+      false
+    ],
+    [
+      "read-only",
+      "Show my notification settings, but do not change them.",
+      "read existing data",
+      true
+    ],
+    [
+      "urgent-setting",
+      "Urgent: stop sending push notifications immediately!",
+      "change settings",
+      false
+    ],
+    [
+      "comparison",
+      "Compare my step totals from yesterday and the day before.",
+      "read existing data",
+      true
+    ]
+  ],
+  "questions": [
+    {
+      "type": "choice",
+      "instructions": "Classify the requested action.",
+      "options": [
+        "read existing data",
+        "explain a concept",
+        "change settings"
+      ]
+    },
+    {
+      "type": "noul",
+      "instructions": "Does the user ask to access their existing personal records?"
+    },
+    {
+      "type": "score",
+      "instructions": "How urgent is this request?",
+      "options": [
+        "not urgent",
+        "moderately urgent",
+        "very urgent"
+      ]
+    }
+  ],
+  "arms": {
+    "open_jev_local": {
+      "runs": [
+        {
+          "case": "sleep-read",
+          "repeat": 0,
+          "elapsed_ms": 122.45,
+          "status": 200,
+          "response": {
+            "answers": [
+              {
+                "choice": "read existing data",
+                "probabilities": {
+                  "read existing data": 0.6624460220336914,
+                  "explain a concept": 0.18271639943122864,
+                  "change settings": 0.15483757853507996
+                },
+                "confidence": 0.6624460220336914
+              },
+              {
+                "noul": 0.7475326657295227
+              },
+              {
+                "score": 0.6417801231145859,
+                "probabilities": {
+                  "not urgent": 0.42884334921836853,
+                  "moderately urgent": 0.5005332827568054,
+                  "very urgent": 0.07062342017889023
+                },
+                "confidence": 0.5005332827568054
+              }
+            ],
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+            "inference_ms": 119.49
+          }
+        },
+        {
+          "case": "sleep-explain",
+          "repeat": 0,
+          "elapsed_ms": 123.65,
+          "status": 200,
+          "response": {
+            "answers": [
+              {
+                "choice": "explain a concept",
+                "probabilities": {
+                  "read existing data": 0.11194638907909393,
+                  "explain a concept": 0.822868824005127,
+                  "change settings": 0.0651848092675209
+                },
+                "confidence": 0.822868824005127
+              },
+              {
+                "noul": 0.6139727830886841
+              },
+              {
+                "score": 0.6004665344953537,
+                "probabilities": {
+                  "not urgent": 0.4648378789424896,
+                  "moderately urgent": 0.4698576331138611,
+                  "very urgent": 0.06530445069074631
+                },
+                "confidence": 0.4698576331138611
+              }
+            ],
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+            "inference_ms": 121.93
+          }
+        },
+        {
+          "case": "notifications",
+          "repeat": 0,
+          "elapsed_ms": 114.43,
+          "status": 200,
+          "response": {
+            "answers": [
+              {
+                "choice": "change settings",
+                "probabilities": {
+                  "read existing data": 0.03902169317007065,
+                  "explain a concept": 0.08194483816623688,
+                  "change settings": 0.8790335059165955
+                },
+                "confidence": 0.8790335059165955
+              },
+              {
+                "noul": 0.549138069152832
+              },
+              {
+                "score": 0.540813684463501,
+                "probabilities": {
+                  "not urgent": 0.5325788259506226,
+                  "moderately urgent": 0.3940284252166748,
+                  "very urgent": 0.07339262962341309
+                },
+                "confidence": 0.5325788259506226
+              }
+            ],
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+            "inference_ms": 113.24
+          }
+        },
+        {
+          "case": "steps-read",
+          "repeat": 0,
+          "elapsed_ms": 124.04,
+          "status": 200,
+          "response": {
+            "answers": [
+              {
+                "choice": "read existing data",
+                "probabilities": {
+                  "read existing data": 0.6593917608261108,
+                  "explain a concept": 0.2085149586200714,
+                  "change settings": 0.13209331035614014
+                },
+                "confidence": 0.6593917608261108
+              },
+              {
+                "noul": 0.7590827345848083
+              },
+              {
+                "score": 0.5845242142677307,
+                "probabilities": {
+                  "not urgent": 0.47748368978500366,
+                  "moderately urgent": 0.46050843596458435,
+                  "very urgent": 0.06200788915157318
+                },
+                "confidence": 0.47748368978500366
+              }
+            ],
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+            "inference_ms": 122.38
+          }
+        },
+        {
+          "case": "hrv-explain",
+          "repeat": 0,
+          "elapsed_ms": 114.38,
+          "status": 200,
+          "response": {
+            "answers": [
+              {
+                "choice": "explain a concept",
+                "probabilities": {
+                  "read existing data": 0.1725083738565445,
+                  "explain a concept": 0.6936099529266357,
+                  "change settings": 0.13388176262378693
+                },
+                "confidence": 0.6936099529266357
+              },
+              {
+                "noul": 0.6299397349357605
+              },
+              {
+                "score": 0.6897679567337036,
+                "probabilities": {
+                  "not urgent": 0.3910563886165619,
+                  "moderately urgent": 0.5281192660331726,
+                  "very urgent": 0.0808243453502655
+                },
+                "confidence": 0.5281192660331726
+              }
+            ],
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+            "inference_ms": 113.18
+          }
+        },
+        {
+          "case": "units",
+          "repeat": 0,
+          "elapsed_ms": 120.37,
+          "status": 200,
+          "response": {
+            "answers": [
+              {
+                "choice": "change settings",
+                "probabilities": {
+                  "read existing data": 0.08474669605493546,
+                  "explain a concept": 0.05774003639817238,
+                  "change settings": 0.8575132489204407
+                },
+                "confidence": 0.8575132489204407
+              },
+              {
+                "noul": 0.34865787625312805
+              },
+              {
+                "score": 0.6265419870615005,
+                "probabilities": {
+                  "not urgent": 0.4512856900691986,
+                  "moderately urgent": 0.47088661789894104,
+                  "very urgent": 0.07782768458127975
+                },
+                "confidence": 0.47088661789894104
+              }
+            ],
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+            "inference_ms": 118.7
+          }
+        },
+        {
+          "case": "negated-read",
+          "repeat": 0,
+          "elapsed_ms": 128.61,
+          "status": 200,
+          "response": {
+            "answers": [
+              {
+                "choice": "explain a concept",
+                "probabilities": {
+                  "read existing data": 0.044015537947416306,
+                  "explain a concept": 0.9085818529129028,
+                  "change settings": 0.04740258306264877
+                },
+                "confidence": 0.9085818529129028
+              },
+              {
+                "noul": 0.03844085708260536
+              },
+              {
+                "score": 0.2560453899204731,
+                "probabilities": {
+                  "not urgent": 0.7689056396484375,
+                  "moderately urgent": 0.20614320039749146,
+                  "very urgent": 0.024951094761490822
+                },
+                "confidence": 0.7689056396484375
+              }
+            ],
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+            "inference_ms": 127.38
+          }
+        },
+        {
+          "case": "read-only",
+          "repeat": 0,
+          "elapsed_ms": 128.38,
+          "status": 200,
+          "response": {
+            "answers": [
+              {
+                "choice": "change settings",
+                "probabilities": {
+                  "read existing data": 0.3024182617664337,
+                  "explain a concept": 0.2245357632637024,
+                  "change settings": 0.4730460047721863
+                },
+                "confidence": 0.4730460047721863
+              },
+              {
+                "noul": 0.33339813351631165
+              },
+              {
+                "score": 0.42830514907836914,
+                "probabilities": {
+                  "not urgent": 0.6055616736412048,
+                  "moderately urgent": 0.36057159304618835,
+                  "very urgent": 0.03386677801609039
+                },
+                "confidence": 0.6055616736412048
+              }
+            ],
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+            "inference_ms": 126.47
+          }
+        },
+        {
+          "case": "urgent-setting",
+          "repeat": 0,
+          "elapsed_ms": 118.3,
+          "status": 200,
+          "response": {
+            "answers": [
+              {
+                "choice": "change settings",
+                "probabilities": {
+                  "read existing data": 0.02754436805844307,
+                  "explain a concept": 0.09629009664058685,
+                  "change settings": 0.8761654496192932
+                },
+                "confidence": 0.8761654496192932
+              },
+              {
+                "noul": 0.3353254497051239
+              },
+              {
+                "score": 1.7182004153728485,
+                "probabilities": {
+                  "not urgent": 0.02861468866467476,
+                  "moderately urgent": 0.2245701253414154,
+                  "very urgent": 0.7468151450157166
+                },
+                "confidence": 0.7468151450157166
+              }
+            ],
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+            "inference_ms": 117.15
+          }
+        },
+        {
+          "case": "comparison",
+          "repeat": 0,
+          "elapsed_ms": 138.49,
+          "status": 200,
+          "response": {
+            "answers": [
+              {
+                "choice": "read existing data",
+                "probabilities": {
+                  "read existing data": 0.5411185622215271,
+                  "explain a concept": 0.25900858640670776,
+                  "change settings": 0.19987289607524872
+                },
+                "confidence": 0.5411185622215271
+              },
+              {
+                "noul": 0.5411091446876526
+              },
+              {
+                "score": 0.550772562623024,
+                "probabilities": {
+                  "not urgent": 0.49941179156303406,
+                  "moderately urgent": 0.45040395855903625,
+                  "very urgent": 0.050184302031993866
+                },
+                "confidence": 0.49941179156303406
+              }
+            ],
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+            "inference_ms": 136.87
+          }
+        },
+        {
+          "case": "sleep-read",
+          "repeat": 1,
+          "elapsed_ms": 114.65,
+          "status": 200,
+          "response": {
+            "answers": [
+              {
+                "choice": "read existing data",
+                "probabilities": {
+                  "read existing data": 0.6624460220336914,
+                  "explain a concept": 0.18271639943122864,
+                  "change settings": 0.15483757853507996
+                },
+                "confidence": 0.6624460220336914
+              },
+              {
+                "noul": 0.7475326657295227
+              },
+              {
+                "score": 0.6417801231145859,
+                "probabilities": {
+                  "not urgent": 0.42884334921836853,
+                  "moderately urgent": 0.5005332827568054,
+                  "very urgent": 0.07062342017889023
+                },
+                "confidence": 0.5005332827568054
+              }
+            ],
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+            "inference_ms": 113.4
+          }
+        },
+        {
+          "case": "sleep-explain",
+          "repeat": 1,
+          "elapsed_ms": 122.78,
+          "status": 200,
+          "response": {
+            "answers": [
+              {
+                "choice": "explain a concept",
+                "probabilities": {
+                  "read existing data": 0.11194638907909393,
+                  "explain a concept": 0.822868824005127,
+                  "change settings": 0.0651848092675209
+                },
+                "confidence": 0.822868824005127
+              },
+              {
+                "noul": 0.6139727830886841
+              },
+              {
+                "score": 0.6004665344953537,
+                "probabilities": {
+                  "not urgent": 0.4648378789424896,
+                  "moderately urgent": 0.4698576331138611,
+                  "very urgent": 0.06530445069074631
+                },
+                "confidence": 0.4698576331138611
+              }
+            ],
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+            "inference_ms": 120.95
+          }
+        },
+        {
+          "case": "notifications",
+          "repeat": 1,
+          "elapsed_ms": 112.44,
+          "status": 200,
+          "response": {
+            "answers": [
+              {
+                "choice": "change settings",
+                "probabilities": {
+                  "read existing data": 0.03902169317007065,
+                  "explain a concept": 0.08194483816623688,
+                  "change settings": 0.8790335059165955
+                },
+                "confidence": 0.8790335059165955
+              },
+              {
+                "noul": 0.549138069152832
+              },
+              {
+                "score": 0.540813684463501,
+                "probabilities": {
+                  "not urgent": 0.5325788259506226,
+                  "moderately urgent": 0.3940284252166748,
+                  "very urgent": 0.07339262962341309
+                },
+                "confidence": 0.5325788259506226
+              }
+            ],
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+            "inference_ms": 111.4
+          }
+        },
+        {
+          "case": "steps-read",
+          "repeat": 1,
+          "elapsed_ms": 121.4,
+          "status": 200,
+          "response": {
+            "answers": [
+              {
+                "choice": "read existing data",
+                "probabilities": {
+                  "read existing data": 0.6593917608261108,
+                  "explain a concept": 0.2085149586200714,
+                  "change settings": 0.13209331035614014
+                },
+                "confidence": 0.6593917608261108
+              },
+              {
+                "noul": 0.7590827345848083
+              },
+              {
+                "score": 0.5845242142677307,
+                "probabilities": {
+                  "not urgent": 0.47748368978500366,
+                  "moderately urgent": 0.46050843596458435,
+                  "very urgent": 0.06200788915157318
+                },
+                "confidence": 0.47748368978500366
+              }
+            ],
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+            "inference_ms": 119.52
+          }
+        },
+        {
+          "case": "hrv-explain",
+          "repeat": 1,
+          "elapsed_ms": 116.65,
+          "status": 200,
+          "response": {
+            "answers": [
+              {
+                "choice": "explain a concept",
+                "probabilities": {
+                  "read existing data": 0.1725083738565445,
+                  "explain a concept": 0.6936099529266357,
+                  "change settings": 0.13388176262378693
+                },
+                "confidence": 0.6936099529266357
+              },
+              {
+                "noul": 0.6299397349357605
+              },
+              {
+                "score": 0.6897679567337036,
+                "probabilities": {
+                  "not urgent": 0.3910563886165619,
+                  "moderately urgent": 0.5281192660331726,
+                  "very urgent": 0.0808243453502655
+                },
+                "confidence": 0.5281192660331726
+              }
+            ],
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+            "inference_ms": 115.66
+          }
+        },
+        {
+          "case": "units",
+          "repeat": 1,
+          "elapsed_ms": 144.85,
+          "status": 200,
+          "response": {
+            "answers": [
+              {
+                "choice": "change settings",
+                "probabilities": {
+                  "read existing data": 0.08474669605493546,
+                  "explain a concept": 0.05774003639817238,
+                  "change settings": 0.8575132489204407
+                },
+                "confidence": 0.8575132489204407
+              },
+              {
+                "noul": 0.34865787625312805
+              },
+              {
+                "score": 0.6265419870615005,
+                "probabilities": {
+                  "not urgent": 0.4512856900691986,
+                  "moderately urgent": 0.47088661789894104,
+                  "very urgent": 0.07782768458127975
+                },
+                "confidence": 0.47088661789894104
+              }
+            ],
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+            "inference_ms": 142.74
+          }
+        },
+        {
+          "case": "negated-read",
+          "repeat": 1,
+          "elapsed_ms": 123.79,
+          "status": 200,
+          "response": {
+            "answers": [
+              {
+                "choice": "explain a concept",
+                "probabilities": {
+                  "read existing data": 0.044015537947416306,
+                  "explain a concept": 0.9085818529129028,
+                  "change settings": 0.04740258306264877
+                },
+                "confidence": 0.9085818529129028
+              },
+              {
+                "noul": 0.03844085708260536
+              },
+              {
+                "score": 0.2560453899204731,
+                "probabilities": {
+                  "not urgent": 0.7689056396484375,
+                  "moderately urgent": 0.20614320039749146,
+                  "very urgent": 0.024951094761490822
+                },
+                "confidence": 0.7689056396484375
+              }
+            ],
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+            "inference_ms": 122.77
+          }
+        },
+        {
+          "case": "read-only",
+          "repeat": 1,
+          "elapsed_ms": 120.26,
+          "status": 200,
+          "response": {
+            "answers": [
+              {
+                "choice": "change settings",
+                "probabilities": {
+                  "read existing data": 0.3024182617664337,
+                  "explain a concept": 0.2245357632637024,
+                  "change settings": 0.4730460047721863
+                },
+                "confidence": 0.4730460047721863
+              },
+              {
+                "noul": 0.33339813351631165
+              },
+              {
+                "score": 0.42830514907836914,
+                "probabilities": {
+                  "not urgent": 0.6055616736412048,
+                  "moderately urgent": 0.36057159304618835,
+                  "very urgent": 0.03386677801609039
+                },
+                "confidence": 0.6055616736412048
+              }
+            ],
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+            "inference_ms": 119.07
+          }
+        },
+        {
+          "case": "urgent-setting",
+          "repeat": 1,
+          "elapsed_ms": 113.32,
+          "status": 200,
+          "response": {
+            "answers": [
+              {
+                "choice": "change settings",
+                "probabilities": {
+                  "read existing data": 0.02754436805844307,
+                  "explain a concept": 0.09629009664058685,
+                  "change settings": 0.8761654496192932
+                },
+                "confidence": 0.8761654496192932
+              },
+              {
+                "noul": 0.3353254497051239
+              },
+              {
+                "score": 1.7182004153728485,
+                "probabilities": {
+                  "not urgent": 0.02861468866467476,
+                  "moderately urgent": 0.2245701253414154,
+                  "very urgent": 0.7468151450157166
+                },
+                "confidence": 0.7468151450157166
+              }
+            ],
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+            "inference_ms": 112.21
+          }
+        },
+        {
+          "case": "comparison",
+          "repeat": 1,
+          "elapsed_ms": 127.97,
+          "status": 200,
+          "response": {
+            "answers": [
+              {
+                "choice": "read existing data",
+                "probabilities": {
+                  "read existing data": 0.5411185622215271,
+                  "explain a concept": 0.25900858640670776,
+                  "change settings": 0.19987289607524872
+                },
+                "confidence": 0.5411185622215271
+              },
+              {
+                "noul": 0.5411091446876526
+              },
+              {
+                "score": 0.550772562623024,
+                "probabilities": {
+                  "not urgent": 0.49941179156303406,
+                  "moderately urgent": 0.45040395855903625,
+                  "very urgent": 0.050184302031993866
+                },
+                "confidence": 0.49941179156303406
+              }
+            ],
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+            "inference_ms": 126.83
+          }
+        },
+        {
+          "case": "sleep-read",
+          "repeat": 2,
+          "elapsed_ms": 119.41,
+          "status": 200,
+          "response": {
+            "answers": [
+              {
+                "choice": "read existing data",
+                "probabilities": {
+                  "read existing data": 0.6624460220336914,
+                  "explain a concept": 0.18271639943122864,
+                  "change settings": 0.15483757853507996
+                },
+                "confidence": 0.6624460220336914
+              },
+              {
+                "noul": 0.7475326657295227
+              },
+              {
+                "score": 0.6417801231145859,
+                "probabilities": {
+                  "not urgent": 0.42884334921836853,
+                  "moderately urgent": 0.5005332827568054,
+                  "very urgent": 0.07062342017889023
+                },
+                "confidence": 0.5005332827568054
+              }
+            ],
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+            "inference_ms": 118.29
+          }
+        },
+        {
+          "case": "sleep-explain",
+          "repeat": 2,
+          "elapsed_ms": 121.68,
+          "status": 200,
+          "response": {
+            "answers": [
+              {
+                "choice": "explain a concept",
+                "probabilities": {
+                  "read existing data": 0.11194638907909393,
+                  "explain a concept": 0.822868824005127,
+                  "change settings": 0.0651848092675209
+                },
+                "confidence": 0.822868824005127
+              },
+              {
+                "noul": 0.6139727830886841
+              },
+              {
+                "score": 0.6004665344953537,
+                "probabilities": {
+                  "not urgent": 0.4648378789424896,
+                  "moderately urgent": 0.4698576331138611,
+                  "very urgent": 0.06530445069074631
+                },
+                "confidence": 0.4698576331138611
+              }
+            ],
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+            "inference_ms": 120.55
+          }
+        },
+        {
+          "case": "notifications",
+          "repeat": 2,
+          "elapsed_ms": 119.4,
+          "status": 200,
+          "response": {
+            "answers": [
+              {
+                "choice": "change settings",
+                "probabilities": {
+                  "read existing data": 0.03902169317007065,
+                  "explain a concept": 0.08194483816623688,
+                  "change settings": 0.8790335059165955
+                },
+                "confidence": 0.8790335059165955
+              },
+              {
+                "noul": 0.549138069152832
+              },
+              {
+                "score": 0.540813684463501,
+                "probabilities": {
+                  "not urgent": 0.5325788259506226,
+                  "moderately urgent": 0.3940284252166748,
+                  "very urgent": 0.07339262962341309
+                },
+                "confidence": 0.5325788259506226
+              }
+            ],
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+            "inference_ms": 118.11
+          }
+        },
+        {
+          "case": "steps-read",
+          "repeat": 2,
+          "elapsed_ms": 116.31,
+          "status": 200,
+          "response": {
+            "answers": [
+              {
+                "choice": "read existing data",
+                "probabilities": {
+                  "read existing data": 0.6593917608261108,
+                  "explain a concept": 0.2085149586200714,
+                  "change settings": 0.13209331035614014
+                },
+                "confidence": 0.6593917608261108
+              },
+              {
+                "noul": 0.7590827345848083
+              },
+              {
+                "score": 0.5845242142677307,
+                "probabilities": {
+                  "not urgent": 0.47748368978500366,
+                  "moderately urgent": 0.46050843596458435,
+                  "very urgent": 0.06200788915157318
+                },
+                "confidence": 0.47748368978500366
+              }
+            ],
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+            "inference_ms": 115.19
+          }
+        },
+        {
+          "case": "hrv-explain",
+          "repeat": 2,
+          "elapsed_ms": 116.42,
+          "status": 200,
+          "response": {
+            "answers": [
+              {
+                "choice": "explain a concept",
+                "probabilities": {
+                  "read existing data": 0.1725083738565445,
+                  "explain a concept": 0.6936099529266357,
+                  "change settings": 0.13388176262378693
+                },
+                "confidence": 0.6936099529266357
+              },
+              {
+                "noul": 0.6299397349357605
+              },
+              {
+                "score": 0.6897679567337036,
+                "probabilities": {
+                  "not urgent": 0.3910563886165619,
+                  "moderately urgent": 0.5281192660331726,
+                  "very urgent": 0.0808243453502655
+                },
+                "confidence": 0.5281192660331726
+              }
+            ],
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+            "inference_ms": 115.29
+          }
+        },
+        {
+          "case": "units",
+          "repeat": 2,
+          "elapsed_ms": 120.41,
+          "status": 200,
+          "response": {
+            "answers": [
+              {
+                "choice": "change settings",
+                "probabilities": {
+                  "read existing data": 0.08474669605493546,
+                  "explain a concept": 0.05774003639817238,
+                  "change settings": 0.8575132489204407
+                },
+                "confidence": 0.8575132489204407
+              },
+              {
+                "noul": 0.34865787625312805
+              },
+              {
+                "score": 0.6265419870615005,
+                "probabilities": {
+                  "not urgent": 0.4512856900691986,
+                  "moderately urgent": 0.47088661789894104,
+                  "very urgent": 0.07782768458127975
+                },
+                "confidence": 0.47088661789894104
+              }
+            ],
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+            "inference_ms": 119.02
+          }
+        },
+        {
+          "case": "negated-read",
+          "repeat": 2,
+          "elapsed_ms": 141.78,
+          "status": 200,
+          "response": {
+            "answers": [
+              {
+                "choice": "explain a concept",
+                "probabilities": {
+                  "read existing data": 0.044015537947416306,
+                  "explain a concept": 0.9085818529129028,
+                  "change settings": 0.04740258306264877
+                },
+                "confidence": 0.9085818529129028
+              },
+              {
+                "noul": 0.03844085708260536
+              },
+              {
+                "score": 0.2560453899204731,
+                "probabilities": {
+                  "not urgent": 0.7689056396484375,
+                  "moderately urgent": 0.20614320039749146,
+                  "very urgent": 0.024951094761490822
+                },
+                "confidence": 0.7689056396484375
+              }
+            ],
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+            "inference_ms": 140.56
+          }
+        },
+        {
+          "case": "read-only",
+          "repeat": 2,
+          "elapsed_ms": 141.66,
+          "status": 200,
+          "response": {
+            "answers": [
+              {
+                "choice": "change settings",
+                "probabilities": {
+                  "read existing data": 0.3024182617664337,
+                  "explain a concept": 0.2245357632637024,
+                  "change settings": 0.4730460047721863
+                },
+                "confidence": 0.4730460047721863
+              },
+              {
+                "noul": 0.33339813351631165
+              },
+              {
+                "score": 0.42830514907836914,
+                "probabilities": {
+                  "not urgent": 0.6055616736412048,
+                  "moderately urgent": 0.36057159304618835,
+                  "very urgent": 0.03386677801609039
+                },
+                "confidence": 0.6055616736412048
+              }
+            ],
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+            "inference_ms": 140.31
+          }
+        },
+        {
+          "case": "urgent-setting",
+          "repeat": 2,
+          "elapsed_ms": 125.23,
+          "status": 200,
+          "response": {
+            "answers": [
+              {
+                "choice": "change settings",
+                "probabilities": {
+                  "read existing data": 0.02754436805844307,
+                  "explain a concept": 0.09629009664058685,
+                  "change settings": 0.8761654496192932
+                },
+                "confidence": 0.8761654496192932
+              },
+              {
+                "noul": 0.3353254497051239
+              },
+              {
+                "score": 1.7182004153728485,
+                "probabilities": {
+                  "not urgent": 0.02861468866467476,
+                  "moderately urgent": 0.2245701253414154,
+                  "very urgent": 0.7468151450157166
+                },
+                "confidence": 0.7468151450157166
+              }
+            ],
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+            "inference_ms": 123.9
+          }
+        },
+        {
+          "case": "comparison",
+          "repeat": 2,
+          "elapsed_ms": 130.25,
+          "status": 200,
+          "response": {
+            "answers": [
+              {
+                "choice": "read existing data",
+                "probabilities": {
+                  "read existing data": 0.5411185622215271,
+                  "explain a concept": 0.25900858640670776,
+                  "change settings": 0.19987289607524872
+                },
+                "confidence": 0.5411185622215271
+              },
+              {
+                "noul": 0.5411091446876526
+              },
+              {
+                "score": 0.550772562623024,
+                "probabilities": {
+                  "not urgent": 0.49941179156303406,
+                  "moderately urgent": 0.45040395855903625,
+                  "very urgent": 0.050184302031993866
+                },
+                "confidence": 0.49941179156303406
+              }
+            ],
+            "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+            "inference_ms": 129.07
+          }
+        }
+      ],
+      "summary": {
+        "requests": 30,
+        "first_call_ms": 122.45,
+        "warm_n": 29,
+        "warm_p50_ms": 121.4,
+        "warm_p95_ms": 141.78,
+        "choice_correct": 9,
+        "noul_correct": 6,
+        "unique_cases": 10
+      }
+    },
+    "typesafe_jev": {
+      "runs": [
+        {
+          "case": "sleep-read",
+          "repeat": 0,
+          "elapsed_ms": 385.51,
+          "status": 200,
+          "response": {
+            "model": "jev-1.13.0",
+            "answers": {
+              "q0": {
+                "type": "choice",
+                "choice": "read existing data",
+                "confidence": 1.0,
+                "probabilities": {
+                  "read existing data": 1.0,
+                  "change settings": 0.0,
+                  "explain a concept": 0.0
+                }
+              },
+              "q1": {
+                "type": "noul",
+                "noul": 0.95
+              },
+              "q2": {
+                "type": "score",
+                "score": 0.0,
+                "confidence": 1.0,
+                "legend": {
+                  "0": "not urgent",
+                  "1": "moderately urgent",
+                  "2": "very urgent"
+                },
+                "probabilities": {
+                  "0": 1.0,
+                  "1": 0.0,
+                  "2": 0.0
+                }
+              }
+            },
+            "usage": {
+              "input_tokens": 368,
+              "output_tokens": 79
+            }
+          }
+        },
+        {
+          "case": "sleep-explain",
+          "repeat": 0,
+          "elapsed_ms": 318.69,
+          "status": 200,
+          "response": {
+            "model": "jev-1.13.0",
+            "answers": {
+              "q0": {
+                "type": "choice",
+                "choice": "explain a concept",
+                "confidence": 1.0,
+                "probabilities": {
+                  "read existing data": 0.0,
+                  "explain a concept": 1.0,
+                  "change settings": 0.0
+                }
+              },
+              "q1": {
+                "type": "noul",
+                "noul": 0.01
+              },
+              "q2": {
+                "type": "score",
+                "score": 0.0,
+                "confidence": 1.0,
+                "legend": {
+                  "0": "not urgent",
+                  "1": "moderately urgent",
+                  "2": "very urgent"
+                },
+                "probabilities": {
+                  "0": 1.0,
+                  "1": 0.0,
+                  "2": 0.0
+                }
+              }
+            },
+            "usage": {
+              "input_tokens": 369,
+              "output_tokens": 80
+            }
+          }
+        },
+        {
+          "case": "notifications",
+          "repeat": 0,
+          "elapsed_ms": 397.87,
+          "status": 200,
+          "response": {
+            "model": "jev-1.13.0",
+            "answers": {
+              "q0": {
+                "type": "choice",
+                "choice": "change settings",
+                "confidence": 1.0,
+                "probabilities": {
+                  "change settings": 1.0,
+                  "read existing data": 0.0,
+                  "explain a concept": 0.0
+                }
+              },
+              "q1": {
+                "type": "noul",
+                "noul": 0.02
+              },
+              "q2": {
+                "type": "score",
+                "score": 0.18,
+                "confidence": 0.73,
+                "legend": {
+                  "0": "not urgent",
+                  "1": "moderately urgent",
+                  "2": "very urgent"
+                },
+                "probabilities": {
+                  "0": 0.84,
+                  "1": 0.15,
+                  "2": 0.01
+                }
+              }
+            },
+            "usage": {
+              "input_tokens": 366,
+              "output_tokens": 78
+            }
+          }
+        },
+        {
+          "case": "steps-read",
+          "repeat": 0,
+          "elapsed_ms": 312.07,
+          "status": 200,
+          "response": {
+            "model": "jev-1.13.0",
+            "answers": {
+              "q0": {
+                "type": "choice",
+                "choice": "read existing data",
+                "confidence": 1.0,
+                "probabilities": {
+                  "read existing data": 1.0,
+                  "change settings": 0.0,
+                  "explain a concept": 0.0
+                }
+              },
+              "q1": {
+                "type": "noul",
+                "noul": 0.95
+              },
+              "q2": {
+                "type": "score",
+                "score": 0.0,
+                "confidence": 1.0,
+                "legend": {
+                  "0": "not urgent",
+                  "1": "moderately urgent",
+                  "2": "very urgent"
+                },
+                "probabilities": {
+                  "0": 1.0,
+                  "1": 0.0,
+                  "2": 0.0
+                }
+              }
+            },
+            "usage": {
+              "input_tokens": 368,
+              "output_tokens": 79
+            }
+          }
+        },
+        {
+          "case": "hrv-explain",
+          "repeat": 0,
+          "elapsed_ms": 264.99,
+          "status": 200,
+          "response": {
+            "model": "jev-1.13.0",
+            "answers": {
+              "q0": {
+                "type": "choice",
+                "choice": "explain a concept",
+                "confidence": 1.0,
+                "probabilities": {
+                  "explain a concept": 1.0,
+                  "read existing data": 0.0,
+                  "change settings": 0.0
+                }
+              },
+              "q1": {
+                "type": "noul",
+                "noul": 0.01
+              },
+              "q2": {
+                "type": "score",
+                "score": 0.0,
+                "confidence": 1.0,
+                "legend": {
+                  "0": "not urgent",
+                  "1": "moderately urgent",
+                  "2": "very urgent"
+                },
+                "probabilities": {
+                  "0": 1.0,
+                  "1": 0.0,
+                  "2": 0.0
+                }
+              }
+            },
+            "usage": {
+              "input_tokens": 367,
+              "output_tokens": 80
+            }
+          }
+        },
+        {
+          "case": "units",
+          "repeat": 0,
+          "elapsed_ms": 410.03,
+          "status": 200,
+          "response": {
+            "model": "jev-1.13.0",
+            "answers": {
+              "q0": {
+                "type": "choice",
+                "choice": "change settings",
+                "confidence": 1.0,
+                "probabilities": {
+                  "read existing data": 0.0,
+                  "change settings": 1.0,
+                  "explain a concept": 0.0
+                }
+              },
+              "q1": {
+                "type": "noul",
+                "noul": 0.02
+              },
+              "q2": {
+                "type": "score",
+                "score": 0.02,
+                "confidence": 0.96,
+                "legend": {
+                  "0": "not urgent",
+                  "1": "moderately urgent",
+                  "2": "very urgent"
+                },
+                "probabilities": {
+                  "0": 0.98,
+                  "1": 0.02,
+                  "2": 0.0
+                }
+              }
+            },
+            "usage": {
+              "input_tokens": 367,
+              "output_tokens": 78
+            }
+          }
+        },
+        {
+          "case": "negated-read",
+          "repeat": 0,
+          "elapsed_ms": 317.32,
+          "status": 200,
+          "response": {
+            "model": "jev-1.13.0",
+            "answers": {
+              "q0": {
+                "type": "choice",
+                "choice": "explain a concept",
+                "confidence": 1.0,
+                "probabilities": {
+                  "explain a concept": 1.0,
+                  "read existing data": 0.0,
+                  "change settings": 0.0
+                }
+              },
+              "q1": {
+                "type": "noul",
+                "noul": 0.06
+              },
+              "q2": {
+                "type": "score",
+                "score": 0.0,
+                "confidence": 1.0,
+                "legend": {
+                  "0": "not urgent",
+                  "1": "moderately urgent",
+                  "2": "very urgent"
+                },
+                "probabilities": {
+                  "0": 1.0,
+                  "1": 0.0,
+                  "2": 0.0
+                }
+              }
+            },
+            "usage": {
+              "input_tokens": 375,
+              "output_tokens": 80
+            }
+          }
+        },
+        {
+          "case": "read-only",
+          "repeat": 0,
+          "elapsed_ms": 265.06,
+          "status": 200,
+          "response": {
+            "model": "jev-1.13.0",
+            "answers": {
+              "q0": {
+                "type": "choice",
+                "choice": "read existing data",
+                "confidence": 1.0,
+                "probabilities": {
+                  "change settings": 0.0,
+                  "read existing data": 1.0,
+                  "explain a concept": 0.0
+                }
+              },
+              "q1": {
+                "type": "noul",
+                "noul": 0.79
+              },
+              "q2": {
+                "type": "score",
+                "score": 0.0,
+                "confidence": 1.0,
+                "legend": {
+                  "0": "not urgent",
+                  "1": "moderately urgent",
+                  "2": "very urgent"
+                },
+                "probabilities": {
+                  "0": 1.0,
+                  "1": 0.0,
+                  "2": 0.0
+                }
+              }
+            },
+            "usage": {
+              "input_tokens": 371,
+              "output_tokens": 79
+            }
+          }
+        },
+        {
+          "case": "urgent-setting",
+          "repeat": 0,
+          "elapsed_ms": 309.13,
+          "status": 200,
+          "response": {
+            "model": "jev-1.13.0",
+            "answers": {
+              "q0": {
+                "type": "choice",
+                "choice": "change settings",
+                "confidence": 1.0,
+                "probabilities": {
+                  "read existing data": 0.0,
+                  "change settings": 1.0,
+                  "explain a concept": 0.0
+                }
+              },
+              "q1": {
+                "type": "noul",
+                "noul": 0.03
+              },
+              "q2": {
+                "type": "score",
+                "score": 1.98,
+                "confidence": 0.97,
+                "legend": {
+                  "0": "not urgent",
+                  "1": "moderately urgent",
+                  "2": "very urgent"
+                },
+                "probabilities": {
+                  "0": 0.0,
+                  "1": 0.02,
+                  "2": 0.98
+                }
+              }
+            },
+            "usage": {
+              "input_tokens": 369,
+              "output_tokens": 78
+            }
+          }
+        },
+        {
+          "case": "comparison",
+          "repeat": 0,
+          "elapsed_ms": 317.98,
+          "status": 200,
+          "response": {
+            "model": "jev-1.13.0",
+            "answers": {
+              "q0": {
+                "type": "choice",
+                "choice": "read existing data",
+                "confidence": 1.0,
+                "probabilities": {
+                  "change settings": 0.0,
+                  "explain a concept": 0.0,
+                  "read existing data": 1.0
+                }
+              },
+              "q1": {
+                "type": "noul",
+                "noul": 0.93
+              },
+              "q2": {
+                "type": "score",
+                "score": 0.0,
+                "confidence": 1.0,
+                "legend": {
+                  "0": "not urgent",
+                  "1": "moderately urgent",
+                  "2": "very urgent"
+                },
+                "probabilities": {
+                  "0": 1.0,
+                  "1": 0.0,
+                  "2": 0.0
+                }
+              }
+            },
+            "usage": {
+              "input_tokens": 371,
+              "output_tokens": 79
+            }
+          }
+        },
+        {
+          "case": "sleep-read",
+          "repeat": 1,
+          "elapsed_ms": 282.97,
+          "status": 200,
+          "response": {
+            "model": "jev-1.13.0",
+            "answers": {
+              "q0": {
+                "type": "choice",
+                "choice": "read existing data",
+                "confidence": 1.0,
+                "probabilities": {
+                  "read existing data": 1.0,
+                  "change settings": 0.0,
+                  "explain a concept": 0.0
+                }
+              },
+              "q1": {
+                "type": "noul",
+                "noul": 0.95
+              },
+              "q2": {
+                "type": "score",
+                "score": 0.0,
+                "confidence": 0.99,
+                "legend": {
+                  "0": "not urgent",
+                  "1": "moderately urgent",
+                  "2": "very urgent"
+                },
+                "probabilities": {
+                  "0": 1.0,
+                  "1": 0.0,
+                  "2": 0.0
+                }
+              }
+            },
+            "usage": {
+              "input_tokens": 368,
+              "output_tokens": 79
+            }
+          }
+        },
+        {
+          "case": "sleep-explain",
+          "repeat": 1,
+          "elapsed_ms": 383.12,
+          "status": 200,
+          "response": {
+            "model": "jev-1.13.0",
+            "answers": {
+              "q0": {
+                "type": "choice",
+                "choice": "explain a concept",
+                "confidence": 1.0,
+                "probabilities": {
+                  "read existing data": 0.0,
+                  "change settings": 0.0,
+                  "explain a concept": 1.0
+                }
+              },
+              "q1": {
+                "type": "noul",
+                "noul": 0.01
+              },
+              "q2": {
+                "type": "score",
+                "score": 0.0,
+                "confidence": 1.0,
+                "legend": {
+                  "0": "not urgent",
+                  "1": "moderately urgent",
+                  "2": "very urgent"
+                },
+                "probabilities": {
+                  "0": 1.0,
+                  "1": 0.0,
+                  "2": 0.0
+                }
+              }
+            },
+            "usage": {
+              "input_tokens": 369,
+              "output_tokens": 80
+            }
+          }
+        },
+        {
+          "case": "notifications",
+          "repeat": 1,
+          "elapsed_ms": 316.71,
+          "status": 200,
+          "response": {
+            "model": "jev-1.13.0",
+            "answers": {
+              "q0": {
+                "type": "choice",
+                "choice": "change settings",
+                "confidence": 1.0,
+                "probabilities": {
+                  "change settings": 1.0,
+                  "read existing data": 0.0,
+                  "explain a concept": 0.0
+                }
+              },
+              "q1": {
+                "type": "noul",
+                "noul": 0.02
+              },
+              "q2": {
+                "type": "score",
+                "score": 0.21,
+                "confidence": 0.69,
+                "legend": {
+                  "0": "not urgent",
+                  "1": "moderately urgent",
+                  "2": "very urgent"
+                },
+                "probabilities": {
+                  "0": 0.81,
+                  "1": 0.18,
+                  "2": 0.01
+                }
+              }
+            },
+            "usage": {
+              "input_tokens": 366,
+              "output_tokens": 78
+            }
+          }
+        },
+        {
+          "case": "steps-read",
+          "repeat": 1,
+          "elapsed_ms": 269.89,
+          "status": 200,
+          "response": {
+            "model": "jev-1.13.0",
+            "answers": {
+              "q0": {
+                "type": "choice",
+                "choice": "read existing data",
+                "confidence": 1.0,
+                "probabilities": {
+                  "change settings": 0.0,
+                  "read existing data": 1.0,
+                  "explain a concept": 0.0
+                }
+              },
+              "q1": {
+                "type": "noul",
+                "noul": 0.95
+              },
+              "q2": {
+                "type": "score",
+                "score": 0.0,
+                "confidence": 1.0,
+                "legend": {
+                  "0": "not urgent",
+                  "1": "moderately urgent",
+                  "2": "very urgent"
+                },
+                "probabilities": {
+                  "0": 1.0,
+                  "1": 0.0,
+                  "2": 0.0
+                }
+              }
+            },
+            "usage": {
+              "input_tokens": 368,
+              "output_tokens": 79
+            }
+          }
+        },
+        {
+          "case": "hrv-explain",
+          "repeat": 1,
+          "elapsed_ms": 286.23,
+          "status": 200,
+          "response": {
+            "model": "jev-1.13.0",
+            "answers": {
+              "q0": {
+                "type": "choice",
+                "choice": "explain a concept",
+                "confidence": 1.0,
+                "probabilities": {
+                  "explain a concept": 1.0,
+                  "read existing data": 0.0,
+                  "change settings": 0.0
+                }
+              },
+              "q1": {
+                "type": "noul",
+                "noul": 0.01
+              },
+              "q2": {
+                "type": "score",
+                "score": 0.0,
+                "confidence": 1.0,
+                "legend": {
+                  "0": "not urgent",
+                  "1": "moderately urgent",
+                  "2": "very urgent"
+                },
+                "probabilities": {
+                  "0": 1.0,
+                  "1": 0.0,
+                  "2": 0.0
+                }
+              }
+            },
+            "usage": {
+              "input_tokens": 367,
+              "output_tokens": 80
+            }
+          }
+        },
+        {
+          "case": "units",
+          "repeat": 1,
+          "elapsed_ms": 345.82,
+          "status": 200,
+          "response": {
+            "model": "jev-1.13.0",
+            "answers": {
+              "q0": {
+                "type": "choice",
+                "choice": "change settings",
+                "confidence": 1.0,
+                "probabilities": {
+                  "read existing data": 0.0,
+                  "explain a concept": 0.0,
+                  "change settings": 1.0
+                }
+              },
+              "q1": {
+                "type": "noul",
+                "noul": 0.02
+              },
+              "q2": {
+                "type": "score",
+                "score": 0.02,
+                "confidence": 0.97,
+                "legend": {
+                  "0": "not urgent",
+                  "1": "moderately urgent",
+                  "2": "very urgent"
+                },
+                "probabilities": {
+                  "0": 0.98,
+                  "1": 0.02,
+                  "2": 0.0
+                }
+              }
+            },
+            "usage": {
+              "input_tokens": 367,
+              "output_tokens": 78
+            }
+          }
+        },
+        {
+          "case": "negated-read",
+          "repeat": 1,
+          "elapsed_ms": 369.62,
+          "status": 200,
+          "response": {
+            "model": "jev-1.13.0",
+            "answers": {
+              "q0": {
+                "type": "choice",
+                "choice": "explain a concept",
+                "confidence": 1.0,
+                "probabilities": {
+                  "change settings": 0.0,
+                  "read existing data": 0.0,
+                  "explain a concept": 1.0
+                }
+              },
+              "q1": {
+                "type": "noul",
+                "noul": 0.06
+              },
+              "q2": {
+                "type": "score",
+                "score": 0.0,
+                "confidence": 1.0,
+                "legend": {
+                  "0": "not urgent",
+                  "1": "moderately urgent",
+                  "2": "very urgent"
+                },
+                "probabilities": {
+                  "0": 1.0,
+                  "1": 0.0,
+                  "2": 0.0
+                }
+              }
+            },
+            "usage": {
+              "input_tokens": 375,
+              "output_tokens": 80
+            }
+          }
+        },
+        {
+          "case": "read-only",
+          "repeat": 1,
+          "elapsed_ms": 285.79,
+          "status": 200,
+          "response": {
+            "model": "jev-1.13.0",
+            "answers": {
+              "q0": {
+                "type": "choice",
+                "choice": "read existing data",
+                "confidence": 1.0,
+                "probabilities": {
+                  "explain a concept": 0.0,
+                  "change settings": 0.0,
+                  "read existing data": 1.0
+                }
+              },
+              "q1": {
+                "type": "noul",
+                "noul": 0.77
+              },
+              "q2": {
+                "type": "score",
+                "score": 0.0,
+                "confidence": 1.0,
+                "legend": {
+                  "0": "not urgent",
+                  "1": "moderately urgent",
+                  "2": "very urgent"
+                },
+                "probabilities": {
+                  "0": 1.0,
+                  "1": 0.0,
+                  "2": 0.0
+                }
+              }
+            },
+            "usage": {
+              "input_tokens": 371,
+              "output_tokens": 79
+            }
+          }
+        },
+        {
+          "case": "urgent-setting",
+          "repeat": 1,
+          "elapsed_ms": 310.97,
+          "status": 200,
+          "response": {
+            "model": "jev-1.13.0",
+            "answers": {
+              "q0": {
+                "type": "choice",
+                "choice": "change settings",
+                "confidence": 1.0,
+                "probabilities": {
+                  "explain a concept": 0.0,
+                  "change settings": 1.0,
+                  "read existing data": 0.0
+                }
+              },
+              "q1": {
+                "type": "noul",
+                "noul": 0.02
+              },
+              "q2": {
+                "type": "score",
+                "score": 1.97,
+                "confidence": 0.96,
+                "legend": {
+                  "0": "not urgent",
+                  "1": "moderately urgent",
+                  "2": "very urgent"
+                },
+                "probabilities": {
+                  "0": 0.0,
+                  "1": 0.02,
+                  "2": 0.98
+                }
+              }
+            },
+            "usage": {
+              "input_tokens": 369,
+              "output_tokens": 78
+            }
+          }
+        },
+        {
+          "case": "comparison",
+          "repeat": 1,
+          "elapsed_ms": 315.55,
+          "status": 200,
+          "response": {
+            "model": "jev-1.13.0",
+            "answers": {
+              "q0": {
+                "type": "choice",
+                "choice": "read existing data",
+                "confidence": 1.0,
+                "probabilities": {
+                  "read existing data": 1.0,
+                  "change settings": 0.0,
+                  "explain a concept": 0.0
+                }
+              },
+              "q1": {
+                "type": "noul",
+                "noul": 0.93
+              },
+              "q2": {
+                "type": "score",
+                "score": 0.0,
+                "confidence": 1.0,
+                "legend": {
+                  "0": "not urgent",
+                  "1": "moderately urgent",
+                  "2": "very urgent"
+                },
+                "probabilities": {
+                  "0": 1.0,
+                  "1": 0.0,
+                  "2": 0.0
+                }
+              }
+            },
+            "usage": {
+              "input_tokens": 371,
+              "output_tokens": 79
+            }
+          }
+        },
+        {
+          "case": "sleep-read",
+          "repeat": 2,
+          "elapsed_ms": 303.03,
+          "status": 200,
+          "response": {
+            "model": "jev-1.13.0",
+            "answers": {
+              "q0": {
+                "type": "choice",
+                "choice": "read existing data",
+                "confidence": 1.0,
+                "probabilities": {
+                  "change settings": 0.0,
+                  "read existing data": 1.0,
+                  "explain a concept": 0.0
+                }
+              },
+              "q1": {
+                "type": "noul",
+                "noul": 0.96
+              },
+              "q2": {
+                "type": "score",
+                "score": 0.0,
+                "confidence": 0.99,
+                "legend": {
+                  "0": "not urgent",
+                  "1": "moderately urgent",
+                  "2": "very urgent"
+                },
+                "probabilities": {
+                  "0": 1.0,
+                  "1": 0.0,
+                  "2": 0.0
+                }
+              }
+            },
+            "usage": {
+              "input_tokens": 368,
+              "output_tokens": 79
+            }
+          }
+        },
+        {
+          "case": "sleep-explain",
+          "repeat": 2,
+          "elapsed_ms": 302.78,
+          "status": 200,
+          "response": {
+            "model": "jev-1.13.0",
+            "answers": {
+              "q0": {
+                "type": "choice",
+                "choice": "explain a concept",
+                "confidence": 1.0,
+                "probabilities": {
+                  "change settings": 0.0,
+                  "explain a concept": 1.0,
+                  "read existing data": 0.0
+                }
+              },
+              "q1": {
+                "type": "noul",
+                "noul": 0.01
+              },
+              "q2": {
+                "type": "score",
+                "score": 0.0,
+                "confidence": 1.0,
+                "legend": {
+                  "0": "not urgent",
+                  "1": "moderately urgent",
+                  "2": "very urgent"
+                },
+                "probabilities": {
+                  "0": 1.0,
+                  "1": 0.0,
+                  "2": 0.0
+                }
+              }
+            },
+            "usage": {
+              "input_tokens": 369,
+              "output_tokens": 80
+            }
+          }
+        },
+        {
+          "case": "notifications",
+          "repeat": 2,
+          "elapsed_ms": 296.26,
+          "status": 200,
+          "response": {
+            "model": "jev-1.13.0",
+            "answers": {
+              "q0": {
+                "type": "choice",
+                "choice": "change settings",
+                "confidence": 1.0,
+                "probabilities": {
+                  "change settings": 1.0,
+                  "read existing data": 0.0,
+                  "explain a concept": 0.0
+                }
+              },
+              "q1": {
+                "type": "noul",
+                "noul": 0.02
+              },
+              "q2": {
+                "type": "score",
+                "score": 0.19,
+                "confidence": 0.71,
+                "legend": {
+                  "0": "not urgent",
+                  "1": "moderately urgent",
+                  "2": "very urgent"
+                },
+                "probabilities": {
+                  "0": 0.82,
+                  "1": 0.17,
+                  "2": 0.01
+                }
+              }
+            },
+            "usage": {
+              "input_tokens": 366,
+              "output_tokens": 78
+            }
+          }
+        },
+        {
+          "case": "steps-read",
+          "repeat": 2,
+          "elapsed_ms": 286.49,
+          "status": 200,
+          "response": {
+            "model": "jev-1.13.0",
+            "answers": {
+              "q0": {
+                "type": "choice",
+                "choice": "read existing data",
+                "confidence": 1.0,
+                "probabilities": {
+                  "change settings": 0.0,
+                  "explain a concept": 0.0,
+                  "read existing data": 1.0
+                }
+              },
+              "q1": {
+                "type": "noul",
+                "noul": 0.95
+              },
+              "q2": {
+                "type": "score",
+                "score": 0.0,
+                "confidence": 1.0,
+                "legend": {
+                  "0": "not urgent",
+                  "1": "moderately urgent",
+                  "2": "very urgent"
+                },
+                "probabilities": {
+                  "0": 1.0,
+                  "1": 0.0,
+                  "2": 0.0
+                }
+              }
+            },
+            "usage": {
+              "input_tokens": 368,
+              "output_tokens": 79
+            }
+          }
+        },
+        {
+          "case": "hrv-explain",
+          "repeat": 2,
+          "elapsed_ms": 375.36,
+          "status": 200,
+          "response": {
+            "model": "jev-1.13.0",
+            "answers": {
+              "q0": {
+                "type": "choice",
+                "choice": "explain a concept",
+                "confidence": 1.0,
+                "probabilities": {
+                  "change settings": 0.0,
+                  "explain a concept": 1.0,
+                  "read existing data": 0.0
+                }
+              },
+              "q1": {
+                "type": "noul",
+                "noul": 0.02
+              },
+              "q2": {
+                "type": "score",
+                "score": 0.0,
+                "confidence": 1.0,
+                "legend": {
+                  "0": "not urgent",
+                  "1": "moderately urgent",
+                  "2": "very urgent"
+                },
+                "probabilities": {
+                  "0": 1.0,
+                  "1": 0.0,
+                  "2": 0.0
+                }
+              }
+            },
+            "usage": {
+              "input_tokens": 367,
+              "output_tokens": 80
+            }
+          }
+        },
+        {
+          "case": "units",
+          "repeat": 2,
+          "elapsed_ms": 302.87,
+          "status": 200,
+          "response": {
+            "model": "jev-1.13.0",
+            "answers": {
+              "q0": {
+                "type": "choice",
+                "choice": "change settings",
+                "confidence": 1.0,
+                "probabilities": {
+                  "change settings": 1.0,
+                  "read existing data": 0.0,
+                  "explain a concept": 0.0
+                }
+              },
+              "q1": {
+                "type": "noul",
+                "noul": 0.02
+              },
+              "q2": {
+                "type": "score",
+                "score": 0.03,
+                "confidence": 0.96,
+                "legend": {
+                  "0": "not urgent",
+                  "1": "moderately urgent",
+                  "2": "very urgent"
+                },
+                "probabilities": {
+                  "0": 0.98,
+                  "1": 0.02,
+                  "2": 0.0
+                }
+              }
+            },
+            "usage": {
+              "input_tokens": 367,
+              "output_tokens": 78
+            }
+          }
+        },
+        {
+          "case": "negated-read",
+          "repeat": 2,
+          "elapsed_ms": 327.72,
+          "status": 200,
+          "response": {
+            "model": "jev-1.13.0",
+            "answers": {
+              "q0": {
+                "type": "choice",
+                "choice": "explain a concept",
+                "confidence": 1.0,
+                "probabilities": {
+                  "explain a concept": 1.0,
+                  "change settings": 0.0,
+                  "read existing data": 0.0
+                }
+              },
+              "q1": {
+                "type": "noul",
+                "noul": 0.06
+              },
+              "q2": {
+                "type": "score",
+                "score": 0.0,
+                "confidence": 1.0,
+                "legend": {
+                  "0": "not urgent",
+                  "1": "moderately urgent",
+                  "2": "very urgent"
+                },
+                "probabilities": {
+                  "0": 1.0,
+                  "1": 0.0,
+                  "2": 0.0
+                }
+              }
+            },
+            "usage": {
+              "input_tokens": 375,
+              "output_tokens": 80
+            }
+          }
+        },
+        {
+          "case": "read-only",
+          "repeat": 2,
+          "elapsed_ms": 329.59,
+          "status": 200,
+          "response": {
+            "model": "jev-1.13.0",
+            "answers": {
+              "q0": {
+                "type": "choice",
+                "choice": "read existing data",
+                "confidence": 1.0,
+                "probabilities": {
+                  "read existing data": 1.0,
+                  "change settings": 0.0,
+                  "explain a concept": 0.0
+                }
+              },
+              "q1": {
+                "type": "noul",
+                "noul": 0.82
+              },
+              "q2": {
+                "type": "score",
+                "score": 0.0,
+                "confidence": 0.99,
+                "legend": {
+                  "0": "not urgent",
+                  "1": "moderately urgent",
+                  "2": "very urgent"
+                },
+                "probabilities": {
+                  "0": 1.0,
+                  "1": 0.0,
+                  "2": 0.0
+                }
+              }
+            },
+            "usage": {
+              "input_tokens": 371,
+              "output_tokens": 79
+            }
+          }
+        },
+        {
+          "case": "urgent-setting",
+          "repeat": 2,
+          "elapsed_ms": 278.09,
+          "status": 200,
+          "response": {
+            "model": "jev-1.13.0",
+            "answers": {
+              "q0": {
+                "type": "choice",
+                "choice": "change settings",
+                "confidence": 1.0,
+                "probabilities": {
+                  "change settings": 1.0,
+                  "explain a concept": 0.0,
+                  "read existing data": 0.0
+                }
+              },
+              "q1": {
+                "type": "noul",
+                "noul": 0.02
+              },
+              "q2": {
+                "type": "score",
+                "score": 1.98,
+                "confidence": 0.97,
+                "legend": {
+                  "0": "not urgent",
+                  "1": "moderately urgent",
+                  "2": "very urgent"
+                },
+                "probabilities": {
+                  "0": 0.0,
+                  "1": 0.01,
+                  "2": 0.99
+                }
+              }
+            },
+            "usage": {
+              "input_tokens": 369,
+              "output_tokens": 78
+            }
+          }
+        },
+        {
+          "case": "comparison",
+          "repeat": 2,
+          "elapsed_ms": 337.77,
+          "status": 200,
+          "response": {
+            "model": "jev-1.13.0",
+            "answers": {
+              "q0": {
+                "type": "choice",
+                "choice": "read existing data",
+                "confidence": 1.0,
+                "probabilities": {
+                  "change settings": 0.0,
+                  "explain a concept": 0.0,
+                  "read existing data": 1.0
+                }
+              },
+              "q1": {
+                "type": "noul",
+                "noul": 0.93
+              },
+              "q2": {
+                "type": "score",
+                "score": 0.0,
+                "confidence": 1.0,
+                "legend": {
+                  "0": "not urgent",
+                  "1": "moderately urgent",
+                  "2": "very urgent"
+                },
+                "probabilities": {
+                  "0": 1.0,
+                  "1": 0.0,
+                  "2": 0.0
+                }
+              }
+            },
+            "usage": {
+              "input_tokens": 371,
+              "output_tokens": 79
+            }
+          }
+        }
+      ],
+      "summary": {
+        "requests": 30,
+        "first_call_ms": 385.51,
+        "warm_n": 29,
+        "warm_p50_ms": 312.07,
+        "warm_p95_ms": 397.87,
+        "choice_correct": 10,
+        "noul_correct": 10,
+        "unique_cases": 10,
+        "input_tokens": 11073,
+        "estimated_input_cost_usd": 0.00046506600000000004,
+        "models": [
+          "jev-1.13.0"
+        ]
+      }
+    }
+  }
+}

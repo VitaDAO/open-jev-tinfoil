@@ -37,6 +37,8 @@ nominal question/option counts. Errors: 401 unauthorized, 413 oversized body,
 - Dedicated service key; no shared Vita credentials. Keep the key in the Vita
   agent enclave, never in browser JavaScript. Authentication does not replace
   consent or capability checks in Vita.
+- `examples/vita_client.py` additionally pins the approved v0.1.0 release digest,
+  and refuses a different release before reading/sending the application key.
 - No debug SSH, automatic updates, GPU or production Vita integration.
 
 Attestation establishes which code is running, not the correctness of decisions.

@@ -1,0 +1,162 @@
+{
+  "attestation_ms": 3146.1,
+  "request_ms": 558.09,
+  "http_status": 503,
+  "response": {
+    "boot": {
+      "stages": [
+        {
+          "name": "config",
+          "status": "ok",
+          "duration_ns": 2444641
+        },
+        {
+          "name": "network",
+          "status": "ok",
+          "duration_ns": 15102488,
+          "detail": "static network configured; interface=eth0 address=100.64.0.38/20 gateway=100.64.0.1 dns=1.1.1.1,1.0.0.1"
+        },
+        {
+          "name": "identity",
+          "status": "ok",
+          "duration_ns": 4733168,
+          "detail": "open-jev.vitality-now.containers.tinfoil.dev"
+        },
+        {
+          "name": "cpu-attestation",
+          "status": "ok",
+          "duration_ns": 9933808,
+          "detail": "https://tinfoil.sh/predicate/sev-snp-guest/v2"
+        },
+        {
+          "name": "gpu-attestation",
+          "status": "skipped",
+          "duration_ns": 18658,
+          "detail": "no GPUs"
+        },
+        {
+          "name": "certificate",
+          "status": "ok",
+          "duration_ns": 24302203083
+        },
+        {
+          "name": "keyserver-secrets",
+          "status": "ok",
+          "duration_ns": 56224,
+          "detail": "handed off 1 workload secret(s); keyserver not configured"
+        },
+        {
+          "name": "registry-auth",
+          "status": "ok",
+          "duration_ns": 183326
+        },
+        {
+          "name": "firewall",
+          "status": "ok",
+          "duration_ns": 24299159
+        },
+        {
+          "name": "models",
+          "status": "ok",
+          "duration_ns": 5759
+        },
+        {
+          "name": "volumes",
+          "status": "ok",
+          "duration_ns": 3636
+        },
+        {
+          "name": "containers",
+          "status": "pending",
+          "duration_ns": 0,
+          "stages": [
+            {
+              "name": "open-jev",
+              "status": "pending",
+              "duration_ns": 0,
+              "stages": [
+                {
+                  "name": "pull",
+                  "status": "pending",
+                  "duration_ns": 0
+                },
+                {
+                  "name": "start",
+                  "status": "pending",
+                  "duration_ns": 0
+                },
+                {
+                  "name": "healthy",
+                  "status": "pending",
+                  "duration_ns": 0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "shim",
+          "status": "pending",
+          "duration_ns": 0
+        }
+      ],
+      "started_at": "2026-09-23T18:08:59.224560498Z",
+      "completed_at": "0001-01-01T00:00:00Z"
+    },
+    "error": {
+      "message": "Workload proxy is not ready.",
+      "status": "pending",
+      "type": "server_error"
+    }
+  },
+  "verification": {
+    "schemaVersion": 1,
+    "configRepo": "VitaDAO/open-jev-tinfoil",
+    "enclaveHost": "open-jev.vitality-now.containers.tinfoil.dev",
+    "releaseTag": "v0.1.0",
+    "releaseDigest": "9e0a92b4f38ab6944457c24c7c787bc6ef322c7997f87f3bfa4efb9d8b6dc25a",
+    "codeMeasurement": {
+      "type": "https://tinfoil.sh/predicate/snp-tdx-multiplatform/v1",
+      "registers": [
+        "f0fc00f531b1ba916c081d67257a55a3ebe59ff99e29e59765951cbdcdbcbe5e93d7fbb0752fba85a460f6423af6d070",
+        "3246c8c822eade4b4ac78e5817776032a371d50475950395ff357076e9f991f62d7bf5b0ce973799f36b0ab97387e51d",
+        "b09a52029c6a50116bb0db0611ac2dbc2ef92df7053e183f354eb42cc2e686466260eb78be2005d65a9e9ce0bfe65452"
+      ]
+    },
+    "enclaveMeasurement": {
+      "measurement": {
+        "type": "https://tinfoil.sh/predicate/sev-snp-guest/v2",
+        "registers": [
+          "f0fc00f531b1ba916c081d67257a55a3ebe59ff99e29e59765951cbdcdbcbe5e93d7fbb0752fba85a460f6423af6d070"
+        ]
+      },
+      "tlsPublicKeyFingerprint": "fe543cd31d7739f797098bb92b17cb972e32e1c1a4e2cd94a89876b80e6a6b3a",
+      "hpkePublicKey": "b5896f84f51b9a9aaba5056bae2cc59277f566b60535100de6f093699d10976e"
+    },
+    "tlsPublicKey": "fe543cd31d7739f797098bb92b17cb972e32e1c1a4e2cd94a89876b80e6a6b3a",
+    "hpkePublicKey": "b5896f84f51b9a9aaba5056bae2cc59277f566b60535100de6f093699d10976e",
+    "codeFingerprint": "0b41a1dd70558f6e8304b257c0633b0df8bb8537118a9f2a299cfd219c1354fe",
+    "enclaveFingerprint": "f0fc00f531b1ba916c081d67257a55a3ebe59ff99e29e59765951cbdcdbcbe5e93d7fbb0752fba85a460f6423af6d070",
+    "selectedRouterEndpoint": "open-jev.vitality-now.containers.tinfoil.dev",
+    "securityVerified": true,
+    "verifier": {
+      "name": "tinfoil",
+      "version": "0.14.0"
+    },
+    "verifiedAt": "2026-09-23T18:11:43.943853Z",
+    "steps": {
+      "fetchDigest": {
+        "status": "success"
+      },
+      "verifyCode": {
+        "status": "success"
+      },
+      "verifyEnclave": {
+        "status": "success"
+      },
+      "compareMeasurements": {
+        "status": "success"
+      }
+    }
+  }
+}
