@@ -1,5 +1,8 @@
 # Adapter repair and exact-plan evaluation
 
+Historical checkpoint. The subsequent schema/index and structured-proposal experiment is
+[documented separately](../selector-v3/README.md); results below remain unchanged.
+
 2026-09-24. Local synthetic experiments only. **Not a replacement-ready selector;
 do not deploy or integrate.** The experimental endpoint remains disabled by
 default. No Vita source, deployed service, credentials or model weights changed.

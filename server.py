@@ -14,7 +14,7 @@ from pydantic import BaseModel, ConfigDict, Field, StringConstraints, model_vali
 from starlette.concurrency import run_in_threadpool
 from routing import LocalLearnedRouter, ADAPTER_SHA256
 from selector import SelectorRequest, select as baseline_select
-from learned_selector import LearnedSelector
+from trained_proposal_selector import TrainedProposalSelector
 
 MODEL_REVISION = '19bf9a64815add579fbf6c907bef584d9277a8e4'
 Text = Annotated[str, StringConstraints(strict=True, strip_whitespace=True, min_length=1, max_length=4096)]
@@ -94,7 +94,7 @@ class Engine:
         self.model.collator._ids = lambda text: self.model.tok(text, add_special_tokens=False)['input_ids']
         self.model.collator._cache.clear()
         self.router = LocalLearnedRouter(model=self.model)
-        self.selector = LearnedSelector(self.model)
+        self.selector = TrainedProposalSelector(self.model)
         self.router.route('This is a test.')
         self.decide(DecisionRequest(state='This is a test.', questions=[Question(type='noul', instructions='This is a test.')]))
 

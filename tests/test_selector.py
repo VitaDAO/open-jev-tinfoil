@@ -158,7 +158,7 @@ def test_verified_selector_client_rejects_malformed_and_wrong_identity():
     from selector import SELECTOR_SHA256
     b=body('Analyze me'); good=select(SelectorRequest.model_validate(b))
     from routing import MODEL_REVISION
-    good.update(model_revision=MODEL_REVISION,adapter_sha256='2'*64,implementation='open_jev_frozen_encoder_multihead_experimental')
+    good.update(model_revision=MODEL_REVISION,adapter_sha256='2'*64,implementation='open_jev_structured_proposal_experimental')
     client=VitaSelectorClient.__new__(VitaSelectorClient)
     client.token='synthetic';client.selector_sha256=SELECTOR_SHA256;client.adapter_sha256='2'*64
     variants=[{**good,'selector_sha256':'0'*64},{**good,'advisory':False},

@@ -25,8 +25,10 @@ class VitaSelectorClient:
         self.token = os.environ['OPEN_JEV_API_KEY']
 
     def select(self, *, current_request, available_metrics, reference_date, time_zone,
-               recent_user_requests=(), literature_available=False):
+               recent_user_requests=(), literature_available=False,
+               available_record_types=('profile','workouts','labs','calendar')):
         body = {'schema_version': 'vita-selector/v1', 'available_metrics': list(available_metrics),
+                'available_record_types': list(available_record_types),
                 'literature_available': literature_available, 'state': {
                     'current_request': current_request, 'recent_user_requests': list(recent_user_requests),
                     'reference_date': reference_date, 'time_zone': time_zone}}
@@ -38,7 +40,7 @@ class VitaSelectorClient:
                 or result.get('selector_sha256') != self.selector_sha256
                 or result.get('adapter_sha256') != self.adapter_sha256
                 or result.get('model_revision') != MODEL_REVISION
-                or result.get('implementation') != 'open_jev_frozen_encoder_multihead_experimental'
+                or result.get('implementation') != 'open_jev_structured_proposal_experimental'
                 or result.get('advisory') is not True
                 or result.get('status') not in ('selected', 'unsupported')):
             raise RuntimeError('Unexpected selector identity/contract')
@@ -72,7 +74,8 @@ class VitaSelectorClient:
         inventory=list(available_metrics)
         selection=self.select(current_request=current_request,available_metrics=inventory,
             reference_date=now.astimezone(ZoneInfo(time_zone)).date().isoformat(),time_zone=time_zone,
-            recent_user_requests=recent_user_requests,literature_available=literature_available)
+            recent_user_requests=recent_user_requests,literature_available=literature_available,
+            available_record_types=record_types)
         return build_plan(selection,inventory,now=now,time_zone=time_zone,record_types=record_types,
             literature_available=literature_available,operation_budget=operation_budget,
             summary_token_budget=summary_token_budget)

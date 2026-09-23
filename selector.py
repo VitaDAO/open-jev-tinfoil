@@ -13,7 +13,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, model_validator
-from typing import Annotated
+from typing import Annotated, Literal
 from pydantic import StringConstraints
 
 SCHEMA = 'vita-selector/v1'
@@ -43,9 +43,14 @@ class SelectorRequest(BaseModel):
     state: SelectorState
     available_metrics: list[Metric] = Field(max_length=512)
     literature_available: StrictBool = False
+    # Compatibility default only; clients should supply their actual authorized inventory.
+    available_record_types: list[Literal['profile','workouts','labs','calendar']] = Field(
+        default_factory=lambda: ['profile','workouts','labs','calendar'], max_length=4)
 
     @model_validator(mode='after')
     def distinct_metrics(self):
+        if len(set(self.available_record_types)) != len(self.available_record_types):
+            raise ValueError('Duplicate record categories')
         if len(set(self.available_metrics)) != len(self.available_metrics):
             raise ValueError('Duplicate metrics')
         return self

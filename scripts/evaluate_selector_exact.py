@@ -70,6 +70,7 @@ def evaluate(cases, call):
         expected = {k: case[k] for k in ('gold', 'reviewer_gold') if k in case}
         rows.append({'id': case['id'], 'label_agreement': case.get('label_agreement', True),
                      'status': result.get('status'), 'reason_codes': result.get('reason_codes'),
+                     'diagnostics': result.get('diagnostics'),
                      'model_evaluated': bool(result.get('diagnostics', {}).get('predicted_decisions')),
                      'plan': plan, 'error': error, 'elapsed_ms': elapsed, 'expected': expected,
                      'grades': {k: grade(result, plan, g, error) for k, g in expected.items()}})
@@ -80,32 +81,41 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--cases', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
-    parser.add_argument('--model', choices=('ridge', 'grammar'), default='ridge')
+    parser.add_argument('--model', choices=('trained', 'proposal', 'ridge', 'grammar'), default='trained')
     parser.add_argument('--quiet', action='store_true', help='Freeze predictions without revealing scores')
     args = parser.parse_args()
     cases = json.loads(args.cases.read_text())
     if len({c['id'] for c in cases}) != len(cases):
         raise ValueError('Duplicate case IDs')
+    source_paths = ('trained_proposal_selector.py', 'adapters/vita-read-intent-v1.json', 'proposal_selector.py', 'proposal_binding.py', 'temporal_spans.py',
+                    'metadata/health_metrics.v1.json', 'metadata/selector-index.v1.json',
+                    'schema_index.py', 'learned_selector.py', 'selector.py',
+                    'scripts/evaluate_selector_exact.py', 'tests/contracts/vita_read_contract.py',
+                    'tests/contracts/jev_dates.py')
+    hashes = lambda: {p: hashlib.sha256((ROOT / p).read_bytes()).hexdigest() for p in source_paths}
+    source_hashes = hashes()
     started = time.perf_counter()
     call = select
-    if args.model == 'ridge':
+    if args.model in ('ridge', 'proposal', 'trained'):
         import torch
         from typed_decisions.open_jev import OpenJev
         from learned_selector import LearnedSelector
+        from proposal_selector import ProposalSelector
+        from trained_proposal_selector import TrainedProposalSelector
         torch.set_num_threads(4)
         model = OpenJev.from_pretrained(str(ROOT / 'model-fp16'), device='cpu')
         model.collator._ids = lambda t: model.tok(t, add_special_tokens=False)['input_ids']
         model.collator._cache.clear()
-        call = LearnedSelector(model).select
+        call = {'trained':TrainedProposalSelector, 'proposal':ProposalSelector, 'ridge':LearnedSelector}[args.model](model).select
     load_ms = round((time.perf_counter() - started) * 1000, 3)
     rows = evaluate(cases, call)
+    if hashes() != source_hashes:
+        raise RuntimeError('Source changed during evaluation; discard this run')
     times = sorted(r['elapsed_ms'] for r in rows[1:])
     model_times = sorted(r['elapsed_ms'] for r in rows[1:] if r['model_evaluated'])
     result = {'candidate': args.model, 'scope': 'Local 4-thread CPU; compiled legacy plans; no DB, WAN or attestation',
               'fixture_sha256': hashlib.sha256(args.cases.read_bytes()).hexdigest(),
-              'source_sha256': {p: hashlib.sha256((ROOT / p).read_bytes()).hexdigest()
-                  for p in ('learned_selector.py', 'selector.py', 'scripts/evaluate_selector_exact.py',
-                            'tests/contracts/vita_read_contract.py', 'tests/contracts/jev_dates.py')},
+              'source_sha256': source_hashes,
               'load_ms': load_ms, 'warm_p50_ms': statistics.median(times),
               'warm_p95_ms': times[int(.95 * (len(times) - 1))],
               'warm_model_requests': len(model_times),

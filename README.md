@@ -132,3 +132,12 @@ See [measured results and API](evidence/selector-v1/README.md),
 `examples/selector_client.py`, and `plan_adapter.py`. The optional grammar baseline
 is distinct from the learned model. Local selector speed is not hosted readiness
 or proof that queried evidence reaches Vita's final model.
+
+## Experimental schema-aware selector
+
+The current standalone candidate uses a schema index, per-request metric/record inventory,
+structured proposals and a small learned read-intent head. It remains disabled by default
+and is not deployed. See [the current evaluation and API](evidence/selector-v3/README.md):
+58/59 regressions, 124/160 broader regressions and 43/48 fresh synthetic cases, with no
+wrong executable plans observed but substantial remaining fallback. These are local
+compiled-plan results, not database execution or production acceptance.

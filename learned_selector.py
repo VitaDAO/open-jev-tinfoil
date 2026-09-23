@@ -125,6 +125,31 @@ class LearnedSelector:
             raise ValueError('Invalid selector weights')
         self.question=Question('selector','choice',data['question'],['health','research','other'],0)
 
+    def encode(self, current):
+        """Encode the full request without truncation or a text cache."""
+        torch=self.torch
+        text='Current request: '+current+'\nRecent user requests:\n'
+        tokens=self.model.tok(text,add_special_tokens=False)['input_ids']
+        if not 1<=len(tokens)<=256:
+            raise ValueError('Selector state exceeds 256 tokens; no truncation')
+        with torch.inference_mode():
+            batch=self.model.collator([(text,[self.question])],self.model.device)
+            hidden=self.model.model.backbone(input_ids=batch['input_ids'],attention_mask=batch['attention_mask']).last_hidden_state
+            pooled=torch.nn.functional.normalize(hidden[0,2:2+len(tokens)].mean(0).double(),dim=0)
+        return pooled
+
+    def predict(self, current):
+        """Score the full resolved request before any capability checks."""
+        predicted={};margins={}
+        scores=self.encode(current)@self.weights
+        offset=0
+        for key,options in self.heads.items():
+            values=scores[offset:offset+len(options)];offset+=len(options)
+            top=values.topk(2)
+            predicted[key]=options[int(top.indices[0])]
+            margins[key]=float(top.values[0]-top.values[1])
+        return predicted,margins
+
     def select(self,request,*,confidence_policy="bound_arguments_v2",prediction=None):
         started=time.perf_counter();torch=self.torch
         if confidence_policy != 'bound_arguments_v2':
@@ -150,21 +175,7 @@ class LearnedSelector:
                     r'\b(?:health|healthwise|wellbeing)\b|\b(?:analyze|analyse) me\b',subject):
                 raise UnrepresentableRequest('unresolved_metric_or_record')
             if prediction is None:
-                text='Current request: '+current+'\nRecent user requests:\n'
-                tokens=self.model.tok(text,add_special_tokens=False)['input_ids']
-                if not 1<=len(tokens)<=256:
-                    raise ValueError('Selector state exceeds 256 tokens; no truncation')
-                with torch.inference_mode():
-                    batch=self.model.collator([(text,[self.question])],self.model.device)
-                    hidden=self.model.model.backbone(input_ids=batch['input_ids'],attention_mask=batch['attention_mask']).last_hidden_state
-                    pooled=torch.nn.functional.normalize(hidden[0,2:2+len(tokens)].mean(0).double(),dim=0)
-                    scores=pooled@self.weights
-                offset=0
-                for key,options in self.heads.items():
-                    values=scores[offset:offset+len(options)];offset+=len(options)
-                    top=values.topk(2)
-                    predicted[key]=options[int(top.indices[0])]
-                    margins[key]=float(top.values[0]-top.values[1])
+                predicted,margins=self.predict(current)
             else:
                 predicted,margins=prediction
             required=['task']
