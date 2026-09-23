@@ -44,7 +44,7 @@ nominal question/option counts. Errors: 401 unauthorized, 413 oversized body,
 - Dedicated service key; no shared Vita credentials. Keep the key in the Vita
   agent enclave, never in browser JavaScript. Authentication does not replace
   consent or capability checks in Vita.
-- `examples/vita_client.py` additionally pins the approved v0.1.0 release digest,
+- `examples/vita_client.py` additionally pins the approved v0.2.0 release digest,
   and refuses a different release before reading/sending the application key.
 - No debug SSH, automatic updates, GPU or production Vita integration.
 
@@ -106,3 +106,14 @@ checks the attested release, model revision, adapter digest and response types.
 `scripts/verify_route_live.py` runs the synthetic route suite through that verified
 client. See issue1 for the actual deployed release/readiness; code presence is
 not evidence of deployment.
+
+### Weight storage and enclave capacity
+
+Small CVM0.14.7 enclaves have a4GiB private RAM disk for image storage, separate
+from the model's inference working set. The original FP32 image exceeded that
+capacity when compressed and unpacked layers were combined. New builds derive
+FP16-stored backbone files from the pinned source; inference is explicitly FP32,
+and the small generic head and learned adapter are unchanged. The model manifest
+records source/derived hashes and the API reports storage/compute dtype. This
+rounds weights and requires prediction-parity testing; it is not lossless
+compression. See `evidence/ramdisk-investigation.md` for measurements and sources.

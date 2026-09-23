@@ -3,8 +3,8 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y --no-install-recommends libgomp1 && rm -rf /var/lib/apt/lists/*
 COPY requirements-linux.lock /app/
 RUN pip install --no-cache-dir --require-hashes --extra-index-url https://download.pytorch.org/whl/cpu -r requirements-linux.lock
-COPY scripts/download_model.py /app/scripts/download_model.py
-RUN python scripts/download_model.py && rm -rf /opt/model/.cache
+COPY scripts/download_model.py scripts/pack_weights.py /app/scripts/
+RUN python scripts/download_model.py && python scripts/pack_weights.py /opt/model && rm -rf /opt/model/.cache
 COPY vendor /app/vendor
 COPY server.py routing.py /app/
 COPY adapters /app/adapters

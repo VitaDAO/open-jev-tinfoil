@@ -5,3 +5,5 @@ model/
 *.key
 .env*
 .client-venv/
+
+model-fp16/

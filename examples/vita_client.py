@@ -8,7 +8,7 @@ import os
 
 HOST = 'open-jev.vitality-now.containers.tinfoil.dev'
 REPO = 'VitaDAO/open-jev-tinfoil'
-RELEASE_DIGEST = '9e0a92b4f38ab6944457c24c7c787bc6ef322c7997f87f3bfa4efb9d8b6dc25a'
+RELEASE_DIGEST = '9868aca7564ebc9a5cd678d4f9cae9a621cde3d99b5aa44f68616037fd1cd1f9'
 ADAPTER_SHA256 = '35fbdc0351280e1720dd61776a4f6492d270f1bf689858162bd6deacfcfc12a6'
 MODEL_REVISION = '19bf9a64815add579fbf6c907bef584d9277a8e4'
 
@@ -21,7 +21,7 @@ class VitaDecisionClient:
         document = self.verifier.get_verification_document()
         if document is None or not document.security_verified or document.release_digest != RELEASE_DIGEST:
             self.http.close()
-            raise RuntimeError('Enclave does not match the approved v0.1.0 release')
+            raise RuntimeError('Enclave does not match the approved v0.2.0 release')
         self.token = os.environ['OPEN_JEV_API_KEY']
 
     def decide(self, state, questions):
