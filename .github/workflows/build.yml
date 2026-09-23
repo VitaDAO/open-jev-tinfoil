@@ -34,6 +34,7 @@ jobs:
           ready=false
           for i in $(seq 1 120); do
             if curl -fsS http://127.0.0.1:18080/health > /tmp/health.json; then ready=true; break; fi
+            if [ "$(docker inspect -f '{{.State.Running}}' smoke)" != true ]; then docker logs smoke; exit 1; fi
             sleep 2
           done
           if [ "$ready" != true ]; then docker logs smoke; exit 1; fi

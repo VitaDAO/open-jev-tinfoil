@@ -23,6 +23,7 @@ def pack(root):
     packed={k:t.to(torch.float16) if t.dtype==torch.float32 else t for k,t in weights.items()}
     temporary=root/'model.fp16.safetensors'
     save_file(packed,temporary,metadata=metadata)
+    temporary.chmod(0o644)  # The serving container runs as non-root UID10001.
     temporary.replace(path)
     manifest=json.loads((root/'manifest.json').read_text())
     manifest['source_backbone_sha256']=source

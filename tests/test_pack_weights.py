@@ -16,4 +16,5 @@ def test_pack_records_source_and_derived_hashes_without_changing_head(tmp_path):
     assert m['files']['model.safetensors']==hashlib.sha256(source.read_bytes()).hexdigest()
     assert m['weight_storage_dtype']=='float16' and m['compute_dtype']=='float32'
     assert load_file(source)['weight'].dtype==torch.float16
+    assert source.stat().st_mode & 0o777 == 0o644
     assert head.read_bytes()==head_bytes
