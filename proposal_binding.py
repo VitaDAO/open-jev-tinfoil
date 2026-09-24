@@ -10,7 +10,7 @@ from schema_index import INDEX, CATALOG, metric_labels
 from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field
-from learned_selector import dynamic_metrics, normalize_request
+from learned_selector import dynamic_metrics, label_pattern, normalize_request
 from selector import ALIASES, AREAS, RECORDS, _dates, _period
 from temporal_spans import extract_temporal
 
@@ -79,7 +79,7 @@ def entities(text, available):
             labels.setdefault(label.casefold(), [('unavailable', metric)])
     matches = []
     for label, values in labels.items():
-        for match in re.finditer(r'(?<!\w)' + re.escape(label) + r'(?!\w)', text, re.I):
+        for match in label_pattern(label, re.I).finditer(text):
             matches.append((match.start(), match.end(), values))
     spans = []
     for start, end, values in sorted(matches, key=lambda x: -(x[1] - x[0])):
@@ -121,7 +121,7 @@ def research_requested(text):
     # A bounded opt-out clause cannot suppress another positive research clause.
     negative = [(m.start(), m.end()) for m in re.finditer(
         r'\bno (?:studies|research|recommendations)(?: please)?(?=\s*[,;.!?]|$)', text)]
-    return bool(re.search(r'\b(?:research|evidence|studies|trials)\b', erase(text, negative)))
+    return bool(re.search(r'\b(?:research|evidence|studies|trials|literature|papers?|published|science)\b', erase(text, negative)))
 
 
 def temporal(text, reference):
@@ -220,6 +220,11 @@ def resolve_context(request):
                 raise ValueError('ambiguous_followup_subject')
             start,end,_ = old[0]
             return parent[:start] + next(iter(candidates)).replace('_', ' ') + parent[end:]
+        # "Show it for the last 3 months" re-reads the previous subject over a new window.
+        pronoun = re.fullmatch(r'(?:(?:and|now|ok|okay|also|then)[,]?\s+)?(?:(?:can you|could you|please)\s+)?(?:show|give|pull up|display|get)(?: me)? (?:it|that|them|those|this|the same)(?: (?:for|over|during|in|from))? (.+?)[?.!]*', text)
+        if pronoun:
+            # A new window asks for the series, so the parent's "latest" wording does not carry over.
+            return re.sub(r'\b(?:latest|newest|most recent)\s*', '', resolve('and ' + pronoun[1], history)).strip()
         trend_follow = re.fullmatch(r'and how has it (?:trended|been trending) (.+)', text)
         if trend_follow:
             if not history: raise ValueError('unresolved_followup')
@@ -234,7 +239,8 @@ def resolve_context(request):
             parent = erase(parent,date_context_spans(parent,old_spans))
             parent = re.sub(r'\b(?:latest|newest|most recent)\b','',parent)
             return parent.strip() + ' trend ' + trend_follow[1]
-        replacement = re.fullmatch(r'(?:what about (?:my )?|same window for |no,? i meant )(.+?)(?: then)?', text)
+        replacement = re.fullmatch(r'(?:what about (?:my )?|same window for |same for (?:my )?|no,? i meant |(?:(?:ok|okay)[,]? )?(?:now|and|also) (?:show |give )?(?:me )?(?:my )?)(.+?)(?: then)?', text) \
+            or re.fullmatch(r'(?:and |also |ok )?(?:my )?(.+?) (?:too|as well|also)', text)
         if replacement is None:
             # "And my HDL?" / "How about my HDL?" swap the subject; date fragments such as
             # "how about the calendar year after that" stay with the period resolvers below.
@@ -307,9 +313,9 @@ CONSTRAINT_PATTERNS = {
     'source_filter': r'\b(?:oura|garmin|whoop|fitbit|withings|polar|apple watch|apple health|quest|labcorp|manually entered)\b',
     'exclusion_or_filter': r'\b(?:excluding|except|without|apart from|omit\w*|leave\b.*\bout|weekdays?|weekends?|mornings?|evenings?|awake|asleep|fasting|above|below|exceeded|under|over \d|only from)\b',
     'relationship_question': r'\b(?:does|do|can)\b.*\b(?:help|affect|cause|lead to)\b',
-    'unsupported_operation': r'\b(?:compare|comparison|versus|vs|correlat\w*|affect|average|median|sum|how many|count the|in total|difference|higher than|lower than|better than|worse than|first|earliest|oldest|top|highest|lowest|worst|best)\b',
+    'unsupported_operation': r'\b(?:compare|comparison|versus|vs|correlat\w*|affect|average|median|sum|how many|count the|in total|difference|higher than|lower than|better than|worse than|first|earliest|oldest|top|highest|lowest|worst|best|longest|shortest|will (?:i|my|it)|predict\w*|forecast\w*|projected|going to be)\b',
     'write_or_external_action': r'\b(?:create|delete|remove|log|add|set|update|change|email|send|upload|share|schedule|remind)\b',
-    'other_person': r"\b(?:partner|spouse|wife|husband|daughter|son|mother|father|patient|someone else)(?:'s)?\b",
+    'other_person': r"\b(?:partner|spouse|wife|husband|daughter|son|mother|father|mom|mum|dad|brother|sister|child|kid|baby|friend|grandma|grandpa|grandmother|grandfather|boyfriend|girlfriend|patient|someone else)(?:'s)?\b",
     'unit_conversion': r'\b(?:in hours|in minutes|in seconds|pounds|kilograms|convert\w*|instead of|rather than)\b',
     'instruction_override': r'\b(?:system|override|ignore|questionnaire|selector|coverage|task:)\b',
     'unresolved_context': r'\b(?:that one|other one|last time|last chatted|we discussed|what did i tell|what did you say)\b',

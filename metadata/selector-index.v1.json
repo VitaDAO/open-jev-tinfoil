@@ -14,12 +14,20 @@
     "sleep duration": "total_sleep",
     "time asleep": "total_sleep",
     "ldl cholesterol": "ldl_cholesterol",
-    "step": "steps"
+    "step": "steps",
+    "readiness": "readiness_score",
+    "high recovery": "recovery_high_duration",
+    "trigs": "triglycerides",
+    "good cholesterol": "hdl",
+    "bad cholesterol": "ldl",
+    "ldl-c": "ldl",
+    "daily max heart rate": "day_max_hr"
   },
   "inventory_to_catalog": {
     "ldl_cholesterol": "ldl",
     "oxygen_saturation": "spo2",
-    "hba1c": "hba1c"
+    "hba1c": "hba1c",
+    "hscrp": "hs_crp"
   },
   "records": {
     "profile": {
