@@ -477,7 +477,8 @@ def test_explicit_public_research_preserves_question_and_native_provenance(quest
     assert 'health_reads' not in batch
     assert batch['required_operation_ids']==[1]
     operation=batch['literature_reads'][0]
-    assert operation['question']==question.lower()
+    # The minimised plan question leaves Vita, never the user's own sentence.
+    assert operation['question']==p.queries[0].question() and question.lower() not in operation['question'].lower()
     assert operation['subject_basis']=='explicit_subjects_in_current_user_message'
     assert operation['basis_source_ids']==[]
     assert len(SourceBatchRequest.model_validate(batch).operations())==1
@@ -520,3 +521,22 @@ def test_explicit_research_requires_exact_plan_and_native_capability(mode):
     if mode=='schema':schema['properties']['literature_reads']['maxItems']=0
     with pytest.raises(ValueError):native_batch(p,req,schema)
     assert resolver.reads==0
+
+
+@pytest.mark.parametrize('with_health_read', [False, True])
+def test_topic_research_sends_only_the_minimised_question(with_health_read):
+    """Research outside the fixed vocabulary: the plan's public question leaves Vita, not the sentence."""
+    from vita_agent.kernel.source_batch_contracts import SourceBatchRequest
+    text = 'Given my triglycerides of 220, what does research say about omega-3?'
+    req, p, _, _, schema = broad_research_fixture(text)
+    health = [q for q in p.queries if isinstance(q, HealthRead)][:1]
+    research = ResearchRead(topic='omega-3 and triglycerides')
+    p.queries = [research, *health] if with_health_read else [research]
+    batch = native_batch(p, req, schema)
+    operation = batch['literature_reads'][0]
+    assert operation['question'] == research.question()
+    assert '220' not in operation['question'] and 'given my' not in operation['question'].lower()
+    assert operation['subject_basis'] == 'explicit_subjects_in_current_user_message'
+    assert bool(batch.get('health_reads')) is with_health_read
+    from vita_agent.kernel.health_range_input import normalize_health_ranges
+    SourceBatchRequest.model_validate(normalize_health_ranges(batch))

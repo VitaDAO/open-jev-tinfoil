@@ -54,6 +54,91 @@
         }
       ],
       "reason": "Binder phrasing review 2026-09-24: this historical case was graded as a handoff only because \"since\" was then refused as an open bound. \"since January 12\" now resolves to the closed window from 2026-01-12 through the request reference day 2026-09-23 (UTC), which is exactly the requested span; it neither widens nor combines periods. Other \"since\" forms that would widen or combine (with before/after/until, extra dates or leftover numbers) are still refused. Frozen legacy gold is unchanged; this alternate accepts only this exact plan."
+    },
+    {
+      "fixture": "future-boundaries-40.json",
+      "fixture_sha256": "c60ae0d77788e1b61bc179f037625fafd7bb135b0fc43f8d99120397ecc5d10f",
+      "case_id": "f027",
+      "original_expected_queries": null,
+      "request_sha256": "644a4ee16b43e69975189b8f7ce7c6e63324f8959a605c03238d4e5b43045777",
+      "acceptable_queries": [
+        {
+          "kind": "health",
+          "metrics": [
+            "steps"
+          ],
+          "records": [],
+          "operation": "trend",
+          "period": {
+            "kind": "between",
+            "start_at": "2026-09-22",
+            "end_at": "2026-09-22"
+          },
+          "source": null,
+          "profile_fields": [],
+          "limit": null,
+          "date_basis": "observed_at"
+        },
+        {
+          "kind": "research",
+          "targets": [],
+          "interventions": [],
+          "goal": "improve",
+          "topic": "sleep in children"
+        }
+      ],
+      "reason": "Research-topic review 2026-09-25: this historical future-boundary case handed off only because research was limited to a fixed five-target vocabulary. It is a general, non-personal research request; the selector now plans the minimised public question \"What does published research say about sleep in children? ...\" built from its subject, intervention, outcome and population words (Module C 10.2: concise question and condition, biomarker, intervention or outcome names). The user sentence is not sent. First person, values, units, dates, unresolved references and exclusion wording still hand off. Frozen gold is unchanged; this alternate accepts only this exact plan."
+    },
+    {
+      "fixture": "future-boundaries-40.json",
+      "fixture_sha256": "c60ae0d77788e1b61bc179f037625fafd7bb135b0fc43f8d99120397ecc5d10f",
+      "case_id": "f028",
+      "original_expected_queries": null,
+      "request_sha256": "7f3a893eaa0454c5d1cf05fe18ab2fefe95018791078b040d215d470519cfcd9",
+      "acceptable_queries": [
+        {
+          "kind": "research",
+          "targets": [],
+          "interventions": [],
+          "goal": "improve",
+          "topic": "lowering apob with statins"
+        }
+      ],
+      "reason": "Research-topic review 2026-09-25: this historical future-boundary case handed off only because research was limited to a fixed five-target vocabulary. It is a general, non-personal research request; the selector now plans the minimised public question \"What does published research say about lowering apob with statins? ...\" built from its subject, intervention, outcome and population words (Module C 10.2: concise question and condition, biomarker, intervention or outcome names). The user sentence is not sent. First person, values, units, dates, unresolved references and exclusion wording still hand off. Frozen gold is unchanged; this alternate accepts only this exact plan."
+    },
+    {
+      "fixture": "future-boundaries-40.json",
+      "fixture_sha256": "c60ae0d77788e1b61bc179f037625fafd7bb135b0fc43f8d99120397ecc5d10f",
+      "case_id": "f029",
+      "original_expected_queries": null,
+      "request_sha256": "ab58315cd0078024cf889036a60521406b01ee13b5946596567a141d06f655bf",
+      "acceptable_queries": [
+        {
+          "kind": "research",
+          "targets": [],
+          "interventions": [],
+          "goal": "improve",
+          "topic": "diet for lowering apob in pregnancy"
+        }
+      ],
+      "reason": "Research-topic review 2026-09-25: this historical future-boundary case handed off only because research was limited to a fixed five-target vocabulary. It is a general, non-personal research request; the selector now plans the minimised public question \"What does published research say about diet for lowering apob in pregnancy? ...\" built from its subject, intervention, outcome and population words (Module C 10.2: concise question and condition, biomarker, intervention or outcome names). The user sentence is not sent. First person, values, units, dates, unresolved references and exclusion wording still hand off. Frozen gold is unchanged; this alternate accepts only this exact plan."
+    },
+    {
+      "fixture": "future-boundaries-40.json",
+      "fixture_sha256": "c60ae0d77788e1b61bc179f037625fafd7bb135b0fc43f8d99120397ecc5d10f",
+      "case_id": "f033",
+      "original_expected_queries": null,
+      "request_sha256": "2de357e5da59f054c3df331c216ef0dde8c00662fb3f4aac81d6774aecfda97a",
+      "acceptable_queries": [
+        {
+          "kind": "research",
+          "targets": [],
+          "interventions": [],
+          "goal": "improve",
+          "topic": "sleep and anxiety"
+        }
+      ],
+      "reason": "Research-topic review 2026-09-25: this historical future-boundary case handed off only because research was limited to a fixed five-target vocabulary. It is a general, non-personal research request; the selector now plans the minimised public question \"What does published research say about sleep and anxiety? ...\" built from its subject, intervention, outcome and population words (Module C 10.2: concise question and condition, biomarker, intervention or outcome names). The user sentence is not sent. First person, values, units, dates, unresolved references and exclusion wording still hand off. Frozen gold is unchanged; this alternate accepts only this exact plan."
     }
   ]
 }

@@ -4,7 +4,7 @@ from datetime import datetime
 from typing import Annotated, Literal, Union
 from zoneinfo import ZoneInfo
 
-from pydantic import BaseModel, ConfigDict, Field, StringConstraints, model_validator
+from pydantic import BaseModel, ConfigDict, Field, StringConstraints, model_serializer, model_validator
 from selector import Metric, SelectorState
 from schema_index import INDEX, metric_definition
 from compat.health_range_input import _RANGE
@@ -94,13 +94,49 @@ class HealthRead(Closed):
         return self
 
 
+# A research topic is a short public phrase: subject, intervention, outcome and
+# condition or biomarker names only (never values, dates or first-person words).
+Topic=Annotated[str,StringConstraints(min_length=2,max_length=120,
+    pattern=r"^[a-z][a-z0-9+'-]*(?: [a-z][a-z0-9+'-]*){0,11}$")]
+
+
+# Words a public research topic may never contain: first person, unresolved
+# references, time words, units, and calendar months.
+TOPIC_EXCLUDED=frozenset('''i me my mine myself we us our ours im i'm ive i've it its it's that this these those them they their
+ today yesterday tomorrow ago since last recent recently week weeks month months year years day days
+ mg mcg ug g kg lb lbs dl ml mmol bpm ms iu units
+ january february march april may june july august september october november december
+ exclude excluding except without only not no but'''.split())
+
+
 class ResearchRead(Closed):
     kind: Literal['research']='research'
-    targets: list[Literal['sleep','physical_activity','apob','ldl_cholesterol','glucose','cardiometabolic_health']]=Field(min_length=1,max_length=6)
+    targets: list[Literal['sleep','physical_activity','apob','ldl_cholesterol','glucose','cardiometabolic_health']]=Field(default_factory=list,max_length=6)
     interventions: list[Literal['diet','exercise']]=Field(default_factory=list,max_length=2)
     goal: Literal['improve','lower']='improve'
+    topic: Topic|None=None
+
+    @model_validator(mode='after')
+    def check_subject(self):
+        if bool(self.targets)==bool(self.topic):
+            raise ValueError('Research needs either targets or a topic')
+        if self.topic and TOPIC_EXCLUDED&set(self.topic.split()):
+            raise ValueError('Research topic is not public')
+        if self.topic and (self.interventions or self.goal!='improve'):
+            raise ValueError('A topic carries its own intervention and goal')
+        return self
+
+    @model_serializer(mode='wrap')
+    def omit_empty_topic(self, handler):
+        # Plans without a topic keep the exact v0.3.5 shape for existing consumers.
+        data = handler(self)
+        if data.get('topic') is None:
+            data.pop('topic', None)
+        return data
 
     def question(self):
+        if self.topic:
+            return f'What does published research say about {self.topic}? Include study types, studied populations and limitations.'
         names={'sleep':'sleep duration and quality','physical_activity':'physical activity',
                'apob':'ApoB','ldl_cholesterol':'LDL cholesterol','glucose':'glucose control',
                'cardiometabolic_health':'cardiometabolic health'}
@@ -170,7 +206,8 @@ def compile_batch(plan, request):
     for query in plan.queries:
         if isinstance(query,ResearchRead):
             operations=[{'question':query.question(),'task':'evidence_summary','depth':'fast',
-                         'subject_basis':'general_overview_research','basis_source_ids':[]}]
+                         'subject_basis':'explicit_subjects_in_current_user_message' if query.topic else 'general_overview_research',
+                         'basis_source_ids':[]}]
             field='literature_reads'
         else:
             operations=[];field='health_reads'

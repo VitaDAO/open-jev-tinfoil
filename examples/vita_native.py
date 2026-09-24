@@ -143,8 +143,16 @@ def native_batch(plan, request, tool_schema):
                                  interventions=['diet','exercise'])
         if not (broad and research == [canonical]
                 and any(isinstance(q, HealthRead) for q in plan.queries)):
-            question = _explicit_research_question(request.state.current_request, research)
-            if question is None or len(plan.queries) != 1:
+            if len(research) != 1:
+                raise ValueError('native_projection_requires_planner')
+            if research[0].topic is None and (
+                    _explicit_research_question(request.state.current_request, research) is None
+                    or len(plan.queries) != 1):
+                raise ValueError('native_projection_requires_planner')
+            # Send only the plan's minimised question (Module C 10.2), never the
+            # user's sentence: public subject, intervention, outcome and metric names.
+            question = research[0].question()
+            if re.search(r'(?<![a-z0-9-])\d', question.lower()):
                 raise ValueError('native_projection_requires_planner')
             batch['literature_reads'][0].update(
                 question=question, subject_basis='explicit_subjects_in_current_user_message')
