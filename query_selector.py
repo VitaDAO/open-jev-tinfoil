@@ -84,6 +84,47 @@ def _correct_typos(text):
     return re.sub(r'\b[a-z]{8,}\b',fix,text)
 
 
+RESEARCH_QUESTION=re.compile(
+    r"(?:please |so )?(?:"
+    r"what (?:do|does) (?:the )?(?:latest |recent |current |new )?(?:published |scientific |clinical )?"
+    r"(?:research|studies|study|trials|trial|evidence|science|literature|randomi[sz]ed trials)"
+    r"(?: say| show| suggest| tell us)? (?:about|on|regarding) "
+    r"|is there (?:any |good |strong |scientific )?(?:evidence|research) (?:that|for|on|about) "
+    r"|(?:find|show me|summari[sz]e|what is|what's) (?:the )?(?:latest |recent |current )?"
+    r"(?:research|studies|evidence|literature) (?:on|about|for|regarding) "
+    r"|(?:latest|recent|new) (?:research|studies) (?:on|about) "
+    r")(?P<topic>[^?.!;]+?)[?.!]*")
+RESEARCH_CONTEXT=re.compile(r"(?:given|considering)(?: that)? (?P<context>[^,]+),\s*(?P<rest>.+)")
+
+
+def research_topic(text,request):
+    """A minimised public research question from the user's own wording, or None.
+
+    Keeps subject, intervention, outcome and catalogue metric names; drops values,
+    dates and first-person context ("given my triglycerides of 220, ..." keeps
+    "triglycerides" and reads the user's latest value separately).
+    """
+    text=re.sub(r'\s+',' ',text.strip().lower())
+    context=RESEARCH_CONTEXT.fullmatch(text)
+    if context:text=context['rest']
+    question=RESEARCH_QUESTION.fullmatch(text)
+    if not question:return None
+    topic=question['topic'].strip()
+    metrics=[]
+    if context:
+        metrics=sorted({v for _,_,values in entities(context['context'],request.available_metrics) for k,v in values if k=='metric'})
+        if not metrics:return None
+        for metric in metrics:
+            name=metric.replace('_',' ')
+            if name not in topic:topic+=' and '+name
+    try:
+        read=ResearchRead(topic=topic)
+    except ValueError:
+        return None
+    if not metrics:return read
+    return [read,HealthRead(metrics=metrics,operation='latest',period={'kind':'all_history'})]
+
+
 def enhance(text):
     text=canonicalize(text)
     for word,replacement in SPELLINGS.items():text=re.sub(r'\b'+word+r'\b',replacement,text)
@@ -173,7 +214,8 @@ class QuerySelector(TrainedProposalSelector):
             for piece in pieces:
                 overview=bool(re.search(r'\bhealth\b',piece) and re.search(r'\b(?:analysis|analyse|analyze|assessment|summary|rundown)\b',piece))
                 if re.search(r'\b(?:research|studies|trials|evidence)\b',piece) and not overview and not re.search(r'\bno (?:studies|research)\b',piece):
-                    queries.append(self.research(piece,queries,request));continue
+                    research=self.research(piece,queries,request)
+                    queries.extend(research if isinstance(research,list) else [research]);continue
                 queries.extend(self.health(piece,request,diagnostics))
             # Identical reads have the same subject, source, operation, window
             # and projection. Repeating a clause must not repeat acquisition.
@@ -347,6 +389,17 @@ class QuerySelector(TrainedProposalSelector):
 
     def research(self,text,previous,request):
         if not request.literature_available:raise ValueError('research_not_available')
+        try:
+            return self.enum_research(text,previous,request)
+        except ValueError as exc:
+            # Topics outside the fixed vocabulary become a minimised public
+            # question; unresolved references and anything personal still hand off.
+            if str(exc) not in ('unbound_research_target','unbound_research_qualifier'):raise
+            topic=research_topic(text,request)
+            if topic is None:raise
+            return topic
+
+    def enum_research(self,text,previous,request):
         # Construct the external research question entirely from public enum slots;
         # never forward private request text, values or personal history.
         targets=[];interventions=[]
