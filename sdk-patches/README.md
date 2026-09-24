@@ -1,18 +1,19 @@
 # Opt-in public trust cache
 
-This client-only change requires a reviewed `tinfoil==0.14.0+vita1` wheel. It does
+This client-only change uses a reviewed `tinfoil==0.14.0+vita2` wheel. It does
 not change the model, enclave image, deployment or installed shared SDK.
 The source wheel is PyPI `tinfoil==0.14.0`:
 
 - upstream wheel SHA256: `f04e1c0ed98e22619c03e6fc8b9a2cab60a4e9ed2001ffec58ab5cd848d77642`
-- patched wheel SHA256: `8fdd63b508956e46a3b46cf869fcf5124b5730e0e31e5a4847109ca4e527e259`
+- patched vita2 wheel SHA256: `09e727b435453e9548bdd7462436e900dddc43e0eb570f9ecdc011dd783d6b31`
+- earlier cache-only vita1 wheel SHA256: `8fdd63b508956e46a3b46cf869fcf5124b5730e0e31e5a4847109ca4e527e259`
 - cache dependency contract: `sigstore==4.5.0`, `tuf==6.0.0`
 
 Reproduce with Python 3.12 (the builder itself uses only the standard library):
 
 ```sh
 python -m pip download --no-deps --only-binary=:all: tinfoil==0.14.0 -d /tmp/sdk-input
-python scripts/build_trust_sdk.py /tmp/sdk-input/tinfoil-0.14.0-py3-none-any.whl /tmp/tinfoil-0.14.0+vita1-py3-none-any.whl
+python scripts/build_trust_sdk.py /tmp/sdk-input/tinfoil-0.14.0-py3-none-any.whl /tmp/tinfoil-0.14.0+vita2-py3-none-any.whl
 ```
 
 The builder checks the entire upstream wheel and both changed source hashes,
@@ -38,13 +39,30 @@ client = VitaClient(release_digest=approved_release,
                     trust_snapshot=snapshot)
 ```
 
-`SecureClient(..., sigstore_verifier_factory=...)` is the sole SDK extension.
+`SecureClient(..., sigstore_verifier_factory=...)` supplies the public trust root.
 It invokes a factory at each code-verification step, including re-verification
 following key rotation. Tinfoil's existing signature, certificate identity,
 transparency, exact release/tag, measurement and enclave/TLS binding checks stay
 in place. The factory creates a new child-local Sigstore verifier from public
 root bytes; it does not return a verified enclave or skip verification.
 Without an injected factory the SDK retains its original behavior.
+
+Vita2 also adds `parallel_public_fetches=False` to `SecureClient` and `VitaClient`.
+Opt in with `parallel_public_fetches=True` **only in the owning request child**.
+The SDK fetches the public enclave attestation and latest GitHub release on two
+temporary threads, joins both, then runs the original verification steps on the
+calling thread. Fetch failures are raised by their original stage handlers;
+enclave failure retains precedence if both fetches fail. No private request,
+credential access, TLS transport construction or crypto verification occurs in
+these workers. The direct verification path uses fresh fetches each time,
+including after key rotation. Measurement and bundle modes remain unchanged.
+
+The default remains serial. Cache-only callers can continue using the exact
+vita1 wheel; requesting parallel fetches with it fails before any network access.
+Do not substitute vita2 under vita1's lockfile version or digest. The executor
+waits for both public fetches even if one fails, using the existing SDK network
+timeouts. Vita must retain its isolated-child total deadline and termination
+policy; cancellation of a Python thread alone does not stop network work.
 
 Snapshots expire at the earlier of five minutes from refresh start or the earliest
 expiry among the authenticated TUF metadata loaded for the trust root (including
@@ -131,3 +149,22 @@ A real uvloop public-refresh test completed in891ms while the event loop advance
 reported no warning and its child validated the snapshot. Focused tests also
 cover timeout reaping, launch-window cancellation, repeated cancellation, failed
 refresh, and sync/async serialization. Evidence is `async-lifecycle.json`.
+
+## Public-fetch overlap diagnostic
+
+`scripts/profile_public_fetch_overlap.py` constructs six fresh clients against
+the pinned v0.3.2 release, alternates serial/parallel public fetches, and checks
+every SDK verification stage. It sends no API key, selector request or user data.
+SDK imports are outside the setup timer and separately recorded; both arms use
+the same valid trust snapshot and existing disk caches. It does not open an
+application TLS connection or measure total Vita latency.
+
+Serial setup measured **1149 / 1007 / 904 ms**; parallel setup measured
+**603 / 604 / 597 ms**. The medians are 1007 and 603 ms (about 404 ms lower).
+All six verified the expected release. This small sample supports the setup
+optimization, not a sub-second total-request claim. Actual fresh TLS, selector
+inference, and Vita orchestration still add latency. Preserve the first canonical
+Vita result of 1329 ms setup + 1832 ms selection and its 2s deadline failure;
+retest the opt-in change through that same path before activation.
+
+Evidence is `evidence/client-trust-cache/live-public-fetch-overlap.json`.

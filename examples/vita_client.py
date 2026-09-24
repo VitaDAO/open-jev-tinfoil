@@ -16,7 +16,7 @@ REPO = 'VitaDAO/open-jev-tinfoil'
 
 
 class VitaClient:
-    def __init__(self, *, release_digest, selector_sha256=None, adapter_sha256=None, trust_snapshot=None):
+    def __init__(self, *, release_digest, selector_sha256=None, adapter_sha256=None, trust_snapshot=None, parallel_public_fetches=False):
         for value in (release_digest,):
             if not isinstance(value,str) or not re.fullmatch(r'[0-9a-f]{64}',value):
                 raise ValueError('Reviewed release SHA256 pin required')
@@ -33,10 +33,15 @@ class VitaClient:
             from examples.trust_cache import TrustSnapshot
             if not isinstance(trust_snapshot, TrustSnapshot):
                 raise ValueError('Validated TrustSnapshot required')
-            if version('tinfoil') != '0.14.0+vita1':
+            if version('tinfoil') not in ('0.14.0+vita1', '0.14.0+vita2'):
                 raise RuntimeError('Trust cache requires reviewed patched SDK')
             trust_snapshot.assert_valid()
             verifier_options['sigstore_verifier_factory'] = trust_snapshot.make_verifier
+        if parallel_public_fetches:
+            from importlib.metadata import version
+            if version('tinfoil') != '0.14.0+vita2':
+                raise RuntimeError('Parallel public fetches require reviewed patched SDK vita2')
+            verifier_options['parallel_public_fetches'] = True
         from tinfoil import SecureClient
         class ReleasePinnedClient(SecureClient):
             def verify(inner):

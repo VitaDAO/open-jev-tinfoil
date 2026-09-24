@@ -91,7 +91,7 @@ def test_injected_verifier_retains_signature_and_identity_checks():
     import json
     from pathlib import Path
     from importlib.metadata import version
-    if version('tinfoil')!='0.14.0+vita1':pytest.skip('opt-in patched SDK test')
+    if version('tinfoil') not in ('0.14.0+vita1','0.14.0+vita2'):pytest.skip('opt-in patched SDK test')
     from sigstore.models import TrustedRoot
     from sigstore.verify import Verifier
     from tinfoil.sigstore import verify_attestation

@@ -9,7 +9,7 @@ from pathlib import Path
 import zipfile
 
 INPUT_SHA = 'f04e1c0ed98e22619c03e6fc8b9a2cab60a4e9ed2001ffec58ab5cd848d77642'
-VERSION = '0.14.0+vita1'
+VERSION = '0.14.0+vita2'
 SOURCE_HASHES = {
     'tinfoil/client.py':'aa41ea623554d714fa6c94ef5709943be10fd7475b6ccfcf5a9c0a9801654366',
     'tinfoil/sigstore.py':'8f36d7cf4ea9162451c7156afdfb653a2a1e01a0fcfec7f3b4971d01e8a48576',
@@ -19,9 +19,10 @@ SOURCE_HASHES = {
 def patched(name, source):
     if name == 'tinfoil/client.py':
         source = source.replace('user_cache_secret: Optional[str] = None):',
-            'user_cache_secret: Optional[str] = None, sigstore_verifier_factory=None):', 1)
+            'user_cache_secret: Optional[str] = None, sigstore_verifier_factory=None, parallel_public_fetches: bool = False):', 1)
         source = source.replace('        self.enclave = enclave or ""',
             '        self._sigstore_verifier_factory = sigstore_verifier_factory\n'
+            '        self._parallel_public_fetches = parallel_public_fetches\n'
             '        self.enclave = enclave or ""', 1)
         source = source.replace('sigstore_bundle, digest, self.repo, release.tag\n',
             'sigstore_bundle, digest, self.repo, release.tag,\n'
@@ -31,6 +32,24 @@ def patched(name, source):
             'bundle.sigstore_bundle, bundle.digest, self.repo, bundle.release_tag,\n'
             '                verifier=(self._sigstore_verifier_factory()\n'
             '                          if self._sigstore_verifier_factory is not None else None),\n', 1)
+        anchor = '        # Step 1: Verify enclave (fetch attestation, verify cryptographically, verify hardware)'
+        assert source.count(anchor) == 1
+        source = source.replace(anchor,
+            '        # Fetch public inputs concurrently only in the owning request process.\n'
+            '        # Futures retain failures for the original verification-stage handlers;\n'
+            '        # the context joins both workers before any verification or private IO.\n'
+            '        public_inputs = None\n'
+            '        if self._parallel_public_fetches and self.measurement is None:\n'
+            '            from concurrent.futures import ThreadPoolExecutor\n'
+            '            with ThreadPoolExecutor(max_workers=2, thread_name_prefix="tinfoil-public") as executor:\n'
+            '                public_inputs = (executor.submit(fetch_attestation, self.enclave),\n'
+            '                                 executor.submit(fetch_latest_release, self.repo))\n\n' + anchor, 1)
+        source = source.replace('            enclave_attestation = fetch_attestation(self.enclave)',
+            '            enclave_attestation = (public_inputs[0].result() if public_inputs is not None\n'
+            '                                   else fetch_attestation(self.enclave))', 1)
+        source = source.replace('                release = fetch_latest_release(self.repo)',
+            '                release = (public_inputs[1].result() if public_inputs is not None\n'
+            '                           else fetch_latest_release(self.repo))', 1)
     elif name == 'tinfoil/sigstore.py':
         source = source.replace('expected_release_tag: Optional[str] = None\n',
             'expected_release_tag: Optional[str] = None, *, verifier: Optional[Verifier] = None\n')
