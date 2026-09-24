@@ -59,8 +59,14 @@ is substituted for answer correctness.
 
 Unsupported counts, comparisons, clinical interpretation, arbitrary research,
 app actions and contextual questions use the original native planner. The
-standalone sleep-end projection and research provenance currently require that
-planner too. Do not relabel a research subject or omit a clause to manufacture a
+standalone sleep-end projection and source-derived research still require that
+planner too. A single explicit public research request can go directly to
+`literature_reads` when the entire question fits the closed grammar and its
+targets, diet/exercise interventions and improve/lower goal exactly match the
+selector plan. This preserves the original study wording (including randomized
+trials) and uses `explicit_subjects_in_current_user_message` with no source IDs.
+Personal values, dates, population filters, unresolved references, mixed reads
+and other unmatched qualifiers retain the complete planner handoff. Do not relabel a research subject or omit a clause to manufacture a
 fast-path success. Failure of the optional selector is not failure of Vita.
 
 The wrapper is one instance per turn. It checks disclosure before and after
