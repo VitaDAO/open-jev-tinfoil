@@ -8,6 +8,7 @@ All native instructions, admitted inventory, tools and history stay intact.
 import asyncio
 import hashlib
 import json
+import re
 import time
 from copy import deepcopy
 from uuid import uuid4
@@ -20,6 +21,62 @@ from query_plan import QueryRequest, QueryPlan, HealthRead, compile_batch, MAX_M
 
 class _Ineligible(ValueError):
     """Only locally generated, fixed eligibility codes may enter receipts."""
+
+
+def _prior_user_requests(messages):
+    """Read native admitted recall, never arbitrary tool text or assistant prose."""
+    prior, seen = [], set()
+    index = 0
+    while index < len(messages):
+        message = messages[index]
+        content = message.get('content', [])
+        recall = [b for b in content if b.get('type') == 'tool-call'
+                  and b.get('name') == 'vita_prior_user_context']
+        if recall:
+            block = recall[0]
+            call_id = block.get('id')
+            source = message.get('source', {})
+            if (len(content) != 1 or message.get('role') != 'assistant'
+                    or source.get('kind') != 'model' or source.get('provider') != 'vita-admitted'
+                    or not isinstance(call_id, str)
+                    or not re.fullmatch(r'ctx_prior_user_[0-9a-f]{24}', call_id)
+                    or call_id in seen or block.get('arguments') != '{}'
+                    or index + 1 >= len(messages)):
+                raise _Ineligible('selector_history_untrusted')
+            result = messages[index + 1]
+            outputs = result.get('content', [])
+            if (result.get('role') != 'user'
+                    or result.get('source') != {'kind':'tool', 'callId':call_id}
+                    or len(outputs) != 1 or outputs[0].get('type') != 'tool-result'
+                    or outputs[0].get('toolCallId') != call_id):
+                raise _Ineligible('selector_history_untrusted')
+            values = outputs[0].get('content', [])
+            try:
+                if len(values) != 1 or values[0].get('type') != 'text':
+                    raise ValueError()
+                payload = json.loads(values[0]['text'])
+                if (not isinstance(payload, dict) or set(payload) != {'schema','message'}
+                        or payload['schema'] != 'vita-prior-user-context/v1'):
+                    raise ValueError()
+                text = payload['message']
+                if isinstance(text, list):
+                    if not text or any(not isinstance(b, dict) or b.get('type') != 'input_text'
+                                       or not isinstance(b.get('text'), str) for b in text):
+                        raise ValueError()
+                    text = '\n'.join(b['text'] for b in text)
+                if not isinstance(text, str) or not text.strip():
+                    raise ValueError()
+            except (ValueError, KeyError, TypeError):
+                raise _Ineligible('selector_history_untrusted') from None
+            prior.append(text.strip())
+            seen.add(call_id)
+            index += 2
+            continue
+        if (message.get('role') == 'user' and len(content) == 1
+                and content[0].get('type') == 'text'):
+            prior.append(content[0]['text'].strip())
+        index += 1
+    return prior
 
 
 def native_batch(plan, request, tool_schema):
@@ -116,9 +173,7 @@ class NativeSelectorProvider:
         content = messages[-1]['content']
         if content != [{'type': 'text', 'text': self.request.state.current_request}]:
             raise _Ineligible('original_request_mismatch')
-        prior = [m['content'][0]['text'] for m in messages[:-1]
-                 if m['role'] == 'user' and len(m['content']) == 1
-                 and m['content'][0].get('type') == 'text']
+        prior = _prior_user_requests(messages[:-1])
         recent = self.request.state.recent_user_requests
         if recent and prior[-len(recent):] != recent:
             raise _Ineligible('selector_history_mismatch')

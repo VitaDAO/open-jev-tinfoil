@@ -261,3 +261,85 @@ def test_real_session_policy_bootstrap_round_reaches_selector_and_native_broker(
         assert bridge.receipt['status'] == 'native_acquisition_proposed'
         assert bridge.receipt['reason_code'] is None
     asyncio.run(run())
+
+
+def prior_messages(manager, items):
+    from backbone.session_bridge import items_to_messages
+    from vita_agent.session.storage_backed_session_v2 import _project_conversation_history
+    projected = _project_conversation_history(items, session_id='synthetic-history', context_epoch=1)
+    return items_to_messages(projected, model_id=manager.model_id)
+
+
+@pytest.mark.parametrize('as_blocks', [False, True])
+def test_native_recall_followup_binds_original_history_and_reaches_broker(as_blocks):
+    from agents import RunConfig
+    from backbone.session_bridge import SessionInputPolicy
+    async def run():
+        manager,resolver,_ = fixture()
+        previous = 'Summarize my health trends this week'
+        items = [{'role':'user','content':([{'type':'input_text','text':previous}] if as_blocks else previous)},
+                 {'role':'assistant','content':'Synthetic prior answer; not a current health source.'}]
+        history = prior_messages(manager, items)
+        req = request('What about last month?')
+        req = req.model_copy(update={'state':req.state.model_copy(update={'recent_user_requests':[previous]})})
+        client = Client(plan(req)); captured = []
+        select = client.select
+        def checked(value):
+            captured.append(value.state.recent_user_requests)
+            return select(value)
+        client.select = checked
+        async def provider(env):
+            async for event in action('submit_final_answer', final_args(), call_id='recall-final'):
+                yield event
+        bridge = NativeSelectorProvider(client, req, provider, authorize=manager.check_disclosure)
+        result = await manager.run(req.state.current_request, model=bridge, initial_session=history,
+            input_policy=SessionInputPolicy(manager,RunConfig(tracing_disabled=True)))
+        assert result['answer'] == ANSWER and resolver.reads == 1
+        assert captured == [[previous]] and client.calls == 1
+        assert bridge.receipt['status'] == 'native_acquisition_proposed'
+    asyncio.run(run())
+
+
+@pytest.mark.parametrize('mode', ['valid','wrong_text','source','call_id','result_id','schema',
+    'assistant_recall','missing_result','duplicate','arguments','attachment','extra_result'])
+def test_recall_history_binding_rejects_untrusted_or_mismatched_pairs(mode):
+    from agents import RunConfig
+    from backbone.session_bridge import SessionInputPolicy
+    async def run():
+        manager,resolver,_ = fixture(); previous = 'Show my steps this week'
+        req = request('What about last month?')
+        req = req.model_copy(update={'state':req.state.model_copy(update={'recent_user_requests':[previous]})})
+        items = [{'role':'user','content':previous}]
+        if mode == 'assistant_recall': items[0]['role']='assistant'
+        history = prior_messages(manager,items)
+        projected = await SessionInputPolicy(manager,RunConfig(tracing_disabled=True))({'messages':history})
+        history = projected['messages']
+        if mode == 'wrong_text':
+            payload={'schema':'vita-prior-user-context/v1','message':'Different subject'}
+            history[1]['content'][0]['content'][0]['text']=json.dumps(payload)
+        if mode == 'source': history[0]['source']['provider']='arbitrary-provider'
+        if mode == 'call_id': history[0]['content'][0]['id']='arbitrary-id'
+        if mode == 'result_id': history[1]['content'][0]['toolCallId']='other-call'
+        if mode == 'schema': history[1]['content'][0]['content'][0]['text']='{"schema":"other","message":"private-sentinel"}'
+        if mode == 'missing_result': history=history[:1]
+        if mode == 'duplicate': history=history+copy.deepcopy(history)
+        if mode == 'arguments': history[0]['content'][0]['arguments']='{"query":"private-sentinel"}'
+        if mode == 'attachment':
+            history[1]['content'][0]['content'][0]['text']=json.dumps({'schema':'vita-prior-user-context/v1',
+                'message':[{'type':'input_text','text':previous},{'type':'input_image','url':'synthetic'}]})
+        if mode == 'extra_result': history[1]['content'].append({'type':'text','text':'private-sentinel'})
+        env=envelope(manager,req);env['request']['messages'][1:1]=history
+        frozen=copy.deepcopy(env);seen=[];client=Client(plan(req))
+        async def provider(value):
+            seen.append(value)
+            yield {'type':'finish','reason':{'kind':'stop'}}
+        bridge=NativeSelectorProvider(client,req,provider,authorize=manager.check_disclosure)
+        events=[event async for event in bridge(env)]
+        assert env==frozen and resolver.reads==0
+        assert client.calls==int(mode=='valid')
+        if mode=='valid': assert not seen and bridge.receipt['status']=='native_acquisition_proposed'
+        else:
+            assert seen[0] is env and bridge.receipt['status']=='native_planner'
+            assert bridge.receipt['reason_code'] in {'selector_history_untrusted','selector_history_mismatch'}
+        assert 'private-sentinel' not in json.dumps(bridge.receipt)
+    asyncio.run(run())
