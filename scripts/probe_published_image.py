@@ -6,6 +6,7 @@ SELECTOR='6beaf54f171b47a6f068c785e63f85a2e2aac64e63a73e0b4eb36777a55b5cc5'
 ROOT=Path(__file__).resolve().parents[1]
 FIXTURE=ROOT/'evidence/selector-v7/fresh-selector-acceptance-v1.json'
 def core_cases(packet):
+ if os.environ.get('PROBE_SUITE')=='vita':return json.loads((ROOT/'evidence/selector-v7/new-image-core4-v1.json').read_text())['cases']
  base=packet['cases'][0]['request'];result=[]
  for name,text in [('profile','Show my profile.'),('simple','Show my steps yesterday.'),('metadata','When were my lab reports done, and which lab issued them?'),('weekly','Give me a descriptive health summary for last week.')]:
   req=copy.deepcopy(base);req['state']['current_request']=text;result.append({'id':name,'request':req})
@@ -50,7 +51,7 @@ def main():
  def docker(*args):return command('docker',*args)
  name='openjev-exact-image-probe';packet=json.loads(FIXTURE.read_text());rows=[];health=[];resources=[]
  def save():
-  (out/'http-results.json').write_text(json.dumps({'image':IMAGE,'scope':'Synthetic loopback HTTP, not attested; first selector call follows built-in Engine warmup. Sequential requests, no concurrent load.','rows':rows,'health':health,'resources':resources},indent=2)+'\n')
+  (out/'http-results.json').write_text(json.dumps({'image':IMAGE,'suite':os.environ.get('PROBE_SUITE','diagnostic'),'scope':'Synthetic loopback HTTP, not attested; first selector call follows built-in Engine warmup. Sequential requests, no concurrent load.','rows':rows,'health':health,'resources':resources},indent=2)+'\n')
  def call(req=None,authorized=True):
   url='http://127.0.0.1:18080/'+('health' if req is None else 'v1/select')
   headers={'Content-Type':'application/json'}
@@ -89,14 +90,15 @@ def main():
    for _ in range(5):record(case,'warm')
    resources.append({'case':case['id'],'memory_peak_bytes':int(docker('exec',name,'cat','/sys/fs/cgroup/memory.peak'))});save()
   finally:stop()
- start()
- try:
-  for case in packet['cases']:record(case,'regression42')
-  resources.append({'case':'regression42','memory_peak_bytes':int(docker('exec',name,'cat','/sys/fs/cgroup/memory.peak'))});save()
- finally:stop()
+ if os.environ.get('PROBE_SUITE')!='vita':
+  start()
+  try:
+   for case in packet['cases']:record(case,'regression42')
+   resources.append({'case':'regression42','memory_peak_bytes':int(docker('exec',name,'cat','/sys/fs/cgroup/memory.peak'))});save()
+  finally:stop()
  profiles=[]
  for threads in [1,2,4]:
-  text=docker('run','--rm','--memory','8g','--cpus','4','--network','none','--read-only','--cap-drop','ALL','--security-opt','no-new-privileges','--tmpfs','/tmp:rw,noexec,nosuid,nodev,size=64m,mode=1777','-e','OPEN_JEV_API_KEY','-e',f'OMP_NUM_THREADS={threads}','-e',f'MKL_NUM_THREADS={threads}','-v',str(ROOT)+':/probe:ro','--entrypoint','python',IMAGE,'/probe/scripts/probe_published_image.py','--in-container')
+  text=docker('run','--rm','--memory','8g','--cpus','4','--network','none','--read-only','--cap-drop','ALL','--security-opt','no-new-privileges','--tmpfs','/tmp:rw,noexec,nosuid,nodev,size=64m,mode=1777','-e','OPEN_JEV_API_KEY','-e','PROBE_SUITE','-e',f'OMP_NUM_THREADS={threads}','-e',f'MKL_NUM_THREADS={threads}','-v',str(ROOT)+':/probe:ro','--entrypoint','python',IMAGE,'/probe/scripts/probe_published_image.py','--in-container')
   profiles.append(json.loads(next(s.split('=',1)[1] for s in text.splitlines() if s.startswith('PROFILE_JSON='))))
   (out/'inference-profile.json').write_text(json.dumps(profiles,indent=2)+'\n')
  failures=[r['id'] for r in rows if r.get('issues')];print(json.dumps({'http_cases':len(rows),'regression_failures':failures,'peak_bytes':max(r['memory_peak_bytes'] for r in resources)}));assert not failures

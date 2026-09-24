@@ -1,6 +1,11 @@
 name: Exact published image probes
 on:
   workflow_dispatch:
+    inputs:
+      suite:
+        type: choice
+        options: [diagnostic, vita]
+        default: diagnostic
 permissions:
   contents: read
   packages: read
@@ -15,6 +20,8 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: printf '%s' "$GH_TOKEN" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
       - name: Exact image synthetic HTTP and inference probes
+        env:
+          PROBE_SUITE: ${{ inputs.suite }}
         run: python scripts/probe_published_image.py
       - name: Preserve synthetic evidence
         if: always()

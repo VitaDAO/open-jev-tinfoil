@@ -1,0 +1,168 @@
+{
+  "schema_version": "vita-image-core-probes/v1",
+  "scope": "Four synthetic Vita acceptance prompts, frozen before new-image inference; no private values or source IO. Existing inventory/clock matches context-select-probe.py.",
+  "cases": [
+    {
+      "id": "analyze",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "sleep_score",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "apob",
+          "hba1c",
+          "weight"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "Analyze me.",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected_scope": {
+        "wanted": "health plus general overview research",
+        "native_goal": "first acquisition proposal; no partial clause drop"
+      }
+    },
+    {
+      "id": "week",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "sleep_score",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "apob",
+          "hba1c",
+          "weight"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "Summarize my health trends this week.",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected_scope": {
+        "wanted": "descriptive health reads scoped to current calendar week, no research",
+        "native_goal": "start2026-09-20T21:00:00Z/end2026-09-24T12:00:00Z; current profile permitted"
+      }
+    },
+    {
+      "id": "month_followup",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "sleep_score",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "apob",
+          "hba1c",
+          "weight"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "What about last month?",
+          "recent_user_requests": [
+            "Summarize my health trends this week."
+          ],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected_scope": {
+        "wanted": "same health subjects for complete previous calendar month, no research",
+        "native_goal": "August2026 in Europe/Bucharest; no residual this-week scope"
+      }
+    },
+    {
+      "id": "apob_literature",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "sleep_score",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "apob",
+          "hba1c",
+          "weight"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "What do randomized trials say about exercise and diet for bringing ApoB down?",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected_scope": {
+        "wanted": "public research on ApoB, exercise and diet; no personal health reads",
+        "native_goal": "current bf5client expected whole handoff for explicit research; report separately from selector correctness"
+      }
+    }
+  ]
+}
