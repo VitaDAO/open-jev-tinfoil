@@ -1,0 +1,355 @@
+{
+  "selector_sha256": "3cc7a754e9ea536912d06b8c3a0c18c192d6080303dcb2980a442d64a61a3a65",
+  "cases": [
+    {
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "state": {
+          "current_request": "Show my deep sleep last night",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-23",
+          "time_zone": "UTC"
+        },
+        "reference_time": "2026-09-23T12:00:00Z",
+        "available_metrics": [
+          "total_sleep",
+          "sleep_efficiency",
+          "sleep_deep",
+          "steps"
+        ],
+        "available_record_types": [
+          "profile",
+          "labs",
+          "workouts",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "garmin"
+        ],
+        "literature_available": true
+      },
+      "plan": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [
+              "sleep_deep"
+            ],
+            "records": [],
+            "operation": "trend",
+            "period": {
+              "kind": "between",
+              "start_at": "2026-09-23",
+              "end_at": "2026-09-23"
+            },
+            "source": null,
+            "profile_fields": [],
+            "limit": null,
+            "date_basis": "sleep_end_day"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3cc7a754e9ea536912d06b8c3a0c18c192d6080303dcb2980a442d64a61a3a65",
+        "adapter_sha256": "79057d0e2673aa2813a8ea64193d74182a33392b1221c7c06d4afc7afe18dc36",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "259b8c9e32decf6d36e39324f518a205970e7322b4248d38e28953e9267849c7",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "state": {
+          "current_request": "Show my total sleep and deep sleep last night",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-23",
+          "time_zone": "UTC"
+        },
+        "reference_time": "2026-09-23T12:00:00Z",
+        "available_metrics": [
+          "total_sleep",
+          "sleep_efficiency",
+          "sleep_deep",
+          "steps"
+        ],
+        "available_record_types": [
+          "profile",
+          "labs",
+          "workouts",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "garmin"
+        ],
+        "literature_available": true
+      },
+      "plan": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [
+              "sleep_deep",
+              "total_sleep"
+            ],
+            "records": [],
+            "operation": "trend",
+            "period": {
+              "kind": "between",
+              "start_at": "2026-09-23",
+              "end_at": "2026-09-23"
+            },
+            "source": null,
+            "profile_fields": [],
+            "limit": null,
+            "date_basis": "sleep_end_day"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3cc7a754e9ea536912d06b8c3a0c18c192d6080303dcb2980a442d64a61a3a65",
+        "adapter_sha256": "79057d0e2673aa2813a8ea64193d74182a33392b1221c7c06d4afc7afe18dc36",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "7e95ee8e999aa382bdb7aac33f40440b5ef579171d505867b019adc63b0934ff",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "state": {
+          "current_request": "Show my total sleep last night",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-23",
+          "time_zone": "UTC"
+        },
+        "reference_time": "2026-09-23T12:00:00Z",
+        "available_metrics": [
+          "total_sleep",
+          "sleep_efficiency",
+          "sleep_deep",
+          "steps"
+        ],
+        "available_record_types": [
+          "profile",
+          "labs",
+          "workouts",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "garmin"
+        ],
+        "literature_available": true
+      },
+      "plan": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [
+              "total_sleep"
+            ],
+            "records": [],
+            "operation": "trend",
+            "period": {
+              "kind": "between",
+              "start_at": "2026-09-23",
+              "end_at": "2026-09-23"
+            },
+            "source": null,
+            "profile_fields": [],
+            "limit": null,
+            "date_basis": "sleep_end_day"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3cc7a754e9ea536912d06b8c3a0c18c192d6080303dcb2980a442d64a61a3a65",
+        "adapter_sha256": "79057d0e2673aa2813a8ea64193d74182a33392b1221c7c06d4afc7afe18dc36",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "4d7dc77a39e7cbb182e021dff5baacbc35925df53052653f4a034452cfb8153d",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "state": {
+          "current_request": "How much deep sleep did I get last night?",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-23",
+          "time_zone": "UTC"
+        },
+        "reference_time": "2026-09-23T12:00:00Z",
+        "available_metrics": [
+          "total_sleep",
+          "sleep_efficiency",
+          "sleep_deep",
+          "steps"
+        ],
+        "available_record_types": [
+          "profile",
+          "labs",
+          "workouts",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "garmin"
+        ],
+        "literature_available": true
+      },
+      "plan": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "learned_read_intent_unconfirmed"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3cc7a754e9ea536912d06b8c3a0c18c192d6080303dcb2980a442d64a61a3a65",
+        "adapter_sha256": "79057d0e2673aa2813a8ea64193d74182a33392b1221c7c06d4afc7afe18dc36",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "b3fd4f09e957680975b9e4aa6f3f4c811e82b7dcfaae7dfce7455daca910bbb4",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "unsupported",
+              "reason_codes": [
+                "learned_read_intent_unconfirmed"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "state": {
+          "current_request": "Show my steps last night",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-23",
+          "time_zone": "UTC"
+        },
+        "reference_time": "2026-09-23T12:00:00Z",
+        "available_metrics": [
+          "total_sleep",
+          "sleep_efficiency",
+          "sleep_deep",
+          "steps"
+        ],
+        "available_record_types": [
+          "profile",
+          "labs",
+          "workouts",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "garmin"
+        ],
+        "literature_available": true
+      },
+      "plan": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "night_requires_sleep"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3cc7a754e9ea536912d06b8c3a0c18c192d6080303dcb2980a442d64a61a3a65",
+        "adapter_sha256": "79057d0e2673aa2813a8ea64193d74182a33392b1221c7c06d4afc7afe18dc36",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "1ed9d13d6558cb612905b3027ba5b0b91ec3a11cdc38db05081bf74d3ce56be3",
+        "diagnostics": {}
+      }
+    },
+    {
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "state": {
+          "current_request": "Show my deep sleep last night",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-23",
+          "time_zone": "UTC"
+        },
+        "reference_time": "2026-09-23T12:00:00Z",
+        "available_metrics": [
+          "total_sleep"
+        ],
+        "available_record_types": [
+          "profile",
+          "labs",
+          "workouts",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "garmin"
+        ],
+        "literature_available": true
+      },
+      "plan": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "requested_metric_unavailable"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3cc7a754e9ea536912d06b8c3a0c18c192d6080303dcb2980a442d64a61a3a65",
+        "adapter_sha256": "79057d0e2673aa2813a8ea64193d74182a33392b1221c7c06d4afc7afe18dc36",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "907a2265ee22c520390e1fc07b3010c4f6c6ce05fcc7cf663d6d8c89252c877e",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "unsupported",
+              "reason_codes": [
+                "requested_metric_unavailable",
+                "unresolved_metric_or_record"
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
