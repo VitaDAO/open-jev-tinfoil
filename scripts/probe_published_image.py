@@ -32,7 +32,12 @@ def instrument():
  sys.path.insert(0,'/app')
  from server import Engine
  from query_plan import QueryRequest
- engine=Engine();events=[];backbone=engine.model.model.backbone;original=backbone.forward
+ engine=Engine()
+ import torch
+ startup_threads=torch.get_num_threads();requested_threads=int(os.environ['OMP_NUM_THREADS'])
+ torch.set_num_threads(requested_threads)
+ assert torch.get_num_threads()==requested_threads
+ events=[];backbone=engine.model.model.backbone;original=backbone.forward
  def forward(*args,**kwargs):
   start=time.perf_counter();value=original(*args,**kwargs)
   events.append({'ms':(time.perf_counter()-start)*1000,'shape':list(kwargs['input_ids'].shape)})
@@ -42,7 +47,7 @@ def instrument():
   for repetition in range(3):
    events.clear();start=time.perf_counter();result=engine.select(QueryRequest.model_validate(case['request']))
    rows.append({'id':case['id'],'repetition':repetition,'elapsed_ms':(time.perf_counter()-start)*1000,'forwards':list(events),'result':result})
- print('PROFILE_JSON='+json.dumps({'threads':os.environ['OMP_NUM_THREADS'],'rows':rows}))
+ print('PROFILE_JSON='+json.dumps({'requested_threads':requested_threads,'startup_threads':startup_threads,'actual_threads':torch.get_num_threads(),'rows':rows}))
 
 def main():
  out=ROOT/'image-probe-output';out.mkdir(exist_ok=False)
@@ -82,7 +87,7 @@ def main():
  docker('pull',IMAGE)
  (out/'image-inspect.json').write_text(docker('image','inspect',IMAGE))
  (out/'runner-cpu.txt').write_text(command('lscpu'))
- for case in core_cases(packet):
+ for case in ([] if os.environ.get('PROFILE_ONLY')=='1' else core_cases(packet)):
   start()
   try:
    code,_,_=call(case['request'],False);assert code==401
@@ -90,7 +95,7 @@ def main():
    for _ in range(5):record(case,'warm')
    resources.append({'case':case['id'],'memory_peak_bytes':int(docker('exec',name,'cat','/sys/fs/cgroup/memory.peak'))});save()
   finally:stop()
- if os.environ.get('PROBE_SUITE')!='vita':
+ if os.environ.get('PROFILE_ONLY')!='1' and os.environ.get('PROBE_SUITE')!='vita':
   start()
   try:
    for case in packet['cases']:record(case,'regression42')
@@ -101,6 +106,6 @@ def main():
   text=docker('run','--rm','--memory','8g','--cpus','4','--network','none','--read-only','--cap-drop','ALL','--security-opt','no-new-privileges','--tmpfs','/tmp:rw,noexec,nosuid,nodev,size=64m,mode=1777','-e','OPEN_JEV_API_KEY','-e','PROBE_SUITE','-e',f'OMP_NUM_THREADS={threads}','-e',f'MKL_NUM_THREADS={threads}','-v',str(ROOT)+':/probe:ro','--entrypoint','python',IMAGE,'/probe/scripts/probe_published_image.py','--in-container')
   profiles.append(json.loads(next(s.split('=',1)[1] for s in text.splitlines() if s.startswith('PROFILE_JSON='))))
   (out/'inference-profile.json').write_text(json.dumps(profiles,indent=2)+'\n')
- failures=[r['id'] for r in rows if r.get('issues')];print(json.dumps({'http_cases':len(rows),'regression_failures':failures,'peak_bytes':max(r['memory_peak_bytes'] for r in resources)}));assert not failures
+ failures=[r['id'] for r in rows if r.get('issues')];print(json.dumps({'http_cases':len(rows),'regression_failures':failures,'peak_bytes':max((r['memory_peak_bytes'] for r in resources),default=None)}));assert not failures
 if __name__=='__main__':
  instrument() if '--in-container' in sys.argv else main()

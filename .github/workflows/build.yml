@@ -6,6 +6,9 @@ on:
         type: choice
         options: [diagnostic, vita]
         default: diagnostic
+      profile_only:
+        type: boolean
+        default: false
 permissions:
   contents: read
   packages: read
@@ -22,6 +25,7 @@ jobs:
       - name: Exact image synthetic HTTP and inference probes
         env:
           PROBE_SUITE: ${{ inputs.suite }}
+          PROFILE_ONLY: ${{ inputs.profile_only && '1' || '0' }}
         run: python scripts/probe_published_image.py
       - name: Preserve synthetic evidence
         if: always()
