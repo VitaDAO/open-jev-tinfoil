@@ -5,6 +5,7 @@ Children receive snapshot() and construct their own verifier and TLS transport.
 """
 from dataclasses import dataclass
 import hashlib
+import asyncio
 import base64
 import json
 import subprocess
@@ -16,6 +17,7 @@ import time
 
 MAX_AGE_SECONDS = 300
 REFRESH_AFTER_SECONDS = 240
+WORKER_TIMEOUT_SECONDS = 30
 
 
 def _validated_root():
@@ -70,22 +72,83 @@ def _refresh_snapshot(issued, monotonic):
     return candidate
 
 
-def _fetch_snapshot(issued, monotonic):
-    # Network libraries can create native threads even with no Python threads.
-    # Execute refresh separately; do not import Sigstore or create TLS in parent.
+def _worker_spec(issued, monotonic):
     env = {key:value for key,value in os.environ.items() if key in (
         'PATH','HOME','TMPDIR','SYSTEMROOT','XDG_CACHE_HOME','XDG_DATA_HOME',
         'SSL_CERT_FILE','SSL_CERT_DIR','REQUESTS_CA_BUNDLE','PYTHONPATH')}
-    response = subprocess.run([sys.executable, str(Path(__file__).resolve()),
-        '--refresh-worker', str(issued), str(monotonic)], env=env,
-        capture_output=True, text=True, timeout=30, check=True)
-    data = json.loads(response.stdout)
+    return ([sys.executable, str(Path(__file__).resolve()),
+             '--refresh-worker', str(issued), str(monotonic)], env)
+
+
+def _decode_snapshot(stdout, issued, monotonic):
+    data = json.loads(stdout)
     raw = base64.b64decode(data.pop('root_base64'), validate=True)
     candidate = TrustSnapshot(root_bytes=raw, **data)
     if candidate.issued_at != issued or candidate.issued_monotonic != monotonic:
         raise RuntimeError('trust_snapshot_clock_mismatch')
     candidate.assert_valid()
     return candidate
+
+
+def _fetch_snapshot(issued, monotonic):
+    args, env = _worker_spec(issued, monotonic)
+    response = subprocess.run(args, env=env, capture_output=True, text=True,
+                              timeout=WORKER_TIMEOUT_SECONDS, check=True)
+    return _decode_snapshot(response.stdout, issued, monotonic)
+
+
+def _check_async_watcher():
+    # asyncio's default macOS child watcher starts a thread per helper. Never
+    # silently change the host's process-wide event loop or signal policy.
+    uvloop = sys.modules.get('uvloop')
+    if uvloop is not None and isinstance(asyncio.get_running_loop(), uvloop.Loop):
+        return  # uvloop owns its subprocess transport; no stdlib child watcher.
+    watcher = asyncio.get_child_watcher()
+    allowed = tuple(getattr(asyncio, name) for name in
+                    ('PidfdChildWatcher', 'SafeChildWatcher', 'FastChildWatcher')
+                    if hasattr(asyncio, name))
+    if not isinstance(watcher, allowed):
+        raise RuntimeError('trust_refresh_requires_nonthreaded_child_watcher')
+
+
+async def _cleanup_worker(launch):
+    process = await launch
+    if process.returncode is None:
+        try:
+            process.kill()
+        except ProcessLookupError:
+            pass
+    await process.communicate()  # Drain pipes and reap even after cancellation.
+
+
+async def _finish_cleanup(task):
+    # Repeated cancellation must not abandon a spawned helper.
+    while not task.done():
+        try:
+            await asyncio.shield(task)
+        except asyncio.CancelledError:
+            continue
+    task.result()
+
+
+async def _async_fetch_snapshot(issued, monotonic):
+    _check_async_watcher()
+    args, env = _worker_spec(issued, monotonic)
+    launch = asyncio.create_task(asyncio.create_subprocess_exec(
+        *args, env=env, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE))
+    try:
+        async with asyncio.timeout(WORKER_TIMEOUT_SECONDS):
+            process = await asyncio.shield(launch)
+            stdout, _ = await process.communicate()
+            if process.returncode != 0:
+                raise RuntimeError('trust_refresh_worker_failed')
+        return _decode_snapshot(stdout, issued, monotonic)
+    except BaseException:
+        # Shield launch too: cancellation can arrive after OS spawn but before
+        # create_subprocess_exec returns the process handle.
+        cleanup = asyncio.create_task(_cleanup_worker(launch))
+        await _finish_cleanup(cleanup)
+        raise
 
 
 class PublicTrustCache:
@@ -100,12 +163,31 @@ class PublicTrustCache:
 
     def refresh(self):
         self._check_owner()  # Before touching an inherited lock.
-        with self._refresh_lock:
+        if not self._refresh_lock.acquire(blocking=False):
+            raise RuntimeError('trust_refresh_in_progress')
+        try:
             issued, monotonic = time.time(), time.monotonic()
             candidate = _fetch_snapshot(issued, monotonic)
             candidate.assert_valid()
             self._snapshot = candidate  # Publish atomically only after successful verification.
             return candidate
+        finally:
+            self._refresh_lock.release()
+
+    async def async_refresh(self):
+        self._check_owner()
+        # Never wait on a threading lock in the host event loop. The same gate
+        # serializes sync and async refreshes; cancellation while waiting is inert.
+        while not self._refresh_lock.acquire(blocking=False):
+            await asyncio.sleep(.01)
+        try:
+            issued, monotonic = time.time(), time.monotonic()
+            candidate = await _async_fetch_snapshot(issued, monotonic)
+            candidate.assert_valid()
+            self._snapshot = candidate
+            return candidate
+        finally:
+            self._refresh_lock.release()
 
     def snapshot(self):
         self._check_owner()

@@ -104,3 +104,30 @@ lazy SDK imports in the constructor and network variability. Neither run proves
 reliable selection in the two-second caller budget. Do not compare absolute
 latency between the different parent-preload conditions. Both evidence files are
 preserved under `evidence/client-trust-cache/`.
+
+## Async server lifecycle
+
+`await cache.async_refresh()` runs the same isolated helper and uses exactly the
+same snapshot decoder and validation as `refresh()`. Use it in an async host's
+lifespan before admitting requests and for proactive refresh when `refresh_due`
+becomes true. Helper startup plus communication has a 30-second limit. Timeout,
+nonzero exit, bad output and cancellation leave the prior snapshot and expiry
+unchanged. Cancellation during launch is shielded until the process handle is
+obtained; cleanup kills/drains/reaps the helper even on repeated cancellation.
+
+The same parent-owned gate serializes sync/async refresh. Async waiters yield to
+the event loop; a concurrent sync refresh raises `trust_refresh_in_progress`
+instead of blocking the event loop. Cancelling a waiting async caller does not
+cancel the in-progress refresh. No process-wide loop or signal policy is changed.
+
+Supported async subprocess implementations are uvloop and the stdlib nonthreaded
+Pidfd/Safe/Fast child watchers. A stdlib ThreadedChildWatcher is refused before
+spawn, because it creates a parent wait thread. Missing/unsupported cache remains
+unavailable and the host should select its normal planner path. Configure the
+host's known-safe process policy explicitly; do not silently switch it here.
+
+A real uvloop public-refresh test completed in891ms while the event loop advanced
+82times. Parent native threads stayed1 before/after; a subsequent actual fork
+reported no warning and its child validated the snapshot. Focused tests also
+cover timeout reaping, launch-window cancellation, repeated cancellation, failed
+refresh, and sync/async serialization. Evidence is `async-lifecycle.json`.
