@@ -58,6 +58,7 @@ def main():
       assert parsed.hostname==HOST and parsed.path=='/v1/select'
       return http.post(url+parsed.path,**kwargs)
     client=VitaClient.__new__(VitaClient);client.http=LoopbackTransport();client.token=token
+    client._owner_pid=os.getpid()
     client._select_lock=Lock()
     client.selector_sha256=start_identity;client.adapter_sha256=INTENT_SHA256
     # Native inventory can contain digit-leading analytes unrelated to the query.
