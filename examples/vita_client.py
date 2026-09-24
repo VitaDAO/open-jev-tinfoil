@@ -25,6 +25,7 @@ class VitaClient:
         for value in (selector_sha256,adapter_sha256):
             if value is not None and (not isinstance(value,str) or not re.fullmatch(r'[0-9a-f]{64}',value)):
                 raise ValueError('Reviewed selector SHA256 pins required')
+        self._owner_pid = os.getpid()
         from tinfoil import SecureClient
         class ReleasePinnedClient(SecureClient):
             def verify(inner):
@@ -50,7 +51,12 @@ class VitaClient:
         self.adapter_sha256=adapter_sha256
         self._select_lock=Lock()
 
+    def _check_process(self):
+        if os.getpid() != self._owner_pid:
+            raise RuntimeError('Client belongs to another process; construct a fresh client in this child')
+
     def select(self, request):
+        self._check_process()
         # Cancelling an asyncio.to_thread waiter does not stop this worker.
         # Keep admission until the worker exits; later turns hand off immediately.
         if not self._select_lock.acquire(blocking=False):
@@ -78,6 +84,7 @@ class VitaClient:
             self._select_lock.release()
 
     def decide(self, state, questions):
+        self._check_process()
         response = self.http.post(
             f'https://{HOST}/decide',
             headers={'Authorization': f'Bearer {self.token}'},
@@ -91,6 +98,7 @@ class VitaClient:
         return result
 
     def route(self, state):
+        self._check_process()
         response = self.http.post(
             f'https://{HOST}/route',
             headers={'Authorization': f'Bearer {self.token}'},
@@ -107,4 +115,5 @@ class VitaClient:
         return result
 
     def close(self):
+        self._check_process()
         self.http.close()

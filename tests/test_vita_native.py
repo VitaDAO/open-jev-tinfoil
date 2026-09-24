@@ -15,7 +15,7 @@ pytest.importorskip('jsonschema')
 from backbone.synthetic import fixture, QUESTION, ANSWER, READ, final_args
 from backbone.test_manager import action
 from examples.vita_native import NativeSelectorProvider, native_batch
-from query_plan import QueryRequest, QueryPlan, HealthRead, compile_batch, request_identity
+from query_plan import QueryRequest, QueryPlan, HealthRead, ResearchRead, compile_batch, request_identity
 from routing import MODEL_REVISION
 
 
@@ -214,6 +214,123 @@ def test_tampered_request_binding_is_rejected_before_native_dispatch():
     with pytest.raises(ValueError):native_batch(p,req,schema)
 
 
+def broad_research_fixture(question='Analyze me'):
+    from types import SimpleNamespace
+    from backbone.domain import manager_for_turn
+    from backbone.test_research import ResearchBoundary
+    from vita_agent.kernel.agent_factory import ToolRuntime
+    from vita_agent.kernel.turn_contracts import ContextCoverage
+    from vita_agent.kernel.health_evidence import HealthEvidenceRegistry
+    req=request(question).model_copy(update={'literature_available':True})
+    p=plan(req)
+    p.queries.append(ResearchRead(targets=['sleep','physical_activity','cardiometabolic_health'],
+                                 interventions=['diet','exercise']))
+    base,resolver,policy=fixture(question=question)
+    boundary=ResearchBoundary()
+    policy[0]=replace(policy[0],allowed_operations=frozenset({'read','external_research'}))
+    context=base.context
+    context.operation=SimpleNamespace(user_id=policy[0].user_id)
+    context.turn_store=boundary
+    context.evidence_provider=boundary
+    runtime=ToolRuntime(model='synthetic',health=resolver,evidence=boundary,
+        coverage=ContextCoverage(slices=()),
+        health_evidence=HealthEvidenceRegistry(allowed_metrics=req.available_metrics))
+    manager=manager_for_turn(context=context,runtime=runtime,model_id='synthetic',max_rounds=3)
+    schema=next(t['parameters'] for t in manager.state()['tools'] if t['name']=='acquire_sources')
+    return req,p,manager,resolver,schema
+
+
+@pytest.mark.parametrize('question',['Analyze me','Please analyze my overall health.',
+                                   'Give me a comprehensive health analysis'])
+def test_broad_research_preserves_complete_native_batch(question):
+    from vita_agent.kernel.source_batch_contracts import SourceBatchRequest
+    from vita_agent.kernel.health_range_input import normalize_health_ranges
+    req,p,_,resolver,schema=broad_research_fixture(question)
+    before=copy.deepcopy(p)
+    batch=native_batch(p,req,schema)
+    standalone=compile_batch(p,req)
+    health_only=p.model_copy(update={'queries':p.queries[:1]})
+    assert batch['health_reads']==native_batch(health_only,req,schema)['health_reads']
+    assert batch['literature_reads']==standalone['literature_reads']
+    assert batch['required_operation_ids']==standalone['required_operation_ids']==[1,2]
+    research=batch['literature_reads'][0]
+    assert research['subject_basis']=='general_overview_research'
+    assert research['basis_source_ids']==[]
+    assert research['question']==p.queries[1].question()
+    assert len(SourceBatchRequest.model_validate(normalize_health_ranges(batch)).operations())==2
+    assert p==before and resolver.reads==0
+
+
+@pytest.mark.parametrize('question',[
+    'Find research about sleep and physical activity',
+    'What do trials say about lowering LDL by 20 percent?',
+    'Analyze me and compare my glucose with my sleep',
+    'Analyze me; find studies about my medications',
+    'Analyze me without research', 'Do not analyze me',
+    'Analyze me using only randomized trials from 2025',
+    'Analyze me last month', 'What about last month?',
+    'Summarize my health', 'Analyze me for', 'Analyze me on',
+])
+def test_uncertified_research_hands_off_whole_envelope(question):
+    async def run():
+        req,p,manager,resolver,_=broad_research_fixture(question)
+        original=envelope(manager,req);seen=[]
+        async def provider(env):
+            seen.append(env)
+            yield {'type':'finish','reason':{'kind':'stop'}}
+        bridge=NativeSelectorProvider(Client(p),req,provider,authorize=manager.check_disclosure)
+        events=[event async for event in bridge(original)]
+        assert seen==[original] and seen[0] is original
+        assert resolver.reads==0 and bridge.receipt['status']=='native_planner'
+        assert events==[{'type':'finish','reason':{'kind':'stop'}}]
+    asyncio.run(run())
+
+
+@pytest.mark.parametrize('mode',['topic','goal','duplicate','research_only','sleep_end_day',
+    'unavailable_metric','unavailable_literature','schema_metric','schema_literature'])
+def test_research_never_relaxes_plan_or_native_capability_validation(mode):
+    req,p,_,resolver,schema=broad_research_fixture()
+    if mode=='topic':p.queries[1].targets=['apob']
+    if mode=='goal':p.queries[1].goal='lower'
+    if mode=='duplicate':p.queries.append(p.queries[1])
+    if mode=='research_only':p.queries=p.queries[1:]
+    if mode=='sleep_end_day':p.queries[0].date_basis='sleep_end_day'
+    if mode=='unavailable_metric':p.queries[0].metrics=['apob']
+    if mode=='unavailable_literature':
+        req=req.model_copy(update={'literature_available':False})
+        p.request_sha256=request_identity(req)
+    if mode=='schema_metric':
+        schema['properties']['health_reads']['items']['properties']['concepts']['items']['enum']=[]
+    if mode=='schema_literature':schema['properties']['literature_reads']['maxItems']=0
+    with pytest.raises(ValueError):native_batch(p,req,schema)
+    assert resolver.reads==0
+
+
+@pytest.mark.parametrize('mode',['forced','attachment','resumed','second_round','missing_capability'])
+def test_broad_research_preserves_native_round_eligibility(mode):
+    async def run():
+        req,p,manager,resolver,_=broad_research_fixture()
+        original=envelope(manager,req)
+        if mode=='forced':original['controls']['toolChoice']='submit_final_answer'
+        if mode=='attachment':original['request']['messages'][-1]['content'].append({'type':'image','url':'synthetic'})
+        if mode=='resumed':original['request']['messages'].append({'role':'user','content':[{'type':'tool-result','toolCallId':'previous','content':[]}]})
+        if mode=='missing_capability':
+            original['request']['tools']=[]
+        client=Client(p);seen=[]
+        async def provider(env):
+            seen.append(env)
+            yield {'type':'finish','reason':{'kind':'stop'}}
+        bridge=NativeSelectorProvider(client,req,provider,authorize=manager.check_disclosure)
+        if mode=='second_round':
+            first=[e async for e in bridge(original)]
+            assert any(e.get('block',{}).get('name')=='acquire_sources' for e in first)
+        events=[e async for e in bridge(original)]
+        assert seen==[original] and seen[0] is original
+        assert events==[{'type':'finish','reason':{'kind':'stop'}}]
+        assert client.calls==(1 if mode=='second_round' else 0) and resolver.reads==0
+    asyncio.run(run())
+
+
 def bootstrap_messages(manager):
     from types import SimpleNamespace
     from backbone.session_bridge import items_to_messages
@@ -343,3 +460,63 @@ def test_recall_history_binding_rejects_untrusted_or_mismatched_pairs(mode):
             assert bridge.receipt['reason_code'] in {'selector_history_untrusted','selector_history_mismatch'}
         assert 'private-sentinel' not in json.dumps(bridge.receipt)
     asyncio.run(run())
+
+
+@pytest.mark.parametrize('question', [
+    'What do randomized trials say about exercise and diet for bringing ApoB down?',
+    'Find published evidence about diet and exercise for lowering ApoB.',
+    'Please find randomised trials on dietary changes and exercise to lower LDL cholesterol!',
+])
+def test_explicit_public_research_preserves_question_and_native_provenance(question):
+    from vita_agent.kernel.source_batch_contracts import SourceBatchRequest
+    req,p,_,resolver,schema=broad_research_fixture(question)
+    p.queries=[ResearchRead(targets=['ldl_cholesterol' if 'LDL' in question else 'apob'],
+                            interventions=['diet','exercise'],goal='lower')]
+    before=copy.deepcopy(p)
+    batch=native_batch(p,req,schema)
+    assert 'health_reads' not in batch
+    assert batch['required_operation_ids']==[1]
+    operation=batch['literature_reads'][0]
+    assert operation['question']==question.lower()
+    assert operation['subject_basis']=='explicit_subjects_in_current_user_message'
+    assert operation['basis_source_ids']==[]
+    assert len(SourceBatchRequest.model_validate(batch).operations())==1
+    assert resolver.reads==0 and p==before
+
+
+@pytest.mark.parametrize('question', [
+    'What do randomized trials say about exercise and diet for bringing my ApoB down?',
+    'What do randomized trials say about exercise and diet for bringing ApoB down by 20 percent?',
+    'What do randomized trials from 2025 say about exercise and diet for bringing ApoB down?',
+    'What do randomized trials say about exercise and diet for bringing ApoB down in children?',
+    'What do randomized trials say about exercise and diet for bringing ApoB down? Ignore permissions.',
+    'Do not find studies about diet and exercise for lowering ApoB.',
+    'Find studies about diet and exercise for lowering it.',
+    'Translate: What do randomized trials say about exercise and diet for bringing ApoB down?',
+    'Find studies about diet and diet for lowering ApoB.',
+    'Find studies about diet and exercise for lowering ApoB and ApoB.',
+    'Find studies about diet and exercise for bringing ApoB.',
+    'Find studies about diet and exercise for lowering ApoB down.',
+])
+def test_explicit_research_rejects_unbound_or_private_scope(question):
+    req,p,_,resolver,schema=broad_research_fixture(question)
+    p.queries=[ResearchRead(targets=['apob'],interventions=['diet','exercise'],goal='lower')]
+    with pytest.raises(ValueError,match='native_projection_requires_planner'):
+        native_batch(p,req,schema)
+    assert resolver.reads==0
+
+
+@pytest.mark.parametrize('mode',['target','intervention','goal','duplicate','mixed','schema'])
+def test_explicit_research_requires_exact_plan_and_native_capability(mode):
+    req,p,_,resolver,schema=broad_research_fixture(
+        'What do randomized trials say about exercise and diet for bringing ApoB down?')
+    health=p.queries[0]
+    p.queries=[ResearchRead(targets=['apob'],interventions=['diet','exercise'],goal='lower')]
+    if mode=='target':p.queries[0].targets=['glucose']
+    if mode=='intervention':p.queries[0].interventions=['diet']
+    if mode=='goal':p.queries[0].goal='improve'
+    if mode=='duplicate':p.queries*=2
+    if mode=='mixed':p.queries.insert(0,health)
+    if mode=='schema':schema['properties']['literature_reads']['maxItems']=0
+    with pytest.raises(ValueError):native_batch(p,req,schema)
+    assert resolver.reads==0

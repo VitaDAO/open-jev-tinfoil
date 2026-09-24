@@ -59,8 +59,14 @@ is substituted for answer correctness.
 
 Unsupported counts, comparisons, clinical interpretation, arbitrary research,
 app actions and contextual questions use the original native planner. The
-standalone sleep-end projection and research provenance currently require that
-planner too. Do not relabel a research subject or omit a clause to manufacture a
+standalone sleep-end projection and source-derived research still require that
+planner too. A single explicit public research request can go directly to
+`literature_reads` when the entire question fits the closed grammar and its
+targets, diet/exercise interventions and improve/lower goal exactly match the
+selector plan. This preserves the original study wording (including randomized
+trials) and uses `explicit_subjects_in_current_user_message` with no source IDs.
+Personal values, dates, population filters, unresolved references, mixed reads
+and other unmatched qualifiers retain the complete planner handoff. Do not relabel a research subject or omit a clause to manufacture a
 fast-path success. Failure of the optional selector is not failure of Vita.
 
 The wrapper is one instance per turn. It checks disclosure before and after
@@ -115,3 +121,26 @@ release's acceptance assets for exact live endpoint, source/image/config identit
 reviewed pins, measured latency and application acceptance state. A healthy enclave
 does not establish completed browser acceptance. Remove the opt-in wrapper to
 return to the existing provider.
+
+## Fork-per-request hosts
+
+Construct `VitaClient` only inside the admitted request child, after the fork.
+Its TLS pool, SDK transport locks and selection lock belong to that process.
+`select`, `route`, `decide` and `close` reject use from another PID before touching
+those resources. Do not reset or close an inherited client in the child; create
+a fresh one. Keep parent startup free of initialized Open-JEV transports.
+
+For a two-second application budget, place both construction/attestation and
+selection inside the same timed operation. The wrapper's existing timeout covers
+`client.select` only: initialization performed before it is outside that budget.
+A lazy child-owned adapter can initialize within `select`. A timed-out thread is
+not cancelled; do not treat `asyncio.wait_for` as a hard network/worker deadline.
+If strict worker termination is required, isolate the operation in a disposable
+process created by the admitted child and terminate/reap it on expiry. Decrypted
+requests and results must not travel through the opaque-capsule parent.
+
+The client reads `OPEN_JEV_API_KEY` from the child environment after attestation
+verification. It does not implement a secret-file loader or reuse a developer
+key path. Use the enclave's configured secret injection. Release and selector
+pins remain mandatory. Cold attestation costs are additional to warm selection
+latency and must be measured in the actual process architecture.
