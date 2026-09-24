@@ -21,11 +21,27 @@ def test_span_extraction_without_requiring_learned_period_prediction(text,kind):
         assert text[span['start']:span['end']]==span['phrase']
 
 @pytest.mark.parametrize('text',[
- 'Steps on February 30, 2026','Steps since August 1','Steps before August',
+ 'Steps on February 30, 2026','Steps before August','Steps since August 1 until today',
  'Compare steps this month with last month','Steps on 09/10/26','Steps last spring',
  'Steps past 999 days','Steps in 1800',
 ])
 def test_invalid_or_multiple_periods_never_become_a_valid_broader_subperiod(text):
+    assert extract_temporal(text,'2026-09-23')['status']=='unsupported'
+
+
+@pytest.mark.parametrize('text,start',[
+ ('Steps since August 1',('2026','8','1')),('Steps since January',('2026','1','1')),
+ ('Steps since November',('2025','11','1')),('Steps since 2026-09-01',('2026','9','1')),
+ ('Steps since August 15, 2025',('2025','8','15')),
+])
+def test_since_is_an_exact_window_ending_on_the_reference_day(text,start):
+    fields=extract_temporal(text,'2026-09-23')['date_fields']
+    assert (fields['start_year'],fields['start_month'],fields['start_day'])==start
+    assert (fields['end_year'],fields['end_month'],fields['end_day'])==('2026','9','23')
+
+
+@pytest.mark.parametrize('text',['Steps since 2027-01-01','Steps since August and last week','Steps since August 1 3'])
+def test_since_never_widens_or_combines(text):
     assert extract_temporal(text,'2026-09-23')['status']=='unsupported'
 
 
