@@ -1,0 +1,121 @@
+{
+  "scope": "Synthetic real-model loopback HTTP; NOT attested, deployed or final Vita answers.",
+  "passed": true,
+  "strict_passed": false,
+  "reviewed_plan_count": 1,
+  "selector_sha256": "c48972af1bb195983e2b54c7ec3d5dea5786b58f3b1cf86e5e370e98eb07a1c9",
+  "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+  "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+  "completed_case_entries": 430,
+  "outcomes": {
+    "correct_plan": 205,
+    "correct_handoff": 224,
+    "missed_plan": 0,
+    "wrong_plan": 1,
+    "invalid": 0
+  },
+  "compile_failures": 0,
+  "http_latency_ms": {
+    "median": 723.139,
+    "p95": 1945.428
+  },
+  "source_unchanged": true,
+  "fixtures_unchanged": true,
+  "source_commit": "6c8be2dfe625be43f2ca8e589ba98beb31b25bbd",
+  "ci_run": "https://github.com/VitaDAO/open-jev-tinfoil/actions/runs/35941899875",
+  "image": "ghcr.io/vitadao/open-jev-tinfoil@sha256:c766c6c8508b7a2c8be2afb87d3f2c5cb2073d8929357cf53dae337914ba2dbf",
+  "linux_unit_tests": {
+    "passed": 344,
+    "skipped": 2,
+    "skips": [
+      "external Vita native module checked separately",
+      "optional local synthetic Venice wire fixture"
+    ]
+  },
+  "container_memory_peak_bytes": 2255429632,
+  "warm_http_latency": {
+    "simple": {
+      "requests": 10,
+      "median_ms": 701.2723940000001,
+      "p95_ms": 737.9193650000389
+    },
+    "semantic": {
+      "requests": 10,
+      "median_ms": 1720.1632719999793,
+      "p95_ms": 1762.238864999972
+    },
+    "two_clauses": {
+      "requests": 10,
+      "median_ms": 1410.660097500056,
+      "p95_ms": 1458.5877969999501
+    },
+    "profile": {
+      "requests": 10,
+      "median_ms": 18.193114500036245,
+      "p95_ms": 21.571453000092333
+    }
+  },
+  "native_projection": {
+    "vita_head": "8ffcdde225e7e0296038078c1679a999699cb9fb",
+    "summary": {
+      "case_entries": 430,
+      "outcomes": {
+        "native_plan_accepted": 175,
+        "selector_handoff": 224,
+        "native_projection_requires_planner": 31,
+        "native_contract_mismatch": 0,
+        "inventory_mismatch": 0,
+        "request_binding_mismatch": 0,
+        "invalid_request": 0,
+        "invalid_plan": 0,
+        "missing_plan": 0,
+        "other_error": 0
+      },
+      "standalone_grade_by_native_outcome": {
+        "correct_handoff": {
+          "selector_handoff": 224
+        },
+        "correct_plan": {
+          "native_plan_accepted": 174,
+          "native_projection_requires_planner": 31
+        },
+        "wrong_plan": {
+          "native_plan_accepted": 1
+        }
+      },
+      "accepted_with_correct_standalone_plan": 174,
+      "saved_grade_disagreements": 0
+    },
+    "unique_request_summary": {
+      "case_entries": 411,
+      "outcomes": {
+        "native_plan_accepted": 163,
+        "selector_handoff": 224,
+        "native_projection_requires_planner": 24,
+        "native_contract_mismatch": 0,
+        "inventory_mismatch": 0,
+        "request_binding_mismatch": 0,
+        "invalid_request": 0,
+        "invalid_plan": 0,
+        "missing_plan": 0,
+        "other_error": 0
+      },
+      "standalone_grade_by_native_outcome": {
+        "correct_handoff": {
+          "selector_handoff": 224
+        },
+        "correct_plan": {
+          "native_plan_accepted": 162,
+          "native_projection_requires_planner": 24
+        },
+        "wrong_plan": {
+          "native_plan_accepted": 1
+        }
+      },
+      "accepted_with_correct_standalone_plan": 162,
+      "saved_grade_disagreements": 0
+    },
+    "health_io_calls": 0,
+    "analysis_complete": true
+  }
+}

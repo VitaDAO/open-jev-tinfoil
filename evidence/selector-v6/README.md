@@ -47,7 +47,7 @@ HTTP and live enclave results are the release gates.
 - The Python client checks the approved release digest before its initial TLS
   transport and before any SDK transport rebuild/retry. The actual pinned SDK's
   same-release and different-release rotation paths are tested.
-- 319 standalone tests pass; native compatibility is checked separately against
+- 345 standalone tests pass; native compatibility is checked separately against
   the actual v32 source. Its quiet 19/19 run passed without changing the 20-second
   deadline. An earlier native run timed out; its cause was not established and
   the first-attempt evidence remains in the local experiment directory.
@@ -99,3 +99,7 @@ Release acceptance reports this one reviewed capability change separately;
 the strict legacy result remains429/430 with its original wrong_plan label.
 A wrong source, metric, period, inventory, response contract or altered request
 is not covered. No selector wording restriction was introduced.
+
+The corrected Linux run35941899875 passed at source6c8be2dfe625be43f2ca8e589ba98beb31b25bbd. See `linux-acceptance-summary.json`:430 reviewed entries,429 strict matches plus1 explicitly reviewed source-filter plan; no invalid, missed or unreviewed wrong plans. Linux unit tests passed344 with2 skips (external native module and optional local Venice fixture); local345 plus separate current native19 tests cover their respective scopes. Container peak memory was2,255,429,632bytes. CI HTTP median723ms andp951945ms are loopback runner timings, not enclave or final-answer latency. Current actual-v32 projection accepts175 plans (174 strict plus1 reviewed), requires native planning for31 research/sleep-end plans, and retains224 selector handoffs, with zero source reads.
+
+The configuration pins that tested immutable image and enables `/v1/select` on the existing4CPU/8192MB service. Publishing the measured release and passing live attested acceptance remain separate steps. Exact completion, release pins and full reports are recorded in issue1 and the release assets.

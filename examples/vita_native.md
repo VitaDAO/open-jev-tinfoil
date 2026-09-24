@@ -18,8 +18,9 @@ result = await manager.run(original_question, model=model, history=history,
 ```
 
 `client` is the single attested `VitaClient`, with reviewed release, selector
-and adapter pins. There is no approved release pin for this experimental
-integration yet. The loopback client in the synthetic runner is test-only.
+and adapter pins from the reviewed release acceptance packet. Initialize this
+shared client before admitted turns; verification may require network round trips.
+The loopback client in the synthetic runner is test-only.
 
 The model-facing `acquire_sources` schema for the **current turn** supplies the
 available native operations and exact parameter constraints. Native Vita's
@@ -91,6 +92,8 @@ The v32 mounted runtime has a separate optional `backbone.local_jev` first-round
 hook. When adopting this wrapper, replace that hook instead of layering two
 selectors. Its current activation was not inspected during synthetic testing.
 
-The native wrapper has not been enabled in the running browser app or deployed
-to Tinfoil. Complete canonical browser acceptance and an attested release are
-still required. Remove the opt-in wrapper to return to the existing provider.
+Check [issue #1](https://github.com/VitaDAO/open-jev-tinfoil/issues/1) and the
+release's acceptance assets for exact live endpoint, source/image/config identities,
+reviewed pins, measured latency and application acceptance state. A healthy enclave
+does not establish completed browser acceptance. Remove the opt-in wrapper to
+return to the existing provider.
