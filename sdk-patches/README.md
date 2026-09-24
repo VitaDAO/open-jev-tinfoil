@@ -95,7 +95,8 @@ accept arbitrary caller-supplied roots. Host IPC must preserve that boundary.
 Expiry rejects new select/route/decide operations and re-verification; close in
 the owning process remains allowed for cleanup. Obtain a current snapshot and
 construct a new client for later turns after expiry. Initialization and selection
-must remain under Vita's combined two-second waiting budget; synchronous-worker
+must remain under Vita's combined configured waiting budget (4.5 seconds is the
+new user-requested interim limit); synchronous-worker
 cancellation/cleanup remains the host's responsibility.
 
 ## Verification and measured limits
