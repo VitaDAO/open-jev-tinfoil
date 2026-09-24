@@ -87,7 +87,7 @@ class HealthRead(Closed):
             if len(parsed.start_at)!=10 or len(parsed.end_at)!=10:raise ValueError('Record dates require whole days')
         if self.metrics and self.date_basis not in ('observed_at','sleep_end_day'):raise ValueError('Metric date basis mismatch')
         if self.date_basis=='sleep_end_day':
-            if not self.metrics or any(m not in ('total_sleep','sleep_efficiency') for m in self.metrics):raise ValueError('Night basis requires sleep')
+            if not self.metrics or any(m not in ('total_sleep','sleep_efficiency','sleep_deep') for m in self.metrics):raise ValueError('Night basis requires sleep')
             if parsed.kind!='between' or len(parsed.start_at)!=10 or parsed.start_at!=parsed.end_at:
                 raise ValueError('Sleep episode projection requires one explicit day')
         if len(self.profile_fields)!=len(set(self.profile_fields)):raise ValueError('Duplicate profile field')

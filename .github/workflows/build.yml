@@ -91,6 +91,7 @@ jobs:
           python -m pip install pydantic==2.13.5 httpx==0.28.1
           python scripts/smoke_proposal.py --base-url http://127.0.0.1:18080 --output /tmp/selector-smoke.json | tee /tmp/selector-model.json
           python scripts/smoke_full_catalog.py --base-url http://127.0.0.1:18080 --output /tmp/selector-full-catalog.json
+          python scripts/smoke_sleep_night.py --base-url http://127.0.0.1:18080 --output /tmp/selector-sleep-night.json
           python scripts/evaluate_http_selector.py --base-url http://127.0.0.1:18080 --additional-fixture evidence/selector-v6/independent-vita-challenge.json --additional-fixture evidence/selector-v6/release-challenge-24.json --reviewed-oracles evidence/selector-v6/reviewed-source-fragment-oracle.json --output /tmp/selector-full.json
           docker stats --no-stream --format '{{json .}}' smoke | tee /tmp/stats.json
           docker exec smoke cat /sys/fs/cgroup/memory.peak | tee /tmp/memory-peak.txt
@@ -115,5 +116,6 @@ jobs:
             /tmp/selector-smoke.json
             /tmp/selector-full.json
             /tmp/selector-full-catalog.json
+            /tmp/selector-sleep-night.json
             /tmp/stats.json
             /tmp/memory-peak.txt
