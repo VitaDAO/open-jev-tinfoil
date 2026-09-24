@@ -29,6 +29,14 @@ These tools, instructions and history are forwarded unchanged to that provider o
 handoff, selector error, unrepresentable request or later reasoning round. Do
 not append a duplicate global capability list or interpret a schema field as a
 populated user value. Unknown, partial, empty and withheld remain distinct.
+Native digit-leading metric slugs are preserved in the admitted inventory;
+identifier syntax never grants permission to read an unadmitted metric.
+
+`receipt.reason_code` is a fixed, non-sensitive diagnostic: eligibility failures
+such as `selector_request_unrepresentable`, `native_tool_choice`, or
+`original_request_mismatch`; `selector_timeout`; `selector_failed`; or
+`native_projection_rejected`. Provider exception text is never recorded.
+
 
 A selector proposal is checked against that live schema, resolves metric names
 using the current Vita registry, and binds relative dates using Vita's date
@@ -62,8 +70,9 @@ the one-second wrapper deadline does not cancel synchronous network I/O.
 Current native-wrapper synthetic target:
 `vita-agent-deepseek-v32@8ffcdde225e7e0296038078c1679a999699cb9fb`, including
 its existing local changes. The logged September 24 rerun recorded source
-hashes and passed all 19 wrapper tests with the existing 20-second native
-deadline. The active answering provider is Fable medium; its existing
+hashes and passed all 19 original wrapper tests with the existing 20-second native
+deadline. The diagnostic follow-up also exercises the real session-policy
+bootstrap prefix and native manager acquisition. The active answering provider is Fable medium; its existing
 MockTransport stream/settings test also passed. These tests use synthetic
 readers and stub providers, not live model inference.
 

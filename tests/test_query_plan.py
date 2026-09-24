@@ -337,3 +337,20 @@ def test_operational_failures_are_incomplete_without_losing_earlier_reads(except
 def test_cancellation_is_never_converted_into_an_incomplete_read():
  async def callback(*_):raise asyncio.CancelledError()
  with pytest.raises(asyncio.CancelledError):asyncio.run(execute_plan(plan(),request(),callback))
+
+
+
+def test_digit_leading_native_inventory_is_preserved_and_still_authorized():
+ metric='25_hydroxy_vitamin_d'
+ req=request(available_metrics=[metric,'steps'])
+ assert req.available_metrics==[metric,'steps']
+ proposal=plan([HealthRead(metrics=[metric],period={'kind':'all_history'})],req=req)
+ assert compile_batch(proposal,req)['health_reads'][0]['concepts']==[metric]
+ narrowed=request(available_metrics=['steps'])
+ with pytest.raises(ValueError):
+  compile_batch(plan([HealthRead(metrics=[metric],period={'kind':'all_history'})],req=narrowed),narrowed)
+
+
+@pytest.mark.parametrize('metric',['_leading','has-dash','has space','../path','a'*97,'','µmol'])
+def test_metric_identifier_boundaries_remain_closed(metric):
+ with pytest.raises(ValueError):request(available_metrics=[metric])

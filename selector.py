@@ -18,7 +18,7 @@ from pydantic import StringConstraints
 
 SCHEMA = 'vita-selector/v1'
 SELECTOR_SHA256 = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
-Metric = Annotated[str, StringConstraints(strict=True, pattern=r'^[a-z][a-z0-9_]{0,95}$')]
+Metric = Annotated[str, StringConstraints(strict=True, pattern=r'^[a-z0-9][a-z0-9_]{0,95}$')]
 RequestText = Annotated[str, StringConstraints(strict=True, strip_whitespace=True, min_length=1, max_length=1200)]
 
 class SelectorState(BaseModel):

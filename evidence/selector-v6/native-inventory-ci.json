@@ -1,0 +1,37 @@
+{
+  "scope": "Synthetic CI evidence for digit-leading native inventory compatibility; no live deployment or browser acceptance claim",
+  "serving_source": "a3ddfdb3028c1c36a86edacf1f02fdbf5755e400",
+  "build_run": "https://github.com/VitaDAO/open-jev-tinfoil/actions/runs/35945644407",
+  "image_digest": "sha256:02f3a70d7df269f8743bcd043933f6b4bbdaa640b0de5d4098ca6e9fb937f47e",
+  "linux_tests": {
+    "passed": 352,
+    "skipped": 2
+  },
+  "local_tests": {
+    "passed": 353,
+    "skipped": 1
+  },
+  "actual_v32_native_tests": {
+    "passed": 21
+  },
+  "full_model": {
+    "passed": true,
+    "strict_passed": false,
+    "reviewed_plan_count": 1,
+    "outcomes": {
+      "correct_plan": 205,
+      "correct_handoff": 224,
+      "missed_plan": 0,
+      "wrong_plan": 1,
+      "invalid": 0
+    },
+    "selector_sha256": "d38dfecc0d701a3cd9c3ed74d7a6ef5256ace53927ee158e1340434952005b9f",
+    "http_latency_ms": {
+      "median": 724.744,
+      "p95": 1937.009
+    }
+  },
+  "digit_inventory_http_smoke": "passed: profile acquisition with unrelated digit-leading admitted analyte; actual HTTP and validated client",
+  "reviewed_oracle": "Original strict mismatch retained; exact independently reviewed Oura source-fragment alternate unchanged",
+  "container_memory_peak_bytes": 2249494528
+}

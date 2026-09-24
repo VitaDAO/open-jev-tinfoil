@@ -18,6 +18,10 @@ import httpx
 from query_plan import QueryRequest, QueryPlan, HealthRead, compile_batch, MAX_METRICS_PER_READ
 
 
+class _Ineligible(ValueError):
+    """Only locally generated, fixed eligibility codes may enter receipts."""
+
+
 def native_batch(plan, request, tool_schema):
     """Validate against THIS turn's model-facing contract before proposing IO.
 
@@ -98,29 +102,29 @@ class NativeSelectorProvider:
         self.attempted = False
         # Safe counters/codes only. No prompts, identifiers, evidence or errors.
         self.receipt = {'status': 'not_attempted', 'selector_ms': 0.0,
-                        'native_schema_sha256': None, 'provider_calls': 0}
+                        'native_schema_sha256': None, 'provider_calls': 0, 'reason_code': None}
 
     def _schema(self, envelope):
         if self.request is None:
-            raise ValueError('selector_request_unrepresentable')
+            raise _Ineligible('selector_request_unrepresentable')
         request = envelope['request']
         if envelope['controls'].get('toolChoice', 'auto') not in ('auto', 'required'):
-            raise ValueError('native_tool_choice')
+            raise _Ineligible('native_tool_choice')
         messages = request['messages']
         if not messages or messages[-1]['role'] != 'user':
-            raise ValueError('not_current_user_round')
+            raise _Ineligible('not_current_user_round')
         content = messages[-1]['content']
         if content != [{'type': 'text', 'text': self.request.state.current_request}]:
-            raise ValueError('original_request_mismatch')
+            raise _Ineligible('original_request_mismatch')
         prior = [m['content'][0]['text'] for m in messages[:-1]
                  if m['role'] == 'user' and len(m['content']) == 1
                  and m['content'][0].get('type') == 'text']
         recent = self.request.state.recent_user_requests
         if recent and prior[-len(recent):] != recent:
-            raise ValueError('selector_history_mismatch')
+            raise _Ineligible('selector_history_mismatch')
         tools = [tool for tool in request.get('tools', []) if tool['name'] == 'acquire_sources']
         if len(tools) != 1:
-            raise ValueError('native_reader_unavailable')
+            raise _Ineligible('native_reader_unavailable')
         schema = tools[0]['parameters']
         self.receipt['native_schema_sha256'] = hashlib.sha256(
             json.dumps(schema, sort_keys=True, separators=(',', ':')).encode()).hexdigest()
@@ -132,16 +136,23 @@ class NativeSelectorProvider:
         if not self.attempted:
             self.attempted = True
             started = time.monotonic()
+            stage = 'native_envelope_invalid'
             try:
                 schema = self._schema(envelope)
+                stage = 'selector_failed'
                 plan = await asyncio.wait_for(
                     asyncio.to_thread(self.client.select, self.request), self.timeout_seconds)
+                stage = 'native_projection_rejected'
                 batch = native_batch(plan, self.request, schema)
-            except (httpx.HTTPError, TimeoutError, RuntimeError, ValueError, KeyError, TypeError):
+            except _Ineligible as exc:
+                self.receipt.update(status='native_planner', reason_code=exc.args[0])
+            except TimeoutError:
+                self.receipt.update(status='native_planner', reason_code='selector_timeout')
+            except (httpx.HTTPError, RuntimeError, ValueError, KeyError, TypeError):
                 # Never leak provider exceptions or interpret failure as no data.
-                self.receipt['status'] = 'native_planner'
+                self.receipt.update(status='native_planner', reason_code=stage)
             except ImportError:
-                self.receipt['status'] = 'native_dependency_unavailable'
+                self.receipt.update(status='native_dependency_unavailable', reason_code='native_dependency_unavailable')
             else:
                 self.receipt['status'] = 'native_acquisition_proposed'
             finally:
