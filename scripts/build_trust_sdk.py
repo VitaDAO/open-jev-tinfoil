@@ -56,7 +56,7 @@ def build(wheel, output, patch_output=None):
         compile(changed, name, 'exec')
         files[name] = changed.encode()
         diffs.extend(difflib.unified_diff(original.splitlines(True), changed.splitlines(True),
-                                        fromfile='a/'+name, tofile='b/'+name))
+                                        fromfile='a/'+name, tofile='b/'+name, n=0))
     old_info, new_info = 'tinfoil-0.14.0.dist-info/', f'tinfoil-{VERSION}.dist-info/'
     files = {name.replace(old_info,new_info):data for name,data in files.items() if not name.endswith('/RECORD')}
     metadata = new_info+'METADATA'
