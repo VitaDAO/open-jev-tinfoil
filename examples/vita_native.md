@@ -30,19 +30,11 @@ handoff, selector error, unrepresentable request or later reasoning round. Do
 not append a duplicate global capability list or interpret a schema field as a
 populated user value. Unknown, partial, empty and withheld remain distinct.
 
-The first request can end with the admitted `vita_skc` and
-`vita_profile_planning` bootstrap pairs. The wrapper binds the last text-user
-question exactly, then accepts only these complete, uniquely named pairs with
-Vita-admitted provenance, synthetic context IDs, empty arguments and matching
-payload schemas. Bootstrap data does not expand the selector's admitted
-inventory. Attachments, prior acquisition after the question, arbitrary model
-messages and malformed pairs use the native planner. Later calls on the same
-wrapper never repeat selection.
-
 `receipt.reason_code` is a fixed, non-sensitive diagnostic: eligibility failures
-such as `untrusted_bootstrap`, `attachments_present`, or
+such as `selector_request_unrepresentable`, `native_tool_choice`, or
 `original_request_mismatch`; `selector_timeout`; `selector_failed`; or
 `native_projection_rejected`. Provider exception text is never recorded.
+
 
 A selector proposal is checked against that live schema, resolves metric names
 using the current Vita registry, and binds relative dates using Vita's date
@@ -77,9 +69,8 @@ Current native-wrapper synthetic target:
 `vita-agent-deepseek-v32@8ffcdde225e7e0296038078c1679a999699cb9fb`, including
 its existing local changes. The logged September 24 rerun recorded source
 hashes and passed all 19 original wrapper tests with the existing 20-second native
-deadline. The bootstrap compatibility follow-up passes 33 tests, including
-real session-policy projections with both bootstrap orders, native manager
-acquisition, and 11 malformed/ineligible suffix cases. The active answering provider is Fable medium; its existing
+deadline. The diagnostic follow-up also exercises the real session-policy
+bootstrap prefix and native manager acquisition. The active answering provider is Fable medium; its existing
 MockTransport stream/settings test also passed. These tests use synthetic
 readers and stub providers, not live model inference.
 

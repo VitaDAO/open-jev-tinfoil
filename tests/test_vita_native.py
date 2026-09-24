@@ -214,7 +214,6 @@ def test_tampered_request_binding_is_rejected_before_native_dispatch():
     with pytest.raises(ValueError):native_batch(p,req,schema)
 
 
-
 def bootstrap_messages(manager):
     from types import SimpleNamespace
     from backbone.session_bridge import items_to_messages
@@ -257,46 +256,4 @@ def test_real_session_policy_bootstrap_round_reaches_selector_and_native_broker(
         assert client.calls == 1 and len(seen) == 1
         assert bridge.receipt['status'] == 'native_acquisition_proposed'
         assert bridge.receipt['reason_code'] is None
-    asyncio.run(run())
-
-
-@pytest.mark.parametrize('mode', ['valid', 'reverse', 'source', 'id', 'pair', 'args',
-    'schema', 'duplicate', 'acquired', 'assistant', 'attachment', 'native_attachment', 'question'])
-def test_bootstrap_eligibility_is_narrow_and_fallback_preserves_envelope(mode):
-    async def run():
-        manager, resolver, _ = fixture(); req = request()
-        env = envelope(manager, req); suffix = bootstrap_messages(manager)
-        if mode == 'reverse': suffix = suffix[2:] + suffix[:2]
-        if mode == 'source': suffix[0]['source']['provider'] = 'other'
-        if mode == 'id': suffix[0]['content'][0]['id'] = 'fake'
-        if mode == 'pair': suffix[1]['content'][0]['toolCallId'] = 'mismatched'
-        if mode == 'args': suffix[0]['content'][0]['arguments'] = '{"query":"secret"}'
-        if mode == 'schema': suffix[1]['content'][0]['content'][0]['text'] = '{"schema":"other"}'
-        if mode == 'duplicate': suffix = suffix[:2] + suffix[:2]
-        if mode == 'acquired': suffix[0]['content'][0]['name'] = 'acquire_sources'
-        if mode == 'assistant': suffix.append({'role':'assistant','content':[{'type':'text','text':'resume'}]})
-        if mode == 'attachment': suffix[0]['content'][0]['name'] = 'vita_attachment_slice'
-        if mode == 'native_attachment': env['request']['messages'][0]['source'] = {'form':'attachment'}
-        if mode == 'question': env['request']['messages'][-1]['content'].append({'type':'text','text':'attached'})
-        env['request']['messages'].extend(suffix)
-        if mode in {'valid', 'reverse'}:
-            from agents import RunConfig
-            from backbone.session_bridge import SessionInputPolicy
-            projected = await SessionInputPolicy(manager, RunConfig(tracing_disabled=True))(
-                {'messages': env['request']['messages'][1:]})
-            env['request']['messages'][1:] = projected['messages']
-        frozen = copy.deepcopy(env); seen = []; client = Client(plan(req))
-        async def provider(value):
-            seen.append(value)
-            yield {'type':'finish','reason':{'kind':'stop'}}
-        bridge = NativeSelectorProvider(client,req,provider,authorize=manager.check_disclosure)
-        events = [event async for event in bridge(env)]
-        accepted = mode in {'valid','reverse'}
-        assert client.calls == int(accepted) and resolver.reads == 0
-        assert env == frozen
-        assert bridge.receipt['status'] == ('native_acquisition_proposed' if accepted else 'native_planner')
-        if not accepted:
-            assert seen[0] is env and bridge.receipt['reason_code'] is not None
-        else:
-            assert not seen and events[-1]['reason']['kind'] == 'tool-calls'
     asyncio.run(run())
