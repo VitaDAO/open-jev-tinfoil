@@ -38,6 +38,15 @@ such as `selector_request_unrepresentable`, `native_tool_choice`, or
 `native_projection_rejected`. Provider exception text is never recorded.
 
 
+Follow-up history can be plain prior user text or Vita's admitted
+`vita_prior_user_context` recall pairs. The adapter validates the native source,
+synthetic call ID, empty arguments, matching result and exact recall schema,
+then compares the resulting questions in order with the selector request.
+Assistant recall and ordinary source outputs never become user history.
+Malformed or mismatched recall falls back with `selector_history_untrusted`
+or `selector_history_mismatch`, preserving the original envelope. No recalled
+question is promoted into a new instruction or used to expand inventory.
+
 A selector proposal is checked against that live schema, resolves metric names
 using the current Vita registry, and binds relative dates using Vita's date
 arithmetic and the trusted request clock. Calendar-record periods retain whole
