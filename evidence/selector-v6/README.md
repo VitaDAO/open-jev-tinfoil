@@ -47,7 +47,7 @@ HTTP and live enclave results are the release gates.
 - The Python client checks the approved release digest before its initial TLS
   transport and before any SDK transport rebuild/retry. The actual pinned SDK's
   same-release and different-release rotation paths are tested.
-- 316 standalone tests pass; native compatibility is checked separately against
+- 319 standalone tests pass; native compatibility is checked separately against
   the actual v32 source. Its quiet 19/19 run passed without changing the 20-second
   deadline. An earlier native run timed out; its cause was not established and
   the first-attempt evidence remains in the local experiment directory.
@@ -69,3 +69,15 @@ pointer to match that release: the SDK verifies against the latest published
 release. Switching only the container tag is insufficient. Its approved digest
 is `b0185c159a2ec83c771695a32984414a9a85d7dbe91332e58b70ed00f5579946`.
 Remove the optional native wrapper to restore Vita's original planning loop.
+
+The first Linux build (35940150543) stopped during unit collection: the new
+source-binding test imported an evaluation helper absent from the serving image.
+The test now constructs its own typed request, and its 15 checks pass locally.
+That attempt did not reach model HTTP evaluation or push a candidate image.
+
+The shared client now admits at most one outstanding selector request. An
+abandoned synchronous worker keeps admission until it exits; later turns
+immediately use the native planner instead of queuing more network requests.
+Event-based tests cover cancellation, ten later attempts, worker completion,
+reuse and exceptions. The outer one-second wait is unchanged; HTTP and
+attestation inactivity limits are not a total worker wall-clock bound.

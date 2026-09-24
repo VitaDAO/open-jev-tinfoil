@@ -6,6 +6,7 @@ Run in Vita's trusted backend; execution still uses its own capability broker.
 """
 import os
 import re
+from threading import Lock
 
 from routing import MODEL_REVISION, ADAPTER_SHA256
 from query_plan import QueryRequest, QueryPlan, compile_batch
@@ -47,26 +48,34 @@ class VitaClient:
             raise
         self.selector_sha256=selector_sha256
         self.adapter_sha256=adapter_sha256
+        self._select_lock=Lock()
 
     def select(self, request):
-        if not self.selector_sha256 or not self.adapter_sha256:
-            raise ValueError('Reviewed selector pins required for /v1/select')
-        request=QueryRequest.model_validate(request)
-        response=self.http.post(f'https://{HOST}/v1/select',
-            headers={'Authorization':f'Bearer {self.token}'},
-            json=request.model_dump(mode='json'),timeout=15)
-        response.raise_for_status()
-        raw=response.json()
-        if not isinstance(raw,dict) or raw.get('schema_version')!='vita-query-plan/v2' or raw.get('advisory') is not True:
-            raise RuntimeError('Unexpected selector wire contract')
-        result=QueryPlan.model_validate(raw)
-        if (result.selector_sha256!=self.selector_sha256 or result.adapter_sha256!=self.adapter_sha256
-                or result.model_revision!=MODEL_REVISION):
-            raise RuntimeError('Unexpected selector identity')
-        # Validate request identity, inventory, every clause and operation budget.
-        # The compiled batch is acquisition only, not a completed answer.
-        compile_batch(result,request)
-        return result
+        # Cancelling an asyncio.to_thread waiter does not stop this worker.
+        # Keep admission until the worker exits; later turns hand off immediately.
+        if not self._select_lock.acquire(blocking=False):
+            raise RuntimeError('Selector request already in progress')
+        try:
+            if not self.selector_sha256 or not self.adapter_sha256:
+                raise ValueError('Reviewed selector pins required for /v1/select')
+            request=QueryRequest.model_validate(request)
+            response=self.http.post(f'https://{HOST}/v1/select',
+                headers={'Authorization':f'Bearer {self.token}'},
+                json=request.model_dump(mode='json'),timeout=15)
+            response.raise_for_status()
+            raw=response.json()
+            if not isinstance(raw,dict) or raw.get('schema_version')!='vita-query-plan/v2' or raw.get('advisory') is not True:
+                raise RuntimeError('Unexpected selector wire contract')
+            result=QueryPlan.model_validate(raw)
+            if (result.selector_sha256!=self.selector_sha256 or result.adapter_sha256!=self.adapter_sha256
+                    or result.model_revision!=MODEL_REVISION):
+                raise RuntimeError('Unexpected selector identity')
+            # Validate request identity, inventory, every clause and operation budget.
+            # The compiled batch is acquisition only, not a completed answer.
+            compile_batch(result,request)
+            return result
+        finally:
+            self._select_lock.release()
 
     def decide(self, state, questions):
         response = self.http.post(

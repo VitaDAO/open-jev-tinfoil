@@ -2,10 +2,19 @@
 import pytest
 
 from proposal_selector import ProposalSelector
-from query_plan import compile_batch
+from query_plan import QueryRequest, compile_batch
 from query_selector import QuerySelector
-from scripts.evaluate_query_plan import request
 from trained_proposal_selector import TrainedProposalSelector
+
+
+def request(text, history):
+    return QueryRequest.model_validate({'schema_version': 'vita-selector/v2',
+        'state': {'current_request': text, 'recent_user_requests': history,
+                  'reference_date': '2026-09-23', 'time_zone': 'UTC'},
+        'reference_time': '2026-09-23T12:00:00Z',
+        'available_metrics': ['steps', 'total_sleep', 'sleep_efficiency'],
+        'available_record_types': [], 'available_sources': ['oura', 'garmin'],
+        'literature_available': False})
 
 
 @pytest.fixture

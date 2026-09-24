@@ -1,5 +1,6 @@
 import asyncio,copy
 from datetime import UTC,datetime
+from threading import Lock
 import httpx,pytest
 from query_plan import QueryRequest,QueryPlan,HealthRead,ResearchRead,compile_batch,request_identity
 from query_execution import execute_plan,project_sleep
@@ -162,6 +163,7 @@ def test_partial_multi_clause_never_reports_all_delivered():
 
 def test_client_validates_exact_request_closed_schema_and_pins():
  client=VitaClient.__new__(VitaClient);client.token='synthetic';client.selector_sha256='1'*64;client.adapter_sha256='2'*64
+ client._select_lock=Lock()
  good=plan().model_dump(mode='json')
  variants=[{**good,'selector_sha256':'3'*64},{**good,'adapter_sha256':'3'*64},{**good,'request_sha256':'3'*64},{**good,'time_zone':'Europe/Bucharest'},{**good,'advisory':False},{**good,'advisory':1},{**good,'status':'handoff'},{**good,'answers':{}},{**good,'queries':[]},
            {k:v for k,v in good.items() if k!='schema_version'},{k:v for k,v in good.items() if k!='advisory'}]

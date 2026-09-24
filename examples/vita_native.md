@@ -48,8 +48,13 @@ fast-path success. Failure of the optional selector is not failure of Vita.
 The wrapper is one instance per turn. It checks disclosure before and after
 selection; authority failures and cancellation propagate. Selector waiting is
 bounded at one second by default. A timed-out transport thread may finish its
-network request in the background but cannot dispatch a source operation. The
-existing client bounds that transport independently.
+network request in the background but cannot dispatch a source operation.
+Share the same `VitaClient` across turns: it admits only one outstanding selector
+request and rejects later calls immediately while that worker is still running,
+so those turns use the native planner. Admission is released only when the worker
+exits, including on errors. HTTP's 15-second phase inactivity timeouts and the
+SDK's separate attestation timeouts are not an overall wall-clock deadline;
+the one-second wrapper deadline does not cancel synchronous network I/O.
 
 ## Verified scope
 

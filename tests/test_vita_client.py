@@ -69,3 +69,77 @@ def test_real_sdk_rotation_cannot_retry_into_an_unapproved_release(monkeypatch,r
             assert len(transports)==1 and delivered==[]
         assert verified==['1'*64,rotated_digest]
     finally:client.close()
+
+
+@pytest.fixture
+def selector_client(monkeypatch):
+    import sys
+    from types import SimpleNamespace
+    from query_plan import QueryRequest, QueryPlan, HealthRead, request_identity
+    req=QueryRequest.model_validate({'schema_version':'vita-selector/v2',
+        'state':{'current_request':'Show my steps','reference_date':'2026-09-23','time_zone':'UTC'},
+        'reference_time':'2026-09-23T12:00:00Z','available_metrics':['steps'],
+        'available_record_types':[],'available_sources':[],'literature_available':False})
+    good=QueryPlan(status='planned',queries=[HealthRead(metrics=['steps'],period={'kind':'all_history'})],
+        time_zone='UTC',selector_sha256='2'*64,adapter_sha256='3'*64,
+        model_revision=MODEL_REVISION,request_sha256=request_identity(req)).model_dump(mode='json')
+    http=httpx.Client(transport=httpx.MockTransport(lambda _:httpx.Response(200,json=good)))
+    class Verifier:
+        def __init__(self,**kwargs):pass
+        def make_secure_http_client(self):return http
+        def get_verification_document(self):
+            return SimpleNamespace(security_verified=True,release_digest='1'*64)
+    monkeypatch.setitem(sys.modules,'tinfoil',SimpleNamespace(SecureClient=Verifier))
+    monkeypatch.setenv('OPEN_JEV_API_KEY','synthetic-selector-test-key')
+    client=VitaClient(release_digest='1'*64,selector_sha256='2'*64,adapter_sha256='3'*64)
+    try:yield client,req
+    finally:client.close()
+
+
+def test_cancelled_waiter_keeps_admission_until_worker_finishes(selector_client,monkeypatch):
+    import asyncio
+    from threading import Event
+    client,req=selector_client
+    entered=Event();release=Event();finished=Event();calls=[]
+    post=client.http.post
+    def blocked_post(*args,**kwargs):
+        calls.append(True)
+        if len(calls)==1:
+            entered.set()
+            assert release.wait(5), 'Test did not release the blocked HTTP worker'
+        return post(*args,**kwargs)
+    monkeypatch.setattr(client.http,'post',blocked_post)
+    def first_select():
+        try:return client.select(req)
+        finally:finished.set()
+    async def scenario():
+        waiting=asyncio.create_task(asyncio.to_thread(first_select))
+        try:
+            assert await asyncio.to_thread(entered.wait,2)
+            with pytest.raises(TimeoutError):await asyncio.wait_for(waiting,.01)
+            assert waiting.cancelled() and not finished.is_set()
+            for _ in range(10):
+                with pytest.raises(RuntimeError,match='already in progress'):
+                    await asyncio.to_thread(client.select,req)
+            assert len(calls)==1
+        finally:
+            release.set()
+            assert await asyncio.to_thread(finished.wait,2)
+        assert (await asyncio.to_thread(client.select,req)).status=='planned'
+        assert len(calls)==2
+    asyncio.run(scenario())
+
+
+@pytest.mark.parametrize('failure',['transport','response'])
+def test_selector_exception_releases_admission(selector_client,monkeypatch,failure):
+    client,req=selector_client
+    post=client.http.post;calls=[]
+    def fail_once(*args,**kwargs):
+        calls.append(True)
+        if len(calls)==1:
+            if failure=='transport':raise httpx.ReadTimeout('synthetic timeout')
+            return httpx.Response(200,json={},request=httpx.Request('POST',args[0]))
+        return post(*args,**kwargs)
+    monkeypatch.setattr(client.http,'post',fail_once)
+    with pytest.raises((httpx.ReadTimeout,RuntimeError)):client.select(req)
+    assert client.select(req).status=='planned' and len(calls)==2
