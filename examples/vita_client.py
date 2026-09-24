@@ -16,7 +16,7 @@ REPO = 'VitaDAO/open-jev-tinfoil'
 
 
 class VitaClient:
-    def __init__(self, *, release_digest, selector_sha256=None, adapter_sha256=None):
+    def __init__(self, *, release_digest, selector_sha256=None, adapter_sha256=None, trust_snapshot=None, parallel_public_fetches=False):
         for value in (release_digest,):
             if not isinstance(value,str) or not re.fullmatch(r'[0-9a-f]{64}',value):
                 raise ValueError('Reviewed release SHA256 pin required')
@@ -26,10 +26,30 @@ class VitaClient:
             if value is not None and (not isinstance(value,str) or not re.fullmatch(r'[0-9a-f]{64}',value)):
                 raise ValueError('Reviewed selector SHA256 pins required')
         self._owner_pid = os.getpid()
+        self._trust_snapshot = trust_snapshot
+        verifier_options = {}
+        if trust_snapshot is not None:
+            from importlib.metadata import version
+            from examples.trust_cache import TrustSnapshot
+            if not isinstance(trust_snapshot, TrustSnapshot):
+                raise ValueError('Validated TrustSnapshot required')
+            if version('tinfoil') not in ('0.14.0+vita1', '0.14.0+vita2'):
+                raise RuntimeError('Trust cache requires reviewed patched SDK')
+            trust_snapshot.assert_valid()
+            verifier_options['sigstore_verifier_factory'] = trust_snapshot.make_verifier
+        if parallel_public_fetches:
+            from importlib.metadata import version
+            if version('tinfoil') != '0.14.0+vita2':
+                raise RuntimeError('Parallel public fetches require reviewed patched SDK vita2')
+            verifier_options['parallel_public_fetches'] = True
         from tinfoil import SecureClient
         class ReleasePinnedClient(SecureClient):
             def verify(inner):
+                if trust_snapshot is not None:
+                    trust_snapshot.assert_valid()
                 ground_truth=super().verify()
+                if trust_snapshot is not None:
+                    trust_snapshot.assert_valid()
                 document=inner.get_verification_document()
                 # The SDK re-verifies after TLS key rotation. Check the release
                 # before it builds a replacement transport or retries a request,
@@ -37,7 +57,7 @@ class VitaClient:
                 if document is None or document.security_verified is not True or document.release_digest!=release_digest:
                     raise RuntimeError('Unapproved enclave release')
                 return ground_truth
-        self.verifier=ReleasePinnedClient(enclave=HOST,repo=REPO,transport='tls')
+        self.verifier=ReleasePinnedClient(enclave=HOST,repo=REPO,transport='tls',**verifier_options)
         self.http=self.verifier.make_secure_http_client()
         try:
             document=self.verifier.get_verification_document()
@@ -54,6 +74,9 @@ class VitaClient:
     def _check_process(self):
         if os.getpid() != self._owner_pid:
             raise RuntimeError('Client belongs to another process; construct a fresh client in this child')
+        snapshot = getattr(self, '_trust_snapshot', None)
+        if snapshot is not None:
+            snapshot.assert_valid()
 
     def select(self, request):
         self._check_process()
@@ -115,5 +138,6 @@ class VitaClient:
         return result
 
     def close(self):
-        self._check_process()
+        if os.getpid() != self._owner_pid:
+            raise RuntimeError('Client belongs to another process; construct a fresh client in this child')
         self.http.close()

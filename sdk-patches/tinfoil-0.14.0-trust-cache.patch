@@ -1,0 +1,52 @@
+--- a/tinfoil/client.py
++++ b/tinfoil/client.py
+@@ -587 +587 @@
+-    def __init__(self, enclave: str = "", repo: str = DEFAULT_CONFIG_REPO, measurement: Optional[dict] = None, transport: TransportMode = DEFAULT_TRANSPORT_MODE, base_url: Optional[str] = None, attestation_bundle_url: str = "", user_cache_secret: Optional[str] = None):
++    def __init__(self, enclave: str = "", repo: str = DEFAULT_CONFIG_REPO, measurement: Optional[dict] = None, transport: TransportMode = DEFAULT_TRANSPORT_MODE, base_url: Optional[str] = None, attestation_bundle_url: str = "", user_cache_secret: Optional[str] = None, sigstore_verifier_factory=None, parallel_public_fetches: bool = False):
+@@ -626,0 +627,2 @@
++        self._sigstore_verifier_factory = sigstore_verifier_factory
++        self._parallel_public_fetches = parallel_public_fetches
+@@ -862,0 +865,10 @@
++        # Fetch public inputs concurrently only in the owning request process.
++        # Futures retain failures for the original verification-stage handlers;
++        # the context joins both workers before any verification or private IO.
++        public_inputs = None
++        if self._parallel_public_fetches and self.measurement is None:
++            from concurrent.futures import ThreadPoolExecutor
++            with ThreadPoolExecutor(max_workers=2, thread_name_prefix="tinfoil-public") as executor:
++                public_inputs = (executor.submit(fetch_attestation, self.enclave),
++                                 executor.submit(fetch_latest_release, self.repo))
++
+@@ -865 +877,2 @@
+-            enclave_attestation = fetch_attestation(self.enclave)
++            enclave_attestation = (public_inputs[0].result() if public_inputs is not None
++                                   else fetch_attestation(self.enclave))
+@@ -916 +929,2 @@
+-                release = fetch_latest_release(self.repo)
++                release = (public_inputs[1].result() if public_inputs is not None
++                           else fetch_latest_release(self.repo))
+@@ -929 +943,3 @@
+-                    sigstore_bundle, digest, self.repo, release.tag
++                    sigstore_bundle, digest, self.repo, release.tag,
++                    verifier=(self._sigstore_verifier_factory()
++                              if self._sigstore_verifier_factory is not None else None),
+@@ -968 +984,3 @@
+-                bundle.sigstore_bundle, bundle.digest, self.repo, bundle.release_tag
++                bundle.sigstore_bundle, bundle.digest, self.repo, bundle.release_tag,
++                verifier=(self._sigstore_verifier_factory()
++                          if self._sigstore_verifier_factory is not None else None),
+--- a/tinfoil/sigstore.py
++++ b/tinfoil/sigstore.py
+@@ -134 +134 @@
+-    bundle_json: bytes, digest: str, repo: str, expected_release_tag: Optional[str] = None
++    bundle_json: bytes, digest: str, repo: str, expected_release_tag: Optional[str] = None, *, verifier: Optional[Verifier] = None
+@@ -154 +154,2 @@
+-    verifier = Verifier.production()
++    if verifier is None:
++        verifier = Verifier.production()
+@@ -197 +198 @@
+-    bundle_json: bytes, digest: str, repo: str, expected_release_tag: Optional[str] = None
++    bundle_json: bytes, digest: str, repo: str, expected_release_tag: Optional[str] = None, *, verifier: Optional[Verifier] = None
+@@ -215 +216 @@
+-        statement = _verify_dsse_bundle(bundle_json, digest, repo, expected_release_tag)
++        statement = _verify_dsse_bundle(bundle_json, digest, repo, expected_release_tag, verifier=verifier)

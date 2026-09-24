@@ -1,0 +1,10 @@
+{
+  "loop": "uvloop",
+  "public_refresh_ms": 890.8347089891322,
+  "event_loop_ticks": 82,
+  "native_threads_before": 1,
+  "native_threads_after": 1,
+  "fork_warning_count": 0,
+  "child_exit_status": 0,
+  "snapshot_age_bound_seconds": 300.0
+}

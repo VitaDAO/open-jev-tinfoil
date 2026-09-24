@@ -1,0 +1,45 @@
+{
+  "scope": "Six fresh client objects in one diagnostic process; SDK imports excluded and reported separately; disk caches retained; same five-minute trust snapshot in both arms. No private request, credential, selector call or TLS application request. These measure client setup, not total Vita request latency.",
+  "public_refresh_ms": 934.3295840080827,
+  "sdk_import_ms": 504.2039999971166,
+  "script_sha256": "90d223155bbe3b37b2499a89a892e48cd97d78935ac2b019568a8a88b8a95f8e",
+  "release_digest": "e9145d5c5610cc9096ef5ed1b253a22f13503898bd1319e39dc24c54bcdf88b5",
+  "rows": [
+    {
+      "parallel": false,
+      "bootstrap_ms": 1148.9097499870695,
+      "verified": true,
+      "release_tag": "v0.3.2"
+    },
+    {
+      "parallel": true,
+      "bootstrap_ms": 602.8055830392987,
+      "verified": true,
+      "release_tag": "v0.3.2"
+    },
+    {
+      "parallel": true,
+      "bootstrap_ms": 604.1160000022501,
+      "verified": true,
+      "release_tag": "v0.3.2"
+    },
+    {
+      "parallel": false,
+      "bootstrap_ms": 1006.9599590497091,
+      "verified": true,
+      "release_tag": "v0.3.2"
+    },
+    {
+      "parallel": false,
+      "bootstrap_ms": 903.6184580181725,
+      "verified": true,
+      "release_tag": "v0.3.2"
+    },
+    {
+      "parallel": true,
+      "bootstrap_ms": 597.0777079928666,
+      "verified": true,
+      "release_tag": "v0.3.2"
+    }
+  ]
+}
