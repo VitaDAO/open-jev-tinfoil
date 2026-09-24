@@ -1,0 +1,189 @@
+# Trailing whitespace normalized; original log retained in tev1-local/v32-native-quiet-20260924T033828.log.
+cwd: /Users/alexdobrin/Documents/open-jev-tinfoil
+v32_head: 8ffcdde225e7e0296038078c1679a999699cb9fb
+command: PYTHONDONTWRITEBYTECODE=1 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 VITA_SOURCE_ROOT=/Users/alexdobrin/Documents/vita-agent-deepseek-v32 PYTHONPATH=/Users/alexdobrin/Documents/vita-agent-deepseek-v32:/Users/alexdobrin/Documents/vita-agent-deepseek-v32/vita/py/src:/Users/alexdobrin/Documents/open-jev-tinfoil:/Users/alexdobrin/Documents/open-jev-tinfoil/vendor /Users/alexdobrin/Documents/vita-agent-deepseek-v32/vita/py/.venv/bin/python -m pytest -q -p no:cacheprovider tests/test_vita_native.py --log-cli-level=INFO --durations=0
+source_sha256: {"/Users/alexdobrin/Documents/open-jev-tinfoil/examples/vita_native.py": "1622d4ee141cae5ec4e57fde3d9dbe11a125503e356d01db9fe1573e1a0cd86d", "/Users/alexdobrin/Documents/open-jev-tinfoil/tests/test_vita_native.py": "8dd71bfb5f63043859671323e4ed70e91f75395a7eaa6f6153a6fe84fa87e187", "/Users/alexdobrin/Documents/vita-agent-deepseek-v32/backbone/fingerprint.py": "29f4158c2a24d4a3dc47361619528ac997317a523b567bf8f76bd68e894349c7", "/Users/alexdobrin/Documents/vita-agent-deepseek-v32/backbone/host.py": "5e704b404a9caed8546c11913b8f5d6dc48da21212d111c503a4ebeac06574ff", "/Users/alexdobrin/Documents/vita-agent-deepseek-v32/backbone/local_jev.py": "e987a75f131eb1fee20ca27151d3aecc8a058090046e8cb80cf8421bd47bde5a", "/Users/alexdobrin/Documents/vita-agent-deepseek-v32/backbone/manager.py": "8c061fb8e8b07c9e17fa7b5f3db9a6e67158b1649217fe92eabd658250208e1d", "/Users/alexdobrin/Documents/vita-agent-deepseek-v32/backbone/mounted.py": "e56cf09d13fa0e840372ad12e965373a8a5662678de6f8ac49e80e878c361d6b", "/Users/alexdobrin/Documents/vita-agent-deepseek-v32/backbone/provider.py": "583a512103b5bb9a0e7d7dcaefb70ff286c90fe5960d819bc52853af569f5f56", "/Users/alexdobrin/Documents/vita-agent-deepseek-v32/backbone/synthetic.py": "49e98ddaa1c75544fe44a3027b6a7dd626707e210bd04af525bea8a90ba0a072", "/Users/alexdobrin/Documents/vita-agent-deepseek-v32/vita/py/src/vita_agent/capabilities/broker.py": "d2b86ac0ede1ee640209a93ba6a41148d22ed4c911c9808dc0a8fb391eeeba64", "/Users/alexdobrin/Documents/vita-agent-deepseek-v32/vita/py/src/vita_agent/health/calendar_dates.py": "6713139282df86b50c8049795d212dbd5f68ad23eb51bca59ddcec8ddddeabb5", "/Users/alexdobrin/Documents/vita-agent-deepseek-v32/vita/py/src/vita_agent/health/metric_registry.py": "fcd2e19ea8d36b89443c14755b53f7ba8a0079ce3ac389e532a7c94a95552c47", "/Users/alexdobrin/Documents/vita-agent-deepseek-v32/vita/py/src/vita_agent/health/query_tool.py": "aa40686a0b1c4b39180eaa9d4a4ce695878ce0c1a5816b7becf0b107e9566bce", "/Users/alexdobrin/Documents/vita-agent-deepseek-v32/vita/py/src/vita_agent/kernel/health_range_input.py": "e250600fe598b485dcd1d71bdc072cb91bef37ac5494c20b7c79e18d2a9f7a7a", "/Users/alexdobrin/Documents/vita-agent-deepseek-v32/vita/py/src/vita_agent/kernel/source_batch_contracts.py": "93ba1603ce6a00008b3dca995488086b14a976b2801f5a2c22b2acf3d25c7061", "/Users/alexdobrin/Documents/vita-agent-deepseek-v32/vita/py/src/vita_agent/kernel/source_batch_executors.py": "1440fb61d5ce6adee9c695b15b9773386cc722bcb0ddfeabb90b1c12d36a3734", "/Users/alexdobrin/Documents/vita-agent-deepseek-v32/vita/py/src/vita_agent/kernel/source_batch_scheduler.py": "5765951e3e7b456e1f68c86d799f241211c498dac9c93d4c74fbe6907048cd37", "/Users/alexdobrin/Documents/vita-agent-deepseek-v32/vita/py/src/vita_agent/kernel/source_batch_tool.py": "dfba1a99ea3c8d8cb37a12a8aa61c2bf6f37e4b3dc093bb1a071a1b062c4b1f7"}
+
+tests/test_vita_native.py::test_environment_is_the_requested_current_vita_checkout PASSED [  5%]
+tests/test_vita_native.py::test_real_native_manager_brokers_reads_registers_sources_and_accepts_answer[False]
+-------------------------------- live log call ---------------------------------
+INFO     vita_agent.kernel.manager_final_answer:manager_final_answer.py:243 manager_sampling temperature=1.0 top_p=0.95 top_k=None chat_temperature_ignored=None
+INFO     vita_agent.kernel.agent_factory:agent_factory.py:603 manager_orchestration_profile {'schema': 'vita-orchestration-profile/v2', 'prompt_variant': 'manager_concise', 'instruction_policy': 'stable_manager_v2', 'multiple_literature': False, 'thinking_mode': 'auto', 'initial_chat_effort': 'not_sent', 'fingerprint': '56f8f6db6f000676'}
+INFO     backbone.host:host.py:247 native_setup_timing identity_s=0.159 profile_copy_verify_s=0.005 spawn_s=0.007 elapsed_s=0.171
+INFO     backbone.manager:manager.py:141 manager_round_cache input_tokens=0 cached_tokens=0 output_tokens=0
+INFO     vita_agent.kernel.manager_action_protocol:manager_action_protocol.py:421 manager_model_round
+INFO     vita_agent.kernel.manager_action_protocol:manager_action_protocol.py:442 manager_action_round tools=('acquire_sources',)
+INFO     vita_agent.kernel.health_range_input:health_range_input.py:69 manager_health_range kind=all_history period=none
+INFO     vita_agent.health.query_tool:query_tool.py:508 health_read_execution purpose=latest correlation_basis=recorded_day outcome=ok analysis_count=0 gap_count=0
+INFO     vita_agent.kernel.source_batch_scheduler:source_batch_scheduler.py:691 health_result_page source_id=1 offset=0 next_offset=None findings=1
+INFO     vita_agent.kernel.source_batch_scheduler:source_batch_scheduler.py:474 source_node_timing kind=health_read outcome=ok duration_ms=4.4
+INFO     vita_agent.kernel.source_batch_scheduler:source_batch_scheduler.py:767 source_batch_timing outcome=settled duration_ms=4.6 operations=1 waves=1 summed_node_ms=4.4 critical_path_ms=4.5 parallelism_ratio=0.96 reserved_tokens=0 actual_tokens=0 released_tokens=0 nodes=('health_read:ok:-:4.4',)
+INFO     vita_agent.kernel.manager_action_protocol:manager_action_protocol.py:306 manager_simple_read_answer requested=False accepted=False
+INFO     backbone.manager:manager.py:141 manager_round_cache input_tokens=0 cached_tokens=0 output_tokens=0
+INFO     vita_agent.kernel.manager_action_protocol:manager_action_protocol.py:421 manager_model_round
+INFO     vita_agent.kernel.manager_action_protocol:manager_action_protocol.py:442 manager_action_round tools=('submit_final_answer',)
+INFO     vita_agent.kernel.manager_action_protocol:manager_action_protocol.py:281 manager_answer_shape
+INFO     vita_agent.kernel.manager_action_protocol:manager_action_protocol.py:484 manager_action_round outcome=committed tool=submit_final_answer
+PASSED                                                                   [ 10%]
+tests/test_vita_native.py::test_real_native_manager_brokers_reads_registers_sources_and_accepts_answer[True]
+-------------------------------- live log call ---------------------------------
+INFO     vita_agent.kernel.manager_final_answer:manager_final_answer.py:243 manager_sampling temperature=1.0 top_p=0.95 top_k=None chat_temperature_ignored=None
+INFO     vita_agent.kernel.agent_factory:agent_factory.py:603 manager_orchestration_profile {'schema': 'vita-orchestration-profile/v2', 'prompt_variant': 'manager_concise', 'instruction_policy': 'stable_manager_v2', 'multiple_literature': False, 'thinking_mode': 'auto', 'initial_chat_effort': 'not_sent', 'fingerprint': '56f8f6db6f000676'}
+INFO     backbone.host:host.py:247 native_setup_timing identity_s=0.148 profile_copy_verify_s=0.008 spawn_s=0.005 elapsed_s=0.162
+INFO     backbone.manager:manager.py:141 manager_round_cache input_tokens=0 cached_tokens=0 output_tokens=0
+INFO     vita_agent.kernel.manager_action_protocol:manager_action_protocol.py:421 manager_model_round
+INFO     vita_agent.kernel.manager_action_protocol:manager_action_protocol.py:442 manager_action_round tools=('acquire_sources',)
+INFO     vita_agent.kernel.health_range_input:health_range_input.py:69 manager_health_range kind=all_history period=none
+INFO     vita_agent.health.query_tool:query_tool.py:508 health_read_execution purpose=latest correlation_basis=recorded_day outcome=ok analysis_count=0 gap_count=0
+INFO     vita_agent.kernel.source_batch_scheduler:source_batch_scheduler.py:691 health_result_page source_id=1 offset=0 next_offset=None findings=1
+INFO     vita_agent.kernel.source_batch_scheduler:source_batch_scheduler.py:474 source_node_timing kind=health_read outcome=ok duration_ms=1.7
+INFO     vita_agent.kernel.source_batch_scheduler:source_batch_scheduler.py:767 source_batch_timing outcome=settled duration_ms=1.9 operations=1 waves=1 summed_node_ms=1.7 critical_path_ms=1.9 parallelism_ratio=0.91 reserved_tokens=0 actual_tokens=0 released_tokens=0 nodes=('health_read:ok:-:1.7',)
+INFO     vita_agent.kernel.manager_action_protocol:manager_action_protocol.py:306 manager_simple_read_answer requested=False accepted=False
+INFO     backbone.manager:manager.py:141 manager_round_cache input_tokens=0 cached_tokens=0 output_tokens=0
+INFO     vita_agent.kernel.manager_action_protocol:manager_action_protocol.py:421 manager_model_round
+INFO     vita_agent.kernel.manager_action_protocol:manager_action_protocol.py:442 manager_action_round tools=('submit_final_answer',)
+INFO     vita_agent.kernel.manager_action_protocol:manager_action_protocol.py:281 manager_answer_shape
+INFO     vita_agent.kernel.manager_action_protocol:manager_action_protocol.py:484 manager_action_round outcome=committed tool=submit_final_answer
+PASSED                                                                   [ 15%]
+tests/test_vita_native.py::test_fallback_preserves_whole_native_context_without_source_io[handoff]
+-------------------------------- live log call ---------------------------------
+INFO     vita_agent.kernel.manager_final_answer:manager_final_answer.py:243 manager_sampling temperature=1.0 top_p=0.95 top_k=None chat_temperature_ignored=None
+INFO     vita_agent.kernel.agent_factory:agent_factory.py:603 manager_orchestration_profile {'schema': 'vita-orchestration-profile/v2', 'prompt_variant': 'manager_concise', 'instruction_policy': 'stable_manager_v2', 'multiple_literature': False, 'thinking_mode': 'auto', 'initial_chat_effort': 'not_sent', 'fingerprint': '56f8f6db6f000676'}
+PASSED                                                                   [ 21%]
+tests/test_vita_native.py::test_fallback_preserves_whole_native_context_without_source_io[schema]
+-------------------------------- live log call ---------------------------------
+INFO     vita_agent.kernel.manager_final_answer:manager_final_answer.py:243 manager_sampling temperature=1.0 top_p=0.95 top_k=None chat_temperature_ignored=None
+INFO     vita_agent.kernel.agent_factory:agent_factory.py:603 manager_orchestration_profile {'schema': 'vita-orchestration-profile/v2', 'prompt_variant': 'manager_concise', 'instruction_policy': 'stable_manager_v2', 'multiple_literature': False, 'thinking_mode': 'auto', 'initial_chat_effort': 'not_sent', 'fingerprint': '56f8f6db6f000676'}
+PASSED                                                                   [ 26%]
+tests/test_vita_native.py::test_fallback_preserves_whole_native_context_without_source_io[question]
+-------------------------------- live log call ---------------------------------
+INFO     vita_agent.kernel.manager_final_answer:manager_final_answer.py:243 manager_sampling temperature=1.0 top_p=0.95 top_k=None chat_temperature_ignored=None
+INFO     vita_agent.kernel.agent_factory:agent_factory.py:603 manager_orchestration_profile {'schema': 'vita-orchestration-profile/v2', 'prompt_variant': 'manager_concise', 'instruction_policy': 'stable_manager_v2', 'multiple_literature': False, 'thinking_mode': 'auto', 'initial_chat_effort': 'not_sent', 'fingerprint': '56f8f6db6f000676'}
+PASSED                                                                   [ 31%]
+tests/test_vita_native.py::test_fallback_preserves_whole_native_context_without_source_io[history]
+-------------------------------- live log call ---------------------------------
+INFO     vita_agent.kernel.manager_final_answer:manager_final_answer.py:243 manager_sampling temperature=1.0 top_p=0.95 top_k=None chat_temperature_ignored=None
+INFO     vita_agent.kernel.agent_factory:agent_factory.py:603 manager_orchestration_profile {'schema': 'vita-orchestration-profile/v2', 'prompt_variant': 'manager_concise', 'instruction_policy': 'stable_manager_v2', 'multiple_literature': False, 'thinking_mode': 'auto', 'initial_chat_effort': 'not_sent', 'fingerprint': '56f8f6db6f000676'}
+PASSED                                                                   [ 36%]
+tests/test_vita_native.py::test_fallback_preserves_whole_native_context_without_source_io[forced]
+-------------------------------- live log call ---------------------------------
+INFO     vita_agent.kernel.manager_final_answer:manager_final_answer.py:243 manager_sampling temperature=1.0 top_p=0.95 top_k=None chat_temperature_ignored=None
+INFO     vita_agent.kernel.agent_factory:agent_factory.py:603 manager_orchestration_profile {'schema': 'vita-orchestration-profile/v2', 'prompt_variant': 'manager_concise', 'instruction_policy': 'stable_manager_v2', 'multiple_literature': False, 'thinking_mode': 'auto', 'initial_chat_effort': 'not_sent', 'fingerprint': '56f8f6db6f000676'}
+PASSED                                                                   [ 42%]
+tests/test_vita_native.py::test_fallback_preserves_whole_native_context_without_source_io[long]
+-------------------------------- live log call ---------------------------------
+INFO     vita_agent.kernel.manager_final_answer:manager_final_answer.py:243 manager_sampling temperature=1.0 top_p=0.95 top_k=None chat_temperature_ignored=None
+INFO     vita_agent.kernel.agent_factory:agent_factory.py:603 manager_orchestration_profile {'schema': 'vita-orchestration-profile/v2', 'prompt_variant': 'manager_concise', 'instruction_policy': 'stable_manager_v2', 'multiple_literature': False, 'thinking_mode': 'auto', 'initial_chat_effort': 'not_sent', 'fingerprint': '56f8f6db6f000676'}
+PASSED                                                                   [ 47%]
+tests/test_vita_native.py::test_fallback_preserves_whole_native_context_without_source_io[network]
+-------------------------------- live log call ---------------------------------
+INFO     vita_agent.kernel.manager_final_answer:manager_final_answer.py:243 manager_sampling temperature=1.0 top_p=0.95 top_k=None chat_temperature_ignored=None
+INFO     vita_agent.kernel.agent_factory:agent_factory.py:603 manager_orchestration_profile {'schema': 'vita-orchestration-profile/v2', 'prompt_variant': 'manager_concise', 'instruction_policy': 'stable_manager_v2', 'multiple_literature': False, 'thinking_mode': 'auto', 'initial_chat_effort': 'not_sent', 'fingerprint': '56f8f6db6f000676'}
+PASSED                                                                   [ 52%]
+tests/test_vita_native.py::test_revocation_after_selection_does_not_emit_proposal_or_call_provider
+-------------------------------- live log call ---------------------------------
+INFO     vita_agent.kernel.manager_final_answer:manager_final_answer.py:243 manager_sampling temperature=1.0 top_p=0.95 top_k=None chat_temperature_ignored=None
+INFO     vita_agent.kernel.agent_factory:agent_factory.py:603 manager_orchestration_profile {'schema': 'vita-orchestration-profile/v2', 'prompt_variant': 'manager_concise', 'instruction_policy': 'stable_manager_v2', 'multiple_literature': False, 'thinking_mode': 'auto', 'initial_chat_effort': 'not_sent', 'fingerprint': '56f8f6db6f000676'}
+PASSED                                                                   [ 57%]
+tests/test_vita_native.py::test_relative_window_uses_native_arithmetic_and_exact_trusted_clock
+-------------------------------- live log call ---------------------------------
+INFO     vita_agent.kernel.manager_final_answer:manager_final_answer.py:243 manager_sampling temperature=1.0 top_p=0.95 top_k=None chat_temperature_ignored=None
+INFO     vita_agent.kernel.agent_factory:agent_factory.py:603 manager_orchestration_profile {'schema': 'vita-orchestration-profile/v2', 'prompt_variant': 'manager_concise', 'instruction_policy': 'stable_manager_v2', 'multiple_literature': False, 'thinking_mode': 'auto', 'initial_chat_effort': 'not_sent', 'fingerprint': '56f8f6db6f000676'}
+INFO     vita_agent.kernel.health_range_input:health_range_input.py:69 manager_health_range kind=relative period=none
+PASSED                                                                   [ 63%]
+tests/test_vita_native.py::test_frozen_calendar_window_matches_native_executor_whole_local_days[period0-2026-03-23-metric_bounds0-next_due_date]
+-------------------------------- live log call ---------------------------------
+INFO     vita_agent.kernel.manager_final_answer:manager_final_answer.py:243 manager_sampling temperature=1.0 top_p=0.95 top_k=None chat_temperature_ignored=None
+INFO     vita_agent.kernel.agent_factory:agent_factory.py:603 manager_orchestration_profile {'schema': 'vita-orchestration-profile/v2', 'prompt_variant': 'manager_concise', 'instruction_policy': 'stable_manager_v2', 'multiple_literature': False, 'thinking_mode': 'auto', 'initial_chat_effort': 'not_sent', 'fingerprint': '56f8f6db6f000676'}
+INFO     vita_agent.kernel.health_range_input:health_range_input.py:69 manager_health_range kind=relative period=none
+INFO     vita_agent.kernel.health_range_input:health_range_input.py:69 manager_health_range kind=relative period=none
+INFO     vita_agent.kernel.health_range_input:health_range_input.py:69 manager_health_range kind=relative period=none
+INFO     vita_agent.health.query_tool:query_tool.py:508 health_read_execution purpose=latest correlation_basis=recorded_day outcome=ok analysis_count=0 gap_count=0
+INFO     vita_agent.kernel.health_range_input:health_range_input.py:69 manager_health_range kind=between period=none
+INFO     vita_agent.health.query_tool:query_tool.py:508 health_read_execution purpose=latest correlation_basis=recorded_day outcome=ok analysis_count=0 gap_count=0
+PASSED                                                                   [ 68%]
+tests/test_vita_native.py::test_frozen_calendar_window_matches_native_executor_whole_local_days[period0-2026-03-23-metric_bounds0-last_done_date]
+-------------------------------- live log call ---------------------------------
+INFO     vita_agent.kernel.manager_final_answer:manager_final_answer.py:243 manager_sampling temperature=1.0 top_p=0.95 top_k=None chat_temperature_ignored=None
+INFO     vita_agent.kernel.agent_factory:agent_factory.py:603 manager_orchestration_profile {'schema': 'vita-orchestration-profile/v2', 'prompt_variant': 'manager_concise', 'instruction_policy': 'stable_manager_v2', 'multiple_literature': False, 'thinking_mode': 'auto', 'initial_chat_effort': 'not_sent', 'fingerprint': '56f8f6db6f000676'}
+INFO     vita_agent.kernel.health_range_input:health_range_input.py:69 manager_health_range kind=relative period=none
+INFO     vita_agent.kernel.health_range_input:health_range_input.py:69 manager_health_range kind=relative period=none
+INFO     vita_agent.kernel.health_range_input:health_range_input.py:69 manager_health_range kind=relative period=none
+INFO     vita_agent.health.query_tool:query_tool.py:508 health_read_execution purpose=latest correlation_basis=recorded_day outcome=ok analysis_count=0 gap_count=0
+INFO     vita_agent.kernel.health_range_input:health_range_input.py:69 manager_health_range kind=between period=none
+INFO     vita_agent.health.query_tool:query_tool.py:508 health_read_execution purpose=latest correlation_basis=recorded_day outcome=ok analysis_count=0 gap_count=0
+PASSED                                                                   [ 73%]
+tests/test_vita_native.py::test_frozen_calendar_window_matches_native_executor_whole_local_days[period1-2026-03-01-metric_bounds1-next_due_date]
+-------------------------------- live log call ---------------------------------
+INFO     vita_agent.kernel.manager_final_answer:manager_final_answer.py:243 manager_sampling temperature=1.0 top_p=0.95 top_k=None chat_temperature_ignored=None
+INFO     vita_agent.kernel.agent_factory:agent_factory.py:603 manager_orchestration_profile {'schema': 'vita-orchestration-profile/v2', 'prompt_variant': 'manager_concise', 'instruction_policy': 'stable_manager_v2', 'multiple_literature': False, 'thinking_mode': 'auto', 'initial_chat_effort': 'not_sent', 'fingerprint': '56f8f6db6f000676'}
+INFO     vita_agent.kernel.health_range_input:health_range_input.py:69 manager_health_range kind=calendar period=month
+INFO     vita_agent.kernel.health_range_input:health_range_input.py:69 manager_health_range kind=calendar period=month
+INFO     vita_agent.kernel.health_range_input:health_range_input.py:69 manager_health_range kind=calendar period=month
+INFO     vita_agent.health.query_tool:query_tool.py:508 health_read_execution purpose=latest correlation_basis=recorded_day outcome=ok analysis_count=0 gap_count=0
+INFO     vita_agent.kernel.health_range_input:health_range_input.py:69 manager_health_range kind=between period=none
+INFO     vita_agent.health.query_tool:query_tool.py:508 health_read_execution purpose=latest correlation_basis=recorded_day outcome=ok analysis_count=0 gap_count=0
+PASSED                                                                   [ 78%]
+tests/test_vita_native.py::test_frozen_calendar_window_matches_native_executor_whole_local_days[period1-2026-03-01-metric_bounds1-last_done_date]
+-------------------------------- live log call ---------------------------------
+INFO     vita_agent.kernel.manager_final_answer:manager_final_answer.py:243 manager_sampling temperature=1.0 top_p=0.95 top_k=None chat_temperature_ignored=None
+INFO     vita_agent.kernel.agent_factory:agent_factory.py:603 manager_orchestration_profile {'schema': 'vita-orchestration-profile/v2', 'prompt_variant': 'manager_concise', 'instruction_policy': 'stable_manager_v2', 'multiple_literature': False, 'thinking_mode': 'auto', 'initial_chat_effort': 'not_sent', 'fingerprint': '56f8f6db6f000676'}
+INFO     vita_agent.kernel.health_range_input:health_range_input.py:69 manager_health_range kind=calendar period=month
+INFO     vita_agent.kernel.health_range_input:health_range_input.py:69 manager_health_range kind=calendar period=month
+INFO     vita_agent.kernel.health_range_input:health_range_input.py:69 manager_health_range kind=calendar period=month
+INFO     vita_agent.health.query_tool:query_tool.py:508 health_read_execution purpose=latest correlation_basis=recorded_day outcome=ok analysis_count=0 gap_count=0
+INFO     vita_agent.kernel.health_range_input:health_range_input.py:69 manager_health_range kind=between period=none
+INFO     vita_agent.health.query_tool:query_tool.py:508 health_read_execution purpose=latest correlation_basis=recorded_day outcome=ok analysis_count=0 gap_count=0
+PASSED                                                                   [ 84%]
+tests/test_vita_native.py::test_frozen_calendar_window_matches_native_executor_whole_local_days[period2-2026-03-30-metric_bounds2-next_due_date]
+-------------------------------- live log call ---------------------------------
+INFO     vita_agent.kernel.manager_final_answer:manager_final_answer.py:243 manager_sampling temperature=1.0 top_p=0.95 top_k=None chat_temperature_ignored=None
+INFO     vita_agent.kernel.agent_factory:agent_factory.py:603 manager_orchestration_profile {'schema': 'vita-orchestration-profile/v2', 'prompt_variant': 'manager_concise', 'instruction_policy': 'stable_manager_v2', 'multiple_literature': False, 'thinking_mode': 'auto', 'initial_chat_effort': 'not_sent', 'fingerprint': '56f8f6db6f000676'}
+INFO     vita_agent.kernel.health_range_input:health_range_input.py:69 manager_health_range kind=calendar period=day
+INFO     vita_agent.kernel.health_range_input:health_range_input.py:69 manager_health_range kind=calendar period=day
+INFO     vita_agent.kernel.health_range_input:health_range_input.py:69 manager_health_range kind=calendar period=day
+INFO     vita_agent.health.query_tool:query_tool.py:508 health_read_execution purpose=latest correlation_basis=recorded_day outcome=ok analysis_count=0 gap_count=0
+INFO     vita_agent.kernel.health_range_input:health_range_input.py:69 manager_health_range kind=between period=none
+INFO     vita_agent.health.query_tool:query_tool.py:508 health_read_execution purpose=latest correlation_basis=recorded_day outcome=ok analysis_count=0 gap_count=0
+PASSED                                                                   [ 89%]
+tests/test_vita_native.py::test_frozen_calendar_window_matches_native_executor_whole_local_days[period2-2026-03-30-metric_bounds2-last_done_date]
+-------------------------------- live log call ---------------------------------
+INFO     vita_agent.kernel.manager_final_answer:manager_final_answer.py:243 manager_sampling temperature=1.0 top_p=0.95 top_k=None chat_temperature_ignored=None
+INFO     vita_agent.kernel.agent_factory:agent_factory.py:603 manager_orchestration_profile {'schema': 'vita-orchestration-profile/v2', 'prompt_variant': 'manager_concise', 'instruction_policy': 'stable_manager_v2', 'multiple_literature': False, 'thinking_mode': 'auto', 'initial_chat_effort': 'not_sent', 'fingerprint': '56f8f6db6f000676'}
+INFO     vita_agent.kernel.health_range_input:health_range_input.py:69 manager_health_range kind=calendar period=day
+INFO     vita_agent.kernel.health_range_input:health_range_input.py:69 manager_health_range kind=calendar period=day
+INFO     vita_agent.kernel.health_range_input:health_range_input.py:69 manager_health_range kind=calendar period=day
+INFO     vita_agent.health.query_tool:query_tool.py:508 health_read_execution purpose=latest correlation_basis=recorded_day outcome=ok analysis_count=0 gap_count=0
+INFO     vita_agent.kernel.health_range_input:health_range_input.py:69 manager_health_range kind=between period=none
+INFO     vita_agent.health.query_tool:query_tool.py:508 health_read_execution purpose=latest correlation_basis=recorded_day outcome=ok analysis_count=0 gap_count=0
+PASSED                                                                   [ 94%]
+tests/test_vita_native.py::test_tampered_request_binding_is_rejected_before_native_dispatch
+-------------------------------- live log call ---------------------------------
+INFO     vita_agent.kernel.manager_final_answer:manager_final_answer.py:243 manager_sampling temperature=1.0 top_p=0.95 top_k=None chat_temperature_ignored=None
+INFO     vita_agent.kernel.agent_factory:agent_factory.py:603 manager_orchestration_profile {'schema': 'vita-orchestration-profile/v2', 'prompt_variant': 'manager_concise', 'instruction_policy': 'stable_manager_v2', 'multiple_literature': False, 'thinking_mode': 'auto', 'initial_chat_effort': 'not_sent', 'fingerprint': '56f8f6db6f000676'}
+PASSED                                                                   [100%]
+
+============================== slowest durations ===============================
+1.26s call     tests/test_vita_native.py::test_real_native_manager_brokers_reads_registers_sources_and_accepts_answer[False]
+1.06s call     tests/test_vita_native.py::test_real_native_manager_brokers_reads_registers_sources_and_accepts_answer[True]
+0.05s call     tests/test_vita_native.py::test_fallback_preserves_whole_native_context_without_source_io[handoff]
+0.02s call     tests/test_vita_native.py::test_frozen_calendar_window_matches_native_executor_whole_local_days[period0-2026-03-23-metric_bounds0-next_due_date]
+0.02s call     tests/test_vita_native.py::test_frozen_calendar_window_matches_native_executor_whole_local_days[period2-2026-03-30-metric_bounds2-next_due_date]
+0.02s call     tests/test_vita_native.py::test_frozen_calendar_window_matches_native_executor_whole_local_days[period1-2026-03-01-metric_bounds1-last_done_date]
+0.02s call     tests/test_vita_native.py::test_frozen_calendar_window_matches_native_executor_whole_local_days[period1-2026-03-01-metric_bounds1-next_due_date]
+0.02s call     tests/test_vita_native.py::test_frozen_calendar_window_matches_native_executor_whole_local_days[period0-2026-03-23-metric_bounds0-last_done_date]
+0.02s call     tests/test_vita_native.py::test_frozen_calendar_window_matches_native_executor_whole_local_days[period2-2026-03-30-metric_bounds2-last_done_date]
+0.02s call     tests/test_vita_native.py::test_fallback_preserves_whole_native_context_without_source_io[schema]
+0.02s call     tests/test_vita_native.py::test_relative_window_uses_native_arithmetic_and_exact_trusted_clock
+0.02s call     tests/test_vita_native.py::test_revocation_after_selection_does_not_emit_proposal_or_call_provider
+0.01s call     tests/test_vita_native.py::test_fallback_preserves_whole_native_context_without_source_io[network]
+0.01s call     tests/test_vita_native.py::test_fallback_preserves_whole_native_context_without_source_io[forced]
+0.01s call     tests/test_vita_native.py::test_tampered_request_binding_is_rejected_before_native_dispatch
+0.01s call     tests/test_vita_native.py::test_fallback_preserves_whole_native_context_without_source_io[long]
+0.01s call     tests/test_vita_native.py::test_fallback_preserves_whole_native_context_without_source_io[history]
+0.01s call     tests/test_vita_native.py::test_fallback_preserves_whole_native_context_without_source_io[question]
+
+(39 durations < 0.005s hidden.  Use -vv to show these durations.)
+============================== 19 passed in 4.19s ==============================
+
+{"exit_code": 0, "elapsed_seconds": 4.699048708, "source_hashes_unchanged": true, "changed_paths": []}

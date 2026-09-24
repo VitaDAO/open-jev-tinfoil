@@ -1,9 +1,9 @@
 """Verify exact-release TLS before synthetic /route calls; never plain fallback."""
-import json,sys,time,statistics
+import json,sys,time,statistics,os
 from pathlib import Path
 root=Path(__file__).resolve().parents[1];sys.path.insert(0,str(root))
-from examples.vita_client import VitaDecisionClient, HOST, ADAPTER_SHA256
-start=time.perf_counter();client=VitaDecisionClient();attestation_ms=(time.perf_counter()-start)*1000
+from examples.vita_client import VitaClient, HOST, ADAPTER_SHA256
+start=time.perf_counter();client=VitaClient(release_digest=os.environ["OPEN_JEV_REVIEWED_RELEASE_DIGEST"]);attestation_ms=(time.perf_counter()-start)*1000
 report={'attestation_ms':attestation_ms,'verification':client.verifier.get_verification_document().to_dict(),'adapter_sha256':ADAPTER_SHA256,'results':{}}
 try:
  health=client.http.get(f'https://{HOST}/health',timeout=30);health.raise_for_status()

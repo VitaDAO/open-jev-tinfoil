@@ -1,0 +1,889 @@
+{
+  "selector_sha256": "09d89f4895ed3f7dd99fdd223e74a9859daea0a96de59dda52cf36656c19592b",
+  "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+  "adapter_sha256": null,
+  "implementation": "open_jev_native_typed_questions_experimental",
+  "fixtures_sha256": "576e34e4cd0b5c78ced289a25d2fb1db67be22eade9a21d5a30409977eca830d",
+  "cases": 59,
+  "correct": 33,
+  "valid_requests": 27,
+  "selected_valid": 5,
+  "incorrect_selected": 4,
+  "notes": "Development fixture; not independent validation",
+  "supported_vita_requests": 54,
+  "fallback_count": 54,
+  "category_results": {
+    "aggregate": {
+      "n": 4,
+      "correct": 4,
+      "selected": 0
+    },
+    "ambiguous": {
+      "n": 2,
+      "correct": 2,
+      "selected": 0
+    },
+    "broad_language": {
+      "n": 5,
+      "correct": 0,
+      "selected": 0
+    },
+    "calendar": {
+      "n": 1,
+      "correct": 0,
+      "selected": 1
+    },
+    "comparison": {
+      "n": 2,
+      "correct": 2,
+      "selected": 0
+    },
+    "correlation": {
+      "n": 1,
+      "correct": 1,
+      "selected": 0
+    },
+    "dates": {
+      "n": 4,
+      "correct": 0,
+      "selected": 1
+    },
+    "descriptive_summary": {
+      "n": 3,
+      "correct": 0,
+      "selected": 0
+    },
+    "embedded_instruction": {
+      "n": 1,
+      "correct": 1,
+      "selected": 0
+    },
+    "followup": {
+      "n": 3,
+      "correct": 0,
+      "selected": 0
+    },
+    "invalid_date": {
+      "n": 1,
+      "correct": 1,
+      "selected": 0
+    },
+    "latest": {
+      "n": 3,
+      "correct": 1,
+      "selected": 1
+    },
+    "latest_n": {
+      "n": 2,
+      "correct": 2,
+      "selected": 0
+    },
+    "memory": {
+      "n": 2,
+      "correct": 2,
+      "selected": 0
+    },
+    "multi_part": {
+      "n": 1,
+      "correct": 1,
+      "selected": 0
+    },
+    "negation": {
+      "n": 2,
+      "correct": 2,
+      "selected": 0
+    },
+    "no_read": {
+      "n": 2,
+      "correct": 2,
+      "selected": 0
+    },
+    "non_english": {
+      "n": 2,
+      "correct": 2,
+      "selected": 0
+    },
+    "open_period": {
+      "n": 1,
+      "correct": 1,
+      "selected": 0
+    },
+    "profile_field": {
+      "n": 2,
+      "correct": 2,
+      "selected": 0
+    },
+    "quoted_text": {
+      "n": 1,
+      "correct": 1,
+      "selected": 0
+    },
+    "records": {
+      "n": 3,
+      "correct": 0,
+      "selected": 1
+    },
+    "research": {
+      "n": 1,
+      "correct": 0,
+      "selected": 0
+    },
+    "research_custom": {
+      "n": 1,
+      "correct": 1,
+      "selected": 0
+    },
+    "retrieved_injection": {
+      "n": 1,
+      "correct": 1,
+      "selected": 0
+    },
+    "source_filter": {
+      "n": 2,
+      "correct": 2,
+      "selected": 0
+    },
+    "subject_change": {
+      "n": 1,
+      "correct": 0,
+      "selected": 0
+    },
+    "trend": {
+      "n": 3,
+      "correct": 0,
+      "selected": 1
+    },
+    "write": {
+      "n": 2,
+      "correct": 2,
+      "selected": 0
+    }
+  },
+  "results": [
+    {
+      "id": "m01",
+      "correct": false,
+      "status": "unsupported",
+      "elapsed_ms": 338.782,
+      "plan": null,
+      "expected_selection": true,
+      "category": "broad_language",
+      "vita_supported": true,
+      "reason": "unsupported_read_form"
+    },
+    {
+      "id": "m02",
+      "correct": false,
+      "status": "unsupported",
+      "elapsed_ms": 238.568,
+      "plan": null,
+      "expected_selection": true,
+      "category": "broad_language",
+      "vita_supported": true,
+      "reason": "unsupported_read_form"
+    },
+    {
+      "id": "m03",
+      "correct": false,
+      "status": "unsupported",
+      "elapsed_ms": 252.389,
+      "plan": null,
+      "expected_selection": true,
+      "category": "broad_language",
+      "vita_supported": true,
+      "reason": "unsupported_read_form"
+    },
+    {
+      "id": "m04",
+      "correct": false,
+      "status": "unsupported",
+      "elapsed_ms": 264.891,
+      "plan": null,
+      "expected_selection": true,
+      "category": "broad_language",
+      "vita_supported": true,
+      "reason": "unsupported_read_form"
+    },
+    {
+      "id": "m05",
+      "correct": false,
+      "status": "unsupported",
+      "elapsed_ms": 261.714,
+      "plan": null,
+      "expected_selection": true,
+      "category": "broad_language",
+      "vita_supported": true,
+      "reason": "unsupported_read_form"
+    },
+    {
+      "id": "m06",
+      "correct": false,
+      "status": "unsupported",
+      "elapsed_ms": 302.716,
+      "plan": null,
+      "expected_selection": true,
+      "category": "descriptive_summary",
+      "vita_supported": true,
+      "reason": "uncertain_native_decision"
+    },
+    {
+      "id": "m07",
+      "correct": false,
+      "status": "unsupported",
+      "elapsed_ms": 345.225,
+      "plan": null,
+      "expected_selection": true,
+      "category": "descriptive_summary",
+      "vita_supported": true,
+      "reason": "uncertain_native_decision"
+    },
+    {
+      "id": "m08",
+      "correct": false,
+      "status": "unsupported",
+      "elapsed_ms": 658.186,
+      "plan": null,
+      "expected_selection": true,
+      "category": "descriptive_summary",
+      "vita_supported": true,
+      "reason": "uncertain_native_decision"
+    },
+    {
+      "id": "m09",
+      "correct": true,
+      "status": "selected",
+      "elapsed_ms": 1271.267,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "latest",
+            "concepts": [
+              "respiratory_rate"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "expected_selection": true,
+      "category": "latest",
+      "vita_supported": true,
+      "reason": null
+    },
+    {
+      "id": "m10",
+      "correct": false,
+      "status": "unsupported",
+      "elapsed_ms": 858.403,
+      "plan": null,
+      "expected_selection": true,
+      "category": "latest",
+      "vita_supported": true,
+      "reason": "uncertain_native_decision"
+    },
+    {
+      "id": "m11",
+      "correct": false,
+      "status": "unsupported",
+      "elapsed_ms": 411.776,
+      "plan": null,
+      "expected_selection": true,
+      "category": "latest",
+      "vita_supported": true,
+      "reason": "uncertain_native_decision"
+    },
+    {
+      "id": "m12",
+      "correct": false,
+      "status": "unsupported",
+      "elapsed_ms": 363.343,
+      "plan": null,
+      "expected_selection": true,
+      "category": "trend",
+      "vita_supported": true,
+      "reason": "uncertain_native_decision"
+    },
+    {
+      "id": "m13",
+      "correct": false,
+      "status": "selected",
+      "elapsed_ms": 327.646,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "latest",
+            "concepts": [
+              "custom_metric"
+            ],
+            "range": {
+              "kind": "relative",
+              "amount": 7,
+              "unit": "days"
+            },
+            "time_zone": "UTC"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "expected_selection": true,
+      "category": "trend",
+      "vita_supported": true,
+      "reason": null
+    },
+    {
+      "id": "m14",
+      "correct": false,
+      "status": "unsupported",
+      "elapsed_ms": 311.407,
+      "plan": null,
+      "expected_selection": true,
+      "category": "trend",
+      "vita_supported": true,
+      "reason": "uncertain_native_decision"
+    },
+    {
+      "id": "m15",
+      "correct": false,
+      "status": "unsupported",
+      "elapsed_ms": 277.384,
+      "plan": null,
+      "expected_selection": true,
+      "category": "dates",
+      "vita_supported": true,
+      "reason": "uncertain_native_decision"
+    },
+    {
+      "id": "m16",
+      "correct": false,
+      "status": "unsupported",
+      "elapsed_ms": 273.539,
+      "plan": null,
+      "expected_selection": true,
+      "category": "dates",
+      "vita_supported": true,
+      "reason": "uncertain_native_decision"
+    },
+    {
+      "id": "m17",
+      "correct": false,
+      "status": "selected",
+      "elapsed_ms": 260.752,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "latest",
+            "concepts": [
+              "respiratory_rate"
+            ],
+            "range": {
+              "kind": "between",
+              "start_at": "2026-01-01",
+              "end_at": "2026-01-05"
+            },
+            "time_zone": "UTC"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "expected_selection": true,
+      "category": "dates",
+      "vita_supported": true,
+      "reason": null
+    },
+    {
+      "id": "m18",
+      "correct": false,
+      "status": "unsupported",
+      "elapsed_ms": 236.717,
+      "plan": null,
+      "expected_selection": true,
+      "category": "dates",
+      "vita_supported": true,
+      "reason": "uncertain_native_decision"
+    },
+    {
+      "id": "m19",
+      "correct": false,
+      "status": "unsupported",
+      "elapsed_ms": 234.659,
+      "plan": null,
+      "expected_selection": true,
+      "category": "followup",
+      "vita_supported": true,
+      "reason": "context_binding_requires_existing_model"
+    },
+    {
+      "id": "m20",
+      "correct": false,
+      "status": "unsupported",
+      "elapsed_ms": 238.015,
+      "plan": null,
+      "expected_selection": true,
+      "category": "followup",
+      "vita_supported": true,
+      "reason": "context_binding_requires_existing_model"
+    },
+    {
+      "id": "m21",
+      "correct": false,
+      "status": "unsupported",
+      "elapsed_ms": 236.544,
+      "plan": null,
+      "expected_selection": true,
+      "category": "followup",
+      "vita_supported": true,
+      "reason": "context_binding_requires_existing_model"
+    },
+    {
+      "id": "m22",
+      "correct": false,
+      "status": "unsupported",
+      "elapsed_ms": 237.308,
+      "plan": null,
+      "expected_selection": true,
+      "category": "subject_change",
+      "vita_supported": true,
+      "reason": "context_binding_requires_existing_model"
+    },
+    {
+      "id": "m23",
+      "correct": false,
+      "status": "unsupported",
+      "elapsed_ms": 267.86,
+      "plan": null,
+      "expected_selection": true,
+      "category": "research",
+      "vita_supported": true,
+      "reason": "uncertain_native_decision"
+    },
+    {
+      "id": "m24",
+      "correct": false,
+      "status": "unsupported",
+      "elapsed_ms": 240.795,
+      "plan": null,
+      "expected_selection": true,
+      "category": "records",
+      "vita_supported": true,
+      "reason": "uncertain_native_decision"
+    },
+    {
+      "id": "m25",
+      "correct": false,
+      "status": "unsupported",
+      "elapsed_ms": 256.803,
+      "plan": null,
+      "expected_selection": true,
+      "category": "records",
+      "vita_supported": true,
+      "reason": "uncertain_native_decision"
+    },
+    {
+      "id": "m26",
+      "correct": false,
+      "status": "selected",
+      "elapsed_ms": 258.719,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "latest",
+            "record_types": [
+              "labs"
+            ],
+            "range": {
+              "kind": "between",
+              "start_at": "2025-02-01",
+              "end_at": "2025-02-28"
+            },
+            "time_zone": "UTC",
+            "record_detail_dataset": "labs.upload_metadata.v1",
+            "record_detail_limit": 3
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "expected_selection": true,
+      "category": "records",
+      "vita_supported": true,
+      "reason": null
+    },
+    {
+      "id": "m27",
+      "correct": false,
+      "status": "selected",
+      "elapsed_ms": 234.05,
+      "plan": null,
+      "expected_selection": true,
+      "category": "calendar",
+      "vita_supported": true,
+      "reason": null
+    },
+    {
+      "id": "m28",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 261.513,
+      "plan": null,
+      "expected_selection": false,
+      "category": "comparison",
+      "vita_supported": true,
+      "reason": "multiple_periods_require_clause_binding"
+    },
+    {
+      "id": "m29",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 250.608,
+      "plan": null,
+      "expected_selection": false,
+      "category": "comparison",
+      "vita_supported": true,
+      "reason": "compound_or_unrepresentable_read"
+    },
+    {
+      "id": "m30",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 256.365,
+      "plan": null,
+      "expected_selection": false,
+      "category": "correlation",
+      "vita_supported": true,
+      "reason": "uncertain_native_decision"
+    },
+    {
+      "id": "m31",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 251.692,
+      "plan": null,
+      "expected_selection": false,
+      "category": "source_filter",
+      "vita_supported": true,
+      "reason": "source_filter_requires_existing_tools"
+    },
+    {
+      "id": "m32",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 231.941,
+      "plan": null,
+      "expected_selection": false,
+      "category": "source_filter",
+      "vita_supported": true,
+      "reason": "source_filter_requires_existing_tools"
+    },
+    {
+      "id": "m33",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 254.118,
+      "plan": null,
+      "expected_selection": false,
+      "category": "aggregate",
+      "vita_supported": true,
+      "reason": "compound_or_unrepresentable_read"
+    },
+    {
+      "id": "m34",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 236.927,
+      "plan": null,
+      "expected_selection": false,
+      "category": "aggregate",
+      "vita_supported": true,
+      "reason": "compound_or_unrepresentable_read"
+    },
+    {
+      "id": "m35",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 267.511,
+      "plan": null,
+      "expected_selection": false,
+      "category": "aggregate",
+      "vita_supported": true,
+      "reason": "compound_or_unrepresentable_read"
+    },
+    {
+      "id": "m36",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 257.297,
+      "plan": null,
+      "expected_selection": false,
+      "category": "aggregate",
+      "vita_supported": true,
+      "reason": "uncertain_native_decision"
+    },
+    {
+      "id": "m37",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 271.032,
+      "plan": null,
+      "expected_selection": false,
+      "category": "latest_n",
+      "vita_supported": true,
+      "reason": "exact_record_count_requires_existing_tools"
+    },
+    {
+      "id": "m38",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 281.044,
+      "plan": null,
+      "expected_selection": false,
+      "category": "latest_n",
+      "vita_supported": true,
+      "reason": "unresolved_temporal_phrase"
+    },
+    {
+      "id": "m39",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 334.495,
+      "plan": null,
+      "expected_selection": false,
+      "category": "profile_field",
+      "vita_supported": true,
+      "reason": "uncertain_native_decision"
+    },
+    {
+      "id": "m40",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 270.604,
+      "plan": null,
+      "expected_selection": false,
+      "category": "profile_field",
+      "vita_supported": true,
+      "reason": "compound_or_unrepresentable_read"
+    },
+    {
+      "id": "m41",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 300.469,
+      "plan": null,
+      "expected_selection": false,
+      "category": "memory",
+      "vita_supported": true,
+      "reason": "uncertain_native_decision"
+    },
+    {
+      "id": "m42",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 304.902,
+      "plan": null,
+      "expected_selection": false,
+      "category": "memory",
+      "vita_supported": true,
+      "reason": "uncertain_native_decision"
+    },
+    {
+      "id": "m43",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 342.384,
+      "plan": null,
+      "expected_selection": false,
+      "category": "write",
+      "vita_supported": true,
+      "reason": "invalid_or_out_of_range_date"
+    },
+    {
+      "id": "m44",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 326.912,
+      "plan": null,
+      "expected_selection": false,
+      "category": "write",
+      "vita_supported": true,
+      "reason": "unresolved_temporal_phrase"
+    },
+    {
+      "id": "m45",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 330.114,
+      "plan": null,
+      "expected_selection": false,
+      "category": "no_read",
+      "vita_supported": true,
+      "reason": "uncertain_native_decision"
+    },
+    {
+      "id": "m46",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 381.269,
+      "plan": null,
+      "expected_selection": false,
+      "category": "no_read",
+      "vita_supported": true,
+      "reason": "uncertain_native_decision"
+    },
+    {
+      "id": "m47",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 442.115,
+      "plan": null,
+      "expected_selection": false,
+      "category": "negation",
+      "vita_supported": true,
+      "reason": "compound_or_unrepresentable_read"
+    },
+    {
+      "id": "m48",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 612.638,
+      "plan": null,
+      "expected_selection": false,
+      "category": "negation",
+      "vita_supported": true,
+      "reason": "uncertain_native_decision"
+    },
+    {
+      "id": "m49",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 453.05,
+      "plan": null,
+      "expected_selection": false,
+      "category": "multi_part",
+      "vita_supported": true,
+      "reason": "uncertain_native_decision"
+    },
+    {
+      "id": "m50",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 346.481,
+      "plan": null,
+      "expected_selection": false,
+      "category": "research_custom",
+      "vita_supported": true,
+      "reason": "uncertain_native_decision"
+    },
+    {
+      "id": "m51",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 350.865,
+      "plan": null,
+      "expected_selection": false,
+      "category": "non_english",
+      "vita_supported": true,
+      "reason": "unsupported_read_form"
+    },
+    {
+      "id": "m52",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 303.002,
+      "plan": null,
+      "expected_selection": false,
+      "category": "non_english",
+      "vita_supported": true,
+      "reason": "unresolved_metric_or_record"
+    },
+    {
+      "id": "m53",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 268.644,
+      "plan": null,
+      "expected_selection": false,
+      "category": "ambiguous",
+      "vita_supported": false,
+      "reason": "compound_or_unrepresentable_read"
+    },
+    {
+      "id": "m54",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 311.28,
+      "plan": null,
+      "expected_selection": false,
+      "category": "ambiguous",
+      "vita_supported": false,
+      "reason": "uncertain_native_decision"
+    },
+    {
+      "id": "m55",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 371.175,
+      "plan": null,
+      "expected_selection": false,
+      "category": "invalid_date",
+      "vita_supported": false,
+      "reason": "invalid_or_out_of_range_date"
+    },
+    {
+      "id": "m56",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 360.502,
+      "plan": null,
+      "expected_selection": false,
+      "category": "open_period",
+      "vita_supported": true,
+      "reason": "open_or_unresolved_bounds"
+    },
+    {
+      "id": "m57",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 371.314,
+      "plan": null,
+      "expected_selection": false,
+      "category": "quoted_text",
+      "vita_supported": true,
+      "reason": "unresolved_temporal_phrase"
+    },
+    {
+      "id": "m58",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 372.773,
+      "plan": null,
+      "expected_selection": false,
+      "category": "embedded_instruction",
+      "vita_supported": false,
+      "reason": "compound_or_unrepresentable_read"
+    },
+    {
+      "id": "m59",
+      "correct": true,
+      "status": "unsupported",
+      "elapsed_ms": 371.32,
+      "plan": null,
+      "expected_selection": false,
+      "category": "retrieved_injection",
+      "vita_supported": false,
+      "reason": "unresolved_temporal_phrase"
+    }
+  ]
+}

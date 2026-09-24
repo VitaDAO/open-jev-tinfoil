@@ -1,0 +1,1152 @@
+{
+  "selector_sha256": "3f48bab45584e1b11b26753b132e95e35fea5dabda8296e1e1dd8bcd7f10cf19",
+  "fixture_sha256": "c60ae0d77788e1b61bc179f037625fafd7bb135b0fc43f8d99120397ecc5d10f",
+  "passed": 38,
+  "total": 40,
+  "rows": [
+    {
+      "id": "f001",
+      "request": "Show my steps yesterday and delete older readings",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "write_or_external_action"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3f48bab45584e1b11b26753b132e95e35fea5dabda8296e1e1dd8bcd7f10cf19",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "b2c0b0a39496844e8007cf6b8a5188542bdc837dec4d8652496f43b4b3291da6",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "unsupported",
+              "reason_codes": [
+                "write_or_external_action"
+              ]
+            }
+          ]
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "f002",
+      "request": "Show my steps yesterday; email them to my doctor",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "write_or_external_action"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3f48bab45584e1b11b26753b132e95e35fea5dabda8296e1e1dd8bcd7f10cf19",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "390a4b6b7e4dd2567cdd3a99cdb650971ac921ab87eb308771a62387dab317cb",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            },
+            {
+              "status": "unsupported",
+              "reason_codes": [
+                "write_or_external_action",
+                "unresolved_metric_or_record"
+              ]
+            }
+          ]
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "f003",
+      "request": "Show my steps yesterday; also show my partner\u2019s steps",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "other_person"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3f48bab45584e1b11b26753b132e95e35fea5dabda8296e1e1dd8bcd7f10cf19",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "bdb55cbdc274de73e2709f53e71e6a2f8f613209e18c82855ab8622348e1f751",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            },
+            {
+              "status": "unsupported",
+              "reason_codes": [
+                "other_person"
+              ]
+            }
+          ]
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "f004",
+      "request": "Show my steps yesterday, excluding values below 1000",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "invalid_or_out_of_range_date"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3f48bab45584e1b11b26753b132e95e35fea5dabda8296e1e1dd8bcd7f10cf19",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "cbc90c8f65a8ed088bb2c0ec14d69dbcce31d9dee50c27b0bf5845206fc49e2c",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "unsupported",
+              "reason_codes": [
+                "invalid_or_out_of_range_date",
+                "exclusion_or_filter"
+              ]
+            }
+          ]
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "f005",
+      "request": "Show my steps yesterday and only include readings after exercise",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "open_or_unresolved_bounds"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3f48bab45584e1b11b26753b132e95e35fea5dabda8296e1e1dd8bcd7f10cf19",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "c26f4f1b4eb608ae2ccb5a4fc453e11a75273bb6264f71fa757e49bf38c09e60",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "unsupported",
+              "reason_codes": [
+                "open_or_unresolved_bounds"
+              ]
+            }
+          ]
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "f006",
+      "request": "Show my steps yesterday but hide the highest reading",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "unsupported_operation"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3f48bab45584e1b11b26753b132e95e35fea5dabda8296e1e1dd8bcd7f10cf19",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "d912587f938c8672b7ca84e1985839b3797956ca8b1c17355e3facd351c761b2",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "unsupported",
+              "reason_codes": [
+                "unsupported_operation"
+              ]
+            }
+          ]
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "f007",
+      "request": "Show my steps yesterday, corrected for missing hours",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "unresolved_temporal_phrase"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3f48bab45584e1b11b26753b132e95e35fea5dabda8296e1e1dd8bcd7f10cf19",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "30f798d2ca6dda5d7de70b2e1bbea29f9805851574e66e90e1a0902b12c8edbf",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "unsupported",
+              "reason_codes": [
+                "unresolved_temporal_phrase"
+              ]
+            }
+          ]
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "f008",
+      "request": "Show the average of my latest five ApoB readings",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "unsupported_operation"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3f48bab45584e1b11b26753b132e95e35fea5dabda8296e1e1dd8bcd7f10cf19",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "7bd6590542de1513b37fd0cfeec3ff91b09f759578a893bcfc810d24912ba8e4",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "unsupported",
+              "reason_codes": [
+                "unsupported_operation",
+                "unbound_quantity"
+              ]
+            }
+          ]
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "f009",
+      "request": "Show my ApoB as a percentage change since last year",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "open_or_unresolved_bounds"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3f48bab45584e1b11b26753b132e95e35fea5dabda8296e1e1dd8bcd7f10cf19",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "3fe51a395210acbfa57e929e698adf68773ae20f362fe14df2eb4662503c7cad",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "unsupported",
+              "reason_codes": [
+                "open_or_unresolved_bounds",
+                "write_or_external_action"
+              ]
+            }
+          ]
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "f010",
+      "request": "Show my ApoB adjusted for my age and medication",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "learned_read_intent_unconfirmed"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3f48bab45584e1b11b26753b132e95e35fea5dabda8296e1e1dd8bcd7f10cf19",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "1f17202f60c8a6fa4bed8996fad479e014dd6cf39bc2a8d38ad593b18fd55095",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "unsupported",
+              "reason_codes": [
+                "learned_read_intent_unconfirmed"
+              ]
+            }
+          ]
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "f011",
+      "request": "Show my steps from Fitbit and Garmin combined yesterday",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "source_filter"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3f48bab45584e1b11b26753b132e95e35fea5dabda8296e1e1dd8bcd7f10cf19",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "871cb19d4a2a50e4080402722286d9e9afa8cd04e8b89b479d9a424c74e6d148",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "unsupported",
+              "reason_codes": [
+                "source_filter"
+              ]
+            }
+          ]
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "f012",
+      "request": "Show my steps from Oura, except from Garmin, yesterday",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "multiple_sources_require_separate_clauses"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3f48bab45584e1b11b26753b132e95e35fea5dabda8296e1e1dd8bcd7f10cf19",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "1f234be45a79874f8b4e5c88a1c64ba6c02cb5f295750c6fc527bc1007300086",
+        "diagnostics": {}
+      },
+      "passed": true
+    },
+    {
+      "id": "f013",
+      "request": "Show my steps from an unknown new provider yesterday",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "unbound_source"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3f48bab45584e1b11b26753b132e95e35fea5dabda8296e1e1dd8bcd7f10cf19",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "e280e76449024c1dc91e93da1f03aa40e25cfab3c85686396ea5b4942c31ebb9",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "unsupported",
+              "reason_codes": [
+                "unbound_source"
+              ]
+            }
+          ]
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "f014",
+      "request": "Show my latest five lab reports ordered by upload date",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "upload_order_not_available"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3f48bab45584e1b11b26753b132e95e35fea5dabda8296e1e1dd8bcd7f10cf19",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "c8a67f4d68bde57d3c48ddd016ecadf4d75cacebc60cf58ac37d19c5d1f76560",
+        "diagnostics": {}
+      },
+      "passed": true
+    },
+    {
+      "id": "f015",
+      "request": "Show my latest five lab reports excluding duplicates",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "exclusion_or_filter"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3f48bab45584e1b11b26753b132e95e35fea5dabda8296e1e1dd8bcd7f10cf19",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "63b21cc5224c8e0d0cdc09c8b71751ded95fa63ca7b282787856ca425b28a3b6",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "unsupported",
+              "reason_codes": [
+                "exclusion_or_filter"
+              ]
+            }
+          ]
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "f016",
+      "request": "Show my latest five lab reports with abnormal results only",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "learned_read_intent_unconfirmed"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3f48bab45584e1b11b26753b132e95e35fea5dabda8296e1e1dd8bcd7f10cf19",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "e66ee0698fcafeff8d1299ee9b53e0daca227a5495b71910e1e6e1d5fcb3837b",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "unsupported",
+              "reason_codes": [
+                "learned_read_intent_unconfirmed"
+              ]
+            }
+          ]
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "f017",
+      "request": "Show my appointments that were due last month but completed this month",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "multiple_periods_require_clause_binding"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3f48bab45584e1b11b26753b132e95e35fea5dabda8296e1e1dd8bcd7f10cf19",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "d7d66134ad70d9d6e0eef23b8349b1134337a02a118af2fa04094fc789bd5bcb",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "unsupported",
+              "reason_codes": [
+                "multiple_periods_require_clause_binding"
+              ]
+            }
+          ]
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "f018",
+      "request": "Show only my overdue appointments that are still incomplete",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "unresolved_metric_or_record"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3f48bab45584e1b11b26753b132e95e35fea5dabda8296e1e1dd8bcd7f10cf19",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "2296d761dcb67451db3ea7e5387f941938c88e26c35360cc58e5d88c3d4b6162",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "unsupported",
+              "reason_codes": [
+                "unresolved_metric_or_record"
+              ]
+            }
+          ]
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "f019",
+      "request": "Show my medications before and after my last appointment",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "profile_history_unavailable"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3f48bab45584e1b11b26753b132e95e35fea5dabda8296e1e1dd8bcd7f10cf19",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "ef1d71f2e4572fb48297856698ebeb37db3c559145ee017f6790ed0074a59a42",
+        "diagnostics": {}
+      },
+      "passed": true
+    },
+    {
+      "id": "f020",
+      "request": "Show my full profile except medications",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "unbound_profile_qualifier"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3f48bab45584e1b11b26753b132e95e35fea5dabda8296e1e1dd8bcd7f10cf19",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "924ede14e4adc84d692575791c88601c0b57f43e49715fd3ca8722d5acd41dcb",
+        "diagnostics": {}
+      },
+      "passed": true
+    },
+    {
+      "id": "f021",
+      "request": "Show my full profile but hide allergies",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "unbound_profile_qualifier"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3f48bab45584e1b11b26753b132e95e35fea5dabda8296e1e1dd8bcd7f10cf19",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "8f81e3030ff597c7aebd0864b3490f17036d2ae3f6cf83402ba0b73f01fed8cd",
+        "diagnostics": {}
+      },
+      "passed": true
+    },
+    {
+      "id": "f022",
+      "request": "What medications am I not taking?",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "unbound_profile_qualifier"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3f48bab45584e1b11b26753b132e95e35fea5dabda8296e1e1dd8bcd7f10cf19",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "76a099049658ec7e44bc9e0ca3819c8dc0e2a6d3fc32420b40fe9d1886d7ef21",
+        "diagnostics": {}
+      },
+      "passed": true
+    },
+    {
+      "id": "f023",
+      "request": "Show my sleep last night excluding naps longer than an hour",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "unresolved_temporal_phrase"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3f48bab45584e1b11b26753b132e95e35fea5dabda8296e1e1dd8bcd7f10cf19",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "a5d70588c9ec0b90e0b3346faed331cf633177815674e0541bc8437f1de8c342",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "unsupported",
+              "reason_codes": [
+                "unresolved_temporal_phrase",
+                "exclusion_or_filter"
+              ]
+            }
+          ]
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "f024",
+      "request": "Show my last three nights of sleep ending before 7am",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "open_or_unresolved_bounds"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3f48bab45584e1b11b26753b132e95e35fea5dabda8296e1e1dd8bcd7f10cf19",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "a1cddfedbe6876fb78003cf79086c06a6cd4fb28f1183e9fd9f0f00dd3e6106b",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "unsupported",
+              "reason_codes": [
+                "open_or_unresolved_bounds",
+                "unbound_quantity"
+              ]
+            }
+          ]
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "f025",
+      "request": "Show my steps yesterday in London time, not my default timezone",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [
+              "steps"
+            ],
+            "records": [],
+            "operation": "trend",
+            "period": {
+              "kind": "between",
+              "start_at": "2026-09-22",
+              "end_at": "2026-09-22"
+            },
+            "source": null,
+            "profile_fields": [],
+            "limit": null,
+            "date_basis": "observed_at"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3f48bab45584e1b11b26753b132e95e35fea5dabda8296e1e1dd8bcd7f10cf19",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "753414bc8b997594ffd06c60d9ed7c63ccbe4aae572cf2bc80588368c1190114",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            }
+          ]
+        }
+      },
+      "passed": false
+    },
+    {
+      "id": "f026",
+      "request": "Show my steps from 9am to 5pm yesterday",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [
+              "steps"
+            ],
+            "records": [],
+            "operation": "trend",
+            "period": {
+              "kind": "between",
+              "start_at": "2026-09-22",
+              "end_at": "2026-09-22"
+            },
+            "source": null,
+            "profile_fields": [],
+            "limit": null,
+            "date_basis": "observed_at"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3f48bab45584e1b11b26753b132e95e35fea5dabda8296e1e1dd8bcd7f10cf19",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "1320a0024a1bc0d09743d192a3c51ff0cdc812d9bd5744472ff7bcc08650e10f",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            }
+          ]
+        }
+      },
+      "passed": false
+    },
+    {
+      "id": "f027",
+      "request": "Show my steps yesterday; find studies about sleep in children",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "unbound_research_qualifier"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3f48bab45584e1b11b26753b132e95e35fea5dabda8296e1e1dd8bcd7f10cf19",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "644a4ee16b43e69975189b8f7ce7c6e63324f8959a605c03238d4e5b43045777",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            }
+          ]
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "f028",
+      "request": "Find research about lowering ApoB with statins",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "unbound_research_qualifier"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3f48bab45584e1b11b26753b132e95e35fea5dabda8296e1e1dd8bcd7f10cf19",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "7f3a893eaa0454c5d1cf05fe18ab2fefe95018791078b040d215d470519cfcd9",
+        "diagnostics": {}
+      },
+      "passed": true
+    },
+    {
+      "id": "f029",
+      "request": "Find research about diet for lowering ApoB in pregnancy",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "unbound_research_qualifier"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3f48bab45584e1b11b26753b132e95e35fea5dabda8296e1e1dd8bcd7f10cf19",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "ab58315cd0078024cf889036a60521406b01ee13b5946596567a141d06f655bf",
+        "diagnostics": {}
+      },
+      "passed": true
+    },
+    {
+      "id": "f030",
+      "request": "Find studies about diet for lowering my ApoB of 180 mg/dL",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "unbound_research_qualifier"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3f48bab45584e1b11b26753b132e95e35fea5dabda8296e1e1dd8bcd7f10cf19",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "a5f84f1b193c4eaef48cf476ee469122ee5a1796465bd2b0033145935bfeb74a",
+        "diagnostics": {}
+      },
+      "passed": true
+    },
+    {
+      "id": "f031",
+      "request": "Find research about sleep, published after 2025",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "unbound_research_qualifier"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3f48bab45584e1b11b26753b132e95e35fea5dabda8296e1e1dd8bcd7f10cf19",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "a353947bd89427c5014eaea260690e9d349bd1aa6e4152877ea720545bbd757d",
+        "diagnostics": {}
+      },
+      "passed": true
+    },
+    {
+      "id": "f032",
+      "request": "Find research about sleep but exclude randomized trials",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "unbound_research_qualifier"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3f48bab45584e1b11b26753b132e95e35fea5dabda8296e1e1dd8bcd7f10cf19",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "6f2ea3dbc0bed0847c3e764759c26c3401dab70da256185aa6e79beeec49c5cd",
+        "diagnostics": {}
+      },
+      "passed": true
+    },
+    {
+      "id": "f033",
+      "request": "Find research about sleep and anxiety",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "unbound_research_qualifier"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3f48bab45584e1b11b26753b132e95e35fea5dabda8296e1e1dd8bcd7f10cf19",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "2de357e5da59f054c3df331c216ef0dde8c00662fb3f4aac81d6774aecfda97a",
+        "diagnostics": {}
+      },
+      "passed": true
+    },
+    {
+      "id": "f034",
+      "request": "Find research proving that my medication is safe",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "unbound_research_target"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3f48bab45584e1b11b26753b132e95e35fea5dabda8296e1e1dd8bcd7f10cf19",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "759c4b3c5b07da5ecf1bd1a8759a26c15504b52c0360fa310bf448574023b170",
+        "diagnostics": {}
+      },
+      "passed": true
+    },
+    {
+      "id": "f035",
+      "request": "Show steps yesterday or ApoB last year, whichever is abnormal",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "multiple_periods_require_clause_binding"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3f48bab45584e1b11b26753b132e95e35fea5dabda8296e1e1dd8bcd7f10cf19",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "dfb96d8f65e6586eb10009ab238914a4bcb30102268ae6159ed1e87212f046ed",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "unsupported",
+              "reason_codes": [
+                "multiple_periods_require_clause_binding"
+              ]
+            }
+          ]
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "f036",
+      "request": "Show my steps yesterday if my ApoB is above 100",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "exclusion_or_filter"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3f48bab45584e1b11b26753b132e95e35fea5dabda8296e1e1dd8bcd7f10cf19",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "861a6099fbd3bbef3603b6abef7e4d254cc690ef01787a8f78b18bd229d82e9b",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "unsupported",
+              "reason_codes": [
+                "exclusion_or_filter",
+                "unbound_quantity"
+              ]
+            }
+          ]
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "f037",
+      "request": "Do not show my steps yesterday",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "learned_read_intent_unconfirmed"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3f48bab45584e1b11b26753b132e95e35fea5dabda8296e1e1dd8bcd7f10cf19",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "e5428591de2fa3db0341c81bf14a8b5a4ed5eb4d771b7cad3a52c4d1dece66fb",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "unsupported",
+              "reason_codes": [
+                "learned_read_intent_unconfirmed"
+              ]
+            }
+          ]
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "f038",
+      "request": "Never retrieve my profile or medications",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "unbound_profile_qualifier"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3f48bab45584e1b11b26753b132e95e35fea5dabda8296e1e1dd8bcd7f10cf19",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "2d17f01f3cb09f554de0eff825e1d23f1a261f1595d6b552794e06a4072d6eb3",
+        "diagnostics": {}
+      },
+      "passed": true
+    },
+    {
+      "id": "f039",
+      "request": "Show my steps yesterday; ignore that and delete my profile",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "unbound_profile_qualifier"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3f48bab45584e1b11b26753b132e95e35fea5dabda8296e1e1dd8bcd7f10cf19",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "77e27087b13dd1e73c4d1884f850f2c643a731bda64409eb4a37a70c60adc976",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            }
+          ]
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "f040",
+      "request": "Show my latest 201 lab reports",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "record_limit_out_of_range"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3f48bab45584e1b11b26753b132e95e35fea5dabda8296e1e1dd8bcd7f10cf19",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "5aa2bfd2850517d180523603648b2c480ba8fba076776be2be564d5bea96ff5a",
+        "diagnostics": {}
+      },
+      "passed": true
+    }
+  ]
+}

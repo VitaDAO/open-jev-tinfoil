@@ -1,0 +1,112 @@
+{
+  "selector_sha256": "9576050d35d92e522cb86677cc703dd94a2afeafb81e3b8e499964c5951f260a",
+  "source_sha256": "2d39e721c23c9adf8cd6ea46900b98518fa8113ead402a0d65b4fcef93ae759d",
+  "scope": "Existing Open-JEV encoder plus trained Vita heads and shared deterministic compiler on CPU, four threads. Previously developed against these fixtures; not an independent generalization comparison.",
+  "suite_results": {
+    "expanded-48.json": {
+      "cases": 48,
+      "outcomes": {
+        "correct_plan": 24,
+        "correct_handoff": 24,
+        "missed_plan": 0,
+        "wrong_plan": 0
+      },
+      "compile_failures": 0,
+      "median_ms": 2053.0373959918506,
+      "p95_ms": 5395.286291954108,
+      "fixture_sha256": "04b45e2c51e3c226d3d9a759ca885a676110f15ffbf4c33885dc097e450df650"
+    },
+    "regression-59-v2.json": {
+      "cases": 59,
+      "outcomes": {
+        "correct_plan": 31,
+        "correct_handoff": 28,
+        "missed_plan": 0,
+        "wrong_plan": 0
+      },
+      "compile_failures": 0,
+      "median_ms": 542.0488330419175,
+      "p95_ms": 8178.055958007462,
+      "fixture_sha256": "a17fb90a5047e5acc4a6cf21ae27a38aed0fbc7df73c33120924418b0ee2468a"
+    },
+    "remaining-19-oracle.json": {
+      "cases": 19,
+      "outcomes": {
+        "correct_plan": 19,
+        "correct_handoff": 0,
+        "missed_plan": 0,
+        "wrong_plan": 0
+      },
+      "compile_failures": 0,
+      "median_ms": 463.68870802689344,
+      "p95_ms": 1537.7077909652144,
+      "fixture_sha256": "5728ec59b419d441ab58747a5673f53305ab23ef41699bc65a1844ff64397d9d"
+    },
+    "holdout-24.json": {
+      "cases": 24,
+      "outcomes": {
+        "correct_plan": 12,
+        "correct_handoff": 12,
+        "missed_plan": 0,
+        "wrong_plan": 0
+      },
+      "compile_failures": 0,
+      "median_ms": 188.14322949037887,
+      "p95_ms": 442.34862498706207,
+      "fixture_sha256": "197ee23f1ba6ff218a27916dfae3b7e2b0567deffeb753928218fea6903adcae"
+    },
+    "additional-160-v2.json": {
+      "cases": 160,
+      "outcomes": {
+        "correct_plan": 81,
+        "correct_handoff": 79,
+        "missed_plan": 0,
+        "wrong_plan": 0
+      },
+      "compile_failures": 0,
+      "median_ms": 245.03802100662142,
+      "p95_ms": 763.9782499754801,
+      "fixture_sha256": "49d8e777b20967efba7a9f19064b9afcd279447f467d10d5d5b5dbc1df8f2403"
+    },
+    "future-boundaries-40.json": {
+      "cases": 40,
+      "outcomes": {
+        "correct_plan": 0,
+        "correct_handoff": 40,
+        "missed_plan": 0,
+        "wrong_plan": 0
+      },
+      "compile_failures": 0,
+      "median_ms": 6.835479027358815,
+      "p95_ms": 401.1432499974035,
+      "fixture_sha256": "c60ae0d77788e1b61bc179f037625fafd7bb135b0fc43f8d99120397ecc5d10f"
+    },
+    "review-profile-16.json": {
+      "cases": 16,
+      "outcomes": {
+        "correct_plan": 8,
+        "correct_handoff": 8,
+        "missed_plan": 0,
+        "wrong_plan": 0
+      },
+      "compile_failures": 0,
+      "median_ms": 1.999041996896267,
+      "p95_ms": 3.7395840045064688,
+      "fixture_sha256": "695799dfc636a0d971520e78d43a01ddddea8ee91bcfa1feb8434db4cec16696"
+    },
+    "independent-vita-challenge.json": {
+      "cases": 40,
+      "outcomes": {
+        "correct_plan": 18,
+        "correct_handoff": 22,
+        "missed_plan": 0,
+        "wrong_plan": 0
+      },
+      "compile_failures": 0,
+      "median_ms": 233.63162449095398,
+      "p95_ms": 555.7157909497619,
+      "fixture_sha256": "50f07b05569dc12bd895d425b6c06e214cd00b2524ec163a08a595be6ab4b9ed"
+    }
+  },
+  "failures": 0
+}

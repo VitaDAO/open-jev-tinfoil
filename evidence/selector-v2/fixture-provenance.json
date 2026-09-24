@@ -1,0 +1,10 @@
+{
+  "strict/gold.json": "3c84a1487f086422d32c17434cd5c038eb8702dfc1edfdbb9eac06e550aa2371",
+  "blind/A-requests.json": "b0d1db372517a260da0e134d46b49b8a3389ef5016b542064f487abcea23b89d",
+  "blind/A-labels.json": "bf6e24ee1d41e1f7fe81e5b220958ad2726beebb9568415bc85f5dcd8561a392",
+  "blind/A-relabels.json": "ae01363514993cec0ac4f74400b89741d3f42baedf37542eab2e08030b87e43d",
+  "blind/B-requests.json": "21ae50d84b7d11cb73607b4afea48b89418f599dca6b752097a0b0236e817022",
+  "blind/B-labels.json": "8906ca084af637e6b47563ffa00f0f3ea22aae04b31d127c4476a46bf2254784",
+  "blind/B-relabels.json": "9ec42a4f949fad8f3b7c6f5b42e17bc1f52532e35c3bca97446c61a68ff39fac",
+  "description": "Supplied synthetic wf1 report. Gold plans use the legacy consumer; not an independent DB oracle. Additional author/reviewer disagreements excluded only from consensus metric. Some examples were discussed in report; not claimed fully blind."
+}

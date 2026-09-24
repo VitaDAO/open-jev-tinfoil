@@ -1,0 +1,243 @@
+[
+  {
+    "id": "r001",
+    "request": "Show only my allergies from my full profile",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [],
+        "records": [
+          "profile"
+        ],
+        "operation": "latest",
+        "period": {
+          "kind": "all_history"
+        },
+        "source": null,
+        "profile_fields": [
+          "allergies"
+        ],
+        "limit": null,
+        "date_basis": "current_snapshot"
+      }
+    ]
+  },
+  {
+    "id": "r002",
+    "request": "Show just my medications from my complete profile",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [],
+        "records": [
+          "profile"
+        ],
+        "operation": "latest",
+        "period": {
+          "kind": "all_history"
+        },
+        "source": null,
+        "profile_fields": [
+          "medications"
+        ],
+        "limit": null,
+        "date_basis": "current_snapshot"
+      }
+    ]
+  },
+  {
+    "id": "r003",
+    "request": "Show my full profile, only allergies",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [],
+        "records": [
+          "profile"
+        ],
+        "operation": "latest",
+        "period": {
+          "kind": "all_history"
+        },
+        "source": null,
+        "profile_fields": [
+          "allergies"
+        ],
+        "limit": null,
+        "date_basis": "current_snapshot"
+      }
+    ]
+  },
+  {
+    "id": "r004",
+    "request": "Please fetch allergies and medications from my whole profile",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [],
+        "records": [
+          "profile"
+        ],
+        "operation": "latest",
+        "period": {
+          "kind": "all_history"
+        },
+        "source": null,
+        "profile_fields": [
+          "allergies",
+          "medications"
+        ],
+        "limit": null,
+        "date_basis": "current_snapshot"
+      }
+    ]
+  },
+  {
+    "id": "r005",
+    "request": "May you show my medications?",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [],
+        "records": [
+          "profile"
+        ],
+        "operation": "latest",
+        "period": {
+          "kind": "all_history"
+        },
+        "source": null,
+        "profile_fields": [
+          "medications"
+        ],
+        "limit": null,
+        "date_basis": "current_snapshot"
+      }
+    ]
+  },
+  {
+    "id": "r006",
+    "request": "What medications do I take?",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [],
+        "records": [
+          "profile"
+        ],
+        "operation": "latest",
+        "period": {
+          "kind": "all_history"
+        },
+        "source": null,
+        "profile_fields": [
+          "medications"
+        ],
+        "limit": null,
+        "date_basis": "current_snapshot"
+      }
+    ]
+  },
+  {
+    "id": "r007",
+    "request": "Take a look at my allergies",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [],
+        "records": [
+          "profile"
+        ],
+        "operation": "latest",
+        "period": {
+          "kind": "all_history"
+        },
+        "source": null,
+        "profile_fields": [
+          "allergies"
+        ],
+        "limit": null,
+        "date_basis": "current_snapshot"
+      }
+    ]
+  },
+  {
+    "id": "r008",
+    "request": "Show my complete profile",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [],
+        "records": [
+          "profile"
+        ],
+        "operation": "latest",
+        "period": {
+          "kind": "all_history"
+        },
+        "source": null,
+        "profile_fields": [
+          "all"
+        ],
+        "limit": null,
+        "date_basis": "current_snapshot"
+      }
+    ]
+  },
+  {
+    "id": "r009",
+    "request": "Can I take medications?",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "r010",
+    "request": "May I take medications?",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "r011",
+    "request": "Could I take medications?",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "r012",
+    "request": "Would I take medications?",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "r013",
+    "request": "Can you take medications?",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "r014",
+    "request": "Show medications I can take",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "r015",
+    "request": "Show medications I may take",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "r016",
+    "request": "Please show my medications and take them",
+    "history": [],
+    "expected_queries": null
+  }
+]

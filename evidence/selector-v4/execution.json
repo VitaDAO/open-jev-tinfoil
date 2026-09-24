@@ -1,0 +1,424 @@
+{
+  "scope": "Synthetic fixture executor only; NOT the Vita database/vault runtime",
+  "selector_sha256": "8f656d8a7a8680b7d65d54f864c0ace30005d058f30e21f9619781da0090c15b",
+  "script_sha256": "1fa26356c0429e28b1d75ca59b5f2b97c2fd09e1afe52568897c56c4d7a71706",
+  "records": [
+    {
+      "id": "leap",
+      "metric": "steps",
+      "at": "2024-02-29T10:00:00+00:00",
+      "value": 1200
+    },
+    {
+      "id": "monday",
+      "metric": "steps",
+      "at": "2026-09-21T20:00:00+00:00",
+      "value": 2000
+    },
+    {
+      "id": "tuesday",
+      "metric": "steps",
+      "at": "2026-09-22T10:00:00+00:00",
+      "value": 3000
+    },
+    {
+      "id": "late-utc",
+      "metric": "steps",
+      "at": "2026-09-22T21:30:00+00:00",
+      "value": 4000
+    },
+    {
+      "id": "wednesday",
+      "metric": "steps",
+      "at": "2026-09-23T00:15:00+00:00",
+      "value": 5000
+    },
+    {
+      "id": "resp-tuesday",
+      "metric": "respiratory_rate",
+      "at": "2026-09-22T12:00:00+00:00",
+      "value": 16
+    }
+  ],
+  "passed": 14,
+  "total": 14,
+  "rows": [
+    {
+      "id": "latest-utc",
+      "request": "Show my latest steps yesterday",
+      "history": [],
+      "time_zone": "UTC",
+      "expected_record_ids": [
+        "late-utc"
+      ],
+      "actual_record_ids": [
+        "late-utc"
+      ],
+      "passed": true,
+      "reason_codes": [],
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "latest",
+            "concepts": [
+              "steps"
+            ],
+            "range": {
+              "kind": "between",
+              "start_at": "2026-09-22",
+              "end_at": "2026-09-22"
+            },
+            "time_zone": "UTC"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      }
+    },
+    {
+      "id": "latest-bucharest",
+      "request": "Show my latest steps yesterday",
+      "history": [],
+      "time_zone": "Europe/Bucharest",
+      "expected_record_ids": [
+        "tuesday"
+      ],
+      "actual_record_ids": [
+        "tuesday"
+      ],
+      "passed": true,
+      "reason_codes": [],
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "latest",
+            "concepts": [
+              "steps"
+            ],
+            "range": {
+              "kind": "between",
+              "start_at": "2026-09-22",
+              "end_at": "2026-09-22"
+            },
+            "time_zone": "Europe/Bucharest"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      }
+    },
+    {
+      "id": "trend-utc",
+      "request": "Show steps yesterday",
+      "history": [],
+      "time_zone": "UTC",
+      "expected_record_ids": [
+        "late-utc",
+        "tuesday"
+      ],
+      "actual_record_ids": [
+        "late-utc",
+        "tuesday"
+      ],
+      "passed": true,
+      "reason_codes": [],
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "trend",
+            "concepts": [
+              "steps"
+            ],
+            "range": {
+              "kind": "between",
+              "start_at": "2026-09-22",
+              "end_at": "2026-09-22"
+            },
+            "time_zone": "UTC"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      }
+    },
+    {
+      "id": "trend-bucharest",
+      "request": "Show steps yesterday",
+      "history": [],
+      "time_zone": "Europe/Bucharest",
+      "expected_record_ids": [
+        "tuesday"
+      ],
+      "actual_record_ids": [
+        "tuesday"
+      ],
+      "passed": true,
+      "reason_codes": [],
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "trend",
+            "concepts": [
+              "steps"
+            ],
+            "range": {
+              "kind": "between",
+              "start_at": "2026-09-22",
+              "end_at": "2026-09-22"
+            },
+            "time_zone": "Europe/Bucharest"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      }
+    },
+    {
+      "id": "leap",
+      "request": "Show steps on February 29, 2024",
+      "history": [],
+      "time_zone": "UTC",
+      "expected_record_ids": [
+        "leap"
+      ],
+      "actual_record_ids": [
+        "leap"
+      ],
+      "passed": true,
+      "reason_codes": [],
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "trend",
+            "concepts": [
+              "steps"
+            ],
+            "range": {
+              "kind": "between",
+              "start_at": "2024-02-29",
+              "end_at": "2024-02-29"
+            },
+            "time_zone": "UTC"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      }
+    },
+    {
+      "id": "empty",
+      "request": "Show steps in 2028",
+      "history": [],
+      "time_zone": "UTC",
+      "expected_record_ids": [],
+      "actual_record_ids": [],
+      "passed": true,
+      "reason_codes": [],
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "trend",
+            "concepts": [
+              "steps"
+            ],
+            "range": {
+              "kind": "between",
+              "start_at": "2028-01-01",
+              "end_at": "2028-12-31"
+            },
+            "time_zone": "UTC"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      }
+    },
+    {
+      "id": "sparse",
+      "request": "Show respiratory rate in 2024",
+      "history": [],
+      "time_zone": "UTC",
+      "expected_record_ids": [],
+      "actual_record_ids": [],
+      "passed": true,
+      "reason_codes": [],
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "trend",
+            "concepts": [
+              "respiratory_rate"
+            ],
+            "range": {
+              "kind": "between",
+              "start_at": "2024-01-01",
+              "end_at": "2024-12-31"
+            },
+            "time_zone": "UTC"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      }
+    },
+    {
+      "id": "two-metrics",
+      "request": "Show steps and respiratory rate yesterday",
+      "history": [],
+      "time_zone": "UTC",
+      "expected_record_ids": [
+        "late-utc",
+        "resp-tuesday",
+        "tuesday"
+      ],
+      "actual_record_ids": [
+        "late-utc",
+        "resp-tuesday",
+        "tuesday"
+      ],
+      "passed": true,
+      "reason_codes": [],
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "trend",
+            "concepts": [
+              "respiratory_rate",
+              "steps"
+            ],
+            "range": {
+              "kind": "between",
+              "start_at": "2026-09-22",
+              "end_at": "2026-09-22"
+            },
+            "time_zone": "UTC"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      }
+    },
+    {
+      "id": "new-subject",
+      "request": "Show respiratory rate yesterday",
+      "history": [
+        "Show steps from Oura in 2025"
+      ],
+      "time_zone": "UTC",
+      "expected_record_ids": [
+        "resp-tuesday"
+      ],
+      "actual_record_ids": [
+        "resp-tuesday"
+      ],
+      "passed": true,
+      "reason_codes": [],
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "trend",
+            "concepts": [
+              "respiratory_rate"
+            ],
+            "range": {
+              "kind": "between",
+              "start_at": "2026-09-22",
+              "end_at": "2026-09-22"
+            },
+            "time_zone": "UTC"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      }
+    },
+    {
+      "id": "source-inherited",
+      "request": "Now do yesterday",
+      "history": [
+        "Show steps from Oura in 2025"
+      ],
+      "time_zone": "UTC",
+      "expected_record_ids": null,
+      "actual_record_ids": null,
+      "passed": true,
+      "reason_codes": [
+        "source_filter",
+        "unbound_source"
+      ],
+      "plan": null
+    },
+    {
+      "id": "count-inherited",
+      "request": "Now do yesterday",
+      "history": [
+        "Show the latest 3 steps readings in 2025"
+      ],
+      "time_zone": "UTC",
+      "expected_record_ids": null,
+      "actual_record_ids": null,
+      "passed": true,
+      "reason_codes": [
+        "unbound_quantity"
+      ],
+      "plan": null
+    },
+    {
+      "id": "invalid-leap",
+      "request": "Show steps on February 29, 2025",
+      "history": [],
+      "time_zone": "UTC",
+      "expected_record_ids": null,
+      "actual_record_ids": null,
+      "passed": true,
+      "reason_codes": [
+        "invalid_or_out_of_range_date"
+      ],
+      "plan": null
+    },
+    {
+      "id": "two-windows",
+      "request": "Show steps in 2024 and respiratory rate in 2025",
+      "history": [],
+      "time_zone": "UTC",
+      "expected_record_ids": null,
+      "actual_record_ids": null,
+      "passed": true,
+      "reason_codes": [
+        "multiple_periods_require_clause_binding"
+      ],
+      "plan": null
+    },
+    {
+      "id": "absent-metric",
+      "request": "Show steps and resting heart rate yesterday",
+      "history": [],
+      "time_zone": "UTC",
+      "expected_record_ids": null,
+      "actual_record_ids": null,
+      "passed": true,
+      "reason_codes": [
+        "requested_metric_unavailable"
+      ],
+      "plan": null
+    }
+  ]
+}

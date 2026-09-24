@@ -1,0 +1,418 @@
+[
+  {
+    "id": "h01",
+    "request": "Show my latest 4 lab reports in 2024",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [],
+        "records": [
+          "labs"
+        ],
+        "operation": "latest",
+        "period": {
+          "kind": "between",
+          "start_at": "2024-01-01",
+          "end_at": "2024-12-31"
+        },
+        "source": null,
+        "profile_fields": [],
+        "limit": 4,
+        "date_basis": "exam_date"
+      }
+    ]
+  },
+  {
+    "id": "h02",
+    "request": "Show my goals and family history",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [],
+        "records": [
+          "profile"
+        ],
+        "operation": "latest",
+        "period": {
+          "kind": "all_history"
+        },
+        "source": null,
+        "profile_fields": [
+          "family_history",
+          "goals"
+        ],
+        "limit": null,
+        "date_basis": "current_snapshot"
+      }
+    ]
+  },
+  {
+    "id": "h03",
+    "request": "Show my steps from Garmin yesterday",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [
+          "steps"
+        ],
+        "records": [],
+        "operation": "trend",
+        "period": {
+          "kind": "between",
+          "start_at": "2026-09-22",
+          "end_at": "2026-09-22"
+        },
+        "source": "garmin",
+        "profile_fields": [],
+        "limit": null,
+        "date_basis": "observed_at"
+      }
+    ]
+  },
+  {
+    "id": "h04",
+    "request": "Show my ApoB in 2023; show my steps in 2024",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [
+          "apob"
+        ],
+        "records": [],
+        "operation": "trend",
+        "period": {
+          "kind": "between",
+          "start_at": "2023-01-01",
+          "end_at": "2023-12-31"
+        },
+        "source": null,
+        "profile_fields": [],
+        "limit": null,
+        "date_basis": "observed_at"
+      },
+      {
+        "kind": "health",
+        "metrics": [
+          "steps"
+        ],
+        "records": [],
+        "operation": "trend",
+        "period": {
+          "kind": "between",
+          "start_at": "2024-01-01",
+          "end_at": "2024-12-31"
+        },
+        "source": null,
+        "profile_fields": [],
+        "limit": null,
+        "date_basis": "observed_at"
+      }
+    ]
+  },
+  {
+    "id": "h05",
+    "request": "Show my complete profile; show my lab reports in 2024",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [],
+        "records": [
+          "profile"
+        ],
+        "operation": "latest",
+        "period": {
+          "kind": "all_history"
+        },
+        "source": null,
+        "profile_fields": [
+          "all"
+        ],
+        "limit": null,
+        "date_basis": "current_snapshot"
+      },
+      {
+        "kind": "health",
+        "metrics": [],
+        "records": [
+          "labs"
+        ],
+        "operation": "latest",
+        "period": {
+          "kind": "between",
+          "start_at": "2024-01-01",
+          "end_at": "2024-12-31"
+        },
+        "source": null,
+        "profile_fields": [],
+        "limit": null,
+        "date_basis": "exam_date"
+      }
+    ]
+  },
+  {
+    "id": "h06",
+    "request": "Show my respiratory rate from Garmin last month",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [
+          "respiratory_rate"
+        ],
+        "records": [],
+        "operation": "trend",
+        "period": {
+          "kind": "between",
+          "start_at": "2026-08-01",
+          "end_at": "2026-08-31"
+        },
+        "source": "garmin",
+        "profile_fields": [],
+        "limit": null,
+        "date_basis": "observed_at"
+      }
+    ]
+  },
+  {
+    "id": "h07",
+    "request": "May I view my sleep efficiency in May 2024?",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [
+          "sleep_efficiency"
+        ],
+        "records": [],
+        "operation": "trend",
+        "period": {
+          "kind": "between",
+          "start_at": "2024-05-01",
+          "end_at": "2024-05-31"
+        },
+        "source": null,
+        "profile_fields": [],
+        "limit": null,
+        "date_basis": "observed_at"
+      }
+    ]
+  },
+  {
+    "id": "h08",
+    "request": "Show my latest 6 workouts yesterday",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [],
+        "records": [
+          "workouts"
+        ],
+        "operation": "latest",
+        "period": {
+          "kind": "between",
+          "start_at": "2026-09-22",
+          "end_at": "2026-09-22"
+        },
+        "source": null,
+        "profile_fields": [],
+        "limit": 6,
+        "date_basis": "started_at"
+      }
+    ]
+  },
+  {
+    "id": "h09",
+    "request": "Find studies about diet for lowering ApoB",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "research",
+        "targets": [
+          "apob"
+        ],
+        "interventions": [
+          "diet"
+        ],
+        "goal": "lower"
+      }
+    ]
+  },
+  {
+    "id": "h10",
+    "request": "Show my sleep in 2024; find trials about exercise for improving it",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [
+          "sleep_efficiency",
+          "total_sleep"
+        ],
+        "records": [],
+        "operation": "trend",
+        "period": {
+          "kind": "between",
+          "start_at": "2024-01-01",
+          "end_at": "2024-12-31"
+        },
+        "source": null,
+        "profile_fields": [],
+        "limit": null,
+        "date_basis": "observed_at"
+      },
+      {
+        "kind": "research",
+        "targets": [
+          "sleep"
+        ],
+        "interventions": [
+          "exercise"
+        ],
+        "goal": "improve"
+      }
+    ]
+  },
+  {
+    "id": "h11",
+    "request": "Show only my smoking status",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [],
+        "records": [
+          "profile"
+        ],
+        "operation": "latest",
+        "period": {
+          "kind": "all_history"
+        },
+        "source": null,
+        "profile_fields": [
+          "smoking_status"
+        ],
+        "limit": null,
+        "date_basis": "current_snapshot"
+      }
+    ]
+  },
+  {
+    "id": "h12",
+    "request": "Show my steps in 2025; show my allergies",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [
+          "steps"
+        ],
+        "records": [],
+        "operation": "trend",
+        "period": {
+          "kind": "between",
+          "start_at": "2025-01-01",
+          "end_at": "2025-12-31"
+        },
+        "source": null,
+        "profile_fields": [],
+        "limit": null,
+        "date_basis": "observed_at"
+      },
+      {
+        "kind": "health",
+        "metrics": [],
+        "records": [
+          "profile"
+        ],
+        "operation": "latest",
+        "period": {
+          "kind": "all_history"
+        },
+        "source": null,
+        "profile_fields": [
+          "allergies"
+        ],
+        "limit": null,
+        "date_basis": "current_snapshot"
+      }
+    ]
+  },
+  {
+    "id": "h13",
+    "request": "Show my profile from Oura",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "h14",
+    "request": "Show my allergies except penicillin",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "h15",
+    "request": "Show my latest 6 steps measurements",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "h16",
+    "request": "Show my steps from Garmin and Oura yesterday",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "h17",
+    "request": "Show my ApoB from Garmin",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "h18",
+    "request": "Show my latest 5 lab reports ordered by upload date",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "h19",
+    "request": "Show my goals as they were in 2024",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "h20",
+    "request": "Show my steps yesterday; delete my lab reports",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "h21",
+    "request": "Show my steps yesterday; show my ferritin last year",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "h22",
+    "request": "Find trials about exercise for lowering ApoB in children",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "h23",
+    "request": "Find evidence about diet for my ApoB of 120",
+    "history": [],
+    "expected_queries": null
+  },
+  {
+    "id": "h24",
+    "request": "Show my sleep last night excluding naps",
+    "history": [],
+    "expected_queries": null
+  }
+]

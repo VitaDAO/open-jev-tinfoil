@@ -1,0 +1,115 @@
+{
+  "scope": "Actual Vita contracts/query executor; synthetic rows only. No database, private records or integration installed.",
+  "actual_vita_source": "/Users/alexdobrin/Documents/vita-agent-deepseek-v32",
+  "source_sha256": {
+    "vita/py/src/vita_agent/health/query_tool.py": "aa40686a0b1c4b39180eaa9d4a4ce695878ce0c1a5816b7becf0b107e9566bce",
+    "vita/py/src/vita_agent/health/resolver.py": "e787b8f5dbcd8bea8e79722e28d5adfd99d695130f490bd18f53d31f94bd40ff",
+    "vita/py/src/vita_agent/health/turn_materialization.py": "2650d633a4e4f6c6ac211c5d44de070ee0f7c4b10a8cc97cddaa7bc3fd1e802c",
+    "vita/py/src/vita_agent/health/record_detail_pages.py": "538edc5e869c77cb09e28c2f9a36bfc53f3c06108d051b666c3dd940efada57d",
+    "vita/py/src/vita_agent/health/lab_dates.py": "41c518ceffc7944d97d5409d4140848f7a4d6b97594e3b0332139ffbec7bdbff",
+    "vita/py/src/vita_agent/health/calendar_dates.py": "6713139282df86b50c8049795d212dbd5f68ad23eb51bca59ddcec8ddddeabb5",
+    "vita/py/src/vita_agent/kernel/source_batch_contracts.py": "93ba1603ce6a00008b3dca995488086b14a976b2801f5a2c22b2acf3d25c7061"
+  },
+  "script_sha256": "7c2dc9452040cbeb69e4aad155477dc6352a3e186d7dc30e6d9734d514969db3",
+  "consumer_sha256": "ef200cd933edb82a5ea901f30d3d14169f664bb5e0709092657e1f4b9e94629d",
+  "contract_cases": 167,
+  "passed": 16,
+  "rows": [
+    {
+      "id": "latest-five-of-405",
+      "status": "complete",
+      "callback_calls": 1,
+      "passed": true
+    },
+    {
+      "id": "all-405-across-three-pages",
+      "status": "complete",
+      "callback_calls": 3,
+      "passed": true
+    },
+    {
+      "id": "page-budget-exhausted",
+      "status": "incomplete",
+      "callback_calls": 1,
+      "passed": true
+    },
+    {
+      "id": "source-scan-incomplete",
+      "status": "incomplete",
+      "callback_calls": 1,
+      "passed": true
+    },
+    {
+      "id": "missing-exam-date",
+      "status": "incomplete",
+      "callback_calls": 1,
+      "passed": true
+    },
+    {
+      "id": "empty-is-not-widened",
+      "status": "complete",
+      "callback_calls": 1,
+      "passed": true
+    },
+    {
+      "id": "whole-profile-explicit-missing-fields",
+      "status": "complete",
+      "callback_calls": 1,
+      "passed": true
+    },
+    {
+      "id": "narrow-profile-no-overread",
+      "status": "complete",
+      "callback_calls": 1,
+      "passed": true
+    },
+    {
+      "id": "calendar-due-not-completion-date",
+      "status": "complete",
+      "callback_calls": 1,
+      "passed": true
+    },
+    {
+      "id": "metric-source-and-date-filter",
+      "status": "complete",
+      "callback_calls": 1,
+      "passed": true
+    },
+    {
+      "id": "metric-latest-raw",
+      "status": "complete",
+      "callback_calls": 1,
+      "passed": true
+    },
+    {
+      "id": "profile-withheld-domain-is-incomplete",
+      "status": "incomplete",
+      "callback_calls": 1,
+      "passed": true
+    },
+    {
+      "id": "sleep-explicit-episode-not-recorded-date",
+      "status": "complete",
+      "callback_calls": 1,
+      "passed": true
+    },
+    {
+      "id": "sleep-missing-timing-remains-incomplete",
+      "status": "incomplete",
+      "callback_calls": 1,
+      "passed": true
+    },
+    {
+      "id": "latest-two-workout-sessions",
+      "status": "complete",
+      "callback_calls": 1,
+      "passed": true
+    },
+    {
+      "id": "calendar-year-to-date-whole-days",
+      "status": "complete",
+      "callback_calls": 1,
+      "passed": true
+    }
+  ]
+}

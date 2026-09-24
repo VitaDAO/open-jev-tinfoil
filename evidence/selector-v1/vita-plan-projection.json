@@ -1,0 +1,1242 @@
+{
+  "actual_vita_source": "/Users/alexdobrin/Documents/vita-agent-deepseek-v32",
+  "source_sha256": {
+    "vita/py/src/vita_agent/kernel/source_batch_contracts.py": "93ba1603ce6a00008b3dca995488086b14a976b2801f5a2c22b2acf3d25c7061",
+    "vita/py/src/vita_agent/kernel/health_result_pages.py": "0774d49eb0588f25583e0d83538eb644c0da38e02f511636e4d16a753153db21",
+    "vita/py/src/vita_agent/kernel/health_summary_evidence.py": "9f15ba0208187d5cf3d573a68a72aa19a2cbd96c97181435d282bfab0591bc80",
+    "vita/py/src/vita_agent/kernel/source_batch_render.py": "2d7b041449bce428a42ac7575b61e9ca4c14906595164820ccbdb7cefe78a6ba"
+  },
+  "typed_ir_integration_cases": 4,
+  "inventory_metrics": 120,
+  "operation_count": 8,
+  "selected_metric_count": 32,
+  "synthetic_retained_series": 64,
+  "model_visible_tokens": 8452,
+  "domains_with_initial_evidence": [
+    "activity",
+    "body",
+    "labs",
+    "recovery",
+    "sleep",
+    "vitals"
+  ],
+  "all_planned_summaries_delivered": false,
+  "proposed_projection_tokens": 12813,
+  "proposed_planned_summaries_delivered": true,
+  "proposed_projection_installed_in_vita": false,
+  "all_requested_delivered": false,
+  "deferred_count": 91,
+  "elapsed_ms": 98.87,
+  "tests": "typed validation, canonical aliases, broad bounded parallel reads, exact windows, latest vs averages, multiple sources, actual summary pagination and final serializer, omitted pages, unavailable and empty outcomes",
+  "limitations": "Synthetic post-query payloads exercise actual projection; no database/provider query or resolver execution, dedup/import-date oracle, clinical correctness, or end-to-end Fable acceptance is established.",
+  "plan": {
+    "schema_version": "vita-read-plan/v1",
+    "status": "planned",
+    "batch": {
+      "health_reads": [
+        {
+          "operation_id": 1,
+          "purpose": "latest",
+          "concepts": [
+            "apob",
+            "ldl",
+            "hdl",
+            "triglycerides",
+            "cholesterol",
+            "hba1c",
+            "fasting_glucose",
+            "glucose"
+          ],
+          "range": {
+            "kind": "all_history"
+          },
+          "time_zone": "UTC",
+          "result_view": "summary",
+          "grouping": "none"
+        },
+        {
+          "operation_id": 2,
+          "purpose": "latest",
+          "concepts": [
+            "weight",
+            "body_fat",
+            "muscle_mass",
+            "fat_mass",
+            "bmi",
+            "visceral_fat",
+            "fat_free_mass",
+            "bone_mass"
+          ],
+          "range": {
+            "kind": "all_history"
+          },
+          "time_zone": "UTC",
+          "result_view": "summary",
+          "grouping": "none"
+        },
+        {
+          "operation_id": 3,
+          "purpose": "trend",
+          "concepts": [
+            "total_sleep",
+            "sleep_efficiency",
+            "sleep_deep",
+            "sleep_rem"
+          ],
+          "range": {
+            "kind": "relative",
+            "amount": 30,
+            "unit": "days"
+          },
+          "time_zone": "UTC",
+          "result_view": "summary",
+          "grouping": "week"
+        },
+        {
+          "operation_id": 4,
+          "purpose": "trend",
+          "concepts": [
+            "steps",
+            "calories_active",
+            "distance",
+            "vo2_max"
+          ],
+          "range": {
+            "kind": "relative",
+            "amount": 30,
+            "unit": "days"
+          },
+          "time_zone": "UTC",
+          "result_view": "summary",
+          "grouping": "week"
+        },
+        {
+          "operation_id": 5,
+          "purpose": "trend",
+          "concepts": [
+            "heart_rate_variability",
+            "resting_heart_rate",
+            "recovery_score",
+            "readiness_score"
+          ],
+          "range": {
+            "kind": "relative",
+            "amount": 30,
+            "unit": "days"
+          },
+          "time_zone": "UTC",
+          "result_view": "summary",
+          "grouping": "week"
+        },
+        {
+          "operation_id": 6,
+          "purpose": "trend",
+          "concepts": [
+            "systolic_blood_pressure",
+            "diastolic_blood_pressure",
+            "heart_rate",
+            "spo2"
+          ],
+          "range": {
+            "kind": "relative",
+            "amount": 30,
+            "unit": "days"
+          },
+          "time_zone": "UTC",
+          "result_view": "summary",
+          "grouping": "week"
+        },
+        {
+          "operation_id": 7,
+          "purpose": "latest",
+          "record_types": [
+            "profile"
+          ],
+          "range": {
+            "kind": "all_history"
+          },
+          "time_zone": "UTC",
+          "result_view": "summary",
+          "profile_fields": [
+            "goals",
+            "chronic_conditions",
+            "medications",
+            "no_regular_medications",
+            "allergies",
+            "sex",
+            "birth_year",
+            "height_cm",
+            "weight_kg"
+          ]
+        }
+      ],
+      "literature_reads": [
+        {
+          "operation_id": 8,
+          "question": "For adults, summarize systematic review and randomized trial evidence on sleep duration and regularity, physical activity, and diet for cardiometabolic health. Identify practical interventions, studied populations, and applicability limits; distinguish associations from intervention effects.",
+          "task": "evidence_summary",
+          "depth": "fast",
+          "subject_basis": "general_overview_research",
+          "basis_source_ids": []
+        }
+      ],
+      "required_operation_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    "catalog_version": 1,
+    "catalog_sha256": "729b6cde6fad0943161fe9af52b900d3df58ce2b28ef0202f920a08ca88fc571",
+    "coverage": {
+      "required": [
+        {
+          "operation_id": 1,
+          "domain": "labs",
+          "concepts": [
+            "apob",
+            "ldl",
+            "hdl",
+            "triglycerides",
+            "cholesterol",
+            "hba1c",
+            "fasting_glucose",
+            "glucose"
+          ],
+          "purpose": "latest",
+          "range": {
+            "kind": "all_history"
+          },
+          "scope_origin": "undated_overview_policy",
+          "required_summary": "latest_individual_observation_per_returned_source",
+          "stage": "selected",
+          "delivered": false,
+          "summary_token_allowance": 2000
+        },
+        {
+          "operation_id": 2,
+          "domain": "body",
+          "concepts": [
+            "weight",
+            "body_fat",
+            "muscle_mass",
+            "fat_mass",
+            "bmi",
+            "visceral_fat",
+            "fat_free_mass",
+            "bone_mass"
+          ],
+          "purpose": "latest",
+          "range": {
+            "kind": "all_history"
+          },
+          "scope_origin": "undated_overview_policy",
+          "required_summary": "latest_individual_observation_per_returned_source",
+          "stage": "selected",
+          "delivered": false,
+          "summary_token_allowance": 2000
+        },
+        {
+          "operation_id": 3,
+          "domain": "sleep",
+          "concepts": [
+            "total_sleep",
+            "sleep_efficiency",
+            "sleep_deep",
+            "sleep_rem"
+          ],
+          "purpose": "trend",
+          "range": {
+            "kind": "relative",
+            "amount": 30,
+            "unit": "days"
+          },
+          "scope_origin": "undated_overview_policy",
+          "required_summary": "whole_window_statistics_and_coverage_per_returned_source",
+          "stage": "selected",
+          "delivered": false,
+          "summary_token_allowance": 2000
+        },
+        {
+          "operation_id": 4,
+          "domain": "activity",
+          "concepts": [
+            "steps",
+            "calories_active",
+            "distance",
+            "vo2_max"
+          ],
+          "purpose": "trend",
+          "range": {
+            "kind": "relative",
+            "amount": 30,
+            "unit": "days"
+          },
+          "scope_origin": "undated_overview_policy",
+          "required_summary": "whole_window_statistics_and_coverage_per_returned_source",
+          "stage": "selected",
+          "delivered": false,
+          "summary_token_allowance": 2000
+        },
+        {
+          "operation_id": 5,
+          "domain": "recovery",
+          "concepts": [
+            "heart_rate_variability",
+            "resting_heart_rate",
+            "recovery_score",
+            "readiness_score"
+          ],
+          "purpose": "trend",
+          "range": {
+            "kind": "relative",
+            "amount": 30,
+            "unit": "days"
+          },
+          "scope_origin": "undated_overview_policy",
+          "required_summary": "whole_window_statistics_and_coverage_per_returned_source",
+          "stage": "selected",
+          "delivered": false,
+          "summary_token_allowance": 2000
+        },
+        {
+          "operation_id": 6,
+          "domain": "vitals",
+          "concepts": [
+            "systolic_blood_pressure",
+            "diastolic_blood_pressure",
+            "heart_rate",
+            "spo2"
+          ],
+          "purpose": "trend",
+          "range": {
+            "kind": "relative",
+            "amount": 30,
+            "unit": "days"
+          },
+          "scope_origin": "undated_overview_policy",
+          "required_summary": "whole_window_statistics_and_coverage_per_returned_source",
+          "stage": "selected",
+          "delivered": false,
+          "summary_token_allowance": 2000
+        },
+        {
+          "operation_id": 7,
+          "domain": "record:profile",
+          "record_types": [
+            "profile"
+          ],
+          "purpose": "latest",
+          "range": {
+            "kind": "all_history"
+          },
+          "scope_origin": "current_profile_context",
+          "required_summary": "bounded_record_summary_with_source_scope",
+          "stage": "selected",
+          "delivered": false,
+          "summary_token_allowance": 2000
+        }
+      ],
+      "deferred": [
+        {
+          "concept": "blood_pressure",
+          "domain": "labs",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "homocysteine",
+          "domain": "labs",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "hs_crp",
+          "domain": "labs",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "vitamin_d",
+          "domain": "labs",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "basal_metabolic_rate",
+          "domain": "body",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "extracellular_water",
+          "domain": "body",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "fat_free_mass_left_arm",
+          "domain": "body",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "fat_free_mass_left_leg",
+          "domain": "body",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "fat_free_mass_right_arm",
+          "domain": "body",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "fat_free_mass_right_leg",
+          "domain": "body",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "fat_free_mass_torso",
+          "domain": "body",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "fat_mass_left_arm",
+          "domain": "body",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "fat_mass_left_leg",
+          "domain": "body",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "fat_mass_right_arm",
+          "domain": "body",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "fat_mass_right_leg",
+          "domain": "body",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "fat_mass_torso",
+          "domain": "body",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "height",
+          "domain": "body",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "hydration",
+          "domain": "body",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "intracellular_water",
+          "domain": "body",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "lean_mass_percent",
+          "domain": "body",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "muscle_mass_left_arm",
+          "domain": "body",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "muscle_mass_left_leg",
+          "domain": "body",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "muscle_mass_right_arm",
+          "domain": "body",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "muscle_mass_right_leg",
+          "domain": "body",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "muscle_mass_torso",
+          "domain": "body",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "awake_time",
+          "domain": "sleep",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "sleep_latency",
+          "domain": "sleep",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "sleep_consistency",
+          "domain": "sleep",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "vita_sleep_score",
+          "domain": "sleep",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "bedtime_hour",
+          "domain": "sleep",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "breathing_disturbance_index",
+          "domain": "sleep",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "resilience_sleep_recovery",
+          "domain": "sleep",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "sleep_hr_average",
+          "domain": "sleep",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "sleep_hr_max",
+          "domain": "sleep",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "sleep_light",
+          "domain": "sleep",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "sleep_performance",
+          "domain": "sleep",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "sleep_rr_max",
+          "domain": "sleep",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "sleep_rr_min",
+          "domain": "sleep",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "sleep_score",
+          "domain": "sleep",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "snoring_duration",
+          "domain": "sleep",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "snoring_episodes",
+          "domain": "sleep",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "wake_hour",
+          "domain": "sleep",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "wakeup_count",
+          "domain": "sleep",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "wakeup_duration",
+          "domain": "sleep",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "wakeup_latency",
+          "domain": "sleep",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "sedentary_time",
+          "domain": "activity",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "activity_score",
+          "domain": "activity",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "workout_calories",
+          "domain": "activity",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "workout_distance",
+          "domain": "activity",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "activity_hr_average",
+          "domain": "activity",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "activity_hr_max",
+          "domain": "activity",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "activity_hr_min",
+          "domain": "activity",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "calories_burned",
+          "domain": "activity",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "day_strain",
+          "domain": "activity",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "elevation",
+          "domain": "activity",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "hr_zone_0",
+          "domain": "activity",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "hr_zone_1",
+          "domain": "activity",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "hr_zone_2",
+          "domain": "activity",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "hr_zone_3",
+          "domain": "activity",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "hr_zone_4",
+          "domain": "activity",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "hr_zone_5",
+          "domain": "activity",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "intense_activity_duration",
+          "domain": "activity",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "light_activity_duration",
+          "domain": "activity",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "moderate_activity_duration",
+          "domain": "activity",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "strain_score",
+          "domain": "activity",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "workout_avg_hr",
+          "domain": "activity",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "workout_intensity",
+          "domain": "activity",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "workout_max_hr",
+          "domain": "activity",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "stress_summary",
+          "domain": "recovery",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "stress_high_duration",
+          "domain": "recovery",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "recovery_high_duration",
+          "domain": "recovery",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "resilience_daytime_recovery",
+          "domain": "recovery",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "resilience_level",
+          "domain": "recovery",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "resilience_stress",
+          "domain": "recovery",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "respiratory_rate",
+          "domain": "vitals",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "body_temperature",
+          "domain": "vitals",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "pulse_wave_velocity",
+          "domain": "vitals",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "cardiovascular_age",
+          "domain": "vitals",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "body_temp_deviation",
+          "domain": "vitals",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "day_avg_hr",
+          "domain": "vitals",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "day_max_hr",
+          "domain": "vitals",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "ecg_afib_classification",
+          "domain": "vitals",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "electrochemical_skin_conductance",
+          "domain": "vitals",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "nerve_health_score_feet_max",
+          "domain": "vitals",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "nerve_health_score_left_foot",
+          "domain": "vitals",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "nerve_health_score_right_foot",
+          "domain": "vitals",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "nerve_response_score",
+          "domain": "vitals",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "concept": "skin_temp",
+          "domain": "vitals",
+          "reason": "overview_detail_budget"
+        },
+        {
+          "record_type": "workouts",
+          "reason": "operation_budget"
+        },
+        {
+          "record_type": "labs",
+          "reason": "operation_budget"
+        },
+        {
+          "record_type": "calendar",
+          "reason": "operation_budget"
+        }
+      ],
+      "all_requested_delivered": false,
+      "summary_token_budget": 16000,
+      "literature_token_reserve": 2000
+    },
+    "advisory": true,
+    "time_zone": "UTC",
+    "reference_date": "2026-09-23",
+    "recovery": "Use existing authorized tools for explicit remaining gaps; never widen scope automatically."
+  },
+  "audit": {
+    "schema_version": "vita-delivery-audit/v1",
+    "operations": [
+      {
+        "operation_id": 1,
+        "domain": "labs",
+        "concepts": [
+          "apob",
+          "ldl",
+          "hdl",
+          "triglycerides",
+          "cholesterol",
+          "hba1c",
+          "fasting_glucose",
+          "glucose"
+        ],
+        "purpose": "latest",
+        "range": {
+          "kind": "all_history"
+        },
+        "scope_origin": "undated_overview_policy",
+        "required_summary": "latest_individual_observation_per_returned_source",
+        "stage": "admitted",
+        "delivered": false,
+        "summary_token_allowance": 2000,
+        "concept_states": {
+          "apob": {
+            "state": "present",
+            "sources": [
+              "withings",
+              "oura"
+            ],
+            "stale_last_known": []
+          },
+          "ldl": {
+            "state": "present",
+            "sources": [
+              "withings",
+              "oura"
+            ],
+            "stale_last_known": []
+          },
+          "hdl": {
+            "state": "present",
+            "sources": [
+              "withings",
+              "oura"
+            ],
+            "stale_last_known": []
+          },
+          "triglycerides": {
+            "state": "present",
+            "sources": [
+              "withings",
+              "oura"
+            ],
+            "stale_last_known": []
+          },
+          "cholesterol": {
+            "state": "present",
+            "sources": [
+              "withings",
+              "oura"
+            ],
+            "stale_last_known": []
+          },
+          "hba1c": {
+            "state": "present",
+            "sources": [
+              "withings"
+            ],
+            "stale_last_known": []
+          },
+          "fasting_glucose": {
+            "state": "not_delivered"
+          },
+          "glucose": {
+            "state": "not_delivered"
+          }
+        },
+        "source_id": 1,
+        "page_complete": false,
+        "scan_incomplete": false,
+        "outcome": "partial_or_unavailable"
+      },
+      {
+        "operation_id": 2,
+        "domain": "body",
+        "concepts": [
+          "weight",
+          "body_fat",
+          "muscle_mass",
+          "fat_mass",
+          "bmi",
+          "visceral_fat",
+          "fat_free_mass",
+          "bone_mass"
+        ],
+        "purpose": "latest",
+        "range": {
+          "kind": "all_history"
+        },
+        "scope_origin": "undated_overview_policy",
+        "required_summary": "latest_individual_observation_per_returned_source",
+        "stage": "admitted",
+        "delivered": false,
+        "summary_token_allowance": 2000,
+        "concept_states": {
+          "weight": {
+            "state": "present",
+            "sources": [
+              "withings",
+              "oura"
+            ],
+            "stale_last_known": [
+              {
+                "source": "withings",
+                "age_days": 84
+              },
+              {
+                "source": "oura",
+                "age_days": 84
+              }
+            ]
+          },
+          "body_fat": {
+            "state": "present",
+            "sources": [
+              "withings",
+              "oura"
+            ],
+            "stale_last_known": [
+              {
+                "source": "withings",
+                "age_days": 84
+              },
+              {
+                "source": "oura",
+                "age_days": 84
+              }
+            ]
+          },
+          "muscle_mass": {
+            "state": "present",
+            "sources": [
+              "withings",
+              "oura"
+            ],
+            "stale_last_known": [
+              {
+                "source": "withings",
+                "age_days": 84
+              },
+              {
+                "source": "oura",
+                "age_days": 84
+              }
+            ]
+          },
+          "fat_mass": {
+            "state": "present",
+            "sources": [
+              "withings",
+              "oura"
+            ],
+            "stale_last_known": [
+              {
+                "source": "withings",
+                "age_days": 84
+              },
+              {
+                "source": "oura",
+                "age_days": 84
+              }
+            ]
+          },
+          "bmi": {
+            "state": "present",
+            "sources": [
+              "withings",
+              "oura"
+            ],
+            "stale_last_known": [
+              {
+                "source": "withings",
+                "age_days": 84
+              },
+              {
+                "source": "oura",
+                "age_days": 84
+              }
+            ]
+          },
+          "visceral_fat": {
+            "state": "present",
+            "sources": [
+              "withings"
+            ],
+            "stale_last_known": [
+              {
+                "source": "withings",
+                "age_days": 84
+              }
+            ]
+          },
+          "fat_free_mass": {
+            "state": "not_delivered"
+          },
+          "bone_mass": {
+            "state": "not_delivered"
+          }
+        },
+        "source_id": 2,
+        "page_complete": false,
+        "scan_incomplete": false,
+        "outcome": "partial_or_unavailable"
+      },
+      {
+        "operation_id": 3,
+        "domain": "sleep",
+        "concepts": [
+          "total_sleep",
+          "sleep_efficiency",
+          "sleep_deep",
+          "sleep_rem"
+        ],
+        "purpose": "trend",
+        "range": {
+          "kind": "relative",
+          "amount": 30,
+          "unit": "days"
+        },
+        "scope_origin": "undated_overview_policy",
+        "required_summary": "whole_window_statistics_and_coverage_per_returned_source",
+        "stage": "admitted",
+        "delivered": false,
+        "summary_token_allowance": 2000,
+        "concept_states": {
+          "total_sleep": {
+            "state": "present",
+            "sources": [
+              "withings",
+              "oura"
+            ],
+            "stale_last_known": []
+          },
+          "sleep_efficiency": {
+            "state": "present",
+            "sources": [
+              "withings"
+            ],
+            "stale_last_known": []
+          },
+          "sleep_deep": {
+            "state": "not_delivered"
+          },
+          "sleep_rem": {
+            "state": "not_delivered"
+          }
+        },
+        "source_id": 3,
+        "page_complete": false,
+        "scan_incomplete": false,
+        "outcome": "partial_or_unavailable"
+      },
+      {
+        "operation_id": 4,
+        "domain": "activity",
+        "concepts": [
+          "steps",
+          "calories_active",
+          "distance",
+          "vo2_max"
+        ],
+        "purpose": "trend",
+        "range": {
+          "kind": "relative",
+          "amount": 30,
+          "unit": "days"
+        },
+        "scope_origin": "undated_overview_policy",
+        "required_summary": "whole_window_statistics_and_coverage_per_returned_source",
+        "stage": "admitted",
+        "delivered": false,
+        "summary_token_allowance": 2000,
+        "concept_states": {
+          "steps": {
+            "state": "present",
+            "sources": [
+              "withings",
+              "oura"
+            ],
+            "stale_last_known": []
+          },
+          "calories_active": {
+            "state": "present",
+            "sources": [
+              "withings"
+            ],
+            "stale_last_known": []
+          },
+          "distance": {
+            "state": "not_delivered"
+          },
+          "vo2_max": {
+            "state": "not_delivered"
+          }
+        },
+        "source_id": 4,
+        "page_complete": false,
+        "scan_incomplete": false,
+        "outcome": "partial_or_unavailable"
+      },
+      {
+        "operation_id": 5,
+        "domain": "recovery",
+        "concepts": [
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "recovery_score",
+          "readiness_score"
+        ],
+        "purpose": "trend",
+        "range": {
+          "kind": "relative",
+          "amount": 30,
+          "unit": "days"
+        },
+        "scope_origin": "undated_overview_policy",
+        "required_summary": "whole_window_statistics_and_coverage_per_returned_source",
+        "stage": "admitted",
+        "delivered": false,
+        "summary_token_allowance": 2000,
+        "concept_states": {
+          "heart_rate_variability": {
+            "state": "present",
+            "sources": [
+              "withings",
+              "oura"
+            ],
+            "stale_last_known": []
+          },
+          "resting_heart_rate": {
+            "state": "present",
+            "sources": [
+              "withings"
+            ],
+            "stale_last_known": []
+          },
+          "recovery_score": {
+            "state": "not_delivered"
+          },
+          "readiness_score": {
+            "state": "not_delivered"
+          }
+        },
+        "source_id": 5,
+        "page_complete": false,
+        "scan_incomplete": false,
+        "outcome": "partial_or_unavailable"
+      },
+      {
+        "operation_id": 6,
+        "domain": "vitals",
+        "concepts": [
+          "systolic_blood_pressure",
+          "diastolic_blood_pressure",
+          "heart_rate",
+          "spo2"
+        ],
+        "purpose": "trend",
+        "range": {
+          "kind": "relative",
+          "amount": 30,
+          "unit": "days"
+        },
+        "scope_origin": "undated_overview_policy",
+        "required_summary": "whole_window_statistics_and_coverage_per_returned_source",
+        "stage": "admitted",
+        "delivered": false,
+        "summary_token_allowance": 2000,
+        "concept_states": {
+          "systolic_blood_pressure": {
+            "state": "present",
+            "sources": [
+              "withings",
+              "oura"
+            ],
+            "stale_last_known": []
+          },
+          "diastolic_blood_pressure": {
+            "state": "present",
+            "sources": [
+              "withings"
+            ],
+            "stale_last_known": []
+          },
+          "heart_rate": {
+            "state": "not_delivered"
+          },
+          "spo2": {
+            "state": "not_delivered"
+          }
+        },
+        "source_id": 6,
+        "page_complete": false,
+        "scan_incomplete": false,
+        "outcome": "partial_or_unavailable"
+      },
+      {
+        "operation_id": 7,
+        "domain": "record:profile",
+        "record_types": [
+          "profile"
+        ],
+        "purpose": "latest",
+        "range": {
+          "kind": "all_history"
+        },
+        "scope_origin": "current_profile_context",
+        "required_summary": "bounded_record_summary_with_source_scope",
+        "stage": "admitted",
+        "delivered": true,
+        "summary_token_allowance": 2000,
+        "concept_states": {},
+        "source_id": 7,
+        "page_complete": true,
+        "scan_incomplete": false,
+        "outcome": "delivered"
+      }
+    ],
+    "planned_summaries_delivered": false,
+    "all_requested_delivered": false
+  }
+}

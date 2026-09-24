@@ -1,0 +1,15 @@
+{
+  "wrong_release_rejected_before_key_read": true,
+  "security_verified": true,
+  "release_digest": "b0185c159a2ec83c771695a32984414a9a85d7dbe91332e58b70ed00f5579946",
+  "health": {
+    "status": "ready",
+    "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+    "device": "cpu",
+    "max_state_tokens": 256,
+    "max_sequence_tokens": 512,
+    "adapter_sha256": "35fbdc0351280e1720dd61776a4f6492d270f1bf689858162bd6deacfcfc12a6"
+  },
+  "elapsed_seconds": 4.478,
+  "scope": "Existing v0.2.2 attested TLS health using release-pinned SDK; not new selector readiness."
+}

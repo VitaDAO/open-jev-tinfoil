@@ -1,0 +1,125 @@
+{
+  "scope": "Synthetic real-model loopback HTTP; NOT attested, deployed or final Vita answers.",
+  "passed": false,
+  "selector_sha256": "c48972af1bb195983e2b54c7ec3d5dea5786b58f3b1cf86e5e370e98eb07a1c9",
+  "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+  "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+  "outcomes": {
+    "correct_plan": 205,
+    "correct_handoff": 224,
+    "missed_plan": 0,
+    "wrong_plan": 1,
+    "invalid": 0
+  },
+  "completed_case_entries": 430,
+  "http_latency_ms": {
+    "median": 555.0005000000001,
+    "p95": 1327.916
+  },
+  "ci_run": "https://github.com/VitaDAO/open-jev-tinfoil/actions/runs/35940650575",
+  "source_commit": "4500e6541f90958fafc7ddf65ece3540e5a9f28d",
+  "wrong_cases": [
+    {
+      "id": "bB-075",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "state": {
+          "current_request": "Oura sleep efficiency for the past week.",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-23",
+          "time_zone": "UTC"
+        },
+        "reference_time": "2026-09-23T12:00:00Z",
+        "available_metrics": [
+          "total_sleep",
+          "sleep_efficiency",
+          "steps",
+          "apob",
+          "ldl_cholesterol",
+          "oxygen_saturation",
+          "respiratory_rate",
+          "custom_metric"
+        ],
+        "available_record_types": [
+          "profile",
+          "labs",
+          "workouts",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "garmin"
+        ],
+        "literature_available": true
+      },
+      "expected_queries": null,
+      "grade": "wrong_plan",
+      "http_status": 200,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [
+              "sleep_efficiency"
+            ],
+            "records": [],
+            "operation": "trend",
+            "period": {
+              "kind": "relative",
+              "amount": 7,
+              "unit": "days"
+            },
+            "source": "oura",
+            "profile_fields": [],
+            "limit": null,
+            "date_basis": "observed_at"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "c48972af1bb195983e2b54c7ec3d5dea5786b58f3b1cf86e5e370e98eb07a1c9",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "887da83d9dc6e8c0d6bf8e2199f639ba4d15375804280e336bba2e16e1fec36b",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            }
+          ]
+        }
+      },
+      "batch": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "concepts": [
+              "sleep_efficiency"
+            ],
+            "record_types": [],
+            "profile_fields": [],
+            "purpose": "trend",
+            "range": {
+              "kind": "relative",
+              "amount": 7,
+              "unit": "days"
+            },
+            "time_zone": "UTC",
+            "grouping": "auto",
+            "result_view": "summary",
+            "source": "oura"
+          }
+        ],
+        "literature_reads": [],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "elapsed_ms": 536.283
+    }
+  ]
+}

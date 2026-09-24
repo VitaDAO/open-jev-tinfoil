@@ -1,0 +1,25 @@
+build	Unit tests	﻿2026-09-24T00:51:17.9724493Z ##[group]Run docker run --rm --entrypoint sh --user 0 -v "$PWD/tests:/app/tests:ro" -v "$PWD/evidence:/app/evidence:ro" ghcr.io/vitadao/open-jev-tinfoil:2cebe4ba3641eb58446c63936f10a9027a1902b9 -c 'pip install pytest==9.1.1 httpx==0.28.1 tinfoil==0.14.0 >/dev/null && PYTHONPATH=/app:/app/vendor python -m pytest -q tests'
+build	Unit tests	2026-09-24T00:51:17.9725579Z docker run --rm --entrypoint sh --user 0 -v "$PWD/tests:/app/tests:ro" -v "$PWD/evidence:/app/evidence:ro" ghcr.io/vitadao/open-jev-tinfoil:2cebe4ba3641eb58446c63936f10a9027a1902b9 -c 'pip install pytest==9.1.1 httpx==0.28.1 tinfoil==0.14.0 >/dev/null && PYTHONPATH=/app:/app/vendor python -m pytest -q tests'
+build	Unit tests	2026-09-24T00:51:17.9775982Z shell: /usr/bin/bash -e {0}
+build	Unit tests	2026-09-24T00:51:17.9776134Z ##[endgroup]
+build	Unit tests	2026-09-24T00:51:23.1544873Z WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+build	Unit tests	2026-09-24T00:51:23.2732795Z
+build	Unit tests	2026-09-24T00:51:23.2733391Z [notice] A new release of pip is available: 25.0.1 -> 26.2.1
+build	Unit tests	2026-09-24T00:51:23.2733738Z [notice] To update, run: pip install --upgrade pip
+build	Unit tests	2026-09-24T00:51:24.8813689Z
+build	Unit tests	2026-09-24T00:51:24.8814328Z ==================================== ERRORS ====================================
+build	Unit tests	2026-09-24T00:51:24.8814686Z _______________ ERROR collecting tests/test_selector_sources.py ________________
+build	Unit tests	2026-09-24T00:51:24.8814957Z ImportError while importing test module '/app/tests/test_selector_sources.py'.
+build	Unit tests	2026-09-24T00:51:24.8815218Z Hint: make sure your test modules/packages have valid Python names.
+build	Unit tests	2026-09-24T00:51:24.8815400Z Traceback:
+build	Unit tests	2026-09-24T00:51:24.8815561Z /usr/local/lib/python3.12/importlib/__init__.py:90: in import_module
+build	Unit tests	2026-09-24T00:51:24.8815795Z     return _bootstrap._gcd_import(name[level:], package, level)
+build	Unit tests	2026-09-24T00:51:24.8816027Z            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+build	Unit tests	2026-09-24T00:51:24.8816620Z tests/test_selector_sources.py:7: in <module>
+build	Unit tests	2026-09-24T00:51:24.8830599Z     from scripts.evaluate_query_plan import request
+build	Unit tests	2026-09-24T00:51:24.8830930Z E   ModuleNotFoundError: No module named 'scripts.evaluate_query_plan'
+build	Unit tests	2026-09-24T00:51:24.8831273Z =========================== short test summary info ============================
+build	Unit tests	2026-09-24T00:51:24.8831546Z ERROR tests/test_selector_sources.py
+build	Unit tests	2026-09-24T00:51:24.8831808Z !!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+build	Unit tests	2026-09-24T00:51:24.8831994Z 1 skipped, 1 error in 1.22s
+build	Unit tests	2026-09-24T00:51:26.4561784Z ##[error]Process completed with exit code 2.

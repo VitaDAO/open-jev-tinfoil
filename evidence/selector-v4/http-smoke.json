@@ -1,0 +1,113 @@
+{
+  "scope": "actual local HTTP and response adapter; synthetic data; attestation not exercised",
+  "selector_sha256": "8f656d8a7a8680b7d65d54f864c0ace30005d058f30e21f9619781da0090c15b",
+  "api_sha256": "7ae48202579b90c110cc44a384dfa969a17bc7939ed30c08e43e181c2d1ed58a",
+  "client_sha256": "4977c24998a163893aa1f63abb342c32ddbc892bcaf009a31acd17113dfbc640",
+  "unauthenticated": 401,
+  "disabled": 503,
+  "response_adapter": "passed",
+  "rows": [
+    {
+      "request": "Show my latest respiratory rate yesterday",
+      "status": "selected",
+      "reason_codes": [],
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "latest",
+            "concepts": [
+              "respiratory_rate"
+            ],
+            "range": {
+              "kind": "between",
+              "start_at": "2026-09-22",
+              "end_at": "2026-09-22"
+            },
+            "time_zone": "UTC"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      }
+    },
+    {
+      "request": "During 2024, how was my sleep efficiency doing?",
+      "status": "selected",
+      "reason_codes": [],
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "trend",
+            "concepts": [
+              "sleep_efficiency"
+            ],
+            "range": {
+              "kind": "between",
+              "start_at": "2024-01-01",
+              "end_at": "2024-12-31"
+            },
+            "time_zone": "UTC"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      }
+    },
+    {
+      "request": "What is the most recent ApoB value I have?",
+      "status": "selected",
+      "reason_codes": [],
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "latest",
+            "concepts": [
+              "apob"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      }
+    },
+    {
+      "request": "Now do last month",
+      "status": "unsupported",
+      "reason_codes": [
+        "source_filter",
+        "unbound_source"
+      ],
+      "plan": null
+    },
+    {
+      "request": "Show my lab reports",
+      "status": "unsupported",
+      "reason_codes": [
+        "requested_record_category_unavailable"
+      ],
+      "plan": null
+    }
+  ],
+  "latency": {
+    "grammar": {
+      "requests": 10,
+      "p50_ms": 107.371,
+      "p95_ms": 108.469
+    },
+    "semantic": {
+      "requests": 10,
+      "p50_ms": 350.926,
+      "p95_ms": 357.108
+    }
+  }
+}

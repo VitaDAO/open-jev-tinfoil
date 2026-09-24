@@ -1,0 +1,881 @@
+{
+  "selector_sha256": "f9cecdb0fdf09167da7bb62c5ef8ce6891ac4480a16a9b8820c108d30365dd46",
+  "fixture_sha256": "695799dfc636a0d971520e78d43a01ddddea8ee91bcfa1feb8434db4cec16696",
+  "evaluator_sha256": "8c2fa2674d1593ea859915c5db5efc09a90577aa2e0c52a9d3e33a956f0e3445",
+  "outcomes": {
+    "correct_plan": 8,
+    "correct_handoff": 8,
+    "missed_plan": 0,
+    "wrong_plan": 0
+  },
+  "compile_failures": 0,
+  "rows": [
+    {
+      "id": "r001",
+      "request": "Show only my allergies from my full profile",
+      "history": [],
+      "expected_queries": [
+        {
+          "kind": "health",
+          "metrics": [],
+          "records": [
+            "profile"
+          ],
+          "operation": "latest",
+          "period": {
+            "kind": "all_history"
+          },
+          "source": null,
+          "profile_fields": [
+            "allergies"
+          ],
+          "limit": null,
+          "date_basis": "current_snapshot"
+        }
+      ],
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [],
+            "records": [
+              "profile"
+            ],
+            "operation": "latest",
+            "period": {
+              "kind": "all_history"
+            },
+            "source": null,
+            "profile_fields": [
+              "allergies"
+            ],
+            "limit": null,
+            "date_basis": "current_snapshot"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "f9cecdb0fdf09167da7bb62c5ef8ce6891ac4480a16a9b8820c108d30365dd46",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "f974789be343adb5deec6e31191bbc7216055c70599f43fe87bb11b54e337db6",
+        "diagnostics": {}
+      },
+      "grade": "correct_plan",
+      "batch": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "concepts": [],
+            "record_types": [
+              "profile"
+            ],
+            "profile_fields": [
+              "allergies"
+            ],
+            "purpose": "latest",
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "grouping": "none",
+            "result_view": "summary"
+          }
+        ],
+        "literature_reads": [],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "compile_error": null,
+      "elapsed_ms": 1.8169169779866934
+    },
+    {
+      "id": "r002",
+      "request": "Show just my medications from my complete profile",
+      "history": [],
+      "expected_queries": [
+        {
+          "kind": "health",
+          "metrics": [],
+          "records": [
+            "profile"
+          ],
+          "operation": "latest",
+          "period": {
+            "kind": "all_history"
+          },
+          "source": null,
+          "profile_fields": [
+            "medications"
+          ],
+          "limit": null,
+          "date_basis": "current_snapshot"
+        }
+      ],
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [],
+            "records": [
+              "profile"
+            ],
+            "operation": "latest",
+            "period": {
+              "kind": "all_history"
+            },
+            "source": null,
+            "profile_fields": [
+              "medications"
+            ],
+            "limit": null,
+            "date_basis": "current_snapshot"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "f9cecdb0fdf09167da7bb62c5ef8ce6891ac4480a16a9b8820c108d30365dd46",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "bca964dd90dc2d904902703a3449d42768456db361d6ba8c48134732b7d8c2d8",
+        "diagnostics": {}
+      },
+      "grade": "correct_plan",
+      "batch": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "concepts": [],
+            "record_types": [
+              "profile"
+            ],
+            "profile_fields": [
+              "medications"
+            ],
+            "purpose": "latest",
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "grouping": "none",
+            "result_view": "summary"
+          }
+        ],
+        "literature_reads": [],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "compile_error": null,
+      "elapsed_ms": 1.6658329986967146
+    },
+    {
+      "id": "r003",
+      "request": "Show my full profile, only allergies",
+      "history": [],
+      "expected_queries": [
+        {
+          "kind": "health",
+          "metrics": [],
+          "records": [
+            "profile"
+          ],
+          "operation": "latest",
+          "period": {
+            "kind": "all_history"
+          },
+          "source": null,
+          "profile_fields": [
+            "allergies"
+          ],
+          "limit": null,
+          "date_basis": "current_snapshot"
+        }
+      ],
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [],
+            "records": [
+              "profile"
+            ],
+            "operation": "latest",
+            "period": {
+              "kind": "all_history"
+            },
+            "source": null,
+            "profile_fields": [
+              "allergies"
+            ],
+            "limit": null,
+            "date_basis": "current_snapshot"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "f9cecdb0fdf09167da7bb62c5ef8ce6891ac4480a16a9b8820c108d30365dd46",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "20a7593e6a7c7635d2c1597620471851978c19b9e053cf7334c3dceb9ed7265e",
+        "diagnostics": {}
+      },
+      "grade": "correct_plan",
+      "batch": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "concepts": [],
+            "record_types": [
+              "profile"
+            ],
+            "profile_fields": [
+              "allergies"
+            ],
+            "purpose": "latest",
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "grouping": "none",
+            "result_view": "summary"
+          }
+        ],
+        "literature_reads": [],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "compile_error": null,
+      "elapsed_ms": 1.5416669775731862
+    },
+    {
+      "id": "r004",
+      "request": "Please fetch allergies and medications from my whole profile",
+      "history": [],
+      "expected_queries": [
+        {
+          "kind": "health",
+          "metrics": [],
+          "records": [
+            "profile"
+          ],
+          "operation": "latest",
+          "period": {
+            "kind": "all_history"
+          },
+          "source": null,
+          "profile_fields": [
+            "allergies",
+            "medications"
+          ],
+          "limit": null,
+          "date_basis": "current_snapshot"
+        }
+      ],
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [],
+            "records": [
+              "profile"
+            ],
+            "operation": "latest",
+            "period": {
+              "kind": "all_history"
+            },
+            "source": null,
+            "profile_fields": [
+              "allergies",
+              "medications"
+            ],
+            "limit": null,
+            "date_basis": "current_snapshot"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "f9cecdb0fdf09167da7bb62c5ef8ce6891ac4480a16a9b8820c108d30365dd46",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "037660cad11c398360624ed995d3e4088869126126c4ceff9e17fe9450cafcd3",
+        "diagnostics": {}
+      },
+      "grade": "correct_plan",
+      "batch": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "concepts": [],
+            "record_types": [
+              "profile"
+            ],
+            "profile_fields": [
+              "allergies",
+              "medications"
+            ],
+            "purpose": "latest",
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "grouping": "none",
+            "result_view": "summary"
+          }
+        ],
+        "literature_reads": [],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "compile_error": null,
+      "elapsed_ms": 2.607500005979091
+    },
+    {
+      "id": "r005",
+      "request": "May you show my medications?",
+      "history": [],
+      "expected_queries": [
+        {
+          "kind": "health",
+          "metrics": [],
+          "records": [
+            "profile"
+          ],
+          "operation": "latest",
+          "period": {
+            "kind": "all_history"
+          },
+          "source": null,
+          "profile_fields": [
+            "medications"
+          ],
+          "limit": null,
+          "date_basis": "current_snapshot"
+        }
+      ],
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [],
+            "records": [
+              "profile"
+            ],
+            "operation": "latest",
+            "period": {
+              "kind": "all_history"
+            },
+            "source": null,
+            "profile_fields": [
+              "medications"
+            ],
+            "limit": null,
+            "date_basis": "current_snapshot"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "f9cecdb0fdf09167da7bb62c5ef8ce6891ac4480a16a9b8820c108d30365dd46",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "29c3d9f33e25baad2a266070e78304b1d214dc306d26f02b25b6338a9eec949b",
+        "diagnostics": {}
+      },
+      "grade": "correct_plan",
+      "batch": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "concepts": [],
+            "record_types": [
+              "profile"
+            ],
+            "profile_fields": [
+              "medications"
+            ],
+            "purpose": "latest",
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "grouping": "none",
+            "result_view": "summary"
+          }
+        ],
+        "literature_reads": [],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "compile_error": null,
+      "elapsed_ms": 2.120459044817835
+    },
+    {
+      "id": "r006",
+      "request": "What medications do I take?",
+      "history": [],
+      "expected_queries": [
+        {
+          "kind": "health",
+          "metrics": [],
+          "records": [
+            "profile"
+          ],
+          "operation": "latest",
+          "period": {
+            "kind": "all_history"
+          },
+          "source": null,
+          "profile_fields": [
+            "medications"
+          ],
+          "limit": null,
+          "date_basis": "current_snapshot"
+        }
+      ],
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [],
+            "records": [
+              "profile"
+            ],
+            "operation": "latest",
+            "period": {
+              "kind": "all_history"
+            },
+            "source": null,
+            "profile_fields": [
+              "medications"
+            ],
+            "limit": null,
+            "date_basis": "current_snapshot"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "f9cecdb0fdf09167da7bb62c5ef8ce6891ac4480a16a9b8820c108d30365dd46",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "63b7caa1d0cc4c400c78b9f8fb0d8b47a2d6fbea8bc710d7111d0bfd3301b245",
+        "diagnostics": {}
+      },
+      "grade": "correct_plan",
+      "batch": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "concepts": [],
+            "record_types": [
+              "profile"
+            ],
+            "profile_fields": [
+              "medications"
+            ],
+            "purpose": "latest",
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "grouping": "none",
+            "result_view": "summary"
+          }
+        ],
+        "literature_reads": [],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "compile_error": null,
+      "elapsed_ms": 1.8691670265980065
+    },
+    {
+      "id": "r007",
+      "request": "Take a look at my allergies",
+      "history": [],
+      "expected_queries": [
+        {
+          "kind": "health",
+          "metrics": [],
+          "records": [
+            "profile"
+          ],
+          "operation": "latest",
+          "period": {
+            "kind": "all_history"
+          },
+          "source": null,
+          "profile_fields": [
+            "allergies"
+          ],
+          "limit": null,
+          "date_basis": "current_snapshot"
+        }
+      ],
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [],
+            "records": [
+              "profile"
+            ],
+            "operation": "latest",
+            "period": {
+              "kind": "all_history"
+            },
+            "source": null,
+            "profile_fields": [
+              "allergies"
+            ],
+            "limit": null,
+            "date_basis": "current_snapshot"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "f9cecdb0fdf09167da7bb62c5ef8ce6891ac4480a16a9b8820c108d30365dd46",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "71478dd39bb6f7f0d91adba93b68f68a99a1e1aab03ebefe673e01ccd3493320",
+        "diagnostics": {}
+      },
+      "grade": "correct_plan",
+      "batch": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "concepts": [],
+            "record_types": [
+              "profile"
+            ],
+            "profile_fields": [
+              "allergies"
+            ],
+            "purpose": "latest",
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "grouping": "none",
+            "result_view": "summary"
+          }
+        ],
+        "literature_reads": [],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "compile_error": null,
+      "elapsed_ms": 1.5470839571207762
+    },
+    {
+      "id": "r008",
+      "request": "Show my complete profile",
+      "history": [],
+      "expected_queries": [
+        {
+          "kind": "health",
+          "metrics": [],
+          "records": [
+            "profile"
+          ],
+          "operation": "latest",
+          "period": {
+            "kind": "all_history"
+          },
+          "source": null,
+          "profile_fields": [
+            "all"
+          ],
+          "limit": null,
+          "date_basis": "current_snapshot"
+        }
+      ],
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [],
+            "records": [
+              "profile"
+            ],
+            "operation": "latest",
+            "period": {
+              "kind": "all_history"
+            },
+            "source": null,
+            "profile_fields": [
+              "all"
+            ],
+            "limit": null,
+            "date_basis": "current_snapshot"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "f9cecdb0fdf09167da7bb62c5ef8ce6891ac4480a16a9b8820c108d30365dd46",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "aab67a351b498da782a13f0d3bd69ddedb7f113fae7282f5412eb80294dffe4e",
+        "diagnostics": {}
+      },
+      "grade": "correct_plan",
+      "batch": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "concepts": [],
+            "record_types": [
+              "profile"
+            ],
+            "profile_fields": [
+              "all"
+            ],
+            "purpose": "latest",
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "grouping": "none",
+            "result_view": "summary"
+          }
+        ],
+        "literature_reads": [],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "compile_error": null,
+      "elapsed_ms": 1.425041991751641
+    },
+    {
+      "id": "r009",
+      "request": "Can I take medications?",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "profile_read_intent_unconfirmed"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "f9cecdb0fdf09167da7bb62c5ef8ce6891ac4480a16a9b8820c108d30365dd46",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "65dd0549fe451983ad34413ac4ef315fa57509d7a439c3d91def57ad45b687c1",
+        "diagnostics": {}
+      },
+      "grade": "correct_handoff",
+      "batch": null,
+      "compile_error": null,
+      "elapsed_ms": 1.383082999382168
+    },
+    {
+      "id": "r010",
+      "request": "May I take medications?",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "profile_read_intent_unconfirmed"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "f9cecdb0fdf09167da7bb62c5ef8ce6891ac4480a16a9b8820c108d30365dd46",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "7df4c5da27dd65c60739a6770c2663cc6337a97af92a14eda9e7d6df18f224eb",
+        "diagnostics": {}
+      },
+      "grade": "correct_handoff",
+      "batch": null,
+      "compile_error": null,
+      "elapsed_ms": 1.7810420249588788
+    },
+    {
+      "id": "r011",
+      "request": "Could I take medications?",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "profile_read_intent_unconfirmed"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "f9cecdb0fdf09167da7bb62c5ef8ce6891ac4480a16a9b8820c108d30365dd46",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "bb81d86e7d2b4b864b8bc4f1cadd5c9a0940e34bc740893d55f63807f9ca1554",
+        "diagnostics": {}
+      },
+      "grade": "correct_handoff",
+      "batch": null,
+      "compile_error": null,
+      "elapsed_ms": 1.5071670059114695
+    },
+    {
+      "id": "r012",
+      "request": "Would I take medications?",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "profile_read_intent_unconfirmed"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "f9cecdb0fdf09167da7bb62c5ef8ce6891ac4480a16a9b8820c108d30365dd46",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "70a7add36b240cde91e0e45dc9d53462c9c97fe6bce15c9a38b79d3cf42b4e43",
+        "diagnostics": {}
+      },
+      "grade": "correct_handoff",
+      "batch": null,
+      "compile_error": null,
+      "elapsed_ms": 1.4483330305665731
+    },
+    {
+      "id": "r013",
+      "request": "Can you take medications?",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "profile_read_intent_unconfirmed"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "f9cecdb0fdf09167da7bb62c5ef8ce6891ac4480a16a9b8820c108d30365dd46",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "5679088d57465d9817f9f9d04da3215b08d448a12d7db49dee82c8d57e718536",
+        "diagnostics": {}
+      },
+      "grade": "correct_handoff",
+      "batch": null,
+      "compile_error": null,
+      "elapsed_ms": 1.6150830197148025
+    },
+    {
+      "id": "r014",
+      "request": "Show medications I can take",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "unbound_profile_qualifier"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "f9cecdb0fdf09167da7bb62c5ef8ce6891ac4480a16a9b8820c108d30365dd46",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "5e12a83c961810a1b0e651f87cb1851964644f27df22d99fa1069538f3192f90",
+        "diagnostics": {}
+      },
+      "grade": "correct_handoff",
+      "batch": null,
+      "compile_error": null,
+      "elapsed_ms": 1.568000006955117
+    },
+    {
+      "id": "r015",
+      "request": "Show medications I may take",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "profile_history_unavailable"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "f9cecdb0fdf09167da7bb62c5ef8ce6891ac4480a16a9b8820c108d30365dd46",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "f6e30579168aa0d7d7d0e727a3d55cc10570bd1a4d224bacb635402afd07f3ec",
+        "diagnostics": {}
+      },
+      "grade": "correct_handoff",
+      "batch": null,
+      "compile_error": null,
+      "elapsed_ms": 2.622458036057651
+    },
+    {
+      "id": "r016",
+      "request": "Please show my medications and take them",
+      "history": [],
+      "expected_queries": null,
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "unbound_profile_qualifier"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "f9cecdb0fdf09167da7bb62c5ef8ce6891ac4480a16a9b8820c108d30365dd46",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "1acf057e9bda83ad34c3cf4dd4768d91fded9096e555da1d2a172f858a64f9e2",
+        "diagnostics": {}
+      },
+      "grade": "correct_handoff",
+      "batch": null,
+      "compile_error": null,
+      "elapsed_ms": 3.124541020952165
+    }
+  ]
+}

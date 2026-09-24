@@ -32,7 +32,8 @@ nominal question/option counts. Errors: 401 unauthorized, 413 oversized body,
 
 ## Privacy and attestation
 
-- Code, vendored loader and exact model snapshot are bundled in a digest-pinned image.
+- Code, vendored loader, pinned-source model weights and the exact adapter are
+  bundled in a digest-pinned image. The backbone uses the documented FP16 storage derivation.
 - Hash-locked Python dependencies and pinned Python base image.
 - Model file SHA-256 manifest is included at `/opt/model/manifest.json`.
 - Tinfoil release workflow measures configuration and signs/publishes attestation.
@@ -44,8 +45,9 @@ nominal question/option counts. Errors: 401 unauthorized, 413 oversized body,
 - Dedicated service key; no shared Vita credentials. Keep the key in the Vita
   agent enclave, never in browser JavaScript. Authentication does not replace
   consent or capability checks in Vita.
-- `examples/vita_client.py` additionally pins the approved v0.2.0 release digest,
-  and refuses a different release before reading/sending the application key.
+- `examples/vita_client.py` is the single client. The caller supplies a reviewed
+  release digest; it refuses a different release before reading/sending the key.
+  Selector calls additionally require reviewed selector and adapter digests.
 - No debug SSH, automatic updates, GPU or production Vita integration.
 
 Attestation establishes which code is running, not the correctness of decisions.
@@ -117,3 +119,40 @@ and the small generic head and learned adapter are unchanged. The model manifest
 records source/derived hashes and the API reports storage/compute dtype. This
 rounds weights and requires prediction-parity testing; it is not lossless
 compression. See `evidence/ramdisk-investigation.md` for measurements and sources.
+
+## Current Vita selector
+
+Use one client, `VitaClient` in `examples/vita_client.py`, with one selector
+endpoint: `POST /v1/select`. The request schema is `vita-selector/v2`; the response
+is a closed `vita-query-plan/v2` containing explicit health/research clauses or an
+inert handoff. The old selector client, answer-map API and `/v1/select-baseline`
+serving route have been removed. `/decide` and `/route` remain separate model
+capabilities on the same client; neither is a second selector path.
+
+The server enables this API when `ENABLE_EXPERIMENTAL_SELECTOR=1`; the measured
+Tinfoil configuration controls deployment. Use the source, image, release and
+API pins recorded with the [release acceptance evidence](evidence/selector-v6/README.md).
+A successful build or published tag alone does not establish a live deployment.
+The client verifies attested TLS and the caller's reviewed release before accessing
+the API key, then checks model/adapter/selector identities, the exact request hash,
+timezone, inventory, every clause and operation budget.
+
+For Vita, use [the native integration](examples/vita_native.md): one shared
+`VitaClient` per process and a `NativeSelectorProvider` per admitted turn. It
+replaces the existing optional first planning hook. Vita's original manager,
+capability broker, evidence registry and answering provider execute and finish
+the turn. Unsupported queries and selector failures preserve the original native
+request, history, tools and provider settings. Initialize attestation before the
+turn; the optional selector wait defaults to one second. The shared client admits
+only one outstanding selection so timed-out workers cannot accumulate per turn.
+
+`query_plan.py` validates and compiles bounded acquisition proposals. The selector
+never reads the database, grants access, or supplies final medical answers. Native
+schema compatibility, source coverage and final browser-answer acceptance are
+separate checks. [API fields and standalone contract examples](evidence/selector-v5/README.md)
+remain available for inspecting the wire format.
+
+Historical v1-v4 adapters and fixtures remain offline regression references.
+Their results are preserved under `evidence/`; they are not alternate public
+clients or current serving contracts. Current live release and application
+acceptance are recorded separately in the release evidence and canonical issue.

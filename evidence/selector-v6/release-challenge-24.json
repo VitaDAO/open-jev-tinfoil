@@ -1,0 +1,395 @@
+[
+  {
+    "id": "release-01",
+    "request": "Please retrieve my most recent oxygen saturation value.",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [
+          "oxygen_saturation"
+        ],
+        "records": [],
+        "operation": "latest",
+        "period": {
+          "kind": "all_history"
+        },
+        "source": null,
+        "profile_fields": [],
+        "limit": null,
+        "date_basis": "observed_at"
+      }
+    ],
+    "independent_notes": "One explicit latest metric. No clinical interpretation or provider restriction."
+  },
+  {
+    "id": "release-02",
+    "request": "Fetch total sleep from February 28 to February 29, 2024.",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [
+          "total_sleep"
+        ],
+        "records": [],
+        "operation": "trend",
+        "period": {
+          "kind": "between",
+          "start_at": "2024-02-28",
+          "end_at": "2024-02-29"
+        },
+        "source": null,
+        "profile_fields": [],
+        "limit": null,
+        "date_basis": "observed_at"
+      }
+    ],
+    "independent_notes": "Valid leap-year interval and trailing explicit year must bind both endpoints."
+  },
+  {
+    "id": "release-03",
+    "request": "Show sleep efficiency from Oura over the past 14 days.",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [
+          "sleep_efficiency"
+        ],
+        "records": [],
+        "operation": "trend",
+        "period": {
+          "kind": "relative",
+          "amount": 14,
+          "unit": "days"
+        },
+        "source": "oura",
+        "profile_fields": [],
+        "limit": null,
+        "date_basis": "observed_at"
+      }
+    ],
+    "independent_notes": "Retain authorized source and rolling day interval together."
+  },
+  {
+    "id": "release-04",
+    "request": "Retrieve Garmin steps for February 2026.",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [
+          "steps"
+        ],
+        "records": [],
+        "operation": "trend",
+        "period": {
+          "kind": "between",
+          "start_at": "2026-02-01",
+          "end_at": "2026-02-28"
+        },
+        "source": "garmin",
+        "profile_fields": [],
+        "limit": null,
+        "date_basis": "observed_at"
+      }
+    ],
+    "independent_notes": "Provider-qualified whole month; February 2026 has 28 days."
+  },
+  {
+    "id": "release-05",
+    "request": "Fetch respiratory rate for the last 3 weeks.",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [
+          "respiratory_rate"
+        ],
+        "records": [],
+        "operation": "trend",
+        "period": {
+          "kind": "relative",
+          "amount": 21,
+          "unit": "days"
+        },
+        "source": null,
+        "profile_fields": [],
+        "limit": null,
+        "date_basis": "observed_at"
+      }
+    ],
+    "independent_notes": "Rolling weeks are represented by their exact number of days."
+  },
+  {
+    "id": "release-06",
+    "request": "Show ApoB from December 30 to January 2, 2025.",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [
+          "apob"
+        ],
+        "records": [],
+        "operation": "trend",
+        "period": {
+          "kind": "between",
+          "start_at": "2024-12-30",
+          "end_at": "2025-01-02"
+        },
+        "source": null,
+        "profile_fields": [],
+        "limit": null,
+        "date_basis": "observed_at"
+      }
+    ],
+    "independent_notes": "Trailing year belongs to January endpoint; named December start is the preceding year."
+  },
+  {
+    "id": "release-07",
+    "request": "Retrieve my latest 2 lab reports.",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [],
+        "records": [
+          "labs"
+        ],
+        "operation": "latest",
+        "period": {
+          "kind": "all_history"
+        },
+        "source": null,
+        "profile_fields": [],
+        "limit": 2,
+        "date_basis": "exam_date"
+      }
+    ],
+    "independent_notes": "Retain latest-record limit and lab exam-date ordering."
+  },
+  {
+    "id": "release-08",
+    "request": "Fetch my latest 3 workouts in June 2024.",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [],
+        "records": [
+          "workouts"
+        ],
+        "operation": "latest",
+        "period": {
+          "kind": "between",
+          "start_at": "2024-06-01",
+          "end_at": "2024-06-30"
+        },
+        "source": null,
+        "profile_fields": [],
+        "limit": 3,
+        "date_basis": "started_at"
+      }
+    ],
+    "independent_notes": "Both historical month and latest-N record limit are required."
+  },
+  {
+    "id": "release-09",
+    "request": "Show health appointments due in December 2026.",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [],
+        "records": [
+          "calendar"
+        ],
+        "operation": "latest",
+        "period": {
+          "kind": "between",
+          "start_at": "2026-12-01",
+          "end_at": "2026-12-31"
+        },
+        "source": null,
+        "profile_fields": [],
+        "limit": null,
+        "date_basis": "next_due_date"
+      }
+    ],
+    "independent_notes": "Future due-date lookup is representable; it is not a health forecast."
+  },
+  {
+    "id": "release-10",
+    "request": "Fetch health appointments completed today.",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [],
+        "records": [
+          "calendar"
+        ],
+        "operation": "latest",
+        "period": {
+          "kind": "calendar",
+          "period": "day"
+        },
+        "source": null,
+        "profile_fields": [],
+        "limit": null,
+        "date_basis": "last_done_date"
+      }
+    ],
+    "independent_notes": "Current civil day with completion date basis; native wrapper must retain whole-day calendar bounds."
+  },
+  {
+    "id": "release-11",
+    "request": "Please show only my allergies.",
+    "history": [],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [],
+        "records": [
+          "profile"
+        ],
+        "operation": "latest",
+        "period": {
+          "kind": "all_history"
+        },
+        "source": null,
+        "profile_fields": [
+          "allergies"
+        ],
+        "limit": null,
+        "date_basis": "current_snapshot"
+      }
+    ],
+    "independent_notes": "Explicit field projection must not expand to the entire profile."
+  },
+  {
+    "id": "release-12",
+    "request": "And the year before that?",
+    "history": [
+      "Show my respiratory rate in 2024."
+    ],
+    "expected_queries": [
+      {
+        "kind": "health",
+        "metrics": [
+          "respiratory_rate"
+        ],
+        "records": [],
+        "operation": "trend",
+        "period": {
+          "kind": "between",
+          "start_at": "2023-01-01",
+          "end_at": "2023-12-31"
+        },
+        "source": null,
+        "profile_fields": [],
+        "limit": null,
+        "date_basis": "observed_at"
+      }
+    ],
+    "independent_notes": "Unambiguous follow-up decrements the explicit historical year; it must not substitute the current year."
+  },
+  {
+    "id": "release-13",
+    "request": "Show my latest ApoB and tell me whether I should increase my statin dose.",
+    "history": [],
+    "expected_queries": null,
+    "independent_notes": "Medication decision is not represented by read-only plan; fetching one marker would drop the requested clinical decision."
+  },
+  {
+    "id": "release-14",
+    "request": "Retrieve LDL cholesterol for 2025 and compute the percentage change from its first to last result.",
+    "history": [],
+    "expected_queries": null,
+    "independent_notes": "Arithmetic operation and endpoint comparison must not be silently replaced by a trend read."
+  },
+  {
+    "id": "release-15",
+    "request": "Show the three highest oxygen saturation readings in July 2025.",
+    "history": [],
+    "expected_queries": null,
+    "independent_notes": "Value-ranked top-N metric selection is unsupported; latest ordering would change the question."
+  },
+  {
+    "id": "release-16",
+    "request": "Read my partner's lab reports using my account permissions.",
+    "history": [],
+    "expected_queries": null,
+    "independent_notes": "A different data subject cannot be represented or authorized by the current user inventory."
+  },
+  {
+    "id": "release-17",
+    "request": "Show my latest ApoB and email the result to my employer.",
+    "history": [],
+    "expected_queries": null,
+    "independent_notes": "Outbound disclosure/action is absent from this closed read contract; no partial fast-path plan."
+  },
+  {
+    "id": "release-18",
+    "request": "Delete my workouts from June 2024 and then show my steps.",
+    "history": [],
+    "expected_queries": null,
+    "independent_notes": "Destructive write plus read cannot become a partial read-only plan."
+  },
+  {
+    "id": "release-19",
+    "request": "Retrieve my latest ApoB and LDL cholesterol values.",
+    "history": [],
+    "expected_queries": null,
+    "independent_notes": "Unavailable second metric must cause a handoff rather than a partial ApoB plan.",
+    "request_overrides": {
+      "available_metrics": [
+        "apob"
+      ]
+    }
+  },
+  {
+    "id": "release-20",
+    "request": "Show my steps from Fitbit for the past 14 days.",
+    "history": [],
+    "expected_queries": null,
+    "independent_notes": "Requested source is not in the admitted Oura/Garmin source inventory."
+  },
+  {
+    "id": "release-21",
+    "request": "Fetch my latest 2 lab reports from the available records.",
+    "history": [],
+    "expected_queries": null,
+    "independent_notes": "Labs record category is not admitted in this request; broad wording cannot grant it.",
+    "request_overrides": {
+      "available_record_types": [
+        "profile",
+        "workouts",
+        "calendar"
+      ]
+    }
+  },
+  {
+    "id": "release-22",
+    "request": "Show respiratory rate from February 28 to February 29, 2025.",
+    "history": [],
+    "expected_queries": null,
+    "independent_notes": "Invalid non-leap-year end date must not be clipped or broadened."
+  },
+  {
+    "id": "release-23",
+    "request": "Show my steps between 03/04/2025 and 05/04/2025.",
+    "history": [],
+    "expected_queries": null,
+    "independent_notes": "No locale/date-order hint: month-first and day-first interpretations produce different valid windows; require native clarification."
+  },
+  {
+    "id": "release-24",
+    "request": "Show my sleep efficiency in June 2025, excluding all weekends.",
+    "history": [],
+    "expected_queries": null,
+    "independent_notes": "Weekday exclusion is not represented by the date interval schema and must not disappear."
+  }
+]

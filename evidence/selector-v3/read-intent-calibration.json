@@ -1,0 +1,183 @@
+{
+  "training_cases": 454,
+  "calibration_cases": 24,
+  "threshold": 0.0,
+  "alpha": 0.1,
+  "calibration_search": [
+    {
+      "accepted_correct": 7,
+      "alpha": 0.001,
+      "threshold": 0.005043130420419664
+    },
+    {
+      "accepted_correct": 8,
+      "alpha": 0.003,
+      "threshold": 0.0
+    },
+    {
+      "accepted_correct": 8,
+      "alpha": 0.01,
+      "threshold": 0.0
+    },
+    {
+      "accepted_correct": 10,
+      "alpha": 0.03,
+      "threshold": 0.0
+    },
+    {
+      "accepted_correct": 11,
+      "alpha": 0.1,
+      "threshold": 0.0
+    }
+  ],
+  "calibration_accepted_correct": 11,
+  "calibration_accepted_wrong": 0,
+  "calibration_rows": [
+    {
+      "request": "Please fetch my ApoB data for me",
+      "label": 1,
+      "score": 0.3889723695772862,
+      "accepted": true
+    },
+    {
+      "request": "Please fetch my oxygen saturation data for me",
+      "label": 1,
+      "score": 0.4490129221079975,
+      "accepted": true
+    },
+    {
+      "request": "Please fetch my sleep efficiency data for me",
+      "label": 1,
+      "score": 0.4516563715755989,
+      "accepted": true
+    },
+    {
+      "request": "Please fetch my total sleep data for me",
+      "label": 1,
+      "score": 0.5656899532698099,
+      "accepted": true
+    },
+    {
+      "request": "Please fetch my lab reports data for me",
+      "label": 1,
+      "score": 0.3857619379769582,
+      "accepted": true
+    },
+    {
+      "request": "Please fetch my profile data for me",
+      "label": 1,
+      "score": 0.42480381706127096,
+      "accepted": true
+    },
+    {
+      "request": "What do my stored ApoB measurements show?",
+      "label": 1,
+      "score": 0.025450733948831683,
+      "accepted": true
+    },
+    {
+      "request": "What do my stored oxygen saturation measurements show?",
+      "label": 1,
+      "score": 0.04671426004201862,
+      "accepted": true
+    },
+    {
+      "request": "What do my stored sleep efficiency measurements show?",
+      "label": 1,
+      "score": 0.14353676935563892,
+      "accepted": true
+    },
+    {
+      "request": "What do my stored total sleep measurements show?",
+      "label": 1,
+      "score": 0.2023659710446455,
+      "accepted": true
+    },
+    {
+      "request": "What do my stored lab reports measurements show?",
+      "label": 1,
+      "score": -0.1570904986866491,
+      "accepted": false
+    },
+    {
+      "request": "What do my stored profile measurements show?",
+      "label": 1,
+      "score": 0.18378501151288074,
+      "accepted": true
+    },
+    {
+      "request": "Teach me about the meaning of ApoB",
+      "label": 0,
+      "score": -0.11760605898166565,
+      "accepted": false
+    },
+    {
+      "request": "Teach me about the meaning of oxygen saturation",
+      "label": 0,
+      "score": -0.3273049215451491,
+      "accepted": false
+    },
+    {
+      "request": "Teach me about the meaning of sleep efficiency",
+      "label": 0,
+      "score": -0.2542721015981064,
+      "accepted": false
+    },
+    {
+      "request": "Teach me about the meaning of total sleep",
+      "label": 0,
+      "score": -0.38428685204017876,
+      "accepted": false
+    },
+    {
+      "request": "Teach me about the meaning of lab reports",
+      "label": 0,
+      "score": -0.22852553977408774,
+      "accepted": false
+    },
+    {
+      "request": "Teach me about the meaning of profile",
+      "label": 0,
+      "score": -0.26944660619082883,
+      "accepted": false
+    },
+    {
+      "request": "Is there a connection between my ApoB and my mood?",
+      "label": 0,
+      "score": -0.5972195487725952,
+      "accepted": false
+    },
+    {
+      "request": "Is there a connection between my oxygen saturation and my mood?",
+      "label": 0,
+      "score": -0.5305377489525227,
+      "accepted": false
+    },
+    {
+      "request": "Is there a connection between my sleep efficiency and my mood?",
+      "label": 0,
+      "score": -0.6313728976012489,
+      "accepted": false
+    },
+    {
+      "request": "Is there a connection between my total sleep and my mood?",
+      "label": 0,
+      "score": -0.5677403519041024,
+      "accepted": false
+    },
+    {
+      "request": "Is there a connection between my lab reports and my mood?",
+      "label": 0,
+      "score": -0.5331032203838147,
+      "accepted": false
+    },
+    {
+      "request": "Is there a connection between my profile and my mood?",
+      "label": 0,
+      "score": -0.7636789532509226,
+      "accepted": false
+    }
+  ],
+  "note": "Threshold fitted on these calibration families; zero wrong accepts here is not an independent guarantee.",
+  "adapter_sha256": "aa67ad90ebfe34be36d9c4799f665ccb7df71d2bd50e4dde184c2e19ba97539c"
+}

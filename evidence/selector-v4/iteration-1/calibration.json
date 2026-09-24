@@ -1,0 +1,255 @@
+{
+  "training_cases": 681,
+  "calibration_cases": 36,
+  "threshold": 0.38712337105455535,
+  "alpha": 0.03,
+  "calibration_search": [
+    {
+      "accepted_correct": 18,
+      "alpha": 0.001,
+      "threshold": 0.0
+    },
+    {
+      "accepted_correct": 18,
+      "alpha": 0.003,
+      "threshold": 0.0
+    },
+    {
+      "accepted_correct": 18,
+      "alpha": 0.01,
+      "threshold": 0.0994182482004617
+    },
+    {
+      "accepted_correct": 18,
+      "alpha": 0.03,
+      "threshold": 0.38712337105455535
+    },
+    {
+      "accepted_correct": 13,
+      "alpha": 0.1,
+      "threshold": 0.6378414995789944
+    }
+  ],
+  "calibration_accepted_correct": 18,
+  "calibration_accepted_wrong": 0,
+  "calibration_rows": [
+    {
+      "request": "Could you fetch the personal ApoB history kept for me?",
+      "label": 1,
+      "score": 0.8360683823469146,
+      "accepted": true
+    },
+    {
+      "request": "Could you fetch the personal LDL cholesterol history kept for me?",
+      "label": 1,
+      "score": 0.9971586055025758,
+      "accepted": true
+    },
+    {
+      "request": "Could you fetch the personal oxygen saturation history kept for me?",
+      "label": 1,
+      "score": 0.9581250488574873,
+      "accepted": true
+    },
+    {
+      "request": "Could you fetch the personal respiratory rate history kept for me?",
+      "label": 1,
+      "score": 0.8292322869597148,
+      "accepted": true
+    },
+    {
+      "request": "Could you fetch the personal sleep efficiency history kept for me?",
+      "label": 1,
+      "score": 0.919150854512649,
+      "accepted": true
+    },
+    {
+      "request": "Could you fetch the personal steps history kept for me?",
+      "label": 1,
+      "score": 0.8054394605433839,
+      "accepted": true
+    },
+    {
+      "request": "Could you fetch the personal total sleep history kept for me?",
+      "label": 1,
+      "score": 0.9609058884225922,
+      "accepted": true
+    },
+    {
+      "request": "Could you fetch the personal lab reports history kept for me?",
+      "label": 1,
+      "score": 0.7527778999733536,
+      "accepted": true
+    },
+    {
+      "request": "Could you fetch the personal workouts history kept for me?",
+      "label": 1,
+      "score": 0.9374353164174202,
+      "accepted": true
+    },
+    {
+      "request": "Can we go through my stored ApoB results?",
+      "label": 1,
+      "score": 0.7446865894571839,
+      "accepted": true
+    },
+    {
+      "request": "Can we go through my stored LDL cholesterol results?",
+      "label": 1,
+      "score": 0.6739278436800992,
+      "accepted": true
+    },
+    {
+      "request": "Can we go through my stored oxygen saturation results?",
+      "label": 1,
+      "score": 0.7852284758625598,
+      "accepted": true
+    },
+    {
+      "request": "Can we go through my stored respiratory rate results?",
+      "label": 1,
+      "score": 0.7928836188734393,
+      "accepted": true
+    },
+    {
+      "request": "Can we go through my stored sleep efficiency results?",
+      "label": 1,
+      "score": 0.7611630638628114,
+      "accepted": true
+    },
+    {
+      "request": "Can we go through my stored steps results?",
+      "label": 1,
+      "score": 0.5193343119288505,
+      "accepted": true
+    },
+    {
+      "request": "Can we go through my stored total sleep results?",
+      "label": 1,
+      "score": 0.6829433450036759,
+      "accepted": true
+    },
+    {
+      "request": "Can we go through my stored lab reports results?",
+      "label": 1,
+      "score": 0.8333985681585925,
+      "accepted": true
+    },
+    {
+      "request": "Can we go through my stored workouts results?",
+      "label": 1,
+      "score": 0.9720282088813539,
+      "accepted": true
+    },
+    {
+      "request": "Do my stored ApoB results suggest a disease?",
+      "label": 0,
+      "score": -0.4611716211337894,
+      "accepted": false
+    },
+    {
+      "request": "Do my stored LDL cholesterol results suggest a disease?",
+      "label": 0,
+      "score": -0.6359193003241559,
+      "accepted": false
+    },
+    {
+      "request": "Do my stored oxygen saturation results suggest a disease?",
+      "label": 0,
+      "score": -0.6433242074952659,
+      "accepted": false
+    },
+    {
+      "request": "Do my stored respiratory rate results suggest a disease?",
+      "label": 0,
+      "score": -0.6309898655863886,
+      "accepted": false
+    },
+    {
+      "request": "Do my stored sleep efficiency results suggest a disease?",
+      "label": 0,
+      "score": -0.7493119495857092,
+      "accepted": false
+    },
+    {
+      "request": "Do my stored steps results suggest a disease?",
+      "label": 0,
+      "score": -0.439590747403914,
+      "accepted": false
+    },
+    {
+      "request": "Do my stored total sleep results suggest a disease?",
+      "label": 0,
+      "score": -0.6128596039139382,
+      "accepted": false
+    },
+    {
+      "request": "Do my stored lab reports results suggest a disease?",
+      "label": 0,
+      "score": -0.4495315817801807,
+      "accepted": false
+    },
+    {
+      "request": "Do my stored workouts results suggest a disease?",
+      "label": 0,
+      "score": -0.4939827828894472,
+      "accepted": false
+    },
+    {
+      "request": "Retrieve personal ApoB only on days when I exercised",
+      "label": 0,
+      "score": 0.05571029119766624,
+      "accepted": false
+    },
+    {
+      "request": "Retrieve personal LDL cholesterol only on days when I exercised",
+      "label": 0,
+      "score": -0.3709382315284664,
+      "accepted": false
+    },
+    {
+      "request": "Retrieve personal oxygen saturation only on days when I exercised",
+      "label": 0,
+      "score": -0.08243978426431853,
+      "accepted": false
+    },
+    {
+      "request": "Retrieve personal respiratory rate only on days when I exercised",
+      "label": 0,
+      "score": -0.2185877539170964,
+      "accepted": false
+    },
+    {
+      "request": "Retrieve personal sleep efficiency only on days when I exercised",
+      "label": 0,
+      "score": -0.16120079694936806,
+      "accepted": false
+    },
+    {
+      "request": "Retrieve personal steps only on days when I exercised",
+      "label": 0,
+      "score": -0.033561147650187584,
+      "accepted": false
+    },
+    {
+      "request": "Retrieve personal total sleep only on days when I exercised",
+      "label": 0,
+      "score": -0.30114115365074046,
+      "accepted": false
+    },
+    {
+      "request": "Retrieve personal lab reports only on days when I exercised",
+      "label": 0,
+      "score": 0.20706783131456608,
+      "accepted": false
+    },
+    {
+      "request": "Retrieve personal workouts only on days when I exercised",
+      "label": 0,
+      "score": 0.33712337105455537,
+      "accepted": false
+    }
+  ],
+  "note": "Threshold fitted on these calibration families; zero wrong accepts here is not an independent guarantee.",
+  "adapter_sha256": "865177a6efef8add278d593ec181552b98bba820ebbe02af9939373f5e78727a"
+}

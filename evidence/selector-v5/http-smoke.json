@@ -1,0 +1,184 @@
+{
+  "scope": "Local 4-thread CPU, synthetic HTTP and injected loopback transport; NOT attested or a deployed service. No database or external inference.",
+  "selector_sha256": "f9cecdb0fdf09167da7bb62c5ef8ce6891ac4480a16a9b8820c108d30365dd46",
+  "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+  "source_sha256": {
+    "server.py": "1f70005b5d6b3fd793fd24f084107c860b3e096a5b9aa8ea2b06765a3557f006",
+    "query_plan.py": "df9a8b986df5d4d631042f0692c69647aee2a291f1481167a2837e1e48e12a00",
+    "query_selector.py": "ac176ff7ca8f74c7f8d25cdf71e2c6bbdf95ef92524c01558d6eb4c6e4610926",
+    "query_execution.py": "ef200cd933edb82a5ea901f30d3d14169f664bb5e0709092657e1f4b9e94629d",
+    "examples/vita_client.py": "2f442231e3c07979086c6c9350e3e607dcd393d7a4376b040836b533719d0252",
+    "scripts/smoke_proposal.py": "922ffaf688cc2e7d0d5130643c98b3251c3962c0d000f18b9b7aa7be8647a631"
+  },
+  "passed": 24,
+  "total": 24,
+  "rows": [
+    {
+      "id": "h01",
+      "passed": true,
+      "status": "planned",
+      "elapsed_ms": 126.77324999822304
+    },
+    {
+      "id": "h02",
+      "passed": true,
+      "status": "planned",
+      "elapsed_ms": 4.003125010058284
+    },
+    {
+      "id": "h03",
+      "passed": true,
+      "status": "planned",
+      "elapsed_ms": 115.56729098083451
+    },
+    {
+      "id": "h04",
+      "passed": true,
+      "status": "planned",
+      "elapsed_ms": 232.94383299071342
+    },
+    {
+      "id": "h05",
+      "passed": true,
+      "status": "planned",
+      "elapsed_ms": 116.69320799410343
+    },
+    {
+      "id": "h06",
+      "passed": true,
+      "status": "planned",
+      "elapsed_ms": 117.3929589567706
+    },
+    {
+      "id": "h07",
+      "passed": true,
+      "status": "planned",
+      "elapsed_ms": 284.8513750359416
+    },
+    {
+      "id": "h08",
+      "passed": true,
+      "status": "planned",
+      "elapsed_ms": 122.57908296305686
+    },
+    {
+      "id": "h09",
+      "passed": true,
+      "status": "planned",
+      "elapsed_ms": 2.9015420004725456
+    },
+    {
+      "id": "h10",
+      "passed": true,
+      "status": "planned",
+      "elapsed_ms": 123.92395903589204
+    },
+    {
+      "id": "h11",
+      "passed": true,
+      "status": "planned",
+      "elapsed_ms": 3.898708033375442
+    },
+    {
+      "id": "h12",
+      "passed": true,
+      "status": "planned",
+      "elapsed_ms": 117.70312499720603
+    },
+    {
+      "id": "h13",
+      "passed": true,
+      "status": "handoff",
+      "elapsed_ms": 4.188666003756225
+    },
+    {
+      "id": "h14",
+      "passed": true,
+      "status": "handoff",
+      "elapsed_ms": 2.1945409826003015
+    },
+    {
+      "id": "h15",
+      "passed": true,
+      "status": "handoff",
+      "elapsed_ms": 115.83025002619252
+    },
+    {
+      "id": "h16",
+      "passed": true,
+      "status": "handoff",
+      "elapsed_ms": 5.940500006545335
+    },
+    {
+      "id": "h17",
+      "passed": true,
+      "status": "handoff",
+      "elapsed_ms": 113.2992499624379
+    },
+    {
+      "id": "h18",
+      "passed": true,
+      "status": "handoff",
+      "elapsed_ms": 1.9859999883919954
+    },
+    {
+      "id": "h19",
+      "passed": true,
+      "status": "handoff",
+      "elapsed_ms": 3.2934590126387775
+    },
+    {
+      "id": "h20",
+      "passed": true,
+      "status": "handoff",
+      "elapsed_ms": 230.3678750176914
+    },
+    {
+      "id": "h21",
+      "passed": true,
+      "status": "handoff",
+      "elapsed_ms": 253.3660419867374
+    },
+    {
+      "id": "h22",
+      "passed": true,
+      "status": "handoff",
+      "elapsed_ms": 1.915500033646822
+    },
+    {
+      "id": "h23",
+      "passed": true,
+      "status": "handoff",
+      "elapsed_ms": 1.292874978389591
+    },
+    {
+      "id": "h24",
+      "passed": true,
+      "status": "handoff",
+      "elapsed_ms": 132.95904197730124
+    }
+  ],
+  "warm_http_latency": {
+    "simple": {
+      "requests": 10,
+      "median_ms": 136.0557500156574,
+      "p95_ms": 193.9589999965392
+    },
+    "semantic": {
+      "requests": 10,
+      "median_ms": 328.8290420023259,
+      "p95_ms": 415.4995830031112
+    },
+    "two_clauses": {
+      "requests": 10,
+      "median_ms": 269.9199380003847,
+      "p95_ms": 321.5755840064958
+    },
+    "profile": {
+      "requests": 10,
+      "median_ms": 2.119562530424446,
+      "p95_ms": 2.5439999881200492
+    }
+  },
+  "auth_and_invalid_contract_checks": true
+}

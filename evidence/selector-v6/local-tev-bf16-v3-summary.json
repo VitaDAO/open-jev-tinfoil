@@ -1,0 +1,441 @@
+{
+  "manifest": {
+    "mode": "original BF16 weights, Metal, no quantization",
+    "model_revision": "0b7becf017daa0e5eb222f8ce7483c8c8259c52f",
+    "gguf_sha256": "92403332d27d06025816c944a6cc943d0fff897bf00532addc60f1b54e15a025",
+    "runtime": {
+      "tag": "b11146",
+      "source_ref": {
+        "sha": "7fe450e19305b828c199d602c23a8337aaa1f03b",
+        "type": "commit",
+        "url": "https://api.github.com/repos/ggml-org/llama.cpp/git/commits/7fe450e19305b828c199d602c23a8337aaa1f03b"
+      },
+      "binary_sha256": "1ad3f9eff80edb9dbef4259ad564d1720612ef7eea48fa4afed0e54f5f3d5711"
+    },
+    "source_sha256": {
+      "evaluate_v3.py": "1ef44a277b2a573f5546214b76c0669998fd7d7d403f3bed7c83a5fe68206d14",
+      "tev_selector.py": "e50d0dcb767a70a5e3c0be06455dae1f2add622acc2e4b36fcaff1e183d04a72",
+      "tev_selector_v2.py": "72d292bc63a42968f3024399c5ca1d539fc90fa01bf63072a87cb1f6a72424ae",
+      "tev_selector_v3.py": "6a4de261ba9976cc1fd058923472639964441d3a1901ec9ecfd17ea1a6c50d03"
+    },
+    "shared_source_sha256": {
+      "/Users/alexdobrin/Documents/open-jev-tinfoil/direct_selector.py": "09d89f4895ed3f7dd99fdd223e74a9859daea0a96de59dda52cf36656c19592b",
+      "/Users/alexdobrin/Documents/open-jev-tinfoil/entity_candidates.py": "cc0e2ac2df27cb2e891fce65470041aff341b48ff0891bb8fd40535759b3e3b7",
+      "/Users/alexdobrin/Documents/open-jev-tinfoil/learned_selector.py": "4fe508beeb344df1f69e661d6972ffff04dcffe97568f87b10e1dd1b662969de",
+      "/Users/alexdobrin/Documents/open-jev-tinfoil/plan_adapter.py": "6792194b1f513f59627ec826d78ee1012af8e114ef5be0ea45484cfa0553aea6",
+      "/Users/alexdobrin/Documents/open-jev-tinfoil/proposal_binding.py": "8441c53fc19f6e859efcecb8a7206fa08ca915731e20bcffc5c3e7998f63afd3",
+      "/Users/alexdobrin/Documents/open-jev-tinfoil/proposal_selector.py": "cfccd2c3ab49b1e4aecb93d81fd5f6fe300347454efee9959d784c16986a4dd4",
+      "/Users/alexdobrin/Documents/open-jev-tinfoil/query_execution.py": "fc8d1bf937099315c2883cb516a2a7144616e18698ad6d6e0af9aa04e7af20fd",
+      "/Users/alexdobrin/Documents/open-jev-tinfoil/query_ir.py": "531fd5e3e19cd67a8179c6a436394c15a74c74e8ee8c0f4322278ba768e07714",
+      "/Users/alexdobrin/Documents/open-jev-tinfoil/query_plan.py": "47e4d55162526eb1296265e4b5a387492c4974fddc0dca768dc7179604362e96",
+      "/Users/alexdobrin/Documents/open-jev-tinfoil/query_selector.py": "9dccb01fddad2208c41042e0916ffdd9ee7def52dd25e74f42d7569ede0eb141",
+      "/Users/alexdobrin/Documents/open-jev-tinfoil/routing.py": "c04c5e9f3cc7cb8db8dd9c28b8283253347dae3eed862cb8d840a712d41a73c9",
+      "/Users/alexdobrin/Documents/open-jev-tinfoil/schema_index.py": "a4ea14febc7313ebc9fa472f13ee03e7c35ba9e5e4452fdb9b953c14adb2f094",
+      "/Users/alexdobrin/Documents/open-jev-tinfoil/segmented_selector.py": "e29b679a1485fed3bf452c70d38450022935ff1de291df6d9907e95e6419ac11",
+      "/Users/alexdobrin/Documents/open-jev-tinfoil/selector.py": "bb0bcf60f5690787e726b738667e8e8293f9cebb824bc0a772f7f4c8687ca541",
+      "/Users/alexdobrin/Documents/open-jev-tinfoil/selector_features.py": "0311ed2594633e6d1323d2708e66941047439fd70d1f7d841b0c721fea9e9219",
+      "/Users/alexdobrin/Documents/open-jev-tinfoil/server.py": "1f70005b5d6b3fd793fd24f084107c860b3e096a5b9aa8ea2b06765a3557f006",
+      "/Users/alexdobrin/Documents/open-jev-tinfoil/temporal_spans.py": "58c39da58001bc75bd104ac3135ec67cbe9e6a378b534cfa1bc70aa6dd707464",
+      "/Users/alexdobrin/Documents/open-jev-tinfoil/trained_proposal_selector.py": "c387b5d4aba1447fc1586aa3977dc4b584057554af5249544220682934446663",
+      "/Users/alexdobrin/Documents/open-jev-tinfoil/compat/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "/Users/alexdobrin/Documents/open-jev-tinfoil/compat/health_range_input.py": "e250600fe598b485dcd1d71bdc072cb91bef37ac5494c20b7c79e18d2a9f7a7a",
+      "/Users/alexdobrin/Documents/open-jev-tinfoil/compat/jev_dates.py": "8a78fc5a1e2961b73360dec7a6e532dfcb15bd98844f3a4563f41a58650e39c8",
+      "/Users/alexdobrin/Documents/open-jev-tinfoil/scripts/evaluate_query_plan.py": "8c2fa2674d1593ea859915c5db5efc09a90577aa2e0c52a9d3e33a956f0e3445"
+    },
+    "fixture_sha256": {
+      "expanded-48.json": "04b45e2c51e3c226d3d9a759ca885a676110f15ffbf4c33885dc097e450df650",
+      "regression-59-v2.json": "a17fb90a5047e5acc4a6cf21ae27a38aed0fbc7df73c33120924418b0ee2468a",
+      "remaining-19-oracle.json": "5728ec59b419d441ab58747a5673f53305ab23ef41699bc65a1844ff64397d9d",
+      "holdout-24.json": "197ee23f1ba6ff218a27916dfae3b7e2b0567deffeb753928218fea6903adcae",
+      "additional-160-v2.json": "49d8e777b20967efba7a9f19064b9afcd279447f467d10d5d5b5dbc1df8f2403",
+      "future-boundaries-40.json": "c60ae0d77788e1b61bc179f037625fafd7bb135b0fc43f8d99120397ecc5d10f",
+      "review-profile-16.json": "695799dfc636a0d971520e78d43a01ddddea8ee91bcfa1feb8434db4cec16696",
+      "independent-vita-challenge.json": "50f07b05569dc12bd895d425b6c06e214cd00b2524ec163a08a595be6ab4b9ed"
+    },
+    "command": [
+      "/Users/alexdobrin/Documents/tev1-local/runtime/llama-b11146/llama-server",
+      "-m",
+      "/Users/alexdobrin/Documents/tev1-local/tev1-bf16.gguf",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "62717",
+      "--ctx-size",
+      "2048",
+      "--parallel",
+      "1",
+      "--threads",
+      "4",
+      "--threads-batch",
+      "4",
+      "--cache-ram",
+      "0",
+      "--no-cache-idle-slots",
+      "--chat-template-kwargs",
+      "{\"enable_thinking\":false}",
+      "--reasoning-budget",
+      "0",
+      "--no-context-shift",
+      "--offline",
+      "--gpu-layers",
+      "all"
+    ],
+    "scope": "Complete closed-contract adapter plans plus handoffs, not full Vita answers. Shared grammar/guards retained; no Open-JEV model or learned heads. Gold never enters model inputs.",
+    "thresholds": {
+      "read_label_probability": 0.5,
+      "coverage_label_probability": 0.55,
+      "task_probability_gap_lower_bound": 0.1
+    },
+    "overlap": "19-case suite overlaps 160-case suite; other overlap computed in summary.",
+    "limit": null
+  },
+  "startup_seconds": 1.2653113750275224,
+  "peak_sampled_rss_bytes": 9049227264,
+  "suite_results": {
+    "expanded-48.json": {
+      "cases": 48,
+      "outcomes": {
+        "correct_plan": 24,
+        "correct_handoff": 23,
+        "missed_plan": 0,
+        "wrong_plan": 1,
+        "runtime_error": 0
+      },
+      "compile_failures": 0,
+      "cases_invoking_tev": 33,
+      "tev_calls": 46,
+      "all_case_median_ms": 593.5480835323688,
+      "model_case_median_ms": 781.3375829719007,
+      "model_case_p95_ms": 1506.3625000184402
+    },
+    "regression-59-v2.json": {
+      "cases": 59,
+      "outcomes": {
+        "correct_plan": 30,
+        "correct_handoff": 28,
+        "missed_plan": 1,
+        "wrong_plan": 0,
+        "runtime_error": 0
+      },
+      "compile_failures": 0,
+      "cases_invoking_tev": 49,
+      "tev_calls": 59,
+      "all_case_median_ms": 578.6044999840669,
+      "model_case_median_ms": 591.131207998842,
+      "model_case_p95_ms": 1301.1428749887273
+    },
+    "remaining-19-oracle.json": {
+      "cases": 19,
+      "outcomes": {
+        "correct_plan": 19,
+        "correct_handoff": 0,
+        "missed_plan": 0,
+        "wrong_plan": 0,
+        "runtime_error": 0
+      },
+      "compile_failures": 0,
+      "cases_invoking_tev": 15,
+      "tev_calls": 26,
+      "all_case_median_ms": 1235.4878339683637,
+      "model_case_median_ms": 1251.7746670055203,
+      "model_case_p95_ms": 1305.4688749834895
+    },
+    "holdout-24.json": {
+      "cases": 24,
+      "outcomes": {
+        "correct_plan": 12,
+        "correct_handoff": 12,
+        "missed_plan": 0,
+        "wrong_plan": 0,
+        "runtime_error": 0
+      },
+      "compile_failures": 0,
+      "cases_invoking_tev": 14,
+      "tev_calls": 18,
+      "all_case_median_ms": 548.9386459812522,
+      "model_case_median_ms": 609.8786664952058,
+      "model_case_p95_ms": 1246.1945000104606
+    },
+    "additional-160-v2.json": {
+      "cases": 160,
+      "outcomes": {
+        "correct_plan": 81,
+        "correct_handoff": 74,
+        "missed_plan": 0,
+        "wrong_plan": 5,
+        "runtime_error": 0
+      },
+      "compile_failures": 0,
+      "cases_invoking_tev": 135,
+      "tev_calls": 205,
+      "all_case_median_ms": 781.3616039929911,
+      "model_case_median_ms": 1238.1796250119805,
+      "model_case_p95_ms": 1696.9996659900062
+    },
+    "future-boundaries-40.json": {
+      "cases": 40,
+      "outcomes": {
+        "correct_plan": 0,
+        "correct_handoff": 39,
+        "missed_plan": 0,
+        "wrong_plan": 1,
+        "runtime_error": 0
+      },
+      "compile_failures": 0,
+      "cases_invoking_tev": 13,
+      "tev_calls": 17,
+      "all_case_median_ms": 42.28962500928901,
+      "model_case_median_ms": 759.651665983256,
+      "model_case_p95_ms": 1663.7729170033708
+    },
+    "review-profile-16.json": {
+      "cases": 16,
+      "outcomes": {
+        "correct_plan": 8,
+        "correct_handoff": 8,
+        "missed_plan": 0,
+        "wrong_plan": 0,
+        "runtime_error": 0
+      },
+      "compile_failures": 0,
+      "cases_invoking_tev": 0,
+      "tev_calls": 0,
+      "all_case_median_ms": 13.913562492234632,
+      "model_case_median_ms": null,
+      "model_case_p95_ms": null
+    },
+    "independent-vita-challenge.json": {
+      "cases": 40,
+      "outcomes": {
+        "correct_plan": 18,
+        "correct_handoff": 22,
+        "missed_plan": 0,
+        "wrong_plan": 0,
+        "runtime_error": 0
+      },
+      "compile_failures": 0,
+      "cases_invoking_tev": 26,
+      "tev_calls": 32,
+      "all_case_median_ms": 741.6343539953232,
+      "model_case_median_ms": 781.9204585102852,
+      "model_case_p95_ms": 1660.4529169853777
+    }
+  },
+  "total_case_entries": 406,
+  "unique_request_history_pairs": 387,
+  "tev_calls": 403,
+  "model_call_median_ms": 666.1667919834144,
+  "model_call_p95_ms": 886.7957500042394,
+  "failures": [
+    {
+      "suite": "expanded-48.json",
+      "id": "q35",
+      "request": "What does my ApoB mean medically?",
+      "grade": "wrong_plan",
+      "reasons": [],
+      "expected": null,
+      "actual": [
+        {
+          "kind": "health",
+          "metrics": [
+            "apob"
+          ],
+          "records": [],
+          "operation": "trend",
+          "period": {
+            "kind": "all_history"
+          },
+          "source": null,
+          "profile_fields": [],
+          "limit": null,
+          "date_basis": "observed_at"
+        }
+      ]
+    },
+    {
+      "suite": "regression-59-v2.json",
+      "id": "m47",
+      "request": "Sleep only, no labs",
+      "grade": "missed_plan",
+      "reasons": [
+        "tev_coverage_unconfirmed"
+      ],
+      "expected": [
+        {
+          "kind": "health",
+          "metrics": [
+            "sleep_efficiency",
+            "total_sleep"
+          ],
+          "records": [],
+          "operation": "trend",
+          "period": {
+            "kind": "relative",
+            "amount": 30,
+            "unit": "days"
+          },
+          "source": null,
+          "profile_fields": [],
+          "limit": null,
+          "date_basis": "observed_at"
+        }
+      ],
+      "actual": []
+    },
+    {
+      "suite": "additional-160-v2.json",
+      "id": "bA-022",
+      "request": "what even is apob?",
+      "grade": "wrong_plan",
+      "reasons": [],
+      "expected": null,
+      "actual": [
+        {
+          "kind": "health",
+          "metrics": [
+            "apob"
+          ],
+          "records": [],
+          "operation": "trend",
+          "period": {
+            "kind": "all_history"
+          },
+          "source": null,
+          "profile_fields": [],
+          "limit": null,
+          "date_basis": "observed_at"
+        }
+      ]
+    },
+    {
+      "suite": "additional-160-v2.json",
+      "id": "bA-064",
+      "request": "what's considered a good sleep efficiency in general?",
+      "grade": "wrong_plan",
+      "reasons": [],
+      "expected": null,
+      "actual": [
+        {
+          "kind": "health",
+          "metrics": [
+            "sleep_efficiency"
+          ],
+          "records": [],
+          "operation": "trend",
+          "period": {
+            "kind": "relative",
+            "amount": 30,
+            "unit": "days"
+          },
+          "source": null,
+          "profile_fields": [],
+          "limit": null,
+          "date_basis": "observed_at"
+        }
+      ]
+    },
+    {
+      "suite": "additional-160-v2.json",
+      "id": "bA-066",
+      "request": "what does ldl actually do in the body though?",
+      "grade": "wrong_plan",
+      "reasons": [],
+      "expected": null,
+      "actual": [
+        {
+          "kind": "health",
+          "metrics": [
+            "ldl_cholesterol"
+          ],
+          "records": [],
+          "operation": "trend",
+          "period": {
+            "kind": "all_history"
+          },
+          "source": null,
+          "profile_fields": [],
+          "limit": null,
+          "date_basis": "observed_at"
+        }
+      ]
+    },
+    {
+      "suite": "additional-160-v2.json",
+      "id": "bB-064",
+      "request": "Zeig mir meinen neuesten ApoB-Wert.",
+      "grade": "wrong_plan",
+      "reasons": [],
+      "expected": null,
+      "actual": [
+        {
+          "kind": "health",
+          "metrics": [
+            "apob"
+          ],
+          "records": [],
+          "operation": "trend",
+          "period": {
+            "kind": "all_history"
+          },
+          "source": null,
+          "profile_fields": [],
+          "limit": null,
+          "date_basis": "observed_at"
+        }
+      ]
+    },
+    {
+      "suite": "additional-160-v2.json",
+      "id": "bB-076",
+      "request": "Why does ApoB matter more than LDL?",
+      "grade": "wrong_plan",
+      "reasons": [],
+      "expected": null,
+      "actual": [
+        {
+          "kind": "health",
+          "metrics": [
+            "apob",
+            "ldl_cholesterol"
+          ],
+          "records": [],
+          "operation": "trend",
+          "period": {
+            "kind": "all_history"
+          },
+          "source": null,
+          "profile_fields": [],
+          "limit": null,
+          "date_basis": "observed_at"
+        }
+      ]
+    },
+    {
+      "suite": "future-boundaries-40.json",
+      "id": "f037",
+      "request": "Do not show my steps yesterday",
+      "grade": "wrong_plan",
+      "reasons": [],
+      "expected": null,
+      "actual": [
+        {
+          "kind": "health",
+          "metrics": [
+            "steps"
+          ],
+          "records": [],
+          "operation": "trend",
+          "period": {
+            "kind": "between",
+            "start_at": "2026-09-22",
+            "end_at": "2026-09-22"
+          },
+          "source": null,
+          "profile_fields": [],
+          "limit": null,
+          "date_basis": "observed_at"
+        }
+      ]
+    }
+  ]
+}

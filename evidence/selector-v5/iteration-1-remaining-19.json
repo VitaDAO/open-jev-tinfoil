@@ -1,0 +1,748 @@
+{
+  "selector_sha256": "3db9812ede6714f565603d9e4dfd14283777e279b7412da05e1245cf8caf6bf6",
+  "rows": [
+    {
+      "id": "bA-029",
+      "request": "how much have i been sleeping over the last 10 days",
+      "history": [],
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [
+              "total_sleep"
+            ],
+            "records": [],
+            "operation": "trend",
+            "period": {
+              "kind": "relative",
+              "amount": 10,
+              "unit": "days"
+            },
+            "source": null,
+            "profile_fields": [],
+            "limit": null,
+            "date_basis": "observed_at"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3db9812ede6714f565603d9e4dfd14283777e279b7412da05e1245cf8caf6bf6",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "d602da608ba1f76ce2fc75d64d8a1d74d704d21f3b5b2e11b9ad0a1094d3b836",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "bA-041",
+      "request": "different question - any health appointments next week?",
+      "history": [
+        "show my apob trend over the past year"
+      ],
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [],
+            "records": [
+              "calendar"
+            ],
+            "operation": "latest",
+            "period": {
+              "kind": "between",
+              "start_at": "2026-09-28",
+              "end_at": "2026-10-04"
+            },
+            "source": null,
+            "profile_fields": [],
+            "limit": null,
+            "date_basis": "next_due_date"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3db9812ede6714f565603d9e4dfd14283777e279b7412da05e1245cf8caf6bf6",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "15a595499aef768e2eaa053b1d93f3bfe063265bfc3ab259a87c76bb9be7381b",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "bA-043",
+      "request": "how's my sleep and step count been this month, and what does the research say about improving both?",
+      "history": [],
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [
+              "sleep_efficiency",
+              "steps",
+              "total_sleep"
+            ],
+            "records": [],
+            "operation": "trend",
+            "period": {
+              "kind": "calendar",
+              "period": "month"
+            },
+            "source": null,
+            "profile_fields": [],
+            "limit": null,
+            "date_basis": "observed_at"
+          },
+          {
+            "kind": "research",
+            "targets": [
+              "physical_activity",
+              "sleep"
+            ],
+            "interventions": [],
+            "goal": "improve"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3db9812ede6714f565603d9e4dfd14283777e279b7412da05e1245cf8caf6bf6",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "e38c43cbcf3016157f92b11dffe64cb6f2802c1ee314e5e468104969d019b4f9",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "bA-045",
+      "request": "show all my apob and ldl history plus what the evidence says about diet and exercise for bringing them down",
+      "history": [],
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [
+              "apob",
+              "ldl_cholesterol"
+            ],
+            "records": [],
+            "operation": "trend",
+            "period": {
+              "kind": "all_history"
+            },
+            "source": null,
+            "profile_fields": [],
+            "limit": null,
+            "date_basis": "observed_at"
+          },
+          {
+            "kind": "research",
+            "targets": [
+              "apob",
+              "ldl_cholesterol"
+            ],
+            "interventions": [
+              "diet",
+              "exercise"
+            ],
+            "goal": "lower"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3db9812ede6714f565603d9e4dfd14283777e279b7412da05e1245cf8caf6bf6",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "2f62f2f067491e337093812446006ec8839009730d482628243458a8fa48fe9b",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "bA-047",
+      "request": "what do the studies say about diet and exercise for lowering LDL? don't need my own numbers",
+      "history": [],
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "research",
+            "targets": [
+              "ldl_cholesterol"
+            ],
+            "interventions": [
+              "diet",
+              "exercise"
+            ],
+            "goal": "lower"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3db9812ede6714f565603d9e4dfd14283777e279b7412da05e1245cf8caf6bf6",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "3ae62fb29400f1526c9bc508246d44959c7e27cec41c3f46cbc598bf28363e3b",
+        "diagnostics": {}
+      }
+    },
+    {
+      "id": "bA-049",
+      "request": "are there any good trials on improving sleep and getting more active?",
+      "history": [],
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "research",
+            "targets": [
+              "physical_activity",
+              "sleep"
+            ],
+            "interventions": [],
+            "goal": "improve"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3db9812ede6714f565603d9e4dfd14283777e279b7412da05e1245cf8caf6bf6",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "df468099bccf24c9a07c4b7a12dd45241f4d134b6a854896fd8f1b09c1999395",
+        "diagnostics": {}
+      }
+    },
+    {
+      "id": "bA-061",
+      "request": "any lab reports from 2025 on file?",
+      "history": [],
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [],
+            "records": [
+              "labs"
+            ],
+            "operation": "latest",
+            "period": {
+              "kind": "between",
+              "start_at": "2025-01-01",
+              "end_at": "2025-12-31"
+            },
+            "source": null,
+            "profile_fields": [],
+            "limit": null,
+            "date_basis": "exam_date"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3db9812ede6714f565603d9e4dfd14283777e279b7412da05e1245cf8caf6bf6",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "a900e4e695054edc6127e6422039c9254eb2ca6f5702a47f1f0ff7c5d8aaf6d6",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "bA-068",
+      "request": "hows my slep been lookin this wk",
+      "history": [],
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [
+              "sleep_efficiency",
+              "total_sleep"
+            ],
+            "records": [],
+            "operation": "trend",
+            "period": {
+              "kind": "calendar",
+              "period": "week"
+            },
+            "source": null,
+            "profile_fields": [],
+            "limit": null,
+            "date_basis": "observed_at"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3db9812ede6714f565603d9e4dfd14283777e279b7412da05e1245cf8caf6bf6",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "d09953866880f6b1c0afcffcc60783a0f62669214d280461a799114e4008d6f1",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "bA-069",
+      "request": "how did I sleep last night?",
+      "history": [],
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [
+              "sleep_efficiency",
+              "total_sleep"
+            ],
+            "records": [],
+            "operation": "trend",
+            "period": {
+              "kind": "calendar",
+              "period": "day"
+            },
+            "source": null,
+            "profile_fields": [],
+            "limit": null,
+            "date_basis": "sleep_end_day"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3db9812ede6714f565603d9e4dfd14283777e279b7412da05e1245cf8caf6bf6",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "5c39032c009d82cda7be644e1f5263bbb7eada1a14afb400fb76e3aa09591f39",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "bA-080",
+      "request": "stpes for the past 7 days?",
+      "history": [],
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [
+              "steps"
+            ],
+            "records": [],
+            "operation": "trend",
+            "period": {
+              "kind": "relative",
+              "amount": 7,
+              "unit": "days"
+            },
+            "source": null,
+            "profile_fields": [],
+            "limit": null,
+            "date_basis": "observed_at"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3db9812ede6714f565603d9e4dfd14283777e279b7412da05e1245cf8caf6bf6",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "765a2d624322b514102050924e7598222b0377e919f442d3616df5c7322e43c7",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "bB-011",
+      "request": "What does my lipid picture look like across all time?",
+      "history": [],
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [
+              "apob",
+              "ldl_cholesterol"
+            ],
+            "records": [],
+            "operation": "trend",
+            "period": {
+              "kind": "all_history"
+            },
+            "source": null,
+            "profile_fields": [],
+            "limit": null,
+            "date_basis": "observed_at"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3db9812ede6714f565603d9e4dfd14283777e279b7412da05e1245cf8caf6bf6",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "4c75a64d87a4c75d317fd47f7b41c0d4c50808e3c8a24b35773cc02429017215",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "bB-012",
+      "request": "Look at my sleep over the past month, then tell me what trials say about using exercise to improve it.",
+      "history": [],
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "unbound_research_qualifier"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3db9812ede6714f565603d9e4dfd14283777e279b7412da05e1245cf8caf6bf6",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "2817d25e5e30f535410ce35defaf66c9ec633a122cbe733d9e88a6e9ce326614",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "bB-021",
+      "request": "Year-to-date step trend, please.",
+      "history": [],
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "query_contract_unrepresentable"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3db9812ede6714f565603d9e4dfd14283777e279b7412da05e1245cf8caf6bf6",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "a0eb8658b9e1120d33adac3a2f1280bae92c1c15ef6bcfac12946c68d520d9d7",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "bB-022",
+      "request": "Skip the trend line; I only want my single most recent ApoB value.",
+      "history": [],
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "no_supported_read"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3db9812ede6714f565603d9e4dfd14283777e279b7412da05e1245cf8caf6bf6",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "03f8588267c68b63608cadd88dc890b536915a46b29ca15f1f64d42ad2797998",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "unsupported",
+              "reason_codes": [
+                "no_supported_read"
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "bB-028",
+      "request": "Any screenings or health appointments due next month?",
+      "history": [],
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [],
+            "records": [
+              "calendar"
+            ],
+            "operation": "latest",
+            "period": {
+              "kind": "between",
+              "start_at": "2026-10-01",
+              "end_at": "2026-10-31"
+            },
+            "source": null,
+            "profile_fields": [],
+            "limit": null,
+            "date_basis": "next_due_date"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3db9812ede6714f565603d9e4dfd14283777e279b7412da05e1245cf8caf6bf6",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "1213d5d8c24d3b60f8d552f95e22a29162969b81c4cfc956e446346438cf868c",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "bB-037",
+      "request": "Show all of my step history since I started tracking.",
+      "history": [],
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [
+              "steps"
+            ],
+            "records": [],
+            "operation": "trend",
+            "period": {
+              "kind": "all_history"
+            },
+            "source": null,
+            "profile_fields": [],
+            "limit": null,
+            "date_basis": "observed_at"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3db9812ede6714f565603d9e4dfd14283777e279b7412da05e1245cf8caf6bf6",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "d849c78b480e475890b0ac460e3241ad74575ef48de6bfeaa359b67d930d1866",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "bB-038",
+      "request": "Pull up my whole health profile \u2014 goals, conditions, meds, allergies and demographics.",
+      "history": [],
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [],
+            "records": [
+              "profile"
+            ],
+            "operation": "latest",
+            "period": {
+              "kind": "all_history"
+            },
+            "source": null,
+            "profile_fields": [
+              "all"
+            ],
+            "limit": null,
+            "date_basis": "current_snapshot"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3db9812ede6714f565603d9e4dfd14283777e279b7412da05e1245cf8caf6bf6",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "389ecbbcc0cb52ed297e5755a2ac1d6af0a64376f42afab9b4700f97456a0de8",
+        "diagnostics": {}
+      }
+    },
+    {
+      "id": "bB-071",
+      "request": "Sleep over the past week, duration only \u2014 leave efficiency out of it.",
+      "history": [],
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [
+              "total_sleep"
+            ],
+            "records": [],
+            "operation": "trend",
+            "period": {
+              "kind": "relative",
+              "amount": 7,
+              "unit": "days"
+            },
+            "source": null,
+            "profile_fields": [],
+            "limit": null,
+            "date_basis": "observed_at"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3db9812ede6714f565603d9e4dfd14283777e279b7412da05e1245cf8caf6bf6",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "5cdcc43a2da0b8495239232f05837dc7643e0541ad479d4c95d3c9a2c54d31de",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "bB-073",
+      "request": "What do randomized trials say about exercise and diet for bringing ApoB down?",
+      "history": [],
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "research",
+            "targets": [
+              "apob"
+            ],
+            "interventions": [
+              "diet",
+              "exercise"
+            ],
+            "goal": "lower"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "3db9812ede6714f565603d9e4dfd14283777e279b7412da05e1245cf8caf6bf6",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "784795103cd5b8b35c110d7a141804d58fafa99880918ebe211197893d759059",
+        "diagnostics": {}
+      }
+    }
+  ]
+}

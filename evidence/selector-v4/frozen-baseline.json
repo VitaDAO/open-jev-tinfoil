@@ -1,0 +1,3923 @@
+{
+  "candidate": "trained",
+  "scope": "Local 4-thread CPU; compiled legacy plans; no DB, WAN or attestation",
+  "fixture_sha256": "be1153ffaa4f6f689f83914b3d1bc7e87befedb700621bd458c6564288c3a419",
+  "source_sha256": {
+    "trained_proposal_selector.py": "753d10eef3f3c1b548d2e169372653ebb9d33f482aaf28e06b886d8943c2933a",
+    "adapters/vita-read-intent-v1.json": "aa67ad90ebfe34be36d9c4799f665ccb7df71d2bd50e4dde184c2e19ba97539c",
+    "proposal_selector.py": "dae7f2f7c37cb84e51efc889f49de29586cd858a229ebe51f0adaabd02e8de1f",
+    "proposal_binding.py": "135026117495bb474f31935a4a921c1fa55b821cac16e33b3ae416f5d2d16b62",
+    "temporal_spans.py": "58c39da58001bc75bd104ac3135ec67cbe9e6a378b534cfa1bc70aa6dd707464",
+    "metadata/health_metrics.v1.json": "729b6cde6fad0943161fe9af52b900d3df58ce2b28ef0202f920a08ca88fc571",
+    "metadata/selector-index.v1.json": "4b1e09839e26efa28ce9adfd57abdb50958f355efddc86e06c218b6f279efab6",
+    "schema_index.py": "a4ea14febc7313ebc9fa472f13ee03e7c35ba9e5e4452fdb9b953c14adb2f094",
+    "learned_selector.py": "4fe508beeb344df1f69e661d6972ffff04dcffe97568f87b10e1dd1b662969de",
+    "selector.py": "bb0bcf60f5690787e726b738667e8e8293f9cebb824bc0a772f7f4c8687ca541",
+    "scripts/evaluate_selector_exact.py": "9e4e337b91ce11535b188950bd1d26ea376a83fb1f53146f23ab5c6f9b6df7fc",
+    "tests/contracts/vita_read_contract.py": "3afa1d3b1e5361fe344d8dd1cd05f97ca9daa3f7e7f65f569e88ad491b7741b6",
+    "tests/contracts/jev_dates.py": "8a78fc5a1e2961b73360dec7a6e532dfcb15bd98844f3a4563f41a58650e39c8"
+  },
+  "load_ms": 2729.775,
+  "warm_p50_ms": 127.951,
+  "warm_p95_ms": 413.987,
+  "warm_model_requests": 39,
+  "warm_model_p50_ms": 127.951,
+  "warm_model_p95_ms": 413.987,
+  "all_author_labels": {
+    "cases": 40,
+    "correct": 29,
+    "outcomes": {
+      "wrong_plan": 1,
+      "missed_plan": 10,
+      "correct_plan": 9,
+      "correct_handoff": 20
+    },
+    "required_plan_cases": 20,
+    "executable_plans": 10,
+    "excluded_label_disagreements": 0
+  },
+  "consensus": {
+    "cases": 40,
+    "correct": 29,
+    "outcomes": {
+      "wrong_plan": 1,
+      "missed_plan": 10,
+      "correct_plan": 9,
+      "correct_handoff": 20
+    },
+    "required_plan_cases": 20,
+    "executable_plans": 10,
+    "excluded_label_disagreements": 0
+  },
+  "rows": [
+    {
+      "id": "n01",
+      "label_agreement": true,
+      "status": "selected",
+      "reason_codes": [],
+      "diagnostics": {
+        "confidence_policy": "proposal_v3",
+        "predicted_decisions": {
+          "task": "health",
+          "coverage": "targeted",
+          "purpose": "latest",
+          "research": "none",
+          "period_kind": "unstated",
+          "calendar_basis": "current_plans",
+          "context": "current",
+          "profile": "no",
+          "workouts": "no",
+          "labs": "no",
+          "calendar": "no"
+        },
+        "decision_margins": {
+          "task": 1.50580934747052,
+          "coverage": 1.0948889265865684,
+          "purpose": 0.5176272811872004,
+          "research": 0.24518587924953417,
+          "period_kind": 0.02902931672865855,
+          "calendar_basis": 0.7312065410932795,
+          "context": 1.1643775173309976,
+          "profile": 0.513923582343415,
+          "workouts": 1.2287663328871508,
+          "labs": 0.2169254036209906,
+          "calendar": 0.37662176357159954
+        },
+        "semantic_coverage": {
+          "intent": {
+            "choice": "recorded_health_read",
+            "score": 0.4451426198977456,
+            "threshold": 0.0,
+            "adapter_sha256": "aa67ad90ebfe34be36d9c4799f665ccb7df71d2bd50e4dde184c2e19ba97539c"
+          },
+          "coverage": {
+            "choice": "the proposed read covers the request",
+            "probabilities": {
+              "the proposed read covers the request": 0.751911997795105,
+              "the request needs something else": 0.24808798730373383
+            },
+            "confidence": 0.751911997795105
+          }
+        },
+        "proposal": {
+          "task": "health",
+          "coverage": "targeted",
+          "operation": "latest",
+          "metrics": [
+            "respiratory_rate"
+          ],
+          "records": [],
+          "period": {
+            "period_kind": "absolute",
+            "calendar_unit": "none",
+            "calendar_offset": "none",
+            "rolling_amount": "none",
+            "rolling_unit": "none",
+            "start_year": "reference_year",
+            "start_month": "5",
+            "start_day": "none",
+            "end_year": "none",
+            "end_month": "none",
+            "end_day": "none"
+          },
+          "calendar_basis": "current_plans",
+          "research": "none",
+          "constraints": []
+        }
+      },
+      "model_evaluated": true,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "latest",
+            "concepts": [
+              "respiratory_rate"
+            ],
+            "range": {
+              "kind": "between",
+              "start_at": "2026-05-01",
+              "end_at": "2026-05-31"
+            },
+            "time_zone": "UTC"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "error": null,
+      "elapsed_ms": 474.191,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "operation_id": 1,
+                  "purpose": "latest",
+                  "concepts": [
+                    "respiratory_rate"
+                  ],
+                  "range": {
+                    "kind": "all_history"
+                  },
+                  "time_zone": "UTC"
+                }
+              ],
+              "required_operation_ids": [
+                1
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "wrong_plan"
+      }
+    },
+    {
+      "id": "n02",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unbound_quantity"
+      ],
+      "diagnostics": {
+        "confidence_policy": "proposal_v3",
+        "predicted_decisions": {
+          "task": "health",
+          "coverage": "targeted",
+          "purpose": "latest",
+          "research": "none",
+          "period_kind": "rolling",
+          "calendar_basis": "current_plans",
+          "context": "current",
+          "profile": "no",
+          "workouts": "no",
+          "labs": "no",
+          "calendar": "no"
+        },
+        "decision_margins": {
+          "task": 0.5307008045055641,
+          "coverage": 0.4834615626680492,
+          "purpose": 0.1428868350010084,
+          "research": 0.2949904399139114,
+          "period_kind": 0.2989493212678958,
+          "calendar_basis": 0.9971269565930896,
+          "context": 0.7334723223252247,
+          "profile": 1.448800238213878,
+          "workouts": 1.120114047047645,
+          "labs": 0.8036298417331588,
+          "calendar": 1.1511712430803875
+        },
+        "semantic_coverage": null,
+        "proposal": {
+          "task": "health",
+          "coverage": "targeted",
+          "operation": "latest",
+          "metrics": [
+            "oxygen_saturation"
+          ],
+          "records": [],
+          "period": {
+            "period_kind": "unstated",
+            "calendar_unit": "none",
+            "calendar_offset": "none",
+            "rolling_amount": "none",
+            "rolling_unit": "none",
+            "start_year": "none",
+            "start_month": "none",
+            "start_day": "none",
+            "end_year": "none",
+            "end_month": "none",
+            "end_day": "none"
+          },
+          "calendar_basis": "current_plans",
+          "research": "none",
+          "constraints": [
+            {
+              "kind": "unbound_quantity",
+              "evidence": "one",
+              "supported": false
+            }
+          ]
+        }
+      },
+      "model_evaluated": true,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 114.349,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "operation_id": 1,
+                  "purpose": "latest",
+                  "concepts": [
+                    "oxygen_saturation"
+                  ],
+                  "range": {
+                    "kind": "all_history"
+                  },
+                  "time_zone": "UTC"
+                }
+              ],
+              "required_operation_ids": [
+                1
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "missed_plan"
+      }
+    },
+    {
+      "id": "n03",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unbound_source"
+      ],
+      "diagnostics": {
+        "confidence_policy": "proposal_v3",
+        "predicted_decisions": {
+          "task": "health",
+          "coverage": "targeted",
+          "purpose": "trend",
+          "research": "broad_overview",
+          "period_kind": "rolling",
+          "calendar_basis": "current_plans",
+          "context": "current",
+          "profile": "no",
+          "workouts": "no",
+          "labs": "no",
+          "calendar": "yes"
+        },
+        "decision_margins": {
+          "task": 0.9635261052783166,
+          "coverage": 0.39628463182813345,
+          "purpose": 0.8449545056994099,
+          "research": 0.20529153113805626,
+          "period_kind": 0.5689286781722165,
+          "calendar_basis": 0.8866570239478853,
+          "context": 1.1966148477337915,
+          "profile": 0.48853885208693465,
+          "workouts": 0.3487269553038086,
+          "labs": 0.040157971637145184,
+          "calendar": 0.14576359007613765
+        },
+        "semantic_coverage": null,
+        "proposal": {
+          "task": "health",
+          "coverage": "targeted",
+          "operation": "trend",
+          "metrics": [
+            "steps"
+          ],
+          "records": [],
+          "period": {
+            "period_kind": "rolling",
+            "calendar_unit": "none",
+            "calendar_offset": "none",
+            "rolling_amount": "13",
+            "rolling_unit": "days",
+            "start_year": "none",
+            "start_month": "none",
+            "start_day": "none",
+            "end_year": "none",
+            "end_month": "none",
+            "end_day": "none"
+          },
+          "calendar_basis": "current_plans",
+          "research": "none",
+          "constraints": [
+            {
+              "kind": "unbound_source",
+              "evidence": "from the             ",
+              "supported": false
+            }
+          ]
+        }
+      },
+      "model_evaluated": true,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 110.832,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "operation_id": 1,
+                  "purpose": "trend",
+                  "concepts": [
+                    "steps"
+                  ],
+                  "range": {
+                    "kind": "relative",
+                    "amount": 13,
+                    "unit": "days"
+                  },
+                  "time_zone": "UTC"
+                }
+              ],
+              "required_operation_ids": [
+                1
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "missed_plan"
+      }
+    },
+    {
+      "id": "n04",
+      "label_agreement": true,
+      "status": "selected",
+      "reason_codes": [],
+      "diagnostics": {
+        "confidence_policy": "proposal_v3",
+        "predicted_decisions": {
+          "task": "health",
+          "coverage": "targeted",
+          "purpose": "trend",
+          "research": "none",
+          "period_kind": "unstated",
+          "calendar_basis": "current_plans",
+          "context": "current",
+          "profile": "no",
+          "workouts": "no",
+          "labs": "no",
+          "calendar": "yes"
+        },
+        "decision_margins": {
+          "task": 0.6089994038644353,
+          "coverage": 0.2985294701242476,
+          "purpose": 0.5401447477598154,
+          "research": 0.5393376318299196,
+          "period_kind": 0.3447544800688035,
+          "calendar_basis": 0.29567199337907013,
+          "context": 1.2119619128490813,
+          "profile": 0.6334191460251177,
+          "workouts": 0.4141026340062618,
+          "labs": 0.511409012866836,
+          "calendar": 0.8425528129503517
+        },
+        "semantic_coverage": {
+          "intent": {
+            "choice": "recorded_health_read",
+            "score": 0.07605542595343148,
+            "threshold": 0.0,
+            "adapter_sha256": "aa67ad90ebfe34be36d9c4799f665ccb7df71d2bd50e4dde184c2e19ba97539c"
+          },
+          "coverage": {
+            "choice": "the proposed read covers the request",
+            "probabilities": {
+              "the proposed read covers the request": 0.7378780841827393,
+              "the request needs something else": 0.26212194561958313
+            },
+            "confidence": 0.7378780841827393
+          }
+        },
+        "proposal": {
+          "task": "health",
+          "coverage": "targeted",
+          "operation": "trend",
+          "metrics": [],
+          "records": [
+            "calendar"
+          ],
+          "period": {
+            "period_kind": "calendar",
+            "calendar_unit": "day",
+            "calendar_offset": "next",
+            "rolling_amount": "none",
+            "rolling_unit": "none",
+            "start_year": "none",
+            "start_month": "none",
+            "start_day": "none",
+            "end_year": "none",
+            "end_month": "none",
+            "end_day": "none"
+          },
+          "calendar_basis": "next_due_date",
+          "research": "none",
+          "constraints": []
+        }
+      },
+      "model_evaluated": true,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "latest",
+            "record_types": [
+              "calendar"
+            ],
+            "range": {
+              "kind": "between",
+              "start_at": "2026-09-24",
+              "end_at": "2026-09-24"
+            },
+            "time_zone": "UTC",
+            "record_detail_dataset": "calendar.events.v1",
+            "record_detail_limit": 8,
+            "calendar_date_basis": "next_due_date"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "error": null,
+      "elapsed_ms": 403.328,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "operation_id": 1,
+                  "purpose": "latest",
+                  "record_types": [
+                    "calendar"
+                  ],
+                  "range": {
+                    "kind": "between",
+                    "start_at": "2026-09-24",
+                    "end_at": "2026-09-24"
+                  },
+                  "time_zone": "UTC",
+                  "record_detail_dataset": "calendar.events.v1",
+                  "record_detail_limit": 8,
+                  "calendar_date_basis": "next_due_date"
+                }
+              ],
+              "required_operation_ids": [
+                1
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "correct_plan"
+      }
+    },
+    {
+      "id": "n05",
+      "label_agreement": true,
+      "status": "selected",
+      "reason_codes": [],
+      "diagnostics": {
+        "confidence_policy": "proposal_v3",
+        "predicted_decisions": {
+          "task": "health",
+          "coverage": "broad",
+          "purpose": "trend",
+          "research": "broad_overview",
+          "period_kind": "unstated",
+          "calendar_basis": "current_plans",
+          "context": "current",
+          "profile": "yes",
+          "workouts": "yes",
+          "labs": "yes",
+          "calendar": "yes"
+        },
+        "decision_margins": {
+          "task": 1.3130679776775578,
+          "coverage": 0.605199507267455,
+          "purpose": 0.9300838252182206,
+          "research": 0.14184156680494459,
+          "period_kind": 0.28790507154423284,
+          "calendar_basis": 1.053348846270074,
+          "context": 1.159532327286708,
+          "profile": 1.1952495448718354,
+          "workouts": 0.8764955575655947,
+          "labs": 1.3835030167403493,
+          "calendar": 1.061795900608864
+        },
+        "semantic_coverage": {
+          "intent": {
+            "choice": "recorded_health_read",
+            "score": 0.5662078737262002,
+            "threshold": 0.0,
+            "adapter_sha256": "aa67ad90ebfe34be36d9c4799f665ccb7df71d2bd50e4dde184c2e19ba97539c"
+          },
+          "coverage": {
+            "choice": "the proposed read covers the request",
+            "probabilities": {
+              "the proposed read covers the request": 0.7410186529159546,
+              "the request needs something else": 0.2589814066886902
+            },
+            "confidence": 0.7410186529159546
+          }
+        },
+        "proposal": {
+          "task": "health",
+          "coverage": "targeted",
+          "operation": "trend",
+          "metrics": [],
+          "records": [
+            "profile"
+          ],
+          "period": {
+            "period_kind": "unstated",
+            "calendar_unit": "none",
+            "calendar_offset": "none",
+            "rolling_amount": "none",
+            "rolling_unit": "none",
+            "start_year": "none",
+            "start_month": "none",
+            "start_day": "none",
+            "end_year": "none",
+            "end_month": "none",
+            "end_day": "none"
+          },
+          "calendar_basis": "current_plans",
+          "research": "none",
+          "constraints": []
+        }
+      },
+      "model_evaluated": true,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "latest",
+            "record_types": [
+              "profile"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "profile_fields": [
+              "goals",
+              "chronic_conditions",
+              "medications",
+              "no_regular_medications",
+              "allergies",
+              "sex",
+              "birth_year",
+              "height_cm",
+              "weight_kg"
+            ]
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "error": null,
+      "elapsed_ms": 409.255,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "operation_id": 1,
+                  "purpose": "latest",
+                  "record_types": [
+                    "profile"
+                  ],
+                  "range": {
+                    "kind": "all_history"
+                  },
+                  "time_zone": "UTC",
+                  "profile_fields": [
+                    "goals",
+                    "chronic_conditions",
+                    "medications",
+                    "no_regular_medications",
+                    "allergies",
+                    "sex",
+                    "birth_year",
+                    "height_cm",
+                    "weight_kg"
+                  ]
+                }
+              ],
+              "required_operation_ids": [
+                1
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "correct_plan"
+      }
+    },
+    {
+      "id": "n06",
+      "label_agreement": true,
+      "status": "selected",
+      "reason_codes": [],
+      "diagnostics": {
+        "confidence_policy": "proposal_v3",
+        "predicted_decisions": {
+          "task": "health",
+          "coverage": "targeted",
+          "purpose": "trend",
+          "research": "none",
+          "period_kind": "absolute",
+          "calendar_basis": "current_plans",
+          "context": "current",
+          "profile": "no",
+          "workouts": "no",
+          "labs": "no",
+          "calendar": "no"
+        },
+        "decision_margins": {
+          "task": 1.3708610265608874,
+          "coverage": 1.1475175970533809,
+          "purpose": 0.9585456364424643,
+          "research": 0.2950821626216644,
+          "period_kind": 0.3092198477080207,
+          "calendar_basis": 0.7096373966553065,
+          "context": 1.2971920683667675,
+          "profile": 0.5902529745294438,
+          "workouts": 0.5708832918285582,
+          "labs": 0.08844160514010624,
+          "calendar": 0.16657862863724787
+        },
+        "semantic_coverage": {
+          "intent": {
+            "choice": "recorded_health_read",
+            "score": 0.9431913834899242,
+            "threshold": 0.0,
+            "adapter_sha256": "aa67ad90ebfe34be36d9c4799f665ccb7df71d2bd50e4dde184c2e19ba97539c"
+          },
+          "coverage": {
+            "choice": "the proposed read covers the request",
+            "probabilities": {
+              "the proposed read covers the request": 0.7139808535575867,
+              "the request needs something else": 0.28601911664009094
+            },
+            "confidence": 0.7139808535575867
+          }
+        },
+        "proposal": {
+          "task": "health",
+          "coverage": "targeted",
+          "operation": "trend",
+          "metrics": [
+            "steps"
+          ],
+          "records": [],
+          "period": {
+            "period_kind": "absolute",
+            "calendar_unit": "none",
+            "calendar_offset": "none",
+            "rolling_amount": "none",
+            "rolling_unit": "none",
+            "start_year": "2023",
+            "start_month": "none",
+            "start_day": "none",
+            "end_year": "none",
+            "end_month": "none",
+            "end_day": "none"
+          },
+          "calendar_basis": "current_plans",
+          "research": "none",
+          "constraints": []
+        }
+      },
+      "model_evaluated": true,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "trend",
+            "concepts": [
+              "steps"
+            ],
+            "range": {
+              "kind": "between",
+              "start_at": "2023-01-01",
+              "end_at": "2023-12-31"
+            },
+            "time_zone": "UTC"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "error": null,
+      "elapsed_ms": 397.216,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "operation_id": 1,
+                  "purpose": "trend",
+                  "concepts": [
+                    "steps"
+                  ],
+                  "range": {
+                    "kind": "between",
+                    "start_at": "2023-01-01",
+                    "end_at": "2023-12-31"
+                  },
+                  "time_zone": "UTC"
+                }
+              ],
+              "required_operation_ids": [
+                1
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "correct_plan"
+      }
+    },
+    {
+      "id": "n07",
+      "label_agreement": true,
+      "status": "selected",
+      "reason_codes": [],
+      "diagnostics": {
+        "confidence_policy": "proposal_v3",
+        "predicted_decisions": {
+          "task": "health",
+          "coverage": "targeted",
+          "purpose": "trend",
+          "research": "none",
+          "period_kind": "calendar",
+          "calendar_basis": "current_plans",
+          "context": "current",
+          "profile": "no",
+          "workouts": "no",
+          "labs": "yes",
+          "calendar": "no"
+        },
+        "decision_margins": {
+          "task": 1.4806901325587685,
+          "coverage": 0.4903057595117724,
+          "purpose": 0.8471526040515038,
+          "research": 0.2536423901112014,
+          "period_kind": 0.09040493950732825,
+          "calendar_basis": 0.8514608488109698,
+          "context": 0.6807471457243573,
+          "profile": 0.0640970768526416,
+          "workouts": 0.18495320344949562,
+          "labs": 0.07882896409572548,
+          "calendar": 0.18738464242048603
+        },
+        "semantic_coverage": {
+          "intent": {
+            "choice": "recorded_health_read",
+            "score": 0.11300748655429038,
+            "threshold": 0.0,
+            "adapter_sha256": "aa67ad90ebfe34be36d9c4799f665ccb7df71d2bd50e4dde184c2e19ba97539c"
+          },
+          "coverage": {
+            "choice": "the proposed read covers the request",
+            "probabilities": {
+              "the proposed read covers the request": 0.7142457962036133,
+              "the request needs something else": 0.2857542932033539
+            },
+            "confidence": 0.7142457962036133
+          }
+        },
+        "proposal": {
+          "task": "health",
+          "coverage": "targeted",
+          "operation": "trend",
+          "metrics": [
+            "respiratory_rate"
+          ],
+          "records": [],
+          "period": {
+            "period_kind": "calendar",
+            "calendar_unit": "year",
+            "calendar_offset": "current",
+            "rolling_amount": "none",
+            "rolling_unit": "none",
+            "start_year": "none",
+            "start_month": "none",
+            "start_day": "none",
+            "end_year": "none",
+            "end_month": "none",
+            "end_day": "none"
+          },
+          "calendar_basis": "current_plans",
+          "research": "none",
+          "constraints": []
+        }
+      },
+      "model_evaluated": true,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "trend",
+            "concepts": [
+              "respiratory_rate"
+            ],
+            "range": {
+              "kind": "between",
+              "start_at": "2026-01-01",
+              "end_at": "2026-09-23T12:00:00+00:00"
+            },
+            "time_zone": "UTC"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "error": null,
+      "elapsed_ms": 431.219,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "operation_id": 1,
+                  "purpose": "trend",
+                  "concepts": [
+                    "respiratory_rate"
+                  ],
+                  "range": {
+                    "kind": "between",
+                    "start_at": "2026-01-01",
+                    "end_at": "2026-09-23T12:00:00+00:00"
+                  },
+                  "time_zone": "UTC"
+                }
+              ],
+              "required_operation_ids": [
+                1
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "correct_plan"
+      }
+    },
+    {
+      "id": "n08",
+      "label_agreement": true,
+      "status": "selected",
+      "reason_codes": [],
+      "diagnostics": {
+        "confidence_policy": "proposal_v3",
+        "predicted_decisions": {
+          "task": "health",
+          "coverage": "targeted",
+          "purpose": "trend",
+          "research": "none",
+          "period_kind": "unstated",
+          "calendar_basis": "current_plans",
+          "context": "current",
+          "profile": "no",
+          "workouts": "no",
+          "labs": "yes",
+          "calendar": "yes"
+        },
+        "decision_margins": {
+          "task": 1.2205388487224944,
+          "coverage": 0.9182662945478356,
+          "purpose": 0.5744670524753509,
+          "research": 0.6478357421552519,
+          "period_kind": 0.1558405753410077,
+          "calendar_basis": 0.5705025788787687,
+          "context": 1.1477550796368272,
+          "profile": 0.5802610896714394,
+          "workouts": 0.8640840595275754,
+          "labs": 0.8063996248844637,
+          "calendar": 0.04736528287520975
+        },
+        "semantic_coverage": {
+          "intent": {
+            "choice": "recorded_health_read",
+            "score": 0.16522915902210794,
+            "threshold": 0.0,
+            "adapter_sha256": "aa67ad90ebfe34be36d9c4799f665ccb7df71d2bd50e4dde184c2e19ba97539c"
+          },
+          "coverage": {
+            "choice": "the proposed read covers the request",
+            "probabilities": {
+              "the proposed read covers the request": 0.742781937122345,
+              "the request needs something else": 0.2572180926799774
+            },
+            "confidence": 0.742781937122345
+          }
+        },
+        "proposal": {
+          "task": "health",
+          "coverage": "targeted",
+          "operation": "trend",
+          "metrics": [],
+          "records": [
+            "labs"
+          ],
+          "period": {
+            "period_kind": "unstated",
+            "calendar_unit": "none",
+            "calendar_offset": "none",
+            "rolling_amount": "none",
+            "rolling_unit": "none",
+            "start_year": "none",
+            "start_month": "none",
+            "start_day": "none",
+            "end_year": "none",
+            "end_month": "none",
+            "end_day": "none"
+          },
+          "calendar_basis": "current_plans",
+          "research": "none",
+          "constraints": []
+        }
+      },
+      "model_evaluated": true,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "latest",
+            "record_types": [
+              "labs"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "record_detail_dataset": "labs.upload_metadata.v1",
+            "record_detail_limit": 3
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "error": null,
+      "elapsed_ms": 409.028,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "operation_id": 1,
+                  "purpose": "latest",
+                  "record_types": [
+                    "labs"
+                  ],
+                  "range": {
+                    "kind": "all_history"
+                  },
+                  "time_zone": "UTC",
+                  "record_detail_dataset": "labs.upload_metadata.v1",
+                  "record_detail_limit": 3
+                }
+              ],
+              "required_operation_ids": [
+                1
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "correct_plan"
+      }
+    },
+    {
+      "id": "n09",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unbound_source"
+      ],
+      "diagnostics": {
+        "confidence_policy": "proposal_v3",
+        "predicted_decisions": {
+          "task": "health",
+          "coverage": "targeted",
+          "purpose": "trend",
+          "research": "none",
+          "period_kind": "rolling",
+          "calendar_basis": "current_plans",
+          "context": "current",
+          "profile": "no",
+          "workouts": "no",
+          "labs": "no",
+          "calendar": "no"
+        },
+        "decision_margins": {
+          "task": 1.406400796391327,
+          "coverage": 1.4838447296228758,
+          "purpose": 0.7862806491218062,
+          "research": 0.0906804390837721,
+          "period_kind": 0.36246868249457864,
+          "calendar_basis": 0.5381618234435901,
+          "context": 1.345711091501656,
+          "profile": 0.8535416400905029,
+          "workouts": 1.254828369946161,
+          "labs": 0.39667665988510015,
+          "calendar": 0.1140267009764318
+        },
+        "semantic_coverage": null,
+        "proposal": {
+          "task": "health",
+          "coverage": "targeted",
+          "operation": "trend",
+          "metrics": [],
+          "records": [
+            "workouts"
+          ],
+          "period": {
+            "period_kind": "rolling",
+            "calendar_unit": "none",
+            "calendar_offset": "none",
+            "rolling_amount": "8",
+            "rolling_unit": "days",
+            "start_year": "none",
+            "start_month": "none",
+            "start_day": "none",
+            "end_year": "none",
+            "end_month": "none",
+            "end_day": "none"
+          },
+          "calendar_basis": "current_plans",
+          "research": "none",
+          "constraints": [
+            {
+              "kind": "unbound_source",
+              "evidence": "from the            ",
+              "supported": false
+            }
+          ]
+        }
+      },
+      "model_evaluated": true,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 153.024,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "operation_id": 1,
+                  "purpose": "latest",
+                  "record_types": [
+                    "workouts"
+                  ],
+                  "range": {
+                    "kind": "relative",
+                    "amount": 8,
+                    "unit": "days"
+                  },
+                  "time_zone": "UTC"
+                }
+              ],
+              "required_operation_ids": [
+                1
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "missed_plan"
+      }
+    },
+    {
+      "id": "n10",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unresolved_followup",
+        "unresolved_metric_or_record"
+      ],
+      "diagnostics": {
+        "confidence_policy": "proposal_v3",
+        "predicted_decisions": {
+          "task": "health",
+          "coverage": "targeted",
+          "purpose": "trend",
+          "research": "broad_overview",
+          "period_kind": "rolling",
+          "calendar_basis": "current_plans",
+          "context": "current",
+          "profile": "no",
+          "workouts": "no",
+          "labs": "no",
+          "calendar": "no"
+        },
+        "decision_margins": {
+          "task": 0.9389357361032052,
+          "coverage": 0.6824870016699331,
+          "purpose": 0.5202542029819996,
+          "research": 0.13515574766216254,
+          "period_kind": 0.9211627305288875,
+          "calendar_basis": 0.9104016421571985,
+          "context": 0.6472626862665204,
+          "profile": 0.8375514576237368,
+          "workouts": 0.8429111246992219,
+          "labs": 0.5472745440287257,
+          "calendar": 0.7013130986495346
+        },
+        "semantic_coverage": null,
+        "proposal": {
+          "task": "health",
+          "coverage": "targeted",
+          "operation": "trend",
+          "metrics": [],
+          "records": [],
+          "period": {
+            "period_kind": "rolling",
+            "calendar_unit": "none",
+            "calendar_offset": "none",
+            "rolling_amount": "4",
+            "rolling_unit": "weeks",
+            "start_year": "none",
+            "start_month": "none",
+            "start_day": "none",
+            "end_year": "none",
+            "end_month": "none",
+            "end_day": "none"
+          },
+          "calendar_basis": "current_plans",
+          "research": "none",
+          "constraints": []
+        }
+      },
+      "model_evaluated": true,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 135.218,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "operation_id": 1,
+                  "purpose": "trend",
+                  "concepts": [
+                    "steps"
+                  ],
+                  "range": {
+                    "kind": "relative",
+                    "amount": 28,
+                    "unit": "days"
+                  },
+                  "time_zone": "UTC"
+                }
+              ],
+              "required_operation_ids": [
+                1
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "missed_plan"
+      }
+    },
+    {
+      "id": "n11",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unresolved_followup",
+        "unresolved_metric_or_record"
+      ],
+      "diagnostics": {
+        "confidence_policy": "proposal_v3",
+        "predicted_decisions": {
+          "task": "health",
+          "coverage": "targeted",
+          "purpose": "trend",
+          "research": "none",
+          "period_kind": "rolling",
+          "calendar_basis": "current_plans",
+          "context": "current",
+          "profile": "no",
+          "workouts": "no",
+          "labs": "no",
+          "calendar": "no"
+        },
+        "decision_margins": {
+          "task": 0.6306496884487605,
+          "coverage": 0.4391081181328712,
+          "purpose": 0.0013874761056367202,
+          "research": 0.05959174263496614,
+          "period_kind": 0.11618483788899053,
+          "calendar_basis": 1.1034642566376278,
+          "context": 0.6852852367661235,
+          "profile": 0.5070058000166726,
+          "workouts": 0.6525800969341551,
+          "labs": 0.2872574619391902,
+          "calendar": 0.7558531916178213
+        },
+        "semantic_coverage": null,
+        "proposal": {
+          "task": "health",
+          "coverage": "targeted",
+          "operation": "trend",
+          "metrics": [],
+          "records": [],
+          "period": {
+            "period_kind": "calendar",
+            "calendar_unit": "month",
+            "calendar_offset": "previous",
+            "rolling_amount": "none",
+            "rolling_unit": "none",
+            "start_year": "none",
+            "start_month": "none",
+            "start_day": "none",
+            "end_year": "none",
+            "end_month": "none",
+            "end_day": "none"
+          },
+          "calendar_basis": "current_plans",
+          "research": "none",
+          "constraints": []
+        }
+      },
+      "model_evaluated": true,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 133.23,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "operation_id": 1,
+                  "purpose": "trend",
+                  "concepts": [
+                    "sleep_efficiency",
+                    "total_sleep"
+                  ],
+                  "range": {
+                    "kind": "between",
+                    "start_at": "2026-08-01",
+                    "end_at": "2026-08-31"
+                  },
+                  "time_zone": "UTC"
+                }
+              ],
+              "required_operation_ids": [
+                1
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "missed_plan"
+      }
+    },
+    {
+      "id": "n12",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unbound_source"
+      ],
+      "diagnostics": {
+        "confidence_policy": "proposal_v3",
+        "predicted_decisions": {
+          "task": "health",
+          "coverage": "targeted",
+          "purpose": "trend",
+          "research": "none",
+          "period_kind": "rolling",
+          "calendar_basis": "current_plans",
+          "context": "current",
+          "profile": "no",
+          "workouts": "no",
+          "labs": "no",
+          "calendar": "no"
+        },
+        "decision_margins": {
+          "task": 1.0905001794380447,
+          "coverage": 0.8824319286123192,
+          "purpose": 0.5683680193186071,
+          "research": 0.06680128541300867,
+          "period_kind": 0.353457614405598,
+          "calendar_basis": 0.9884371915545436,
+          "context": 1.0116468542978008,
+          "profile": 0.7868111267921428,
+          "workouts": 0.9956628250466678,
+          "labs": 0.5794964936713356,
+          "calendar": 1.2276734851991156
+        },
+        "semantic_coverage": null,
+        "proposal": {
+          "task": "health",
+          "coverage": "targeted",
+          "operation": "trend",
+          "metrics": [
+            "apob",
+            "oxygen_saturation"
+          ],
+          "records": [],
+          "period": {
+            "period_kind": "rolling",
+            "calendar_unit": "none",
+            "calendar_offset": "none",
+            "rolling_amount": "21",
+            "rolling_unit": "days",
+            "start_year": "none",
+            "start_month": "none",
+            "start_day": "none",
+            "end_year": "none",
+            "end_month": "none",
+            "end_day": "none"
+          },
+          "calendar_basis": "current_plans",
+          "research": "none",
+          "constraints": [
+            {
+              "kind": "unbound_source",
+              "evidence": "from the             ",
+              "supported": false
+            }
+          ]
+        }
+      },
+      "model_evaluated": true,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 121.436,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "operation_id": 1,
+                  "purpose": "trend",
+                  "concepts": [
+                    "apob",
+                    "oxygen_saturation"
+                  ],
+                  "range": {
+                    "kind": "relative",
+                    "amount": 21,
+                    "unit": "days"
+                  },
+                  "time_zone": "UTC"
+                }
+              ],
+              "required_operation_ids": [
+                1
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "missed_plan"
+      }
+    },
+    {
+      "id": "n13",
+      "label_agreement": true,
+      "status": "selected",
+      "reason_codes": [],
+      "diagnostics": {
+        "confidence_policy": "proposal_v3",
+        "predicted_decisions": {
+          "task": "health",
+          "coverage": "targeted",
+          "purpose": "trend",
+          "research": "none",
+          "period_kind": "calendar",
+          "calendar_basis": "current_plans",
+          "context": "current",
+          "profile": "no",
+          "workouts": "no",
+          "labs": "yes",
+          "calendar": "no"
+        },
+        "decision_margins": {
+          "task": 1.5061926339416902,
+          "coverage": 0.9084450963213763,
+          "purpose": 1.3062399166424408,
+          "research": 0.28660707202837976,
+          "period_kind": 0.15810624938407042,
+          "calendar_basis": 1.015645296961951,
+          "context": 0.7869548031963878,
+          "profile": 0.17152533087927324,
+          "workouts": 0.5860341134106746,
+          "labs": 0.002514020425579244,
+          "calendar": 0.3043211729015918
+        },
+        "semantic_coverage": {
+          "intent": {
+            "choice": "recorded_health_read",
+            "score": 0.17462874942486434,
+            "threshold": 0.0,
+            "adapter_sha256": "aa67ad90ebfe34be36d9c4799f665ccb7df71d2bd50e4dde184c2e19ba97539c"
+          },
+          "coverage": {
+            "choice": "the proposed read covers the request",
+            "probabilities": {
+              "the proposed read covers the request": 0.7057062387466431,
+              "the request needs something else": 0.29429373145103455
+            },
+            "confidence": 0.7057062387466431
+          }
+        },
+        "proposal": {
+          "task": "health",
+          "coverage": "targeted",
+          "operation": "trend",
+          "metrics": [
+            "ldl_cholesterol"
+          ],
+          "records": [],
+          "period": {
+            "period_kind": "calendar",
+            "calendar_unit": "year",
+            "calendar_offset": "previous",
+            "rolling_amount": "none",
+            "rolling_unit": "none",
+            "start_year": "none",
+            "start_month": "none",
+            "start_day": "none",
+            "end_year": "none",
+            "end_month": "none",
+            "end_day": "none"
+          },
+          "calendar_basis": "current_plans",
+          "research": "none",
+          "constraints": []
+        }
+      },
+      "model_evaluated": true,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "trend",
+            "concepts": [
+              "ldl_cholesterol"
+            ],
+            "range": {
+              "kind": "between",
+              "start_at": "2025-01-01",
+              "end_at": "2025-12-31"
+            },
+            "time_zone": "UTC"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "error": null,
+      "elapsed_ms": 413.759,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "operation_id": 1,
+                  "purpose": "trend",
+                  "concepts": [
+                    "ldl_cholesterol"
+                  ],
+                  "range": {
+                    "kind": "between",
+                    "start_at": "2025-01-01",
+                    "end_at": "2025-12-31"
+                  },
+                  "time_zone": "UTC"
+                }
+              ],
+              "required_operation_ids": [
+                1
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "correct_plan"
+      }
+    },
+    {
+      "id": "n14",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unresolved_metric_or_record"
+      ],
+      "diagnostics": {
+        "confidence_policy": "proposal_v3",
+        "predicted_decisions": {
+          "task": "health",
+          "coverage": "none",
+          "purpose": "trend",
+          "research": "none",
+          "period_kind": "calendar",
+          "calendar_basis": "current_plans",
+          "context": "current",
+          "profile": "no",
+          "workouts": "no",
+          "labs": "no",
+          "calendar": "yes"
+        },
+        "decision_margins": {
+          "task": 0.11174940797621435,
+          "coverage": 0.10234952289825605,
+          "purpose": 0.25147102738618077,
+          "research": 0.8939048023581155,
+          "period_kind": 0.13359598984618093,
+          "calendar_basis": 0.26550884797925445,
+          "context": 1.133163988156411,
+          "profile": 0.6731086254295234,
+          "workouts": 1.4153615321167599,
+          "labs": 0.5797645720564626,
+          "calendar": 0.5260220686729066
+        },
+        "semantic_coverage": null,
+        "proposal": {
+          "task": "health",
+          "coverage": "none",
+          "operation": "trend",
+          "metrics": [],
+          "records": [],
+          "period": {
+            "period_kind": "calendar",
+            "calendar_unit": "week",
+            "calendar_offset": "next",
+            "rolling_amount": "none",
+            "rolling_unit": "none",
+            "start_year": "none",
+            "start_month": "none",
+            "start_day": "none",
+            "end_year": "none",
+            "end_month": "none",
+            "end_day": "none"
+          },
+          "calendar_basis": "current_plans",
+          "research": "none",
+          "constraints": []
+        }
+      },
+      "model_evaluated": true,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 120.096,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "operation_id": 1,
+                  "purpose": "latest",
+                  "record_types": [
+                    "calendar"
+                  ],
+                  "range": {
+                    "kind": "between",
+                    "start_at": "2026-09-28",
+                    "end_at": "2026-10-04"
+                  },
+                  "time_zone": "UTC",
+                  "record_detail_dataset": "calendar.events.v1",
+                  "record_detail_limit": 8,
+                  "calendar_date_basis": "next_due_date"
+                }
+              ],
+              "required_operation_ids": [
+                1
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "missed_plan"
+      }
+    },
+    {
+      "id": "n15",
+      "label_agreement": true,
+      "status": "selected",
+      "reason_codes": [],
+      "diagnostics": {
+        "confidence_policy": "proposal_v3",
+        "predicted_decisions": {
+          "task": "health",
+          "coverage": "targeted",
+          "purpose": "latest",
+          "research": "broad_overview",
+          "period_kind": "all_history",
+          "calendar_basis": "current_plans",
+          "context": "current",
+          "profile": "no",
+          "workouts": "no",
+          "labs": "no",
+          "calendar": "no"
+        },
+        "decision_margins": {
+          "task": 1.4200520466676885,
+          "coverage": 1.317720795051616,
+          "purpose": 0.23528542911614125,
+          "research": 0.10693618733070298,
+          "period_kind": 0.23147257775321756,
+          "calendar_basis": 0.8502569167369192,
+          "context": 1.2517079743995738,
+          "profile": 0.7604823432172925,
+          "workouts": 1.2156482391552708,
+          "labs": 0.44472207766576777,
+          "calendar": 0.7976494109476545
+        },
+        "semantic_coverage": {
+          "intent": {
+            "choice": "recorded_health_read",
+            "score": 0.07114445570178668,
+            "threshold": 0.0,
+            "adapter_sha256": "aa67ad90ebfe34be36d9c4799f665ccb7df71d2bd50e4dde184c2e19ba97539c"
+          },
+          "coverage": {
+            "choice": "the proposed read covers the request",
+            "probabilities": {
+              "the proposed read covers the request": 0.7145365476608276,
+              "the request needs something else": 0.28546348214149475
+            },
+            "confidence": 0.7145365476608276
+          }
+        },
+        "proposal": {
+          "task": "health",
+          "coverage": "targeted",
+          "operation": "latest",
+          "metrics": [
+            "apob"
+          ],
+          "records": [],
+          "period": {
+            "period_kind": "unstated",
+            "calendar_unit": "none",
+            "calendar_offset": "none",
+            "rolling_amount": "none",
+            "rolling_unit": "none",
+            "start_year": "none",
+            "start_month": "none",
+            "start_day": "none",
+            "end_year": "none",
+            "end_month": "none",
+            "end_day": "none"
+          },
+          "calendar_basis": "current_plans",
+          "research": "none",
+          "constraints": []
+        }
+      },
+      "model_evaluated": true,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "latest",
+            "concepts": [
+              "apob"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "error": null,
+      "elapsed_ms": 422.969,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "operation_id": 1,
+                  "purpose": "latest",
+                  "concepts": [
+                    "apob"
+                  ],
+                  "range": {
+                    "kind": "all_history"
+                  },
+                  "time_zone": "UTC"
+                }
+              ],
+              "required_operation_ids": [
+                1
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "correct_plan"
+      }
+    },
+    {
+      "id": "n16",
+      "label_agreement": true,
+      "status": "selected",
+      "reason_codes": [],
+      "diagnostics": {
+        "confidence_policy": "proposal_v3",
+        "predicted_decisions": {
+          "task": "health",
+          "coverage": "targeted",
+          "purpose": "trend",
+          "research": "broad_overview",
+          "period_kind": "absolute",
+          "calendar_basis": "current_plans",
+          "context": "current",
+          "profile": "no",
+          "workouts": "no",
+          "labs": "no",
+          "calendar": "no"
+        },
+        "decision_margins": {
+          "task": 1.4567069270527322,
+          "coverage": 1.109611283419586,
+          "purpose": 0.9001053526090234,
+          "research": 0.26592073556906826,
+          "period_kind": 0.4804076689877935,
+          "calendar_basis": 0.9633961272753921,
+          "context": 1.1644277838871013,
+          "profile": 0.6415734184502553,
+          "workouts": 0.8820235063023145,
+          "labs": 0.4666715980076096,
+          "calendar": 0.6016864080015509
+        },
+        "semantic_coverage": {
+          "intent": {
+            "choice": "recorded_health_read",
+            "score": 0.9703843357080949,
+            "threshold": 0.0,
+            "adapter_sha256": "aa67ad90ebfe34be36d9c4799f665ccb7df71d2bd50e4dde184c2e19ba97539c"
+          },
+          "coverage": {
+            "choice": "the proposed read covers the request",
+            "probabilities": {
+              "the proposed read covers the request": 0.7140324711799622,
+              "the request needs something else": 0.28596746921539307
+            },
+            "confidence": 0.7140324711799622
+          }
+        },
+        "proposal": {
+          "task": "health",
+          "coverage": "targeted",
+          "operation": "trend",
+          "metrics": [
+            "sleep_efficiency"
+          ],
+          "records": [],
+          "period": {
+            "period_kind": "absolute",
+            "calendar_unit": "none",
+            "calendar_offset": "none",
+            "rolling_amount": "none",
+            "rolling_unit": "none",
+            "start_year": "2024",
+            "start_month": "6",
+            "start_day": "none",
+            "end_year": "none",
+            "end_month": "none",
+            "end_day": "none"
+          },
+          "calendar_basis": "current_plans",
+          "research": "none",
+          "constraints": []
+        }
+      },
+      "model_evaluated": true,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "trend",
+            "concepts": [
+              "sleep_efficiency"
+            ],
+            "range": {
+              "kind": "between",
+              "start_at": "2024-06-01",
+              "end_at": "2024-06-30"
+            },
+            "time_zone": "UTC"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "error": null,
+      "elapsed_ms": 413.987,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "operation_id": 1,
+                  "purpose": "trend",
+                  "concepts": [
+                    "sleep_efficiency"
+                  ],
+                  "range": {
+                    "kind": "between",
+                    "start_at": "2024-06-01",
+                    "end_at": "2024-06-30"
+                  },
+                  "time_zone": "UTC"
+                }
+              ],
+              "required_operation_ids": [
+                1
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "correct_plan"
+      }
+    },
+    {
+      "id": "n17",
+      "label_agreement": true,
+      "status": "selected",
+      "reason_codes": [],
+      "diagnostics": {
+        "confidence_policy": "proposal_v3",
+        "predicted_decisions": {
+          "task": "health",
+          "coverage": "targeted",
+          "purpose": "trend",
+          "research": "none",
+          "period_kind": "unstated",
+          "calendar_basis": "current_plans",
+          "context": "current",
+          "profile": "yes",
+          "workouts": "no",
+          "labs": "no",
+          "calendar": "yes"
+        },
+        "decision_margins": {
+          "task": 1.3586826764347337,
+          "coverage": 0.45094724620959303,
+          "purpose": 0.37660617243150146,
+          "research": 0.2662034196906722,
+          "period_kind": 0.33871011423820513,
+          "calendar_basis": 1.060386829737765,
+          "context": 0.8634224497741758,
+          "profile": 0.5780611261867309,
+          "workouts": 0.08457661622346369,
+          "labs": 0.11677576078936885,
+          "calendar": 0.09299682085117167
+        },
+        "semantic_coverage": {
+          "intent": {
+            "choice": "recorded_health_read",
+            "score": 0.3111421114005807,
+            "threshold": 0.0,
+            "adapter_sha256": "aa67ad90ebfe34be36d9c4799f665ccb7df71d2bd50e4dde184c2e19ba97539c"
+          },
+          "coverage": {
+            "choice": "the proposed read covers the request",
+            "probabilities": {
+              "the proposed read covers the request": 0.741360068321228,
+              "the request needs something else": 0.258639931678772
+            },
+            "confidence": 0.741360068321228
+          }
+        },
+        "proposal": {
+          "task": "health",
+          "coverage": "targeted",
+          "operation": "trend",
+          "metrics": [],
+          "records": [
+            "profile"
+          ],
+          "period": {
+            "period_kind": "unstated",
+            "calendar_unit": "none",
+            "calendar_offset": "none",
+            "rolling_amount": "none",
+            "rolling_unit": "none",
+            "start_year": "none",
+            "start_month": "none",
+            "start_day": "none",
+            "end_year": "none",
+            "end_month": "none",
+            "end_day": "none"
+          },
+          "calendar_basis": "current_plans",
+          "research": "none",
+          "constraints": []
+        }
+      },
+      "model_evaluated": true,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "latest",
+            "record_types": [
+              "profile"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "profile_fields": [
+              "goals",
+              "chronic_conditions",
+              "medications",
+              "no_regular_medications",
+              "allergies",
+              "sex",
+              "birth_year",
+              "height_cm",
+              "weight_kg"
+            ]
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "error": null,
+      "elapsed_ms": 412.262,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "operation_id": 1,
+                  "purpose": "latest",
+                  "record_types": [
+                    "profile"
+                  ],
+                  "range": {
+                    "kind": "all_history"
+                  },
+                  "time_zone": "UTC",
+                  "profile_fields": [
+                    "goals",
+                    "chronic_conditions",
+                    "medications",
+                    "no_regular_medications",
+                    "allergies",
+                    "sex",
+                    "birth_year",
+                    "height_cm",
+                    "weight_kg"
+                  ]
+                }
+              ],
+              "required_operation_ids": [
+                1
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "correct_plan"
+      }
+    },
+    {
+      "id": "n18",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unbound_source"
+      ],
+      "diagnostics": {
+        "confidence_policy": "proposal_v3",
+        "predicted_decisions": {
+          "task": "health",
+          "coverage": "targeted",
+          "purpose": "trend",
+          "research": "none",
+          "period_kind": "rolling",
+          "calendar_basis": "current_plans",
+          "context": "current",
+          "profile": "no",
+          "workouts": "yes",
+          "labs": "no",
+          "calendar": "no"
+        },
+        "decision_margins": {
+          "task": 1.3360037362611659,
+          "coverage": 0.933338559209501,
+          "purpose": 0.7339282866947445,
+          "research": 0.5168540421582178,
+          "period_kind": 0.09843655458627187,
+          "calendar_basis": 0.6902733383027024,
+          "context": 1.0246407310815009,
+          "profile": 0.7805386753678644,
+          "workouts": 0.39627957305896133,
+          "labs": 0.6053132728949304,
+          "calendar": 0.12547544972474345
+        },
+        "semantic_coverage": null,
+        "proposal": {
+          "task": "health",
+          "coverage": "targeted",
+          "operation": "trend",
+          "metrics": [
+            "steps"
+          ],
+          "records": [
+            "workouts"
+          ],
+          "period": {
+            "period_kind": "calendar",
+            "calendar_unit": "month",
+            "calendar_offset": "previous",
+            "rolling_amount": "none",
+            "rolling_unit": "none",
+            "start_year": "none",
+            "start_month": "none",
+            "start_day": "none",
+            "end_year": "none",
+            "end_month": "none",
+            "end_day": "none"
+          },
+          "calendar_basis": "current_plans",
+          "research": "none",
+          "constraints": [
+            {
+              "kind": "unbound_source",
+              "evidence": "from the           ",
+              "supported": false
+            }
+          ]
+        }
+      },
+      "model_evaluated": true,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 123.216,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "operation_id": 1,
+                  "purpose": "trend",
+                  "concepts": [
+                    "steps"
+                  ],
+                  "range": {
+                    "kind": "between",
+                    "start_at": "2026-08-01",
+                    "end_at": "2026-08-31"
+                  },
+                  "time_zone": "UTC"
+                },
+                {
+                  "operation_id": 2,
+                  "purpose": "latest",
+                  "record_types": [
+                    "workouts"
+                  ],
+                  "range": {
+                    "kind": "between",
+                    "start_at": "2026-08-01",
+                    "end_at": "2026-08-31"
+                  },
+                  "time_zone": "UTC"
+                }
+              ],
+              "required_operation_ids": [
+                1,
+                2
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "missed_plan"
+      }
+    },
+    {
+      "id": "n19",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "conflicting_latest_and_trend"
+      ],
+      "diagnostics": {
+        "confidence_policy": "proposal_v3",
+        "predicted_decisions": {
+          "task": "health",
+          "coverage": "targeted",
+          "purpose": "trend",
+          "research": "none",
+          "period_kind": "unstated",
+          "calendar_basis": "current_plans",
+          "context": "current",
+          "profile": "no",
+          "workouts": "no",
+          "labs": "no",
+          "calendar": "no"
+        },
+        "decision_margins": {
+          "task": 0.6880028395824966,
+          "coverage": 1.16584440421946,
+          "purpose": 0.15336240409611623,
+          "research": 0.8924917125489937,
+          "period_kind": 0.3183870465049483,
+          "calendar_basis": 1.090497557361591,
+          "context": 0.6271689210549116,
+          "profile": 1.0254022232872693,
+          "workouts": 1.6733041239449322,
+          "labs": 1.66096755053068,
+          "calendar": 1.4669214294607658
+        },
+        "semantic_coverage": null,
+        "proposal": {
+          "task": "health",
+          "coverage": "targeted",
+          "operation": "latest",
+          "metrics": [
+            "ldl_cholesterol"
+          ],
+          "records": [],
+          "period": {
+            "period_kind": "unstated",
+            "calendar_unit": "none",
+            "calendar_offset": "none",
+            "rolling_amount": "none",
+            "rolling_unit": "none",
+            "start_year": "none",
+            "start_month": "none",
+            "start_day": "none",
+            "end_year": "none",
+            "end_month": "none",
+            "end_day": "none"
+          },
+          "calendar_basis": "current_plans",
+          "research": "none",
+          "constraints": []
+        }
+      },
+      "model_evaluated": true,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 121.01,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "operation_id": 1,
+                  "purpose": "latest",
+                  "concepts": [
+                    "ldl_cholesterol"
+                  ],
+                  "range": {
+                    "kind": "all_history"
+                  },
+                  "time_zone": "UTC"
+                }
+              ],
+              "required_operation_ids": [
+                1
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "missed_plan"
+      }
+    },
+    {
+      "id": "n20",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unbound_source",
+        "targeted_research_binding_unavailable"
+      ],
+      "diagnostics": {
+        "confidence_policy": "proposal_v3",
+        "predicted_decisions": {
+          "task": "health",
+          "coverage": "targeted",
+          "purpose": "trend",
+          "research": "none",
+          "period_kind": "rolling",
+          "calendar_basis": "current_plans",
+          "context": "current",
+          "profile": "no",
+          "workouts": "no",
+          "labs": "no",
+          "calendar": "no"
+        },
+        "decision_margins": {
+          "task": 0.9055864996739802,
+          "coverage": 0.8935738490942691,
+          "purpose": 0.27853789683016383,
+          "research": 0.23011715336533967,
+          "period_kind": 0.25798524078997814,
+          "calendar_basis": 0.6636922626210717,
+          "context": 0.7392265262119673,
+          "profile": 0.837594625230855,
+          "workouts": 0.8044029568797652,
+          "labs": 0.5036777609337468,
+          "calendar": 0.3454757326698856
+        },
+        "semantic_coverage": null,
+        "proposal": {
+          "task": "health",
+          "coverage": "targeted",
+          "operation": "trend",
+          "metrics": [
+            "steps"
+          ],
+          "records": [],
+          "period": {
+            "period_kind": "rolling",
+            "calendar_unit": "none",
+            "calendar_offset": "none",
+            "rolling_amount": "1",
+            "rolling_unit": "weeks",
+            "start_year": "none",
+            "start_month": "none",
+            "start_day": "none",
+            "end_year": "none",
+            "end_month": "none",
+            "end_day": "none"
+          },
+          "calendar_basis": "current_plans",
+          "research": "none",
+          "constraints": [
+            {
+              "kind": "unbound_source",
+              "evidence": "from the          ",
+              "supported": false
+            }
+          ]
+        }
+      },
+      "model_evaluated": true,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 201.963,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "operation_id": 1,
+                  "purpose": "trend",
+                  "concepts": [
+                    "steps"
+                  ],
+                  "range": {
+                    "kind": "relative",
+                    "amount": 7,
+                    "unit": "days"
+                  },
+                  "time_zone": "UTC"
+                }
+              ],
+              "required_operation_ids": [
+                1
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "missed_plan"
+      }
+    },
+    {
+      "id": "n21",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "learned_read_intent_unconfirmed"
+      ],
+      "diagnostics": {
+        "confidence_policy": "proposal_v3",
+        "predicted_decisions": {
+          "task": "health",
+          "coverage": "targeted",
+          "purpose": "latest",
+          "research": "none",
+          "period_kind": "unstated",
+          "calendar_basis": "current_plans",
+          "context": "current",
+          "profile": "no",
+          "workouts": "no",
+          "labs": "no",
+          "calendar": "no"
+        },
+        "decision_margins": {
+          "task": 1.4954157883608676,
+          "coverage": 1.0940711282200546,
+          "purpose": 0.24402460584918811,
+          "research": 0.8360421014720788,
+          "period_kind": 0.02187289919388108,
+          "calendar_basis": 0.7578778260879077,
+          "context": 1.0756491989580919,
+          "profile": 0.6346654711039018,
+          "workouts": 1.4313944566677,
+          "labs": 0.5886021764974184,
+          "calendar": 0.9697911530412692
+        },
+        "semantic_coverage": {
+          "intent": {
+            "choice": "handoff",
+            "score": -0.9965004763571074,
+            "threshold": 0.0,
+            "adapter_sha256": "aa67ad90ebfe34be36d9c4799f665ccb7df71d2bd50e4dde184c2e19ba97539c"
+          }
+        },
+        "proposal": {
+          "task": "health",
+          "coverage": "targeted",
+          "operation": "latest",
+          "metrics": [
+            "apob"
+          ],
+          "records": [],
+          "period": {
+            "period_kind": "unstated",
+            "calendar_unit": "none",
+            "calendar_offset": "none",
+            "rolling_amount": "none",
+            "rolling_unit": "none",
+            "start_year": "none",
+            "start_month": "none",
+            "start_day": "none",
+            "end_year": "none",
+            "end_month": "none",
+            "end_day": "none"
+          },
+          "calendar_basis": "current_plans",
+          "research": "none",
+          "constraints": []
+        }
+      },
+      "model_evaluated": true,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 255.77,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "n22",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unbound_quantity"
+      ],
+      "diagnostics": {
+        "confidence_policy": "proposal_v3",
+        "predicted_decisions": {
+          "task": "health",
+          "coverage": "targeted",
+          "purpose": "latest",
+          "research": "none",
+          "period_kind": "unstated",
+          "calendar_basis": "current_plans",
+          "context": "current",
+          "profile": "no",
+          "workouts": "no",
+          "labs": "no",
+          "calendar": "no"
+        },
+        "decision_margins": {
+          "task": 1.0507086097361311,
+          "coverage": 1.0152326378977776,
+          "purpose": 0.41489512830227687,
+          "research": 0.8241304033741931,
+          "period_kind": 0.5346934404023373,
+          "calendar_basis": 0.7490810936671026,
+          "context": 1.1297230880829685,
+          "profile": 1.0808988323787587,
+          "workouts": 0.7562977275597983,
+          "labs": 0.821522217949852,
+          "calendar": 0.6165506103160432
+        },
+        "semantic_coverage": null,
+        "proposal": {
+          "task": "health",
+          "coverage": "targeted",
+          "operation": "latest",
+          "metrics": [
+            "oxygen_saturation"
+          ],
+          "records": [],
+          "period": {
+            "period_kind": "unstated",
+            "calendar_unit": "none",
+            "calendar_offset": "none",
+            "rolling_amount": "none",
+            "rolling_unit": "none",
+            "start_year": "none",
+            "start_month": "none",
+            "start_day": "none",
+            "end_year": "none",
+            "end_month": "none",
+            "end_day": "none"
+          },
+          "calendar_basis": "current_plans",
+          "research": "none",
+          "constraints": [
+            {
+              "kind": "unbound_quantity",
+              "evidence": "three",
+              "supported": false
+            }
+          ]
+        }
+      },
+      "model_evaluated": true,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 125.48,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "n23",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "source_filter",
+        "unbound_source"
+      ],
+      "diagnostics": {
+        "confidence_policy": "proposal_v3",
+        "predicted_decisions": {
+          "task": "health",
+          "coverage": "targeted",
+          "purpose": "trend",
+          "research": "broad_overview",
+          "period_kind": "unsupported",
+          "calendar_basis": "current_plans",
+          "context": "current",
+          "profile": "no",
+          "workouts": "no",
+          "labs": "no",
+          "calendar": "no"
+        },
+        "decision_margins": {
+          "task": 1.8944855022115639,
+          "coverage": 1.8679366877575372,
+          "purpose": 1.1749590060018296,
+          "research": 0.35106949933847564,
+          "period_kind": 0.7170475319412166,
+          "calendar_basis": 1.2406033509692942,
+          "context": 1.5494127958511144,
+          "profile": 0.8642348822411383,
+          "workouts": 1.3956140266235786,
+          "labs": 0.6148243300465401,
+          "calendar": 0.7357565618664178
+        },
+        "semantic_coverage": null,
+        "proposal": {
+          "task": "health",
+          "coverage": "targeted",
+          "operation": "trend",
+          "metrics": [
+            "steps"
+          ],
+          "records": [],
+          "period": {
+            "period_kind": "absolute",
+            "calendar_unit": "none",
+            "calendar_offset": "none",
+            "rolling_amount": "none",
+            "rolling_unit": "none",
+            "start_year": "reference_year",
+            "start_month": "5",
+            "start_day": "none",
+            "end_year": "none",
+            "end_month": "none",
+            "end_day": "none"
+          },
+          "calendar_basis": "current_plans",
+          "research": "none",
+          "constraints": [
+            {
+              "kind": "source_filter",
+              "evidence": "polar",
+              "supported": false
+            },
+            {
+              "kind": "unbound_source",
+              "evidence": "from the polar app during    ",
+              "supported": false
+            }
+          ]
+        }
+      },
+      "model_evaluated": true,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 124.271,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "n24",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "other_person"
+      ],
+      "diagnostics": {
+        "confidence_policy": "proposal_v3",
+        "predicted_decisions": {
+          "task": "health",
+          "coverage": "targeted",
+          "purpose": "trend",
+          "research": "none",
+          "period_kind": "unstated",
+          "calendar_basis": "current_plans",
+          "context": "current",
+          "profile": "no",
+          "workouts": "yes",
+          "labs": "no",
+          "calendar": "yes"
+        },
+        "decision_margins": {
+          "task": 0.7065059519435544,
+          "coverage": 0.3998057644946238,
+          "purpose": 0.6517686618346845,
+          "research": 0.7948062015972318,
+          "period_kind": 0.054358422417488894,
+          "calendar_basis": 0.49223104179002963,
+          "context": 1.0107493980456548,
+          "profile": 0.7994288040407718,
+          "workouts": 0.18318053269329848,
+          "labs": 0.4603854197570852,
+          "calendar": 0.5675793633017663
+        },
+        "semantic_coverage": null,
+        "proposal": {
+          "task": "health",
+          "coverage": "targeted",
+          "operation": "trend",
+          "metrics": [],
+          "records": [
+            "calendar"
+          ],
+          "period": {
+            "period_kind": "calendar",
+            "calendar_unit": "day",
+            "calendar_offset": "next",
+            "rolling_amount": "none",
+            "rolling_unit": "none",
+            "start_year": "none",
+            "start_month": "none",
+            "start_day": "none",
+            "end_year": "none",
+            "end_month": "none",
+            "end_day": "none"
+          },
+          "calendar_basis": "next_due_date",
+          "research": "none",
+          "constraints": [
+            {
+              "kind": "other_person",
+              "evidence": "partner",
+              "supported": false
+            }
+          ]
+        }
+      },
+      "model_evaluated": true,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 138.9,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "n25",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "exclusion_or_filter"
+      ],
+      "diagnostics": {
+        "confidence_policy": "proposal_v3",
+        "predicted_decisions": {
+          "task": "health",
+          "coverage": "targeted",
+          "purpose": "trend",
+          "research": "none",
+          "period_kind": "unstated",
+          "calendar_basis": "current_plans",
+          "context": "current",
+          "profile": "no",
+          "workouts": "no",
+          "labs": "no",
+          "calendar": "no"
+        },
+        "decision_margins": {
+          "task": 0.4085963587329769,
+          "coverage": 0.47347617355654237,
+          "purpose": 0.36127239749603085,
+          "research": 0.7856147621395911,
+          "period_kind": 0.32398285339446536,
+          "calendar_basis": 0.9596955390052332,
+          "context": 0.9866551793927587,
+          "profile": 0.41694106454002366,
+          "workouts": 0.6401503257188551,
+          "labs": 0.9167479464900193,
+          "calendar": 0.9047659331963278
+        },
+        "semantic_coverage": null,
+        "proposal": {
+          "task": "health",
+          "coverage": "targeted",
+          "operation": "trend",
+          "metrics": [],
+          "records": [
+            "profile"
+          ],
+          "period": {
+            "period_kind": "unstated",
+            "calendar_unit": "none",
+            "calendar_offset": "none",
+            "rolling_amount": "none",
+            "rolling_unit": "none",
+            "start_year": "none",
+            "start_month": "none",
+            "start_day": "none",
+            "end_year": "none",
+            "end_month": "none",
+            "end_day": "none"
+          },
+          "calendar_basis": "current_plans",
+          "research": "none",
+          "constraints": [
+            {
+              "kind": "exclusion_or_filter",
+              "evidence": "except",
+              "supported": false
+            }
+          ]
+        }
+      },
+      "model_evaluated": true,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 128.522,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "n26",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unsupported_operation"
+      ],
+      "diagnostics": {
+        "confidence_policy": "proposal_v3",
+        "predicted_decisions": {
+          "task": "health",
+          "coverage": "targeted",
+          "purpose": "trend",
+          "research": "none",
+          "period_kind": "absolute",
+          "calendar_basis": "current_plans",
+          "context": "current",
+          "profile": "no",
+          "workouts": "no",
+          "labs": "no",
+          "calendar": "no"
+        },
+        "decision_margins": {
+          "task": 1.3575637732690324,
+          "coverage": 1.005740141136068,
+          "purpose": 0.9123923035563815,
+          "research": 0.6306410255960091,
+          "period_kind": 0.32428510921785425,
+          "calendar_basis": 0.6357728834783146,
+          "context": 1.3878564722422542,
+          "profile": 0.8388573428730606,
+          "workouts": 0.5702464176938015,
+          "labs": 0.5453516901482214,
+          "calendar": 0.2051051242197759
+        },
+        "semantic_coverage": null,
+        "proposal": {
+          "task": "health",
+          "coverage": "targeted",
+          "operation": "trend",
+          "metrics": [
+            "steps"
+          ],
+          "records": [],
+          "period": {
+            "period_kind": "absolute",
+            "calendar_unit": "none",
+            "calendar_offset": "none",
+            "rolling_amount": "none",
+            "rolling_unit": "none",
+            "start_year": "2023",
+            "start_month": "none",
+            "start_day": "none",
+            "end_year": "none",
+            "end_month": "none",
+            "end_day": "none"
+          },
+          "calendar_basis": "current_plans",
+          "research": "none",
+          "constraints": [
+            {
+              "kind": "unsupported_operation",
+              "evidence": "how many",
+              "supported": false
+            }
+          ]
+        }
+      },
+      "model_evaluated": true,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 127.951,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "n27",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unresolved_temporal_phrase",
+        "unit_conversion"
+      ],
+      "diagnostics": {
+        "confidence_policy": "proposal_v3",
+        "predicted_decisions": {
+          "task": "health",
+          "coverage": "targeted",
+          "purpose": "unsupported",
+          "research": "none",
+          "period_kind": "unsupported",
+          "calendar_basis": "current_plans",
+          "context": "current",
+          "profile": "no",
+          "workouts": "no",
+          "labs": "no",
+          "calendar": "no"
+        },
+        "decision_margins": {
+          "task": 0.3387782361805985,
+          "coverage": 0.38334802102346904,
+          "purpose": 0.5109025504164018,
+          "research": 0.12227032056982323,
+          "period_kind": 0.4448648050501591,
+          "calendar_basis": 0.9345424113290337,
+          "context": 0.9865232215535641,
+          "profile": 0.8554866244121337,
+          "workouts": 0.6416806539266344,
+          "labs": 1.71379225952453,
+          "calendar": 0.7181319544767528
+        },
+        "semantic_coverage": null,
+        "proposal": null
+      },
+      "model_evaluated": true,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 131.677,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "n28",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unresolved_temporal_phrase",
+        "unbound_quantity"
+      ],
+      "diagnostics": {
+        "confidence_policy": "proposal_v3",
+        "predicted_decisions": {
+          "task": "health",
+          "coverage": "targeted",
+          "purpose": "trend",
+          "research": "none",
+          "period_kind": "unstated",
+          "calendar_basis": "current_plans",
+          "context": "current",
+          "profile": "no",
+          "workouts": "no",
+          "labs": "yes",
+          "calendar": "no"
+        },
+        "decision_margins": {
+          "task": 0.6991938634588593,
+          "coverage": 0.7916294251774894,
+          "purpose": 0.3966839234442405,
+          "research": 0.894231752736675,
+          "period_kind": 0.0033963638378566863,
+          "calendar_basis": 0.9425458908336019,
+          "context": 1.2062500396713003,
+          "profile": 1.117877832325665,
+          "workouts": 1.6228927614077788,
+          "labs": 0.24542846380255112,
+          "calendar": 0.8395066623337791
+        },
+        "semantic_coverage": null,
+        "proposal": null
+      },
+      "model_evaluated": true,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 123.537,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "n29",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unbound_quantity",
+        "uncertain_model_task"
+      ],
+      "diagnostics": {
+        "confidence_policy": "proposal_v3",
+        "predicted_decisions": {
+          "task": "health",
+          "coverage": "none",
+          "purpose": "trend",
+          "research": "none",
+          "period_kind": "unstated",
+          "calendar_basis": "current_plans",
+          "context": "current",
+          "profile": "no",
+          "workouts": "no",
+          "labs": "no",
+          "calendar": "no"
+        },
+        "decision_margins": {
+          "task": 0.0027779473852241887,
+          "coverage": 0.029481496140329244,
+          "purpose": 0.08774008884866052,
+          "research": 0.661893050155071,
+          "period_kind": 0.004609158007994496,
+          "calendar_basis": 0.30807483863276586,
+          "context": 1.0494288895683384,
+          "profile": 1.3699246246592576,
+          "workouts": 0.20751614141811658,
+          "labs": 1.1442454317445332,
+          "calendar": 0.6013549586931936
+        },
+        "semantic_coverage": null,
+        "proposal": {
+          "task": "health",
+          "coverage": "targeted",
+          "operation": "trend",
+          "metrics": [],
+          "records": [
+            "workouts"
+          ],
+          "period": {
+            "period_kind": "unstated",
+            "calendar_unit": "none",
+            "calendar_offset": "none",
+            "rolling_amount": "none",
+            "rolling_unit": "none",
+            "start_year": "none",
+            "start_month": "none",
+            "start_day": "none",
+            "end_year": "none",
+            "end_month": "none",
+            "end_day": "none"
+          },
+          "calendar_basis": "current_plans",
+          "research": "none",
+          "constraints": [
+            {
+              "kind": "unbound_quantity",
+              "evidence": "45",
+              "supported": false
+            }
+          ]
+        }
+      },
+      "model_evaluated": true,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 123.29,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "n30",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unresolved_followup",
+        "unresolved_metric_or_record"
+      ],
+      "diagnostics": {
+        "confidence_policy": "proposal_v3",
+        "predicted_decisions": {
+          "task": "health",
+          "coverage": "targeted",
+          "purpose": "trend",
+          "research": "broad_overview",
+          "period_kind": "rolling",
+          "calendar_basis": "current_plans",
+          "context": "current",
+          "profile": "no",
+          "workouts": "no",
+          "labs": "no",
+          "calendar": "no"
+        },
+        "decision_margins": {
+          "task": 0.9389357361032052,
+          "coverage": 0.6824870016699331,
+          "purpose": 0.5202542029819996,
+          "research": 0.13515574766216254,
+          "period_kind": 0.9211627305288875,
+          "calendar_basis": 0.9104016421571985,
+          "context": 0.6472626862665204,
+          "profile": 0.8375514576237368,
+          "workouts": 0.8429111246992219,
+          "labs": 0.5472745440287257,
+          "calendar": 0.7013130986495346
+        },
+        "semantic_coverage": null,
+        "proposal": {
+          "task": "health",
+          "coverage": "targeted",
+          "operation": "trend",
+          "metrics": [],
+          "records": [],
+          "period": {
+            "period_kind": "rolling",
+            "calendar_unit": "none",
+            "calendar_offset": "none",
+            "rolling_amount": "4",
+            "rolling_unit": "weeks",
+            "start_year": "none",
+            "start_month": "none",
+            "start_day": "none",
+            "end_year": "none",
+            "end_month": "none",
+            "end_day": "none"
+          },
+          "calendar_basis": "current_plans",
+          "research": "none",
+          "constraints": []
+        }
+      },
+      "model_evaluated": true,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 122.357,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "n31",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unresolved_followup",
+        "unresolved_metric_or_record"
+      ],
+      "diagnostics": {
+        "confidence_policy": "proposal_v3",
+        "predicted_decisions": {
+          "task": "health",
+          "coverage": "targeted",
+          "purpose": "trend",
+          "research": "none",
+          "period_kind": "rolling",
+          "calendar_basis": "current_plans",
+          "context": "current",
+          "profile": "no",
+          "workouts": "no",
+          "labs": "no",
+          "calendar": "no"
+        },
+        "decision_margins": {
+          "task": 0.6306496884487605,
+          "coverage": 0.4391081181328712,
+          "purpose": 0.0013874761056367202,
+          "research": 0.05959174263496614,
+          "period_kind": 0.11618483788899053,
+          "calendar_basis": 1.1034642566376278,
+          "context": 0.6852852367661235,
+          "profile": 0.5070058000166726,
+          "workouts": 0.6525800969341551,
+          "labs": 0.2872574619391902,
+          "calendar": 0.7558531916178213
+        },
+        "semantic_coverage": null,
+        "proposal": {
+          "task": "health",
+          "coverage": "targeted",
+          "operation": "trend",
+          "metrics": [],
+          "records": [],
+          "period": {
+            "period_kind": "calendar",
+            "calendar_unit": "month",
+            "calendar_offset": "previous",
+            "rolling_amount": "none",
+            "rolling_unit": "none",
+            "start_year": "none",
+            "start_month": "none",
+            "start_day": "none",
+            "end_year": "none",
+            "end_month": "none",
+            "end_day": "none"
+          },
+          "calendar_basis": "current_plans",
+          "research": "none",
+          "constraints": []
+        }
+      },
+      "model_evaluated": true,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 122.638,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "n32",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unsupported_operation"
+      ],
+      "diagnostics": {
+        "confidence_policy": "proposal_v3",
+        "predicted_decisions": {
+          "task": "health",
+          "coverage": "targeted",
+          "purpose": "unsupported",
+          "research": "none",
+          "period_kind": "rolling",
+          "calendar_basis": "current_plans",
+          "context": "current",
+          "profile": "no",
+          "workouts": "no",
+          "labs": "no",
+          "calendar": "no"
+        },
+        "decision_margins": {
+          "task": 0.7295443402422733,
+          "coverage": 0.8159652038212689,
+          "purpose": 0.16201902817817887,
+          "research": 0.1981104158288537,
+          "period_kind": 0.35002783640022506,
+          "calendar_basis": 1.0563972239748243,
+          "context": 0.9629984092274657,
+          "profile": 1.0956636251096445,
+          "workouts": 1.616764194822035,
+          "labs": 1.0408978516577627,
+          "calendar": 1.375550297930601
+        },
+        "semantic_coverage": null,
+        "proposal": {
+          "task": "health",
+          "coverage": "targeted",
+          "operation": "trend",
+          "metrics": [
+            "apob",
+            "oxygen_saturation"
+          ],
+          "records": [],
+          "period": {
+            "period_kind": "rolling",
+            "calendar_unit": "none",
+            "calendar_offset": "none",
+            "rolling_amount": "21",
+            "rolling_unit": "days",
+            "start_year": "none",
+            "start_month": "none",
+            "start_day": "none",
+            "end_year": "none",
+            "end_month": "none",
+            "end_day": "none"
+          },
+          "calendar_basis": "current_plans",
+          "research": "none",
+          "constraints": [
+            {
+              "kind": "unsupported_operation",
+              "evidence": "compare",
+              "supported": false
+            }
+          ]
+        }
+      },
+      "model_evaluated": true,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 123.333,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "n33",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "multiple_periods_require_clause_binding"
+      ],
+      "diagnostics": {
+        "confidence_policy": "proposal_v3",
+        "predicted_decisions": {
+          "task": "other",
+          "coverage": "none",
+          "purpose": "unsupported",
+          "research": "none",
+          "period_kind": "calendar",
+          "calendar_basis": "current_plans",
+          "context": "current",
+          "profile": "yes",
+          "workouts": "no",
+          "labs": "no",
+          "calendar": "no"
+        },
+        "decision_margins": {
+          "task": 0.18520385021627073,
+          "coverage": 0.19828965339869803,
+          "purpose": 0.25604501677767616,
+          "research": 0.009071865180155236,
+          "period_kind": 0.1600092572688105,
+          "calendar_basis": 1.148431710536019,
+          "context": 0.9091839386359353,
+          "profile": 0.32846172612494934,
+          "workouts": 0.0766856083679518,
+          "labs": 0.41541157293319575,
+          "calendar": 0.18072994749791843
+        },
+        "semantic_coverage": null,
+        "proposal": null
+      },
+      "model_evaluated": true,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 120.786,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "n34",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unresolved_metric_or_record"
+      ],
+      "diagnostics": {
+        "confidence_policy": "proposal_v3",
+        "predicted_decisions": {
+          "task": "health",
+          "coverage": "targeted",
+          "purpose": "trend",
+          "research": "none",
+          "period_kind": "calendar",
+          "calendar_basis": "current_plans",
+          "context": "current",
+          "profile": "no",
+          "workouts": "no",
+          "labs": "no",
+          "calendar": "yes"
+        },
+        "decision_margins": {
+          "task": 0.4986777622937897,
+          "coverage": 0.05398277362673615,
+          "purpose": 0.4461682040177705,
+          "research": 0.41287535253215213,
+          "period_kind": 0.1118725519792867,
+          "calendar_basis": 0.841582075797984,
+          "context": 1.0311723638181172,
+          "profile": 0.27806181735542995,
+          "workouts": 0.07358726063467524,
+          "labs": 0.48642581451458033,
+          "calendar": 0.5132445726811452
+        },
+        "semantic_coverage": null,
+        "proposal": {
+          "task": "health",
+          "coverage": "targeted",
+          "operation": "trend",
+          "metrics": [],
+          "records": [],
+          "period": {
+            "period_kind": "calendar",
+            "calendar_unit": "week",
+            "calendar_offset": "next",
+            "rolling_amount": "none",
+            "rolling_unit": "none",
+            "start_year": "none",
+            "start_month": "none",
+            "start_day": "none",
+            "end_year": "none",
+            "end_month": "none",
+            "end_day": "none"
+          },
+          "calendar_basis": "current_plans",
+          "research": "none",
+          "constraints": []
+        }
+      },
+      "model_evaluated": true,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 117.099,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "n35",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "learned_read_intent_unconfirmed"
+      ],
+      "diagnostics": {
+        "confidence_policy": "proposal_v3",
+        "predicted_decisions": {
+          "task": "health",
+          "coverage": "targeted",
+          "purpose": "latest",
+          "research": "none",
+          "period_kind": "unstated",
+          "calendar_basis": "current_plans",
+          "context": "current",
+          "profile": "no",
+          "workouts": "no",
+          "labs": "no",
+          "calendar": "no"
+        },
+        "decision_margins": {
+          "task": 0.9748804517070631,
+          "coverage": 0.7129255036094024,
+          "purpose": 0.07681590064089966,
+          "research": 0.19636971068930875,
+          "period_kind": 0.4807754966709199,
+          "calendar_basis": 1.0952431302479433,
+          "context": 1.1088917133655198,
+          "profile": 0.8398233985505897,
+          "workouts": 1.1570800356490272,
+          "labs": 0.4137861965476345,
+          "calendar": 0.8125307621253984
+        },
+        "semantic_coverage": {
+          "intent": {
+            "choice": "handoff",
+            "score": -0.48290605566330425,
+            "threshold": 0.0,
+            "adapter_sha256": "aa67ad90ebfe34be36d9c4799f665ccb7df71d2bd50e4dde184c2e19ba97539c"
+          }
+        },
+        "proposal": {
+          "task": "health",
+          "coverage": "targeted",
+          "operation": "latest",
+          "metrics": [
+            "apob"
+          ],
+          "records": [],
+          "period": {
+            "period_kind": "unstated",
+            "calendar_unit": "none",
+            "calendar_offset": "none",
+            "rolling_amount": "none",
+            "rolling_unit": "none",
+            "start_year": "none",
+            "start_month": "none",
+            "start_day": "none",
+            "end_year": "none",
+            "end_month": "none",
+            "end_day": "none"
+          },
+          "calendar_basis": "current_plans",
+          "research": "none",
+          "constraints": []
+        }
+      },
+      "model_evaluated": true,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 231.164,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "n36",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "invalid_or_out_of_range_date"
+      ],
+      "diagnostics": {
+        "confidence_policy": "proposal_v3",
+        "predicted_decisions": {
+          "task": "health",
+          "coverage": "targeted",
+          "purpose": "trend",
+          "research": "broad_overview",
+          "period_kind": "absolute",
+          "calendar_basis": "current_plans",
+          "context": "current",
+          "profile": "no",
+          "workouts": "no",
+          "labs": "no",
+          "calendar": "no"
+        },
+        "decision_margins": {
+          "task": 0.7505625617317704,
+          "coverage": 0.7912532140691743,
+          "purpose": 0.8235728826648245,
+          "research": 0.4233955931483928,
+          "period_kind": 0.5088977486964626,
+          "calendar_basis": 1.3196866501928937,
+          "context": 1.200670163231731,
+          "profile": 0.7966857117033705,
+          "workouts": 1.2615678217722897,
+          "labs": 0.7059859564981683,
+          "calendar": 0.9054698077839111
+        },
+        "semantic_coverage": null,
+        "proposal": null
+      },
+      "model_evaluated": true,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 117.165,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "n37",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unbound_source",
+        "narrow_or_unavailable_profile_field"
+      ],
+      "diagnostics": {
+        "confidence_policy": "proposal_v3",
+        "predicted_decisions": {
+          "task": "health",
+          "coverage": "targeted",
+          "purpose": "trend",
+          "research": "none",
+          "period_kind": "unsupported",
+          "calendar_basis": "current_plans",
+          "context": "current",
+          "profile": "no",
+          "workouts": "no",
+          "labs": "no",
+          "calendar": "no"
+        },
+        "decision_margins": {
+          "task": 1.3459227084358723,
+          "coverage": 1.4164710127330298,
+          "purpose": 0.23885120799296777,
+          "research": 0.8069882843702447,
+          "period_kind": 0.45438458016610717,
+          "calendar_basis": 1.0581862844652825,
+          "context": 1.1818487291044328,
+          "profile": 0.5791750484133384,
+          "workouts": 0.3907474906093882,
+          "labs": 0.9993098740049002,
+          "calendar": 0.714364067679987
+        },
+        "semantic_coverage": null,
+        "proposal": {
+          "task": "health",
+          "coverage": "targeted",
+          "operation": "trend",
+          "metrics": [],
+          "records": [
+            "profile"
+          ],
+          "period": {
+            "period_kind": "unstated",
+            "calendar_unit": "none",
+            "calendar_offset": "none",
+            "rolling_amount": "none",
+            "rolling_unit": "none",
+            "start_year": "none",
+            "start_month": "none",
+            "start_day": "none",
+            "end_year": "none",
+            "end_month": "none",
+            "end_day": "none"
+          },
+          "calendar_basis": "current_plans",
+          "research": "none",
+          "constraints": [
+            {
+              "kind": "unbound_source",
+              "evidence": "from my        ",
+              "supported": false
+            }
+          ]
+        }
+      },
+      "model_evaluated": true,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 116.325,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "n38",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "learned_read_intent_unconfirmed"
+      ],
+      "diagnostics": {
+        "confidence_policy": "proposal_v3",
+        "predicted_decisions": {
+          "task": "health",
+          "coverage": "targeted",
+          "purpose": "unsupported",
+          "research": "none",
+          "period_kind": "unsupported",
+          "calendar_basis": "current_plans",
+          "context": "current",
+          "profile": "no",
+          "workouts": "no",
+          "labs": "no",
+          "calendar": "no"
+        },
+        "decision_margins": {
+          "task": 0.284769008489812,
+          "coverage": 0.16293786675704403,
+          "purpose": 0.14552705583903047,
+          "research": 0.6543652049711415,
+          "period_kind": 0.33254588089201864,
+          "calendar_basis": 0.8223687114520549,
+          "context": 0.9478149608858153,
+          "profile": 1.3490678253284503,
+          "workouts": 0.1925549876413557,
+          "labs": 1.3965613840502682,
+          "calendar": 0.9890079900036565
+        },
+        "semantic_coverage": {
+          "intent": {
+            "choice": "handoff",
+            "score": -0.12649477267792686,
+            "threshold": 0.0,
+            "adapter_sha256": "aa67ad90ebfe34be36d9c4799f665ccb7df71d2bd50e4dde184c2e19ba97539c"
+          }
+        },
+        "proposal": {
+          "task": "health",
+          "coverage": "targeted",
+          "operation": "trend",
+          "metrics": [
+            "steps"
+          ],
+          "records": [
+            "workouts"
+          ],
+          "period": {
+            "period_kind": "absolute",
+            "calendar_unit": "none",
+            "calendar_offset": "none",
+            "rolling_amount": "none",
+            "rolling_unit": "none",
+            "start_year": "2025",
+            "start_month": "none",
+            "start_day": "none",
+            "end_year": "none",
+            "end_month": "none",
+            "end_day": "none"
+          },
+          "calendar_basis": "current_plans",
+          "research": "none",
+          "constraints": []
+        }
+      },
+      "model_evaluated": true,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 225.005,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "n39",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "source_filter",
+        "unbound_source",
+        "conflicting_latest_and_trend"
+      ],
+      "diagnostics": {
+        "confidence_policy": "proposal_v3",
+        "predicted_decisions": {
+          "task": "health",
+          "coverage": "targeted",
+          "purpose": "trend",
+          "research": "none",
+          "period_kind": "unsupported",
+          "calendar_basis": "current_plans",
+          "context": "current",
+          "profile": "no",
+          "workouts": "no",
+          "labs": "no",
+          "calendar": "no"
+        },
+        "decision_margins": {
+          "task": 1.0475167224218431,
+          "coverage": 1.3331208960422352,
+          "purpose": 0.18326588038164754,
+          "research": 0.7661215991121538,
+          "period_kind": 0.07510542689368188,
+          "calendar_basis": 0.9838888700038877,
+          "context": 0.6237116083676465,
+          "profile": 0.8276016293744117,
+          "workouts": 1.198062762755607,
+          "labs": 1.2430764013186102,
+          "calendar": 1.3857111314517923
+        },
+        "semantic_coverage": null,
+        "proposal": {
+          "task": "health",
+          "coverage": "targeted",
+          "operation": "latest",
+          "metrics": [
+            "ldl_cholesterol"
+          ],
+          "records": [],
+          "period": {
+            "period_kind": "unstated",
+            "calendar_unit": "none",
+            "calendar_offset": "none",
+            "rolling_amount": "none",
+            "rolling_unit": "none",
+            "start_year": "none",
+            "start_month": "none",
+            "start_day": "none",
+            "end_year": "none",
+            "end_month": "none",
+            "end_day": "none"
+          },
+          "calendar_basis": "current_plans",
+          "research": "none",
+          "constraints": [
+            {
+              "kind": "source_filter",
+              "evidence": "quest",
+              "supported": false
+            },
+            {
+              "kind": "unbound_source",
+              "evidence": "from the quest lab",
+              "supported": false
+            }
+          ]
+        }
+      },
+      "model_evaluated": true,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 113.892,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "n40",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "write_or_external_action",
+        "targeted_research_binding_unavailable"
+      ],
+      "diagnostics": {
+        "confidence_policy": "proposal_v3",
+        "predicted_decisions": {
+          "task": "health",
+          "coverage": "targeted",
+          "purpose": "unsupported",
+          "research": "none",
+          "period_kind": "unstated",
+          "calendar_basis": "current_plans",
+          "context": "current",
+          "profile": "no",
+          "workouts": "no",
+          "labs": "no",
+          "calendar": "no"
+        },
+        "decision_margins": {
+          "task": 0.15013158286638634,
+          "coverage": 0.33778946694071826,
+          "purpose": 0.4313988429694559,
+          "research": 0.8712836690103044,
+          "period_kind": 0.024255049699648368,
+          "calendar_basis": 0.8951505392030285,
+          "context": 0.6158437213383314,
+          "profile": 1.2621465235514913,
+          "workouts": 0.883762327582249,
+          "labs": 0.7229410345747708,
+          "calendar": 1.1880018120370122
+        },
+        "semantic_coverage": null,
+        "proposal": {
+          "task": "health",
+          "coverage": "targeted",
+          "operation": "trend",
+          "metrics": [
+            "steps"
+          ],
+          "records": [],
+          "period": {
+            "period_kind": "unstated",
+            "calendar_unit": "none",
+            "calendar_offset": "none",
+            "rolling_amount": "none",
+            "rolling_unit": "none",
+            "start_year": "none",
+            "start_month": "none",
+            "start_day": "none",
+            "end_year": "none",
+            "end_month": "none",
+            "end_day": "none"
+          },
+          "calendar_basis": "current_plans",
+          "research": "none",
+          "constraints": [
+            {
+              "kind": "write_or_external_action",
+              "evidence": "email",
+              "supported": false
+            }
+          ]
+        }
+      },
+      "model_evaluated": true,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 121.515,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    }
+  ]
+}

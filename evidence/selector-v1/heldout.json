@@ -1,0 +1,375 @@
+[
+  {
+    "id": "h01",
+    "request": "Assess my overall health",
+    "history": [],
+    "expected": {
+      "task": "health",
+      "coverage": "broad",
+      "purpose": "trend",
+      "research": "broad_overview"
+    }
+  },
+  {
+    "id": "h02",
+    "request": "Please analyse my health",
+    "history": [],
+    "expected": {
+      "task": "health",
+      "coverage": "broad",
+      "purpose": "trend",
+      "research": "broad_overview"
+    }
+  },
+  {
+    "id": "h03",
+    "request": "Give me a comprehensive health analysis",
+    "history": [],
+    "expected": {
+      "task": "health",
+      "coverage": "broad",
+      "purpose": "trend",
+      "research": "broad_overview"
+    }
+  },
+  {
+    "id": "h04",
+    "request": "How am I doing health-wise?",
+    "history": [],
+    "expected": {
+      "task": "health",
+      "coverage": "broad",
+      "purpose": "trend",
+      "research": "broad_overview"
+    }
+  },
+  {
+    "id": "h05",
+    "request": "Give me my health summary this month",
+    "history": [],
+    "expected": {
+      "task": "health",
+      "coverage": "broad",
+      "purpose": "trend",
+      "research": "none"
+    }
+  },
+  {
+    "id": "h06",
+    "request": "Can you summarize how my health has been this week?",
+    "history": [],
+    "expected": {
+      "task": "health",
+      "coverage": "broad",
+      "purpose": "trend",
+      "research": "none"
+    }
+  },
+  {
+    "id": "h07",
+    "request": "Show my health overview yesterday",
+    "history": [],
+    "expected": {
+      "task": "health",
+      "coverage": "broad",
+      "purpose": "trend",
+      "research": "none"
+    }
+  },
+  {
+    "id": "h08",
+    "request": "Summarise my overall health last year",
+    "history": [],
+    "expected": {
+      "task": "health",
+      "coverage": "broad",
+      "purpose": "trend",
+      "research": "none"
+    }
+  },
+  {
+    "id": "h09",
+    "request": "Give me my most recent respiratory rate measurement",
+    "history": [],
+    "expected": {
+      "task": "health",
+      "coverage": "targeted",
+      "purpose": "latest",
+      "research": "none"
+    }
+  },
+  {
+    "id": "h10",
+    "request": "What are my latest LDL readings?",
+    "history": [],
+    "expected": {
+      "task": "health",
+      "coverage": "targeted",
+      "purpose": "latest",
+      "research": "none"
+    }
+  },
+  {
+    "id": "h11",
+    "request": "What was my average LDL last month?",
+    "history": [],
+    "expected": {
+      "task": "health",
+      "coverage": "targeted",
+      "purpose": "trend",
+      "research": "none"
+    }
+  },
+  {
+    "id": "h12",
+    "request": "Show my oxygen saturation for the past 2 weeks",
+    "history": [],
+    "expected": {
+      "task": "health",
+      "coverage": "targeted",
+      "purpose": "trend",
+      "research": "none"
+    }
+  },
+  {
+    "id": "h13",
+    "request": "Review my sleep in February 2024",
+    "history": [],
+    "expected": {
+      "task": "health",
+      "coverage": "targeted",
+      "purpose": "trend",
+      "research": "none"
+    }
+  },
+  {
+    "id": "h14",
+    "request": "Show my custom metric on 2024-02-29",
+    "history": [],
+    "expected": {
+      "task": "health",
+      "coverage": "targeted",
+      "purpose": "trend",
+      "research": "none"
+    }
+  },
+  {
+    "id": "h15",
+    "request": "Show my steps from 2025-12-28 through 2026-01-03",
+    "history": [],
+    "expected": {
+      "task": "health",
+      "coverage": "targeted",
+      "purpose": "trend",
+      "research": "none"
+    }
+  },
+  {
+    "id": "h16",
+    "request": "Show my steps and respiratory rate last 14 days",
+    "history": [],
+    "expected": {
+      "task": "health",
+      "coverage": "targeted",
+      "purpose": "trend",
+      "research": "none"
+    }
+  },
+  {
+    "id": "h17",
+    "request": "Review my workouts last month",
+    "history": [],
+    "expected": {
+      "task": "health",
+      "coverage": "targeted",
+      "purpose": "trend",
+      "research": "none"
+    }
+  },
+  {
+    "id": "h18",
+    "request": "Show my lab reports during August",
+    "history": [],
+    "expected": {
+      "task": "health",
+      "coverage": "targeted",
+      "purpose": "trend",
+      "research": "none"
+    }
+  },
+  {
+    "id": "h19",
+    "request": "Show my screening events planned next year",
+    "history": [],
+    "expected": {
+      "task": "health",
+      "coverage": "targeted",
+      "purpose": "trend",
+      "research": "none"
+    }
+  },
+  {
+    "id": "h20",
+    "request": "Which screenings did I complete last month?",
+    "history": [],
+    "expected": {
+      "task": "health",
+      "coverage": "targeted",
+      "purpose": "trend",
+      "research": "none"
+    }
+  },
+  {
+    "id": "h21",
+    "request": "Find published evidence about sleep and exercise",
+    "history": [],
+    "expected": {
+      "task": "research",
+      "coverage": "none",
+      "purpose": "unsupported",
+      "research": "sleep_activity"
+    }
+  },
+  {
+    "id": "h22",
+    "request": "Summarise studies on diet and exercise for lipid and glucose control",
+    "history": [],
+    "expected": {
+      "task": "research",
+      "coverage": "none",
+      "purpose": "unsupported",
+      "research": "cardiometabolic"
+    }
+  },
+  {
+    "id": "h23",
+    "request": "Find studies on cancer immunotherapy",
+    "history": [],
+    "expected": null
+  },
+  {
+    "id": "h24",
+    "request": "Change my sleep target to eight hours",
+    "history": [],
+    "expected": null
+  },
+  {
+    "id": "h25",
+    "request": "What does ApoB mean?",
+    "history": [],
+    "expected": null
+  },
+  {
+    "id": "h26",
+    "request": "Please do not access my records; explain sleep efficiency",
+    "history": [],
+    "expected": null
+  },
+  {
+    "id": "h27",
+    "request": "Compare my August steps with September",
+    "history": [],
+    "expected": null
+  },
+  {
+    "id": "h28",
+    "request": "Show only my Garmin steps last month",
+    "history": [],
+    "expected": null
+  },
+  {
+    "id": "h29",
+    "request": "Show my glucose after August 12",
+    "history": [],
+    "expected": null
+  },
+  {
+    "id": "h30",
+    "request": "Show my steps from last spring",
+    "history": [],
+    "expected": null
+  },
+  {
+    "id": "h31",
+    "request": "Show my steps for the past 121 days",
+    "history": [],
+    "expected": null
+  },
+  {
+    "id": "h32",
+    "request": "Show my steps on February 30, 2026",
+    "history": [],
+    "expected": null
+  },
+  {
+    "id": "h33",
+    "request": "And last week?",
+    "history": [
+      "Show my latest LDL readings this week"
+    ],
+    "expected": {
+      "task": "health",
+      "coverage": "targeted",
+      "purpose": "latest",
+      "research": "none"
+    },
+    "concepts": [
+      "ldl_cholesterol"
+    ],
+    "range": {
+      "kind": "between",
+      "start_at": "2026-09-14",
+      "end_at": "2026-09-20"
+    }
+  },
+  {
+    "id": "h34",
+    "request": "How about February 2024?",
+    "history": [
+      "Show my respiratory rate this month"
+    ],
+    "expected": {
+      "task": "health",
+      "coverage": "targeted",
+      "purpose": "trend",
+      "research": "none"
+    },
+    "concepts": [
+      "respiratory_rate"
+    ],
+    "range": {
+      "kind": "between",
+      "start_at": "2024-02-01",
+      "end_at": "2024-02-29"
+    }
+  },
+  {
+    "id": "h35",
+    "request": "What about last month?",
+    "history": [
+      "Explain what sleep efficiency means"
+    ],
+    "expected": null
+  },
+  {
+    "id": "h36",
+    "request": "Now show my steps last month",
+    "history": [
+      "Show my latest LDL reading"
+    ],
+    "expected": {
+      "task": "health",
+      "coverage": "targeted",
+      "purpose": "trend",
+      "research": "none"
+    },
+    "concepts": [
+      "steps"
+    ],
+    "range": {
+      "kind": "between",
+      "start_at": "2026-08-01",
+      "end_at": "2026-08-31"
+    }
+  }
+]

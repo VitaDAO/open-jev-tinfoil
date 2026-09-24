@@ -1,0 +1,281 @@
+{
+  "mode": "bf16-cpu",
+  "scope": "Synthetic finite-choice routing/availability tests; not59tests or finalVitaanswers. Mac timings are not Tinfoil x86CPU measurements.",
+  "startup_seconds": 6.245716957957484,
+  "cases": 4,
+  "requests": 8,
+  "correct": 8,
+  "valid": 8,
+  "both_orders_correct": 4,
+  "changed_decision_under_reordering": 0,
+  "median_seconds": 12.982498770492384,
+  "p95_seconds": 17.97668750002049,
+  "peak_sampled_rss_bytes": 9153904640,
+  "model_file_bytes": 8665620032,
+  "command": [
+    "/Users/alexdobrin/Documents/tev1-local/runtime/llama-b11146/llama-server",
+    "-m",
+    "/Users/alexdobrin/Documents/tev1-local/tev1-bf16.gguf",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "65363",
+    "--ctx-size",
+    "2048",
+    "--parallel",
+    "1",
+    "--threads",
+    "4",
+    "--threads-batch",
+    "4",
+    "--cache-ram",
+    "0",
+    "--no-cache-idle-slots",
+    "--chat-template-kwargs",
+    "{\"enable_thinking\":false}",
+    "--reasoning-budget",
+    "0",
+    "--no-context-shift",
+    "--offline",
+    "--gpu-layers",
+    "0",
+    "--device",
+    "none",
+    "--no-op-offload",
+    "--no-kv-offload"
+  ],
+  "rows": [
+    {
+      "id": "vita-01",
+      "order": 0,
+      "answer": "C",
+      "valid": true,
+      "correct": true,
+      "selected_key": "candidate_0",
+      "seconds": 12.229618166049477,
+      "rss_bytes_after": 9146515456,
+      "usage": {
+        "completion_tokens": 2,
+        "prompt_tokens": 233,
+        "total_tokens": 235,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 233,
+        "prompt_ms": 10932.054,
+        "prompt_per_token_ms": 46.91868669527897,
+        "prompt_per_second": 21.313469545613295,
+        "predicted_n": 2,
+        "predicted_ms": 1291.618,
+        "predicted_per_token_ms": 1291.618,
+        "predicted_per_second": 0.7742227191011585
+      }
+    },
+    {
+      "id": "vita-01",
+      "order": 1,
+      "answer": "B",
+      "valid": true,
+      "correct": true,
+      "selected_key": "candidate_0",
+      "seconds": 16.886085250007454,
+      "rss_bytes_after": 9148547072,
+      "usage": {
+        "completion_tokens": 2,
+        "prompt_tokens": 233,
+        "total_tokens": 235,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 233,
+        "prompt_ms": 15415.048,
+        "prompt_per_token_ms": 66.15900429184549,
+        "prompt_per_second": 15.115100517364588,
+        "predicted_n": 2,
+        "predicted_ms": 1467.258,
+        "predicted_per_token_ms": 1467.258,
+        "predicted_per_second": 0.6815433959126479
+      }
+    },
+    {
+      "id": "vita-02",
+      "order": 0,
+      "answer": "B",
+      "valid": true,
+      "correct": true,
+      "selected_key": "candidate_0",
+      "seconds": 17.97668750002049,
+      "rss_bytes_after": 9151545344,
+      "usage": {
+        "completion_tokens": 2,
+        "prompt_tokens": 258,
+        "total_tokens": 260,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 258,
+        "prompt_ms": 16669.212,
+        "prompt_per_token_ms": 64.6093488372093,
+        "prompt_per_second": 15.477636255391078,
+        "predicted_n": 2,
+        "predicted_ms": 1303.122,
+        "predicted_per_token_ms": 1303.122,
+        "predicted_per_second": 0.767387857775404
+      }
+    },
+    {
+      "id": "vita-02",
+      "order": 1,
+      "answer": "A",
+      "valid": true,
+      "correct": true,
+      "selected_key": "candidate_0",
+      "seconds": 12.853251458029263,
+      "rss_bytes_after": 9153773568,
+      "usage": {
+        "completion_tokens": 2,
+        "prompt_tokens": 258,
+        "total_tokens": 260,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 258,
+        "prompt_ms": 11665.846,
+        "prompt_per_token_ms": 45.21645736434108,
+        "prompt_per_second": 22.115841405758317,
+        "predicted_n": 2,
+        "predicted_ms": 1182.772,
+        "predicted_per_token_ms": 1182.772,
+        "predicted_per_second": 0.8454714856286757
+      }
+    },
+    {
+      "id": "vita-03",
+      "order": 0,
+      "answer": "A",
+      "valid": true,
+      "correct": true,
+      "selected_key": "candidate_0",
+      "seconds": 12.321898624999449,
+      "rss_bytes_after": 9153789952,
+      "usage": {
+        "completion_tokens": 2,
+        "prompt_tokens": 228,
+        "total_tokens": 230,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 228,
+        "prompt_ms": 11214.031,
+        "prompt_per_token_ms": 49.18434649122808,
+        "prompt_per_second": 20.33167199198932,
+        "predicted_n": 2,
+        "predicted_ms": 1103.341,
+        "predicted_per_token_ms": 1103.341,
+        "predicted_per_second": 0.906338113058429
+      }
+    },
+    {
+      "id": "vita-03",
+      "order": 1,
+      "answer": "D",
+      "valid": true,
+      "correct": true,
+      "selected_key": "candidate_0",
+      "seconds": 12.785320165974554,
+      "rss_bytes_after": 9153806336,
+      "usage": {
+        "completion_tokens": 2,
+        "prompt_tokens": 228,
+        "total_tokens": 230,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 228,
+        "prompt_ms": 11660.597,
+        "prompt_per_token_ms": 51.14296929824561,
+        "prompt_per_second": 19.553029746247127,
+        "predicted_n": 2,
+        "predicted_ms": 1121.103,
+        "predicted_per_token_ms": 1121.103,
+        "predicted_per_second": 0.8919787031164843
+      }
+    },
+    {
+      "id": "vita-04",
+      "order": 0,
+      "answer": "D",
+      "valid": true,
+      "correct": true,
+      "selected_key": "candidate_0",
+      "seconds": 13.415575584047474,
+      "rss_bytes_after": 9153806336,
+      "usage": {
+        "completion_tokens": 2,
+        "prompt_tokens": 240,
+        "total_tokens": 242,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 240,
+        "prompt_ms": 12225.996,
+        "prompt_per_token_ms": 50.941649999999996,
+        "prompt_per_second": 19.630302512776876,
+        "predicted_n": 2,
+        "predicted_ms": 1185.1,
+        "predicted_per_token_ms": 1185.1,
+        "predicted_per_second": 0.843810648890389
+      }
+    },
+    {
+      "id": "vita-04",
+      "order": 1,
+      "answer": "C",
+      "valid": true,
+      "correct": true,
+      "selected_key": "candidate_0",
+      "seconds": 13.111746082955506,
+      "rss_bytes_after": 9153904640,
+      "usage": {
+        "completion_tokens": 2,
+        "prompt_tokens": 240,
+        "total_tokens": 242,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 240,
+        "prompt_ms": 11955.17,
+        "prompt_per_token_ms": 49.813208333333336,
+        "prompt_per_second": 20.07499684237029,
+        "predicted_n": 2,
+        "predicted_ms": 1152.566,
+        "predicted_per_token_ms": 1152.566,
+        "predicted_per_second": 0.8676292724234447
+      }
+    }
+  ]
+}

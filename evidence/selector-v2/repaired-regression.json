@@ -1,0 +1,3567 @@
+{
+  "candidate": "ridge",
+  "scope": "Local 4-thread CPU; compiled legacy plans; no DB, WAN or attestation",
+  "fixture_sha256": "e08e7fbc2c284d125df65e0342f48c3b8af12497dc008b0fe4321966b601d9b4",
+  "source_sha256": {
+    "learned_selector.py": "76bfbba0737ece6028b6087206dc41c608387f50759f0b6da2b33e58c8fcf08f",
+    "selector.py": "6898f660d90f7e6eed0755039aee762e5ede247db040d5a42d2548bff1f0ccf1",
+    "scripts/evaluate_selector_exact.py": "77f860a8b965010301cbe56bf483f6eb26529d355e1a2c1983ec8274914a8cce",
+    "tests/contracts/vita_read_contract.py": "3afa1d3b1e5361fe344d8dd1cd05f97ca9daa3f7e7f65f569e88ad491b7741b6",
+    "tests/contracts/jev_dates.py": "8a78fc5a1e2961b73360dec7a6e532dfcb15bd98844f3a4563f41a58650e39c8"
+  },
+  "load_ms": 2706.088,
+  "warm_p50_ms": 0.182,
+  "warm_p95_ms": 114.066,
+  "warm_model_requests": 24,
+  "warm_model_p50_ms": 105.991,
+  "warm_model_p95_ms": 116.719,
+  "all_author_labels": {
+    "cases": 59,
+    "correct": 58,
+    "outcomes": {
+      "correct_plan": 25,
+      "missed_plan": 1,
+      "correct_handoff": 33
+    },
+    "required_plan_cases": 26,
+    "executable_plans": 25,
+    "excluded_label_disagreements": 0
+  },
+  "consensus": {
+    "cases": 59,
+    "correct": 58,
+    "outcomes": {
+      "correct_plan": 25,
+      "missed_plan": 1,
+      "correct_handoff": 33
+    },
+    "required_plan_cases": 26,
+    "executable_plans": 25,
+    "excluded_label_disagreements": 0
+  },
+  "rows": [
+    {
+      "id": "m01",
+      "label_agreement": true,
+      "status": "selected",
+      "reason_codes": [],
+      "model_evaluated": true,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "trend",
+            "concepts": [
+              "apob",
+              "custom_metric",
+              "ldl_cholesterol",
+              "oxygen_saturation",
+              "respiratory_rate"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC"
+          },
+          {
+            "operation_id": 2,
+            "purpose": "trend",
+            "concepts": [
+              "sleep_efficiency",
+              "steps",
+              "total_sleep"
+            ],
+            "range": {
+              "kind": "relative",
+              "unit": "days",
+              "amount": 30
+            },
+            "time_zone": "UTC"
+          },
+          {
+            "operation_id": 3,
+            "purpose": "latest",
+            "record_types": [
+              "profile"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "profile_fields": [
+              "goals",
+              "chronic_conditions",
+              "medications",
+              "no_regular_medications",
+              "allergies",
+              "sex",
+              "birth_year",
+              "height_cm",
+              "weight_kg"
+            ]
+          },
+          {
+            "operation_id": 4,
+            "purpose": "latest",
+            "record_types": [
+              "workouts"
+            ],
+            "range": {
+              "kind": "relative",
+              "unit": "days",
+              "amount": 30
+            },
+            "time_zone": "UTC"
+          },
+          {
+            "operation_id": 5,
+            "purpose": "latest",
+            "record_types": [
+              "labs"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "record_detail_dataset": "labs.upload_metadata.v1",
+            "record_detail_limit": 3
+          },
+          {
+            "operation_id": 6,
+            "purpose": "latest",
+            "record_types": [
+              "calendar"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "record_detail_dataset": "calendar.events.v1",
+            "record_detail_limit": 8
+          }
+        ],
+        "required_operation_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "literature_reads": [
+          {
+            "operation_id": 7,
+            "question": "For adults, summarize systematic review and randomized trial evidence on sleep duration and regularity, physical activity, and diet for cardiometabolic health. Identify practical interventions, studied populations, and applicability limits; distinguish associations from intervention effects.",
+            "subject_basis": "general_overview_research",
+            "basis_source_ids": [],
+            "task": "evidence_summary",
+            "depth": "fast"
+          }
+        ]
+      },
+      "error": null,
+      "elapsed_ms": 190.692,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "concepts": [
+                    "apob",
+                    "custom_metric",
+                    "ldl_cholesterol",
+                    "oxygen_saturation",
+                    "respiratory_rate"
+                  ],
+                  "operation_id": 1,
+                  "purpose": "trend",
+                  "range": {
+                    "kind": "all_history"
+                  },
+                  "time_zone": "UTC"
+                },
+                {
+                  "concepts": [
+                    "sleep_efficiency",
+                    "steps",
+                    "total_sleep"
+                  ],
+                  "operation_id": 2,
+                  "purpose": "trend",
+                  "range": {
+                    "amount": 30,
+                    "kind": "relative",
+                    "unit": "days"
+                  },
+                  "time_zone": "UTC"
+                },
+                {
+                  "operation_id": 3,
+                  "profile_fields": [
+                    "goals",
+                    "chronic_conditions",
+                    "medications",
+                    "no_regular_medications",
+                    "allergies",
+                    "sex",
+                    "birth_year",
+                    "height_cm",
+                    "weight_kg"
+                  ],
+                  "purpose": "latest",
+                  "range": {
+                    "kind": "all_history"
+                  },
+                  "record_types": [
+                    "profile"
+                  ],
+                  "time_zone": "UTC"
+                },
+                {
+                  "operation_id": 4,
+                  "purpose": "latest",
+                  "range": {
+                    "amount": 30,
+                    "kind": "relative",
+                    "unit": "days"
+                  },
+                  "record_types": [
+                    "workouts"
+                  ],
+                  "time_zone": "UTC"
+                },
+                {
+                  "operation_id": 5,
+                  "purpose": "latest",
+                  "range": {
+                    "kind": "all_history"
+                  },
+                  "record_detail_dataset": "labs.upload_metadata.v1",
+                  "record_detail_limit": 3,
+                  "record_types": [
+                    "labs"
+                  ],
+                  "time_zone": "UTC"
+                },
+                {
+                  "operation_id": 6,
+                  "purpose": "latest",
+                  "range": {
+                    "kind": "all_history"
+                  },
+                  "record_detail_dataset": "calendar.events.v1",
+                  "record_detail_limit": 8,
+                  "record_types": [
+                    "calendar"
+                  ],
+                  "time_zone": "UTC"
+                }
+              ],
+              "literature_reads": [
+                {
+                  "basis_source_ids": [],
+                  "depth": "fast",
+                  "operation_id": 7,
+                  "question": "For adults, summarize systematic review and randomized trial evidence on sleep duration and regularity, physical activity, and diet for cardiometabolic health. Identify practical interventions, studied populations, and applicability limits; distinguish associations from intervention effects.",
+                  "subject_basis": "general_overview_research",
+                  "task": "evidence_summary"
+                }
+              ],
+              "required_operation_ids": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "correct_plan"
+      }
+    },
+    {
+      "id": "m02",
+      "label_agreement": true,
+      "status": "selected",
+      "reason_codes": [],
+      "model_evaluated": true,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "trend",
+            "concepts": [
+              "apob",
+              "custom_metric",
+              "ldl_cholesterol",
+              "oxygen_saturation",
+              "respiratory_rate"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC"
+          },
+          {
+            "operation_id": 2,
+            "purpose": "trend",
+            "concepts": [
+              "sleep_efficiency",
+              "steps",
+              "total_sleep"
+            ],
+            "range": {
+              "kind": "relative",
+              "unit": "days",
+              "amount": 30
+            },
+            "time_zone": "UTC"
+          },
+          {
+            "operation_id": 3,
+            "purpose": "latest",
+            "record_types": [
+              "profile"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "profile_fields": [
+              "goals",
+              "chronic_conditions",
+              "medications",
+              "no_regular_medications",
+              "allergies",
+              "sex",
+              "birth_year",
+              "height_cm",
+              "weight_kg"
+            ]
+          },
+          {
+            "operation_id": 4,
+            "purpose": "latest",
+            "record_types": [
+              "workouts"
+            ],
+            "range": {
+              "kind": "relative",
+              "unit": "days",
+              "amount": 30
+            },
+            "time_zone": "UTC"
+          },
+          {
+            "operation_id": 5,
+            "purpose": "latest",
+            "record_types": [
+              "labs"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "record_detail_dataset": "labs.upload_metadata.v1",
+            "record_detail_limit": 3
+          },
+          {
+            "operation_id": 6,
+            "purpose": "latest",
+            "record_types": [
+              "calendar"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "record_detail_dataset": "calendar.events.v1",
+            "record_detail_limit": 8
+          }
+        ],
+        "required_operation_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "literature_reads": [
+          {
+            "operation_id": 7,
+            "question": "For adults, summarize systematic review and randomized trial evidence on sleep duration and regularity, physical activity, and diet for cardiometabolic health. Identify practical interventions, studied populations, and applicability limits; distinguish associations from intervention effects.",
+            "subject_basis": "general_overview_research",
+            "basis_source_ids": [],
+            "task": "evidence_summary",
+            "depth": "fast"
+          }
+        ]
+      },
+      "error": null,
+      "elapsed_ms": 106.405,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "concepts": [
+                    "apob",
+                    "custom_metric",
+                    "ldl_cholesterol",
+                    "oxygen_saturation",
+                    "respiratory_rate"
+                  ],
+                  "operation_id": 1,
+                  "purpose": "trend",
+                  "range": {
+                    "kind": "all_history"
+                  },
+                  "time_zone": "UTC"
+                },
+                {
+                  "concepts": [
+                    "sleep_efficiency",
+                    "steps",
+                    "total_sleep"
+                  ],
+                  "operation_id": 2,
+                  "purpose": "trend",
+                  "range": {
+                    "amount": 30,
+                    "kind": "relative",
+                    "unit": "days"
+                  },
+                  "time_zone": "UTC"
+                },
+                {
+                  "operation_id": 3,
+                  "profile_fields": [
+                    "goals",
+                    "chronic_conditions",
+                    "medications",
+                    "no_regular_medications",
+                    "allergies",
+                    "sex",
+                    "birth_year",
+                    "height_cm",
+                    "weight_kg"
+                  ],
+                  "purpose": "latest",
+                  "range": {
+                    "kind": "all_history"
+                  },
+                  "record_types": [
+                    "profile"
+                  ],
+                  "time_zone": "UTC"
+                },
+                {
+                  "operation_id": 4,
+                  "purpose": "latest",
+                  "range": {
+                    "amount": 30,
+                    "kind": "relative",
+                    "unit": "days"
+                  },
+                  "record_types": [
+                    "workouts"
+                  ],
+                  "time_zone": "UTC"
+                },
+                {
+                  "operation_id": 5,
+                  "purpose": "latest",
+                  "range": {
+                    "kind": "all_history"
+                  },
+                  "record_detail_dataset": "labs.upload_metadata.v1",
+                  "record_detail_limit": 3,
+                  "record_types": [
+                    "labs"
+                  ],
+                  "time_zone": "UTC"
+                },
+                {
+                  "operation_id": 6,
+                  "purpose": "latest",
+                  "range": {
+                    "kind": "all_history"
+                  },
+                  "record_detail_dataset": "calendar.events.v1",
+                  "record_detail_limit": 8,
+                  "record_types": [
+                    "calendar"
+                  ],
+                  "time_zone": "UTC"
+                }
+              ],
+              "literature_reads": [
+                {
+                  "basis_source_ids": [],
+                  "depth": "fast",
+                  "operation_id": 7,
+                  "question": "For adults, summarize systematic review and randomized trial evidence on sleep duration and regularity, physical activity, and diet for cardiometabolic health. Identify practical interventions, studied populations, and applicability limits; distinguish associations from intervention effects.",
+                  "subject_basis": "general_overview_research",
+                  "task": "evidence_summary"
+                }
+              ],
+              "required_operation_ids": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "correct_plan"
+      }
+    },
+    {
+      "id": "m03",
+      "label_agreement": true,
+      "status": "selected",
+      "reason_codes": [],
+      "model_evaluated": true,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "trend",
+            "concepts": [
+              "apob",
+              "custom_metric",
+              "ldl_cholesterol",
+              "oxygen_saturation",
+              "respiratory_rate"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC"
+          },
+          {
+            "operation_id": 2,
+            "purpose": "trend",
+            "concepts": [
+              "sleep_efficiency",
+              "steps",
+              "total_sleep"
+            ],
+            "range": {
+              "kind": "relative",
+              "unit": "days",
+              "amount": 30
+            },
+            "time_zone": "UTC"
+          },
+          {
+            "operation_id": 3,
+            "purpose": "latest",
+            "record_types": [
+              "profile"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "profile_fields": [
+              "goals",
+              "chronic_conditions",
+              "medications",
+              "no_regular_medications",
+              "allergies",
+              "sex",
+              "birth_year",
+              "height_cm",
+              "weight_kg"
+            ]
+          },
+          {
+            "operation_id": 4,
+            "purpose": "latest",
+            "record_types": [
+              "workouts"
+            ],
+            "range": {
+              "kind": "relative",
+              "unit": "days",
+              "amount": 30
+            },
+            "time_zone": "UTC"
+          },
+          {
+            "operation_id": 5,
+            "purpose": "latest",
+            "record_types": [
+              "labs"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "record_detail_dataset": "labs.upload_metadata.v1",
+            "record_detail_limit": 3
+          },
+          {
+            "operation_id": 6,
+            "purpose": "latest",
+            "record_types": [
+              "calendar"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "record_detail_dataset": "calendar.events.v1",
+            "record_detail_limit": 8
+          }
+        ],
+        "required_operation_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "literature_reads": [
+          {
+            "operation_id": 7,
+            "question": "For adults, summarize systematic review and randomized trial evidence on sleep duration and regularity, physical activity, and diet for cardiometabolic health. Identify practical interventions, studied populations, and applicability limits; distinguish associations from intervention effects.",
+            "subject_basis": "general_overview_research",
+            "basis_source_ids": [],
+            "task": "evidence_summary",
+            "depth": "fast"
+          }
+        ]
+      },
+      "error": null,
+      "elapsed_ms": 117.218,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "concepts": [
+                    "apob",
+                    "custom_metric",
+                    "ldl_cholesterol",
+                    "oxygen_saturation",
+                    "respiratory_rate"
+                  ],
+                  "operation_id": 1,
+                  "purpose": "trend",
+                  "range": {
+                    "kind": "all_history"
+                  },
+                  "time_zone": "UTC"
+                },
+                {
+                  "concepts": [
+                    "sleep_efficiency",
+                    "steps",
+                    "total_sleep"
+                  ],
+                  "operation_id": 2,
+                  "purpose": "trend",
+                  "range": {
+                    "amount": 30,
+                    "kind": "relative",
+                    "unit": "days"
+                  },
+                  "time_zone": "UTC"
+                },
+                {
+                  "operation_id": 3,
+                  "profile_fields": [
+                    "goals",
+                    "chronic_conditions",
+                    "medications",
+                    "no_regular_medications",
+                    "allergies",
+                    "sex",
+                    "birth_year",
+                    "height_cm",
+                    "weight_kg"
+                  ],
+                  "purpose": "latest",
+                  "range": {
+                    "kind": "all_history"
+                  },
+                  "record_types": [
+                    "profile"
+                  ],
+                  "time_zone": "UTC"
+                },
+                {
+                  "operation_id": 4,
+                  "purpose": "latest",
+                  "range": {
+                    "amount": 30,
+                    "kind": "relative",
+                    "unit": "days"
+                  },
+                  "record_types": [
+                    "workouts"
+                  ],
+                  "time_zone": "UTC"
+                },
+                {
+                  "operation_id": 5,
+                  "purpose": "latest",
+                  "range": {
+                    "kind": "all_history"
+                  },
+                  "record_detail_dataset": "labs.upload_metadata.v1",
+                  "record_detail_limit": 3,
+                  "record_types": [
+                    "labs"
+                  ],
+                  "time_zone": "UTC"
+                },
+                {
+                  "operation_id": 6,
+                  "purpose": "latest",
+                  "range": {
+                    "kind": "all_history"
+                  },
+                  "record_detail_dataset": "calendar.events.v1",
+                  "record_detail_limit": 8,
+                  "record_types": [
+                    "calendar"
+                  ],
+                  "time_zone": "UTC"
+                }
+              ],
+              "literature_reads": [
+                {
+                  "basis_source_ids": [],
+                  "depth": "fast",
+                  "operation_id": 7,
+                  "question": "For adults, summarize systematic review and randomized trial evidence on sleep duration and regularity, physical activity, and diet for cardiometabolic health. Identify practical interventions, studied populations, and applicability limits; distinguish associations from intervention effects.",
+                  "subject_basis": "general_overview_research",
+                  "task": "evidence_summary"
+                }
+              ],
+              "required_operation_ids": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "correct_plan"
+      }
+    },
+    {
+      "id": "m04",
+      "label_agreement": true,
+      "status": "selected",
+      "reason_codes": [],
+      "model_evaluated": true,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "trend",
+            "concepts": [
+              "apob",
+              "custom_metric",
+              "ldl_cholesterol",
+              "oxygen_saturation",
+              "respiratory_rate"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC"
+          },
+          {
+            "operation_id": 2,
+            "purpose": "trend",
+            "concepts": [
+              "sleep_efficiency",
+              "steps",
+              "total_sleep"
+            ],
+            "range": {
+              "kind": "relative",
+              "unit": "days",
+              "amount": 30
+            },
+            "time_zone": "UTC"
+          },
+          {
+            "operation_id": 3,
+            "purpose": "latest",
+            "record_types": [
+              "profile"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "profile_fields": [
+              "goals",
+              "chronic_conditions",
+              "medications",
+              "no_regular_medications",
+              "allergies",
+              "sex",
+              "birth_year",
+              "height_cm",
+              "weight_kg"
+            ]
+          },
+          {
+            "operation_id": 4,
+            "purpose": "latest",
+            "record_types": [
+              "workouts"
+            ],
+            "range": {
+              "kind": "relative",
+              "unit": "days",
+              "amount": 30
+            },
+            "time_zone": "UTC"
+          },
+          {
+            "operation_id": 5,
+            "purpose": "latest",
+            "record_types": [
+              "labs"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "record_detail_dataset": "labs.upload_metadata.v1",
+            "record_detail_limit": 3
+          },
+          {
+            "operation_id": 6,
+            "purpose": "latest",
+            "record_types": [
+              "calendar"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "record_detail_dataset": "calendar.events.v1",
+            "record_detail_limit": 8
+          }
+        ],
+        "required_operation_ids": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "literature_reads": [
+          {
+            "operation_id": 7,
+            "question": "For adults, summarize systematic review and randomized trial evidence on sleep duration and regularity, physical activity, and diet for cardiometabolic health. Identify practical interventions, studied populations, and applicability limits; distinguish associations from intervention effects.",
+            "subject_basis": "general_overview_research",
+            "basis_source_ids": [],
+            "task": "evidence_summary",
+            "depth": "fast"
+          }
+        ]
+      },
+      "error": null,
+      "elapsed_ms": 105.577,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "concepts": [
+                    "apob",
+                    "custom_metric",
+                    "ldl_cholesterol",
+                    "oxygen_saturation",
+                    "respiratory_rate"
+                  ],
+                  "operation_id": 1,
+                  "purpose": "trend",
+                  "range": {
+                    "kind": "all_history"
+                  },
+                  "time_zone": "UTC"
+                },
+                {
+                  "concepts": [
+                    "sleep_efficiency",
+                    "steps",
+                    "total_sleep"
+                  ],
+                  "operation_id": 2,
+                  "purpose": "trend",
+                  "range": {
+                    "amount": 30,
+                    "kind": "relative",
+                    "unit": "days"
+                  },
+                  "time_zone": "UTC"
+                },
+                {
+                  "operation_id": 3,
+                  "profile_fields": [
+                    "goals",
+                    "chronic_conditions",
+                    "medications",
+                    "no_regular_medications",
+                    "allergies",
+                    "sex",
+                    "birth_year",
+                    "height_cm",
+                    "weight_kg"
+                  ],
+                  "purpose": "latest",
+                  "range": {
+                    "kind": "all_history"
+                  },
+                  "record_types": [
+                    "profile"
+                  ],
+                  "time_zone": "UTC"
+                },
+                {
+                  "operation_id": 4,
+                  "purpose": "latest",
+                  "range": {
+                    "amount": 30,
+                    "kind": "relative",
+                    "unit": "days"
+                  },
+                  "record_types": [
+                    "workouts"
+                  ],
+                  "time_zone": "UTC"
+                },
+                {
+                  "operation_id": 5,
+                  "purpose": "latest",
+                  "range": {
+                    "kind": "all_history"
+                  },
+                  "record_detail_dataset": "labs.upload_metadata.v1",
+                  "record_detail_limit": 3,
+                  "record_types": [
+                    "labs"
+                  ],
+                  "time_zone": "UTC"
+                },
+                {
+                  "operation_id": 6,
+                  "purpose": "latest",
+                  "range": {
+                    "kind": "all_history"
+                  },
+                  "record_detail_dataset": "calendar.events.v1",
+                  "record_detail_limit": 8,
+                  "record_types": [
+                    "calendar"
+                  ],
+                  "time_zone": "UTC"
+                }
+              ],
+              "literature_reads": [
+                {
+                  "basis_source_ids": [],
+                  "depth": "fast",
+                  "operation_id": 7,
+                  "question": "For adults, summarize systematic review and randomized trial evidence on sleep duration and regularity, physical activity, and diet for cardiometabolic health. Identify practical interventions, studied populations, and applicability limits; distinguish associations from intervention effects.",
+                  "subject_basis": "general_overview_research",
+                  "task": "evidence_summary"
+                }
+              ],
+              "required_operation_ids": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "correct_plan"
+      }
+    },
+    {
+      "id": "m05",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unbound_request_constraint"
+      ],
+      "model_evaluated": false,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 0.252,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "concepts": [
+                    "apob",
+                    "custom_metric",
+                    "ldl_cholesterol",
+                    "oxygen_saturation",
+                    "respiratory_rate"
+                  ],
+                  "operation_id": 1,
+                  "purpose": "trend",
+                  "range": {
+                    "kind": "all_history"
+                  },
+                  "time_zone": "UTC"
+                },
+                {
+                  "concepts": [
+                    "sleep_efficiency",
+                    "steps",
+                    "total_sleep"
+                  ],
+                  "operation_id": 2,
+                  "purpose": "trend",
+                  "range": {
+                    "amount": 30,
+                    "kind": "relative",
+                    "unit": "days"
+                  },
+                  "time_zone": "UTC"
+                },
+                {
+                  "operation_id": 3,
+                  "profile_fields": [
+                    "goals",
+                    "chronic_conditions",
+                    "medications",
+                    "no_regular_medications",
+                    "allergies",
+                    "sex",
+                    "birth_year",
+                    "height_cm",
+                    "weight_kg"
+                  ],
+                  "purpose": "latest",
+                  "range": {
+                    "kind": "all_history"
+                  },
+                  "record_types": [
+                    "profile"
+                  ],
+                  "time_zone": "UTC"
+                },
+                {
+                  "operation_id": 4,
+                  "purpose": "latest",
+                  "range": {
+                    "amount": 30,
+                    "kind": "relative",
+                    "unit": "days"
+                  },
+                  "record_types": [
+                    "workouts"
+                  ],
+                  "time_zone": "UTC"
+                },
+                {
+                  "operation_id": 5,
+                  "purpose": "latest",
+                  "range": {
+                    "kind": "all_history"
+                  },
+                  "record_detail_dataset": "labs.upload_metadata.v1",
+                  "record_detail_limit": 3,
+                  "record_types": [
+                    "labs"
+                  ],
+                  "time_zone": "UTC"
+                },
+                {
+                  "operation_id": 6,
+                  "purpose": "latest",
+                  "range": {
+                    "kind": "all_history"
+                  },
+                  "record_detail_dataset": "calendar.events.v1",
+                  "record_detail_limit": 8,
+                  "record_types": [
+                    "calendar"
+                  ],
+                  "time_zone": "UTC"
+                }
+              ],
+              "literature_reads": [
+                {
+                  "basis_source_ids": [],
+                  "depth": "fast",
+                  "operation_id": 7,
+                  "question": "For adults, summarize systematic review and randomized trial evidence on sleep duration and regularity, physical activity, and diet for cardiometabolic health. Identify practical interventions, studied populations, and applicability limits; distinguish associations from intervention effects.",
+                  "subject_basis": "general_overview_research",
+                  "task": "evidence_summary"
+                }
+              ],
+              "required_operation_ids": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "missed_plan"
+      }
+    },
+    {
+      "id": "m06",
+      "label_agreement": true,
+      "status": "selected",
+      "reason_codes": [],
+      "model_evaluated": true,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "trend",
+            "concepts": [
+              "apob",
+              "custom_metric",
+              "ldl_cholesterol",
+              "oxygen_saturation",
+              "respiratory_rate",
+              "sleep_efficiency",
+              "steps",
+              "total_sleep"
+            ],
+            "range": {
+              "kind": "calendar",
+              "period": "week"
+            },
+            "time_zone": "UTC"
+          },
+          {
+            "operation_id": 2,
+            "purpose": "latest",
+            "record_types": [
+              "profile"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "profile_fields": [
+              "goals",
+              "chronic_conditions",
+              "medications",
+              "no_regular_medications",
+              "allergies",
+              "sex",
+              "birth_year",
+              "height_cm",
+              "weight_kg"
+            ]
+          },
+          {
+            "operation_id": 3,
+            "purpose": "latest",
+            "record_types": [
+              "workouts"
+            ],
+            "range": {
+              "kind": "calendar",
+              "period": "week"
+            },
+            "time_zone": "UTC"
+          },
+          {
+            "operation_id": 4,
+            "purpose": "latest",
+            "record_types": [
+              "labs"
+            ],
+            "range": {
+              "kind": "calendar",
+              "period": "week"
+            },
+            "time_zone": "UTC",
+            "record_detail_dataset": "labs.upload_metadata.v1",
+            "record_detail_limit": 3
+          },
+          {
+            "operation_id": 5,
+            "purpose": "latest",
+            "record_types": [
+              "calendar"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "record_detail_dataset": "calendar.events.v1",
+            "record_detail_limit": 8
+          }
+        ],
+        "required_operation_ids": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "error": null,
+      "elapsed_ms": 109.471,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "concepts": [
+                    "apob",
+                    "custom_metric",
+                    "ldl_cholesterol",
+                    "oxygen_saturation",
+                    "respiratory_rate",
+                    "sleep_efficiency",
+                    "steps",
+                    "total_sleep"
+                  ],
+                  "operation_id": 1,
+                  "purpose": "trend",
+                  "range": {
+                    "kind": "calendar",
+                    "period": "week"
+                  },
+                  "time_zone": "UTC"
+                },
+                {
+                  "operation_id": 2,
+                  "profile_fields": [
+                    "goals",
+                    "chronic_conditions",
+                    "medications",
+                    "no_regular_medications",
+                    "allergies",
+                    "sex",
+                    "birth_year",
+                    "height_cm",
+                    "weight_kg"
+                  ],
+                  "purpose": "latest",
+                  "range": {
+                    "kind": "all_history"
+                  },
+                  "record_types": [
+                    "profile"
+                  ],
+                  "time_zone": "UTC"
+                },
+                {
+                  "operation_id": 3,
+                  "purpose": "latest",
+                  "range": {
+                    "kind": "calendar",
+                    "period": "week"
+                  },
+                  "record_types": [
+                    "workouts"
+                  ],
+                  "time_zone": "UTC"
+                },
+                {
+                  "operation_id": 4,
+                  "purpose": "latest",
+                  "range": {
+                    "kind": "calendar",
+                    "period": "week"
+                  },
+                  "record_detail_dataset": "labs.upload_metadata.v1",
+                  "record_detail_limit": 3,
+                  "record_types": [
+                    "labs"
+                  ],
+                  "time_zone": "UTC"
+                },
+                {
+                  "operation_id": 5,
+                  "purpose": "latest",
+                  "range": {
+                    "kind": "all_history"
+                  },
+                  "record_detail_dataset": "calendar.events.v1",
+                  "record_detail_limit": 8,
+                  "record_types": [
+                    "calendar"
+                  ],
+                  "time_zone": "UTC"
+                }
+              ],
+              "required_operation_ids": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "correct_plan"
+      }
+    },
+    {
+      "id": "m07",
+      "label_agreement": true,
+      "status": "selected",
+      "reason_codes": [],
+      "model_evaluated": true,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "trend",
+            "concepts": [
+              "apob",
+              "custom_metric",
+              "ldl_cholesterol",
+              "oxygen_saturation",
+              "respiratory_rate",
+              "sleep_efficiency",
+              "steps",
+              "total_sleep"
+            ],
+            "range": {
+              "kind": "between",
+              "start_at": "2026-08-01",
+              "end_at": "2026-08-31"
+            },
+            "time_zone": "UTC"
+          },
+          {
+            "operation_id": 2,
+            "purpose": "latest",
+            "record_types": [
+              "profile"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "profile_fields": [
+              "goals",
+              "chronic_conditions",
+              "medications",
+              "no_regular_medications",
+              "allergies",
+              "sex",
+              "birth_year",
+              "height_cm",
+              "weight_kg"
+            ]
+          },
+          {
+            "operation_id": 3,
+            "purpose": "latest",
+            "record_types": [
+              "workouts"
+            ],
+            "range": {
+              "kind": "between",
+              "start_at": "2026-08-01",
+              "end_at": "2026-08-31"
+            },
+            "time_zone": "UTC"
+          },
+          {
+            "operation_id": 4,
+            "purpose": "latest",
+            "record_types": [
+              "labs"
+            ],
+            "range": {
+              "kind": "between",
+              "start_at": "2026-08-01",
+              "end_at": "2026-08-31"
+            },
+            "time_zone": "UTC",
+            "record_detail_dataset": "labs.upload_metadata.v1",
+            "record_detail_limit": 3
+          },
+          {
+            "operation_id": 5,
+            "purpose": "latest",
+            "record_types": [
+              "calendar"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "record_detail_dataset": "calendar.events.v1",
+            "record_detail_limit": 8
+          }
+        ],
+        "required_operation_ids": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "error": null,
+      "elapsed_ms": 103.408,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "concepts": [
+                    "apob",
+                    "custom_metric",
+                    "ldl_cholesterol",
+                    "oxygen_saturation",
+                    "respiratory_rate",
+                    "sleep_efficiency",
+                    "steps",
+                    "total_sleep"
+                  ],
+                  "operation_id": 1,
+                  "purpose": "trend",
+                  "range": {
+                    "end_at": "2026-08-31",
+                    "kind": "between",
+                    "start_at": "2026-08-01"
+                  },
+                  "time_zone": "UTC"
+                },
+                {
+                  "operation_id": 2,
+                  "profile_fields": [
+                    "goals",
+                    "chronic_conditions",
+                    "medications",
+                    "no_regular_medications",
+                    "allergies",
+                    "sex",
+                    "birth_year",
+                    "height_cm",
+                    "weight_kg"
+                  ],
+                  "purpose": "latest",
+                  "range": {
+                    "kind": "all_history"
+                  },
+                  "record_types": [
+                    "profile"
+                  ],
+                  "time_zone": "UTC"
+                },
+                {
+                  "operation_id": 3,
+                  "purpose": "latest",
+                  "range": {
+                    "end_at": "2026-08-31",
+                    "kind": "between",
+                    "start_at": "2026-08-01"
+                  },
+                  "record_types": [
+                    "workouts"
+                  ],
+                  "time_zone": "UTC"
+                },
+                {
+                  "operation_id": 4,
+                  "purpose": "latest",
+                  "range": {
+                    "end_at": "2026-08-31",
+                    "kind": "between",
+                    "start_at": "2026-08-01"
+                  },
+                  "record_detail_dataset": "labs.upload_metadata.v1",
+                  "record_detail_limit": 3,
+                  "record_types": [
+                    "labs"
+                  ],
+                  "time_zone": "UTC"
+                },
+                {
+                  "operation_id": 5,
+                  "purpose": "latest",
+                  "range": {
+                    "kind": "all_history"
+                  },
+                  "record_detail_dataset": "calendar.events.v1",
+                  "record_detail_limit": 8,
+                  "record_types": [
+                    "calendar"
+                  ],
+                  "time_zone": "UTC"
+                }
+              ],
+              "required_operation_ids": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "correct_plan"
+      }
+    },
+    {
+      "id": "m08",
+      "label_agreement": true,
+      "status": "selected",
+      "reason_codes": [],
+      "model_evaluated": true,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "trend",
+            "concepts": [
+              "apob",
+              "custom_metric",
+              "ldl_cholesterol",
+              "oxygen_saturation",
+              "respiratory_rate",
+              "sleep_efficiency",
+              "steps",
+              "total_sleep"
+            ],
+            "range": {
+              "kind": "relative",
+              "amount": 14,
+              "unit": "days"
+            },
+            "time_zone": "UTC"
+          },
+          {
+            "operation_id": 2,
+            "purpose": "latest",
+            "record_types": [
+              "profile"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "profile_fields": [
+              "goals",
+              "chronic_conditions",
+              "medications",
+              "no_regular_medications",
+              "allergies",
+              "sex",
+              "birth_year",
+              "height_cm",
+              "weight_kg"
+            ]
+          },
+          {
+            "operation_id": 3,
+            "purpose": "latest",
+            "record_types": [
+              "workouts"
+            ],
+            "range": {
+              "kind": "relative",
+              "amount": 14,
+              "unit": "days"
+            },
+            "time_zone": "UTC"
+          },
+          {
+            "operation_id": 4,
+            "purpose": "latest",
+            "record_types": [
+              "labs"
+            ],
+            "range": {
+              "kind": "relative",
+              "amount": 14,
+              "unit": "days"
+            },
+            "time_zone": "UTC",
+            "record_detail_dataset": "labs.upload_metadata.v1",
+            "record_detail_limit": 3
+          },
+          {
+            "operation_id": 5,
+            "purpose": "latest",
+            "record_types": [
+              "calendar"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "record_detail_dataset": "calendar.events.v1",
+            "record_detail_limit": 8
+          }
+        ],
+        "required_operation_ids": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      "error": null,
+      "elapsed_ms": 103.555,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "concepts": [
+                    "apob",
+                    "custom_metric",
+                    "ldl_cholesterol",
+                    "oxygen_saturation",
+                    "respiratory_rate",
+                    "sleep_efficiency",
+                    "steps",
+                    "total_sleep"
+                  ],
+                  "operation_id": 1,
+                  "purpose": "trend",
+                  "range": {
+                    "amount": 14,
+                    "kind": "relative",
+                    "unit": "days"
+                  },
+                  "time_zone": "UTC"
+                },
+                {
+                  "operation_id": 2,
+                  "profile_fields": [
+                    "goals",
+                    "chronic_conditions",
+                    "medications",
+                    "no_regular_medications",
+                    "allergies",
+                    "sex",
+                    "birth_year",
+                    "height_cm",
+                    "weight_kg"
+                  ],
+                  "purpose": "latest",
+                  "range": {
+                    "kind": "all_history"
+                  },
+                  "record_types": [
+                    "profile"
+                  ],
+                  "time_zone": "UTC"
+                },
+                {
+                  "operation_id": 3,
+                  "purpose": "latest",
+                  "range": {
+                    "amount": 14,
+                    "kind": "relative",
+                    "unit": "days"
+                  },
+                  "record_types": [
+                    "workouts"
+                  ],
+                  "time_zone": "UTC"
+                },
+                {
+                  "operation_id": 4,
+                  "purpose": "latest",
+                  "range": {
+                    "amount": 14,
+                    "kind": "relative",
+                    "unit": "days"
+                  },
+                  "record_detail_dataset": "labs.upload_metadata.v1",
+                  "record_detail_limit": 3,
+                  "record_types": [
+                    "labs"
+                  ],
+                  "time_zone": "UTC"
+                },
+                {
+                  "operation_id": 5,
+                  "purpose": "latest",
+                  "range": {
+                    "kind": "all_history"
+                  },
+                  "record_detail_dataset": "calendar.events.v1",
+                  "record_detail_limit": 8,
+                  "record_types": [
+                    "calendar"
+                  ],
+                  "time_zone": "UTC"
+                }
+              ],
+              "required_operation_ids": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "correct_plan"
+      }
+    },
+    {
+      "id": "m09",
+      "label_agreement": true,
+      "status": "selected",
+      "reason_codes": [],
+      "model_evaluated": true,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "latest",
+            "concepts": [
+              "respiratory_rate"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "error": null,
+      "elapsed_ms": 103.429,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "concepts": [
+                    "respiratory_rate"
+                  ],
+                  "operation_id": 1,
+                  "purpose": "latest",
+                  "range": {
+                    "kind": "all_history"
+                  },
+                  "time_zone": "UTC"
+                }
+              ],
+              "required_operation_ids": [
+                1
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "correct_plan"
+      }
+    },
+    {
+      "id": "m10",
+      "label_agreement": true,
+      "status": "selected",
+      "reason_codes": [],
+      "model_evaluated": true,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "latest",
+            "concepts": [
+              "apob"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "error": null,
+      "elapsed_ms": 104.372,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "concepts": [
+                    "apob"
+                  ],
+                  "operation_id": 1,
+                  "purpose": "latest",
+                  "range": {
+                    "kind": "all_history"
+                  },
+                  "time_zone": "UTC"
+                }
+              ],
+              "required_operation_ids": [
+                1
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "correct_plan"
+      }
+    },
+    {
+      "id": "m11",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unbound_request_constraint"
+      ],
+      "model_evaluated": false,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 0.253,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "m12",
+      "label_agreement": true,
+      "status": "selected",
+      "reason_codes": [],
+      "model_evaluated": true,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "trend",
+            "concepts": [
+              "oxygen_saturation"
+            ],
+            "range": {
+              "kind": "between",
+              "start_at": "2026-09-14",
+              "end_at": "2026-09-20"
+            },
+            "time_zone": "UTC"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "error": null,
+      "elapsed_ms": 104.25,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "concepts": [
+                    "oxygen_saturation"
+                  ],
+                  "operation_id": 1,
+                  "purpose": "trend",
+                  "range": {
+                    "end_at": "2026-09-20",
+                    "kind": "between",
+                    "start_at": "2026-09-14"
+                  },
+                  "time_zone": "UTC"
+                }
+              ],
+              "required_operation_ids": [
+                1
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "correct_plan"
+      }
+    },
+    {
+      "id": "m13",
+      "label_agreement": true,
+      "status": "selected",
+      "reason_codes": [],
+      "model_evaluated": true,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "trend",
+            "concepts": [
+              "custom_metric"
+            ],
+            "range": {
+              "kind": "relative",
+              "amount": 7,
+              "unit": "days"
+            },
+            "time_zone": "UTC"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "error": null,
+      "elapsed_ms": 108.581,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "concepts": [
+                    "custom_metric"
+                  ],
+                  "operation_id": 1,
+                  "purpose": "trend",
+                  "range": {
+                    "amount": 7,
+                    "kind": "relative",
+                    "unit": "days"
+                  },
+                  "time_zone": "UTC"
+                }
+              ],
+              "required_operation_ids": [
+                1
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "correct_plan"
+      }
+    },
+    {
+      "id": "m14",
+      "label_agreement": true,
+      "status": "selected",
+      "reason_codes": [],
+      "model_evaluated": true,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "trend",
+            "concepts": [
+              "sleep_efficiency"
+            ],
+            "range": {
+              "kind": "between",
+              "start_at": "2026-01-01",
+              "end_at": "2026-09-23T12:00:00+00:00"
+            },
+            "time_zone": "UTC"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "error": null,
+      "elapsed_ms": 116.719,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "concepts": [
+                    "sleep_efficiency"
+                  ],
+                  "operation_id": 1,
+                  "purpose": "trend",
+                  "range": {
+                    "end_at": "2026-09-23T12:00:00+00:00",
+                    "kind": "between",
+                    "start_at": "2026-01-01"
+                  },
+                  "time_zone": "UTC"
+                }
+              ],
+              "required_operation_ids": [
+                1
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "correct_plan"
+      }
+    },
+    {
+      "id": "m15",
+      "label_agreement": true,
+      "status": "selected",
+      "reason_codes": [],
+      "model_evaluated": true,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "trend",
+            "concepts": [
+              "steps"
+            ],
+            "range": {
+              "kind": "between",
+              "start_at": "2025-01-01",
+              "end_at": "2025-01-31"
+            },
+            "time_zone": "UTC"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "error": null,
+      "elapsed_ms": 103.34,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "concepts": [
+                    "steps"
+                  ],
+                  "operation_id": 1,
+                  "purpose": "trend",
+                  "range": {
+                    "end_at": "2025-01-31",
+                    "kind": "between",
+                    "start_at": "2025-01-01"
+                  },
+                  "time_zone": "UTC"
+                }
+              ],
+              "required_operation_ids": [
+                1
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "correct_plan"
+      }
+    },
+    {
+      "id": "m16",
+      "label_agreement": true,
+      "status": "selected",
+      "reason_codes": [],
+      "model_evaluated": true,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "trend",
+            "concepts": [
+              "steps"
+            ],
+            "range": {
+              "kind": "between",
+              "start_at": "2024-02-29",
+              "end_at": "2024-02-29"
+            },
+            "time_zone": "UTC"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "error": null,
+      "elapsed_ms": 105.152,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "concepts": [
+                    "steps"
+                  ],
+                  "operation_id": 1,
+                  "purpose": "trend",
+                  "range": {
+                    "end_at": "2024-02-29",
+                    "kind": "between",
+                    "start_at": "2024-02-29"
+                  },
+                  "time_zone": "UTC"
+                }
+              ],
+              "required_operation_ids": [
+                1
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "correct_plan"
+      }
+    },
+    {
+      "id": "m17",
+      "label_agreement": true,
+      "status": "selected",
+      "reason_codes": [],
+      "model_evaluated": true,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "trend",
+            "concepts": [
+              "respiratory_rate"
+            ],
+            "range": {
+              "kind": "between",
+              "start_at": "2026-01-01",
+              "end_at": "2026-01-05"
+            },
+            "time_zone": "UTC"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "error": null,
+      "elapsed_ms": 114.066,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "concepts": [
+                    "respiratory_rate"
+                  ],
+                  "operation_id": 1,
+                  "purpose": "trend",
+                  "range": {
+                    "end_at": "2026-01-05",
+                    "kind": "between",
+                    "start_at": "2026-01-01"
+                  },
+                  "time_zone": "UTC"
+                }
+              ],
+              "required_operation_ids": [
+                1
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "correct_plan"
+      }
+    },
+    {
+      "id": "m18",
+      "label_agreement": true,
+      "status": "selected",
+      "reason_codes": [],
+      "model_evaluated": true,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "trend",
+            "concepts": [
+              "steps"
+            ],
+            "range": {
+              "kind": "between",
+              "start_at": "2026-09-22",
+              "end_at": "2026-09-22"
+            },
+            "time_zone": "UTC"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "error": null,
+      "elapsed_ms": 102.177,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "concepts": [
+                    "steps"
+                  ],
+                  "operation_id": 1,
+                  "purpose": "trend",
+                  "range": {
+                    "end_at": "2026-09-22",
+                    "kind": "between",
+                    "start_at": "2026-09-22"
+                  },
+                  "time_zone": "UTC"
+                }
+              ],
+              "required_operation_ids": [
+                1
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "correct_plan"
+      }
+    },
+    {
+      "id": "m19",
+      "label_agreement": true,
+      "status": "selected",
+      "reason_codes": [],
+      "model_evaluated": true,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "trend",
+            "concepts": [
+              "respiratory_rate"
+            ],
+            "range": {
+              "kind": "between",
+              "start_at": "2025-01-01",
+              "end_at": "2025-12-31"
+            },
+            "time_zone": "UTC"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "error": null,
+      "elapsed_ms": 121.332,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "concepts": [
+                    "respiratory_rate"
+                  ],
+                  "operation_id": 1,
+                  "purpose": "trend",
+                  "range": {
+                    "end_at": "2025-12-31",
+                    "kind": "between",
+                    "start_at": "2025-01-01"
+                  },
+                  "time_zone": "UTC"
+                }
+              ],
+              "required_operation_ids": [
+                1
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "correct_plan"
+      }
+    },
+    {
+      "id": "m20",
+      "label_agreement": true,
+      "status": "selected",
+      "reason_codes": [],
+      "model_evaluated": true,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "latest",
+            "concepts": [
+              "apob"
+            ],
+            "range": {
+              "kind": "between",
+              "start_at": "2025-01-01",
+              "end_at": "2025-12-31"
+            },
+            "time_zone": "UTC"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "error": null,
+      "elapsed_ms": 113.069,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "concepts": [
+                    "apob"
+                  ],
+                  "operation_id": 1,
+                  "purpose": "latest",
+                  "range": {
+                    "end_at": "2025-12-31",
+                    "kind": "between",
+                    "start_at": "2025-01-01"
+                  },
+                  "time_zone": "UTC"
+                }
+              ],
+              "required_operation_ids": [
+                1
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "correct_plan"
+      }
+    },
+    {
+      "id": "m21",
+      "label_agreement": true,
+      "status": "selected",
+      "reason_codes": [],
+      "model_evaluated": true,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "trend",
+            "concepts": [
+              "steps"
+            ],
+            "range": {
+              "kind": "between",
+              "start_at": "2026-08-01",
+              "end_at": "2026-08-31"
+            },
+            "time_zone": "UTC"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "error": null,
+      "elapsed_ms": 102.766,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "concepts": [
+                    "steps"
+                  ],
+                  "operation_id": 1,
+                  "purpose": "trend",
+                  "range": {
+                    "end_at": "2026-08-31",
+                    "kind": "between",
+                    "start_at": "2026-08-01"
+                  },
+                  "time_zone": "UTC"
+                }
+              ],
+              "required_operation_ids": [
+                1
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "correct_plan"
+      }
+    },
+    {
+      "id": "m22",
+      "label_agreement": true,
+      "status": "selected",
+      "reason_codes": [],
+      "model_evaluated": true,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "trend",
+            "concepts": [
+              "oxygen_saturation"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "error": null,
+      "elapsed_ms": 107.638,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "concepts": [
+                    "oxygen_saturation"
+                  ],
+                  "operation_id": 1,
+                  "purpose": "trend",
+                  "range": {
+                    "kind": "all_history"
+                  },
+                  "time_zone": "UTC"
+                }
+              ],
+              "required_operation_ids": [
+                1
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "correct_plan"
+      }
+    },
+    {
+      "id": "m23",
+      "label_agreement": true,
+      "status": "selected",
+      "reason_codes": [],
+      "model_evaluated": true,
+      "plan": {
+        "health_reads": [],
+        "required_operation_ids": [
+          1
+        ],
+        "literature_reads": [
+          {
+            "operation_id": 1,
+            "question": "For adults, what systematic review and randomized trial evidence supports improving sleep duration and regularity and physical activity? Describe practical interventions, outcomes, and applicability limits.",
+            "subject_basis": "general_overview_research",
+            "basis_source_ids": [],
+            "task": "evidence_summary",
+            "depth": "fast"
+          }
+        ]
+      },
+      "error": null,
+      "elapsed_ms": 110.328,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [],
+              "literature_reads": [
+                {
+                  "basis_source_ids": [],
+                  "depth": "fast",
+                  "operation_id": 1,
+                  "question": "For adults, what systematic review and randomized trial evidence supports improving sleep duration and regularity and physical activity? Describe practical interventions, outcomes, and applicability limits.",
+                  "subject_basis": "general_overview_research",
+                  "task": "evidence_summary"
+                }
+              ],
+              "required_operation_ids": [
+                1
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "correct_plan"
+      }
+    },
+    {
+      "id": "m24",
+      "label_agreement": true,
+      "status": "selected",
+      "reason_codes": [],
+      "model_evaluated": true,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "latest",
+            "record_types": [
+              "profile"
+            ],
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "UTC",
+            "profile_fields": [
+              "goals",
+              "chronic_conditions",
+              "medications",
+              "no_regular_medications",
+              "allergies",
+              "sex",
+              "birth_year",
+              "height_cm",
+              "weight_kg"
+            ]
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "error": null,
+      "elapsed_ms": 102.068,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "operation_id": 1,
+                  "profile_fields": [
+                    "goals",
+                    "chronic_conditions",
+                    "medications",
+                    "no_regular_medications",
+                    "allergies",
+                    "sex",
+                    "birth_year",
+                    "height_cm",
+                    "weight_kg"
+                  ],
+                  "purpose": "latest",
+                  "range": {
+                    "kind": "all_history"
+                  },
+                  "record_types": [
+                    "profile"
+                  ],
+                  "time_zone": "UTC"
+                }
+              ],
+              "required_operation_ids": [
+                1
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "correct_plan"
+      }
+    },
+    {
+      "id": "m25",
+      "label_agreement": true,
+      "status": "selected",
+      "reason_codes": [],
+      "model_evaluated": true,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "latest",
+            "record_types": [
+              "workouts"
+            ],
+            "range": {
+              "kind": "between",
+              "start_at": "2026-09-14",
+              "end_at": "2026-09-20"
+            },
+            "time_zone": "UTC"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "error": null,
+      "elapsed_ms": 108.742,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "operation_id": 1,
+                  "purpose": "latest",
+                  "range": {
+                    "end_at": "2026-09-20",
+                    "kind": "between",
+                    "start_at": "2026-09-14"
+                  },
+                  "record_types": [
+                    "workouts"
+                  ],
+                  "time_zone": "UTC"
+                }
+              ],
+              "required_operation_ids": [
+                1
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "correct_plan"
+      }
+    },
+    {
+      "id": "m26",
+      "label_agreement": true,
+      "status": "selected",
+      "reason_codes": [],
+      "model_evaluated": true,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "latest",
+            "record_types": [
+              "labs"
+            ],
+            "range": {
+              "kind": "between",
+              "start_at": "2025-02-01",
+              "end_at": "2025-02-28"
+            },
+            "time_zone": "UTC",
+            "record_detail_dataset": "labs.upload_metadata.v1",
+            "record_detail_limit": 3
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "error": null,
+      "elapsed_ms": 104.352,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "operation_id": 1,
+                  "purpose": "latest",
+                  "range": {
+                    "end_at": "2025-02-28",
+                    "kind": "between",
+                    "start_at": "2025-02-01"
+                  },
+                  "record_detail_dataset": "labs.upload_metadata.v1",
+                  "record_detail_limit": 3,
+                  "record_types": [
+                    "labs"
+                  ],
+                  "time_zone": "UTC"
+                }
+              ],
+              "required_operation_ids": [
+                1
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "correct_plan"
+      }
+    },
+    {
+      "id": "m27",
+      "label_agreement": true,
+      "status": "selected",
+      "reason_codes": [],
+      "model_evaluated": true,
+      "plan": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "purpose": "latest",
+            "record_types": [
+              "calendar"
+            ],
+            "range": {
+              "kind": "between",
+              "start_at": "2026-09-22",
+              "end_at": "2026-09-22"
+            },
+            "time_zone": "UTC",
+            "record_detail_dataset": "calendar.events.v1",
+            "record_detail_limit": 8,
+            "calendar_date_basis": "last_done_date"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      },
+      "error": null,
+      "elapsed_ms": 107.308,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "calendar_date_basis": "last_done_date",
+                  "operation_id": 1,
+                  "purpose": "latest",
+                  "range": {
+                    "end_at": "2026-09-22",
+                    "kind": "between",
+                    "start_at": "2026-09-22"
+                  },
+                  "record_detail_dataset": "calendar.events.v1",
+                  "record_detail_limit": 8,
+                  "record_types": [
+                    "calendar"
+                  ],
+                  "time_zone": "UTC"
+                }
+              ],
+              "required_operation_ids": [
+                1
+              ]
+            }
+          ],
+          "handoff_ok": false
+        }
+      },
+      "grades": {
+        "gold": "correct_plan"
+      }
+    },
+    {
+      "id": "m28",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unresolved_period"
+      ],
+      "model_evaluated": false,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 0.126,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "m29",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unbound_request_constraint"
+      ],
+      "model_evaluated": false,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 0.229,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "m30",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unbound_request_constraint"
+      ],
+      "model_evaluated": false,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 0.205,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "m31",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unbound_request_constraint"
+      ],
+      "model_evaluated": false,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 0.179,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "m32",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unbound_request_constraint"
+      ],
+      "model_evaluated": false,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 0.168,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "m33",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unbound_request_constraint"
+      ],
+      "model_evaluated": false,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 0.174,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "m34",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unbound_request_constraint"
+      ],
+      "model_evaluated": false,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 0.184,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "m35",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unbound_request_constraint"
+      ],
+      "model_evaluated": false,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 0.18,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "m36",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unbound_request_constraint"
+      ],
+      "model_evaluated": false,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 0.164,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "m37",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unbound_request_constraint"
+      ],
+      "model_evaluated": false,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 0.165,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [
+            {
+              "health_reads": [
+                {
+                  "operation_id": 1,
+                  "purpose": "latest",
+                  "range": {
+                    "kind": "all_history"
+                  },
+                  "record_detail_dataset": "labs.upload_metadata.v1",
+                  "record_detail_limit": 3,
+                  "record_types": [
+                    "labs"
+                  ],
+                  "time_zone": "UTC"
+                }
+              ],
+              "required_operation_ids": [
+                1
+              ]
+            }
+          ],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "m38",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unresolved_period"
+      ],
+      "model_evaluated": false,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 0.067,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "m39",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unbound_request_constraint"
+      ],
+      "model_evaluated": false,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 0.159,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "m40",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unbound_request_constraint"
+      ],
+      "model_evaluated": false,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 0.159,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "m41",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unbound_request_constraint"
+      ],
+      "model_evaluated": false,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 0.17,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "m42",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unbound_request_constraint"
+      ],
+      "model_evaluated": false,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 0.163,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "m43",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unresolved_period"
+      ],
+      "model_evaluated": false,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 0.067,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "m44",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unresolved_period"
+      ],
+      "model_evaluated": false,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 0.064,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "m45",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unbound_request_constraint"
+      ],
+      "model_evaluated": false,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 0.172,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "m46",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unbound_request_constraint"
+      ],
+      "model_evaluated": false,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 0.167,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "m47",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unbound_request_constraint"
+      ],
+      "model_evaluated": false,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 0.155,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "m48",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unbound_request_constraint"
+      ],
+      "model_evaluated": false,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 0.162,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "m49",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unresolved_period"
+      ],
+      "model_evaluated": false,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 0.067,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "m50",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unbound_request_constraint"
+      ],
+      "model_evaluated": false,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 0.166,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "m51",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unbound_request_constraint"
+      ],
+      "model_evaluated": false,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 0.174,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "m52",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unbound_request_constraint"
+      ],
+      "model_evaluated": false,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 0.167,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "m53",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unbound_request_constraint"
+      ],
+      "model_evaluated": false,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 0.147,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "m54",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unresolved_followup"
+      ],
+      "model_evaluated": false,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 0.038,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "m55",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unresolved_period"
+      ],
+      "model_evaluated": false,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 0.069,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "m56",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unresolved_period"
+      ],
+      "model_evaluated": false,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 0.067,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "m57",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unresolved_period"
+      ],
+      "model_evaluated": false,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 0.063,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "m58",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unbound_request_constraint"
+      ],
+      "model_evaluated": false,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 0.175,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    },
+    {
+      "id": "m59",
+      "label_agreement": true,
+      "status": "unsupported",
+      "reason_codes": [
+        "unresolved_period"
+      ],
+      "model_evaluated": false,
+      "plan": null,
+      "error": null,
+      "elapsed_ms": 0.065,
+      "expected": {
+        "gold": {
+          "acceptable_plans": [],
+          "handoff_ok": true
+        }
+      },
+      "grades": {
+        "gold": "correct_handoff"
+      }
+    }
+  ]
+}

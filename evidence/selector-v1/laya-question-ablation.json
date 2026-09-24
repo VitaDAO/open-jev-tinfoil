@@ -1,0 +1,2270 @@
+{
+  "model": "aac6fef/laya-mlx",
+  "model_commit": "20aed815fc6acde75733882e7ec0e3f28aeb9717",
+  "questionnaire": {
+    "task": {
+      "health": "read personal health information",
+      "research": "find published research without personal data",
+      "other": "no personal health read or published research"
+    },
+    "coverage": {
+      "broad": "overall health overview",
+      "targeted": "specific measurement or record",
+      "none": "no personal health information"
+    },
+    "purpose": {
+      "latest": "latest individual observation",
+      "trend": "trend or summary across time",
+      "unsupported": "comparison, edit, or another complex operation"
+    },
+    "research": {
+      "broad_overview": "general research for broad health analysis",
+      "sleep_activity": "sleep and physical activity research",
+      "cardiometabolic": "lipid and glucose research",
+      "none": "no published research",
+      "unsupported": "research on another topic"
+    }
+  },
+  "reports": [
+    {
+      "state_form": "text",
+      "reversed_options": false,
+      "n": 27,
+      "joint_correct": 3,
+      "by_head": {
+        "task": 17,
+        "coverage": 14,
+        "purpose": 9,
+        "research": 18
+      },
+      "median_ms": 36.52
+    },
+    {
+      "state_form": "text",
+      "reversed_options": true,
+      "n": 27,
+      "joint_correct": 2,
+      "by_head": {
+        "task": 5,
+        "coverage": 12,
+        "purpose": 12,
+        "research": 19
+      },
+      "median_ms": 36.02
+    },
+    {
+      "state_form": "structured",
+      "reversed_options": false,
+      "n": 27,
+      "joint_correct": 0,
+      "by_head": {
+        "task": 3,
+        "coverage": 18,
+        "purpose": 6,
+        "research": 21
+      },
+      "median_ms": 44.63
+    },
+    {
+      "state_form": "structured",
+      "reversed_options": true,
+      "n": 27,
+      "joint_correct": 0,
+      "by_head": {
+        "task": 1,
+        "coverage": 16,
+        "purpose": 8,
+        "research": 21
+      },
+      "median_ms": 42.43
+    }
+  ],
+  "option_order_changed_case_ids": {
+    "text": [
+      "m05",
+      "m17",
+      "m09",
+      "m06",
+      "m13",
+      "m16",
+      "m26",
+      "m04",
+      "m24",
+      "m25",
+      "m27",
+      "m12",
+      "m14"
+    ],
+    "structured": [
+      "m21",
+      "m15",
+      "m17",
+      "m08",
+      "m03",
+      "m07",
+      "m23"
+    ]
+  },
+  "rows": [
+    {
+      "id": "m01",
+      "state_form": "text",
+      "reversed_options": false,
+      "selected": {
+        "task": "health",
+        "coverage": "broad",
+        "purpose": "latest",
+        "research": "broad_overview"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "broad_overview"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 85.41,
+      "input_tokens": 168
+    },
+    {
+      "id": "m01",
+      "state_form": "text",
+      "reversed_options": true,
+      "selected": {
+        "task": "health",
+        "coverage": "broad",
+        "purpose": "latest",
+        "research": "broad_overview"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "broad_overview"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 8.71,
+      "input_tokens": 168
+    },
+    {
+      "id": "m01",
+      "state_form": "structured",
+      "reversed_options": false,
+      "selected": {
+        "task": "other",
+        "coverage": "broad",
+        "purpose": "latest",
+        "research": "broad_overview"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "broad_overview"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 12.43,
+      "input_tokens": 228
+    },
+    {
+      "id": "m01",
+      "state_form": "structured",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "broad",
+        "purpose": "latest",
+        "research": "broad_overview"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "broad_overview"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 10.94,
+      "input_tokens": 228
+    },
+    {
+      "id": "m02",
+      "state_form": "text",
+      "reversed_options": false,
+      "selected": {
+        "task": "other",
+        "coverage": "none",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "broad_overview"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 9.35,
+      "input_tokens": 156
+    },
+    {
+      "id": "m02",
+      "state_form": "text",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "none",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "broad_overview"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 8.7,
+      "input_tokens": 156
+    },
+    {
+      "id": "m02",
+      "state_form": "structured",
+      "reversed_options": false,
+      "selected": {
+        "task": "other",
+        "coverage": "none",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "broad_overview"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 9.95,
+      "input_tokens": 216
+    },
+    {
+      "id": "m02",
+      "state_form": "structured",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "none",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "broad_overview"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 9.0,
+      "input_tokens": 216
+    },
+    {
+      "id": "m03",
+      "state_form": "text",
+      "reversed_options": false,
+      "selected": {
+        "task": "health",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "broad_overview"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "broad_overview"
+      },
+      "joint_correct": true,
+      "elapsed_ms": 9.43,
+      "input_tokens": 176
+    },
+    {
+      "id": "m03",
+      "state_form": "text",
+      "reversed_options": true,
+      "selected": {
+        "task": "health",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "broad_overview"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "broad_overview"
+      },
+      "joint_correct": true,
+      "elapsed_ms": 8.68,
+      "input_tokens": 176
+    },
+    {
+      "id": "m03",
+      "state_form": "structured",
+      "reversed_options": false,
+      "selected": {
+        "task": "health",
+        "coverage": "broad",
+        "purpose": "latest",
+        "research": "broad_overview"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "broad_overview"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 12.54,
+      "input_tokens": 240
+    },
+    {
+      "id": "m03",
+      "state_form": "structured",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "broad_overview"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "broad_overview"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 11.22,
+      "input_tokens": 240
+    },
+    {
+      "id": "m04",
+      "state_form": "text",
+      "reversed_options": false,
+      "selected": {
+        "task": "health",
+        "coverage": "broad",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "broad_overview"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 8.94,
+      "input_tokens": 168
+    },
+    {
+      "id": "m04",
+      "state_form": "text",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "none",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "broad_overview"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 8.56,
+      "input_tokens": 168
+    },
+    {
+      "id": "m04",
+      "state_form": "structured",
+      "reversed_options": false,
+      "selected": {
+        "task": "other",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "broad_overview"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 12.63,
+      "input_tokens": 232
+    },
+    {
+      "id": "m04",
+      "state_form": "structured",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "broad_overview"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 12.83,
+      "input_tokens": 232
+    },
+    {
+      "id": "m05",
+      "state_form": "text",
+      "reversed_options": false,
+      "selected": {
+        "task": "health",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "broad_overview"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 11.78,
+      "input_tokens": 152
+    },
+    {
+      "id": "m05",
+      "state_form": "text",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "broad_overview"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 10.03,
+      "input_tokens": 152
+    },
+    {
+      "id": "m05",
+      "state_form": "structured",
+      "reversed_options": false,
+      "selected": {
+        "task": "other",
+        "coverage": "none",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "broad_overview"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 9.77,
+      "input_tokens": 216
+    },
+    {
+      "id": "m05",
+      "state_form": "structured",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "none",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "broad_overview"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 11.54,
+      "input_tokens": 216
+    },
+    {
+      "id": "m06",
+      "state_form": "text",
+      "reversed_options": false,
+      "selected": {
+        "task": "health",
+        "coverage": "broad",
+        "purpose": "latest",
+        "research": "broad_overview"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 10.81,
+      "input_tokens": 168
+    },
+    {
+      "id": "m06",
+      "state_form": "text",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "broad_overview"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 10.2,
+      "input_tokens": 168
+    },
+    {
+      "id": "m06",
+      "state_form": "structured",
+      "reversed_options": false,
+      "selected": {
+        "task": "other",
+        "coverage": "broad",
+        "purpose": "latest",
+        "research": "broad_overview"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 13.1,
+      "input_tokens": 232
+    },
+    {
+      "id": "m06",
+      "state_form": "structured",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "broad",
+        "purpose": "latest",
+        "research": "broad_overview"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 13.57,
+      "input_tokens": 232
+    },
+    {
+      "id": "m07",
+      "state_form": "text",
+      "reversed_options": false,
+      "selected": {
+        "task": "other",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 11.18,
+      "input_tokens": 180
+    },
+    {
+      "id": "m07",
+      "state_form": "text",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 11.08,
+      "input_tokens": 180
+    },
+    {
+      "id": "m07",
+      "state_form": "structured",
+      "reversed_options": false,
+      "selected": {
+        "task": "other",
+        "coverage": "none",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 14.35,
+      "input_tokens": 244
+    },
+    {
+      "id": "m07",
+      "state_form": "structured",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "broad",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 13.77,
+      "input_tokens": 244
+    },
+    {
+      "id": "m08",
+      "state_form": "text",
+      "reversed_options": false,
+      "selected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 11.69,
+      "input_tokens": 188
+    },
+    {
+      "id": "m08",
+      "state_form": "text",
+      "reversed_options": true,
+      "selected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 10.9,
+      "input_tokens": 188
+    },
+    {
+      "id": "m08",
+      "state_form": "structured",
+      "reversed_options": false,
+      "selected": {
+        "task": "other",
+        "coverage": "broad",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 14.78,
+      "input_tokens": 252
+    },
+    {
+      "id": "m08",
+      "state_form": "structured",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 15.31,
+      "input_tokens": 252
+    },
+    {
+      "id": "m09",
+      "state_form": "text",
+      "reversed_options": false,
+      "selected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "joint_correct": true,
+      "elapsed_ms": 11.67,
+      "input_tokens": 164
+    },
+    {
+      "id": "m09",
+      "state_form": "text",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 11.85,
+      "input_tokens": 164
+    },
+    {
+      "id": "m09",
+      "state_form": "structured",
+      "reversed_options": false,
+      "selected": {
+        "task": "other",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 15.05,
+      "input_tokens": 228
+    },
+    {
+      "id": "m09",
+      "state_form": "structured",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 16.36,
+      "input_tokens": 228
+    },
+    {
+      "id": "m10",
+      "state_form": "text",
+      "reversed_options": false,
+      "selected": {
+        "task": "other",
+        "coverage": "none",
+        "purpose": "latest",
+        "research": "cardiometabolic"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 12.4,
+      "input_tokens": 188
+    },
+    {
+      "id": "m10",
+      "state_form": "text",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "none",
+        "purpose": "latest",
+        "research": "cardiometabolic"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 13.63,
+      "input_tokens": 188
+    },
+    {
+      "id": "m10",
+      "state_form": "structured",
+      "reversed_options": false,
+      "selected": {
+        "task": "other",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 19.2,
+      "input_tokens": 248
+    },
+    {
+      "id": "m10",
+      "state_form": "structured",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 19.59,
+      "input_tokens": 248
+    },
+    {
+      "id": "m11",
+      "state_form": "text",
+      "reversed_options": false,
+      "selected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "joint_correct": true,
+      "elapsed_ms": 14.33,
+      "input_tokens": 164
+    },
+    {
+      "id": "m11",
+      "state_form": "text",
+      "reversed_options": true,
+      "selected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "joint_correct": true,
+      "elapsed_ms": 15.94,
+      "input_tokens": 164
+    },
+    {
+      "id": "m11",
+      "state_form": "structured",
+      "reversed_options": false,
+      "selected": {
+        "task": "other",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 22.68,
+      "input_tokens": 228
+    },
+    {
+      "id": "m11",
+      "state_form": "structured",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 24.45,
+      "input_tokens": 228
+    },
+    {
+      "id": "m12",
+      "state_form": "text",
+      "reversed_options": false,
+      "selected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 19.7,
+      "input_tokens": 172
+    },
+    {
+      "id": "m12",
+      "state_form": "text",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 22.96,
+      "input_tokens": 172
+    },
+    {
+      "id": "m12",
+      "state_form": "structured",
+      "reversed_options": false,
+      "selected": {
+        "task": "other",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 35.07,
+      "input_tokens": 236
+    },
+    {
+      "id": "m12",
+      "state_form": "structured",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 37.23,
+      "input_tokens": 236
+    },
+    {
+      "id": "m13",
+      "state_form": "text",
+      "reversed_options": false,
+      "selected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 36.52,
+      "input_tokens": 176
+    },
+    {
+      "id": "m13",
+      "state_form": "text",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "none",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 47.73,
+      "input_tokens": 176
+    },
+    {
+      "id": "m13",
+      "state_form": "structured",
+      "reversed_options": false,
+      "selected": {
+        "task": "other",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 115.57,
+      "input_tokens": 240
+    },
+    {
+      "id": "m13",
+      "state_form": "structured",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 119.38,
+      "input_tokens": 240
+    },
+    {
+      "id": "m14",
+      "state_form": "text",
+      "reversed_options": false,
+      "selected": {
+        "task": "health",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "sleep_activity"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 65.16,
+      "input_tokens": 176
+    },
+    {
+      "id": "m14",
+      "state_form": "text",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "sleep_activity"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 84.74,
+      "input_tokens": 176
+    },
+    {
+      "id": "m14",
+      "state_form": "structured",
+      "reversed_options": false,
+      "selected": {
+        "task": "other",
+        "coverage": "none",
+        "purpose": "latest",
+        "research": "sleep_activity"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 83.48,
+      "input_tokens": 236
+    },
+    {
+      "id": "m14",
+      "state_form": "structured",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "none",
+        "purpose": "latest",
+        "research": "sleep_activity"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 84.01,
+      "input_tokens": 236
+    },
+    {
+      "id": "m15",
+      "state_form": "text",
+      "reversed_options": false,
+      "selected": {
+        "task": "other",
+        "coverage": "none",
+        "purpose": "latest",
+        "research": "sleep_activity"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 64.05,
+      "input_tokens": 168
+    },
+    {
+      "id": "m15",
+      "state_form": "text",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "none",
+        "purpose": "latest",
+        "research": "sleep_activity"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 86.52,
+      "input_tokens": 168
+    },
+    {
+      "id": "m15",
+      "state_form": "structured",
+      "reversed_options": false,
+      "selected": {
+        "task": "other",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 96.72,
+      "input_tokens": 232
+    },
+    {
+      "id": "m15",
+      "state_form": "structured",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "none",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 131.41,
+      "input_tokens": 232
+    },
+    {
+      "id": "m16",
+      "state_form": "text",
+      "reversed_options": false,
+      "selected": {
+        "task": "other",
+        "coverage": "none",
+        "purpose": "latest",
+        "research": "unsupported"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 84.54,
+      "input_tokens": 180
+    },
+    {
+      "id": "m16",
+      "state_form": "text",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "none",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 84.64,
+      "input_tokens": 180
+    },
+    {
+      "id": "m16",
+      "state_form": "structured",
+      "reversed_options": false,
+      "selected": {
+        "task": "other",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 118.35,
+      "input_tokens": 244
+    },
+    {
+      "id": "m16",
+      "state_form": "structured",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 98.19,
+      "input_tokens": 244
+    },
+    {
+      "id": "m17",
+      "state_form": "text",
+      "reversed_options": false,
+      "selected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 99.51,
+      "input_tokens": 212
+    },
+    {
+      "id": "m17",
+      "state_form": "text",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 98.53,
+      "input_tokens": 212
+    },
+    {
+      "id": "m17",
+      "state_form": "structured",
+      "reversed_options": false,
+      "selected": {
+        "task": "other",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 119.06,
+      "input_tokens": 276
+    },
+    {
+      "id": "m17",
+      "state_form": "structured",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "none",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 132.23,
+      "input_tokens": 276
+    },
+    {
+      "id": "m18",
+      "state_form": "text",
+      "reversed_options": false,
+      "selected": {
+        "task": "other",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "sleep_activity"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 99.38,
+      "input_tokens": 156
+    },
+    {
+      "id": "m18",
+      "state_form": "text",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "sleep_activity"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 86.66,
+      "input_tokens": 156
+    },
+    {
+      "id": "m18",
+      "state_form": "structured",
+      "reversed_options": false,
+      "selected": {
+        "task": "other",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 65.88,
+      "input_tokens": 220
+    },
+    {
+      "id": "m18",
+      "state_form": "structured",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 98.47,
+      "input_tokens": 220
+    },
+    {
+      "id": "m19",
+      "state_form": "text",
+      "reversed_options": false,
+      "selected": {
+        "task": "other",
+        "coverage": "none",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 87.58,
+      "input_tokens": 156
+    },
+    {
+      "id": "m19",
+      "state_form": "text",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "none",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 83.3,
+      "input_tokens": 156
+    },
+    {
+      "id": "m19",
+      "state_form": "structured",
+      "reversed_options": false,
+      "selected": {
+        "task": "other",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 133.38,
+      "input_tokens": 244
+    },
+    {
+      "id": "m19",
+      "state_form": "structured",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 131.83,
+      "input_tokens": 244
+    },
+    {
+      "id": "m20",
+      "state_form": "text",
+      "reversed_options": false,
+      "selected": {
+        "task": "other",
+        "coverage": "none",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 643.75,
+      "input_tokens": 160
+    },
+    {
+      "id": "m20",
+      "state_form": "text",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "none",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 121.15,
+      "input_tokens": 160
+    },
+    {
+      "id": "m20",
+      "state_form": "structured",
+      "reversed_options": false,
+      "selected": {
+        "task": "other",
+        "coverage": "none",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 149.73,
+      "input_tokens": 264
+    },
+    {
+      "id": "m20",
+      "state_form": "structured",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "none",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 120.03,
+      "input_tokens": 264
+    },
+    {
+      "id": "m21",
+      "state_form": "text",
+      "reversed_options": false,
+      "selected": {
+        "task": "other",
+        "coverage": "none",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 83.71,
+      "input_tokens": 164
+    },
+    {
+      "id": "m21",
+      "state_form": "text",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "none",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 84.19,
+      "input_tokens": 164
+    },
+    {
+      "id": "m21",
+      "state_form": "structured",
+      "reversed_options": false,
+      "selected": {
+        "task": "other",
+        "coverage": "none",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 133.28,
+      "input_tokens": 252
+    },
+    {
+      "id": "m21",
+      "state_form": "structured",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "none",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 162.41,
+      "input_tokens": 252
+    },
+    {
+      "id": "m22",
+      "state_form": "text",
+      "reversed_options": false,
+      "selected": {
+        "task": "other",
+        "coverage": "none",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 68.69,
+      "input_tokens": 160
+    },
+    {
+      "id": "m22",
+      "state_form": "text",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "none",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 85.92,
+      "input_tokens": 160
+    },
+    {
+      "id": "m22",
+      "state_form": "structured",
+      "reversed_options": false,
+      "selected": {
+        "task": "other",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 100.2,
+      "input_tokens": 256
+    },
+    {
+      "id": "m22",
+      "state_form": "structured",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 77.32,
+      "input_tokens": 256
+    },
+    {
+      "id": "m23",
+      "state_form": "text",
+      "reversed_options": false,
+      "selected": {
+        "task": "research",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "sleep_activity"
+      },
+      "expected": {
+        "task": "research",
+        "coverage": "none",
+        "purpose": "unsupported",
+        "research": "sleep_activity"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 69.05,
+      "input_tokens": 168
+    },
+    {
+      "id": "m23",
+      "state_form": "text",
+      "reversed_options": true,
+      "selected": {
+        "task": "research",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "sleep_activity"
+      },
+      "expected": {
+        "task": "research",
+        "coverage": "none",
+        "purpose": "unsupported",
+        "research": "sleep_activity"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 51.03,
+      "input_tokens": 168
+    },
+    {
+      "id": "m23",
+      "state_form": "structured",
+      "reversed_options": false,
+      "selected": {
+        "task": "research",
+        "coverage": "broad",
+        "purpose": "latest",
+        "research": "sleep_activity"
+      },
+      "expected": {
+        "task": "research",
+        "coverage": "none",
+        "purpose": "unsupported",
+        "research": "sleep_activity"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 65.39,
+      "input_tokens": 232
+    },
+    {
+      "id": "m23",
+      "state_form": "structured",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "broad",
+        "purpose": "latest",
+        "research": "sleep_activity"
+      },
+      "expected": {
+        "task": "research",
+        "coverage": "none",
+        "purpose": "unsupported",
+        "research": "sleep_activity"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 54.55,
+      "input_tokens": 232
+    },
+    {
+      "id": "m24",
+      "state_form": "text",
+      "reversed_options": false,
+      "selected": {
+        "task": "health",
+        "coverage": "none",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 39.76,
+      "input_tokens": 156
+    },
+    {
+      "id": "m24",
+      "state_form": "text",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "none",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 43.04,
+      "input_tokens": 156
+    },
+    {
+      "id": "m24",
+      "state_form": "structured",
+      "reversed_options": false,
+      "selected": {
+        "task": "other",
+        "coverage": "none",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 43.88,
+      "input_tokens": 220
+    },
+    {
+      "id": "m24",
+      "state_form": "structured",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "none",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 42.43,
+      "input_tokens": 220
+    },
+    {
+      "id": "m25",
+      "state_form": "text",
+      "reversed_options": false,
+      "selected": {
+        "task": "health",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 39.27,
+      "input_tokens": 176
+    },
+    {
+      "id": "m25",
+      "state_form": "text",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "broad",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 37.24,
+      "input_tokens": 176
+    },
+    {
+      "id": "m25",
+      "state_form": "structured",
+      "reversed_options": false,
+      "selected": {
+        "task": "other",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 46.8,
+      "input_tokens": 240
+    },
+    {
+      "id": "m25",
+      "state_form": "structured",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 47.33,
+      "input_tokens": 240
+    },
+    {
+      "id": "m26",
+      "state_form": "text",
+      "reversed_options": false,
+      "selected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 36.11,
+      "input_tokens": 176
+    },
+    {
+      "id": "m26",
+      "state_form": "text",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 36.02,
+      "input_tokens": 176
+    },
+    {
+      "id": "m26",
+      "state_form": "structured",
+      "reversed_options": false,
+      "selected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "unsupported"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 44.65,
+      "input_tokens": 240
+    },
+    {
+      "id": "m26",
+      "state_form": "structured",
+      "reversed_options": true,
+      "selected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "unsupported"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 46.2,
+      "input_tokens": 240
+    },
+    {
+      "id": "m27",
+      "state_form": "text",
+      "reversed_options": false,
+      "selected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 33.75,
+      "input_tokens": 164
+    },
+    {
+      "id": "m27",
+      "state_form": "text",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 35.02,
+      "input_tokens": 164
+    },
+    {
+      "id": "m27",
+      "state_form": "structured",
+      "reversed_options": false,
+      "selected": {
+        "task": "other",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 44.63,
+      "input_tokens": 228
+    },
+    {
+      "id": "m27",
+      "state_form": "structured",
+      "reversed_options": true,
+      "selected": {
+        "task": "other",
+        "coverage": "targeted",
+        "purpose": "latest",
+        "research": "none"
+      },
+      "expected": {
+        "task": "health",
+        "coverage": "targeted",
+        "purpose": "trend",
+        "research": "none"
+      },
+      "joint_correct": false,
+      "elapsed_ms": 41.12,
+      "input_tokens": 228
+    }
+  ]
+}

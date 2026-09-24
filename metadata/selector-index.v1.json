@@ -1,0 +1,205 @@
+{
+  "schema_version": "vita-selector-index/v1",
+  "catalog_file": "health_metrics.v1.json",
+  "catalog_sha256": "729b6cde6fad0943161fe9af52b900d3df58ce2b28ef0202f920a08ca88fc571",
+  "authority": "Schema metadata only; never permission or evidence that a user has data.",
+  "inventory": "available_metrics contains request-scoped measurement IDs; available_record_types contains request-scoped record groups. The caller must independently authorize execution.",
+  "metric_aliases": {
+    "step count": "steps",
+    "breathing rate": "respiratory_rate",
+    "resp rate": "respiratory_rate",
+    "spo2": "oxygen_saturation",
+    "o2 sats": "oxygen_saturation",
+    "oxygen saturation": "oxygen_saturation",
+    "sleep duration": "total_sleep",
+    "time asleep": "total_sleep",
+    "ldl cholesterol": "ldl_cholesterol",
+    "step": "steps"
+  },
+  "inventory_to_catalog": {
+    "ldl_cholesterol": "ldl",
+    "oxygen_saturation": "spo2",
+    "heart_rate_variability": "hrv",
+    "hba1c": "hba1c"
+  },
+  "records": {
+    "profile": {
+      "description": "Stored health profile, goals, conditions, medications, allergies and demographics.",
+      "dataset": "profile.health.v1",
+      "date_meaning": "current snapshot; no historical field projection",
+      "adapter_fields": [
+        "goals",
+        "chronic_conditions",
+        "medications",
+        "no_regular_medications",
+        "allergies",
+        "sex",
+        "birth_year",
+        "height_cm",
+        "weight_kg"
+      ],
+      "adapter_projection": "whole profile only",
+      "aliases": [
+        "profile",
+        "goals",
+        "medications"
+      ],
+      "backend_fields": [
+        "allergies",
+        "bio",
+        "birth_day",
+        "birth_month",
+        "birth_year",
+        "bmi",
+        "challenges",
+        "chronic_conditions",
+        "ethnicity",
+        "experience_level",
+        "family_history",
+        "goals",
+        "height_cm",
+        "homebase",
+        "medications",
+        "monthly_budget",
+        "no_regular_medications",
+        "sex",
+        "smoking_status",
+        "tracking_methods",
+        "unit_system",
+        "weight_kg",
+        "years_smoking"
+      ]
+    },
+    "workouts": {
+      "description": "Recorded exercise sessions.",
+      "dataset": "workouts.sessions.v1",
+      "date_meaning": "started_at, session start timestamp",
+      "adapter_default_period": "past 30 days",
+      "aliases": [
+        "workouts",
+        "exercise sessions",
+        "workout sessions"
+      ],
+      "backend_fields": [
+        "avg_heart_rate",
+        "calories",
+        "distance_meters",
+        "duration_minutes",
+        "ended_at",
+        "hr_zone_0_minutes",
+        "hr_zone_1_minutes",
+        "hr_zone_2_minutes",
+        "hr_zone_3_minutes",
+        "hr_zone_4_minutes",
+        "hr_zone_5_minutes",
+        "intensity",
+        "max_heart_rate",
+        "metadata",
+        "started_at",
+        "strain",
+        "workout_type"
+      ]
+    },
+    "labs": {
+      "description": "Uploaded lab report metadata, distinct from individual numeric biomarker measurements.",
+      "dataset": "labs.upload_metadata.v1",
+      "date_meaning": "exam_date, with missing dates retained as coverage gaps; not upload time",
+      "adapter_detail_limit": 3,
+      "aliases": [
+        "lab reports",
+        "blood test reports"
+      ],
+      "backend_fields": [
+        "biomarker_count",
+        "exam_date",
+        "file_count",
+        "lab_provider",
+        "record_kind",
+        "screening_type"
+      ]
+    },
+    "calendar": {
+      "description": "Stored health plans and screening appointments.",
+      "dataset": "calendar.events.v1",
+      "date_meaning": "next_due_date for due/planned; last_done_date for stored completion; not full occurrence history",
+      "adapter_detail_limit": 8,
+      "aliases": [
+        "health plans",
+        "screening events",
+        "health events",
+        "health calendar",
+        "health appointments",
+        "screenings",
+        "checkups",
+        "calendar",
+        "health plan",
+        "health appointment"
+      ],
+      "backend_fields": [
+        "cadence",
+        "category",
+        "chain_key",
+        "due_time",
+        "event_kind",
+        "group_id",
+        "justification",
+        "lab_upload_id",
+        "last_done_date",
+        "location_address",
+        "location_facility",
+        "name",
+        "next_due_date",
+        "notes",
+        "personalized",
+        "qualifier",
+        "report_assessment",
+        "report_assessment_note",
+        "report_summary",
+        "result",
+        "scheduled",
+        "screening_type",
+        "source",
+        "status",
+        "user_note"
+      ]
+    }
+  },
+  "adapter_capabilities": {
+    "metric_operations": [
+      "latest",
+      "trend"
+    ],
+    "periods": [
+      "unstated",
+      "all_history",
+      "calendar",
+      "rolling",
+      "absolute"
+    ],
+    "source_filter": false,
+    "arbitrary_counts": false,
+    "multiple_periods": false,
+    "field_projection": false,
+    "write": false,
+    "unit_conversion": false,
+    "permissions": "caller"
+  },
+  "backend_capabilities_observed": {
+    "metric_operations": [
+      "latest",
+      "trend",
+      "baseline",
+      "compare",
+      "correlate"
+    ],
+    "sources": "authorized source filters supported",
+    "record_detail_paging": "1..200 for supported detail datasets",
+    "profile_fields": "closed field projection supported",
+    "note": "Backend capabilities do not imply this legacy adapter can represent them."
+  },
+  "provenance": {
+    "query_contracts.py": "8a5612694b419842986dc0abe68ee2c335a6c1816460633c4472d0f4ad6fb5ee",
+    "query_tool.py": "aa40686a0b1c4b39180eaa9d4a4ce695878ce0c1a5816b7becf0b107e9566bce",
+    "full_session_sources.py": "0c330c87235a6091b4389a4460cca3757e2c652edfda49cd0a3e644511843398"
+  }
+}

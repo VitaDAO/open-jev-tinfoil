@@ -13,6 +13,8 @@ from fastapi.responses import JSONResponse
 from pydantic import BaseModel, ConfigDict, Field, StringConstraints, model_validator
 from starlette.concurrency import run_in_threadpool
 from routing import LocalLearnedRouter, ADAPTER_SHA256
+from query_plan import QueryRequest, QueryPlan
+from query_selector import QuerySelector, identity as selector_identity, INTENT_SHA256
 
 MODEL_REVISION = '19bf9a64815add579fbf6c907bef584d9277a8e4'
 Text = Annotated[str, StringConstraints(strict=True, strip_whitespace=True, min_length=1, max_length=4096)]
@@ -92,8 +94,12 @@ class Engine:
         self.model.collator._ids = lambda text: self.model.tok(text, add_special_tokens=False)['input_ids']
         self.model.collator._cache.clear()
         self.router = LocalLearnedRouter(model=self.model)
+        self.selector = QuerySelector(self.model)
         self.router.route('This is a test.')
         self.decide(DecisionRequest(state='This is a test.', questions=[Question(type='noul', instructions='This is a test.')]))
+
+    def select(self, request):
+        return self.selector.select_query(request)
 
     def route(self, request):
         return {**self.router.route(request.state), 'weight_storage_dtype': self.weight_storage_dtype,
@@ -110,7 +116,9 @@ class Engine:
                 'inference_ms': round((time.perf_counter() - started) * 1000, 2),
                 'weight_storage_dtype': self.weight_storage_dtype, 'backbone_compute_dtype': 'float32'}
 
-def create_app(engine_factory=Engine, token=None):
+def create_app(engine_factory=Engine, token=None, selector_enabled=None):
+    selector_enabled = (os.environ.get("ENABLE_EXPERIMENTAL_SELECTOR") == "1"
+                        if selector_enabled is None else selector_enabled)
     token = token if token is not None else os.environ.get('OPEN_JEV_API_KEY', '')
     if len(token) < 32:
         raise RuntimeError('OPEN_JEV_API_KEY must contain at least 32 characters')
@@ -129,7 +137,24 @@ def create_app(engine_factory=Engine, token=None):
     @app.get('/health')
     async def health():
         return {'status': 'ready', 'model_revision': MODEL_REVISION, 'device': 'cpu',
-                'max_state_tokens': 256, 'max_sequence_tokens': 512, 'adapter_sha256': ADAPTER_SHA256}
+                'max_state_tokens': 256, 'max_sequence_tokens': 512, 'adapter_sha256': ADAPTER_SHA256,
+                'selector_enabled': selector_enabled, 'selector_schema': 'vita-selector/v2',
+                'selector_sha256': selector_identity(), 'selector_adapter_sha256': INTENT_SHA256}
+
+    @app.post('/v1/select', response_model=QueryPlan)
+    async def select_reads(request: QueryRequest):
+        if not selector_enabled:
+            raise HTTPException(503, "Experimental selector has not passed acceptance")
+        if lock.locked():
+            raise HTTPException(429, 'Inference busy; retry later', headers={'Retry-After': '1'})
+        async with lock:
+            try:
+                return await run_in_threadpool(app.state.engine.select, request)
+            except ValueError:
+                raise HTTPException(422, 'Input exceeds model token limits') from None
+            except Exception:
+                raise HTTPException(500, 'Inference failed') from None
+
     @app.post('/decide')
     async def decide(request: DecisionRequest):
         if lock.locked():
