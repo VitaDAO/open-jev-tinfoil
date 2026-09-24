@@ -8,6 +8,7 @@ All native instructions, admitted inventory, tools and history stay intact.
 import asyncio
 import hashlib
 import json
+import re
 import time
 from copy import deepcopy
 from uuid import uuid4
@@ -16,6 +17,60 @@ from zoneinfo import ZoneInfo
 import httpx
 
 from query_plan import QueryRequest, QueryPlan, HealthRead, compile_batch, MAX_METRICS_PER_READ
+
+
+class _Ineligible(ValueError):
+    """Only locally generated, fixed eligibility codes may enter receipts."""
+
+
+def _current_question_index(messages):
+    # SessionInputPolicy preserves admitted provenance when projecting these
+    # synthetic pairs. A name in arbitrary model/user text is not sufficient.
+    users = [i for i, m in enumerate(messages) if m.get('role') == 'user'
+             and m.get('content') and m['content'][0].get('type') == 'text']
+    if not users:
+        raise _Ineligible('not_current_user_round')
+    index = users[-1]
+    if (any(m.get('source', {}).get('form') == 'attachment' for m in messages)
+            or any(b.get('name') == 'vita_attachment_slice'
+           for m in messages for b in m.get('content', []))):
+        raise _Ineligible('attachments_present')
+    suffix = messages[index + 1:]
+    allowed = {'vita_skc': ('skc', 'vita-skc/v1'),
+               'vita_profile_planning': ('profile_planning', 'vita-profile-planning/v1')}
+    if len(suffix) % 2 or len(suffix) > 4:
+        raise _Ineligible('not_current_user_round')
+    seen = set()
+    for call, result in zip(suffix[::2], suffix[1::2]):
+        blocks, outputs = call.get('content', []), result.get('content', [])
+        if len(blocks) != 1 or len(outputs) != 1:
+            raise _Ineligible('untrusted_bootstrap')
+        block, output = blocks[0], outputs[0]
+        name, call_id = block.get('name'), block.get('id')
+        if name not in allowed or name in seen:
+            raise _Ineligible('not_current_user_round')
+        kind, schema = allowed[name]
+        source = call.get('source', {})
+        if (call.get('role') != 'assistant' or block.get('type') != 'tool-call'
+                or source.get('kind') != 'model' or source.get('provider') != 'vita-admitted'
+                or not isinstance(call_id, str)
+                or not re.fullmatch('ctx_' + kind + '_[0-9a-f]{28}', call_id)
+                or block.get('arguments') != '{}'
+                or result.get('role') != 'user'
+                or result.get('source') != {'kind': 'tool', 'callId': call_id}
+                or output.get('type') != 'tool-result' or output.get('toolCallId') != call_id):
+            raise _Ineligible('untrusted_bootstrap')
+        content = output.get('content', [])
+        if len(content) != 1 or content[0].get('type') != 'text':
+            raise _Ineligible('untrusted_bootstrap')
+        try:
+            payload = json.loads(content[0]['text'])
+        except (ValueError, TypeError, KeyError):
+            raise _Ineligible('untrusted_bootstrap') from None
+        if not isinstance(payload, dict) or payload.get('schema') != schema:
+            raise _Ineligible('untrusted_bootstrap')
+        seen.add(name)
+    return index
 
 
 def native_batch(plan, request, tool_schema):
@@ -98,29 +153,28 @@ class NativeSelectorProvider:
         self.attempted = False
         # Safe counters/codes only. No prompts, identifiers, evidence or errors.
         self.receipt = {'status': 'not_attempted', 'selector_ms': 0.0,
-                        'native_schema_sha256': None, 'provider_calls': 0}
+                        'native_schema_sha256': None, 'provider_calls': 0, 'reason_code': None}
 
     def _schema(self, envelope):
         if self.request is None:
-            raise ValueError('selector_request_unrepresentable')
+            raise _Ineligible('selector_request_unrepresentable')
         request = envelope['request']
         if envelope['controls'].get('toolChoice', 'auto') not in ('auto', 'required'):
-            raise ValueError('native_tool_choice')
+            raise _Ineligible('native_tool_choice')
         messages = request['messages']
-        if not messages or messages[-1]['role'] != 'user':
-            raise ValueError('not_current_user_round')
-        content = messages[-1]['content']
+        index = _current_question_index(messages)
+        content = messages[index]['content']
         if content != [{'type': 'text', 'text': self.request.state.current_request}]:
-            raise ValueError('original_request_mismatch')
-        prior = [m['content'][0]['text'] for m in messages[:-1]
+            raise _Ineligible('original_request_mismatch')
+        prior = [m['content'][0]['text'] for m in messages[:index]
                  if m['role'] == 'user' and len(m['content']) == 1
                  and m['content'][0].get('type') == 'text']
         recent = self.request.state.recent_user_requests
         if recent and prior[-len(recent):] != recent:
-            raise ValueError('selector_history_mismatch')
+            raise _Ineligible('selector_history_mismatch')
         tools = [tool for tool in request.get('tools', []) if tool['name'] == 'acquire_sources']
         if len(tools) != 1:
-            raise ValueError('native_reader_unavailable')
+            raise _Ineligible('native_reader_unavailable')
         schema = tools[0]['parameters']
         self.receipt['native_schema_sha256'] = hashlib.sha256(
             json.dumps(schema, sort_keys=True, separators=(',', ':')).encode()).hexdigest()
@@ -132,16 +186,23 @@ class NativeSelectorProvider:
         if not self.attempted:
             self.attempted = True
             started = time.monotonic()
+            stage = 'native_envelope_invalid'
             try:
                 schema = self._schema(envelope)
+                stage = 'selector_failed'
                 plan = await asyncio.wait_for(
                     asyncio.to_thread(self.client.select, self.request), self.timeout_seconds)
+                stage = 'native_projection_rejected'
                 batch = native_batch(plan, self.request, schema)
-            except (httpx.HTTPError, TimeoutError, RuntimeError, ValueError, KeyError, TypeError):
+            except _Ineligible as exc:
+                self.receipt.update(status='native_planner', reason_code=exc.args[0])
+            except TimeoutError:
+                self.receipt.update(status='native_planner', reason_code='selector_timeout')
+            except (httpx.HTTPError, RuntimeError, ValueError, KeyError, TypeError):
                 # Never leak provider exceptions or interpret failure as no data.
-                self.receipt['status'] = 'native_planner'
+                self.receipt.update(status='native_planner', reason_code=stage)
             except ImportError:
-                self.receipt['status'] = 'native_dependency_unavailable'
+                self.receipt.update(status='native_dependency_unavailable', reason_code='native_dependency_unavailable')
             else:
                 self.receipt['status'] = 'native_acquisition_proposed'
             finally:
