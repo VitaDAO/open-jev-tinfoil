@@ -144,3 +144,8 @@ verification. It does not implement a secret-file loader or reuse a developer
 key path. Use the enclave's configured secret injection. Release and selector
 pins remain mandatory. Cold attestation costs are additional to warm selection
 latency and must be measured in the actual process architecture.
+
+An optional five-minute public trust snapshot can reduce repeated Sigstore trust
+root refreshes without inheriting a connection. See
+[`sdk-patches/README.md`](../sdk-patches/README.md) for the exact opt-in wheel,
+parent/child API, expiry policy, measured limits and packaging requirements.

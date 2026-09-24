@@ -1,0 +1,90 @@
+{
+  "prewarm_ms": 859.6672089770436,
+  "rows": [
+    {
+      "cached": false,
+      "bootstrap_ms": 2878.5450420109555,
+      "selection_fresh_tls_ms": 579.9222090281546,
+      "verified": true,
+      "release_digest": "e9145d5c5610cc9096ef5ed1b253a22f13503898bd1319e39dc24c54bcdf88b5",
+      "status": "planned",
+      "queries": [
+        {
+          "kind": "research",
+          "targets": [
+            "apob"
+          ],
+          "interventions": [
+            "diet",
+            "exercise"
+          ],
+          "goal": "lower"
+        }
+      ]
+    },
+    {
+      "cached": true,
+      "bootstrap_ms": 1502.9204160091467,
+      "selection_fresh_tls_ms": 610.3959580068476,
+      "verified": true,
+      "release_digest": "e9145d5c5610cc9096ef5ed1b253a22f13503898bd1319e39dc24c54bcdf88b5",
+      "status": "planned",
+      "queries": [
+        {
+          "kind": "research",
+          "targets": [
+            "apob"
+          ],
+          "interventions": [
+            "diet",
+            "exercise"
+          ],
+          "goal": "lower"
+        }
+      ]
+    },
+    {
+      "cached": false,
+      "bootstrap_ms": 2064.6349170128815,
+      "selection_fresh_tls_ms": 632.1385420160368,
+      "verified": true,
+      "release_digest": "e9145d5c5610cc9096ef5ed1b253a22f13503898bd1319e39dc24c54bcdf88b5",
+      "status": "planned",
+      "queries": [
+        {
+          "kind": "research",
+          "targets": [
+            "apob"
+          ],
+          "interventions": [
+            "diet",
+            "exercise"
+          ],
+          "goal": "lower"
+        }
+      ]
+    },
+    {
+      "cached": true,
+      "bootstrap_ms": 1435.4012500261888,
+      "selection_fresh_tls_ms": 600.3780830069445,
+      "verified": true,
+      "release_digest": "e9145d5c5610cc9096ef5ed1b253a22f13503898bd1319e39dc24c54bcdf88b5",
+      "status": "planned",
+      "queries": [
+        {
+          "kind": "research",
+          "targets": [
+            "apob"
+          ],
+          "interventions": [
+            "diet",
+            "exercise"
+          ],
+          "goal": "lower"
+        }
+      ]
+    }
+  ],
+  "scope": "Alternating separate forked children, public synthetic request. VitaClient/QueryRequest imports outside timer; lazy SDK imports inside constructor remain included. First experiment loaded Sigstore in parent; helper experiment deliberately does not. No source IO."
+}

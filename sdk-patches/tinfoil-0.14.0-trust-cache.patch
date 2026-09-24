@@ -1,0 +1,80 @@
+--- a/tinfoil/client.py
++++ b/tinfoil/client.py
+@@ -584,7 +584,7 @@
+ class SecureClient:
+     """A client that verifies and communicates with secure enclaves"""
+     
+-    def __init__(self, enclave: str = "", repo: str = DEFAULT_CONFIG_REPO, measurement: Optional[dict] = None, transport: TransportMode = DEFAULT_TRANSPORT_MODE, base_url: Optional[str] = None, attestation_bundle_url: str = "", user_cache_secret: Optional[str] = None):
++    def __init__(self, enclave: str = "", repo: str = DEFAULT_CONFIG_REPO, measurement: Optional[dict] = None, transport: TransportMode = DEFAULT_TRANSPORT_MODE, base_url: Optional[str] = None, attestation_bundle_url: str = "", user_cache_secret: Optional[str] = None, sigstore_verifier_factory=None):
+         # Hardcoded measurement takes precedence over repo
+         if measurement is not None:
+             repo = ""
+@@ -624,6 +624,7 @@
+         if (enclave == "" or enclave is None) and not attestation_bundle_url:
+             enclave = get_router_address()
+ 
++        self._sigstore_verifier_factory = sigstore_verifier_factory
+         self.enclave = enclave or ""
+         self.repo = repo
+         self.measurement = measurement
+@@ -926,7 +927,9 @@
+             try:
+                 sigstore_bundle = fetch_attestation_bundle(self.repo, digest)
+                 code_measurements = verify_attestation(
+-                    sigstore_bundle, digest, self.repo, release.tag
++                    sigstore_bundle, digest, self.repo, release.tag,
++                    verifier=(self._sigstore_verifier_factory()
++                              if self._sigstore_verifier_factory is not None else None),
+                 )
+                 doc.release_tag = release.tag
+                 doc.code_measurement = code_measurements
+@@ -965,7 +968,9 @@
+         # Step 1: Verify code measurement from the bundled Sigstore bundle
+         try:
+             code_measurements = verify_attestation(
+-                bundle.sigstore_bundle, bundle.digest, self.repo, bundle.release_tag
++                bundle.sigstore_bundle, bundle.digest, self.repo, bundle.release_tag,
++                verifier=(self._sigstore_verifier_factory()
++                          if self._sigstore_verifier_factory is not None else None),
+             )
+             doc.release_digest = bundle.digest
+             doc.release_tag = bundle.release_tag
+--- a/tinfoil/sigstore.py
++++ b/tinfoil/sigstore.py
+@@ -131,7 +131,7 @@
+ 
+ 
+ def _verify_dsse_bundle(
+-    bundle_json: bytes, digest: str, repo: str, expected_release_tag: Optional[str] = None
++    bundle_json: bytes, digest: str, repo: str, expected_release_tag: Optional[str] = None, *, verifier: Optional[Verifier] = None
+ ) -> dict:
+     """
+     Verify a Sigstore DSSE bundle and return the parsed in-toto payload.
+@@ -151,7 +151,8 @@
+     Raises:
+         ValueError: If any verification step fails
+     """
+-    verifier = Verifier.production()
++    if verifier is None:
++        verifier = Verifier.production()
+ 
+     # SPEC §5.2: reject the legacy x509CertificateChain bundle layout.
+     reject_legacy_bundle_format(bundle_json)
+@@ -194,7 +195,7 @@
+ 
+ 
+ def verify_attestation(
+-    bundle_json: bytes, digest: str, repo: str, expected_release_tag: Optional[str] = None
++    bundle_json: bytes, digest: str, repo: str, expected_release_tag: Optional[str] = None, *, verifier: Optional[Verifier] = None
+ ) -> Measurement:
+     """
+     Verifies the attested measurements of an enclave image against a trusted root (Sigstore)
+@@ -212,7 +213,7 @@
+         ValueError: If verification fails or digests don't match
+     """
+     try:
+-        statement = _verify_dsse_bundle(bundle_json, digest, repo, expected_release_tag)
++        statement = _verify_dsse_bundle(bundle_json, digest, repo, expected_release_tag, verifier=verifier)
+ 
+         predicate_type = PredicateType(statement["predicateType"])
+         predicate_fields = statement["predicate"]
