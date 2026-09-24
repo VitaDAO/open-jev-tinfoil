@@ -16,7 +16,7 @@ from zoneinfo import ZoneInfo
 
 import httpx
 
-from query_plan import QueryRequest, QueryPlan, HealthRead, compile_batch, MAX_METRICS_PER_READ
+from query_plan import QueryRequest, QueryPlan, HealthRead, ResearchRead, compile_batch, MAX_METRICS_PER_READ
 
 
 class _Ineligible(ValueError):
@@ -94,14 +94,28 @@ def native_batch(plan, request, tool_schema):
     batch = compile_batch(plan, request)
     if batch is None:
         raise ValueError('selector_handoff')
-    # These standalone projections depend on a post-read consumer. Do not
-    # substitute a raw native read for that consumer or relabel research basis.
-    if any(not isinstance(q, HealthRead) or q.date_basis == 'sleep_end_day' for q in plan.queries):
+    # General suggestions need no personal source provenance, but only a
+    # complete current-message broad-analysis certificate establishes that
+    # meaning here. Inventory and matching research slots alone cannot do so.
+    research = [q for q in plan.queries if isinstance(q, ResearchRead)]
+    if research:
+        # Use the unqualified broad-analysis production from selector._interpret
+        # directly: its general period splitter also strips dangling prepositions.
+        text = re.sub(r'\s+', ' ', request.state.current_request.lower().strip())
+        broad = re.fullmatch(r'(?:please )?(?:analy[sz]e me|analy[sz]e my (?:overall )?health|'
+                             r'give me (?:an? )?(?:overall |comprehensive )?health analysis)[?.!]*', text)
+        canonical = ResearchRead(targets=['sleep','physical_activity','cardiometabolic_health'],
+                                 interventions=['diet','exercise'])
+        if (not broad or research != [canonical]
+                or not any(isinstance(q, HealthRead) for q in plan.queries)):
+            raise ValueError('native_projection_requires_planner')
+    # Sleep episodes still need a post-read consumer; never substitute raw rows.
+    if any(isinstance(q, HealthRead) and q.date_basis == 'sleep_end_day' for q in plan.queries):
         raise ValueError('native_projection_requires_planner')
     batch = {key: value for key, value in batch.items() if value}
     # Resolve aliases with the live Vita registry, rather than assuming that
     # the standalone catalog's spellings match this runtime's authority enum.
-    chunks = [q.metrics[i:i + MAX_METRICS_PER_READ] for q in plan.queries
+    chunks = [q.metrics[i:i + MAX_METRICS_PER_READ] for q in plan.queries if isinstance(q, HealthRead)
               for i in range(0, max(1, len(q.metrics)), MAX_METRICS_PER_READ)]
     for op, metrics in zip(batch['health_reads'], chunks, strict=True):
         op['concepts'] = list(canonical_authorized_metric_ids(metrics))
