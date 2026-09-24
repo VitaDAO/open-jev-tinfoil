@@ -1,0 +1,1093 @@
+{
+  "schema": "vita-independent-intent-acceptance/v1",
+  "author": "Vita integration task, separate from standalone implementation task",
+  "synthetic_only": true,
+  "created_date": "2026-09-24",
+  "policy_source": "/Users/alexdobrin/Documents/vita-agent-deepseek-v32/vita/py/src/vita_agent/kernel/prompt_compose.py",
+  "policy_sha256": "3745f6c7da8bfd52b9e65506ea364834067166edded9e2342a408371b41a5f5c",
+  "policy_lines": [
+    148,
+    181
+  ],
+  "purpose": "Independently authored diagnostic regression packet frozen before candidate evaluation, not a representative accuracy benchmark. Known ApoB pair is separated from primary cases. Exact overlap with historical corpora has not been checked; never claim blind unseen data.",
+  "evaluation_rules": [
+    "Do not supply expected labels or rationales to the model. Do not tune on primary or boundary cases; freeze train/eval protocol before running candidate.",
+    "Preserve baseline and first candidate outputs. Report each group separately; do not pool two known cases into an independent score.",
+    "For negative cases, any personal HealthRead is an unnecessary-read failure. Handoff is appropriate because current QueryPlan has no direct-answer status.",
+    "For positive primary cases, a handoff preserves application correctness but misses selector coverage; report separately from wrong reads and fully correct plans.",
+    "A positive plan must retain required metric/record/source/window/operation and avoid unrequested personal domains. Validate equivalent resolved date ranges against trusted time, not literal JSON equality.",
+    "Boundary mixed requests may hand off as a whole; accepted plans must include both health and research, without subject or provenance relabeling.",
+    "These current-contract cases have no retained authorized evidence unless explicitly represented. Assistant/evidence coverage extensions need a separate contract, not invented user messages.",
+    "No actual source reads, writes or outbound literature calls are needed."
+  ],
+  "cases": [
+    {
+      "id": "known_definition",
+      "group": "known_regression",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "heart_rate_variability",
+          "hba1c",
+          "resting_heart_rate",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "steps",
+          "sleep_efficiency"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "What is ApoB?",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "personal_read_needed": false,
+        "allowed_selector_statuses": [
+          "handoff"
+        ],
+        "rationale": "General definition does not need personal records.",
+        "forbid_personal_queries": true
+      }
+    },
+    {
+      "id": "known_personal",
+      "group": "known_regression",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "heart_rate_variability",
+          "hba1c",
+          "resting_heart_rate",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "steps",
+          "sleep_efficiency"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "What is my latest ApoB?",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "personal_read_needed": true,
+        "allowed_selector_statuses": [
+          "planned"
+        ],
+        "rationale": "An unretained personal measurement requires its authorized record.",
+        "required_metrics": [
+          "apob"
+        ],
+        "required_record_types": [],
+        "no_unrequested_personal_domains": true,
+        "required_research": false,
+        "operation": "latest"
+      }
+    },
+    {
+      "id": "d_hrv",
+      "group": "independent_primary",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "heart_rate_variability",
+          "hba1c",
+          "resting_heart_rate",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "steps",
+          "sleep_efficiency"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "Explain what heart rate variability measures.",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "personal_read_needed": false,
+        "allowed_selector_statuses": [
+          "handoff"
+        ],
+        "rationale": "A measurement definition is answerable without a personal value.",
+        "forbid_personal_queries": true
+      }
+    },
+    {
+      "id": "p_hrv",
+      "group": "independent_primary",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "heart_rate_variability",
+          "hba1c",
+          "resting_heart_rate",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "steps",
+          "sleep_efficiency"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "Show my heart rate variability for the last seven days.",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "personal_read_needed": true,
+        "allowed_selector_statuses": [
+          "planned"
+        ],
+        "rationale": "Explicit personal metric with requested interval.",
+        "required_metrics": [
+          "heart_rate_variability"
+        ],
+        "required_record_types": [],
+        "no_unrequested_personal_domains": true,
+        "required_research": false,
+        "operation": "trend",
+        "requested_range": {
+          "kind": "relative",
+          "amount": 7,
+          "unit": "days"
+        }
+      }
+    },
+    {
+      "id": "d_hba1c",
+      "group": "independent_primary",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "heart_rate_variability",
+          "hba1c",
+          "resting_heart_rate",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "steps",
+          "sleep_efficiency"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "What does the abbreviation HbA1c mean?",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "personal_read_needed": false,
+        "allowed_selector_statuses": [
+          "handoff"
+        ],
+        "rationale": "An abbreviation is not a request for its personal measurement.",
+        "forbid_personal_queries": true
+      }
+    },
+    {
+      "id": "p_hba1c",
+      "group": "independent_primary",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "heart_rate_variability",
+          "hba1c",
+          "resting_heart_rate",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "steps",
+          "sleep_efficiency"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "What is my latest HbA1c?",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "personal_read_needed": true,
+        "allowed_selector_statuses": [
+          "planned"
+        ],
+        "rationale": "Latest personal measurement is requested.",
+        "required_metrics": [
+          "hba1c"
+        ],
+        "required_record_types": [],
+        "no_unrequested_personal_domains": true,
+        "required_research": false,
+        "operation": "latest"
+      }
+    },
+    {
+      "id": "d_rhr",
+      "group": "independent_primary",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "heart_rate_variability",
+          "hba1c",
+          "resting_heart_rate",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "steps",
+          "sleep_efficiency"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "Without accessing my data, explain what resting heart rate means.",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "personal_read_needed": false,
+        "allowed_selector_statuses": [
+          "handoff"
+        ],
+        "rationale": "Explicit prohibition on personal reads and a general definition.",
+        "forbid_personal_queries": true
+      }
+    },
+    {
+      "id": "p_rhr",
+      "group": "independent_primary",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "heart_rate_variability",
+          "hba1c",
+          "resting_heart_rate",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "steps",
+          "sleep_efficiency"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "Show my resting heart rate this week.",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "personal_read_needed": true,
+        "allowed_selector_statuses": [
+          "planned"
+        ],
+        "rationale": "Personal trend is explicitly bounded to current calendar week.",
+        "required_metrics": [
+          "resting_heart_rate"
+        ],
+        "required_record_types": [],
+        "no_unrequested_personal_domains": true,
+        "required_research": false,
+        "operation": "trend",
+        "requested_range": {
+          "kind": "calendar",
+          "period": "week"
+        }
+      }
+    },
+    {
+      "id": "d_ldl",
+      "group": "independent_primary",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "heart_rate_variability",
+          "hba1c",
+          "resting_heart_rate",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "steps",
+          "sleep_efficiency"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "Do not open my records. What is LDL cholesterol?",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "personal_read_needed": false,
+        "allowed_selector_statuses": [
+          "handoff"
+        ],
+        "rationale": "Explicit no-record instruction must survive the metric mention.",
+        "forbid_personal_queries": true
+      }
+    },
+    {
+      "id": "p_ldl",
+      "group": "independent_primary",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "heart_rate_variability",
+          "hba1c",
+          "resting_heart_rate",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "steps",
+          "sleep_efficiency"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "Show my LDL cholesterol results for the last six months.",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "personal_read_needed": true,
+        "allowed_selector_statuses": [
+          "planned"
+        ],
+        "rationale": "Personal metric and six-month window are both requested.",
+        "required_metrics": [
+          "ldl_cholesterol"
+        ],
+        "required_record_types": [],
+        "no_unrequested_personal_domains": true,
+        "required_research": false,
+        "operation": "trend",
+        "requested_range": {
+          "kind": "relative",
+          "amount": 6,
+          "unit": "months"
+        }
+      }
+    },
+    {
+      "id": "d_steps",
+      "group": "independent_primary",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "heart_rate_variability",
+          "hba1c",
+          "resting_heart_rate",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "steps",
+          "sleep_efficiency"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "What does the step count on a wearable represent?",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "personal_read_needed": false,
+        "allowed_selector_statuses": [
+          "handoff"
+        ],
+        "rationale": "Generic explanation of a device metric does not require the users readings.",
+        "forbid_personal_queries": true
+      }
+    },
+    {
+      "id": "p_steps",
+      "group": "independent_primary",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "heart_rate_variability",
+          "hba1c",
+          "resting_heart_rate",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "steps",
+          "sleep_efficiency"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "Show my steps yesterday.",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "personal_read_needed": true,
+        "allowed_selector_statuses": [
+          "planned"
+        ],
+        "rationale": "Explicit personal steps read for the prior local calendar day.",
+        "required_metrics": [
+          "steps"
+        ],
+        "required_record_types": [],
+        "no_unrequested_personal_domains": true,
+        "required_research": false,
+        "requested_range": {
+          "kind": "between",
+          "start_at": "2026-09-23",
+          "end_at": "2026-09-23"
+        }
+      }
+    },
+    {
+      "id": "d_sleep",
+      "group": "independent_primary",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "heart_rate_variability",
+          "hba1c",
+          "resting_heart_rate",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "steps",
+          "sleep_efficiency"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "What does my ring's sleep efficiency measure?",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "personal_read_needed": false,
+        "allowed_selector_statuses": [
+          "handoff"
+        ],
+        "rationale": "Possessive device wording does not turn a metric-definition request into a personal-record lookup.",
+        "forbid_personal_queries": true
+      }
+    },
+    {
+      "id": "p_sleep",
+      "group": "independent_primary",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "heart_rate_variability",
+          "hba1c",
+          "resting_heart_rate",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "steps",
+          "sleep_efficiency"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "Show my Oura sleep efficiency over the last fourteen days.",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "personal_read_needed": true,
+        "allowed_selector_statuses": [
+          "planned"
+        ],
+        "rationale": "Personal source-filtered metric and exact relative interval are requested.",
+        "required_metrics": [
+          "sleep_efficiency"
+        ],
+        "required_record_types": [],
+        "no_unrequested_personal_domains": true,
+        "required_research": false,
+        "operation": "trend",
+        "requested_range": {
+          "kind": "relative",
+          "amount": 14,
+          "unit": "days"
+        },
+        "source": "oura"
+      }
+    },
+    {
+      "id": "d_profile",
+      "group": "independent_primary",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "heart_rate_variability",
+          "hba1c",
+          "resting_heart_rate",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "steps",
+          "sleep_efficiency"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "What does the medications section contain?",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "personal_read_needed": false,
+        "allowed_selector_statuses": [
+          "handoff"
+        ],
+        "rationale": "App-field explanation does not ask for the users medication list.",
+        "forbid_personal_queries": true
+      }
+    },
+    {
+      "id": "p_profile",
+      "group": "independent_primary",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "heart_rate_variability",
+          "hba1c",
+          "resting_heart_rate",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "steps",
+          "sleep_efficiency"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "What are my current medications?",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "personal_read_needed": true,
+        "allowed_selector_statuses": [
+          "planned"
+        ],
+        "rationale": "Current profile medication projection is requested.",
+        "required_metrics": [],
+        "required_record_types": [
+          "profile"
+        ],
+        "no_unrequested_personal_domains": true,
+        "required_research": false,
+        "operation": "latest",
+        "profile_fields": [
+          "medications"
+        ]
+      }
+    },
+    {
+      "id": "d_followup",
+      "group": "independent_primary",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "heart_rate_variability",
+          "hba1c",
+          "resting_heart_rate",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "steps",
+          "sleep_efficiency"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "And HDL?",
+          "recent_user_requests": [
+            "Explain LDL cholesterol without reading my records."
+          ],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "personal_read_needed": false,
+        "allowed_selector_statuses": [
+          "handoff"
+        ],
+        "rationale": "Follow-up continues the general-definition topic and existing explicit no-read instruction.",
+        "forbid_personal_queries": true
+      }
+    },
+    {
+      "id": "p_followup",
+      "group": "independent_primary",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "heart_rate_variability",
+          "hba1c",
+          "resting_heart_rate",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "steps",
+          "sleep_efficiency"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "What about last month?",
+          "recent_user_requests": [
+            "Show my resting heart rate this week."
+          ],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "personal_read_needed": true,
+        "allowed_selector_statuses": [
+          "planned"
+        ],
+        "rationale": "Follow-up changes the previously requested personal metric window.",
+        "required_metrics": [
+          "resting_heart_rate"
+        ],
+        "required_record_types": [],
+        "no_unrequested_personal_domains": true,
+        "required_research": false,
+        "operation": "trend",
+        "requested_range": {
+          "kind": "between",
+          "start_at": "2026-08-01",
+          "end_at": "2026-08-31"
+        }
+      }
+    },
+    {
+      "id": "boundary_write",
+      "group": "boundary",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "heart_rate_variability",
+          "hba1c",
+          "resting_heart_rate",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "steps",
+          "sleep_efficiency"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "Change my activity goal to walking every day.",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "personal_read_needed": false,
+        "allowed_selector_statuses": [
+          "handoff"
+        ],
+        "rationale": "Write intent belongs to the app action flow, not this read selector.",
+        "forbid_personal_queries": true
+      }
+    },
+    {
+      "id": "boundary_conflict",
+      "group": "boundary",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "heart_rate_variability",
+          "hba1c",
+          "resting_heart_rate",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "steps",
+          "sleep_efficiency"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "Do not access my records, but show my latest ApoB.",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "personal_read_needed": false,
+        "allowed_selector_statuses": [
+          "handoff"
+        ],
+        "rationale": "Unresolved conflict requires native clarification; read restriction cannot be ignored.",
+        "forbid_personal_queries": true
+      }
+    },
+    {
+      "id": "boundary_research",
+      "group": "boundary",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "heart_rate_variability",
+          "hba1c",
+          "resting_heart_rate",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "steps",
+          "sleep_efficiency"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "Find studies on lowering LDL cholesterol without reading my records.",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "personal_read_needed": false,
+        "allowed_selector_statuses": [
+          "planned",
+          "handoff"
+        ],
+        "rationale": "Research-only request explicitly forbids personal acquisition.",
+        "forbid_personal_queries": true,
+        "planned_requires_research_only": true
+      }
+    },
+    {
+      "id": "boundary_mixed",
+      "group": "boundary",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "heart_rate_variability",
+          "hba1c",
+          "resting_heart_rate",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "steps",
+          "sleep_efficiency"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "Show my ApoB trend and find studies on lowering ApoB.",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "personal_read_needed": true,
+        "allowed_selector_statuses": [
+          "planned",
+          "handoff"
+        ],
+        "rationale": "Both requested evidence branches must be preserved, or the whole request handed off.",
+        "required_metrics": [
+          "apob"
+        ],
+        "required_record_types": [],
+        "no_unrequested_personal_domains": true,
+        "required_research": true,
+        "operation": "trend",
+        "whole_plan_handoff_allowed": true
+      }
+    }
+  ]
+}

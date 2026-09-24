@@ -1,0 +1,472 @@
+{
+  "selector_identity": "6beaf54f171b47a6f068c785e63f85a2e2aac64e63a73e0b4eb36777a55b5cc5",
+  "fixture_sha256": "e0042681dd4f318398fc2a0e066c6200bb28b3f8ea190454aea89acd9d158842",
+  "independent42_counts": {
+    "correct_handoff": 30,
+    "correct_plan": 12
+  },
+  "exact_owner_replay_matches": 42,
+  "native_rows": [
+    {
+      "id": "fresh_duplicate_alias",
+      "grade": {
+        "outcome": "correct_plan",
+        "issues": []
+      },
+      "status": "native_accepted",
+      "batch": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "concepts": [
+              "heart_rate_variability"
+            ],
+            "record_types": [],
+            "profile_fields": [],
+            "purpose": "trend",
+            "range": {
+              "kind": "between",
+              "start_at": "2026-09-21T00:00:00+03:00",
+              "end_at": "2026-09-24T15:00:00+03:00"
+            },
+            "time_zone": "Europe/Bucharest",
+            "grouping": "auto",
+            "result_view": "summary"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      }
+    },
+    {
+      "id": "fresh_two_windows",
+      "grade": {
+        "outcome": "correct_plan",
+        "issues": []
+      },
+      "status": "native_accepted",
+      "batch": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "concepts": [
+              "heart_rate_variability"
+            ],
+            "record_types": [],
+            "profile_fields": [],
+            "purpose": "trend",
+            "range": {
+              "kind": "between",
+              "start_at": "2026-09-21T00:00:00+03:00",
+              "end_at": "2026-09-24T15:00:00+03:00"
+            },
+            "time_zone": "Europe/Bucharest",
+            "grouping": "auto",
+            "result_view": "summary"
+          },
+          {
+            "operation_id": 2,
+            "concepts": [
+              "heart_rate_variability"
+            ],
+            "record_types": [],
+            "profile_fields": [],
+            "purpose": "trend",
+            "range": {
+              "kind": "between",
+              "start_at": "2026-09-14",
+              "end_at": "2026-09-20"
+            },
+            "time_zone": "Europe/Bucharest",
+            "grouping": "auto",
+            "result_view": "summary"
+          }
+        ],
+        "required_operation_ids": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "id": "fresh_two_providers",
+      "grade": {
+        "outcome": "correct_plan",
+        "issues": []
+      },
+      "status": "native_accepted",
+      "batch": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "concepts": [
+              "heart_rate_variability"
+            ],
+            "record_types": [],
+            "profile_fields": [],
+            "purpose": "trend",
+            "range": {
+              "kind": "between",
+              "start_at": "2026-09-21T00:00:00+03:00",
+              "end_at": "2026-09-24T15:00:00+03:00"
+            },
+            "time_zone": "Europe/Bucharest",
+            "grouping": "auto",
+            "result_view": "summary",
+            "source": "oura"
+          },
+          {
+            "operation_id": 2,
+            "concepts": [
+              "heart_rate_variability"
+            ],
+            "record_types": [],
+            "profile_fields": [],
+            "purpose": "trend",
+            "range": {
+              "kind": "between",
+              "start_at": "2026-09-21T00:00:00+03:00",
+              "end_at": "2026-09-24T15:00:00+03:00"
+            },
+            "time_zone": "Europe/Bucharest",
+            "grouping": "auto",
+            "result_view": "summary",
+            "source": "whoop"
+          }
+        ],
+        "required_operation_ids": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "id": "fresh_simple_read",
+      "grade": {
+        "outcome": "correct_plan",
+        "issues": []
+      },
+      "status": "native_accepted",
+      "batch": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "concepts": [
+              "hba1c"
+            ],
+            "record_types": [],
+            "profile_fields": [],
+            "purpose": "latest",
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "Europe/Bucharest",
+            "grouping": "none",
+            "result_view": "summary"
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      }
+    },
+    {
+      "id": "meta_known",
+      "grade": {
+        "outcome": "correct_plan",
+        "issues": []
+      },
+      "status": "native_accepted",
+      "batch": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "concepts": [],
+            "record_types": [
+              "labs"
+            ],
+            "profile_fields": [],
+            "purpose": "latest",
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "Europe/Bucharest",
+            "grouping": "none",
+            "result_view": "summary",
+            "record_detail_dataset": "labs.upload_metadata.v1",
+            "record_detail_limit": 200
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      }
+    },
+    {
+      "id": "meta_laboratory",
+      "grade": {
+        "outcome": "correct_plan",
+        "issues": []
+      },
+      "status": "native_accepted",
+      "batch": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "concepts": [],
+            "record_types": [
+              "labs"
+            ],
+            "profile_fields": [],
+            "purpose": "latest",
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "Europe/Bucharest",
+            "grouping": "none",
+            "result_view": "summary",
+            "record_detail_dataset": "labs.upload_metadata.v1",
+            "record_detail_limit": 200
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      }
+    },
+    {
+      "id": "meta_dates",
+      "grade": {
+        "outcome": "correct_plan",
+        "issues": []
+      },
+      "status": "native_accepted",
+      "batch": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "concepts": [],
+            "record_types": [
+              "labs"
+            ],
+            "profile_fields": [],
+            "purpose": "latest",
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "Europe/Bucharest",
+            "grouping": "none",
+            "result_view": "summary",
+            "record_detail_dataset": "labs.upload_metadata.v1",
+            "record_detail_limit": 200
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      }
+    },
+    {
+      "id": "meta_who",
+      "grade": {
+        "outcome": "correct_plan",
+        "issues": []
+      },
+      "status": "native_accepted",
+      "batch": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "concepts": [],
+            "record_types": [
+              "labs"
+            ],
+            "profile_fields": [],
+            "purpose": "latest",
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "Europe/Bucharest",
+            "grouping": "none",
+            "result_view": "summary",
+            "record_detail_dataset": "labs.upload_metadata.v1",
+            "record_detail_limit": 200
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      }
+    },
+    {
+      "id": "meta_performed",
+      "grade": {
+        "outcome": "correct_plan",
+        "issues": []
+      },
+      "status": "native_accepted",
+      "batch": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "concepts": [],
+            "record_types": [
+              "labs"
+            ],
+            "profile_fields": [],
+            "purpose": "latest",
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "Europe/Bucharest",
+            "grouping": "none",
+            "result_view": "summary",
+            "record_detail_dataset": "labs.upload_metadata.v1",
+            "record_detail_limit": 200
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      }
+    },
+    {
+      "id": "meta_paraphrase",
+      "grade": {
+        "outcome": "correct_plan",
+        "issues": []
+      },
+      "status": "native_accepted",
+      "batch": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "concepts": [],
+            "record_types": [
+              "labs"
+            ],
+            "profile_fields": [],
+            "purpose": "latest",
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "Europe/Bucharest",
+            "grouping": "none",
+            "result_view": "summary",
+            "record_detail_dataset": "labs.upload_metadata.v1",
+            "record_detail_limit": 200
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      }
+    },
+    {
+      "id": "meta_count",
+      "grade": {
+        "outcome": "correct_plan",
+        "issues": []
+      },
+      "status": "native_accepted",
+      "batch": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "concepts": [],
+            "record_types": [
+              "labs"
+            ],
+            "profile_fields": [],
+            "purpose": "latest",
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "Europe/Bucharest",
+            "grouping": "none",
+            "result_view": "summary",
+            "record_detail_dataset": "labs.upload_metadata.v1",
+            "record_detail_limit": 2
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      }
+    },
+    {
+      "id": "meta_empty_metrics",
+      "grade": {
+        "outcome": "correct_plan",
+        "issues": []
+      },
+      "status": "native_accepted",
+      "batch": {
+        "health_reads": [
+          {
+            "operation_id": 1,
+            "concepts": [],
+            "record_types": [
+              "labs"
+            ],
+            "profile_fields": [],
+            "purpose": "latest",
+            "range": {
+              "kind": "all_history"
+            },
+            "time_zone": "Europe/Bucharest",
+            "grouping": "none",
+            "result_view": "summary",
+            "record_detail_dataset": "labs.upload_metadata.v1",
+            "record_detail_limit": 200
+          }
+        ],
+        "required_operation_ids": [
+          1
+        ]
+      }
+    }
+  ],
+  "native_counts": {
+    "native_accepted": 12
+  },
+  "wide430_counts": {
+    "correct_plan": 205,
+    "correct_handoff": 224,
+    "wrong_plan": 1
+  },
+  "wide430_changed_vs_serving": [],
+  "wide430_strict_mismatches": [
+    {
+      "suite": "/Users/alexdobrin/Documents/open-jev-tinfoil/evidence/selector-v5/additional-160-v2.json",
+      "id": "bB-075",
+      "request": "Oura sleep efficiency for the past week.",
+      "expected": null,
+      "actual": [
+        {
+          "kind": "health",
+          "metrics": [
+            "sleep_efficiency"
+          ],
+          "records": [],
+          "operation": "trend",
+          "period": {
+            "kind": "relative",
+            "amount": 7,
+            "unit": "days"
+          },
+          "source": "oura",
+          "profile_fields": [],
+          "limit": null,
+          "date_basis": "observed_at"
+        }
+      ]
+    }
+  ],
+  "no_source_io": true,
+  "limitations": [
+    "Disclosed regression packets; no unseen accuracy claim.",
+    "Initial audit incorrectly assumed IDs unique across suites; aborted before report. Corrected to preserve430 ordered rows with full request/gold identity checks."
+  ]
+}

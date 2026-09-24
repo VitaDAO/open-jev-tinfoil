@@ -8,6 +8,110 @@ from routing import MODEL_REVISION
 from examples.vita_client import VitaClient
 
 NOW=datetime(2026,9,23,12,tzinfo=UTC)
+
+@pytest.mark.parametrize('text',[
+ 'When were my lab reports done, and which lab issued them?',
+ 'Which laboratory produced my blood test reports?',
+ 'Who issued my lab reports?',
+ 'What are the examination dates on my blood test reports?',
+ 'Which laboratory produced my blood reports?',
+ 'List the test dates and issuing laboratories for my lab reports.',
+])
+def test_complete_lab_metadata_reads_need_no_model_and_preserve_inventory(text):
+ from query_selector import QuerySelector
+ selector=QuerySelector.__new__(QuerySelector)
+ req=request(state={'current_request':text,'reference_date':'2026-09-23','time_zone':'UTC'})
+ result=selector.select_query(req)
+ assert result['status']=='planned'
+ assert result['queries']==[HealthRead(records=['labs'],operation='latest',
+     period={'kind':'all_history'},date_basis='exam_date').model_dump(mode='json')]
+ assert len(compile_batch(result,req)['health_reads'])==1
+ absent=req.model_copy(update={'available_record_types':[]})
+ assert selector.select_query(absent)['reason_codes']==['requested_record_category_unavailable']
+ restricted=req.model_copy(update={'state':req.state.model_copy(update={
+     'recent_user_requests':['Do not access my health records.']})})
+ assert selector.select_query(restricted)['queries']==[]
+
+@pytest.mark.parametrize('text',[
+ 'What does the examination date on my lab reports mean?',
+ 'When were her lab reports done?', 'Who issued them?',
+ 'When were my lab reports done in 2024?',
+ 'When were my latest five lab reports done?',
+ 'When were my lab reports done, and delete them.',
+ 'Do not show when my lab reports were done.',
+ 'Which lab issued my lab reports from Oura?',
+ 'When were my lab reports uploaded?',
+ 'When were my lab reports done, and which lab issued her reports?',
+ 'Translate "who issued my lab reports?" into French.',
+])
+def test_metadata_binding_cannot_drop_qualifiers_or_infer_personal_intent(text):
+ from query_selector import lab_metadata_request
+ assert not lab_metadata_request(text)
+
+@pytest.mark.parametrize('text', ['Do not show my ApoB yet. I only want a definition.',
+    "Don't access my records — explain HbA1c.", 'Never retrieve my health records.',
+    'Keep my health records closed until I explicitly say resume reads.',
+    'Leave my personal data off-limits.'])
+def test_current_and_prior_read_restrictions_are_inert_before_inference(text):
+ from query_selector import QuerySelector
+ selector=QuerySelector.__new__(QuerySelector)
+ for current,history in [(text,[]),('Show my ApoB.',[text])]:
+  req=request(state={'current_request':current,'recent_user_requests':history,
+                     'reference_date':'2026-09-23','time_zone':'UTC'})
+  result=selector.select_query(req)
+  assert result['status']=='handoff' and result['queries']==[]
+  assert result['reason_codes']==['read_restriction_requires_native_context']
+
+@pytest.mark.parametrize('text',[
+ 'Translate into German: "show my last two lab reports".',
+ 'Rephrase "show my latest ApoB" politely.',
+ 'Give a translation of "show my records".',
+])
+def test_text_transformations_do_not_execute_embedded_read_commands(text):
+ from query_selector import QuerySelector
+ selector=QuerySelector.__new__(QuerySelector)
+ req=request(state={'current_request':text,'reference_date':'2026-09-23','time_zone':'UTC'})
+ result=selector.select_query(req)
+ assert result['queries']==[]
+ assert result['reason_codes']==['text_transformation_requires_native_context']
+
+@pytest.mark.parametrize('text',[
+ 'show exactly zero of my recent workouts', 'show 0 of my lab reports',
+ 'show exactly five of my recent workouts', 'show two of my lab reports',
+])
+def test_unbound_record_quantities_cannot_become_default_page_reads(text):
+ from query_selector import QuerySelector
+ selector=QuerySelector.__new__(QuerySelector)
+ with pytest.raises(ValueError,match='unbound_record_quantity'):
+  selector.health(text,request(),{})
+
+@pytest.mark.parametrize('count',['zero','0','201'])
+def test_out_of_range_record_counts_cannot_become_default_unbounded_reads(count):
+ from query_selector import QuerySelector
+ selector=QuerySelector.__new__(QuerySelector)
+ with pytest.raises(ValueError,match='record_limit_out_of_range'):
+  selector.health('show my latest '+count+' lab reports',request(),{})
+
+def test_identical_clauses_share_one_read_but_distinct_windows_do_not(monkeypatch):
+ from query_selector import QuerySelector
+ selector=QuerySelector.__new__(QuerySelector)
+ def health(text,req,diagnostics):
+  return [HealthRead(metrics=['steps'],period={'kind':'relative','amount':7 if 'week' in text else 30,'unit':'days'})]
+ monkeypatch.setattr(selector,'health',health)
+ req=request(state={'current_request':'Show my steps last week; show my steps last week; show my steps last month',
+                    'reference_date':'2026-09-23','time_zone':'UTC'})
+ result=selector.select_query(req)
+ assert result['status']=='planned' and len(result['queries'])==2
+ assert [q['period']['amount'] for q in result['queries']]==[7,30]
+
+def test_catalog_mapping_preserves_hrv_source_eligibility():
+ from schema_index import metric_definition,INDEX,CATALOG
+ assert all(value in CATALOG for value in INDEX['inventory_to_catalog'].values())
+ assert 'oura' in metric_definition('heart_rate_variability')['valid_sources']
+ req=request(available_metrics=['heart_rate_variability'])
+ p=plan([HealthRead(metrics=['heart_rate_variability'],source='oura',period={'kind':'all_history'})],req=req)
+ assert compile_batch(p,req)['health_reads'][0]['concepts']==['heart_rate_variability']
+
 def request(**overrides):
  return QueryRequest.model_validate({'schema_version':'vita-selector/v2','state':{'current_request':'Show my steps yesterday','reference_date':'2026-09-23','time_zone':'UTC'},'reference_time':NOW,'available_metrics':['steps','total_sleep','sleep_efficiency','ldl_cholesterol','oxygen_saturation'],'available_record_types':['profile','labs','workouts','calendar'],'available_sources':['oura','garmin'],'literature_available':True,**overrides})
 def plan(queries=None,req=None,**overrides):

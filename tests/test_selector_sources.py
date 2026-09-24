@@ -27,6 +27,8 @@ def selector(monkeypatch):
             prediction=(predicted, {key: .8 for key in predicted}),
             coverage_decision=({'choice': 'the proposed read covers the request', 'confidence': .9}, None))
     monkeypatch.setattr(TrainedProposalSelector, 'select', select)
+    monkeypatch.setattr(TrainedProposalSelector, 'intent_check',
+        lambda self, text: ({'choice':'recorded_health_read'},None))
     return QuerySelector.__new__(QuerySelector)
 
 

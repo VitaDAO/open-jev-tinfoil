@@ -17,13 +17,39 @@ from trained_proposal_selector import TrainedProposalSelector
 from routing import MODEL_REVISION
 
 ROOT=Path(__file__).resolve().parent
-INTENT_SHA256='31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0'
+INTENT_SHA256='79057d0e2673aa2813a8ea64193d74182a33392b1221c7c06d4afc7afe18dc36'
 SPELLINGS={'stpes':'steps','slep':'sleep','wk':'week','hscrp':'hs crp'}
 SOURCES={'oura':'oura','garmin':'garmin','whoop':'whoop','fitbit':'fitbit',
          'withings':'withings','apple health':'apple_health','polar':'polar'}
 FIELDS={field.replace('_',' '):field for field in INDEX['records']['profile']['backend_fields']}
 FIELDS.update({'conditions':'chronic_conditions','meds':'medications','bio':'bio'})
 _FEATURES=ContextVar('query_request_features',default=None)
+
+
+def read_restricted(text):
+    # Restrictions are not permissions a classifier may override. Ambiguous
+    # scope or later revocation is left intact for the native conversation.
+    text=canonicalize(text)
+    return bool(re.search(r"\b(?:do not|don't|never|must not|stop|avoid)\s+(?:show|read|access|fetch|retrieve|open|use|look (?:at|up))\b",text)
+        or re.search(r'\b(?:keep|leave) (?:my |the )?(?:health |personal )?(?:records|data|reports|profile) (?:closed|unopened|private|off[- ]limits)\b',text))
+
+
+def lab_metadata_request(text):
+    """Complete personal date/issuer questions over the catalog's lab records.
+
+    Unlike a metric mention, these constructions explicitly request recorded
+    facts. Every clause must bind; definitions, filters and other people do not.
+    """
+    aliases='(?:'+'|'.join(re.escape(a) for a in INDEX['records']['labs']['aliases'])+')'
+    subject=r'my '+aliases
+    date=r'(?:when were '+subject+r' (?:done|issued|performed)|what (?:are|were) (?:the )?(?:exam |examination )?dates (?:on|of|for) '+subject+r')'
+    issuer=lambda target:r'(?:which (?:lab|laboratory|provider) (?:issued|produced) '+target+r'|who (?:issued|produced) '+target+r')'
+    text=canonicalize(text).strip(' ?!.')
+    field=r'(?:(?:test |exam |examination )?dates|(?:issuing )?(?:labs|laboratories|providers))'
+    listing=r'(?:list|show(?: me)?) (?:the )?'+field+r'(?: and '+field+r')? (?:on|of|for) '+subject
+    if re.fullmatch(date+'|'+issuer(subject)+'|'+listing,text):return True
+    # An anaphor is permitted only after its own explicit personal subject.
+    return bool(re.fullmatch(date+r',? and '+issuer(r'them'),text))
 
 
 def identity():
@@ -61,7 +87,7 @@ def legacy_request(request,text,history=()):
 class QuerySelector(TrainedProposalSelector):
     def __init__(self,model):
         super().__init__(model)
-        raw=(ROOT/'adapters/vita-read-intent-v3.json').read_bytes()
+        raw=(ROOT/'adapters/vita-read-intent-v4.json').read_bytes()
         if hashlib.sha256(raw).hexdigest()!=INTENT_SHA256:raise ValueError('Unapproved query intent weights')
         data=json.loads(raw)
         if data['format_version']!=1 or type(data['threshold']) not in (int,float) or not math.isfinite(data['threshold']):
@@ -92,6 +118,10 @@ class QuerySelector(TrainedProposalSelector):
     def _select_query(self,request):
         queries=[];diagnostics={};reasons=[]
         try:
+            if any(read_restricted(s) for s in [request.state.current_request,*request.state.recent_user_requests]):
+                raise ValueError('read_restriction_requires_native_context')
+            if re.search(r'\b(?:translate|translation|rephrase|rewrite|paraphrase)\b',canonicalize(request.state.current_request)):
+                raise ValueError('text_transformation_requires_native_context')
             text=enhance(request.state.current_request)
             req=legacy_request(request,text,[enhance(s) for s in request.state.recent_user_requests])
             text=resolve_context(req)
@@ -115,6 +145,12 @@ class QuerySelector(TrainedProposalSelector):
                 if re.search(r'\b(?:research|studies|trials|evidence)\b',piece) and not overview and not re.search(r'\bno (?:studies|research)\b',piece):
                     queries.append(self.research(piece,queries,request));continue
                 queries.extend(self.health(piece,request,diagnostics))
+            # Identical reads have the same subject, source, operation, window
+            # and projection. Repeating a clause must not repeat acquisition.
+            unique=[]
+            for query in queries:
+                if query not in unique:unique.append(query)
+            queries=unique
             result=QueryPlan(status='planned',queries=queries,time_zone=request.state.time_zone,
                 selector_sha256=identity(),adapter_sha256=INTENT_SHA256,model_revision=MODEL_REVISION,
                 request_sha256=request_identity(request),diagnostics=diagnostics)
@@ -134,6 +170,13 @@ class QuerySelector(TrainedProposalSelector):
 
     def health(self,text,request,diagnostics):
         original=text;source=None;limit=None;fields=[];night=False
+        if lab_metadata_request(text):
+            if 'labs' not in request.available_record_types:
+                raise ValueError('requested_record_category_unavailable')
+            diagnostics.setdefault('clause_decisions',[]).append({
+                'status':'selected','reason_codes':[],'method':'complete_lab_metadata_binding'})
+            return [HealthRead(records=['labs'],operation='latest',
+                               period={'kind':'all_history'},date_basis='exam_date')]
         # The date binder represents whole days and a trusted request timezone.
         # Never let a semantic confidence score erase an explicit clock/window
         # or a requested timezone override that this contract cannot represent.
@@ -158,15 +201,24 @@ class QuerySelector(TrainedProposalSelector):
             if spans:
                 if source and source!=value:raise ValueError('multiple_sources_require_separate_clauses')
                 source=value;text=erase(text,spans)
-        count=re.search(r'\b(?:latest|newest|most recent|last)\s+(\d+|one|two|three|four|five|six|seven|eight|nine|ten)\s+(?=(?:lab |blood |health )?(?:reports|workouts|appointments|plans)\b)',text)
+        count=re.search(r'\b(?:latest|newest|most recent|last)\s+(\d+|zero|one|two|three|four|five|six|seven|eight|nine|ten)\s+(?=(?:lab |blood |health )?(?:reports|workouts|appointments|plans)\b)',text)
         if count:
             from proposal_binding import NUMBER_WORDS
-            limit=int(count[1]) if count[1].isdigit() else NUMBER_WORDS[count[1]]
+            limit=int(count[1]) if count[1].isdigit() else {'zero':0,**NUMBER_WORDS}[count[1]]
             if not 1<=limit<=200:raise ValueError('record_limit_out_of_range')
             text=text[:count.start()]+'latest '+text[count.end():]
         if re.search(r'\b(?:uploaded|upload time|upload date|imported)\b',text):raise ValueError('upload_order_not_available')
         entity_spans=entities(text,request.available_metrics)
         record_kinds={v for _,_,values in entity_spans for kind,v in values if kind=='record'}
+        if record_kinds-{'profile'}:
+            # Counts must be bound explicitly above. Never let the model erase
+            # an alternate quantity construction and silently use the page cap.
+            # Calendar quantities belong to their date span, not the row limit.
+            from proposal_binding import NUMBER_WORDS
+            _,date_spans,_=temporal(text,request.state.reference_date)
+            remaining=erase(text,date_spans)
+            if re.search(r'\b(?:\d+|zero|'+'|'.join(NUMBER_WORDS)+r')\b',remaining):
+                raise ValueError('unbound_record_quantity')
         # Field-level profile requests are bound against the actual public schema.
         field_matches=[]
         for alias,field in sorted(FIELDS.items(),key=lambda item:-len(item[0])):
