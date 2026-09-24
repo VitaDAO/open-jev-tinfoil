@@ -1,11 +1,11 @@
 # Standalone Open Jev service. Model weights are bundled in the measured image.
-# Tested source: a3ddfdb3028c1c36a86edacf1f02fdbf5755e400 (Actions 35945644407).
+# Tested source: e7b174df79fe5b78401ebd837b576b29c65efdf8 (Actions 35971481920).
 cvm-version: 0.14.7
 cpus: 4
 memory: 8192
 containers:
   - name: open-jev
-    image: ghcr.io/vitadao/open-jev-tinfoil@sha256:02f3a70d7df269f8743bcd043933f6b4bbdaa640b0de5d4098ca6e9fb937f47e
+    image: ghcr.io/vitadao/open-jev-tinfoil@sha256:b6f570567c35ef0222dfb8563a35057f95843d22b9564f20e5bd59a53e2a3174
     env:
       - OMP_NUM_THREADS: "4"
       - MKL_NUM_THREADS: "4"
