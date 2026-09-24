@@ -6,6 +6,7 @@ transport after bypassing its attestation constructor, using a synthetic key.
 """
 import argparse,hashlib,json,os,secrets,socket,statistics,subprocess,sys,tempfile,time
 from pathlib import Path
+from threading import Lock
 from urllib.parse import urlparse
 import httpx
 ROOT=Path(__file__).resolve().parents[1]
@@ -57,6 +58,7 @@ def main():
       assert parsed.hostname==HOST and parsed.path=='/v1/select'
       return http.post(url+parsed.path,**kwargs)
     client=VitaClient.__new__(VitaClient);client.http=LoopbackTransport();client.token=token
+    client._select_lock=Lock()
     client.selector_sha256=start_identity;client.adapter_sha256=INTENT_SHA256
     # Every fresh composition crosses actual HTTP and the single validated client.
     cases=json.loads((ROOT/'evidence/selector-v5/holdout-24.json').read_text());rows=[]

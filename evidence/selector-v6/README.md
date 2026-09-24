@@ -81,3 +81,21 @@ immediately use the native planner instead of queuing more network requests.
 Event-based tests cover cancellation, ten later attempts, worker completion,
 reuse and exceptions. The outer one-second wait is unchanged; HTTP and
 attestation inactivity limits are not a total worker wall-clock bound.
+
+The second Linux build (35940650575) completed430 HTTP rows with429 frozen
+oracle matches, zero invalid plans and one oracle disagreement: bB-075 retained
+Oura, sleep_efficiency and a rolling seven-day window but the frozen gold required
+handoff. This is not by itself proof of wrong data acquisition. The first result
+is preserved in linux-ci-second-failure.json. Its separate smoke fixture omitted
+the shared-client admission lock; that setup and shell pipeline propagation are
+repaired. No image from this failed attempt was published.
+
+Independent review found the bB-075 plan semantically correct: the old result
+failed specifically for `source_filter`, and current native Vita accepts the
+exact Oura/sleep_efficiency/preceding-seven-days plan. The versioned
+`reviewed-source-fragment-oracle.json` binds the original fixture bytes, case,
+request digest, unchanged original gold and one independently constructed plan.
+Release acceptance reports this one reviewed capability change separately;
+the strict legacy result remains429/430 with its original wrong_plan label.
+A wrong source, metric, period, inventory, response contract or altered request
+is not covered. No selector wording restriction was introduced.

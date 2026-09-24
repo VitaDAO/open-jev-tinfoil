@@ -1,0 +1,32 @@
+{
+  "schema_version": "reviewed-selector-oracles/v1",
+  "entries": [
+    {
+      "fixture": "additional-160-v2.json",
+      "fixture_sha256": "49d8e777b20967efba7a9f19064b9afcd279447f467d10d5d5b5dbc1df8f2403",
+      "case_id": "bB-075",
+      "original_expected_queries": null,
+      "request_sha256": "887da83d9dc6e8c0d6bf8e2199f639ba4d15375804280e336bba2e16e1fec36b",
+      "acceptable_queries": [
+        {
+          "kind": "health",
+          "metrics": [
+            "sleep_efficiency"
+          ],
+          "records": [],
+          "operation": "trend",
+          "period": {
+            "kind": "relative",
+            "amount": 7,
+            "unit": "days"
+          },
+          "source": "oura",
+          "profile_fields": [],
+          "limit": null,
+          "date_basis": "observed_at"
+        }
+      ],
+      "reason": "Independent semantic review: historical additional-160.json rejected this query for source_filter, not missing read intent. Existing metric-fragment grammar permits trend. This sole metric, admitted Oura source and preceding seven-day window are preserved and representable in current Vita. Frozen legacy grade remains unchanged; this alternate accepts only this exact request and plan. See source-fragment-oracle-review.md."
+    }
+  ]
+}

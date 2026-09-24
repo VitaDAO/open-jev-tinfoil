@@ -10,6 +10,7 @@ import json
 import math
 import os
 from pathlib import Path
+import re
 import statistics
 import sys
 import time
@@ -21,7 +22,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(ROOT), str(ROOT / 'vendor')]
 
 from proposal_selector import SOURCES as PROPOSAL_SOURCES
-from query_plan import QueryRequest, QueryPlan, compile_batch
+from query_plan import QueryRequest, QueryPlan, compile_batch, request_identity
 from query_selector import identity, INTENT_SHA256
 from routing import MODEL_REVISION, ADAPTER_SHA256
 from scripts.evaluate_query_plan import request
@@ -61,8 +62,11 @@ def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def source_hashes():
-    return {name: digest(ROOT / name) for name in SOURCES}
+def source_hashes(reviewed_oracles=None):
+    hashes = {name: digest(ROOT / name) for name in SOURCES}
+    if reviewed_oracles is not None:
+        hashes['reviewed_oracles:' + reviewed_oracles['path']] = digest(Path(reviewed_oracles['path']))
+    return hashes
 
 
 def case_request(case):
@@ -99,6 +103,80 @@ def load_fixture(path):
             'case_count': len(cases), 'cases': cases}
 
 
+def exact_json(value):
+    return json.dumps(value, sort_keys=True, separators=(',', ':'), allow_nan=False)
+
+
+def load_reviewed_oracles(path, frozen):
+    """Bind explicit alternate plans to unchanged gold, full requests and files."""
+    if path is None:
+        return None
+    def unique_object(pairs):
+        value = {}
+        for key, item in pairs:
+            if key in value:
+                raise ValueError('duplicate_reviewed_oracle_key')
+            value[key] = item
+        return value
+    path = path.resolve()
+    raw = path.read_bytes()
+    manifest = json.loads(raw, object_pairs_hook=unique_object)
+    exact_json(manifest)
+    if (not isinstance(manifest, dict) or set(manifest) != {'schema_version', 'entries'}
+            or manifest['schema_version'] != 'reviewed-selector-oracles/v1'
+            or not isinstance(manifest['entries'], list) or not manifest['entries']):
+        raise ValueError('invalid_reviewed_oracle_manifest')
+    fixtures = {Path(f['path']).name: f for f in frozen}
+    if len(fixtures) != len(frozen):
+        raise ValueError('ambiguous_reviewed_fixture_basename')
+    fields = {'fixture', 'fixture_sha256', 'case_id', 'original_expected_queries',
+              'request_sha256', 'acceptable_queries', 'reason'}
+    seen = set()
+    for entry in manifest['entries']:
+        if (not isinstance(entry, dict) or set(entry) != fields
+                or not all(isinstance(entry[k], str) for k in ('fixture', 'case_id', 'reason'))
+                or not entry['reason'].strip()
+                or not all(isinstance(entry[k], str) and re.fullmatch(r'[0-9a-f]{64}', entry[k])
+                           for k in ('fixture_sha256', 'request_sha256'))):
+            raise ValueError('invalid_reviewed_oracle_entry')
+        key = (entry['fixture'], entry['case_id'])
+        if key in seen:
+            raise ValueError('duplicate_reviewed_oracle_entry')
+        seen.add(key)
+        fixture = fixtures.get(entry['fixture'])
+        if fixture is None or fixture['sha256'] != entry['fixture_sha256']:
+            raise ValueError('reviewed_fixture_mismatch')
+        case = next((c for c in fixture['cases'] if c['id'] == entry['case_id']), None)
+        if case is None or exact_json(case['expected_queries']) != exact_json(entry['original_expected_queries']):
+            raise ValueError('reviewed_original_gold_mismatch')
+        req = case_request(case)
+        if request_identity(req) != entry['request_sha256']:
+            raise ValueError('reviewed_request_mismatch')
+        plan = QueryPlan(status='planned', queries=entry['acceptable_queries'],
+            time_zone=req.state.time_zone, selector_sha256='0' * 64,
+            adapter_sha256=INTENT_SHA256, model_revision=MODEL_REVISION,
+            request_sha256=entry['request_sha256'])
+        if (exact_json([q.model_dump(mode='json') for q in plan.queries])
+                != exact_json(entry['acceptable_queries']) or not compile_batch(plan, req)):
+            raise ValueError('reviewed_plan_must_be_complete_and_compilable')
+    return {'path': str(path), 'sha256': hashlib.sha256(raw).hexdigest(), **manifest}
+
+
+def freeze_reviewed_oracles(path, frozen, report):
+    reviewed = load_reviewed_oracles(path, frozen)
+    if reviewed is not None:
+        report['reviewed_oracles'] = reviewed
+        report['source_sha256']['reviewed_oracles:' + reviewed['path']] = reviewed['sha256']
+    return reviewed
+
+
+def reviewed_entry(reviewed, fixture, case):
+    if reviewed is None:
+        return None
+    return next((e for e in reviewed['entries']
+                 if e['fixture'] == Path(fixture['path']).name and e['case_id'] == case['id']), None)
+
+
 def check_health(http, base_url, expected):
     response = http.get(base_url + '/health')
     response.raise_for_status()
@@ -109,7 +187,7 @@ def check_health(http, base_url, expected):
     return {key: data[key] for key in expected}
 
 
-def evaluate_case(http, base_url, headers, case, selector_sha256):
+def evaluate_case(http, base_url, headers, case, selector_sha256, reviewed_oracle=None):
     req = case_request(case)
     row = {'id': case['id'], 'request': req.model_dump(mode='json'),
            'expected_queries': case['expected_queries'], 'grade': 'invalid'}
@@ -135,6 +213,13 @@ def evaluate_case(http, base_url, headers, case, selector_sha256):
         row['grade'] = ('correct_handoff' if actual is None and expected is None else
                         'missed_plan' if actual is None else
                         'correct_plan' if actual == expected else 'wrong_plan')
+        if (reviewed_oracle is not None and row['grade'] == 'wrong_plan' and row['batch']
+                and reviewed_oracle['case_id'] == case['id']
+                and reviewed_oracle['request_sha256'] == request_identity(req)
+                and exact_json(reviewed_oracle['original_expected_queries']) == exact_json(expected)
+                and exact_json(actual) == exact_json(reviewed_oracle['acceptable_queries'])):
+            # Preserve the strict grade, original gold and actual compiled plan.
+            row['acceptance'] = 'reviewed_plan'
     except (httpx.HTTPError, ValueError, TypeError, KeyError) as exc:
         # HTTP exception strings may include request details. Never save them,
         # response text, headers or the environment's service key.
@@ -150,6 +235,15 @@ def counts(rows):
     return {grade: sum(row['grade'] == grade for row in rows) for grade in GRADES}
 
 
+def set_acceptance(report, rows, prerequisites):
+    report['strict_passed'] = prerequisites and not any(
+        report['outcomes'][grade] for grade in ('missed_plan', 'wrong_plan', 'invalid'))
+    report['reviewed_plan_count'] = sum(row['grade'] == 'wrong_plan'
+        and row.get('acceptance') == 'reviewed_plan' for row in rows)
+    report['passed'] = prerequisites and all(row['grade'] in ('correct_plan', 'correct_handoff')
+        or (row['grade'] == 'wrong_plan' and row.get('acceptance') == 'reviewed_plan') for row in rows)
+
+
 def run(args, report):
     paths = [ROOT / 'evidence/selector-v5' / name for name in FIXTURES]
     paths.extend(path.resolve() for path in args.additional_fixture)
@@ -162,6 +256,7 @@ def run(args, report):
     report['model_revision'] = MODEL_REVISION
     report['expected_case_entries'] = sum(f['case_count'] for f in frozen)
     report['fixtures'] = [{k: v for k, v in f.items() if k != 'cases'} for f in frozen]
+    reviewed = freeze_reviewed_oracles(getattr(args, 'reviewed_oracles', None), frozen, report)
     token = os.environ.get('OPEN_JEV_API_KEY', '')
     if len(token) < 32:
         raise ValueError('service_key_required')
@@ -179,7 +274,7 @@ def run(args, report):
                 report['suites'].append(suite)
                 for case in fixture['cases']:
                     row = evaluate_case(http, args.base_url, {'Authorization': 'Bearer ' + token},
-                                        case, report['selector_sha256'])
+                                        case, report['selector_sha256'], reviewed_entry(reviewed, fixture, case))
                     suite['rows'].append(row)
                     if row.get('transport_failed'):
                         raise RuntimeError('transport_failed_no_retry')
@@ -188,7 +283,7 @@ def run(args, report):
                                   'outcomes': suite['outcomes']}), flush=True)
             report['health_after'] = check_health(http, args.base_url, expected_health)
     finally:
-        report['source_unchanged'] = source_hashes() == report['source_sha256']
+        report['source_unchanged'] = source_hashes(reviewed) == report['source_sha256']
         report['selector_identity_unchanged'] = identity() == report['selector_sha256']
         report['fixtures_unchanged'] = all(digest(Path(f['path'])) == f['sha256'] for f in frozen)
 
@@ -197,6 +292,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--base-url', required=True, type=loopback_url)
     parser.add_argument('--additional-fixture', type=Path, action='append', default=[])
+    parser.add_argument('--reviewed-oracles', type=Path)
     parser.add_argument('--output', required=True, type=Path)
     args = parser.parse_args()
     report = {'scope': 'Synthetic real-model loopback HTTP; NOT attested, deployed or final Vita answers.',
@@ -221,14 +317,15 @@ def main():
             if times:
                 report['http_latency_ms'] = {'median': statistics.median(times),
                     'p95': times[math.ceil(len(times) * .95) - 1]}
-            report['passed'] = (not report.get('fatal_error_type')
+            prerequisites = (not report.get('fatal_error_type')
                 and len(rows) == report.get('expected_case_entries')
                 and all(report.get(key) is True for key in ('source_unchanged',
-                    'selector_identity_unchanged', 'fixtures_unchanged'))
-                and not any(report['outcomes'][grade] for grade in ('missed_plan', 'wrong_plan', 'invalid')))
+                    'selector_identity_unchanged', 'fixtures_unchanged')))
+            set_acceptance(report, rows, prerequisites)
             json.dump(report, output, indent=2, allow_nan=False)
             output.write('\n')
-    print(json.dumps({key: report[key] for key in ('passed', 'completed_case_entries', 'outcomes')}), flush=True)
+    print(json.dumps({key: report[key] for key in ('passed', 'strict_passed', 'reviewed_plan_count',
+        'completed_case_entries', 'outcomes')}), flush=True)
     if not report['passed']:
         raise SystemExit(1)
 

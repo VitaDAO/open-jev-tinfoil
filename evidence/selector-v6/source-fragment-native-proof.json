@@ -1,0 +1,117 @@
+{
+  "created_at": "2026-09-24T01:07:40.338512+00:00",
+  "case_id": "bB-075",
+  "scope": "Offline synthetic saved-plan validation only; no model call, manager.run, broker execution or health read.",
+  "strict_frozen_score": {
+    "correct": 429,
+    "total": 430,
+    "case_grade": "wrong_plan",
+    "expected_queries": null,
+    "original_report_passed": false
+  },
+  "request": {
+    "schema_version": "vita-selector/v2",
+    "state": {
+      "current_request": "Oura sleep efficiency for the past week.",
+      "recent_user_requests": [],
+      "reference_date": "2026-09-23",
+      "time_zone": "UTC"
+    },
+    "reference_time": "2026-09-23T12:00:00Z",
+    "available_metrics": [
+      "total_sleep",
+      "sleep_efficiency",
+      "steps",
+      "apob",
+      "ldl_cholesterol",
+      "oxygen_saturation",
+      "respiratory_rate",
+      "custom_metric"
+    ],
+    "available_record_types": [
+      "profile",
+      "labs",
+      "workouts",
+      "calendar"
+    ],
+    "available_sources": [
+      "oura",
+      "garmin"
+    ],
+    "literature_available": true
+  },
+  "saved_plan_identity": {
+    "selector_sha256": "c48972af1bb195983e2b54c7ec3d5dea5786b58f3b1cf86e5e370e98eb07a1c9",
+    "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+    "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+    "request_sha256": "887da83d9dc6e8c0d6bf8e2199f639ba4d15375804280e336bba2e16e1fec36b"
+  },
+  "reviewed_queries": [
+    {
+      "kind": "health",
+      "metrics": [
+        "sleep_efficiency"
+      ],
+      "records": [],
+      "operation": "trend",
+      "period": {
+        "kind": "relative",
+        "amount": 7,
+        "unit": "days"
+      },
+      "source": "oura",
+      "profile_fields": [],
+      "limit": null,
+      "date_basis": "observed_at"
+    }
+  ],
+  "standalone_compile_matches_saved_batch": true,
+  "native_schema_sha256": "5fa9bead85b75542e74e55653b7b8132a0600f45f80d2a36b84b57ba28a903f5",
+  "native_batch": {
+    "health_reads": [
+      {
+        "operation_id": 1,
+        "concepts": [
+          "sleep_efficiency"
+        ],
+        "record_types": [],
+        "profile_fields": [],
+        "purpose": "trend",
+        "range": {
+          "kind": "between",
+          "start_at": "2026-09-16T12:00:00+00:00",
+          "end_at": "2026-09-23T12:00:00+00:00"
+        },
+        "time_zone": "UTC",
+        "grouping": "auto",
+        "result_view": "summary",
+        "source": "oura"
+      }
+    ],
+    "required_operation_ids": [
+      1
+    ]
+  },
+  "health_io_calls": 0,
+  "vita_head": "8ffcdde225e7e0296038078c1679a999699cb9fb",
+  "selector_checkout_head_at_review": "4500e6541f90958fafc7ddf65ece3540e5a9f28d",
+  "source_sha256": {
+    "tev1-local/linux-4500e65-failed/selector-full.json": "35102b594a214c234506952f0e2b2cdb630ff919019572d83164a25b4b46ef23",
+    "open-jev-tinfoil/examples/vita_native.py": "1622d4ee141cae5ec4e57fde3d9dbe11a125503e356d01db9fe1573e1a0cd86d",
+    "open-jev-tinfoil/query_plan.py": "47e4d55162526eb1296265e4b5a387492c4974fddc0dca768dc7179604362e96",
+    "open-jev-tinfoil/selector.py": "bb0bcf60f5690787e726b738667e8e8293f9cebb824bc0a772f7f4c8687ca541",
+    "open-jev-tinfoil/proposal_selector.py": "cfccd2c3ab49b1e4aecb93d81fd5f6fe300347454efee9959d784c16986a4dd4",
+    "open-jev-tinfoil/query_selector.py": "16c272c8721ff464c2110056187cc8ef58625824286c89b8ac11a448812c28cf",
+    "open-jev-tinfoil/metadata/health_metrics.v1.json": "729b6cde6fad0943161fe9af52b900d3df58ce2b28ef0202f920a08ca88fc571",
+    "open-jev-tinfoil/evidence/selector-v5/additional-160.json": "e8b7b20d7803b7ce8e1e722cbc069f2df24cec5c35df395b7032f1639d3393eb",
+    "vita-agent-deepseek-v32/backbone/synthetic.py": "49e98ddaa1c75544fe44a3027b6a7dd626707e210bd04af525bea8a90ba0a072",
+    "vita-agent-deepseek-v32/vita/py/src/vita_agent/kernel/source_batch_tool.py": "dfba1a99ea3c8d8cb37a12a8aa61c2bf6f37e4b3dc093bb1a071a1b062c4b1f7",
+    "vita-agent-deepseek-v32/vita/py/src/vita_agent/kernel/source_batch_contracts.py": "93ba1603ce6a00008b3dca995488086b14a976b2801f5a2c22b2acf3d25c7061"
+  },
+  "sources_unchanged": true,
+  "limitations": [
+    "Schema acceptance does not establish live authorization, available data, complete evidence or a correct final answer.",
+    "This review does not alter frozen expected_queries or the original wrong_plan grade.",
+    "Any separately versioned reviewed acceptance is scoped to this exact admitted request and complete query plan."
+  ]
+}

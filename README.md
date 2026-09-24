@@ -129,28 +129,30 @@ inert handoff. The old selector client, answer-map API and `/v1/select-baseline`
 serving route have been removed. `/decide` and `/route` remain separate model
 capabilities on the same client; neither is a second selector path.
 
-The selector is **disabled by default and not deployed**. Local synthetic runs
-set `ENABLE_EXPERIMENTAL_SELECTOR=1`. There is no approved selector release pin.
+The server enables this API when `ENABLE_EXPERIMENTAL_SELECTOR=1`; the measured
+Tinfoil configuration controls deployment. Use the source, image, release and
+API pins recorded with the [release acceptance evidence](evidence/selector-v6/README.md).
+A successful build or published tag alone does not establish a live deployment.
 The client verifies attested TLS and the caller's reviewed release before accessing
 the API key, then checks model/adapter/selector identities, the exact request hash,
 timezone, inventory, every clause and operation budget.
 
-See [the current API, execution contract and measured results](evidence/selector-v5/README.md).
+For Vita, use [the native integration](examples/vita_native.md): one shared
+`VitaClient` per process and a `NativeSelectorProvider` per admitted turn. It
+replaces the existing optional first planning hook. Vita's original manager,
+capability broker, evidence registry and answering provider execute and finish
+the turn. Unsupported queries and selector failures preserve the original native
+request, history, tools and provider settings. Initialize attestation before the
+turn; the optional selector wait defaults to one second. The shared client admits
+only one outstanding selection so timed-out workers cannot accumulate per turn.
 
-`examples/vita_orchestrator.py` supplies `prepare_model_turn()` and a fixed
-orchestrator instruction block for the existing answering model. It keeps the
-original question, validates and executes supported plans through the caller's
-authorized callback, and preserves handoff/incomplete/research-review states.
-It adds no model call and sends nothing to a provider. This is integration code;
-the Vita/DeepSeek application wiring and full browser battery remain separate
-acceptance work.
-`query_plan.py` validates and compiles the plan. `query_execution.py` consumes it
-through a caller-provided authorized Vita operation callback. Missing coverage,
-incomplete paging or uncertain sleep timing stays explicit; research acquisition
-still requires Vita's evidence gate. The selector never reads the database,
-grants access, or supplies final medical answers.
+`query_plan.py` validates and compiles bounded acquisition proposals. The selector
+never reads the database, grants access, or supplies final medical answers. Native
+schema compatibility, source coverage and final browser-answer acceptance are
+separate checks. [API fields and standalone contract examples](evidence/selector-v5/README.md)
+remain available for inspecting the wire format.
 
 Historical v1-v4 adapters and fixtures remain offline regression references.
 Their results are preserved under `evidence/`; they are not alternate public
-clients or current serving contracts. This branch has not been integrated into
-Vita or verified in an enclave.
+clients or current serving contracts. Current live release and application
+acceptance are recorded separately in the release evidence and canonical issue.

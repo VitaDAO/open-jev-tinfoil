@@ -23,7 +23,8 @@ from examples.vita_client import VitaClient, HOST, REPO
 from query_plan import HealthRead
 from query_selector import identity, INTENT_SHA256
 from routing import MODEL_REVISION, ADAPTER_SHA256
-from scripts.evaluate_http_selector import FIXTURES, counts, digest, evaluate_case, load_fixture, source_hashes
+from scripts.evaluate_http_selector import (FIXTURES, counts, digest, evaluate_case, load_fixture,
+    source_hashes, freeze_reviewed_oracles, reviewed_entry, set_acceptance)
 from scripts.evaluate_query_plan import request
 
 URL = 'https://' + HOST
@@ -35,8 +36,8 @@ def sha256_pin(value):
     return value
 
 
-def snapshot_sources():
-    sources = source_hashes()
+def snapshot_sources(reviewed_oracles=None):
+    sources = source_hashes(reviewed_oracles)
     for name in ('examples/vita_client.py', 'scripts/verify_selector_live.py'):
         sources[name] = digest(ROOT / name)
     return sources
@@ -142,6 +143,7 @@ def run(args, report):
         adapter_sha256=args.adapter_sha256, model_revision=MODEL_REVISION,
         expected_case_entries=sum(f['case_count'] for f in frozen),
         fixtures=[{key: value for key, value in fixture.items() if key != 'cases'} for fixture in frozen])
+    reviewed = freeze_reviewed_oracles(getattr(args, 'reviewed_oracles', None), frozen, report)
     client = None
     try:
         # The rejected client never receives a decide/route/select invocation.
@@ -162,6 +164,7 @@ def run(args, report):
         client = VitaClient(release_digest=args.release_digest,
             selector_sha256=args.selector_sha256, adapter_sha256=args.adapter_sha256)
         report['attestation_setup_ms'] = round((time.perf_counter() - started) * 1000, 3)
+        report['attestation_setup_scope'] = 'Fresh verified client after separate wrong-pin check; not a cold network/cache benchmark.'
         report['attestation_before'] = verification(client, args.release_digest)
         client.http.timeout = httpx.Timeout(30)
         expected_health = {'status': 'ready', 'device': 'cpu', 'model_revision': MODEL_REVISION,
@@ -177,7 +180,7 @@ def run(args, report):
             report['suites'].append(suite)
             for case in fixture['cases']:
                 row = evaluate_case(client.http, URL, {'Authorization': 'Bearer ' + client.token},
-                                    case, args.selector_sha256)
+                                    case, args.selector_sha256, reviewed_entry(reviewed, fixture, case))
                 suite['rows'].append(row)
                 if row.get('transport_failed'):
                     raise RuntimeError('transport_failed_no_application_retry')
@@ -190,7 +193,7 @@ def run(args, report):
     finally:
         if client is not None:
             client.close()
-        report['source_unchanged'] = snapshot_sources() == report['source_sha256']
+        report['source_unchanged'] = snapshot_sources(reviewed) == report['source_sha256']
         report['selector_identity_unchanged'] = identity() == args.selector_sha256
         report['fixtures_unchanged'] = all(digest(Path(f['path'])) == f['sha256'] for f in frozen)
 
@@ -201,6 +204,7 @@ def main():
     parser.add_argument('--selector-sha256', required=True, type=sha256_pin)
     parser.add_argument('--adapter-sha256', required=True, type=sha256_pin)
     parser.add_argument('--additional-fixture', action='append', type=Path, default=[])
+    parser.add_argument('--reviewed-oracles', type=Path)
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
     report = {'scope': 'Synthetic attested selector acceptance; not final Vita answer or browser acceptance.',
@@ -227,7 +231,7 @@ def main():
             if times:
                 report['http_latency_ms'] = {'median': statistics.median(times),
                     'p95': times[math.ceil(len(times) * .95) - 1]}
-            report['passed'] = (not report.get('fatal_error_type')
+            prerequisites = (not report.get('fatal_error_type')
                 and report.get('wrong_release_rejected_before_inference') is True
                 and len(rows) == report.get('expected_case_entries')
                 and 'attestation_after' in report and 'health_after' in report
@@ -237,11 +241,12 @@ def main():
                 and all(len(t['attempts']) == 11 and all(a['correct_plan'] for a in t['attempts'])
                         for t in report['warm_latency'].values())
                 and all(report.get(key) is True for key in ('source_unchanged',
-                    'selector_identity_unchanged', 'fixtures_unchanged'))
-                and not any(report['outcomes'][grade] for grade in ('missed_plan', 'wrong_plan', 'invalid')))
+                    'selector_identity_unchanged', 'fixtures_unchanged')))
+            set_acceptance(report, rows, prerequisites)
             json.dump(report, output, indent=2, allow_nan=False)
             output.write('\n')
-    print(json.dumps({key: report[key] for key in ('passed', 'completed_case_entries', 'outcomes')}), flush=True)
+    print(json.dumps({key: report[key] for key in ('passed', 'strict_passed', 'reviewed_plan_count',
+        'completed_case_entries', 'outcomes')}), flush=True)
     if not report['passed']:
         raise SystemExit(1)
 
