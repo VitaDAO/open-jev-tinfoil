@@ -1,5 +1,5 @@
 """Synthetic acceptance/profiling of one immutable image; no live service IO."""
-import copy,json,os,secrets,statistics,subprocess,sys,time,urllib.request,urllib.error
+import copy,json,os,secrets,statistics,subprocess,sys,time,http.client,urllib.request,urllib.error
 from pathlib import Path
 IMAGE='ghcr.io/vitadao/open-jev-tinfoil@sha256:b6f570567c35ef0222dfb8563a35057f95843d22b9564f20e5bd59a53e2a3174'
 SELECTOR='6beaf54f171b47a6f068c785e63f85a2e2aac64e63a73e0b4eb36777a55b5cc5'
@@ -70,7 +70,7 @@ def main():
     code,data,_=call()
     if code==200:
      assert data['selector_sha256']==SELECTOR;health.append({'startup_ms':(time.perf_counter()-started)*1000,'response':data});return
-   except (urllib.error.URLError,TimeoutError):pass
+   except (urllib.error.URLError,ConnectionError,TimeoutError,http.client.RemoteDisconnected):pass
    time.sleep(1)
   raise RuntimeError('Candidate did not become healthy')
  def record(case,phase):
