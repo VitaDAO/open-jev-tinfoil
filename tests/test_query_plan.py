@@ -67,6 +67,52 @@ def test_atomic_operation_budget_and_disabled_research():
  assert 'private' not in ResearchRead(targets=['sleep']).question()
 
 
+@pytest.mark.parametrize('size',[7,12,13,48])
+def test_large_metric_selection_preserves_every_metric_with_six_per_native_read(size):
+ metrics=[f'synthetic_metric_{i}' for i in range(size)]
+ req=request(available_metrics=metrics)
+ p=plan([HealthRead(metrics=metrics,period={'kind':'relative','amount':6,'unit':'months'})],req=req)
+ batch=compile_batch(p,req);reads=batch['health_reads']
+ assert [metric for op in reads for metric in op['concepts']]==metrics
+ assert all(1<=len(op['concepts'])<=6 for op in reads)
+ assert len(reads)==(size+5)//6
+ assert batch['required_operation_ids']==list(range(1,len(reads)+1))
+ assert all(op['range']=={'kind':'relative','amount':6,'unit':'months'} for op in reads)
+
+
+@pytest.mark.parametrize('size',[7,13])
+def test_execution_keeps_chunked_metrics_and_following_research_bound_to_their_queries(size):
+ metrics=[f'synthetic_metric_{i}' for i in range(size)]
+ req=request(available_metrics=metrics)
+ p=plan([HealthRead(metrics=metrics,period={'kind':'all_history'}),ResearchRead(targets=['sleep'])],req=req)
+ calls=[]
+ async def callback(kind,op):
+  calls.append((kind,op))
+  if kind=='literature_reads':return {'status':'ok','sources':[]}
+  return {'status':'ok','coverage':{'scope_complete':True},'claim_scope':{'purpose':'trend'},
+   'series':[{'concept':metric,'source':'manual','scope_complete':True} for metric in op['concepts']]}
+ result=asyncio.run(execute_plan(p,req,callback));chunks=(size+5)//6
+ assert [metric for kind,op in calls if kind=='health_reads' for metric in op['concepts']]==metrics
+ assert [o['query_index'] for o in result['operations']]==[0]*chunks+[1]
+ assert [o['status'] for o in result['operations']]==['complete']*chunks+['acquired']
+ assert calls[-1][0]=='literature_reads' and len(calls)==chunks+1
+ assert result['status']=='needs_evidence_review' and not result['all_requested_delivered']
+
+
+def test_ninth_compiled_operation_rejects_the_whole_plan_before_any_io():
+ metrics=[f'synthetic_metric_{i}' for i in range(49)]
+ req=request(available_metrics=metrics)
+ p=plan([HealthRead(metrics=metrics,period={'kind':'all_history'})],req=req)
+ calls=[]
+ async def callback(*args):
+  calls.append(args)
+  raise AssertionError('Over-budget plan must not execute even its first chunk')
+ with pytest.raises(ValueError,match='Operation budget exceeded'):compile_batch(p,req)
+ with pytest.raises(ValueError,match='Operation budget exceeded'):
+  asyncio.run(execute_plan(p,req,callback))
+ assert calls==[]
+
+
 def test_metric_evidence_and_missing_source_are_not_silently_delivered():
  result,calls=run([metric_payload()]);assert result['all_requested_delivered'] and len(calls)==1
  q=HealthRead(metrics=['steps'],period={'kind':'all_history'},source='oura')

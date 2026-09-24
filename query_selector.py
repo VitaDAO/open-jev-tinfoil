@@ -10,7 +10,7 @@ from zoneinfo import ZoneInfo
 
 from compat.jev_dates import resolve_range
 from proposal_binding import canonicalize, entities, erase, temporal, resolve_context
-from query_plan import QueryRequest, QueryPlan, HealthRead, ResearchRead, validate_inventory, request_identity
+from query_plan import QueryRequest, QueryPlan, HealthRead, ResearchRead, validate_inventory, request_identity, query_operation_count
 from selector import SelectorRequest, AREAS
 from schema_index import INDEX
 from trained_proposal_selector import TrainedProposalSelector
@@ -36,6 +36,10 @@ def enhance(text):
     text=canonicalize(text)
     for word,replacement in SPELLINGS.items():text=re.sub(r'\b'+word+r'\b',replacement,text)
     text=re.sub(r'^different question\s*[-:,]\s*','',text)
+    # A discourse marker before an explicit new read is not a list item.
+    # Leave projection/period corrections ("actually, just...", "make that...")
+    # intact for the history resolver.
+    text=re.sub(r'^actually\s*,\s*(?=(?:please\s+)?(?:show|fetch|retrieve|view|inspect)\b)','',text)
     text=re.sub(r'\blipid (?:picture|profile)\b','lipids',text)
     text=re.sub(r'\bhow much (?:have i been|am i) sleeping\b','show my total sleep',text)
     text=re.sub(r'\b(?:all (?:of )?(?:my )?)?step history since i started tracking\b','steps all history',text)
@@ -116,7 +120,7 @@ class QuerySelector(TrainedProposalSelector):
                 request_sha256=request_identity(request),diagnostics=diagnostics)
             validate_inventory(result,request)
             # Budget counts actual metric chunks, not just input clauses.
-            if sum(max(1,(len(q.metrics)+7)//8) if isinstance(q,HealthRead) else 1 for q in queries)>8:
+            if sum(query_operation_count(q) for q in queries)>8:
                 raise ValueError('operation_budget_exceeded')
             return result.model_dump(mode='json')
         except (ValueError,KeyError) as exc:
@@ -139,9 +143,21 @@ class QuerySelector(TrainedProposalSelector):
         # is rejected by the inherited constraint/semantic coverage checks.
         for alias,value in SOURCES.items():
             pattern=r'\b(?:from|using|recorded by) (?:my |the )?'+re.escape(alias)+r'\b'
-            if re.search(pattern,text):
+            spans=[(m.start(),m.end()) for m in re.finditer(pattern,text)]
+            # A provider may directly qualify a recognized subject, as in
+            # "Garmin steps". Bind only an adjacent entity; do not erase a
+            # provider mention elsewhere in a comparison or an instruction.
+            subjects=entities(text,request.available_metrics)
+            for match in re.finditer(r'\b'+re.escape(alias)+r'\b',text):
+                if re.search(r'\b(?:non|not|no|without|except|excluding|exclude|other than|all but)(?:[\s-]+(?:from|using|recorded|by|for|my|the|just|only|solely|exclusively))*[\s-]+$',text[:match.start()]):
+                    raise ValueError('negated_source_filter_unavailable')
+                if any(start>match.end() and not text[match.end():start].strip()
+                       for start,_,_ in subjects):
+                    if len(subjects)!=1:raise ValueError('source_subject_scope_ambiguous')
+                    spans.append((match.start(),match.end()))
+            if spans:
                 if source and source!=value:raise ValueError('multiple_sources_require_separate_clauses')
-                source=value;text=re.sub(pattern,'',text)
+                source=value;text=erase(text,spans)
         count=re.search(r'\b(?:latest|newest|most recent|last)\s+(\d+|one|two|three|four|five|six|seven|eight|nine|ten)\s+(?=(?:lab |blood |health )?(?:reports|workouts|appointments|plans)\b)',text)
         if count:
             from proposal_binding import NUMBER_WORDS

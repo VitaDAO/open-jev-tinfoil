@@ -25,7 +25,17 @@ class VitaClient:
             if value is not None and (not isinstance(value,str) or not re.fullmatch(r'[0-9a-f]{64}',value)):
                 raise ValueError('Reviewed selector SHA256 pins required')
         from tinfoil import SecureClient
-        self.verifier=SecureClient(enclave=HOST,repo=REPO,transport='tls')
+        class ReleasePinnedClient(SecureClient):
+            def verify(inner):
+                ground_truth=super().verify()
+                document=inner.get_verification_document()
+                # The SDK re-verifies after TLS key rotation. Check the release
+                # before it builds a replacement transport or retries a request,
+                # not only when this application client is constructed.
+                if document is None or document.security_verified is not True or document.release_digest!=release_digest:
+                    raise RuntimeError('Unapproved enclave release')
+                return ground_truth
+        self.verifier=ReleasePinnedClient(enclave=HOST,repo=REPO,transport='tls')
         self.http=self.verifier.make_secure_http_client()
         try:
             document=self.verifier.get_verification_document()

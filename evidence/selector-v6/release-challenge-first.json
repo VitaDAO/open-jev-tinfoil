@@ -1,0 +1,1133 @@
+{
+  "summary": {
+    "cases": 24,
+    "outcomes": {
+      "correct_plan": 10,
+      "correct_handoff": 12,
+      "missed_plan": 2,
+      "wrong_plan": 0
+    },
+    "compile_failures": 0,
+    "median_ms": 436.2334585166536,
+    "p95_ms": 1102.7806669590063,
+    "fixture_sha256": "d00e67f9108d5526b8d50abbd90d1b5996ed82ad90976c6a7de752d04a1b8f2c"
+  },
+  "rows": [
+    {
+      "id": "release-01",
+      "request": "Please retrieve my most recent oxygen saturation value.",
+      "history": [],
+      "expected_queries": [
+        {
+          "kind": "health",
+          "metrics": [
+            "oxygen_saturation"
+          ],
+          "records": [],
+          "operation": "latest",
+          "period": {
+            "kind": "all_history"
+          },
+          "source": null,
+          "profile_fields": [],
+          "limit": null,
+          "date_basis": "observed_at"
+        }
+      ],
+      "independent_notes": "One explicit latest metric. No clinical interpretation or provider restriction.",
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [
+              "oxygen_saturation"
+            ],
+            "records": [],
+            "operation": "latest",
+            "period": {
+              "kind": "all_history"
+            },
+            "source": null,
+            "profile_fields": [],
+            "limit": null,
+            "date_basis": "observed_at"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "9576050d35d92e522cb86677cc703dd94a2afeafb81e3b8e499964c5951f260a",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "73199c19f3b110e36aa0fe487db0eca4c30e21e109a2cada86871bcbd2881141",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            }
+          ]
+        }
+      },
+      "grade": "correct_plan",
+      "compile_error": null,
+      "elapsed_ms": 1020.9703750442713
+    },
+    {
+      "id": "release-02",
+      "request": "Fetch total sleep from February 28 to February 29, 2024.",
+      "history": [],
+      "expected_queries": [
+        {
+          "kind": "health",
+          "metrics": [
+            "total_sleep"
+          ],
+          "records": [],
+          "operation": "trend",
+          "period": {
+            "kind": "between",
+            "start_at": "2024-02-28",
+            "end_at": "2024-02-29"
+          },
+          "source": null,
+          "profile_fields": [],
+          "limit": null,
+          "date_basis": "observed_at"
+        }
+      ],
+      "independent_notes": "Valid leap-year interval and trailing explicit year must bind both endpoints.",
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [
+              "total_sleep"
+            ],
+            "records": [],
+            "operation": "trend",
+            "period": {
+              "kind": "between",
+              "start_at": "2024-02-28",
+              "end_at": "2024-02-29"
+            },
+            "source": null,
+            "profile_fields": [],
+            "limit": null,
+            "date_basis": "observed_at"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "9576050d35d92e522cb86677cc703dd94a2afeafb81e3b8e499964c5951f260a",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "8bf90eb096713f69e1c1b64f32ebf0c4825f931efcbfdc28feb1fa3c7b03a07e",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            }
+          ]
+        }
+      },
+      "grade": "correct_plan",
+      "compile_error": null,
+      "elapsed_ms": 1208.745457988698
+    },
+    {
+      "id": "release-03",
+      "request": "Show sleep efficiency from Oura over the past 14 days.",
+      "history": [],
+      "expected_queries": [
+        {
+          "kind": "health",
+          "metrics": [
+            "sleep_efficiency"
+          ],
+          "records": [],
+          "operation": "trend",
+          "period": {
+            "kind": "relative",
+            "amount": 14,
+            "unit": "days"
+          },
+          "source": "oura",
+          "profile_fields": [],
+          "limit": null,
+          "date_basis": "observed_at"
+        }
+      ],
+      "independent_notes": "Retain authorized source and rolling day interval together.",
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [
+              "sleep_efficiency"
+            ],
+            "records": [],
+            "operation": "trend",
+            "period": {
+              "kind": "relative",
+              "amount": 14,
+              "unit": "days"
+            },
+            "source": "oura",
+            "profile_fields": [],
+            "limit": null,
+            "date_basis": "observed_at"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "9576050d35d92e522cb86677cc703dd94a2afeafb81e3b8e499964c5951f260a",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "cb4fcc0d90fb0db2542725c94b322a5f730e347e3708adc34c996a28b4eaf42f",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            }
+          ]
+        }
+      },
+      "grade": "correct_plan",
+      "compile_error": null,
+      "elapsed_ms": 417.200917028822
+    },
+    {
+      "id": "release-04",
+      "request": "Retrieve Garmin steps for February 2026.",
+      "history": [],
+      "expected_queries": [
+        {
+          "kind": "health",
+          "metrics": [
+            "steps"
+          ],
+          "records": [],
+          "operation": "trend",
+          "period": {
+            "kind": "between",
+            "start_at": "2026-02-01",
+            "end_at": "2026-02-28"
+          },
+          "source": "garmin",
+          "profile_fields": [],
+          "limit": null,
+          "date_basis": "observed_at"
+        }
+      ],
+      "independent_notes": "Provider-qualified whole month; February 2026 has 28 days.",
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "source_filter"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "9576050d35d92e522cb86677cc703dd94a2afeafb81e3b8e499964c5951f260a",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "8be48b7422f8742ca29940edf703e7f5cb9d835e63d7c59c44096d0a576c4301",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "unsupported",
+              "reason_codes": [
+                "source_filter"
+              ]
+            }
+          ]
+        }
+      },
+      "grade": "missed_plan",
+      "compile_error": null,
+      "elapsed_ms": 457.3885420104489
+    },
+    {
+      "id": "release-05",
+      "request": "Fetch respiratory rate for the last 3 weeks.",
+      "history": [],
+      "expected_queries": [
+        {
+          "kind": "health",
+          "metrics": [
+            "respiratory_rate"
+          ],
+          "records": [],
+          "operation": "trend",
+          "period": {
+            "kind": "relative",
+            "amount": 21,
+            "unit": "days"
+          },
+          "source": null,
+          "profile_fields": [],
+          "limit": null,
+          "date_basis": "observed_at"
+        }
+      ],
+      "independent_notes": "Rolling weeks are represented by their exact number of days.",
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [
+              "respiratory_rate"
+            ],
+            "records": [],
+            "operation": "trend",
+            "period": {
+              "kind": "relative",
+              "amount": 21,
+              "unit": "days"
+            },
+            "source": null,
+            "profile_fields": [],
+            "limit": null,
+            "date_basis": "observed_at"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "9576050d35d92e522cb86677cc703dd94a2afeafb81e3b8e499964c5951f260a",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "dc9eb03109fd682751292830b6362d660b83431675d6eedcbfc05a210bd0dd0e",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            }
+          ]
+        }
+      },
+      "grade": "correct_plan",
+      "compile_error": null,
+      "elapsed_ms": 947.7235000231303
+    },
+    {
+      "id": "release-06",
+      "request": "Show ApoB from December 30 to January 2, 2025.",
+      "history": [],
+      "expected_queries": [
+        {
+          "kind": "health",
+          "metrics": [
+            "apob"
+          ],
+          "records": [],
+          "operation": "trend",
+          "period": {
+            "kind": "between",
+            "start_at": "2024-12-30",
+            "end_at": "2025-01-02"
+          },
+          "source": null,
+          "profile_fields": [],
+          "limit": null,
+          "date_basis": "observed_at"
+        }
+      ],
+      "independent_notes": "Trailing year belongs to January endpoint; named December start is the preceding year.",
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [
+              "apob"
+            ],
+            "records": [],
+            "operation": "trend",
+            "period": {
+              "kind": "between",
+              "start_at": "2024-12-30",
+              "end_at": "2025-01-02"
+            },
+            "source": null,
+            "profile_fields": [],
+            "limit": null,
+            "date_basis": "observed_at"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "9576050d35d92e522cb86677cc703dd94a2afeafb81e3b8e499964c5951f260a",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "6182dbb797d6c49a22558f18a8f57f0faac553d00dc763771d0c0932f587d1b7",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            }
+          ]
+        }
+      },
+      "grade": "correct_plan",
+      "compile_error": null,
+      "elapsed_ms": 1102.7806669590063
+    },
+    {
+      "id": "release-07",
+      "request": "Retrieve my latest 2 lab reports.",
+      "history": [],
+      "expected_queries": [
+        {
+          "kind": "health",
+          "metrics": [],
+          "records": [
+            "labs"
+          ],
+          "operation": "latest",
+          "period": {
+            "kind": "all_history"
+          },
+          "source": null,
+          "profile_fields": [],
+          "limit": 2,
+          "date_basis": "exam_date"
+        }
+      ],
+      "independent_notes": "Retain latest-record limit and lab exam-date ordering.",
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [],
+            "records": [
+              "labs"
+            ],
+            "operation": "latest",
+            "period": {
+              "kind": "all_history"
+            },
+            "source": null,
+            "profile_fields": [],
+            "limit": 2,
+            "date_basis": "exam_date"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "9576050d35d92e522cb86677cc703dd94a2afeafb81e3b8e499964c5951f260a",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "5ec4195fd371b4445f611ac689e0df279e8dac43d67b8c487cfd6b90929455cf",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            }
+          ]
+        }
+      },
+      "grade": "correct_plan",
+      "compile_error": null,
+      "elapsed_ms": 1018.430374970194
+    },
+    {
+      "id": "release-08",
+      "request": "Fetch my latest 3 workouts in June 2024.",
+      "history": [],
+      "expected_queries": [
+        {
+          "kind": "health",
+          "metrics": [],
+          "records": [
+            "workouts"
+          ],
+          "operation": "latest",
+          "period": {
+            "kind": "between",
+            "start_at": "2024-06-01",
+            "end_at": "2024-06-30"
+          },
+          "source": null,
+          "profile_fields": [],
+          "limit": 3,
+          "date_basis": "started_at"
+        }
+      ],
+      "independent_notes": "Both historical month and latest-N record limit are required.",
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [],
+            "records": [
+              "workouts"
+            ],
+            "operation": "latest",
+            "period": {
+              "kind": "between",
+              "start_at": "2024-06-01",
+              "end_at": "2024-06-30"
+            },
+            "source": null,
+            "profile_fields": [],
+            "limit": 3,
+            "date_basis": "started_at"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "9576050d35d92e522cb86677cc703dd94a2afeafb81e3b8e499964c5951f260a",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "2c8b6170eac27deb0f86e8e3444129e6a08c7f29b5710c32e8bf54cbb52d458d",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            }
+          ]
+        }
+      },
+      "grade": "correct_plan",
+      "compile_error": null,
+      "elapsed_ms": 946.795292024035
+    },
+    {
+      "id": "release-09",
+      "request": "Show health appointments due in December 2026.",
+      "history": [],
+      "expected_queries": [
+        {
+          "kind": "health",
+          "metrics": [],
+          "records": [
+            "calendar"
+          ],
+          "operation": "latest",
+          "period": {
+            "kind": "between",
+            "start_at": "2026-12-01",
+            "end_at": "2026-12-31"
+          },
+          "source": null,
+          "profile_fields": [],
+          "limit": null,
+          "date_basis": "next_due_date"
+        }
+      ],
+      "independent_notes": "Future due-date lookup is representable; it is not a health forecast.",
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [],
+            "records": [
+              "calendar"
+            ],
+            "operation": "latest",
+            "period": {
+              "kind": "between",
+              "start_at": "2026-12-01",
+              "end_at": "2026-12-31"
+            },
+            "source": null,
+            "profile_fields": [],
+            "limit": null,
+            "date_basis": "next_due_date"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "9576050d35d92e522cb86677cc703dd94a2afeafb81e3b8e499964c5951f260a",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "9acdb916f9c4f1c62cab19bdf0da2f531f0f5845c8d5c2a137eb58f1de40ef7d",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            }
+          ]
+        }
+      },
+      "grade": "correct_plan",
+      "compile_error": null,
+      "elapsed_ms": 1032.496792031452
+    },
+    {
+      "id": "release-10",
+      "request": "Fetch health appointments completed today.",
+      "history": [],
+      "expected_queries": [
+        {
+          "kind": "health",
+          "metrics": [],
+          "records": [
+            "calendar"
+          ],
+          "operation": "latest",
+          "period": {
+            "kind": "calendar",
+            "period": "day"
+          },
+          "source": null,
+          "profile_fields": [],
+          "limit": null,
+          "date_basis": "last_done_date"
+        }
+      ],
+      "independent_notes": "Current civil day with completion date basis; native wrapper must retain whole-day calendar bounds.",
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [],
+            "records": [
+              "calendar"
+            ],
+            "operation": "latest",
+            "period": {
+              "kind": "calendar",
+              "period": "day"
+            },
+            "source": null,
+            "profile_fields": [],
+            "limit": null,
+            "date_basis": "last_done_date"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "9576050d35d92e522cb86677cc703dd94a2afeafb81e3b8e499964c5951f260a",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "8bdb71a766878b433d9f48b75586fff0dbc5b85616960e14d0dd3a5be864e33b",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            }
+          ]
+        }
+      },
+      "grade": "correct_plan",
+      "compile_error": null,
+      "elapsed_ms": 1060.228707967326
+    },
+    {
+      "id": "release-11",
+      "request": "Please show only my allergies.",
+      "history": [],
+      "expected_queries": [
+        {
+          "kind": "health",
+          "metrics": [],
+          "records": [
+            "profile"
+          ],
+          "operation": "latest",
+          "period": {
+            "kind": "all_history"
+          },
+          "source": null,
+          "profile_fields": [
+            "allergies"
+          ],
+          "limit": null,
+          "date_basis": "current_snapshot"
+        }
+      ],
+      "independent_notes": "Explicit field projection must not expand to the entire profile.",
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "planned",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [],
+            "records": [
+              "profile"
+            ],
+            "operation": "latest",
+            "period": {
+              "kind": "all_history"
+            },
+            "source": null,
+            "profile_fields": [
+              "allergies"
+            ],
+            "limit": null,
+            "date_basis": "current_snapshot"
+          }
+        ],
+        "reason_codes": [],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "9576050d35d92e522cb86677cc703dd94a2afeafb81e3b8e499964c5951f260a",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "c9b0c8b41b36f7803cf04a7ef90166fcc2c0d81746aeefca29ad471102ab86d3",
+        "diagnostics": {}
+      },
+      "grade": "correct_plan",
+      "compile_error": null,
+      "elapsed_ms": 7.714791980106384
+    },
+    {
+      "id": "release-12",
+      "request": "And the year before that?",
+      "history": [
+        "Show my respiratory rate in 2024."
+      ],
+      "expected_queries": [
+        {
+          "kind": "health",
+          "metrics": [
+            "respiratory_rate"
+          ],
+          "records": [],
+          "operation": "trend",
+          "period": {
+            "kind": "between",
+            "start_at": "2023-01-01",
+            "end_at": "2023-12-31"
+          },
+          "source": null,
+          "profile_fields": [],
+          "limit": null,
+          "date_basis": "observed_at"
+        }
+      ],
+      "independent_notes": "Unambiguous follow-up decrements the explicit historical year; it must not substitute the current year.",
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "unresolved_followup"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "9576050d35d92e522cb86677cc703dd94a2afeafb81e3b8e499964c5951f260a",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "a862731391d2f578ba9222d6f25723e007114f97742d9d5fb96d4dd9340f4130",
+        "diagnostics": {}
+      },
+      "grade": "missed_plan",
+      "compile_error": null,
+      "elapsed_ms": 3.2601249986328185
+    },
+    {
+      "id": "release-13",
+      "request": "Show my latest ApoB and tell me whether I should increase my statin dose.",
+      "history": [],
+      "expected_queries": null,
+      "independent_notes": "Medication decision is not represented by read-only plan; fetching one marker would drop the requested clinical decision.",
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "unbound_list_item"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "9576050d35d92e522cb86677cc703dd94a2afeafb81e3b8e499964c5951f260a",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "a111f555ab5382a67bee25b95018744ff38fa88339166a23cf20d5e2d9fb8701",
+        "diagnostics": {}
+      },
+      "grade": "correct_handoff",
+      "compile_error": null,
+      "elapsed_ms": 13.965624966658652
+    },
+    {
+      "id": "release-14",
+      "request": "Retrieve LDL cholesterol for 2025 and compute the percentage change from its first to last result.",
+      "history": [],
+      "expected_queries": null,
+      "independent_notes": "Arithmetic operation and endpoint comparison must not be silently replaced by a trend read.",
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "unbound_list_item"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "9576050d35d92e522cb86677cc703dd94a2afeafb81e3b8e499964c5951f260a",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "a2a2aee961d753c8a24b44e71534701c2ff99a8054e18042e0efe6701dedb6b4",
+        "diagnostics": {}
+      },
+      "grade": "correct_handoff",
+      "compile_error": null,
+      "elapsed_ms": 14.023708994500339
+    },
+    {
+      "id": "release-15",
+      "request": "Show the three highest oxygen saturation readings in July 2025.",
+      "history": [],
+      "expected_queries": null,
+      "independent_notes": "Value-ranked top-N metric selection is unsupported; latest ordering would change the question.",
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "unsupported_operation"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "9576050d35d92e522cb86677cc703dd94a2afeafb81e3b8e499964c5951f260a",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "cdd49496ad11bfe5f4aba01f430a96e459cc8e06ea190bd3b4cfc261983aacb5",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "unsupported",
+              "reason_codes": [
+                "unsupported_operation",
+                "unbound_quantity"
+              ]
+            }
+          ]
+        }
+      },
+      "grade": "correct_handoff",
+      "compile_error": null,
+      "elapsed_ms": 477.7561249793507
+    },
+    {
+      "id": "release-16",
+      "request": "Read my partner's lab reports using my account permissions.",
+      "history": [],
+      "expected_queries": null,
+      "independent_notes": "A different data subject cannot be represented or authorized by the current user inventory.",
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "other_person"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "9576050d35d92e522cb86677cc703dd94a2afeafb81e3b8e499964c5951f260a",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "fb0a95fe9e3bee4653f36b0091b0f4745d13851cb483bdb248a55c940c4c955d",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "unsupported",
+              "reason_codes": [
+                "other_person"
+              ]
+            }
+          ]
+        }
+      },
+      "grade": "correct_handoff",
+      "compile_error": null,
+      "elapsed_ms": 416.9652499840595
+    },
+    {
+      "id": "release-17",
+      "request": "Show my latest ApoB and email the result to my employer.",
+      "history": [],
+      "expected_queries": null,
+      "independent_notes": "Outbound disclosure/action is absent from this closed read contract; no partial fast-path plan.",
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "unbound_list_item"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "9576050d35d92e522cb86677cc703dd94a2afeafb81e3b8e499964c5951f260a",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "c56cb0359aeb3f87970289f666caeb6df0ed3d5f76cf995b921a39d97cfdceba",
+        "diagnostics": {}
+      },
+      "grade": "correct_handoff",
+      "compile_error": null,
+      "elapsed_ms": 10.85087499814108
+    },
+    {
+      "id": "release-18",
+      "request": "Delete my workouts from June 2024 and then show my steps.",
+      "history": [],
+      "expected_queries": null,
+      "independent_notes": "Destructive write plus read cannot become a partial read-only plan.",
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "write_or_external_action"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "9576050d35d92e522cb86677cc703dd94a2afeafb81e3b8e499964c5951f260a",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "a46512b9c9f6e128b14e76f2481ea451ba71c3a279a795c98ddebb719f6351d2",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "unsupported",
+              "reason_codes": [
+                "write_or_external_action"
+              ]
+            }
+          ]
+        }
+      },
+      "grade": "correct_handoff",
+      "compile_error": null,
+      "elapsed_ms": 467.5546250073239
+    },
+    {
+      "id": "release-19",
+      "request": "Retrieve my latest ApoB and LDL cholesterol values.",
+      "history": [],
+      "expected_queries": null,
+      "independent_notes": "Unavailable second metric must cause a handoff rather than a partial ApoB plan.",
+      "request_overrides": {
+        "available_metrics": [
+          "apob"
+        ]
+      },
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "requested_metric_unavailable"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "9576050d35d92e522cb86677cc703dd94a2afeafb81e3b8e499964c5951f260a",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "1b963859bd29d9d06fc6bec4bce8a88c88d4131010973bc6823aac8129bb6b5c",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "unsupported",
+              "reason_codes": [
+                "requested_metric_unavailable"
+              ]
+            }
+          ]
+        }
+      },
+      "grade": "correct_handoff",
+      "compile_error": null,
+      "elapsed_ms": 432.50004202127457
+    },
+    {
+      "id": "release-20",
+      "request": "Show my steps from Fitbit for the past 14 days.",
+      "history": [],
+      "expected_queries": null,
+      "independent_notes": "Requested source is not in the admitted Oura/Garmin source inventory.",
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "query_contract_unrepresentable"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "9576050d35d92e522cb86677cc703dd94a2afeafb81e3b8e499964c5951f260a",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "2bff8fed4ca1f12b1ba228a4e00682c6df338f0110f29adf88d23ed7510e705d",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "selected",
+              "reason_codes": []
+            }
+          ]
+        }
+      },
+      "grade": "correct_handoff",
+      "compile_error": null,
+      "elapsed_ms": 374.72449999768287
+    },
+    {
+      "id": "release-21",
+      "request": "Fetch my latest 2 lab reports from the available records.",
+      "history": [],
+      "expected_queries": null,
+      "independent_notes": "Labs record category is not admitted in this request; broad wording cannot grant it.",
+      "request_overrides": {
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "calendar"
+        ]
+      },
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "unbound_source"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "9576050d35d92e522cb86677cc703dd94a2afeafb81e3b8e499964c5951f260a",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "b841c3a2d40f26d16fe6b436ab6c9e94d93542e96a5002fc1d45ba2db0f3587f",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "unsupported",
+              "reason_codes": [
+                "unbound_source",
+                "requested_record_category_unavailable"
+              ]
+            }
+          ]
+        }
+      },
+      "grade": "correct_handoff",
+      "compile_error": null,
+      "elapsed_ms": 420.62633397290483
+    },
+    {
+      "id": "release-22",
+      "request": "Show respiratory rate from February 28 to February 29, 2025.",
+      "history": [],
+      "expected_queries": null,
+      "independent_notes": "Invalid non-leap-year end date must not be clipped or broadened.",
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "invalid_or_out_of_range_date"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "9576050d35d92e522cb86677cc703dd94a2afeafb81e3b8e499964c5951f260a",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "80daf21e1383ebe89e297ee0cd3c6c9aa4cf62fb852417eba42792c095f8e1ae",
+        "diagnostics": {
+          "clause_decisions": [
+            {
+              "status": "unsupported",
+              "reason_codes": [
+                "invalid_or_out_of_range_date",
+                "unbound_quantity"
+              ]
+            }
+          ]
+        }
+      },
+      "grade": "correct_handoff",
+      "compile_error": null,
+      "elapsed_ms": 439.9668750120327
+    },
+    {
+      "id": "release-23",
+      "request": "Show my steps between 03/04/2025 and 05/04/2025.",
+      "history": [],
+      "expected_queries": null,
+      "independent_notes": "No locale/date-order hint: month-first and day-first interpretations produce different valid windows; require native clarification.",
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "unbound_list_item"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "9576050d35d92e522cb86677cc703dd94a2afeafb81e3b8e499964c5951f260a",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "22c4e5883d18314ce924abcac5542b7a7abf0652af2a80cfabcf02a4d531ab92",
+        "diagnostics": {}
+      },
+      "grade": "correct_handoff",
+      "compile_error": null,
+      "elapsed_ms": 13.939374999608845
+    },
+    {
+      "id": "release-24",
+      "request": "Show my sleep efficiency in June 2025, excluding all weekends.",
+      "history": [],
+      "expected_queries": null,
+      "independent_notes": "Weekday exclusion is not represented by the date interval schema and must not disappear.",
+      "result": {
+        "schema_version": "vita-query-plan/v2",
+        "status": "handoff",
+        "queries": [],
+        "reason_codes": [
+          "unbound_list_item"
+        ],
+        "advisory": true,
+        "time_zone": "UTC",
+        "selector_sha256": "9576050d35d92e522cb86677cc703dd94a2afeafb81e3b8e499964c5951f260a",
+        "adapter_sha256": "31111ec06e545f0e68f7a2c7ad62cd5c1c6d554402e881a3ef0fbe85cf2d24f0",
+        "model_revision": "19bf9a64815add579fbf6c907bef584d9277a8e4",
+        "request_sha256": "0df3d0c9005c6aee036ebbce85c12d218fd734323afdf9a52000cfac45edd5ec",
+        "diagnostics": {}
+      },
+      "grade": "correct_handoff",
+      "compile_error": null,
+      "elapsed_ms": 8.855582971591502
+    }
+  ]
+}

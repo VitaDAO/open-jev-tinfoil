@@ -75,10 +75,75 @@ def test_new_subject_drops_old_source_and_date():
     assert plan['health_reads'][0]['range']=={'kind':'all_history'}
 
 
+@pytest.mark.parametrize('question,history,metric,year',[
+    ('And the year before that?',['Show my respiratory rate in 2024.'],'respiratory_rate',2023),
+    ('How about the calendar year after that?',['Show my steps in 2020.'],'steps',2021),
+    ('Now do the year before that',['Show my ApoB in 2024','And the year before that?'],'apob',2022),
+    ('What about the year before that?',['Show my steps from January 1 to December 31, 2020'],'steps',2019),
+    ('And the year after that?',['Show my steps from 2023-01-01 to 2023-12-31'],'steps',2024),
+])
+def test_adjacent_calendar_year_followup_binds_whole_year(question,history,metric,year):
+    result,plan=run(question,history)
+    assert result['status']=='selected',result['reason_codes']
+    assert plan['health_reads'][0]['concepts']==[metric]
+    assert plan['health_reads'][0]['range']=={
+        'kind':'between','start_at':f'{year}-01-01','end_at':f'{year}-12-31'}
+
+
+@pytest.mark.parametrize('parent',[
+    'Show my latest steps from Oura in 2024',
+    'Show my latest Garmin steps in 2024',
+    'In 2024 show my latest steps recorded by Oura',
+])
+def test_adjacent_calendar_year_keeps_source_and_operation(parent):
+    resolved=resolve_context(request('And the year before that?',[parent]))
+    assert 'latest' in resolved
+    assert ('garmin' if 'Garmin' in parent else 'oura') in resolved
+    assert 'steps' in resolved and '2024' not in resolved
+    period,_,error=temporal(resolved,'2026-09-23')
+    assert error is None and period['start_year']=='2023'
+    result,plan=run('And the year before that?',[parent])
+    assert result['status']=='unsupported' and plan is None
+    assert 'source_filter' in result['reason_codes']
+
+
+@pytest.mark.parametrize('history',[
+    [], ['Show my steps'], ['Show my steps in 2023 and 2024'],
+    ['Show my steps in 2023; show my ApoB in 2024'],
+    ['Show my steps for the last 2 years'], ['Show my steps last year'],
+    ['Show my steps in March 2024'], ['Show my steps on January 1, 2024'],
+    ['Show my steps from January 2 to December 31, 2024'],
+    ['Show my steps from 2023-01-01 to 2024-12-31'],
+    ['Compare my steps and sleep in 2024'], ['Calculate my average steps in 2024'],
+    ['Show my steps in 2024 and email them'], ['Explain respiratory rate in 2024'],
+    ['Show my profile in 2024'], ['Show my steps in 1900'],
+])
+def test_adjacent_calendar_year_rejects_ambiguous_or_unsupported_parent(history):
+    with pytest.raises(ValueError):
+        resolve_context(request('And the year before that?',history))
+    result,plan=run('And the year before that?',history)
+    assert result['status']=='unsupported' and plan is None
+
+
+def test_adjacent_calendar_year_rejects_upper_boundary_and_unconsumed_followup():
+    for text,history in [
+        ('And the year after that?',['Show my steps in 2100']),
+        ('And the year before that, only on weekends?',['Show my steps in 2024']),
+        ('And the year before that and email the results',['Show my steps in 2024']),
+    ]:
+        with pytest.raises(ValueError):resolve_context(request(text,history))
+        result,plan=run(text,history)
+        assert result['status']=='unsupported' and plan is None
+
+
 @pytest.mark.parametrize('text,start,end',[
     ('Steps from June 3 through June 17','2026-06-03','2026-06-17'),
     ('Steps between December 20, 2025 and January 5','2025-12-20','2026-01-05'),
     ('Steps from March 2025 through May 2025','2025-03-01','2025-05-31'),
+    ('Steps from November 4 to November 9, 2025','2025-11-04','2025-11-09'),
+    ('Steps from December 20 to January 5, 2025','2024-12-20','2025-01-05'),
+    ('Steps from February 29 to March 1, 2024','2024-02-29','2024-03-01'),
+    ('Steps between June 3 and 17, 2025','2025-06-03','2025-06-17'),
     ('Steps for 2026-05','2026-05-01','2026-05-31'),
 ])
 def test_complete_date_ranges(text,start,end):
@@ -91,10 +156,30 @@ def test_complete_date_ranges(text,start,end):
     'Steps from March 10 to March 3','Steps before June','Steps for June 31',
     'Steps for 2026-13','Steps in 2025 and sleep in 2026','Steps since June 1',
     'Steps for the past 200 days',
+    'Steps from February 29 to March 1, 2025',
+    'Steps from November 9 to November 4, 2025',
+    'Steps from December 20 to January 5, 1900',
 ])
 def test_invalid_or_unrepresentable_dates_handoff(text):
     result,plan=run(text)
     assert result['status']=='unsupported' and plan is None
+
+
+def test_explicit_read_after_discourse_marker_does_not_inherit_old_subject_or_period():
+    from query_selector import enhance
+    result,plan=run(enhance('Actually, show my latest ApoB.'),['Show my total sleep in 2020'])
+    assert result['status']=='selected'
+    assert plan['health_reads'][0]['concepts']==['apob']
+    assert plan['health_reads'][0]['purpose']=='latest'
+    assert plan['health_reads'][0]['range']=={'kind':'all_history'}
+
+
+def test_discourse_cleanup_preserves_history_dependent_period_correction():
+    from query_selector import enhance
+    result,plan=run(enhance('Actually, make that last month'),['Show my steps in 2020'])
+    assert result['status']=='selected'
+    assert plan['health_reads'][0]['concepts']==['steps']
+    assert plan['health_reads'][0]['range']=={'kind':'between','start_at':'2026-08-01','end_at':'2026-08-31'}
 
 
 def test_model_errors_propagate_not_disguised_as_handoff():

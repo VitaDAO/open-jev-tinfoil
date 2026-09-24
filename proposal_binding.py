@@ -144,7 +144,16 @@ def temporal(text, reference):
             date(year, month_num, day or 1)
             return year, month_num, day
         try:
-            start = boundary(match[1], match[2], date.fromisoformat(reference).year)
+            start_default_year = date.fromisoformat(reference).year
+            end_year = re.search(r'\d{4}', match[4])
+            if end_year and not re.search(r'\d{4}', match[2]):
+                # A trailing year qualifies both boundaries. Infer a previous
+                # start year only when the named months cross New Year; do
+                # this before validating days so leap dates use the right year.
+                months = [name.lower() for name in calendar.month_name]
+                crosses_year = months.index(match[1]) > months.index(match[3] or match[1])
+                start_default_year = int(end_year[0]) - int(crosses_year)
+            start = boundary(match[1], match[2], start_default_year)
             end = boundary(match[3] or match[1], match[4], start[0])
             # An omitted end year can cross New Year, never reverse same-month days.
             if match[3] and end[1] < start[1] and not re.search(r'\d{4}', match[4]):
@@ -239,6 +248,36 @@ def resolve_context(request):
         follow = re.fullmatch(r'(?:what about|how about|and|(?:actually,? )?make (?:that|it)|now do|sorry[,]? i meant|(?:can you )?redo that but only looking at) (.+)', text)
         if not follow:
             return text
+        adjacent_year = re.fullmatch(r'(?:the )?(?:calendar )?year (before|after) that', follow[1])
+        if adjacent_year:
+            if not history: raise ValueError('unresolved_followup')
+            parent = resolve(history[-1], history[:-1])
+            period, spans, error = temporal(parent, reference)
+            if error or len(spans) != 1 or period['period_kind'] != 'absolute':
+                raise ValueError('unresolved_inherited_period')
+            year = period['start_year']
+            start = (period['start_month'], period['start_day'])
+            end = (period['end_year'], period['end_month'], period['end_day'])
+            if not year.isdigit() or not (
+                    start == ('none','none') and end == ('none','none','none')
+                    or start == ('1','1') and end == (year,'12','31')):
+                raise ValueError('unresolved_inherited_period')
+            subject = erase(parent, date_context_spans(parent, spans)).strip()
+            # Certify only an existing complete read grammar. Sources are
+            # retained in the returned subject and checked by its consumer;
+            # masking them here cannot authorize or silently remove a filter.
+            from selector import _interpret
+            source = CONSTRAINT_PATTERNS['source_filter']
+            read_scope = re.sub(r'\b(?:from|using|recorded by) (?:my |the )?' + source, '', subject)
+            read_scope = re.sub(source, '', read_scope)
+            read = _interpret(read_scope, [], request)
+            if (not read or read['task'] != 'health' or read['research'] != 'none'
+                    or 'profile' in read['records']):
+                raise ValueError('unresolved_inherited_operation')
+            year = int(year) + (-1 if adjacent_year[1] == 'before' else 1)
+            if not 1900 <= year <= 2100:
+                raise ValueError('invalid_or_out_of_range_date')
+            return subject + ' ' + str(year)
         period, spans, error = temporal(follow[1], reference)
         # Only period-only fragments qualify. Entity-bearing followups stay explicit.
         residue = erase(follow[1], date_context_spans(follow[1], spans)).strip(' ,?!.')

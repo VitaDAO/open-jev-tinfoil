@@ -16,6 +16,9 @@ class Closed(BaseModel):
 
 Digest = Annotated[str, StringConstraints(pattern=r'^[0-9a-f]{64}$')]
 Source = Annotated[str, StringConstraints(strict=True, pattern=r'^[a-z][a-z0-9_]{0,63}$')]
+# Match Vita's current model-facing acquire_sources schema. The operation
+# budget is separate: splitting a large metric selection must never drop it.
+MAX_METRICS_PER_READ = 6
 
 
 class QueryRequest(Closed):
@@ -109,6 +112,10 @@ class ResearchRead(Closed):
 Query=Annotated[Union[HealthRead,ResearchRead],Field(discriminator='kind')]
 
 
+def query_operation_count(query):
+    return max(1,(len(query.metrics)+MAX_METRICS_PER_READ-1)//MAX_METRICS_PER_READ) if isinstance(query,HealthRead) else 1
+
+
 class QueryPlan(Closed):
     schema_version: Literal['vita-query-plan/v2']='vita-query-plan/v2'
     status: Literal['planned','handoff']
@@ -167,8 +174,8 @@ def compile_batch(plan, request):
             field='literature_reads'
         else:
             operations=[];field='health_reads'
-            for i in range(0,max(1,len(query.metrics)),8):
-                op={'concepts':list(dict.fromkeys(canonical_metric(m) for m in query.metrics[i:i+8])),'record_types':query.records,
+            for i in range(0,max(1,len(query.metrics)),MAX_METRICS_PER_READ):
+                op={'concepts':list(dict.fromkeys(canonical_metric(m) for m in query.metrics[i:i+MAX_METRICS_PER_READ])),'record_types':query.records,
                     'profile_fields':query.profile_fields,'purpose':query.operation,
                     'range':query.period,'time_zone':plan.time_zone,'grouping':'none' if query.operation=='latest' else 'auto',
                     'result_view':'summary'}

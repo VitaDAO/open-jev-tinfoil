@@ -1,0 +1,139 @@
+{
+  "fixture": "/Users/alexdobrin/Documents/tev1-local/acceptance/release-challenge-24.json",
+  "sha256": "d00e67f9108d5526b8d50abbd90d1b5996ed82ad90976c6a7de752d04a1b8f2c",
+  "case_count": 24,
+  "expected_plans": 12,
+  "expected_handoffs": 12,
+  "exact_request_history_overlap": 0,
+  "prior_unique_request_history_pairs": 387,
+  "validation": "QueryRequest and QueryPlan typed validation plus compile_batch only; no model or selector execution",
+  "authoring_scope": "Fresh standalone synthetic oracle built from typed query contract, native integration contract and input fixture shape. No saved model results inspected.",
+  "boundaries": [
+    "Clinical, arithmetic, write, outbound disclosure, other-subject requests are mandatory handoffs in this bounded selector even if the native planner can later fulfill part or all of the user turn.",
+    "Slash-date case assumes no locale beyond UTC timezone. Clarification is safer than selecting between two valid date orders.",
+    "Relative year follow-up is semantically unambiguous but may expose parser coverage; a handoff is safe yet counts as a missed supported plan.",
+    "This suite tests acquisition selection, not end-to-end clinical answer quality or proof of future perfection."
+  ],
+  "checks": [
+    {
+      "id": "release-01",
+      "expected_status": "planned",
+      "compiled_operations": 1
+    },
+    {
+      "id": "release-02",
+      "expected_status": "planned",
+      "compiled_operations": 1
+    },
+    {
+      "id": "release-03",
+      "expected_status": "planned",
+      "compiled_operations": 1
+    },
+    {
+      "id": "release-04",
+      "expected_status": "planned",
+      "compiled_operations": 1
+    },
+    {
+      "id": "release-05",
+      "expected_status": "planned",
+      "compiled_operations": 1
+    },
+    {
+      "id": "release-06",
+      "expected_status": "planned",
+      "compiled_operations": 1
+    },
+    {
+      "id": "release-07",
+      "expected_status": "planned",
+      "compiled_operations": 1
+    },
+    {
+      "id": "release-08",
+      "expected_status": "planned",
+      "compiled_operations": 1
+    },
+    {
+      "id": "release-09",
+      "expected_status": "planned",
+      "compiled_operations": 1
+    },
+    {
+      "id": "release-10",
+      "expected_status": "planned",
+      "compiled_operations": 1
+    },
+    {
+      "id": "release-11",
+      "expected_status": "planned",
+      "compiled_operations": 1
+    },
+    {
+      "id": "release-12",
+      "expected_status": "planned",
+      "compiled_operations": 1
+    },
+    {
+      "id": "release-13",
+      "expected_status": "handoff",
+      "compiled_operations": 0
+    },
+    {
+      "id": "release-14",
+      "expected_status": "handoff",
+      "compiled_operations": 0
+    },
+    {
+      "id": "release-15",
+      "expected_status": "handoff",
+      "compiled_operations": 0
+    },
+    {
+      "id": "release-16",
+      "expected_status": "handoff",
+      "compiled_operations": 0
+    },
+    {
+      "id": "release-17",
+      "expected_status": "handoff",
+      "compiled_operations": 0
+    },
+    {
+      "id": "release-18",
+      "expected_status": "handoff",
+      "compiled_operations": 0
+    },
+    {
+      "id": "release-19",
+      "expected_status": "handoff",
+      "compiled_operations": 0
+    },
+    {
+      "id": "release-20",
+      "expected_status": "handoff",
+      "compiled_operations": 0
+    },
+    {
+      "id": "release-21",
+      "expected_status": "handoff",
+      "compiled_operations": 0
+    },
+    {
+      "id": "release-22",
+      "expected_status": "handoff",
+      "compiled_operations": 0
+    },
+    {
+      "id": "release-23",
+      "expected_status": "handoff",
+      "compiled_operations": 0
+    },
+    {
+      "id": "release-24",
+      "expected_status": "handoff",
+      "compiled_operations": 0
+    }
+  ]
+}

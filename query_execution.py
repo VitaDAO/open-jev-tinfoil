@@ -8,7 +8,7 @@ import copy
 from datetime import datetime
 from zoneinfo import ZoneInfo
 
-from query_plan import QueryPlan, HealthRead, ResearchRead, compile_batch, validate_inventory
+from query_plan import QueryPlan, ResearchRead, compile_batch, query_operation_count, validate_inventory
 from schema_index import INDEX
 
 
@@ -118,7 +118,7 @@ async def execute_plan(plan,request,run_operation,*,max_pages=8):
     batch=compile_batch(plan,request);outputs=[];index=0
     ordered=sorted([(kind,op) for kind in ('health_reads','literature_reads') for op in batch[kind]],key=lambda x:x[1]['operation_id'])
     for query_index,query in enumerate(plan.queries):
-        count=max(1,(len(query.metrics)+7)//8) if isinstance(query,HealthRead) else 1
+        count=query_operation_count(query)
         for _ in range(count):
             kind,operation=ordered[index];index+=1
             try:
