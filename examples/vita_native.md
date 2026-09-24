@@ -29,6 +29,8 @@ These tools, instructions and history are forwarded unchanged to that provider o
 handoff, selector error, unrepresentable request or later reasoning round. Do
 not append a duplicate global capability list or interpret a schema field as a
 populated user value. Unknown, partial, empty and withheld remain distinct.
+Native digit-leading metric slugs are preserved in the admitted inventory;
+identifier syntax never grants permission to read an unadmitted metric.
 
 `receipt.reason_code` is a fixed, non-sensitive diagnostic: eligibility failures
 such as `selector_request_unrepresentable`, `native_tool_choice`, or

@@ -60,6 +60,13 @@ def main():
     client=VitaClient.__new__(VitaClient);client.http=LoopbackTransport();client.token=token
     client._select_lock=Lock()
     client.selector_sha256=start_identity;client.adapter_sha256=INTENT_SHA256
+    # Native inventory can contain digit-leading analytes unrelated to the query.
+    # Keep the entire admitted inventory; an unknown marker must not disable
+    # an otherwise representable profile acquisition or be silently dropped.
+    digit_request=request('Show my complete profile').model_copy(update={
+     'available_metrics':['25_hydroxy_vitamin_d','steps']})
+    digit_result=client.select(digit_request)
+    assert digit_result.status=='planned' and digit_result.queries[0].records==['profile']
     # Every fresh composition crosses actual HTTP and the single validated client.
     cases=json.loads((ROOT/'evidence/selector-v5/holdout-24.json').read_text());rows=[]
     for case in cases:

@@ -227,12 +227,16 @@ def bootstrap_messages(manager):
     return items_to_messages(items, model_id=manager.model_id)
 
 
-def test_real_session_policy_bootstrap_round_reaches_selector_and_native_broker():
+@pytest.mark.parametrize('digit_inventory', [False, True])
+def test_real_session_policy_bootstrap_round_reaches_selector_and_native_broker(digit_inventory):
     from agents import RunConfig
     from backbone.session_bridge import SessionInputPolicy
     async def run():
         manager, resolver, _ = fixture()
-        req = request(); client = Client(plan(req)); seen = []
+        req = request()
+        if digit_inventory:
+            req = req.model_copy(update={'available_metrics':['25_hydroxy_vitamin_d',*req.available_metrics]})
+        client = Client(plan(req)); seen = []
         policy = SessionInputPolicy(manager, RunConfig(tracing_disabled=True))
         bootstrap = bootstrap_messages(manager)
         async def provider(env):
