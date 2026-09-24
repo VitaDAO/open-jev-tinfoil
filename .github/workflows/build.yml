@@ -1,117 +1,24 @@
-name: Build and test serving image
+name: Exact published image probes
 on:
-  push:
-    branches: [main]
-    paths:
-      - server.py
-      - routing.py
-      - selector.py
-      - learned_selector.py
-      - plan_adapter.py
-      - query_ir.py
-      - query_plan.py
-      - query_selector.py
-      - query_execution.py
-      - proposal_selector.py
-      - trained_proposal_selector.py
-      - proposal_binding.py
-      - schema_index.py
-      - direct_selector.py
-      - entity_candidates.py
-      - temporal_spans.py
-      - metadata/**
-      - compat/**
-      - adapters/**
-      - examples/**
-      - Dockerfile
-      - requirements-linux.lock
-      - vendor/**
-      - scripts/**
-      - tests/**
-      - evidence/selector-v6/**
-      - .github/workflows/build.yml
   workflow_dispatch:
-    inputs:
-      runtime_probe_only:
-        description: Test only the exact deployed image startup; no build or push
-        type: boolean
-        default: false
 permissions:
   contents: read
-  packages: write
+  packages: read
 jobs:
-  build:
+  probe:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8
-      - name: Reproduce read-only import behavior of deployed v0.2.1
-        run: |
-          image=ghcr.io/vitadao/open-jev-tinfoil@sha256:40e09453a5a74f7039ef59c65b2b1b790573a894c4be0c4480e400fde7212356
-          docker pull "$image"
-          set +e
-          docker run --rm --network none --read-only --cap-drop ALL --security-opt no-new-privileges --entrypoint python "$image" -c 'import torch; print("TORCH_IMPORT_OK")' > /tmp/readonly-import.txt 2>&1
-          status=$?
-          set -e
-          cat /tmp/readonly-import.txt
-          echo "readonly_without_tmpfs_exit=$status"
-          docker run --rm --network none --read-only --cap-drop ALL --security-opt no-new-privileges --tmpfs /tmp:rw,noexec,nosuid,nodev,size=64m,mode=1777 --entrypoint python "$image" -c 'import torch; print("TORCH_IMPORT_WITH_TMPFS_OK")'
-      - name: Reproduce full model initialization of deployed v0.2.1
-        run: |
-          image=ghcr.io/vitadao/open-jev-tinfoil@sha256:40e09453a5a74f7039ef59c65b2b1b790573a894c4be0c4480e400fde7212356
-          set +e
-          docker run --rm --memory 8g --cpus 4 --network none --read-only --cap-drop ALL --security-opt no-new-privileges --entrypoint python "$image" -c 'from server import Engine; Engine(); print("READONLY_ENGINE_OK")' > /tmp/readonly-engine.txt 2>&1
-          status=$?
-          set -e
-          cat /tmp/readonly-engine.txt
-          echo "readonly_engine_without_tmpfs_exit=$status"
-          docker run --rm --memory 8g --cpus 4 --network none --read-only --cap-drop ALL --security-opt no-new-privileges --tmpfs /tmp:rw,noexec,nosuid,nodev,size=64m,mode=1777 --entrypoint python "$image" -c 'from server import Engine; Engine(); print("READONLY_ENGINE_WITH_TMPFS_OK")'
-      - name: Build CPU image with pinned model
-        if: ${{ !inputs.runtime_probe_only }}
-        run: docker build -t ghcr.io/vitadao/open-jev-tinfoil:${{ github.sha }} .
-      - name: Unit tests
-        if: ${{ !inputs.runtime_probe_only }}
-        run: |
-          docker run --rm --entrypoint sh --user 0 -v "$PWD/tests:/app/tests:ro" -v "$PWD/evidence:/app/evidence:ro" -v "$PWD/scripts:/app/scripts:ro" ghcr.io/vitadao/open-jev-tinfoil:${{ github.sha }} -c 'pip install pytest==9.1.1 httpx==0.28.1 tinfoil==0.14.0 >/dev/null && PYTHONPATH=/app:/app/vendor python -m pytest -q tests'
-      - name: Real-model smoke with 8 GB and 4 CPUs
-        if: ${{ !inputs.runtime_probe_only }}
-        shell: bash
-        run: |
-          set -euo pipefail
-          export OPEN_JEV_API_KEY=$(openssl rand -hex 32)
-          docker run -d --name smoke --memory 8g --cpus 4 --read-only --cap-drop ALL --security-opt no-new-privileges --tmpfs /tmp:rw,noexec,nosuid,nodev,size=64m,mode=1777 -v "$PWD/scripts:/app/scripts:ro" -v "$PWD/tests:/app/tests:ro" -v "$PWD/evidence:/app/evidence:ro" -e ENABLE_EXPERIMENTAL_SELECTOR=1 -e OPEN_JEV_API_KEY -p 127.0.0.1:18080:8080 ghcr.io/vitadao/open-jev-tinfoil:${{ github.sha }}
-          ready=false
-          for i in $(seq 1 120); do
-            if curl -fsS http://127.0.0.1:18080/health > /tmp/health.json; then ready=true; break; fi
-            if [ "$(docker inspect -f '{{.State.Running}}' smoke)" != true ]; then docker logs smoke; exit 1; fi
-            sleep 2
-          done
-          if [ "$ready" != true ]; then docker logs smoke; exit 1; fi
-          python scripts/smoke.py | tee /tmp/smoke.json
-          python scripts/smoke_route.py | tee /tmp/route-smoke.json
-          python -m pip install pydantic==2.13.5 httpx==0.28.1
-          python scripts/smoke_proposal.py --base-url http://127.0.0.1:18080 --output /tmp/selector-smoke.json | tee /tmp/selector-model.json
-          python scripts/evaluate_http_selector.py --base-url http://127.0.0.1:18080 --additional-fixture evidence/selector-v6/independent-vita-challenge.json --additional-fixture evidence/selector-v6/release-challenge-24.json --reviewed-oracles evidence/selector-v6/reviewed-source-fragment-oracle.json --output /tmp/selector-full.json
-          docker stats --no-stream --format '{{json .}}' smoke | tee /tmp/stats.json
-          docker exec smoke cat /sys/fs/cgroup/memory.peak | tee /tmp/memory-peak.txt
-          docker rm -f smoke
-      - name: Push tested image
-        if: ${{ !inputs.runtime_probe_only }}
+      - name: Read-only registry login
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          echo "$GH_TOKEN" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
-          docker push ghcr.io/vitadao/open-jev-tinfoil:${{ github.sha }}
-      - name: Preserve synthetic acceptance and resource evidence
-        if: ${{ always() && !inputs.runtime_probe_only }}
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        run: printf '%s' "$GH_TOKEN" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
+      - name: Exact image synthetic HTTP and inference probes
+        run: python scripts/probe_published_image.py
+      - name: Preserve synthetic evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: selector-acceptance-${{ github.sha }}
-          if-no-files-found: warn
-          path: |
-            /tmp/health.json
-            /tmp/smoke.json
-            /tmp/route-smoke.json
-            /tmp/selector-smoke.json
-            /tmp/selector-full.json
-            /tmp/stats.json
-            /tmp/memory-peak.txt
+          name: exact-image-probes-${{ github.sha }}
+          path: image-probe-output/
