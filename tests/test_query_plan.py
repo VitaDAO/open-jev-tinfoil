@@ -1,4 +1,4 @@
-import asyncio,copy
+import asyncio,copy,os
 from datetime import UTC,datetime
 from threading import Lock
 import httpx,pytest
@@ -172,21 +172,20 @@ def test_atomic_operation_budget_and_disabled_research():
  assert 'private' not in ResearchRead(targets=['sleep']).question()
 
 
-@pytest.mark.parametrize('size',[7,12,13,48])
-def test_large_metric_selection_preserves_every_metric_with_six_per_native_read(size):
+@pytest.mark.parametrize('size',[7,48,49,120,121,512])
+def test_full_inventory_preserves_every_metric_in_one_native_read(size):
  metrics=[f'synthetic_metric_{i}' for i in range(size)]
  req=request(available_metrics=metrics)
  p=plan([HealthRead(metrics=metrics,period={'kind':'relative','amount':6,'unit':'months'})],req=req)
  batch=compile_batch(p,req);reads=batch['health_reads']
  assert [metric for op in reads for metric in op['concepts']]==metrics
- assert all(1<=len(op['concepts'])<=6 for op in reads)
- assert len(reads)==(size+5)//6
+ assert len(reads)==1 and len(reads[0]['concepts'])==size
  assert batch['required_operation_ids']==list(range(1,len(reads)+1))
  assert all(op['range']=={'kind':'relative','amount':6,'unit':'months'} for op in reads)
 
 
-@pytest.mark.parametrize('size',[7,13])
-def test_execution_keeps_chunked_metrics_and_following_research_bound_to_their_queries(size):
+@pytest.mark.parametrize('size',[7,49,512])
+def test_execution_keeps_full_inventory_and_research_bound_to_their_queries(size):
  metrics=[f'synthetic_metric_{i}' for i in range(size)]
  req=request(available_metrics=metrics)
  p=plan([HealthRead(metrics=metrics,period={'kind':'all_history'}),ResearchRead(targets=['sleep'])],req=req)
@@ -196,26 +195,39 @@ def test_execution_keeps_chunked_metrics_and_following_research_bound_to_their_q
   if kind=='literature_reads':return {'status':'ok','sources':[]}
   return {'status':'ok','coverage':{'scope_complete':True},'claim_scope':{'purpose':'trend'},
    'series':[{'concept':metric,'source':'manual','scope_complete':True} for metric in op['concepts']]}
- result=asyncio.run(execute_plan(p,req,callback));chunks=(size+5)//6
+ result=asyncio.run(execute_plan(p,req,callback))
  assert [metric for kind,op in calls if kind=='health_reads' for metric in op['concepts']]==metrics
- assert [o['query_index'] for o in result['operations']]==[0]*chunks+[1]
- assert [o['status'] for o in result['operations']]==['complete']*chunks+['acquired']
- assert calls[-1][0]=='literature_reads' and len(calls)==chunks+1
+ assert [o['query_index'] for o in result['operations']]==[0,1]
+ assert [o['status'] for o in result['operations']]==['complete','acquired']
+ assert calls[-1][0]=='literature_reads' and len(calls)==2
  assert result['status']=='needs_evidence_review' and not result['all_requested_delivered']
 
 
 def test_ninth_compiled_operation_rejects_the_whole_plan_before_any_io():
  metrics=[f'synthetic_metric_{i}' for i in range(49)]
  req=request(available_metrics=metrics)
- p=plan([HealthRead(metrics=metrics,period={'kind':'all_history'})],req=req)
+ query=HealthRead(metrics=metrics,period={'kind':'all_history'})
+ p=plan([query]*8,req=req)
+ assert len(compile_batch(p,req)['health_reads'])==8
+ # Even an object constructed through an unvalidated copy must be revalidated.
+ p=p.model_copy(update={'queries':[query]*9})
  calls=[]
  async def callback(*args):
   calls.append(args)
-  raise AssertionError('Over-budget plan must not execute even its first chunk')
- with pytest.raises(ValueError,match='Operation budget exceeded'):compile_batch(p,req)
- with pytest.raises(ValueError,match='Operation budget exceeded'):
+  raise AssertionError('Over-budget plan must not execute even its first read')
+ with pytest.raises(ValueError):compile_batch(p,req)
+ with pytest.raises(ValueError):
   asyncio.run(execute_plan(p,req,callback))
  assert calls==[]
+
+
+def test_inventory_bound_and_unauthorized_metric_remain_fail_closed():
+ metrics=[f'synthetic_metric_{i}' for i in range(513)]
+ with pytest.raises(ValueError):request(available_metrics=metrics)
+ with pytest.raises(ValueError):HealthRead(metrics=metrics,period={'kind':'all_history'})
+ req=request(available_metrics=metrics[:49])
+ p=plan([HealthRead(metrics=metrics[:50],period={'kind':'all_history'})],req=req)
+ with pytest.raises(ValueError,match='Metric unavailable'):compile_batch(p,req)
 
 
 def test_metric_evidence_and_missing_source_are_not_silently_delivered():
@@ -267,6 +279,7 @@ def test_partial_multi_clause_never_reports_all_delivered():
 
 def test_client_validates_exact_request_closed_schema_and_pins():
  client=VitaClient.__new__(VitaClient);client.token='synthetic';client.selector_sha256='1'*64;client.adapter_sha256='2'*64
+ client._owner_pid=os.getpid()
  client._select_lock=Lock()
  good=plan().model_dump(mode='json')
  variants=[{**good,'selector_sha256':'3'*64},{**good,'adapter_sha256':'3'*64},{**good,'request_sha256':'3'*64},{**good,'time_zone':'Europe/Bucharest'},{**good,'advisory':False},{**good,'advisory':1},{**good,'status':'handoff'},{**good,'answers':{}},{**good,'queries':[]},

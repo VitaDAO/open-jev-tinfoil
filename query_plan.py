@@ -16,16 +16,16 @@ class Closed(BaseModel):
 
 Digest = Annotated[str, StringConstraints(pattern=r'^[0-9a-f]{64}$')]
 Source = Annotated[str, StringConstraints(strict=True, pattern=r'^[a-z][a-z0-9_]{0,63}$')]
-# Match Vita's current model-facing acquire_sources schema. The operation
-# budget is separate: splitting a large metric selection must never drop it.
-MAX_METRICS_PER_READ = 6
+# Vita accepts the complete admitted metric inventory in one health read.
+# Bound it by our request inventory limit, independently of the operation budget.
+MAX_METRICS_PER_READ = 512
 
 
 class QueryRequest(Closed):
     schema_version: Literal['vita-selector/v2']
     state: SelectorState
     reference_time: datetime
-    available_metrics: list[Metric] = Field(max_length=512)
+    available_metrics: list[Metric] = Field(max_length=MAX_METRICS_PER_READ)
     available_record_types: list[Literal['profile','workouts','labs','calendar']] = Field(max_length=4)
     available_sources: list[Source] = Field(default_factory=list,max_length=32)
     literature_available: bool = Field(default=False,strict=True)
@@ -43,7 +43,7 @@ class QueryRequest(Closed):
 
 class HealthRead(Closed):
     kind: Literal['health']='health'
-    metrics: list[Metric]=Field(default_factory=list,max_length=120)
+    metrics: list[Metric]=Field(default_factory=list,max_length=MAX_METRICS_PER_READ)
     records: list[Literal['profile','workouts','labs','calendar']]=Field(default_factory=list,max_length=1)
     operation: Literal['latest','trend']='trend'
     period: dict
