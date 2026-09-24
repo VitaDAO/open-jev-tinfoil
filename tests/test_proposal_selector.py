@@ -146,6 +146,7 @@ def test_adjacent_calendar_year_rejects_upper_boundary_and_unconsumed_followup()
     ('Steps from February 29 to March 1, 2024','2024-02-29','2024-03-01'),
     ('Steps between June 3 and 17, 2025','2025-06-03','2025-06-17'),
     ('Steps for 2026-05','2026-05-01','2026-05-31'),
+    ('Steps since June 1','2026-06-01','2026-09-23'),
 ])
 def test_complete_date_ranges(text,start,end):
     result,plan=run(text)
@@ -155,7 +156,7 @@ def test_complete_date_ranges(text,start,end):
 
 @pytest.mark.parametrize('text',[
     'Steps from March 10 to March 3','Steps before June','Steps for June 31',
-    'Steps for 2026-13','Steps in 2025 and sleep in 2026','Steps since June 1',
+    'Steps for 2026-13','Steps in 2025 and sleep in 2026',
     'Steps for the past 200 days',
     'Steps from February 29 to March 1, 2025',
     'Steps from November 9 to November 4, 2025',

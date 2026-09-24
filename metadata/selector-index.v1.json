@@ -107,7 +107,11 @@
       "aliases": [
         "lab reports",
         "blood test reports",
-        "blood reports"
+        "blood reports",
+        "lab uploads",
+        "lab upload",
+        "uploaded labs",
+        "uploaded lab reports"
       ],
       "backend_fields": [
         "biomarker_count",

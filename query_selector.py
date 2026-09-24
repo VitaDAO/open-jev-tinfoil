@@ -58,9 +58,39 @@ def identity():
         ('query_plan.py','query_selector.py','query_execution.py'))+INTENT_SHA256.encode()).hexdigest()
 
 
+# Catalogue words of 8+ letters. A token one edit away from exactly one of them
+# is a typo; the length floor keeps ordinary words such as "testing" intact.
+from schema_index import CATALOG as _CATALOG
+_VOCAB=frozenset(w for metric,d in _CATALOG.items()
+                 for label in [metric.replace('_',' '),d.get('display_name',''),*d.get('aliases',[])]
+                 for w in re.findall(r'[a-z]+',label.lower()) if len(w)>=8)
+
+
+def _one_edit(a,b):
+    if a==b or abs(len(a)-len(b))>1:return False
+    if len(a)==len(b):
+        diff=[i for i in range(len(a)) if a[i]!=b[i]]
+        return len(diff)==1 or (len(diff)==2 and diff[1]==diff[0]+1 and a[diff[0]]==b[diff[1]] and a[diff[1]]==b[diff[0]])
+    short,long_=(a,b) if len(a)<len(b) else (b,a)
+    return any(long_[:i]+long_[i+1:]==short for i in range(len(long_)))
+
+
+def _correct_typos(text):
+    def fix(match):
+        word=match[0]
+        if word in _VOCAB:return word
+        candidates=[v for v in _VOCAB if _one_edit(word,v)]
+        return candidates[0] if len(candidates)==1 else word
+    return re.sub(r'\b[a-z]{8,}\b',fix,text)
+
+
 def enhance(text):
     text=canonicalize(text)
     for word,replacement in SPELLINGS.items():text=re.sub(r'\b'+word+r'\b',replacement,text)
+    text=_correct_typos(text)
+    # A current value is the latest one; calendar periods were already rewritten by canonicalize.
+    text=re.sub(r'\bcurrent\b(?! (?:calendar )?(?:week|month|year|day)\b)','latest',text)
+    text=re.sub(r'\b(?:the )?last time (?:i |it |they |we )?(?:was |were |got |had (?:it |them )?)?(?:tested|measured|checked|taken|drawn)\b','latest',text)
     text=re.sub(r'^different question\s*[-:,]\s*','',text)
     # A discourse marker before an explicit new read is not a list item.
     # Leave projection/period corrections ("actually, just...", "make that...")
@@ -185,7 +215,7 @@ class QuerySelector(TrainedProposalSelector):
         # Exact provider names are arguments; unknown provider text survives and
         # is rejected by the inherited constraint/semantic coverage checks.
         for alias,value in SOURCES.items():
-            pattern=r'\b(?:from|using|recorded by) (?:my |the )?'+re.escape(alias)+r'\b'
+            pattern=r'\b(?:from|using|recorded by|according to) (?:my |the )?'+re.escape(alias)+r'\b'
             spans=[(m.start(),m.end()) for m in re.finditer(pattern,text)]
             # A provider may directly qualify a recognized subject, as in
             # "Garmin steps". Bind only an adjacent entity; do not erase a

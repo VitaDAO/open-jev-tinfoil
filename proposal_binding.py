@@ -235,6 +235,12 @@ def resolve_context(request):
             parent = re.sub(r'\b(?:latest|newest|most recent)\b','',parent)
             return parent.strip() + ' trend ' + trend_follow[1]
         replacement = re.fullmatch(r'(?:what about (?:my )?|same window for |no,? i meant )(.+?)(?: then)?', text)
+        if replacement is None:
+            # "And my HDL?" / "How about my HDL?" swap the subject; date fragments such as
+            # "how about the calendar year after that" stay with the period resolvers below.
+            alternative = re.fullmatch(r'(?:how about|and) (?:my |the )?(.+?)(?: then)?', text)
+            if alternative and not re.search(r'\b(?:year|month|week|day|today|yesterday|since|last|this|next|past|ago|before|after)\b', alternative[1]):
+                replacement = alternative
         if replacement and entities(replacement[1], request.available_metrics):
             if not history: raise ValueError('unresolved_followup')
             parent = resolve(history[-1], history[:-1])
@@ -268,7 +274,7 @@ def resolve_context(request):
             # masking them here cannot authorize or silently remove a filter.
             from selector import _interpret
             source = CONSTRAINT_PATTERNS['source_filter']
-            read_scope = re.sub(r'\b(?:from|using|recorded by) (?:my |the )?' + source, '', subject)
+            read_scope = re.sub(r'\b(?:from|using|recorded by|according to) (?:my |the )?' + source, '', subject)
             read_scope = re.sub(source, '', read_scope)
             read = _interpret(read_scope, [], request)
             if (not read or read['task'] != 'health' or read['research'] != 'none'

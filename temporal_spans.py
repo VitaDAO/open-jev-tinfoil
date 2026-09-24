@@ -6,7 +6,7 @@ operation owns a span or silently choose one of multiple periods.
 import calendar
 import re
 from datetime import date
-from selector import _period,_dates
+from selector import _period,_dates,DATE_KEYS
 
 MONTHS='|'.join(name.lower() for name in calendar.month_name if name)
 DAY=r'\d{1,2}(?:st|nd|rd|th)?'
@@ -20,8 +20,41 @@ PATTERN=re.compile(r'\b(?:'+ISO+r'(?:\s+(?:to|through|and)\s+'+ISO+r')?'
 NUMBERS=dict(zip(('one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve'),range(1,13)))
 
 
+def _since(text,reference):
+    """'since <month [year]|ISO date>' reads from that day through the reference day."""
+    if len(re.findall(r'\bsince\b',text,re.I))!=1 or re.search(r'\b(?:before|after|until)\b',text,re.I):
+        return None
+    m=re.search(r'\bsince (?:(\d{4}-\d{2}-\d{2})|('+MONTHS+r')(?: (\d{1,2})(?:st|nd|rd|th)?)?(?:,? (\d{4}))?)\b',text,re.I)
+    if not m:
+        return None
+    try:
+        if m[1]:
+            start=date.fromisoformat(m[1])
+        else:
+            month=[n.lower() for n in calendar.month_name].index(m[2].lower())
+            day=int(m[3]) if m[3] else 1
+            year=int(m[4]) if m[4] else (reference.year if (month,day)<=(reference.month,reference.day) else reference.year-1)
+            start=date(year,month,day)
+    except ValueError:
+        return False
+    if not date(1900,1,1)<=start<=reference:
+        return False
+    fields={'period_kind':'absolute',**dict.fromkeys(DATE_KEYS,'none')}
+    fields.update(start_year=str(start.year),start_month=str(start.month),start_day=str(start.day),
+                  end_year=str(reference.year),end_month=str(reference.month),end_day=str(reference.day))
+    return {'start':m.start(),'end':m.end(),'phrase':m.group(),'date_fields':fields}
+
+
 def extract_temporal(text,reference_date):
     reference=date.fromisoformat(reference_date)
+    since=_since(text,reference)
+    if since is False:
+        return {'status':'unsupported','reason':'invalid_or_out_of_range_date','spans':[],'date_fields':None}
+    if since:
+        rest=text[:since['start']]+text[since['end']:]
+        if PATTERN.search(rest) or re.search(r'\d|\b(?:last|past|next|this|previous|between|through)\b',rest,re.I):
+            return {'status':'unsupported','reason':'multiple_periods_require_clause_binding','spans':[since],'date_fields':None}
+        return {'status':'resolved','reason':None,'spans':[since],'date_fields':since['date_fields']}
     if re.search(r'\b(?:since|before|after|until)\b',text,re.I):
         return {'status':'unsupported','reason':'open_or_unresolved_bounds','spans':[],'date_fields':None}
     if re.search(r'\b\d{1,2}/\d{1,2}(?:/\d{2,4})?\b',text):

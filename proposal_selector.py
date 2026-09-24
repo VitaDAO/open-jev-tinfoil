@@ -124,7 +124,9 @@ class ProposalSelector(LearnedSelector):
         if 'profile' in records and re.search(r'\b(?:whole|complete|full) (?:health )?profile\b', subject):
             reasons.append('legacy_profile_projection_incomplete')
         # Profile projections are not expressible by this legacy consumer.
-        if re.search(r'\b(?:goals|medications|meds|allergies|birth year|weight|conditions)\b', subject):
+        # 'weight' is also a catalogue metric; only an unbound weight names the profile field.
+        if any(word != 'weight' or 'weight' not in metrics for word in
+               re.findall(r'\b(?:goals|medications|meds|allergies|birth year|weight|conditions)\b', subject)):
             if not re.search(r'\b(?:whole|complete|full) (?:health )?profile\b', subject):
                 reasons.append('narrow_or_unavailable_profile_field')
         if predicted and period is not None:
