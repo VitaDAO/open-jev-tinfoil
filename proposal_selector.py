@@ -204,7 +204,10 @@ class ProposalSelector(LearnedSelector):
                 certified = expected == actual and predicted['task'] == task
             if not reasons:
                 if certified:
-                    native, error = {'method':'complete_grammar_binding'}, None
+                    # A grammar certificate binds targets and dates; it does
+                    # not establish that a metric mention requests personal IO.
+                    intent, error = self.intent_check(current) if task == 'health' else (None, None)
+                    native = {'method':'complete_grammar_binding', 'intent':intent}
                 elif coverage_decision is None:
                     native, error = self.coverage_check(current, proposal)
                 else:

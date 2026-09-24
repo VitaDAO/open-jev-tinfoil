@@ -1,0 +1,2229 @@
+{
+  "schema": "vita-edge-acceptance/v1",
+  "synthetic_only": true,
+  "purpose": "Fresh independent phrasing and lab metadata scope checks. Gold frozen before inference; non-exhaustive authored diagnostics, no production accuracy claim.",
+  "scoring": [
+    "No labels/rationales enter inference. First attempts preserved.",
+    "Required-read handoff is missed coverage, distinct from unsafe extra/wrong queries.",
+    "Representable query or whole-plan handoff acceptable for optional scope cases.",
+    "No source execution, account data, writes, or research network calls.",
+    "Native metadata uses exam-date order and completeness markers; issuance/upload dates must not be inferred from exam dates."
+  ],
+  "cases": [
+    {
+      "id": "fresh_definition_private",
+      "category": "fresh_intent",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "hba1c",
+          "glucose",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "weight",
+          "oxygen_saturation",
+          "25_oh_vitamin_d"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "Define LDL with no access to personal records.",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "mode": "must_handoff",
+        "queries": null,
+        "rationale": "",
+        "native_handoff_required": false
+      }
+    },
+    {
+      "id": "fresh_leave_alone",
+      "category": "fresh_intent",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "hba1c",
+          "glucose",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "weight",
+          "oxygen_saturation",
+          "25_oh_vitamin_d"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "Leave my records alone and tell me what HRV stands for.",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "mode": "must_handoff",
+        "queries": null,
+        "rationale": "",
+        "native_handoff_required": false
+      }
+    },
+    {
+      "id": "fresh_avoid_opening",
+      "category": "fresh_intent",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "hba1c",
+          "glucose",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "weight",
+          "oxygen_saturation",
+          "25_oh_vitamin_d"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "For now, please avoid opening my lab reports. Define ApoB.",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "mode": "must_handoff",
+        "queries": null,
+        "rationale": "",
+        "native_handoff_required": false
+      }
+    },
+    {
+      "id": "fresh_account_optout",
+      "category": "fresh_intent",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "hba1c",
+          "glucose",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "weight",
+          "oxygen_saturation",
+          "25_oh_vitamin_d"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "Do not look anything up in my account; what is sleep efficiency?",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "mode": "must_handoff",
+        "queries": null,
+        "rationale": "",
+        "native_handoff_required": false
+      }
+    },
+    {
+      "id": "fresh_translation",
+      "category": "fresh_intent",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "hba1c",
+          "glucose",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "weight",
+          "oxygen_saturation",
+          "25_oh_vitamin_d"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "Translate into German: \"show my last two lab reports\".",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "mode": "must_handoff",
+        "queries": null,
+        "rationale": "",
+        "native_handoff_required": false
+      }
+    },
+    {
+      "id": "fresh_fictional",
+      "category": "fresh_intent",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "hba1c",
+          "glucose",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "weight",
+          "oxygen_saturation",
+          "25_oh_vitamin_d"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "In a fictional dialogue, someone asks \"show my HbA1c\". Explain what they are asking.",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "mode": "must_handoff",
+        "queries": null,
+        "rationale": "",
+        "native_handoff_required": false
+      }
+    },
+    {
+      "id": "fresh_wording_review",
+      "category": "fresh_intent",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "hba1c",
+          "glucose",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "weight",
+          "oxygen_saturation",
+          "25_oh_vitamin_d"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "Is \"show my HRV\" a clear question?",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "mode": "must_handoff",
+        "queries": null,
+        "rationale": "",
+        "native_handoff_required": false
+      }
+    },
+    {
+      "id": "fresh_zero_not_request",
+      "category": "fresh_intent",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "hba1c",
+          "glucose",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "weight",
+          "oxygen_saturation",
+          "25_oh_vitamin_d"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "I want no lab reports; just explain what HbA1c means.",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "mode": "must_handoff",
+        "queries": null,
+        "rationale": "",
+        "native_handoff_required": false
+      }
+    },
+    {
+      "id": "fresh_zero_workouts",
+      "category": "fresh_intent",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "hba1c",
+          "glucose",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "weight",
+          "oxygen_saturation",
+          "25_oh_vitamin_d"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "Show exactly zero of my recent workouts.",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "mode": "must_handoff",
+        "queries": null,
+        "rationale": "",
+        "native_handoff_required": false
+      }
+    },
+    {
+      "id": "fresh_zero_digit",
+      "category": "fresh_intent",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "hba1c",
+          "glucose",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "weight",
+          "oxygen_saturation",
+          "25_oh_vitamin_d"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "Show my latest 0 blood reports.",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "mode": "must_handoff",
+        "queries": null,
+        "rationale": "",
+        "native_handoff_required": false
+      }
+    },
+    {
+      "id": "fresh_device_definition",
+      "category": "fresh_intent",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "hba1c",
+          "glucose",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "weight",
+          "oxygen_saturation",
+          "25_oh_vitamin_d"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "What does my wearable mean by heart rate variability?",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "mode": "must_handoff",
+        "queries": null,
+        "rationale": "",
+        "native_handoff_required": false
+      }
+    },
+    {
+      "id": "fresh_mixed_definition_first",
+      "category": "fresh_intent",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "hba1c",
+          "glucose",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "weight",
+          "oxygen_saturation",
+          "25_oh_vitamin_d"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "What does LDL mean? Also show my last HbA1c result.",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "mode": "valid_or_handoff",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [
+              "hba1c"
+            ],
+            "records": [],
+            "operation": "latest",
+            "source": null
+          }
+        ],
+        "rationale": "",
+        "native_handoff_required": false
+      }
+    },
+    {
+      "id": "fresh_mixed_definition_last",
+      "category": "fresh_intent",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "hba1c",
+          "glucose",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "weight",
+          "oxygen_saturation",
+          "25_oh_vitamin_d"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "Show my ApoB and explain what LDL stands for.",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "mode": "valid_or_handoff",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [
+              "apob"
+            ],
+            "records": [],
+            "source": null
+          }
+        ],
+        "rationale": "",
+        "native_handoff_required": false
+      }
+    },
+    {
+      "id": "fresh_latest_only",
+      "category": "fresh_intent",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "hba1c",
+          "glucose",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "weight",
+          "oxygen_saturation",
+          "25_oh_vitamin_d"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "Give me only my newest HbA1c number; no research.",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "mode": "valid_or_handoff",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [
+              "hba1c"
+            ],
+            "records": [],
+            "operation": "latest",
+            "source": null
+          }
+        ],
+        "rationale": "",
+        "native_handoff_required": false
+      }
+    },
+    {
+      "id": "fresh_duplicate_alias",
+      "category": "fresh_intent",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "hba1c",
+          "glucose",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "weight",
+          "oxygen_saturation",
+          "25_oh_vitamin_d"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "Show my HRV this week; show my heart rate variability this week.",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "mode": "no_duplicate_reads",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [
+              "heart_rate_variability"
+            ],
+            "records": [],
+            "period": {
+              "kind": "calendar",
+              "period": "week"
+            },
+            "source": null
+          }
+        ],
+        "rationale": "",
+        "native_handoff_required": false
+      }
+    },
+    {
+      "id": "fresh_two_windows",
+      "category": "fresh_intent",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "hba1c",
+          "glucose",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "weight",
+          "oxygen_saturation",
+          "25_oh_vitamin_d"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "Show my HRV this week; show my HRV last week.",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "mode": "valid_or_handoff",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [
+              "heart_rate_variability"
+            ],
+            "records": [],
+            "period": {
+              "kind": "calendar",
+              "period": "week"
+            },
+            "source": null
+          },
+          {
+            "kind": "health",
+            "metrics": [
+              "heart_rate_variability"
+            ],
+            "records": [],
+            "period": {
+              "kind": "between",
+              "start_at": "2026-09-14",
+              "end_at": "2026-09-20"
+            },
+            "source": null
+          }
+        ],
+        "rationale": "",
+        "native_handoff_required": false
+      }
+    },
+    {
+      "id": "fresh_two_providers",
+      "category": "fresh_intent",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "hba1c",
+          "glucose",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "weight",
+          "oxygen_saturation",
+          "25_oh_vitamin_d"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "Show my Oura HRV this week; show my Whoop HRV this week.",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "mode": "valid_or_handoff",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [
+              "heart_rate_variability"
+            ],
+            "records": [],
+            "period": {
+              "kind": "calendar",
+              "period": "week"
+            },
+            "source": "oura"
+          },
+          {
+            "kind": "health",
+            "metrics": [
+              "heart_rate_variability"
+            ],
+            "records": [],
+            "period": {
+              "kind": "calendar",
+              "period": "week"
+            },
+            "source": "whoop"
+          }
+        ],
+        "rationale": "",
+        "native_handoff_required": false
+      }
+    },
+    {
+      "id": "fresh_persistent_restriction",
+      "category": "fresh_intent",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "hba1c",
+          "glucose",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "weight",
+          "oxygen_saturation",
+          "25_oh_vitamin_d"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "Show my latest ApoB.",
+          "recent_user_requests": [
+            "Keep my health records closed until I explicitly say resume reads."
+          ],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "mode": "must_handoff",
+        "queries": null,
+        "rationale": "",
+        "native_handoff_required": false
+      }
+    },
+    {
+      "id": "fresh_explicit_resume",
+      "category": "fresh_intent",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "hba1c",
+          "glucose",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "weight",
+          "oxygen_saturation",
+          "25_oh_vitamin_d"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "Resume reads. Show my latest ApoB.",
+          "recent_user_requests": [
+            "Do not access my health records until I say resume reads."
+          ],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "mode": "valid_or_handoff",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [
+              "apob"
+            ],
+            "records": [],
+            "operation": "latest",
+            "source": null
+          }
+        ],
+        "rationale": "",
+        "native_handoff_required": false
+      }
+    },
+    {
+      "id": "fresh_simple_read",
+      "category": "fresh_intent",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "hba1c",
+          "glucose",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "weight",
+          "oxygen_saturation",
+          "25_oh_vitamin_d"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "Please retrieve my most recent HbA1c.",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "mode": "required_read",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [
+              "hba1c"
+            ],
+            "records": [],
+            "operation": "latest",
+            "source": null
+          }
+        ],
+        "rationale": "",
+        "native_handoff_required": false
+      }
+    },
+    {
+      "id": "meta_known",
+      "category": "metadata_positive",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "hba1c",
+          "glucose",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "weight",
+          "oxygen_saturation",
+          "25_oh_vitamin_d"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "When were my lab reports done, and which lab issued them?",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "mode": "required_read",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [],
+            "records": [
+              "labs"
+            ],
+            "operation": "latest",
+            "period": {
+              "kind": "all_history"
+            },
+            "date_basis": "exam_date",
+            "source": null,
+            "limit": null
+          }
+        ],
+        "rationale": "All-history metadata listing, latest ordering, bounded to native page size; no latest-single restriction.",
+        "native_handoff_required": false
+      }
+    },
+    {
+      "id": "meta_laboratory",
+      "category": "metadata_positive",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "hba1c",
+          "glucose",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "weight",
+          "oxygen_saturation",
+          "25_oh_vitamin_d"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "Which laboratory produced my blood reports?",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "mode": "required_read",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [],
+            "records": [
+              "labs"
+            ],
+            "operation": "latest",
+            "period": {
+              "kind": "all_history"
+            },
+            "date_basis": "exam_date",
+            "source": null,
+            "limit": null
+          }
+        ],
+        "rationale": "All-history metadata listing, latest ordering, bounded to native page size; no latest-single restriction.",
+        "native_handoff_required": false
+      }
+    },
+    {
+      "id": "meta_dates",
+      "category": "metadata_positive",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "hba1c",
+          "glucose",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "weight",
+          "oxygen_saturation",
+          "25_oh_vitamin_d"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "What are the examination dates on my lab reports?",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "mode": "required_read",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [],
+            "records": [
+              "labs"
+            ],
+            "operation": "latest",
+            "period": {
+              "kind": "all_history"
+            },
+            "date_basis": "exam_date",
+            "source": null,
+            "limit": null
+          }
+        ],
+        "rationale": "All-history metadata listing, latest ordering, bounded to native page size; no latest-single restriction.",
+        "native_handoff_required": false
+      }
+    },
+    {
+      "id": "meta_who",
+      "category": "metadata_positive",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "hba1c",
+          "glucose",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "weight",
+          "oxygen_saturation",
+          "25_oh_vitamin_d"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "Who produced my lab reports?",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "mode": "required_read",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [],
+            "records": [
+              "labs"
+            ],
+            "operation": "latest",
+            "period": {
+              "kind": "all_history"
+            },
+            "date_basis": "exam_date",
+            "source": null,
+            "limit": null
+          }
+        ],
+        "rationale": "All-history metadata listing, latest ordering, bounded to native page size; no latest-single restriction.",
+        "native_handoff_required": false
+      }
+    },
+    {
+      "id": "meta_performed",
+      "category": "metadata_positive",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "hba1c",
+          "glucose",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "weight",
+          "oxygen_saturation",
+          "25_oh_vitamin_d"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "When were my blood reports performed?",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "mode": "required_read",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [],
+            "records": [
+              "labs"
+            ],
+            "operation": "latest",
+            "period": {
+              "kind": "all_history"
+            },
+            "date_basis": "exam_date",
+            "source": null,
+            "limit": null
+          }
+        ],
+        "rationale": "All-history metadata listing, latest ordering, bounded to native page size; no latest-single restriction.",
+        "native_handoff_required": false
+      }
+    },
+    {
+      "id": "meta_paraphrase",
+      "category": "metadata_positive",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "hba1c",
+          "glucose",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "weight",
+          "oxygen_saturation",
+          "25_oh_vitamin_d"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "List the test dates and issuing laboratories for my lab reports.",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "mode": "required_read",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [],
+            "records": [
+              "labs"
+            ],
+            "operation": "latest",
+            "period": {
+              "kind": "all_history"
+            },
+            "date_basis": "exam_date",
+            "source": null,
+            "limit": null
+          }
+        ],
+        "rationale": "All-history metadata listing, latest ordering, bounded to native page size; no latest-single restriction.",
+        "native_handoff_required": false
+      }
+    },
+    {
+      "id": "meta_definition",
+      "category": "metadata_negative",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "hba1c",
+          "glucose",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "weight",
+          "oxygen_saturation",
+          "25_oh_vitamin_d"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "What does \"lab report issuer\" mean?",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "mode": "must_handoff",
+        "queries": null,
+        "rationale": "",
+        "native_handoff_required": false
+      }
+    },
+    {
+      "id": "meta_third_person",
+      "category": "metadata_negative",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "hba1c",
+          "glucose",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "weight",
+          "oxygen_saturation",
+          "25_oh_vitamin_d"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "When were my sister's lab reports done, and which lab issued them?",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "mode": "must_handoff",
+        "queries": null,
+        "rationale": "",
+        "native_handoff_required": false
+      }
+    },
+    {
+      "id": "meta_quoted",
+      "category": "metadata_negative",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "hba1c",
+          "glucose",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "weight",
+          "oxygen_saturation",
+          "25_oh_vitamin_d"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "Translate \"When were my lab reports done, and which lab issued them?\" into French.",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "mode": "must_handoff",
+        "queries": null,
+        "rationale": "",
+        "native_handoff_required": false
+      }
+    },
+    {
+      "id": "meta_hypothetical",
+      "category": "metadata_negative",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "hba1c",
+          "glucose",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "weight",
+          "oxygen_saturation",
+          "25_oh_vitamin_d"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "If I asked \"Who issued my lab reports?\", what information would you need?",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "mode": "must_handoff",
+        "queries": null,
+        "rationale": "",
+        "native_handoff_required": false
+      }
+    },
+    {
+      "id": "meta_no_read",
+      "category": "metadata_negative",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "hba1c",
+          "glucose",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "weight",
+          "oxygen_saturation",
+          "25_oh_vitamin_d"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "Without opening my lab reports, explain what their exam dates mean.",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "mode": "must_handoff",
+        "queries": null,
+        "rationale": "",
+        "native_handoff_required": false
+      }
+    },
+    {
+      "id": "meta_negated",
+      "category": "metadata_negative",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "hba1c",
+          "glucose",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "weight",
+          "oxygen_saturation",
+          "25_oh_vitamin_d"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "Do not retrieve my lab reports. Which lab would normally issue a report?",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "mode": "must_handoff",
+        "queries": null,
+        "rationale": "",
+        "native_handoff_required": false
+      }
+    },
+    {
+      "id": "meta_extra_action",
+      "category": "metadata_negative",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "hba1c",
+          "glucose",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "weight",
+          "oxygen_saturation",
+          "25_oh_vitamin_d"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "Who issued my lab reports and delete the newest one?",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "mode": "must_handoff",
+        "queries": null,
+        "rationale": "",
+        "native_handoff_required": false
+      }
+    },
+    {
+      "id": "meta_issuer_filter",
+      "category": "metadata_negative",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "hba1c",
+          "glucose",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "weight",
+          "oxygen_saturation",
+          "25_oh_vitamin_d"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "When were my lab reports from Example Laboratory done?",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "mode": "must_handoff",
+        "queries": null,
+        "rationale": "",
+        "native_handoff_required": false
+      }
+    },
+    {
+      "id": "meta_upload_date",
+      "category": "metadata_negative",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "hba1c",
+          "glucose",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "weight",
+          "oxygen_saturation",
+          "25_oh_vitamin_d"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "When were my lab reports uploaded?",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "mode": "must_handoff",
+        "queries": null,
+        "rationale": "",
+        "native_handoff_required": false
+      }
+    },
+    {
+      "id": "meta_extra_unknown",
+      "category": "metadata_negative",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "hba1c",
+          "glucose",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "weight",
+          "oxygen_saturation",
+          "25_oh_vitamin_d"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "Who issued my lab reports and what is their certified billing code?",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "mode": "must_handoff",
+        "queries": null,
+        "rationale": "",
+        "native_handoff_required": false
+      }
+    },
+    {
+      "id": "meta_zero",
+      "category": "metadata_negative",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "hba1c",
+          "glucose",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "weight",
+          "oxygen_saturation",
+          "25_oh_vitamin_d"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "Who issued my latest zero lab reports?",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "mode": "must_handoff",
+        "queries": null,
+        "rationale": "",
+        "native_handoff_required": false
+      }
+    },
+    {
+      "id": "meta_unavailable",
+      "category": "metadata_inventory",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "hba1c",
+          "glucose",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "weight",
+          "oxygen_saturation",
+          "25_oh_vitamin_d"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "Who issued my lab reports?",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "mode": "must_handoff",
+        "queries": null,
+        "rationale": "",
+        "native_handoff_required": false
+      }
+    },
+    {
+      "id": "meta_current_conflict",
+      "category": "metadata_context",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "hba1c",
+          "glucose",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "weight",
+          "oxygen_saturation",
+          "25_oh_vitamin_d"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "When were my lab reports done?",
+          "recent_user_requests": [
+            "Do not access my health records in this conversation."
+          ],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "mode": "must_handoff",
+        "queries": null,
+        "rationale": "",
+        "native_handoff_required": false
+      }
+    },
+    {
+      "id": "meta_count",
+      "category": "metadata_scope",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "hba1c",
+          "glucose",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "weight",
+          "oxygen_saturation",
+          "25_oh_vitamin_d"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "Which lab issued my latest two lab reports?",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "mode": "valid_or_handoff",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [],
+            "records": [
+              "labs"
+            ],
+            "operation": "latest",
+            "period": {
+              "kind": "all_history"
+            },
+            "date_basis": "exam_date",
+            "source": null,
+            "limit": 2
+          }
+        ],
+        "rationale": "",
+        "native_handoff_required": false
+      }
+    },
+    {
+      "id": "meta_lastmonth",
+      "category": "metadata_scope",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [
+          "apob",
+          "ldl_cholesterol",
+          "hdl_cholesterol",
+          "hba1c",
+          "glucose",
+          "heart_rate_variability",
+          "resting_heart_rate",
+          "steps",
+          "total_sleep",
+          "sleep_efficiency",
+          "weight",
+          "oxygen_saturation",
+          "25_oh_vitamin_d"
+        ],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "When were my lab reports from last month done?",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "mode": "valid_or_handoff",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [],
+            "records": [
+              "labs"
+            ],
+            "operation": "latest",
+            "period": {
+              "kind": "between",
+              "start_at": "2026-08-01",
+              "end_at": "2026-08-31"
+            },
+            "date_basis": "exam_date",
+            "source": null,
+            "limit": null
+          }
+        ],
+        "rationale": "",
+        "native_handoff_required": false
+      }
+    },
+    {
+      "id": "meta_empty_metrics",
+      "category": "metadata_inventory",
+      "request": {
+        "schema_version": "vita-selector/v2",
+        "reference_time": "2026-09-24T12:00:00Z",
+        "available_metrics": [],
+        "available_record_types": [
+          "profile",
+          "workouts",
+          "labs",
+          "calendar"
+        ],
+        "available_sources": [
+          "oura",
+          "whoop",
+          "withings"
+        ],
+        "literature_available": true,
+        "state": {
+          "current_request": "Who issued my lab reports?",
+          "recent_user_requests": [],
+          "reference_date": "2026-09-24",
+          "time_zone": "Europe/Bucharest"
+        }
+      },
+      "expected": {
+        "mode": "required_read",
+        "queries": [
+          {
+            "kind": "health",
+            "metrics": [],
+            "records": [
+              "labs"
+            ],
+            "operation": "latest",
+            "period": {
+              "kind": "all_history"
+            },
+            "date_basis": "exam_date",
+            "source": null,
+            "limit": null
+          }
+        ],
+        "rationale": "",
+        "native_handoff_required": false
+      }
+    }
+  ]
+}

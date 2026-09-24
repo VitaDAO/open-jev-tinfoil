@@ -1,0 +1,3914 @@
+{
+  "train": [
+    {
+      "request": "Show my ApoB",
+      "label": 1
+    },
+    {
+      "request": "Show my LDL cholesterol",
+      "label": 1
+    },
+    {
+      "request": "Show my oxygen saturation",
+      "label": 1
+    },
+    {
+      "request": "Show my respiratory rate",
+      "label": 1
+    },
+    {
+      "request": "Show my sleep efficiency",
+      "label": 1
+    },
+    {
+      "request": "Show my steps",
+      "label": 1
+    },
+    {
+      "request": "Show my total sleep",
+      "label": 1
+    },
+    {
+      "request": "Show my custom metric",
+      "label": 1
+    },
+    {
+      "request": "Show my lab reports",
+      "label": 1
+    },
+    {
+      "request": "Show my workouts",
+      "label": 1
+    },
+    {
+      "request": "Show my profile",
+      "label": 1
+    },
+    {
+      "request": "Show my health plans",
+      "label": 1
+    },
+    {
+      "request": "What is my latest ApoB?",
+      "label": 1
+    },
+    {
+      "request": "What is my latest LDL cholesterol?",
+      "label": 1
+    },
+    {
+      "request": "What is my latest oxygen saturation?",
+      "label": 1
+    },
+    {
+      "request": "What is my latest respiratory rate?",
+      "label": 1
+    },
+    {
+      "request": "What is my latest sleep efficiency?",
+      "label": 1
+    },
+    {
+      "request": "What is my latest steps?",
+      "label": 1
+    },
+    {
+      "request": "What is my latest total sleep?",
+      "label": 1
+    },
+    {
+      "request": "What is my latest custom metric?",
+      "label": 1
+    },
+    {
+      "request": "What is my latest lab reports?",
+      "label": 1
+    },
+    {
+      "request": "What is my latest workouts?",
+      "label": 1
+    },
+    {
+      "request": "What is my latest profile?",
+      "label": 1
+    },
+    {
+      "request": "What is my latest health plans?",
+      "label": 1
+    },
+    {
+      "request": "How has my ApoB evolved?",
+      "label": 1
+    },
+    {
+      "request": "How has my LDL cholesterol evolved?",
+      "label": 1
+    },
+    {
+      "request": "How has my oxygen saturation evolved?",
+      "label": 1
+    },
+    {
+      "request": "How has my respiratory rate evolved?",
+      "label": 1
+    },
+    {
+      "request": "How has my sleep efficiency evolved?",
+      "label": 1
+    },
+    {
+      "request": "How has my steps evolved?",
+      "label": 1
+    },
+    {
+      "request": "How has my total sleep evolved?",
+      "label": 1
+    },
+    {
+      "request": "How has my custom metric evolved?",
+      "label": 1
+    },
+    {
+      "request": "How has my lab reports evolved?",
+      "label": 1
+    },
+    {
+      "request": "How has my workouts evolved?",
+      "label": 1
+    },
+    {
+      "request": "How has my profile evolved?",
+      "label": 1
+    },
+    {
+      "request": "How has my health plans evolved?",
+      "label": 1
+    },
+    {
+      "request": "Pull up my ApoB for last month",
+      "label": 1
+    },
+    {
+      "request": "Pull up my LDL cholesterol for last month",
+      "label": 1
+    },
+    {
+      "request": "Pull up my oxygen saturation for last month",
+      "label": 1
+    },
+    {
+      "request": "Pull up my respiratory rate for last month",
+      "label": 1
+    },
+    {
+      "request": "Pull up my sleep efficiency for last month",
+      "label": 1
+    },
+    {
+      "request": "Pull up my steps for last month",
+      "label": 1
+    },
+    {
+      "request": "Pull up my total sleep for last month",
+      "label": 1
+    },
+    {
+      "request": "Pull up my custom metric for last month",
+      "label": 1
+    },
+    {
+      "request": "Pull up my lab reports for last month",
+      "label": 1
+    },
+    {
+      "request": "Pull up my workouts for last month",
+      "label": 1
+    },
+    {
+      "request": "Pull up my profile for last month",
+      "label": 1
+    },
+    {
+      "request": "Pull up my health plans for last month",
+      "label": 1
+    },
+    {
+      "request": "Review my ApoB from 2025",
+      "label": 1
+    },
+    {
+      "request": "Review my LDL cholesterol from 2025",
+      "label": 1
+    },
+    {
+      "request": "Review my oxygen saturation from 2025",
+      "label": 1
+    },
+    {
+      "request": "Review my respiratory rate from 2025",
+      "label": 1
+    },
+    {
+      "request": "Review my sleep efficiency from 2025",
+      "label": 1
+    },
+    {
+      "request": "Review my steps from 2025",
+      "label": 1
+    },
+    {
+      "request": "Review my total sleep from 2025",
+      "label": 1
+    },
+    {
+      "request": "Review my custom metric from 2025",
+      "label": 1
+    },
+    {
+      "request": "Review my lab reports from 2025",
+      "label": 1
+    },
+    {
+      "request": "Review my workouts from 2025",
+      "label": 1
+    },
+    {
+      "request": "Review my profile from 2025",
+      "label": 1
+    },
+    {
+      "request": "Review my health plans from 2025",
+      "label": 1
+    },
+    {
+      "request": "Could you display my ApoB during February?",
+      "label": 1
+    },
+    {
+      "request": "Could you display my LDL cholesterol during February?",
+      "label": 1
+    },
+    {
+      "request": "Could you display my oxygen saturation during February?",
+      "label": 1
+    },
+    {
+      "request": "Could you display my respiratory rate during February?",
+      "label": 1
+    },
+    {
+      "request": "Could you display my sleep efficiency during February?",
+      "label": 1
+    },
+    {
+      "request": "Could you display my steps during February?",
+      "label": 1
+    },
+    {
+      "request": "Could you display my total sleep during February?",
+      "label": 1
+    },
+    {
+      "request": "Could you display my custom metric during February?",
+      "label": 1
+    },
+    {
+      "request": "Could you display my lab reports during February?",
+      "label": 1
+    },
+    {
+      "request": "Could you display my workouts during February?",
+      "label": 1
+    },
+    {
+      "request": "Could you display my profile during February?",
+      "label": 1
+    },
+    {
+      "request": "Could you display my health plans during February?",
+      "label": 1
+    },
+    {
+      "request": "I want to see my ApoB",
+      "label": 1
+    },
+    {
+      "request": "I want to see my LDL cholesterol",
+      "label": 1
+    },
+    {
+      "request": "I want to see my oxygen saturation",
+      "label": 1
+    },
+    {
+      "request": "I want to see my respiratory rate",
+      "label": 1
+    },
+    {
+      "request": "I want to see my sleep efficiency",
+      "label": 1
+    },
+    {
+      "request": "I want to see my steps",
+      "label": 1
+    },
+    {
+      "request": "I want to see my total sleep",
+      "label": 1
+    },
+    {
+      "request": "I want to see my custom metric",
+      "label": 1
+    },
+    {
+      "request": "I want to see my lab reports",
+      "label": 1
+    },
+    {
+      "request": "I want to see my workouts",
+      "label": 1
+    },
+    {
+      "request": "I want to see my profile",
+      "label": 1
+    },
+    {
+      "request": "I want to see my health plans",
+      "label": 1
+    },
+    {
+      "request": "What ApoB have I got on file?",
+      "label": 1
+    },
+    {
+      "request": "What LDL cholesterol have I got on file?",
+      "label": 1
+    },
+    {
+      "request": "What oxygen saturation have I got on file?",
+      "label": 1
+    },
+    {
+      "request": "What respiratory rate have I got on file?",
+      "label": 1
+    },
+    {
+      "request": "What sleep efficiency have I got on file?",
+      "label": 1
+    },
+    {
+      "request": "What steps have I got on file?",
+      "label": 1
+    },
+    {
+      "request": "What total sleep have I got on file?",
+      "label": 1
+    },
+    {
+      "request": "What custom metric have I got on file?",
+      "label": 1
+    },
+    {
+      "request": "What lab reports have I got on file?",
+      "label": 1
+    },
+    {
+      "request": "What workouts have I got on file?",
+      "label": 1
+    },
+    {
+      "request": "What profile have I got on file?",
+      "label": 1
+    },
+    {
+      "request": "What health plans have I got on file?",
+      "label": 1
+    },
+    {
+      "request": "Let me inspect my ApoB history",
+      "label": 1
+    },
+    {
+      "request": "Let me inspect my LDL cholesterol history",
+      "label": 1
+    },
+    {
+      "request": "Let me inspect my oxygen saturation history",
+      "label": 1
+    },
+    {
+      "request": "Let me inspect my respiratory rate history",
+      "label": 1
+    },
+    {
+      "request": "Let me inspect my sleep efficiency history",
+      "label": 1
+    },
+    {
+      "request": "Let me inspect my steps history",
+      "label": 1
+    },
+    {
+      "request": "Let me inspect my total sleep history",
+      "label": 1
+    },
+    {
+      "request": "Let me inspect my custom metric history",
+      "label": 1
+    },
+    {
+      "request": "Let me inspect my lab reports history",
+      "label": 1
+    },
+    {
+      "request": "Let me inspect my workouts history",
+      "label": 1
+    },
+    {
+      "request": "Let me inspect my profile history",
+      "label": 1
+    },
+    {
+      "request": "Let me inspect my health plans history",
+      "label": 1
+    },
+    {
+      "request": "Can you retrieve my ApoB from the past 14 days?",
+      "label": 1
+    },
+    {
+      "request": "Can you retrieve my LDL cholesterol from the past 14 days?",
+      "label": 1
+    },
+    {
+      "request": "Can you retrieve my oxygen saturation from the past 14 days?",
+      "label": 1
+    },
+    {
+      "request": "Can you retrieve my respiratory rate from the past 14 days?",
+      "label": 1
+    },
+    {
+      "request": "Can you retrieve my sleep efficiency from the past 14 days?",
+      "label": 1
+    },
+    {
+      "request": "Can you retrieve my steps from the past 14 days?",
+      "label": 1
+    },
+    {
+      "request": "Can you retrieve my total sleep from the past 14 days?",
+      "label": 1
+    },
+    {
+      "request": "Can you retrieve my custom metric from the past 14 days?",
+      "label": 1
+    },
+    {
+      "request": "Can you retrieve my lab reports from the past 14 days?",
+      "label": 1
+    },
+    {
+      "request": "Can you retrieve my workouts from the past 14 days?",
+      "label": 1
+    },
+    {
+      "request": "Can you retrieve my profile from the past 14 days?",
+      "label": 1
+    },
+    {
+      "request": "Can you retrieve my health plans from the past 14 days?",
+      "label": 1
+    },
+    {
+      "request": "My ApoB yesterday please",
+      "label": 1
+    },
+    {
+      "request": "My LDL cholesterol yesterday please",
+      "label": 1
+    },
+    {
+      "request": "My oxygen saturation yesterday please",
+      "label": 1
+    },
+    {
+      "request": "My respiratory rate yesterday please",
+      "label": 1
+    },
+    {
+      "request": "My sleep efficiency yesterday please",
+      "label": 1
+    },
+    {
+      "request": "My steps yesterday please",
+      "label": 1
+    },
+    {
+      "request": "My total sleep yesterday please",
+      "label": 1
+    },
+    {
+      "request": "My custom metric yesterday please",
+      "label": 1
+    },
+    {
+      "request": "My lab reports yesterday please",
+      "label": 1
+    },
+    {
+      "request": "My workouts yesterday please",
+      "label": 1
+    },
+    {
+      "request": "My profile yesterday please",
+      "label": 1
+    },
+    {
+      "request": "My health plans yesterday please",
+      "label": 1
+    },
+    {
+      "request": "Tell me about my recorded ApoB",
+      "label": 1
+    },
+    {
+      "request": "Tell me about my recorded LDL cholesterol",
+      "label": 1
+    },
+    {
+      "request": "Tell me about my recorded oxygen saturation",
+      "label": 1
+    },
+    {
+      "request": "Tell me about my recorded respiratory rate",
+      "label": 1
+    },
+    {
+      "request": "Tell me about my recorded sleep efficiency",
+      "label": 1
+    },
+    {
+      "request": "Tell me about my recorded steps",
+      "label": 1
+    },
+    {
+      "request": "Tell me about my recorded total sleep",
+      "label": 1
+    },
+    {
+      "request": "Tell me about my recorded custom metric",
+      "label": 1
+    },
+    {
+      "request": "Tell me about my recorded lab reports",
+      "label": 1
+    },
+    {
+      "request": "Tell me about my recorded workouts",
+      "label": 1
+    },
+    {
+      "request": "Tell me about my recorded profile",
+      "label": 1
+    },
+    {
+      "request": "Tell me about my recorded health plans",
+      "label": 1
+    },
+    {
+      "request": "Show ApoB between June 3 and June 17",
+      "label": 1
+    },
+    {
+      "request": "Show LDL cholesterol between June 3 and June 17",
+      "label": 1
+    },
+    {
+      "request": "Show oxygen saturation between June 3 and June 17",
+      "label": 1
+    },
+    {
+      "request": "Show respiratory rate between June 3 and June 17",
+      "label": 1
+    },
+    {
+      "request": "Show sleep efficiency between June 3 and June 17",
+      "label": 1
+    },
+    {
+      "request": "Show steps between June 3 and June 17",
+      "label": 1
+    },
+    {
+      "request": "Show total sleep between June 3 and June 17",
+      "label": 1
+    },
+    {
+      "request": "Show custom metric between June 3 and June 17",
+      "label": 1
+    },
+    {
+      "request": "Show lab reports between June 3 and June 17",
+      "label": 1
+    },
+    {
+      "request": "Show workouts between June 3 and June 17",
+      "label": 1
+    },
+    {
+      "request": "Show profile between June 3 and June 17",
+      "label": 1
+    },
+    {
+      "request": "Show health plans between June 3 and June 17",
+      "label": 1
+    },
+    {
+      "request": "What was my ApoB like in 2024?",
+      "label": 1
+    },
+    {
+      "request": "What was my LDL cholesterol like in 2024?",
+      "label": 1
+    },
+    {
+      "request": "What was my oxygen saturation like in 2024?",
+      "label": 1
+    },
+    {
+      "request": "What was my respiratory rate like in 2024?",
+      "label": 1
+    },
+    {
+      "request": "What was my sleep efficiency like in 2024?",
+      "label": 1
+    },
+    {
+      "request": "What was my steps like in 2024?",
+      "label": 1
+    },
+    {
+      "request": "What was my total sleep like in 2024?",
+      "label": 1
+    },
+    {
+      "request": "What was my custom metric like in 2024?",
+      "label": 1
+    },
+    {
+      "request": "What was my lab reports like in 2024?",
+      "label": 1
+    },
+    {
+      "request": "What was my workouts like in 2024?",
+      "label": 1
+    },
+    {
+      "request": "What was my profile like in 2024?",
+      "label": 1
+    },
+    {
+      "request": "What was my health plans like in 2024?",
+      "label": 1
+    },
+    {
+      "request": "Graph my ApoB over time",
+      "label": 1
+    },
+    {
+      "request": "Graph my LDL cholesterol over time",
+      "label": 1
+    },
+    {
+      "request": "Graph my oxygen saturation over time",
+      "label": 1
+    },
+    {
+      "request": "Graph my respiratory rate over time",
+      "label": 1
+    },
+    {
+      "request": "Graph my sleep efficiency over time",
+      "label": 1
+    },
+    {
+      "request": "Graph my steps over time",
+      "label": 1
+    },
+    {
+      "request": "Graph my total sleep over time",
+      "label": 1
+    },
+    {
+      "request": "Graph my custom metric over time",
+      "label": 1
+    },
+    {
+      "request": "Graph my lab reports over time",
+      "label": 1
+    },
+    {
+      "request": "Graph my workouts over time",
+      "label": 1
+    },
+    {
+      "request": "Graph my profile over time",
+      "label": 1
+    },
+    {
+      "request": "Graph my health plans over time",
+      "label": 1
+    },
+    {
+      "request": "Summarize my ApoB this year",
+      "label": 1
+    },
+    {
+      "request": "Summarize my LDL cholesterol this year",
+      "label": 1
+    },
+    {
+      "request": "Summarize my oxygen saturation this year",
+      "label": 1
+    },
+    {
+      "request": "Summarize my respiratory rate this year",
+      "label": 1
+    },
+    {
+      "request": "Summarize my sleep efficiency this year",
+      "label": 1
+    },
+    {
+      "request": "Summarize my steps this year",
+      "label": 1
+    },
+    {
+      "request": "Summarize my total sleep this year",
+      "label": 1
+    },
+    {
+      "request": "Summarize my custom metric this year",
+      "label": 1
+    },
+    {
+      "request": "Summarize my lab reports this year",
+      "label": 1
+    },
+    {
+      "request": "Summarize my workouts this year",
+      "label": 1
+    },
+    {
+      "request": "Summarize my profile this year",
+      "label": 1
+    },
+    {
+      "request": "Summarize my health plans this year",
+      "label": 1
+    },
+    {
+      "request": "What is ApoB?",
+      "label": 0
+    },
+    {
+      "request": "What is LDL cholesterol?",
+      "label": 0
+    },
+    {
+      "request": "What is oxygen saturation?",
+      "label": 0
+    },
+    {
+      "request": "What is respiratory rate?",
+      "label": 0
+    },
+    {
+      "request": "What is sleep efficiency?",
+      "label": 0
+    },
+    {
+      "request": "What is steps?",
+      "label": 0
+    },
+    {
+      "request": "What is total sleep?",
+      "label": 0
+    },
+    {
+      "request": "What is custom metric?",
+      "label": 0
+    },
+    {
+      "request": "What is lab reports?",
+      "label": 0
+    },
+    {
+      "request": "What is workouts?",
+      "label": 0
+    },
+    {
+      "request": "What is profile?",
+      "label": 0
+    },
+    {
+      "request": "What is health plans?",
+      "label": 0
+    },
+    {
+      "request": "Explain what ApoB means",
+      "label": 0
+    },
+    {
+      "request": "Explain what LDL cholesterol means",
+      "label": 0
+    },
+    {
+      "request": "Explain what oxygen saturation means",
+      "label": 0
+    },
+    {
+      "request": "Explain what respiratory rate means",
+      "label": 0
+    },
+    {
+      "request": "Explain what sleep efficiency means",
+      "label": 0
+    },
+    {
+      "request": "Explain what steps means",
+      "label": 0
+    },
+    {
+      "request": "Explain what total sleep means",
+      "label": 0
+    },
+    {
+      "request": "Explain what custom metric means",
+      "label": 0
+    },
+    {
+      "request": "Explain what lab reports means",
+      "label": 0
+    },
+    {
+      "request": "Explain what workouts means",
+      "label": 0
+    },
+    {
+      "request": "Explain what profile means",
+      "label": 0
+    },
+    {
+      "request": "Explain what health plans means",
+      "label": 0
+    },
+    {
+      "request": "Why does ApoB matter?",
+      "label": 0
+    },
+    {
+      "request": "Why does LDL cholesterol matter?",
+      "label": 0
+    },
+    {
+      "request": "Why does oxygen saturation matter?",
+      "label": 0
+    },
+    {
+      "request": "Why does respiratory rate matter?",
+      "label": 0
+    },
+    {
+      "request": "Why does sleep efficiency matter?",
+      "label": 0
+    },
+    {
+      "request": "Why does steps matter?",
+      "label": 0
+    },
+    {
+      "request": "Why does total sleep matter?",
+      "label": 0
+    },
+    {
+      "request": "Why does custom metric matter?",
+      "label": 0
+    },
+    {
+      "request": "Why does lab reports matter?",
+      "label": 0
+    },
+    {
+      "request": "Why does workouts matter?",
+      "label": 0
+    },
+    {
+      "request": "Why does profile matter?",
+      "label": 0
+    },
+    {
+      "request": "Why does health plans matter?",
+      "label": 0
+    },
+    {
+      "request": "Is ApoB a medical term?",
+      "label": 0
+    },
+    {
+      "request": "Is LDL cholesterol a medical term?",
+      "label": 0
+    },
+    {
+      "request": "Is oxygen saturation a medical term?",
+      "label": 0
+    },
+    {
+      "request": "Is respiratory rate a medical term?",
+      "label": 0
+    },
+    {
+      "request": "Is sleep efficiency a medical term?",
+      "label": 0
+    },
+    {
+      "request": "Is steps a medical term?",
+      "label": 0
+    },
+    {
+      "request": "Is total sleep a medical term?",
+      "label": 0
+    },
+    {
+      "request": "Is custom metric a medical term?",
+      "label": 0
+    },
+    {
+      "request": "Is lab reports a medical term?",
+      "label": 0
+    },
+    {
+      "request": "Is workouts a medical term?",
+      "label": 0
+    },
+    {
+      "request": "Is profile a medical term?",
+      "label": 0
+    },
+    {
+      "request": "Is health plans a medical term?",
+      "label": 0
+    },
+    {
+      "request": "How does ApoB work in general?",
+      "label": 0
+    },
+    {
+      "request": "How does LDL cholesterol work in general?",
+      "label": 0
+    },
+    {
+      "request": "How does oxygen saturation work in general?",
+      "label": 0
+    },
+    {
+      "request": "How does respiratory rate work in general?",
+      "label": 0
+    },
+    {
+      "request": "How does sleep efficiency work in general?",
+      "label": 0
+    },
+    {
+      "request": "How does steps work in general?",
+      "label": 0
+    },
+    {
+      "request": "How does total sleep work in general?",
+      "label": 0
+    },
+    {
+      "request": "How does custom metric work in general?",
+      "label": 0
+    },
+    {
+      "request": "How does lab reports work in general?",
+      "label": 0
+    },
+    {
+      "request": "How does workouts work in general?",
+      "label": 0
+    },
+    {
+      "request": "How does profile work in general?",
+      "label": 0
+    },
+    {
+      "request": "How does health plans work in general?",
+      "label": 0
+    },
+    {
+      "request": "Does exercise cause changes in my ApoB?",
+      "label": 0
+    },
+    {
+      "request": "Does exercise cause changes in my LDL cholesterol?",
+      "label": 0
+    },
+    {
+      "request": "Does exercise cause changes in my oxygen saturation?",
+      "label": 0
+    },
+    {
+      "request": "Does exercise cause changes in my respiratory rate?",
+      "label": 0
+    },
+    {
+      "request": "Does exercise cause changes in my sleep efficiency?",
+      "label": 0
+    },
+    {
+      "request": "Does exercise cause changes in my steps?",
+      "label": 0
+    },
+    {
+      "request": "Does exercise cause changes in my total sleep?",
+      "label": 0
+    },
+    {
+      "request": "Does exercise cause changes in my custom metric?",
+      "label": 0
+    },
+    {
+      "request": "Does exercise cause changes in my lab reports?",
+      "label": 0
+    },
+    {
+      "request": "Does exercise cause changes in my workouts?",
+      "label": 0
+    },
+    {
+      "request": "Does exercise cause changes in my profile?",
+      "label": 0
+    },
+    {
+      "request": "Does exercise cause changes in my health plans?",
+      "label": 0
+    },
+    {
+      "request": "Does my ApoB affect my sleep?",
+      "label": 0
+    },
+    {
+      "request": "Does my LDL cholesterol affect my sleep?",
+      "label": 0
+    },
+    {
+      "request": "Does my oxygen saturation affect my sleep?",
+      "label": 0
+    },
+    {
+      "request": "Does my respiratory rate affect my sleep?",
+      "label": 0
+    },
+    {
+      "request": "Does my sleep efficiency affect my sleep?",
+      "label": 0
+    },
+    {
+      "request": "Does my steps affect my sleep?",
+      "label": 0
+    },
+    {
+      "request": "Does my total sleep affect my sleep?",
+      "label": 0
+    },
+    {
+      "request": "Does my custom metric affect my sleep?",
+      "label": 0
+    },
+    {
+      "request": "Does my lab reports affect my sleep?",
+      "label": 0
+    },
+    {
+      "request": "Does my workouts affect my sleep?",
+      "label": 0
+    },
+    {
+      "request": "Does my profile affect my sleep?",
+      "label": 0
+    },
+    {
+      "request": "Does my health plans affect my sleep?",
+      "label": 0
+    },
+    {
+      "request": "Is my ApoB higher than last year?",
+      "label": 0
+    },
+    {
+      "request": "Is my LDL cholesterol higher than last year?",
+      "label": 0
+    },
+    {
+      "request": "Is my oxygen saturation higher than last year?",
+      "label": 0
+    },
+    {
+      "request": "Is my respiratory rate higher than last year?",
+      "label": 0
+    },
+    {
+      "request": "Is my sleep efficiency higher than last year?",
+      "label": 0
+    },
+    {
+      "request": "Is my steps higher than last year?",
+      "label": 0
+    },
+    {
+      "request": "Is my total sleep higher than last year?",
+      "label": 0
+    },
+    {
+      "request": "Is my custom metric higher than last year?",
+      "label": 0
+    },
+    {
+      "request": "Is my lab reports higher than last year?",
+      "label": 0
+    },
+    {
+      "request": "Is my workouts higher than last year?",
+      "label": 0
+    },
+    {
+      "request": "Is my profile higher than last year?",
+      "label": 0
+    },
+    {
+      "request": "Is my health plans higher than last year?",
+      "label": 0
+    },
+    {
+      "request": "Compare my ApoB with last month",
+      "label": 0
+    },
+    {
+      "request": "Compare my LDL cholesterol with last month",
+      "label": 0
+    },
+    {
+      "request": "Compare my oxygen saturation with last month",
+      "label": 0
+    },
+    {
+      "request": "Compare my respiratory rate with last month",
+      "label": 0
+    },
+    {
+      "request": "Compare my sleep efficiency with last month",
+      "label": 0
+    },
+    {
+      "request": "Compare my steps with last month",
+      "label": 0
+    },
+    {
+      "request": "Compare my total sleep with last month",
+      "label": 0
+    },
+    {
+      "request": "Compare my custom metric with last month",
+      "label": 0
+    },
+    {
+      "request": "Compare my lab reports with last month",
+      "label": 0
+    },
+    {
+      "request": "Compare my workouts with last month",
+      "label": 0
+    },
+    {
+      "request": "Compare my profile with last month",
+      "label": 0
+    },
+    {
+      "request": "Compare my health plans with last month",
+      "label": 0
+    },
+    {
+      "request": "Show ApoB only while I was sick",
+      "label": 0
+    },
+    {
+      "request": "Show LDL cholesterol only while I was sick",
+      "label": 0
+    },
+    {
+      "request": "Show oxygen saturation only while I was sick",
+      "label": 0
+    },
+    {
+      "request": "Show respiratory rate only while I was sick",
+      "label": 0
+    },
+    {
+      "request": "Show sleep efficiency only while I was sick",
+      "label": 0
+    },
+    {
+      "request": "Show steps only while I was sick",
+      "label": 0
+    },
+    {
+      "request": "Show total sleep only while I was sick",
+      "label": 0
+    },
+    {
+      "request": "Show custom metric only while I was sick",
+      "label": 0
+    },
+    {
+      "request": "Show lab reports only while I was sick",
+      "label": 0
+    },
+    {
+      "request": "Show workouts only while I was sick",
+      "label": 0
+    },
+    {
+      "request": "Show profile only while I was sick",
+      "label": 0
+    },
+    {
+      "request": "Show health plans only while I was sick",
+      "label": 0
+    },
+    {
+      "request": "Show ApoB near my office",
+      "label": 0
+    },
+    {
+      "request": "Show LDL cholesterol near my office",
+      "label": 0
+    },
+    {
+      "request": "Show oxygen saturation near my office",
+      "label": 0
+    },
+    {
+      "request": "Show respiratory rate near my office",
+      "label": 0
+    },
+    {
+      "request": "Show sleep efficiency near my office",
+      "label": 0
+    },
+    {
+      "request": "Show steps near my office",
+      "label": 0
+    },
+    {
+      "request": "Show total sleep near my office",
+      "label": 0
+    },
+    {
+      "request": "Show custom metric near my office",
+      "label": 0
+    },
+    {
+      "request": "Show lab reports near my office",
+      "label": 0
+    },
+    {
+      "request": "Show workouts near my office",
+      "label": 0
+    },
+    {
+      "request": "Show profile near my office",
+      "label": 0
+    },
+    {
+      "request": "Show health plans near my office",
+      "label": 0
+    },
+    {
+      "request": "Find ApoB restricted to manual entries",
+      "label": 0
+    },
+    {
+      "request": "Find LDL cholesterol restricted to manual entries",
+      "label": 0
+    },
+    {
+      "request": "Find oxygen saturation restricted to manual entries",
+      "label": 0
+    },
+    {
+      "request": "Find respiratory rate restricted to manual entries",
+      "label": 0
+    },
+    {
+      "request": "Find sleep efficiency restricted to manual entries",
+      "label": 0
+    },
+    {
+      "request": "Find steps restricted to manual entries",
+      "label": 0
+    },
+    {
+      "request": "Find total sleep restricted to manual entries",
+      "label": 0
+    },
+    {
+      "request": "Find custom metric restricted to manual entries",
+      "label": 0
+    },
+    {
+      "request": "Find lab reports restricted to manual entries",
+      "label": 0
+    },
+    {
+      "request": "Find workouts restricted to manual entries",
+      "label": 0
+    },
+    {
+      "request": "Find profile restricted to manual entries",
+      "label": 0
+    },
+    {
+      "request": "Find health plans restricted to manual entries",
+      "label": 0
+    },
+    {
+      "request": "Show the earliest ApoB",
+      "label": 0
+    },
+    {
+      "request": "Show the earliest LDL cholesterol",
+      "label": 0
+    },
+    {
+      "request": "Show the earliest oxygen saturation",
+      "label": 0
+    },
+    {
+      "request": "Show the earliest respiratory rate",
+      "label": 0
+    },
+    {
+      "request": "Show the earliest sleep efficiency",
+      "label": 0
+    },
+    {
+      "request": "Show the earliest steps",
+      "label": 0
+    },
+    {
+      "request": "Show the earliest total sleep",
+      "label": 0
+    },
+    {
+      "request": "Show the earliest custom metric",
+      "label": 0
+    },
+    {
+      "request": "Show the earliest lab reports",
+      "label": 0
+    },
+    {
+      "request": "Show the earliest workouts",
+      "label": 0
+    },
+    {
+      "request": "Show the earliest profile",
+      "label": 0
+    },
+    {
+      "request": "Show the earliest health plans",
+      "label": 0
+    },
+    {
+      "request": "Send my ApoB to someone else",
+      "label": 0
+    },
+    {
+      "request": "Send my LDL cholesterol to someone else",
+      "label": 0
+    },
+    {
+      "request": "Send my oxygen saturation to someone else",
+      "label": 0
+    },
+    {
+      "request": "Send my respiratory rate to someone else",
+      "label": 0
+    },
+    {
+      "request": "Send my sleep efficiency to someone else",
+      "label": 0
+    },
+    {
+      "request": "Send my steps to someone else",
+      "label": 0
+    },
+    {
+      "request": "Send my total sleep to someone else",
+      "label": 0
+    },
+    {
+      "request": "Send my custom metric to someone else",
+      "label": 0
+    },
+    {
+      "request": "Send my lab reports to someone else",
+      "label": 0
+    },
+    {
+      "request": "Send my workouts to someone else",
+      "label": 0
+    },
+    {
+      "request": "Send my profile to someone else",
+      "label": 0
+    },
+    {
+      "request": "Send my health plans to someone else",
+      "label": 0
+    },
+    {
+      "request": "Change my ApoB",
+      "label": 0
+    },
+    {
+      "request": "Change my LDL cholesterol",
+      "label": 0
+    },
+    {
+      "request": "Change my oxygen saturation",
+      "label": 0
+    },
+    {
+      "request": "Change my respiratory rate",
+      "label": 0
+    },
+    {
+      "request": "Change my sleep efficiency",
+      "label": 0
+    },
+    {
+      "request": "Change my steps",
+      "label": 0
+    },
+    {
+      "request": "Change my total sleep",
+      "label": 0
+    },
+    {
+      "request": "Change my custom metric",
+      "label": 0
+    },
+    {
+      "request": "Change my lab reports",
+      "label": 0
+    },
+    {
+      "request": "Change my workouts",
+      "label": 0
+    },
+    {
+      "request": "Change my profile",
+      "label": 0
+    },
+    {
+      "request": "Change my health plans",
+      "label": 0
+    },
+    {
+      "request": "What did you say about my ApoB before?",
+      "label": 0
+    },
+    {
+      "request": "What did you say about my LDL cholesterol before?",
+      "label": 0
+    },
+    {
+      "request": "What did you say about my oxygen saturation before?",
+      "label": 0
+    },
+    {
+      "request": "What did you say about my respiratory rate before?",
+      "label": 0
+    },
+    {
+      "request": "What did you say about my sleep efficiency before?",
+      "label": 0
+    },
+    {
+      "request": "What did you say about my steps before?",
+      "label": 0
+    },
+    {
+      "request": "What did you say about my total sleep before?",
+      "label": 0
+    },
+    {
+      "request": "What did you say about my custom metric before?",
+      "label": 0
+    },
+    {
+      "request": "What did you say about my lab reports before?",
+      "label": 0
+    },
+    {
+      "request": "What did you say about my workouts before?",
+      "label": 0
+    },
+    {
+      "request": "What did you say about my profile before?",
+      "label": 0
+    },
+    {
+      "request": "What did you say about my health plans before?",
+      "label": 0
+    },
+    {
+      "request": "Was ist ApoB?",
+      "label": 0
+    },
+    {
+      "request": "Was ist LDL cholesterol?",
+      "label": 0
+    },
+    {
+      "request": "Was ist oxygen saturation?",
+      "label": 0
+    },
+    {
+      "request": "Was ist respiratory rate?",
+      "label": 0
+    },
+    {
+      "request": "Was ist sleep efficiency?",
+      "label": 0
+    },
+    {
+      "request": "Was ist steps?",
+      "label": 0
+    },
+    {
+      "request": "Was ist total sleep?",
+      "label": 0
+    },
+    {
+      "request": "Was ist custom metric?",
+      "label": 0
+    },
+    {
+      "request": "Was ist lab reports?",
+      "label": 0
+    },
+    {
+      "request": "Was ist workouts?",
+      "label": 0
+    },
+    {
+      "request": "Was ist profile?",
+      "label": 0
+    },
+    {
+      "request": "Was ist health plans?",
+      "label": 0
+    },
+    {
+      "request": "Zeig mir meine ApoB",
+      "label": 0
+    },
+    {
+      "request": "Zeig mir meine LDL cholesterol",
+      "label": 0
+    },
+    {
+      "request": "Zeig mir meine oxygen saturation",
+      "label": 0
+    },
+    {
+      "request": "Zeig mir meine respiratory rate",
+      "label": 0
+    },
+    {
+      "request": "Zeig mir meine sleep efficiency",
+      "label": 0
+    },
+    {
+      "request": "Zeig mir meine steps",
+      "label": 0
+    },
+    {
+      "request": "Zeig mir meine total sleep",
+      "label": 0
+    },
+    {
+      "request": "Zeig mir meine custom metric",
+      "label": 0
+    },
+    {
+      "request": "Zeig mir meine lab reports",
+      "label": 0
+    },
+    {
+      "request": "Zeig mir meine workouts",
+      "label": 0
+    },
+    {
+      "request": "Zeig mir meine profile",
+      "label": 0
+    },
+    {
+      "request": "Zeig mir meine health plans",
+      "label": 0
+    },
+    {
+      "request": "Montre mes ApoB",
+      "label": 0
+    },
+    {
+      "request": "Montre mes LDL cholesterol",
+      "label": 0
+    },
+    {
+      "request": "Montre mes oxygen saturation",
+      "label": 0
+    },
+    {
+      "request": "Montre mes respiratory rate",
+      "label": 0
+    },
+    {
+      "request": "Montre mes sleep efficiency",
+      "label": 0
+    },
+    {
+      "request": "Montre mes steps",
+      "label": 0
+    },
+    {
+      "request": "Montre mes total sleep",
+      "label": 0
+    },
+    {
+      "request": "Montre mes custom metric",
+      "label": 0
+    },
+    {
+      "request": "Montre mes lab reports",
+      "label": 0
+    },
+    {
+      "request": "Montre mes workouts",
+      "label": 0
+    },
+    {
+      "request": "Montre mes profile",
+      "label": 0
+    },
+    {
+      "request": "Montre mes health plans",
+      "label": 0
+    },
+    {
+      "request": "Tell me if my ApoB is normal",
+      "label": 0
+    },
+    {
+      "request": "Tell me if my LDL cholesterol is normal",
+      "label": 0
+    },
+    {
+      "request": "Tell me if my oxygen saturation is normal",
+      "label": 0
+    },
+    {
+      "request": "Tell me if my respiratory rate is normal",
+      "label": 0
+    },
+    {
+      "request": "Tell me if my sleep efficiency is normal",
+      "label": 0
+    },
+    {
+      "request": "Tell me if my steps is normal",
+      "label": 0
+    },
+    {
+      "request": "Tell me if my total sleep is normal",
+      "label": 0
+    },
+    {
+      "request": "Tell me if my custom metric is normal",
+      "label": 0
+    },
+    {
+      "request": "Tell me if my lab reports is normal",
+      "label": 0
+    },
+    {
+      "request": "Tell me if my workouts is normal",
+      "label": 0
+    },
+    {
+      "request": "Tell me if my profile is normal",
+      "label": 0
+    },
+    {
+      "request": "Tell me if my health plans is normal",
+      "label": 0
+    },
+    {
+      "request": "How many ApoB measurements do I have?",
+      "label": 0
+    },
+    {
+      "request": "How many LDL cholesterol measurements do I have?",
+      "label": 0
+    },
+    {
+      "request": "How many oxygen saturation measurements do I have?",
+      "label": 0
+    },
+    {
+      "request": "How many respiratory rate measurements do I have?",
+      "label": 0
+    },
+    {
+      "request": "How many sleep efficiency measurements do I have?",
+      "label": 0
+    },
+    {
+      "request": "How many steps measurements do I have?",
+      "label": 0
+    },
+    {
+      "request": "How many total sleep measurements do I have?",
+      "label": 0
+    },
+    {
+      "request": "How many custom metric measurements do I have?",
+      "label": 0
+    },
+    {
+      "request": "How many lab reports measurements do I have?",
+      "label": 0
+    },
+    {
+      "request": "How many workouts measurements do I have?",
+      "label": 0
+    },
+    {
+      "request": "How many profile measurements do I have?",
+      "label": 0
+    },
+    {
+      "request": "How many health plans measurements do I have?",
+      "label": 0
+    },
+    {
+      "request": "Analyze me",
+      "label": 1
+    },
+    {
+      "request": "Analize me",
+      "label": 1
+    },
+    {
+      "request": "Analyse my health",
+      "label": 1
+    },
+    {
+      "request": "Assess my overall health",
+      "label": 1
+    },
+    {
+      "request": "Give me a health summary",
+      "label": 1
+    },
+    {
+      "request": "How is my health doing?",
+      "label": 1
+    },
+    {
+      "request": "I want a descriptive health overview",
+      "label": 1
+    },
+    {
+      "request": "Evaluate my health and suggest improvements",
+      "label": 1
+    },
+    {
+      "request": "Give me a comprehensive health analysis",
+      "label": 1
+    },
+    {
+      "request": "Show my complete health profile",
+      "label": 1
+    },
+    {
+      "request": "Which ApoB readings have been collected for me?",
+      "label": 1
+    },
+    {
+      "request": "Which LDL cholesterol readings have been collected for me?",
+      "label": 1
+    },
+    {
+      "request": "Which oxygen saturation readings have been collected for me?",
+      "label": 1
+    },
+    {
+      "request": "Which respiratory rate readings have been collected for me?",
+      "label": 1
+    },
+    {
+      "request": "Which sleep efficiency readings have been collected for me?",
+      "label": 1
+    },
+    {
+      "request": "Which steps readings have been collected for me?",
+      "label": 1
+    },
+    {
+      "request": "Which total sleep readings have been collected for me?",
+      "label": 1
+    },
+    {
+      "request": "Which lab reports readings have been collected for me?",
+      "label": 1
+    },
+    {
+      "request": "Which workouts readings have been collected for me?",
+      "label": 1
+    },
+    {
+      "request": "Fetch the ApoB stored in my account",
+      "label": 1
+    },
+    {
+      "request": "Fetch the LDL cholesterol stored in my account",
+      "label": 1
+    },
+    {
+      "request": "Fetch the oxygen saturation stored in my account",
+      "label": 1
+    },
+    {
+      "request": "Fetch the respiratory rate stored in my account",
+      "label": 1
+    },
+    {
+      "request": "Fetch the sleep efficiency stored in my account",
+      "label": 1
+    },
+    {
+      "request": "Fetch the steps stored in my account",
+      "label": 1
+    },
+    {
+      "request": "Fetch the total sleep stored in my account",
+      "label": 1
+    },
+    {
+      "request": "Fetch the lab reports stored in my account",
+      "label": 1
+    },
+    {
+      "request": "Fetch the workouts stored in my account",
+      "label": 1
+    },
+    {
+      "request": "For yesterday, what did my ApoB look like?",
+      "label": 1
+    },
+    {
+      "request": "For yesterday, what did my LDL cholesterol look like?",
+      "label": 1
+    },
+    {
+      "request": "For yesterday, what did my oxygen saturation look like?",
+      "label": 1
+    },
+    {
+      "request": "For yesterday, what did my respiratory rate look like?",
+      "label": 1
+    },
+    {
+      "request": "For yesterday, what did my sleep efficiency look like?",
+      "label": 1
+    },
+    {
+      "request": "For yesterday, what did my steps look like?",
+      "label": 1
+    },
+    {
+      "request": "For yesterday, what did my total sleep look like?",
+      "label": 1
+    },
+    {
+      "request": "For yesterday, what did my lab reports look like?",
+      "label": 1
+    },
+    {
+      "request": "For yesterday, what did my workouts look like?",
+      "label": 1
+    },
+    {
+      "request": "Retrieve the newest ApoB value that I have",
+      "label": 1
+    },
+    {
+      "request": "Retrieve the newest LDL cholesterol value that I have",
+      "label": 1
+    },
+    {
+      "request": "Retrieve the newest oxygen saturation value that I have",
+      "label": 1
+    },
+    {
+      "request": "Retrieve the newest respiratory rate value that I have",
+      "label": 1
+    },
+    {
+      "request": "Retrieve the newest sleep efficiency value that I have",
+      "label": 1
+    },
+    {
+      "request": "Retrieve the newest steps value that I have",
+      "label": 1
+    },
+    {
+      "request": "Retrieve the newest total sleep value that I have",
+      "label": 1
+    },
+    {
+      "request": "Retrieve the newest lab reports value that I have",
+      "label": 1
+    },
+    {
+      "request": "Retrieve the newest workouts value that I have",
+      "label": 1
+    },
+    {
+      "request": "Can I inspect the ApoB I have logged?",
+      "label": 1
+    },
+    {
+      "request": "Can I inspect the LDL cholesterol I have logged?",
+      "label": 1
+    },
+    {
+      "request": "Can I inspect the oxygen saturation I have logged?",
+      "label": 1
+    },
+    {
+      "request": "Can I inspect the respiratory rate I have logged?",
+      "label": 1
+    },
+    {
+      "request": "Can I inspect the sleep efficiency I have logged?",
+      "label": 1
+    },
+    {
+      "request": "Can I inspect the steps I have logged?",
+      "label": 1
+    },
+    {
+      "request": "Can I inspect the total sleep I have logged?",
+      "label": 1
+    },
+    {
+      "request": "Can I inspect the lab reports I have logged?",
+      "label": 1
+    },
+    {
+      "request": "Can I inspect the workouts I have logged?",
+      "label": 1
+    },
+    {
+      "request": "What is the most recent ApoB result available in my records?",
+      "label": 1
+    },
+    {
+      "request": "What is the most recent LDL cholesterol result available in my records?",
+      "label": 1
+    },
+    {
+      "request": "What is the most recent oxygen saturation result available in my records?",
+      "label": 1
+    },
+    {
+      "request": "What is the most recent respiratory rate result available in my records?",
+      "label": 1
+    },
+    {
+      "request": "What is the most recent sleep efficiency result available in my records?",
+      "label": 1
+    },
+    {
+      "request": "What is the most recent steps result available in my records?",
+      "label": 1
+    },
+    {
+      "request": "What is the most recent total sleep result available in my records?",
+      "label": 1
+    },
+    {
+      "request": "What is the most recent lab reports result available in my records?",
+      "label": 1
+    },
+    {
+      "request": "What is the most recent workouts result available in my records?",
+      "label": 1
+    },
+    {
+      "request": "Give me a view of the recorded ApoB, please",
+      "label": 1
+    },
+    {
+      "request": "Give me a view of the recorded LDL cholesterol, please",
+      "label": 1
+    },
+    {
+      "request": "Give me a view of the recorded oxygen saturation, please",
+      "label": 1
+    },
+    {
+      "request": "Give me a view of the recorded respiratory rate, please",
+      "label": 1
+    },
+    {
+      "request": "Give me a view of the recorded sleep efficiency, please",
+      "label": 1
+    },
+    {
+      "request": "Give me a view of the recorded steps, please",
+      "label": 1
+    },
+    {
+      "request": "Give me a view of the recorded total sleep, please",
+      "label": 1
+    },
+    {
+      "request": "Give me a view of the recorded lab reports, please",
+      "label": 1
+    },
+    {
+      "request": "Give me a view of the recorded workouts, please",
+      "label": 1
+    },
+    {
+      "request": "Bring up my ApoB measurements",
+      "label": 1
+    },
+    {
+      "request": "Bring up my LDL cholesterol measurements",
+      "label": 1
+    },
+    {
+      "request": "Bring up my oxygen saturation measurements",
+      "label": 1
+    },
+    {
+      "request": "Bring up my respiratory rate measurements",
+      "label": 1
+    },
+    {
+      "request": "Bring up my sleep efficiency measurements",
+      "label": 1
+    },
+    {
+      "request": "Bring up my steps measurements",
+      "label": 1
+    },
+    {
+      "request": "Bring up my total sleep measurements",
+      "label": 1
+    },
+    {
+      "request": "Bring up my lab reports measurements",
+      "label": 1
+    },
+    {
+      "request": "Bring up my workouts measurements",
+      "label": 1
+    },
+    {
+      "request": "Throughout the previous year, how were my ApoB measurements doing?",
+      "label": 1
+    },
+    {
+      "request": "Throughout the previous year, how were my LDL cholesterol measurements doing?",
+      "label": 1
+    },
+    {
+      "request": "Throughout the previous year, how were my oxygen saturation measurements doing?",
+      "label": 1
+    },
+    {
+      "request": "Throughout the previous year, how were my respiratory rate measurements doing?",
+      "label": 1
+    },
+    {
+      "request": "Throughout the previous year, how were my sleep efficiency measurements doing?",
+      "label": 1
+    },
+    {
+      "request": "Throughout the previous year, how were my steps measurements doing?",
+      "label": 1
+    },
+    {
+      "request": "Throughout the previous year, how were my total sleep measurements doing?",
+      "label": 1
+    },
+    {
+      "request": "Throughout the previous year, how were my lab reports measurements doing?",
+      "label": 1
+    },
+    {
+      "request": "Throughout the previous year, how were my workouts measurements doing?",
+      "label": 1
+    },
+    {
+      "request": "Let me look through my ApoB records",
+      "label": 1
+    },
+    {
+      "request": "Let me look through my LDL cholesterol records",
+      "label": 1
+    },
+    {
+      "request": "Let me look through my oxygen saturation records",
+      "label": 1
+    },
+    {
+      "request": "Let me look through my respiratory rate records",
+      "label": 1
+    },
+    {
+      "request": "Let me look through my sleep efficiency records",
+      "label": 1
+    },
+    {
+      "request": "Let me look through my steps records",
+      "label": 1
+    },
+    {
+      "request": "Let me look through my total sleep records",
+      "label": 1
+    },
+    {
+      "request": "Let me look through my lab reports records",
+      "label": 1
+    },
+    {
+      "request": "Let me look through my workouts records",
+      "label": 1
+    },
+    {
+      "request": "My ApoB from the last nine days please",
+      "label": 1
+    },
+    {
+      "request": "My LDL cholesterol from the last nine days please",
+      "label": 1
+    },
+    {
+      "request": "My oxygen saturation from the last nine days please",
+      "label": 1
+    },
+    {
+      "request": "My respiratory rate from the last nine days please",
+      "label": 1
+    },
+    {
+      "request": "My sleep efficiency from the last nine days please",
+      "label": 1
+    },
+    {
+      "request": "My steps from the last nine days please",
+      "label": 1
+    },
+    {
+      "request": "My total sleep from the last nine days please",
+      "label": 1
+    },
+    {
+      "request": "My lab reports from the last nine days please",
+      "label": 1
+    },
+    {
+      "request": "My workouts from the last nine days please",
+      "label": 1
+    },
+    {
+      "request": "Are the ApoB readings I have healthy?",
+      "label": 0
+    },
+    {
+      "request": "Are the LDL cholesterol readings I have healthy?",
+      "label": 0
+    },
+    {
+      "request": "Are the oxygen saturation readings I have healthy?",
+      "label": 0
+    },
+    {
+      "request": "Are the respiratory rate readings I have healthy?",
+      "label": 0
+    },
+    {
+      "request": "Are the sleep efficiency readings I have healthy?",
+      "label": 0
+    },
+    {
+      "request": "Are the steps readings I have healthy?",
+      "label": 0
+    },
+    {
+      "request": "Are the total sleep readings I have healthy?",
+      "label": 0
+    },
+    {
+      "request": "Are the lab reports readings I have healthy?",
+      "label": 0
+    },
+    {
+      "request": "Are the workouts readings I have healthy?",
+      "label": 0
+    },
+    {
+      "request": "What could my ApoB indicate?",
+      "label": 0
+    },
+    {
+      "request": "What could my LDL cholesterol indicate?",
+      "label": 0
+    },
+    {
+      "request": "What could my oxygen saturation indicate?",
+      "label": 0
+    },
+    {
+      "request": "What could my respiratory rate indicate?",
+      "label": 0
+    },
+    {
+      "request": "What could my sleep efficiency indicate?",
+      "label": 0
+    },
+    {
+      "request": "What could my steps indicate?",
+      "label": 0
+    },
+    {
+      "request": "What could my total sleep indicate?",
+      "label": 0
+    },
+    {
+      "request": "What could my lab reports indicate?",
+      "label": 0
+    },
+    {
+      "request": "What could my workouts indicate?",
+      "label": 0
+    },
+    {
+      "request": "Fetch my ApoB restricted to the hospital source",
+      "label": 0
+    },
+    {
+      "request": "Fetch my LDL cholesterol restricted to the hospital source",
+      "label": 0
+    },
+    {
+      "request": "Fetch my oxygen saturation restricted to the hospital source",
+      "label": 0
+    },
+    {
+      "request": "Fetch my respiratory rate restricted to the hospital source",
+      "label": 0
+    },
+    {
+      "request": "Fetch my sleep efficiency restricted to the hospital source",
+      "label": 0
+    },
+    {
+      "request": "Fetch my steps restricted to the hospital source",
+      "label": 0
+    },
+    {
+      "request": "Fetch my total sleep restricted to the hospital source",
+      "label": 0
+    },
+    {
+      "request": "Fetch my lab reports restricted to the hospital source",
+      "label": 0
+    },
+    {
+      "request": "Fetch my workouts restricted to the hospital source",
+      "label": 0
+    },
+    {
+      "request": "Bring up my ApoB when I was unwell",
+      "label": 0
+    },
+    {
+      "request": "Bring up my LDL cholesterol when I was unwell",
+      "label": 0
+    },
+    {
+      "request": "Bring up my oxygen saturation when I was unwell",
+      "label": 0
+    },
+    {
+      "request": "Bring up my respiratory rate when I was unwell",
+      "label": 0
+    },
+    {
+      "request": "Bring up my sleep efficiency when I was unwell",
+      "label": 0
+    },
+    {
+      "request": "Bring up my steps when I was unwell",
+      "label": 0
+    },
+    {
+      "request": "Bring up my total sleep when I was unwell",
+      "label": 0
+    },
+    {
+      "request": "Bring up my lab reports when I was unwell",
+      "label": 0
+    },
+    {
+      "request": "Bring up my workouts when I was unwell",
+      "label": 0
+    },
+    {
+      "request": "Explain the newest ApoB value I have",
+      "label": 0
+    },
+    {
+      "request": "Explain the newest LDL cholesterol value I have",
+      "label": 0
+    },
+    {
+      "request": "Explain the newest oxygen saturation value I have",
+      "label": 0
+    },
+    {
+      "request": "Explain the newest respiratory rate value I have",
+      "label": 0
+    },
+    {
+      "request": "Explain the newest sleep efficiency value I have",
+      "label": 0
+    },
+    {
+      "request": "Explain the newest steps value I have",
+      "label": 0
+    },
+    {
+      "request": "Explain the newest total sleep value I have",
+      "label": 0
+    },
+    {
+      "request": "Explain the newest lab reports value I have",
+      "label": 0
+    },
+    {
+      "request": "Explain the newest workouts value I have",
+      "label": 0
+    },
+    {
+      "request": "What should I do about my ApoB?",
+      "label": 0
+    },
+    {
+      "request": "What should I do about my LDL cholesterol?",
+      "label": 0
+    },
+    {
+      "request": "What should I do about my oxygen saturation?",
+      "label": 0
+    },
+    {
+      "request": "What should I do about my respiratory rate?",
+      "label": 0
+    },
+    {
+      "request": "What should I do about my sleep efficiency?",
+      "label": 0
+    },
+    {
+      "request": "What should I do about my steps?",
+      "label": 0
+    },
+    {
+      "request": "What should I do about my total sleep?",
+      "label": 0
+    },
+    {
+      "request": "What should I do about my lab reports?",
+      "label": 0
+    },
+    {
+      "request": "What should I do about my workouts?",
+      "label": 0
+    },
+    {
+      "request": "Give me a view of ApoB only from my watch",
+      "label": 0
+    },
+    {
+      "request": "Give me a view of LDL cholesterol only from my watch",
+      "label": 0
+    },
+    {
+      "request": "Give me a view of oxygen saturation only from my watch",
+      "label": 0
+    },
+    {
+      "request": "Give me a view of respiratory rate only from my watch",
+      "label": 0
+    },
+    {
+      "request": "Give me a view of sleep efficiency only from my watch",
+      "label": 0
+    },
+    {
+      "request": "Give me a view of steps only from my watch",
+      "label": 0
+    },
+    {
+      "request": "Give me a view of total sleep only from my watch",
+      "label": 0
+    },
+    {
+      "request": "Give me a view of lab reports only from my watch",
+      "label": 0
+    },
+    {
+      "request": "Give me a view of workouts only from my watch",
+      "label": 0
+    },
+    {
+      "request": "Retrieve my ApoB excluding outliers",
+      "label": 0
+    },
+    {
+      "request": "Retrieve my LDL cholesterol excluding outliers",
+      "label": 0
+    },
+    {
+      "request": "Retrieve my oxygen saturation excluding outliers",
+      "label": 0
+    },
+    {
+      "request": "Retrieve my respiratory rate excluding outliers",
+      "label": 0
+    },
+    {
+      "request": "Retrieve my sleep efficiency excluding outliers",
+      "label": 0
+    },
+    {
+      "request": "Retrieve my steps excluding outliers",
+      "label": 0
+    },
+    {
+      "request": "Retrieve my total sleep excluding outliers",
+      "label": 0
+    },
+    {
+      "request": "Retrieve my lab reports excluding outliers",
+      "label": 0
+    },
+    {
+      "request": "Retrieve my workouts excluding outliers",
+      "label": 0
+    },
+    {
+      "request": "How was my ApoB related to my diet?",
+      "label": 0
+    },
+    {
+      "request": "How was my LDL cholesterol related to my diet?",
+      "label": 0
+    },
+    {
+      "request": "How was my oxygen saturation related to my diet?",
+      "label": 0
+    },
+    {
+      "request": "How was my respiratory rate related to my diet?",
+      "label": 0
+    },
+    {
+      "request": "How was my sleep efficiency related to my diet?",
+      "label": 0
+    },
+    {
+      "request": "How was my steps related to my diet?",
+      "label": 0
+    },
+    {
+      "request": "How was my total sleep related to my diet?",
+      "label": 0
+    },
+    {
+      "request": "How was my lab reports related to my diet?",
+      "label": 0
+    },
+    {
+      "request": "How was my workouts related to my diet?",
+      "label": 0
+    },
+    {
+      "request": "What is the difference between ApoB and my last result?",
+      "label": 0
+    },
+    {
+      "request": "What is the difference between LDL cholesterol and my last result?",
+      "label": 0
+    },
+    {
+      "request": "What is the difference between oxygen saturation and my last result?",
+      "label": 0
+    },
+    {
+      "request": "What is the difference between respiratory rate and my last result?",
+      "label": 0
+    },
+    {
+      "request": "What is the difference between sleep efficiency and my last result?",
+      "label": 0
+    },
+    {
+      "request": "What is the difference between steps and my last result?",
+      "label": 0
+    },
+    {
+      "request": "What is the difference between total sleep and my last result?",
+      "label": 0
+    },
+    {
+      "request": "What is the difference between lab reports and my last result?",
+      "label": 0
+    },
+    {
+      "request": "What is the difference between workouts and my last result?",
+      "label": 0
+    },
+    {
+      "request": "Bring up my ApoB and LDL cholesterol for 2024",
+      "label": 1
+    },
+    {
+      "request": "What have my ApoB and LDL cholesterol looked like this year?",
+      "label": 1
+    },
+    {
+      "request": "Show the recorded ApoB together with my LDL cholesterol",
+      "label": 1
+    },
+    {
+      "request": "Bring up my steps and workouts for 2024",
+      "label": 1
+    },
+    {
+      "request": "What have my steps and workouts looked like this year?",
+      "label": 1
+    },
+    {
+      "request": "Show the recorded steps together with my workouts",
+      "label": 1
+    },
+    {
+      "request": "Bring up my total sleep and oxygen saturation for 2024",
+      "label": 1
+    },
+    {
+      "request": "What have my total sleep and oxygen saturation looked like this year?",
+      "label": 1
+    },
+    {
+      "request": "Show the recorded total sleep together with my oxygen saturation",
+      "label": 1
+    },
+    {
+      "request": "Do I have any health appointments scheduled for next week?",
+      "label": 1
+    },
+    {
+      "request": "Which health appointments are due tomorrow?",
+      "label": 1
+    },
+    {
+      "request": "Bring up the health appointments that I saved",
+      "label": 1
+    },
+    {
+      "request": "What health appointments were completed yesterday?",
+      "label": 1
+    },
+    {
+      "request": "Are there any health appointments coming up next year?",
+      "label": 1
+    },
+    {
+      "request": "Create health appointments for tomorrow",
+      "label": 0
+    },
+    {
+      "request": "Cancel my health appointments",
+      "label": 0
+    },
+    {
+      "request": "How many health appointments are due tomorrow?",
+      "label": 0
+    },
+    {
+      "request": "Do I have any screening events scheduled for next week?",
+      "label": 1
+    },
+    {
+      "request": "Which screening events are due tomorrow?",
+      "label": 1
+    },
+    {
+      "request": "Bring up the screening events that I saved",
+      "label": 1
+    },
+    {
+      "request": "What screening events were completed yesterday?",
+      "label": 1
+    },
+    {
+      "request": "Are there any screening events coming up next year?",
+      "label": 1
+    },
+    {
+      "request": "Create screening events for tomorrow",
+      "label": 0
+    },
+    {
+      "request": "Cancel my screening events",
+      "label": 0
+    },
+    {
+      "request": "How many screening events are due tomorrow?",
+      "label": 0
+    },
+    {
+      "request": "Do I have any health plans scheduled for next week?",
+      "label": 1
+    },
+    {
+      "request": "Which health plans are due tomorrow?",
+      "label": 1
+    },
+    {
+      "request": "Bring up the health plans that I saved",
+      "label": 1
+    },
+    {
+      "request": "What health plans were completed yesterday?",
+      "label": 1
+    },
+    {
+      "request": "Are there any health plans coming up next year?",
+      "label": 1
+    },
+    {
+      "request": "Create health plans for tomorrow",
+      "label": 0
+    },
+    {
+      "request": "Cancel my health plans",
+      "label": 0
+    },
+    {
+      "request": "How many health plans are due tomorrow?",
+      "label": 0
+    },
+    {
+      "request": "Bring up my whole health profile",
+      "label": 1
+    },
+    {
+      "request": "Open my stored profile",
+      "label": 1
+    },
+    {
+      "request": "I would like to look at my health profile",
+      "label": 1
+    },
+    {
+      "request": "Show a descriptive summary of my health without advice",
+      "label": 1
+    },
+    {
+      "request": "Summarize all of my health data",
+      "label": 1
+    },
+    {
+      "request": "Any steps from 2023 on file?",
+      "label": 1
+    },
+    {
+      "request": "Any ApoB from 2023 on file?",
+      "label": 1
+    },
+    {
+      "request": "Any LDL cholesterol from 2023 on file?",
+      "label": 1
+    },
+    {
+      "request": "Any oxygen saturation from 2023 on file?",
+      "label": 1
+    },
+    {
+      "request": "Any respiratory rate from 2023 on file?",
+      "label": 1
+    },
+    {
+      "request": "Any sleep efficiency from 2023 on file?",
+      "label": 1
+    },
+    {
+      "request": "Any total sleep from 2023 on file?",
+      "label": 1
+    },
+    {
+      "request": "Any lab reports from 2023 on file?",
+      "label": 1
+    },
+    {
+      "request": "Any health appointments from 2023 on file?",
+      "label": 1
+    },
+    {
+      "request": "steps trend this year",
+      "label": 1
+    },
+    {
+      "request": "ApoB trend this year",
+      "label": 1
+    },
+    {
+      "request": "LDL cholesterol trend this year",
+      "label": 1
+    },
+    {
+      "request": "oxygen saturation trend this year",
+      "label": 1
+    },
+    {
+      "request": "respiratory rate trend this year",
+      "label": 1
+    },
+    {
+      "request": "sleep efficiency trend this year",
+      "label": 1
+    },
+    {
+      "request": "total sleep trend this year",
+      "label": 1
+    },
+    {
+      "request": "lab reports trend this year",
+      "label": 1
+    },
+    {
+      "request": "health appointments trend this year",
+      "label": 1
+    },
+    {
+      "request": "What does my steps look like across all time?",
+      "label": 1
+    },
+    {
+      "request": "What does my ApoB look like across all time?",
+      "label": 1
+    },
+    {
+      "request": "What does my LDL cholesterol look like across all time?",
+      "label": 1
+    },
+    {
+      "request": "What does my oxygen saturation look like across all time?",
+      "label": 1
+    },
+    {
+      "request": "What does my respiratory rate look like across all time?",
+      "label": 1
+    },
+    {
+      "request": "What does my sleep efficiency look like across all time?",
+      "label": 1
+    },
+    {
+      "request": "What does my total sleep look like across all time?",
+      "label": 1
+    },
+    {
+      "request": "What does my lab reports look like across all time?",
+      "label": 1
+    },
+    {
+      "request": "What does my health appointments look like across all time?",
+      "label": 1
+    },
+    {
+      "request": "My steps, the newest one",
+      "label": 1
+    },
+    {
+      "request": "My ApoB, the newest one",
+      "label": 1
+    },
+    {
+      "request": "My LDL cholesterol, the newest one",
+      "label": 1
+    },
+    {
+      "request": "My oxygen saturation, the newest one",
+      "label": 1
+    },
+    {
+      "request": "My respiratory rate, the newest one",
+      "label": 1
+    },
+    {
+      "request": "My sleep efficiency, the newest one",
+      "label": 1
+    },
+    {
+      "request": "My total sleep, the newest one",
+      "label": 1
+    },
+    {
+      "request": "My lab reports, the newest one",
+      "label": 1
+    },
+    {
+      "request": "My health appointments, the newest one",
+      "label": 1
+    },
+    {
+      "request": "Different question - show my steps",
+      "label": 1
+    },
+    {
+      "request": "Different question - show my ApoB",
+      "label": 1
+    },
+    {
+      "request": "Different question - show my LDL cholesterol",
+      "label": 1
+    },
+    {
+      "request": "Different question - show my oxygen saturation",
+      "label": 1
+    },
+    {
+      "request": "Different question - show my respiratory rate",
+      "label": 1
+    },
+    {
+      "request": "Different question - show my sleep efficiency",
+      "label": 1
+    },
+    {
+      "request": "Different question - show my total sleep",
+      "label": 1
+    },
+    {
+      "request": "Different question - show my lab reports",
+      "label": 1
+    },
+    {
+      "request": "Different question - show my health appointments",
+      "label": 1
+    },
+    {
+      "request": "Any steps due next month?",
+      "label": 1
+    },
+    {
+      "request": "Any ApoB due next month?",
+      "label": 1
+    },
+    {
+      "request": "Any LDL cholesterol due next month?",
+      "label": 1
+    },
+    {
+      "request": "Any oxygen saturation due next month?",
+      "label": 1
+    },
+    {
+      "request": "Any respiratory rate due next month?",
+      "label": 1
+    },
+    {
+      "request": "Any sleep efficiency due next month?",
+      "label": 1
+    },
+    {
+      "request": "Any total sleep due next month?",
+      "label": 1
+    },
+    {
+      "request": "Any lab reports due next month?",
+      "label": 1
+    },
+    {
+      "request": "Any health appointments due next month?",
+      "label": 1
+    },
+    {
+      "request": "I only want my single most recent steps",
+      "label": 1
+    },
+    {
+      "request": "I only want my single most recent ApoB",
+      "label": 1
+    },
+    {
+      "request": "I only want my single most recent LDL cholesterol",
+      "label": 1
+    },
+    {
+      "request": "I only want my single most recent oxygen saturation",
+      "label": 1
+    },
+    {
+      "request": "I only want my single most recent respiratory rate",
+      "label": 1
+    },
+    {
+      "request": "I only want my single most recent sleep efficiency",
+      "label": 1
+    },
+    {
+      "request": "I only want my single most recent total sleep",
+      "label": 1
+    },
+    {
+      "request": "I only want my single most recent lab reports",
+      "label": 1
+    },
+    {
+      "request": "I only want my single most recent health appointments",
+      "label": 1
+    },
+    {
+      "request": "Show steps with no studies please",
+      "label": 1
+    },
+    {
+      "request": "Show ApoB with no studies please",
+      "label": 1
+    },
+    {
+      "request": "Show LDL cholesterol with no studies please",
+      "label": 1
+    },
+    {
+      "request": "Show oxygen saturation with no studies please",
+      "label": 1
+    },
+    {
+      "request": "Show respiratory rate with no studies please",
+      "label": 1
+    },
+    {
+      "request": "Show sleep efficiency with no studies please",
+      "label": 1
+    },
+    {
+      "request": "Show total sleep with no studies please",
+      "label": 1
+    },
+    {
+      "request": "Show lab reports with no studies please",
+      "label": 1
+    },
+    {
+      "request": "Show health appointments with no studies please",
+      "label": 1
+    },
+    {
+      "request": "Look at my steps records from last week",
+      "label": 1
+    },
+    {
+      "request": "Look at my ApoB records from last week",
+      "label": 1
+    },
+    {
+      "request": "Look at my LDL cholesterol records from last week",
+      "label": 1
+    },
+    {
+      "request": "Look at my oxygen saturation records from last week",
+      "label": 1
+    },
+    {
+      "request": "Look at my respiratory rate records from last week",
+      "label": 1
+    },
+    {
+      "request": "Look at my sleep efficiency records from last week",
+      "label": 1
+    },
+    {
+      "request": "Look at my total sleep records from last week",
+      "label": 1
+    },
+    {
+      "request": "Look at my lab reports records from last week",
+      "label": 1
+    },
+    {
+      "request": "Look at my health appointments records from last week",
+      "label": 1
+    },
+    {
+      "request": "The newest steps one, please",
+      "label": 1
+    },
+    {
+      "request": "The newest ApoB one, please",
+      "label": 1
+    },
+    {
+      "request": "The newest LDL cholesterol one, please",
+      "label": 1
+    },
+    {
+      "request": "The newest oxygen saturation one, please",
+      "label": 1
+    },
+    {
+      "request": "The newest respiratory rate one, please",
+      "label": 1
+    },
+    {
+      "request": "The newest sleep efficiency one, please",
+      "label": 1
+    },
+    {
+      "request": "The newest total sleep one, please",
+      "label": 1
+    },
+    {
+      "request": "The newest lab reports one, please",
+      "label": 1
+    },
+    {
+      "request": "The newest health appointments one, please",
+      "label": 1
+    },
+    {
+      "request": "Any recorded steps this week?",
+      "label": 1
+    },
+    {
+      "request": "Any recorded ApoB this week?",
+      "label": 1
+    },
+    {
+      "request": "Any recorded LDL cholesterol this week?",
+      "label": 1
+    },
+    {
+      "request": "Any recorded oxygen saturation this week?",
+      "label": 1
+    },
+    {
+      "request": "Any recorded respiratory rate this week?",
+      "label": 1
+    },
+    {
+      "request": "Any recorded sleep efficiency this week?",
+      "label": 1
+    },
+    {
+      "request": "Any recorded total sleep this week?",
+      "label": 1
+    },
+    {
+      "request": "Any recorded lab reports this week?",
+      "label": 1
+    },
+    {
+      "request": "Any recorded health appointments this week?",
+      "label": 1
+    },
+    {
+      "request": "Not the trend, I want my latest steps",
+      "label": 1
+    },
+    {
+      "request": "Not the trend, I want my latest ApoB",
+      "label": 1
+    },
+    {
+      "request": "Not the trend, I want my latest LDL cholesterol",
+      "label": 1
+    },
+    {
+      "request": "Not the trend, I want my latest oxygen saturation",
+      "label": 1
+    },
+    {
+      "request": "Not the trend, I want my latest respiratory rate",
+      "label": 1
+    },
+    {
+      "request": "Not the trend, I want my latest sleep efficiency",
+      "label": 1
+    },
+    {
+      "request": "Not the trend, I want my latest total sleep",
+      "label": 1
+    },
+    {
+      "request": "Not the trend, I want my latest lab reports",
+      "label": 1
+    },
+    {
+      "request": "Not the trend, I want my latest health appointments",
+      "label": 1
+    },
+    {
+      "request": "For last month I would like to see steps",
+      "label": 1
+    },
+    {
+      "request": "For last month I would like to see ApoB",
+      "label": 1
+    },
+    {
+      "request": "For last month I would like to see LDL cholesterol",
+      "label": 1
+    },
+    {
+      "request": "For last month I would like to see oxygen saturation",
+      "label": 1
+    },
+    {
+      "request": "For last month I would like to see respiratory rate",
+      "label": 1
+    },
+    {
+      "request": "For last month I would like to see sleep efficiency",
+      "label": 1
+    },
+    {
+      "request": "For last month I would like to see total sleep",
+      "label": 1
+    },
+    {
+      "request": "For last month I would like to see lab reports",
+      "label": 1
+    },
+    {
+      "request": "For last month I would like to see health appointments",
+      "label": 1
+    },
+    {
+      "request": "Could my steps indicate cancer?",
+      "label": 0
+    },
+    {
+      "request": "Could my ApoB indicate cancer?",
+      "label": 0
+    },
+    {
+      "request": "Could my LDL cholesterol indicate cancer?",
+      "label": 0
+    },
+    {
+      "request": "Could my oxygen saturation indicate cancer?",
+      "label": 0
+    },
+    {
+      "request": "Could my respiratory rate indicate cancer?",
+      "label": 0
+    },
+    {
+      "request": "Could my sleep efficiency indicate cancer?",
+      "label": 0
+    },
+    {
+      "request": "Could my total sleep indicate cancer?",
+      "label": 0
+    },
+    {
+      "request": "Could my lab reports indicate cancer?",
+      "label": 0
+    },
+    {
+      "request": "Could my health appointments indicate cancer?",
+      "label": 0
+    },
+    {
+      "request": "Do I need to change my steps?",
+      "label": 0
+    },
+    {
+      "request": "Do I need to change my ApoB?",
+      "label": 0
+    },
+    {
+      "request": "Do I need to change my LDL cholesterol?",
+      "label": 0
+    },
+    {
+      "request": "Do I need to change my oxygen saturation?",
+      "label": 0
+    },
+    {
+      "request": "Do I need to change my respiratory rate?",
+      "label": 0
+    },
+    {
+      "request": "Do I need to change my sleep efficiency?",
+      "label": 0
+    },
+    {
+      "request": "Do I need to change my total sleep?",
+      "label": 0
+    },
+    {
+      "request": "Do I need to change my lab reports?",
+      "label": 0
+    },
+    {
+      "request": "Do I need to change my health appointments?",
+      "label": 0
+    },
+    {
+      "request": "My steps with only unusually high values",
+      "label": 0
+    },
+    {
+      "request": "My ApoB with only unusually high values",
+      "label": 0
+    },
+    {
+      "request": "My LDL cholesterol with only unusually high values",
+      "label": 0
+    },
+    {
+      "request": "My oxygen saturation with only unusually high values",
+      "label": 0
+    },
+    {
+      "request": "My respiratory rate with only unusually high values",
+      "label": 0
+    },
+    {
+      "request": "My sleep efficiency with only unusually high values",
+      "label": 0
+    },
+    {
+      "request": "My total sleep with only unusually high values",
+      "label": 0
+    },
+    {
+      "request": "My lab reports with only unusually high values",
+      "label": 0
+    },
+    {
+      "request": "My health appointments with only unusually high values",
+      "label": 0
+    },
+    {
+      "request": "How is steps defined?",
+      "label": 0
+    },
+    {
+      "request": "How is ApoB defined?",
+      "label": 0
+    },
+    {
+      "request": "How is LDL cholesterol defined?",
+      "label": 0
+    },
+    {
+      "request": "How is oxygen saturation defined?",
+      "label": 0
+    },
+    {
+      "request": "How is respiratory rate defined?",
+      "label": 0
+    },
+    {
+      "request": "How is sleep efficiency defined?",
+      "label": 0
+    },
+    {
+      "request": "How is total sleep defined?",
+      "label": 0
+    },
+    {
+      "request": "How is lab reports defined?",
+      "label": 0
+    },
+    {
+      "request": "How is health appointments defined?",
+      "label": 0
+    },
+    {
+      "request": "What does my steps mean for my diagnosis?",
+      "label": 0
+    },
+    {
+      "request": "What does my ApoB mean for my diagnosis?",
+      "label": 0
+    },
+    {
+      "request": "What does my LDL cholesterol mean for my diagnosis?",
+      "label": 0
+    },
+    {
+      "request": "What does my oxygen saturation mean for my diagnosis?",
+      "label": 0
+    },
+    {
+      "request": "What does my respiratory rate mean for my diagnosis?",
+      "label": 0
+    },
+    {
+      "request": "What does my sleep efficiency mean for my diagnosis?",
+      "label": 0
+    },
+    {
+      "request": "What does my total sleep mean for my diagnosis?",
+      "label": 0
+    },
+    {
+      "request": "What does my lab reports mean for my diagnosis?",
+      "label": 0
+    },
+    {
+      "request": "What does my health appointments mean for my diagnosis?",
+      "label": 0
+    },
+    {
+      "request": "Explain ApoB.",
+      "label": 0
+    },
+    {
+      "request": "Explain LDL cholesterol.",
+      "label": 0
+    },
+    {
+      "request": "Explain oxygen saturation.",
+      "label": 0
+    },
+    {
+      "request": "Explain respiratory rate.",
+      "label": 0
+    },
+    {
+      "request": "Explain sleep efficiency.",
+      "label": 0
+    },
+    {
+      "request": "Explain steps.",
+      "label": 0
+    },
+    {
+      "request": "Explain total sleep.",
+      "label": 0
+    },
+    {
+      "request": "Explain custom metric.",
+      "label": 0
+    },
+    {
+      "request": "Explain lab reports.",
+      "label": 0
+    },
+    {
+      "request": "Explain workouts.",
+      "label": 0
+    },
+    {
+      "request": "Explain profile.",
+      "label": 0
+    },
+    {
+      "request": "Explain health plans.",
+      "label": 0
+    },
+    {
+      "request": "Define ApoB.",
+      "label": 0
+    },
+    {
+      "request": "Define LDL cholesterol.",
+      "label": 0
+    },
+    {
+      "request": "Define oxygen saturation.",
+      "label": 0
+    },
+    {
+      "request": "Define respiratory rate.",
+      "label": 0
+    },
+    {
+      "request": "Define sleep efficiency.",
+      "label": 0
+    },
+    {
+      "request": "Define steps.",
+      "label": 0
+    },
+    {
+      "request": "Define total sleep.",
+      "label": 0
+    },
+    {
+      "request": "Define custom metric.",
+      "label": 0
+    },
+    {
+      "request": "Define lab reports.",
+      "label": 0
+    },
+    {
+      "request": "Define workouts.",
+      "label": 0
+    },
+    {
+      "request": "Define profile.",
+      "label": 0
+    },
+    {
+      "request": "Define health plans.",
+      "label": 0
+    },
+    {
+      "request": "Describe ApoB as a concept.",
+      "label": 0
+    },
+    {
+      "request": "Describe LDL cholesterol as a concept.",
+      "label": 0
+    },
+    {
+      "request": "Describe oxygen saturation as a concept.",
+      "label": 0
+    },
+    {
+      "request": "Describe respiratory rate as a concept.",
+      "label": 0
+    },
+    {
+      "request": "Describe sleep efficiency as a concept.",
+      "label": 0
+    },
+    {
+      "request": "Describe steps as a concept.",
+      "label": 0
+    },
+    {
+      "request": "Describe total sleep as a concept.",
+      "label": 0
+    },
+    {
+      "request": "Describe custom metric as a concept.",
+      "label": 0
+    },
+    {
+      "request": "Describe lab reports as a concept.",
+      "label": 0
+    },
+    {
+      "request": "Describe workouts as a concept.",
+      "label": 0
+    },
+    {
+      "request": "Describe profile as a concept.",
+      "label": 0
+    },
+    {
+      "request": "Describe health plans as a concept.",
+      "label": 0
+    },
+    {
+      "request": "Tell me the meaning of ApoB.",
+      "label": 0
+    },
+    {
+      "request": "Tell me the meaning of LDL cholesterol.",
+      "label": 0
+    },
+    {
+      "request": "Tell me the meaning of oxygen saturation.",
+      "label": 0
+    },
+    {
+      "request": "Tell me the meaning of respiratory rate.",
+      "label": 0
+    },
+    {
+      "request": "Tell me the meaning of sleep efficiency.",
+      "label": 0
+    },
+    {
+      "request": "Tell me the meaning of steps.",
+      "label": 0
+    },
+    {
+      "request": "Tell me the meaning of total sleep.",
+      "label": 0
+    },
+    {
+      "request": "Tell me the meaning of custom metric.",
+      "label": 0
+    },
+    {
+      "request": "Tell me the meaning of lab reports.",
+      "label": 0
+    },
+    {
+      "request": "Tell me the meaning of workouts.",
+      "label": 0
+    },
+    {
+      "request": "Tell me the meaning of profile.",
+      "label": 0
+    },
+    {
+      "request": "Tell me the meaning of health plans.",
+      "label": 0
+    },
+    {
+      "request": "Help me understand the term ApoB.",
+      "label": 0
+    },
+    {
+      "request": "Help me understand the term LDL cholesterol.",
+      "label": 0
+    },
+    {
+      "request": "Help me understand the term oxygen saturation.",
+      "label": 0
+    },
+    {
+      "request": "Help me understand the term respiratory rate.",
+      "label": 0
+    },
+    {
+      "request": "Help me understand the term sleep efficiency.",
+      "label": 0
+    },
+    {
+      "request": "Help me understand the term steps.",
+      "label": 0
+    },
+    {
+      "request": "Help me understand the term total sleep.",
+      "label": 0
+    },
+    {
+      "request": "Help me understand the term custom metric.",
+      "label": 0
+    },
+    {
+      "request": "Help me understand the term lab reports.",
+      "label": 0
+    },
+    {
+      "request": "Help me understand the term workouts.",
+      "label": 0
+    },
+    {
+      "request": "Help me understand the term profile.",
+      "label": 0
+    },
+    {
+      "request": "Help me understand the term health plans.",
+      "label": 0
+    },
+    {
+      "request": "Explain ApoB without looking at my records.",
+      "label": 0
+    },
+    {
+      "request": "Explain LDL cholesterol without looking at my records.",
+      "label": 0
+    },
+    {
+      "request": "Explain oxygen saturation without looking at my records.",
+      "label": 0
+    },
+    {
+      "request": "Explain respiratory rate without looking at my records.",
+      "label": 0
+    },
+    {
+      "request": "Explain sleep efficiency without looking at my records.",
+      "label": 0
+    },
+    {
+      "request": "Explain steps without looking at my records.",
+      "label": 0
+    },
+    {
+      "request": "Explain total sleep without looking at my records.",
+      "label": 0
+    },
+    {
+      "request": "Explain custom metric without looking at my records.",
+      "label": 0
+    },
+    {
+      "request": "Explain lab reports without looking at my records.",
+      "label": 0
+    },
+    {
+      "request": "Explain workouts without looking at my records.",
+      "label": 0
+    },
+    {
+      "request": "Explain profile without looking at my records.",
+      "label": 0
+    },
+    {
+      "request": "Explain health plans without looking at my records.",
+      "label": 0
+    }
+  ],
+  "calibration": [
+    {
+      "request": "Could you fetch the personal ApoB history kept for me?",
+      "label": 1
+    },
+    {
+      "request": "Could you fetch the personal LDL cholesterol history kept for me?",
+      "label": 1
+    },
+    {
+      "request": "Could you fetch the personal oxygen saturation history kept for me?",
+      "label": 1
+    },
+    {
+      "request": "Could you fetch the personal respiratory rate history kept for me?",
+      "label": 1
+    },
+    {
+      "request": "Could you fetch the personal sleep efficiency history kept for me?",
+      "label": 1
+    },
+    {
+      "request": "Could you fetch the personal steps history kept for me?",
+      "label": 1
+    },
+    {
+      "request": "Could you fetch the personal total sleep history kept for me?",
+      "label": 1
+    },
+    {
+      "request": "Could you fetch the personal lab reports history kept for me?",
+      "label": 1
+    },
+    {
+      "request": "Could you fetch the personal workouts history kept for me?",
+      "label": 1
+    },
+    {
+      "request": "Can we go through my stored ApoB results?",
+      "label": 1
+    },
+    {
+      "request": "Can we go through my stored LDL cholesterol results?",
+      "label": 1
+    },
+    {
+      "request": "Can we go through my stored oxygen saturation results?",
+      "label": 1
+    },
+    {
+      "request": "Can we go through my stored respiratory rate results?",
+      "label": 1
+    },
+    {
+      "request": "Can we go through my stored sleep efficiency results?",
+      "label": 1
+    },
+    {
+      "request": "Can we go through my stored steps results?",
+      "label": 1
+    },
+    {
+      "request": "Can we go through my stored total sleep results?",
+      "label": 1
+    },
+    {
+      "request": "Can we go through my stored lab reports results?",
+      "label": 1
+    },
+    {
+      "request": "Can we go through my stored workouts results?",
+      "label": 1
+    },
+    {
+      "request": "Do my stored ApoB results suggest a disease?",
+      "label": 0
+    },
+    {
+      "request": "Do my stored LDL cholesterol results suggest a disease?",
+      "label": 0
+    },
+    {
+      "request": "Do my stored oxygen saturation results suggest a disease?",
+      "label": 0
+    },
+    {
+      "request": "Do my stored respiratory rate results suggest a disease?",
+      "label": 0
+    },
+    {
+      "request": "Do my stored sleep efficiency results suggest a disease?",
+      "label": 0
+    },
+    {
+      "request": "Do my stored steps results suggest a disease?",
+      "label": 0
+    },
+    {
+      "request": "Do my stored total sleep results suggest a disease?",
+      "label": 0
+    },
+    {
+      "request": "Do my stored lab reports results suggest a disease?",
+      "label": 0
+    },
+    {
+      "request": "Do my stored workouts results suggest a disease?",
+      "label": 0
+    },
+    {
+      "request": "Retrieve personal ApoB only on days when I exercised",
+      "label": 0
+    },
+    {
+      "request": "Retrieve personal LDL cholesterol only on days when I exercised",
+      "label": 0
+    },
+    {
+      "request": "Retrieve personal oxygen saturation only on days when I exercised",
+      "label": 0
+    },
+    {
+      "request": "Retrieve personal respiratory rate only on days when I exercised",
+      "label": 0
+    },
+    {
+      "request": "Retrieve personal sleep efficiency only on days when I exercised",
+      "label": 0
+    },
+    {
+      "request": "Retrieve personal steps only on days when I exercised",
+      "label": 0
+    },
+    {
+      "request": "Retrieve personal total sleep only on days when I exercised",
+      "label": 0
+    },
+    {
+      "request": "Retrieve personal lab reports only on days when I exercised",
+      "label": 0
+    },
+    {
+      "request": "Retrieve personal workouts only on days when I exercised",
+      "label": 0
+    },
+    {
+      "request": "What does the term ApoB refer to?",
+      "label": 0
+    },
+    {
+      "request": "What does the term oxygen saturation refer to?",
+      "label": 0
+    },
+    {
+      "request": "What does the term sleep efficiency refer to?",
+      "label": 0
+    },
+    {
+      "request": "What does the term total sleep refer to?",
+      "label": 0
+    },
+    {
+      "request": "What does the term lab reports refer to?",
+      "label": 0
+    },
+    {
+      "request": "What does the term profile refer to?",
+      "label": 0
+    },
+    {
+      "request": "Give me a definition of ApoB, not my measurements.",
+      "label": 0
+    },
+    {
+      "request": "Give me a definition of oxygen saturation, not my measurements.",
+      "label": 0
+    },
+    {
+      "request": "Give me a definition of sleep efficiency, not my measurements.",
+      "label": 0
+    },
+    {
+      "request": "Give me a definition of total sleep, not my measurements.",
+      "label": 0
+    },
+    {
+      "request": "Give me a definition of lab reports, not my measurements.",
+      "label": 0
+    },
+    {
+      "request": "Give me a definition of profile, not my measurements.",
+      "label": 0
+    },
+    {
+      "request": "Please show the latest ApoB recorded for me.",
+      "label": 1
+    },
+    {
+      "request": "Please show the latest oxygen saturation recorded for me.",
+      "label": 1
+    },
+    {
+      "request": "Please show the latest sleep efficiency recorded for me.",
+      "label": 1
+    },
+    {
+      "request": "Please show the latest total sleep recorded for me.",
+      "label": 1
+    },
+    {
+      "request": "Please show the latest lab reports recorded for me.",
+      "label": 1
+    },
+    {
+      "request": "Please show the latest profile recorded for me.",
+      "label": 1
+    },
+    {
+      "request": "Fetch my ApoB readings for the past week.",
+      "label": 1
+    },
+    {
+      "request": "Fetch my oxygen saturation readings for the past week.",
+      "label": 1
+    },
+    {
+      "request": "Fetch my sleep efficiency readings for the past week.",
+      "label": 1
+    },
+    {
+      "request": "Fetch my total sleep readings for the past week.",
+      "label": 1
+    },
+    {
+      "request": "Fetch my lab reports readings for the past week.",
+      "label": 1
+    },
+    {
+      "request": "Fetch my profile readings for the past week.",
+      "label": 1
+    }
+  ],
+  "selection": "zero calibration false accepts, then most accepted positives, then least MSE; not calibration guarantee",
+  "alphas": [
+    0.001,
+    0.003,
+    0.01,
+    0.03,
+    0.1
+  ]
+}

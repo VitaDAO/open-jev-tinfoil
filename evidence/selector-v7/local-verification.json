@@ -1,0 +1,55 @@
+{
+  "selector_sha256": "6beaf54f171b47a6f068c785e63f85a2e2aac64e63a73e0b4eb36777a55b5cc5",
+  "regression430": {
+    "correct_plan": 205,
+    "correct_handoff": 224,
+    "wrong_plan": 1
+  },
+  "changed_from_serving_snapshot": 0,
+  "intent22": {
+    "passed": 22,
+    "total": 22
+  },
+  "edge73": {
+    "correct_plan": 17,
+    "correct_handoff": 56,
+    "wrong": 0,
+    "missed": 0
+  },
+  "fresh42_first_attempt": {
+    "correct_plan": 9,
+    "correct_handoff": 27,
+    "wrong": 3,
+    "missed": 3
+  },
+  "fresh42_repaired_regression": {
+    "correct_plan": 12,
+    "correct_handoff": 30,
+    "wrong": 0,
+    "missed": 0
+  },
+  "unit_tests": {
+    "passed": 388,
+    "skipped": 1
+  },
+  "native_tests": {
+    "passed": 35
+  },
+  "reports": {
+    "v4-fresh-repair-430.json": "798aed199bcd099cb3a8c613d677b7b68dbb2906233902f1314bbe9effda6c1d",
+    "v4-fresh-repair-42-grades.json": "bc970c7c043b5835d511669e062e29368e004381d69b5aa1116a84d14cdb2a97",
+    "v4-fresh-repair-95.json": "2739f1150960d1071a18f064368fd55281f6798229247994ac117294a147c975"
+  },
+  "limitations": [
+    "All packets now disclosed regression checks, not unseen accuracy proof.",
+    "bB-075 remains strict mismatch, reviewed valid Oura7day read.",
+    "Not deployed; no end-to-end speed or final-answer quality proof."
+  ],
+  "independent_review": {
+    "path": "/tmp/vita-openjev-integration-20260924/fresh-repaired-independent-review.json",
+    "sha256": "5bd9ccae8d55af948b7ef2cbcec4bd3fb56e89ba0e4979c3e6d43d48e3f1767e",
+    "replayed42_matches": true,
+    "native_accepted_plans": 12,
+    "audited430_matches": true
+  }
+}

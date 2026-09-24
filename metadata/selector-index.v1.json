@@ -19,7 +19,6 @@
   "inventory_to_catalog": {
     "ldl_cholesterol": "ldl",
     "oxygen_saturation": "spo2",
-    "heart_rate_variability": "hrv",
     "hba1c": "hba1c"
   },
   "records": {
@@ -107,7 +106,8 @@
       "adapter_detail_limit": 3,
       "aliases": [
         "lab reports",
-        "blood test reports"
+        "blood test reports",
+        "blood reports"
       ],
       "backend_fields": [
         "biomarker_count",

@@ -38,6 +38,7 @@ SOURCES = tuple(sorted(set(PROPOSAL_SOURCES) | {
     'query_selector.py', 'query_execution.py', 'entity_candidates.py',
     'adapters/vita-intent-v1.json', 'adapters/vita-selector-experimental-v1.json',
     'adapters/vita-read-intent-v2.json', 'adapters/vita-read-intent-v3.json',
+    'adapters/vita-read-intent-v4.json',
     'scripts/evaluate_query_plan.py', 'scripts/evaluate_http_selector.py',
 } | {str(p.relative_to(ROOT)) for p in (ROOT / 'compat').glob('*.py')}
   | {str(p.relative_to(ROOT)) for p in (ROOT / 'vendor').rglob('*.py')}))

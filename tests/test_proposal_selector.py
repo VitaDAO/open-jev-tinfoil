@@ -16,6 +16,7 @@ def request(text, history=(), metrics=None):
 
 def run(text, history=(), semantic_error=None, **overrides):
     selector=ProposalSelector.__new__(ProposalSelector)
+    selector.intent_check=lambda text: ({'choice':'recorded_health_read'},semantic_error)
     predicted=dict(task='health',coverage='targeted',purpose='trend',research='none')
     predicted.update(overrides)
     result=selector.select(request(text,history), prediction=(predicted,{k:.8 for k in predicted}),
@@ -247,14 +248,22 @@ def test_trained_head_identity_is_pinned_before_use(monkeypatch):
         trained.TrainedProposalSelector(None)
 
 
-def test_complete_grammar_binding_does_not_need_a_learned_veto():
+def test_complete_grammar_binding_skips_coverage_but_keeps_read_intent():
     selector=ProposalSelector.__new__(ProposalSelector)
+    selector.intent_check=lambda text: ({'choice':'recorded_health_read'},None)
     def unexpected(*args):raise AssertionError('Already completely bound')
     selector.coverage_check=unexpected
     result=selector.select(request('Show my steps yesterday'),prediction=(
         {'task':'health','coverage':'targeted','purpose':'trend','research':'none'},{'task':.8}))
     assert result['status']=='selected'
-    assert result['diagnostics']['semantic_coverage']=={'method':'complete_grammar_binding'}
+    assert result['diagnostics']['semantic_coverage']=={'method':'complete_grammar_binding',
+        'intent':{'choice':'recorded_health_read'}}
+
+
+def test_grammar_cannot_override_rejected_intent_even_when_task_head_says_health():
+    result,plan=run('What is ApoB?',task='health',semantic_error='learned_read_intent_unconfirmed')
+    assert result['status']=='unsupported' and plan is None
+    assert result['reason_codes']==['learned_read_intent_unconfirmed']
 
 
 def test_profile_snapshot_cannot_claim_historical_fields():
