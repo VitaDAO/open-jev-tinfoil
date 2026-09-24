@@ -1,3 +1,4 @@
+import os
 import httpx
 import pytest
 from examples.vita_client import VitaClient, MODEL_REVISION, ADAPTER_SHA256
@@ -6,14 +7,14 @@ GOOD={'model_revision':MODEL_REVISION,'adapter_sha256':ADAPTER_SHA256,'advisory'
 
 @pytest.mark.parametrize('override', [{'model_revision':'wrong'},{'adapter_sha256':'wrong'},{'advisory':False},{'action':'execute'},{'record_access':'false'}])
 def test_route_client_rejects_unexpected_contract(override):
-    client=VitaClient.__new__(VitaClient);client.token='synthetic'
+    client=VitaClient.__new__(VitaClient);client.token='synthetic';client._owner_pid=os.getpid()
     with httpx.Client(transport=httpx.MockTransport(lambda request:httpx.Response(200,json={**GOOD,**override}))) as http:
         client.http=http
         with pytest.raises(RuntimeError):client.route('synthetic input')
 
 
 def test_route_client_accepts_expected_adapter():
-    client=VitaClient.__new__(VitaClient);client.token='synthetic'
+    client=VitaClient.__new__(VitaClient);client.token='synthetic';client._owner_pid=os.getpid()
     with httpx.Client(transport=httpx.MockTransport(lambda request:httpx.Response(200,json=GOOD))) as http:
         client.http=http
         assert client.route('synthetic input')==GOOD
@@ -143,3 +144,50 @@ def test_selector_exception_releases_admission(selector_client,monkeypatch,failu
     monkeypatch.setattr(client.http,'post',fail_once)
     with pytest.raises((httpx.ReadTimeout,RuntimeError)):client.select(req)
     assert client.select(req).status=='planned' and len(calls)==2
+
+
+@pytest.mark.parametrize('method,args', [('select', (None,)), ('route', ('synthetic',)),
+                                         ('decide', ('synthetic', [])), ('close', ())])
+def test_forked_client_rejected_before_lock_or_transport_access(method,args):
+    # Intentionally no lock, token or transport: a guard placed after access fails.
+    client=VitaClient.__new__(VitaClient)
+    client._owner_pid=os.getpid()+1
+    with pytest.raises(RuntimeError,match='another process'):
+        getattr(client,method)(*args)
+
+
+@pytest.mark.skipif(not hasattr(os,'fork'),reason='requires POSIX fork')
+def test_real_fork_rejects_inherited_locked_client_and_parent_stays_usable(selector_client):
+    import select
+    client,request=selector_client
+    reader,writer=os.pipe()
+    client._select_lock.acquire()
+    pid=os.fork()
+    if pid==0:
+        os.close(reader)
+        try:
+            for method,args in [('select',(request,)),('route',('synthetic',)),
+                                ('decide',('synthetic',[])),('close',())]:
+                try:getattr(client,method)(*args)
+                except RuntimeError as exc:
+                    if 'another process' not in str(exc):raise
+                else:raise AssertionError('Inherited operation succeeded')
+            os.write(writer,b'guarded')
+            os._exit(0)
+        except BaseException:
+            os._exit(1)
+    os.close(writer)
+    try:
+        ready,_,_=select.select([reader],[],[],3)
+        assert ready, 'Child blocked on inherited lock'
+        assert os.read(reader,64)==b'guarded'
+        assert os.waitpid(pid,0)[1]==0
+        pid=None
+    finally:
+        os.close(reader)
+        if pid is not None:
+            import signal
+            os.kill(pid,signal.SIGKILL)
+            os.waitpid(pid,0)
+        client._select_lock.release()
+    assert client.select(request).status=='planned'
