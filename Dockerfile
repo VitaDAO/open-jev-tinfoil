@@ -6,7 +6,11 @@ RUN pip install --no-cache-dir --require-hashes --extra-index-url https://downlo
 COPY scripts/download_model.py scripts/pack_weights.py /app/scripts/
 RUN python scripts/download_model.py && python scripts/pack_weights.py /opt/model && rm -rf /opt/model/.cache
 # Learned request parser weights, staged by scripts/stage_learned_models.py: exactly the pinned files, readable by UID 10001.
-COPY learned_models /opt/learned
+# Separate model layers reduce transient disk usage while Docker unpacks an image.
+COPY learned_models/jevparse_r8a /opt/learned/jevparse_r8a
+COPY learned_models/jevparse_r8b /opt/learned/jevparse_r8b
+COPY learned_models/verifier_v4 /opt/learned/verifier_v4
+COPY learned_models/MANIFEST.sha256 /opt/learned/MANIFEST.sha256
 RUN cd /opt/learned && echo "da75040b34439f604e4c812690ae91f1ae0453ef902c54f51a98c73d70ecb97d  MANIFEST.sha256" | sha256sum --check --strict --quiet && sha256sum --check --strict --quiet MANIFEST.sha256 && test "$(find . ! -type d ! -path ./MANIFEST.sha256 | wc -l)" -eq "$(wc -l < MANIFEST.sha256)" && test -z "$(find . ! -perm -444 -o -type d ! -perm -555)"
 COPY vendor /app/vendor
 COPY server.py routing.py selector.py learned_selector.py proposal_selector.py trained_proposal_selector.py proposal_binding.py schema_index.py plan_adapter.py query_ir.py direct_selector.py entity_candidates.py temporal_spans.py query_plan.py query_selector.py query_execution.py /app/
