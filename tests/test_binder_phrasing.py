@@ -49,7 +49,7 @@ def read_for(selector, text, history=(), metrics=METRICS):
     ('Show my weight', 'weight', 'trend'),                       # weight is a metric, not the profile field
     ("What's my current weight?", 'weight', 'latest'),           # a current value is the latest one
     ('What was my vitamin D level last time I tested?', 'vitamin_d', 'latest'),
-    ("What's my cholestrol?", 'cholesterol', 'trend'),           # one-edit typo of a catalogue word
+    ("What's my cholestrol?", 'cholesterol', 'latest'),          # one-edit typo; "what's my X" is one value (spec §3.9)
     ('Show my triglicerides', 'triglycerides', 'trend'),
 ])
 def test_everyday_metric_phrasings_bind(selector, text, concept, purpose):

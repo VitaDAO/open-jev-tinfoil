@@ -7,3 +7,4 @@ model/
 .client-venv/
 
 model-fp16/
+learned_models/

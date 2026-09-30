@@ -1,0 +1,285 @@
+{
+ "_doc": "Build analyte_groups from the app's biomarker dedupe table (spec v1.8 10g.1). Data, not rules.\n\nspelling groups: every inventory id of one analyte; a bare name reads them all in one read.\nunit_split groups (legacy id + %/absolute ids): the legacy/bare id expands to all present; a specific id stays specific.\nsampling_split groups (spec v1.8 10g.27): same semantics as unit_split for a sampling condition of one analyte: bare \"glucose\"\nreads every present id of {glucose, fasting_glucose}, \"fasting glucose\" stays fasting_glucose. The app aliases bare glucose to\nfasting_glucose, so these ids are taken out of the spelling groups.",
+ "_source": "/Users/alexdobrin/Documents/vita-app-v2_claude/docs/plans/APPLY_prod_biomarker_catalog_dedupe.sql",
+ "spelling": {
+  "neutrophilsabsolute": [
+   "anc",
+   "neutrophils_absolute"
+  ],
+  "hiv12ab": [
+   "anti_hiv_i_and_ii",
+   "hiv_1_2_ab"
+  ],
+  "apoa1": [
+   "apoa1",
+   "apoai"
+  ],
+  "apobapoa1ratio": [
+   "apob_apoa1_ratio",
+   "apobapoai_ratio"
+  ],
+  "bilirubindirect": [
+   "bilirubin_direct",
+   "direct_bilirubin"
+  ],
+  "bilirubinindirect": [
+   "bilirubin_indirect",
+   "indirect_bilirubin"
+  ],
+  "bilirubintotal": [
+   "bilirubin_total",
+   "total_bilirubin"
+  ],
+  "bloodpressurediastolic": [
+   "blood_pressure_diastolic",
+   "diastolic_blood_pressure"
+  ],
+  "bloodpressuresystolic": [
+   "blood_pressure_systolic",
+   "systolic_blood_pressure"
+  ],
+  "buncreatinineratio": [
+   "bun_creatinine_ratio",
+   "buncreatinine_ratio"
+  ],
+  "calcium": [
+   "calcium",
+   "calcium_total",
+   "serum_calcium"
+  ],
+  "cholesterolhdlratio": [
+   "castelli_index_i",
+   "cholesterol_hdl_ratio",
+   "total_hdl_ratio"
+  ],
+  "ldlhdlratio": [
+   "castelli_index_ii",
+   "ldl_cholesterol_hdl_cholesterol_ratio",
+   "ldl_hdl_ratio"
+  ],
+  "ckmb": [
+   "ck_mb_mass",
+   "ckmb"
+  ],
+  "coronaryarterycalcium": [
+   "coronary_artery_calcium",
+   "coronary_artery_calcium_score"
+  ],
+  "cortisoldheasratio": [
+   "cortisol_dheas_ratio",
+   "cortisoldheas_ratio"
+  ],
+  "crphs": [
+   "crp_hs",
+   "hs_crp",
+   "hscrp"
+  ],
+  "dheas": [
+   "dhea_sulfate",
+   "dheas"
+  ],
+  "eag": [
+   "eag",
+   "estimated_average_glucose"
+  ],
+  "egfr": [
+   "egfr",
+   "egfr_ckdepi_creatinine"
+  ],
+  "urineepithelialcells": [
+   "epithelial_cells",
+   "urine_epithelial_cells"
+  ],
+  "fastinginsulin": [
+   "fasting_insulin",
+   "insulin",
+   "insulin_level"
+  ],
+  "folateserum": [
+   "folate_serum",
+   "vitamin_b9"
+  ],
+  "hdlcholesterol": [
+   "hdl",
+   "hdl_cholesterol",
+   "hdlc"
+  ],
+  "hiv12antibodyantigen": [
+   "hiv_1_2_antibody_antigen",
+   "hiv_1_ag_hiv_1_2_ab"
+  ],
+  "homair": [
+   "homa_ir",
+   "homair"
+  ],
+  "hstroponint": [
+   "hstroponin_t",
+   "troponin_t_hs"
+  ],
+  "ige": [
+   "ige",
+   "total_ige"
+  ],
+  "iron": [
+   "iron",
+   "serum_iron"
+  ],
+  "klothosoluble": [
+   "klotho",
+   "klotho_soluble"
+  ],
+  "ldlcholesterol": [
+   "ldl",
+   "ldl_cholesterol",
+   "ldlc"
+  ],
+  "totallipids": [
+   "lipids_total",
+   "total_lipids"
+  ],
+  "lpa": [
+   "lipoprotein_a",
+   "lp_a",
+   "lpa"
+  ],
+  "magnesium": [
+   "magnesium",
+   "serum_magnesium"
+  ],
+  "nlr": [
+   "neutrophil_lymphocyte_ratio",
+   "nlr"
+  ],
+  "nonhdlcholesterol": [
+   "non_hdl_cholesterol",
+   "nonhdl_cholesterol"
+  ],
+  "pth": [
+   "parathyroid_hormone",
+   "pth",
+   "pth_intact"
+  ],
+  "pdw": [
+   "pdw",
+   "platelet_distribution_width",
+   "platelet_volume_distribution"
+  ],
+  "platelets": [
+   "platelet_count",
+   "platelets"
+  ],
+  "plateletcrit": [
+   "plateletcrit",
+   "thrombocrit"
+  ],
+  "psa": [
+   "psa",
+   "psa_total"
+  ],
+  "urinewbc": [
+   "pus_cells",
+   "pyocytes",
+   "urine_leukocytes",
+   "urine_wbc",
+   "urine_white_blood_cells",
+   "wbc_urine"
+  ],
+  "rbc": [
+   "rbc",
+   "rbc_count"
+  ],
+  "rdw": [
+   "rbc_distribution_width",
+   "rdw",
+   "rdw_cv"
+  ],
+  "urinerbc": [
+   "rbc_urine",
+   "urine_rbc",
+   "urine_red_blood_cells"
+  ],
+  "reticulocytecount": [
+   "reticulocyte_count",
+   "reticulocytes"
+  ],
+  "specificgravityurine": [
+   "specific_gravity_urine",
+   "urinary_density",
+   "urine_density"
+  ],
+  "totalt3": [
+   "t3",
+   "total_t3"
+  ],
+  "t3rt3ratio": [
+   "t3_reverse_t3_ratio",
+   "t3rt3_ratio"
+  ],
+  "totalt4": [
+   "t4",
+   "total_t4"
+  ],
+  "tpoantibodies": [
+   "thyroid_peroxidase_antibodies",
+   "tpo_antibodies"
+  ],
+  "tnf": [
+   "tnf",
+   "tnf_alpha"
+  ],
+  "uibc": [
+   "uibc",
+   "unsaturated_iron_binding_capacity"
+  ],
+  "urineph": [
+   "urinary_ph",
+   "urine_ph"
+  ],
+  "urinevolume": [
+   "urinary_volume",
+   "urine_volume"
+  ],
+  "vldlcholesterol": [
+   "vldl_cholesterol",
+   "vldlc"
+  ],
+  "wbc": [
+   "wbc",
+   "wbc_count",
+   "white_blood_cells"
+  ]
+ },
+ "unit_split": {
+  "neutrophils": [
+   "neutrophils",
+   "neutrophils_percent",
+   "neutrophils_absolute"
+  ],
+  "lymphocytes": [
+   "lymphocytes",
+   "lymphocytes_percent",
+   "lymphocytes_absolute"
+  ],
+  "monocytes": [
+   "monocytes",
+   "monocytes_percent",
+   "monocytes_absolute"
+  ],
+  "eosinophils": [
+   "eosinophils",
+   "eosinophils_percent",
+   "eosinophils_absolute"
+  ],
+  "basophils": [
+   "basophils",
+   "basophils_percent",
+   "basophils_absolute"
+  ]
+ },
+ "sampling_split": {
+  "glucose": [
+   "glucose",
+   "fasting_glucose"
+  ]
+ }
+}

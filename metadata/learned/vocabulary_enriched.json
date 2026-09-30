@@ -1,0 +1,5969 @@
+{
+ "metrics": {
+  "1_25_dihydroxy_vitamin_d": {
+   "description": "Blood level of calcitriol, the active hormonal form of vitamin D, measured by a lab in pg/mL (or pmol/L).",
+   "category": "labs",
+   "synonyms": [
+    "1,25-dihydroxyvitamin D",
+    "1,25-dihydroxy vitamin D",
+    "calcitriol",
+    "active vitamin D",
+    "1,25-dihydroxycholecalciferol",
+    "vitamin D 1,25-dihydroxy"
+   ],
+   "abbreviations": [
+    "1,25(OH)2D",
+    "1,25(OH)2D3",
+    "1,25-(OH)2 vitamin D",
+    "1,25 vit D",
+    "1,25-diOH D"
+   ],
+   "lay_terms": [
+    "active form of vitamin D",
+    "hormonal vitamin D"
+   ],
+   "misspellings": [
+    "1,25 dihydroxy vitamin d",
+    "calcitrol",
+    "calcitrial",
+    "1 25 dihydroxy vit d",
+    "dihydroxy vitamine d"
+   ],
+   "confusable_with": [
+    "vitamin_d",
+    "ionic_calcium"
+   ],
+   "notes": "NOT the routine vitamin D status test: that is 25-hydroxyvitamin D (vitamin_d). Plain 'vitamin D' should link to vitamin_d unless '1,25' or 'calcitriol' is stated."
+  },
+  "activity_hr_average": {
+   "description": "Average heart rate during tracked activity periods in the daily activity summary of a wearable (e.g. Withings), in bpm.",
+   "category": "heart",
+   "synonyms": [
+    "activity average heart rate",
+    "average heart rate during activity",
+    "activity avg heart rate",
+    "average active heart rate"
+   ],
+   "abbreviations": [
+    "activity avg HR"
+   ],
+   "lay_terms": [
+    "average pulse while active",
+    "heart rate when moving"
+   ],
+   "misspellings": [
+    "activty average heart rate",
+    "activity averge heart rate",
+    "activity hr avg"
+   ],
+   "confusable_with": [
+    "heart_rate",
+    "resting_heart_rate",
+    "day_avg_hr",
+    "day_max_hr",
+    "activity_hr_max",
+    "activity_hr_min",
+    "workout_avg_hr",
+    "workout_max_hr",
+    "sleep_hr_average",
+    "sleep_hr_max",
+    "heart_rate_variability"
+   ],
+   "notes": "Daily activity summary value; per-workout averages are workout_avg_hr."
+  },
+  "activity_hr_max": {
+   "description": "Maximum heart rate during tracked activity periods in the daily activity summary of a wearable (e.g. Withings), in bpm.",
+   "category": "heart",
+   "synonyms": [
+    "activity maximum heart rate",
+    "activity max heart rate",
+    "peak heart rate during activity",
+    "highest active heart rate"
+   ],
+   "abbreviations": [
+    "activity max HR"
+   ],
+   "lay_terms": [
+    "highest pulse while active"
+   ],
+   "misspellings": [
+    "activty max heart rate",
+    "activity maxium heart rate",
+    "activity hr maximum"
+   ],
+   "confusable_with": [
+    "heart_rate",
+    "resting_heart_rate",
+    "day_avg_hr",
+    "day_max_hr",
+    "activity_hr_average",
+    "activity_hr_min",
+    "workout_avg_hr",
+    "workout_max_hr",
+    "sleep_hr_average",
+    "sleep_hr_max",
+    "heart_rate_variability"
+   ],
+   "notes": "Daily activity summary; per-workout max is workout_max_hr, whole-day max is day_max_hr."
+  },
+  "activity_hr_min": {
+   "description": "Minimum heart rate within the daily activity summary of a wearable (e.g. Withings), in bpm.",
+   "category": "heart",
+   "synonyms": [
+    "activity minimum heart rate",
+    "activity min heart rate",
+    "lowest heart rate during activity",
+    "minimum daily heart rate"
+   ],
+   "abbreviations": [
+    "activity min HR"
+   ],
+   "lay_terms": [
+    "lowest pulse of the day"
+   ],
+   "misspellings": [
+    "activty min heart rate",
+    "activity minumum heart rate",
+    "activity hr minimum"
+   ],
+   "confusable_with": [
+    "heart_rate",
+    "resting_heart_rate",
+    "day_avg_hr",
+    "day_max_hr",
+    "activity_hr_average",
+    "activity_hr_max",
+    "workout_avg_hr",
+    "workout_max_hr",
+    "sleep_hr_average",
+    "sleep_hr_max",
+    "heart_rate_variability"
+   ],
+   "notes": "Not resting heart rate (resting_heart_rate), though often close in value."
+  },
+  "activity_score": {
+   "description": "Vendor composite daily activity score (0-100) such as the Oura Activity score, in score points.",
+   "category": "activity",
+   "synonyms": [
+    "activity score",
+    "Oura activity score",
+    "daily activity score",
+    "activity rating",
+    "movement score"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "how active was I",
+    "activity level"
+   ],
+   "misspellings": [
+    "activty score",
+    "activity scor",
+    "acitivity score"
+   ],
+   "confusable_with": [
+    "day_strain",
+    "steps",
+    "calories_active"
+   ],
+   "notes": "Oura-style score. Whoop's analogous load metric is day_strain."
+  },
+  "albumin": {
+   "description": "Serum albumin, the main blood protein made by the liver, measured by a lab in g/dL (or g/L).",
+   "category": "labs",
+   "synonyms": [
+    "serum albumin",
+    "albumin, serum",
+    "plasma albumin",
+    "blood albumin"
+   ],
+   "abbreviations": [
+    "ALB"
+   ],
+   "lay_terms": [
+    "blood protein level",
+    "liver protein"
+   ],
+   "misspellings": [
+    "albumen",
+    "albumine",
+    "albumn",
+    "albummin"
+   ],
+   "confusable_with": [],
+   "notes": "Not urine albumin / microalbumin (UACR), which is a kidney test. Not total protein or globulin."
+  },
+  "alkaline_phosphatase": {
+   "description": "Serum alkaline phosphatase, an enzyme from liver, bile ducts and bone, measured by a lab in U/L (IU/L).",
+   "category": "labs",
+   "synonyms": [
+    "alkaline phosphatase",
+    "serum alkaline phosphatase",
+    "alk phos",
+    "alkaline phosphatase total"
+   ],
+   "abbreviations": [
+    "ALP",
+    "ALK PHOS",
+    "AlkPhos",
+    "ALKP"
+   ],
+   "lay_terms": [
+    "liver/bone enzyme"
+   ],
+   "misspellings": [
+    "alkaline phosphotase",
+    "alkaline phosphate",
+    "alkaline phosphatese",
+    "alkalin phosphatase",
+    "alk phosphatase"
+   ],
+   "confusable_with": [
+    "alt",
+    "ast",
+    "ggt"
+   ],
+   "notes": "Part of a liver panel/CMP. 'Alkaline phosphate' is a common mis-statement of this enzyme."
+  },
+  "alt": {
+   "description": "Alanine aminotransferase, a liver enzyme measured in blood by a lab in U/L (IU/L).",
+   "category": "labs",
+   "synonyms": [
+    "alanine aminotransferase",
+    "alanine transaminase",
+    "serum glutamic-pyruvic transaminase",
+    "glutamic pyruvic transaminase"
+   ],
+   "abbreviations": [
+    "ALT",
+    "SGPT",
+    "ALAT",
+    "GPT"
+   ],
+   "lay_terms": [
+    "liver enzyme",
+    "liver enzymes",
+    "liver function"
+   ],
+   "misspellings": [
+    "alanine aminotransferace",
+    "alanine aminotranferase",
+    "alinine aminotransferase",
+    "alanine transaminace",
+    "sgtp"
+   ],
+   "confusable_with": [
+    "ast",
+    "ggt",
+    "alkaline_phosphatase",
+    "albumin"
+   ],
+   "notes": "ALT is the most liver-specific of the transaminases. 'liver enzymes' generically also covers ast/ggt/alkaline_phosphatase."
+  },
+  "apob": {
+   "description": "Apolipoprotein B, the protein on every atherogenic lipoprotein particle (LDL, VLDL, IDL, Lp(a)), measured by a lab in mg/dL (or g/L).",
+   "category": "labs",
+   "synonyms": [
+    "apolipoprotein B",
+    "apolipoprotein B-100",
+    "apo B-100",
+    "apo B",
+    "apoB100",
+    "ApoB"
+   ],
+   "abbreviations": [
+    "ApoB",
+    "Apo-B",
+    "apo B100"
+   ],
+   "lay_terms": [
+    "particle count",
+    "atherogenic particles"
+   ],
+   "misspellings": [
+    "apo-b",
+    "apolipoprotien b",
+    "apolipoprotein b100",
+    "apolipo protein b",
+    "appo b"
+   ],
+   "confusable_with": [
+    "ldl",
+    "lipoprotein_a",
+    "lp_a",
+    "cholesterol"
+   ],
+   "notes": "Not LDL-C (cholesterol mass). 'LDL-P' (NMR particle number) is a related but different assay; closest available id is apob."
+  },
+  "ast": {
+   "description": "Aspartate aminotransferase, an enzyme from liver, heart and muscle, measured in blood by a lab in U/L (IU/L).",
+   "category": "labs",
+   "synonyms": [
+    "aspartate aminotransferase",
+    "aspartate transaminase",
+    "serum glutamic-oxaloacetic transaminase",
+    "glutamic oxaloacetic transaminase"
+   ],
+   "abbreviations": [
+    "AST",
+    "SGOT",
+    "ASAT",
+    "GOT"
+   ],
+   "lay_terms": [],
+   "misspellings": [
+    "aspartate aminotransferace",
+    "asparate aminotransferase",
+    "aspartate aminotranferase",
+    "aspartate transaminace",
+    "sgto"
+   ],
+   "confusable_with": [
+    "alt",
+    "ggt",
+    "alkaline_phosphatase"
+   ],
+   "notes": "Also rises after intense exercise (muscle source). AST/ALT ratio is a common derived value."
+  },
+  "awake_time": {
+   "description": "Time spent awake between falling asleep and final wake-up within a sleep period (wake after sleep onset), from a wearable or sleep sensor, in minutes.",
+   "category": "sleep",
+   "synonyms": [
+    "awake time",
+    "time awake during sleep",
+    "wake after sleep onset",
+    "WASO",
+    "awake during sleep",
+    "time awake at night",
+    "sleep awake time",
+    "sleep awake"
+   ],
+   "abbreviations": [
+    "WASO"
+   ],
+   "lay_terms": [
+    "time awake at night",
+    "how long I was awake",
+    "restlessness",
+    "tossing and turning"
+   ],
+   "misspellings": [
+    "awake tme",
+    "awake durring sleep",
+    "awak time",
+    "wake after sleep onsett"
+   ],
+   "confusable_with": [
+    "wakeup_duration",
+    "wakeup_count",
+    "sleep_efficiency",
+    "sleep_latency",
+    "total_sleep"
+   ],
+   "notes": "Near-duplicate of wakeup_duration (Withings 'wakeupduration'); prefer awake_time for Oura/Whoop data. Count of awakenings -> wakeup_count."
+  },
+  "basal_metabolic_rate": {
+   "description": "Basal metabolic rate, estimated resting daily energy expenditure, from a bioimpedance scale or wearable model, in kcal/day.",
+   "category": "body",
+   "synonyms": [
+    "basal metabolic rate",
+    "resting metabolic rate",
+    "resting energy expenditure",
+    "BMR",
+    "RMR",
+    "REE",
+    "metabolism"
+   ],
+   "abbreviations": [
+    "BMR",
+    "RMR",
+    "REE"
+   ],
+   "lay_terms": [
+    "metabolism",
+    "calories at rest",
+    "resting calories"
+   ],
+   "misspellings": [
+    "basel metabolic rate",
+    "basal metabollic rate",
+    "basal metobolic rate",
+    "bmr rate"
+   ],
+   "confusable_with": [
+    "calories_burned",
+    "calories_active"
+   ],
+   "notes": "Resting only; total daily burn -> calories_burned."
+  },
+  "basophils": {
+   "description": "Basophils, a white blood cell type from the CBC differential, reported by a lab as % of WBC and/or absolute count (x10^3/uL).",
+   "category": "labs",
+   "synonyms": [
+    "basophil",
+    "basophil count",
+    "basophil percentage",
+    "basophils %",
+    "absolute basophils",
+    "basophils absolute"
+   ],
+   "abbreviations": [
+    "BASO",
+    "BASO%",
+    "BASO#",
+    "ABS BASO"
+   ],
+   "lay_terms": [
+    "allergy white cells"
+   ],
+   "misspellings": [
+    "basophills",
+    "basofils",
+    "basophiles",
+    "basophyls"
+   ],
+   "confusable_with": [
+    "eosinophils",
+    "lymphocytes",
+    "monocytes",
+    "neutrophils",
+    "wbc_count",
+    "white_blood_cells"
+   ],
+   "notes": "Only one basophil id exists; check the unit to tell % from absolute count."
+  },
+  "bedtime_hour": {
+   "description": "Clock time you went to bed / fell asleep for the main sleep period, from a wearable, expressed as hour of day.",
+   "category": "sleep",
+   "synonyms": [
+    "bedtime",
+    "bed time",
+    "sleep start time",
+    "time went to bed",
+    "sleep onset clock time",
+    "lights out time"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "when I went to bed",
+    "what time I go to sleep",
+    "going to bed"
+   ],
+   "misspellings": [
+    "bedtme",
+    "bed tiem",
+    "bedtine",
+    "bedtim"
+   ],
+   "confusable_with": [
+    "wake_hour",
+    "sleep_latency",
+    "sleep_consistency"
+   ],
+   "notes": "A clock time, not a duration."
+  },
+  "bioavailable_testosterone": {
+   "description": "Bioavailable testosterone (free plus albumin-bound, i.e. not SHBG-bound), measured or calculated by a lab in ng/dL.",
+   "category": "labs",
+   "synonyms": [
+    "bioavailable testosterone",
+    "testosterone, bioavailable",
+    "non-SHBG-bound testosterone",
+    "weakly bound testosterone"
+   ],
+   "abbreviations": [
+    "bio-T",
+    "BAT",
+    "bio T",
+    "bioT"
+   ],
+   "lay_terms": [
+    "usable testosterone",
+    "available testosterone"
+   ],
+   "misspellings": [
+    "bio-available testosterone",
+    "bioavailible testosterone",
+    "bioavailable testosteron",
+    "bioavailable testostrone",
+    "bioavailable testerone"
+   ],
+   "confusable_with": [
+    "total_testosterone"
+   ],
+   "notes": "NOT free testosterone (which is only the unbound ~2%; no separate id exists) and NOT total testosterone. Plain 'testosterone' or 'T level' -> total_testosterone."
+  },
+  "blood_pressure": {
+   "description": "Arterial blood pressure (systolic over diastolic) from a cuff or wearable, in mmHg.",
+   "category": "heart",
+   "synonyms": [
+    "blood pressure",
+    "arterial blood pressure",
+    "BP reading",
+    "BP",
+    "systolic/diastolic"
+   ],
+   "abbreviations": [
+    "BP",
+    "B/P",
+    "NIBP"
+   ],
+   "lay_terms": [
+    "pressure",
+    "my pressure",
+    "high blood pressure",
+    "hypertension reading"
+   ],
+   "misspellings": [
+    "blod pressure",
+    "blood presure",
+    "bloodpressure",
+    "blood preasure",
+    "blood pressue"
+   ],
+   "confusable_with": [
+    "systolic_blood_pressure",
+    "diastolic_blood_pressure",
+    "pulse_wave_velocity"
+   ],
+   "notes": "Combined reading. 'Top number' -> systolic_blood_pressure, 'bottom number' -> diastolic_blood_pressure."
+  },
+  "bmi": {
+   "description": "Body mass index, weight divided by height squared, computed from scale/profile data, in kg/m2.",
+   "category": "body",
+   "synonyms": [
+    "body mass index",
+    "BMI",
+    "Quetelet index"
+   ],
+   "abbreviations": [
+    "BMI"
+   ],
+   "lay_terms": [
+    "am I overweight",
+    "weight for height"
+   ],
+   "misspellings": [
+    "body mas index",
+    "bmi index",
+    "b.m.i",
+    "body mass indx"
+   ],
+   "confusable_with": [
+    "weight",
+    "body_fat",
+    "height"
+   ],
+   "notes": "Also exists as a profile field (bmi)."
+  },
+  "body_fat": {
+   "description": "Body fat percentage, the share of body weight that is fat, from a bioimpedance scale, DEXA or wearable, in %.",
+   "category": "body",
+   "synonyms": [
+    "body fat",
+    "body fat percentage",
+    "body fat %",
+    "fat percentage",
+    "percent body fat",
+    "fat ratio",
+    "BF%",
+    "fat percent"
+   ],
+   "abbreviations": [
+    "BF%",
+    "PBF",
+    "%BF"
+   ],
+   "lay_terms": [
+    "how fat am I",
+    "fat level",
+    "body fat level"
+   ],
+   "misspellings": [
+    "body fatt",
+    "bodyfat",
+    "body fat percentge",
+    "body fat precentage"
+   ],
+   "confusable_with": [
+    "fat_mass",
+    "visceral_fat",
+    "lean_mass_percent",
+    "bmi"
+   ],
+   "notes": "Percentage; kilograms of fat -> fat_mass."
+  },
+  "body_temp_deviation": {
+   "description": "Nightly deviation of body (finger/wrist skin) temperature from your personal baseline, from a wearable (Oura temperature deviation, Apple wrist temperature), in degrees Celsius.",
+   "category": "other",
+   "synonyms": [
+    "body temperature deviation",
+    "temperature deviation",
+    "temperature trend",
+    "temp deviation",
+    "temperature change from baseline",
+    "Oura temperature",
+    "wrist temperature deviation"
+   ],
+   "abbreviations": [
+    "temp dev"
+   ],
+   "lay_terms": [
+    "temperature trend",
+    "running hot",
+    "am I getting sick",
+    "cycle temperature"
+   ],
+   "misspellings": [
+    "temperature deviaton",
+    "temprature deviation",
+    "body temp devation",
+    "temp deviaton"
+   ],
+   "confusable_with": [
+    "body_temperature",
+    "skin_temp"
+   ],
+   "notes": "Relative delta (can be negative), not an absolute temperature."
+  },
+  "body_temperature": {
+   "description": "Core/absolute body temperature from a thermometer (e.g. Withings Thermo) or manual entry, in degrees Celsius.",
+   "category": "other",
+   "synonyms": [
+    "body temperature",
+    "temperature",
+    "core temperature",
+    "oral temperature",
+    "basal body temperature",
+    "fever reading"
+   ],
+   "abbreviations": [
+    "temp",
+    "BBT",
+    "\u00b0C",
+    "\u00b0F"
+   ],
+   "lay_terms": [
+    "fever",
+    "do I have a fever",
+    "my temperature"
+   ],
+   "misspellings": [
+    "body temprature",
+    "body temperture",
+    "body tempreature",
+    "temprature",
+    "tempature"
+   ],
+   "confusable_with": [
+    "body_temp_deviation",
+    "skin_temp"
+   ],
+   "notes": "Absolute value. Oura-style nightly change from baseline -> body_temp_deviation; wrist/finger skin temp -> skin_temp."
+  },
+  "bone_mass": {
+   "description": "Estimated bone mineral mass from a bioimpedance scale (or DEXA), in kg.",
+   "category": "body",
+   "synonyms": [
+    "bone mass",
+    "bone mineral mass",
+    "bone mineral content",
+    "BMC"
+   ],
+   "abbreviations": [
+    "BMC"
+   ],
+   "lay_terms": [
+    "bone weight",
+    "bones"
+   ],
+   "misspellings": [
+    "bone mas",
+    "bonemass",
+    "bone masss"
+   ],
+   "confusable_with": [
+    "fat_free_mass",
+    "muscle_mass"
+   ],
+   "notes": "Not bone mineral density (BMD / T-score, g/cm2), which has no id."
+  },
+  "breathing_disturbance_index": {
+   "description": "Breathing disturbance index, the number of breathing disturbances per hour of sleep from an oximetry wearable or sleep sensor (Oura, Withings Sleep Analyzer), in events/hour.",
+   "category": "sleep",
+   "synonyms": [
+    "breathing disturbance index",
+    "breathing disturbances",
+    "breathing disturbances per hour",
+    "breathing regularity",
+    "sleep breathing events",
+    "sleep apnea index"
+   ],
+   "abbreviations": [
+    "BDI",
+    "AHI",
+    "RDI"
+   ],
+   "lay_terms": [
+    "breathing problems at night",
+    "sleep apnea",
+    "stopped breathing",
+    "apnea events"
+   ],
+   "misspellings": [
+    "breathing disturbence index",
+    "breathing disturbance idex",
+    "breating disturbance",
+    "breathing disterbance"
+   ],
+   "confusable_with": [
+    "spo2",
+    "respiratory_rate",
+    "snoring_episodes",
+    "sleep_rr_max",
+    "sleep_rr_min"
+   ],
+   "notes": "Consumer approximation, not a clinical polysomnography AHI/RDI; AHI/RDI are listed only because users use them for this concept. Oura 'breathing regularity' is its banded view."
+  },
+  "calories_active": {
+   "description": "Active energy burned through movement and exercise above resting metabolism, from a wearable, in kcal.",
+   "category": "activity",
+   "synonyms": [
+    "active calories",
+    "active energy",
+    "active calories burned",
+    "move calories",
+    "activity calories",
+    "active kcal"
+   ],
+   "abbreviations": [
+    "AEE"
+   ],
+   "lay_terms": [
+    "move ring",
+    "calories from exercise"
+   ],
+   "misspellings": [
+    "active calores",
+    "activ calories",
+    "active calroies",
+    "active calaries"
+   ],
+   "confusable_with": [
+    "calories_burned",
+    "workout_calories",
+    "basal_metabolic_rate"
+   ],
+   "notes": "Apple Watch 'Move' ring = active energy. Not total calories_burned."
+  },
+  "calories_burned": {
+   "description": "Total energy expenditure for the day (resting/basal plus active), from a wearable, in kcal.",
+   "category": "activity",
+   "synonyms": [
+    "calories burned",
+    "total calories burned",
+    "total energy expenditure",
+    "daily calories",
+    "day calories",
+    "calorie burn",
+    "total calories",
+    "calories"
+   ],
+   "abbreviations": [
+    "TDEE",
+    "TEE",
+    "kcal",
+    "cal"
+   ],
+   "lay_terms": [
+    "calories",
+    "energy burned",
+    "how many calories I burned"
+   ],
+   "misspellings": [
+    "calores burned",
+    "calories burnt",
+    "calorie burnd",
+    "calroies",
+    "calaries"
+   ],
+   "confusable_with": [
+    "calories_active",
+    "workout_calories",
+    "basal_metabolic_rate"
+   ],
+   "notes": "Total (includes BMR). Active-only -> calories_active; single workout -> workout_calories. Not calories eaten (intake has no id)."
+  },
+  "cardiovascular_age": {
+   "description": "Estimated cardiovascular (vascular) age derived from arterial stiffness / pulse wave data by a wearable or scale (Oura Cardiovascular Age, Withings vascular age), in years.",
+   "category": "heart",
+   "synonyms": [
+    "cardiovascular age",
+    "vascular age",
+    "heart age",
+    "arterial age",
+    "Oura cardiovascular age"
+   ],
+   "abbreviations": [
+    "CV age",
+    "CVA"
+   ],
+   "lay_terms": [
+    "heart age",
+    "how old my heart is",
+    "age of my arteries"
+   ],
+   "misspellings": [
+    "cardio vascular age",
+    "cardiovasular age",
+    "cardiovascular aje",
+    "vascualr age"
+   ],
+   "confusable_with": [
+    "pulse_wave_velocity"
+   ],
+   "notes": "Not chronological age (profile birth year) and not biological/epigenetic age."
+  },
+  "cholesterol": {
+   "description": "Total cholesterol from a lipid panel, measured by a lab in mg/dL (or mmol/L).",
+   "category": "labs",
+   "synonyms": [
+    "total cholesterol",
+    "serum cholesterol",
+    "cholesterol, total",
+    "blood cholesterol",
+    "cholesterol level"
+   ],
+   "abbreviations": [
+    "TC",
+    "CHOL",
+    "T-CHOL",
+    "TChol"
+   ],
+   "lay_terms": [
+    "cholesterol",
+    "cholesterol number",
+    "overall cholesterol"
+   ],
+   "misspellings": [
+    "cholestrol",
+    "cholesteral",
+    "colesterol",
+    "cholesterole",
+    "cholestoral",
+    "chloresterol"
+   ],
+   "confusable_with": [
+    "hdl",
+    "ldl",
+    "triglycerides",
+    "apob"
+   ],
+   "notes": "Default for unqualified 'cholesterol'. 'Good' -> hdl, 'bad' -> ldl. Non-HDL cholesterol has no id."
+  },
+  "cortisol_am": {
+   "description": "Morning (AM, typically 7-9 am) serum cortisol, the main stress hormone, measured by a lab in ug/dL (or nmol/L).",
+   "category": "labs",
+   "synonyms": [
+    "morning cortisol",
+    "AM cortisol",
+    "cortisol, AM",
+    "serum cortisol morning",
+    "cortisol a.m.",
+    "8 am cortisol",
+    "cortisol"
+   ],
+   "abbreviations": [
+    "AM cort",
+    "cort"
+   ],
+   "lay_terms": [
+    "stress hormone",
+    "morning stress hormone"
+   ],
+   "misspellings": [
+    "cortisole",
+    "cortizol",
+    "cortsiol",
+    "cortisal"
+   ],
+   "confusable_with": [
+    "stress_summary",
+    "stress_high_duration"
+   ],
+   "notes": "A lab hormone value; not the wearable stress metrics (stress_summary, stress_high_duration). Not salivary or evening cortisol."
+  },
+  "creatinine": {
+   "description": "Serum creatinine, a muscle waste product cleared by the kidneys, measured by a lab in mg/dL (or umol/L).",
+   "category": "labs",
+   "synonyms": [
+    "serum creatinine",
+    "creatinine, serum",
+    "blood creatinine",
+    "plasma creatinine"
+   ],
+   "abbreviations": [
+    "Cr",
+    "CREAT",
+    "SCr"
+   ],
+   "lay_terms": [
+    "kidney waste marker"
+   ],
+   "misspellings": [
+    "creatinin",
+    "creatnine",
+    "creatine",
+    "creatinene",
+    "creatanine",
+    "creatinie"
+   ],
+   "confusable_with": [
+    "egfr"
+   ],
+   "notes": "'Creatine' (the supplement) is a frequent misspelling, but a request about creatine supplementation is not this lab. Not urine creatinine or creatinine clearance. eGFR is computed from it."
+  },
+  "day_avg_hr": {
+   "description": "Average heart rate across the whole day (24 h) from a continuously worn wearable, in bpm.",
+   "category": "heart",
+   "synonyms": [
+    "daily average heart rate",
+    "average daily heart rate",
+    "day average heart rate",
+    "24-hour average heart rate",
+    "mean heart rate for the day"
+   ],
+   "abbreviations": [
+    "avg HR",
+    "daily avg HR"
+   ],
+   "lay_terms": [
+    "average pulse today",
+    "average heartbeat for the day"
+   ],
+   "misspellings": [
+    "daily averge heart rate",
+    "dayly average heart rate",
+    "day avg heartrate"
+   ],
+   "confusable_with": [
+    "heart_rate",
+    "resting_heart_rate",
+    "day_max_hr",
+    "activity_hr_average",
+    "activity_hr_max",
+    "activity_hr_min",
+    "workout_avg_hr",
+    "workout_max_hr",
+    "sleep_hr_average",
+    "sleep_hr_max",
+    "heart_rate_variability"
+   ],
+   "notes": "Whole-day average; not resting HR, workout average (workout_avg_hr), activity average (activity_hr_average) or sleep average (sleep_hr_average)."
+  },
+  "day_max_hr": {
+   "description": "Highest heart rate recorded over the whole day by a continuously worn wearable, in bpm.",
+   "category": "heart",
+   "synonyms": [
+    "daily maximum heart rate",
+    "daily max heart rate",
+    "day max heart rate",
+    "peak heart rate today",
+    "highest heart rate of the day",
+    "max heart rate",
+    "peak heart rate",
+    "max hr",
+    "peak hr",
+    "maximum heart rate"
+   ],
+   "abbreviations": [
+    "max HR",
+    "daily max HR",
+    "HRmax"
+   ],
+   "lay_terms": [
+    "highest pulse today",
+    "peak pulse"
+   ],
+   "misspellings": [
+    "daily maxium heart rate",
+    "daily max heartrate",
+    "day maxhr"
+   ],
+   "confusable_with": [
+    "heart_rate",
+    "resting_heart_rate",
+    "day_avg_hr",
+    "activity_hr_average",
+    "activity_hr_max",
+    "activity_hr_min",
+    "workout_avg_hr",
+    "workout_max_hr",
+    "sleep_hr_average",
+    "sleep_hr_max",
+    "heart_rate_variability"
+   ],
+   "notes": "Whole-day peak. Not workout max (workout_max_hr), activity max (activity_hr_max) or sleep max (sleep_hr_max). Not the physiological/age-predicted HRmax."
+  },
+  "day_strain": {
+   "description": "Whoop Day Strain, the cumulative cardiovascular load for the whole day on a 0-21 scale, in score points.",
+   "category": "activity",
+   "synonyms": [
+    "day strain",
+    "daily strain",
+    "Whoop strain",
+    "Whoop day strain",
+    "cardiovascular strain",
+    "total strain",
+    "strain score",
+    "Whoop strain score",
+    "daily strain score"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "how hard was my day",
+    "exertion today",
+    "training load today"
+   ],
+   "misspellings": [
+    "day strian",
+    "daily strane",
+    "day stain",
+    "days strain"
+   ],
+   "confusable_with": [
+    "strain_score",
+    "workout_intensity",
+    "activity_score"
+   ],
+   "notes": "Whole day. Per-workout strain -> strain_score. Plain 'strain' is ambiguous: default to day_strain unless a workout is referenced."
+  },
+  "dhea_sulfate": {
+   "description": "Dehydroepiandrosterone sulfate, an adrenal androgen precursor hormone, measured by a lab in ug/dL (or umol/L).",
+   "category": "labs",
+   "synonyms": [
+    "dehydroepiandrosterone sulfate",
+    "dehydroepiandrosterone sulphate",
+    "DHEA sulfate",
+    "DHEA sulphate"
+   ],
+   "abbreviations": [
+    "DHEA-S",
+    "DHEAS",
+    "DHEA-SO4",
+    "DHEA S"
+   ],
+   "lay_terms": [
+    "adrenal hormone",
+    "DHEA"
+   ],
+   "misspellings": [
+    "dhea sulfite",
+    "dhea sulphite",
+    "dehydroepiandosterone sulfate",
+    "dehydroepiandrosterone sulfat",
+    "dhea-sulfate"
+   ],
+   "confusable_with": [
+    "total_testosterone",
+    "cortisol_am"
+   ],
+   "notes": "Plain 'DHEA' (unsulfated) is a separate assay, but in consumer panels it almost always means DHEA-S; link here with that caveat."
+  },
+  "diastolic_blood_pressure": {
+   "description": "Diastolic blood pressure, the arterial pressure between heartbeats (the bottom number), from a cuff or wearable, in mmHg.",
+   "category": "heart",
+   "synonyms": [
+    "diastolic blood pressure",
+    "diastolic pressure",
+    "diastolic",
+    "diastolic BP",
+    "DBP"
+   ],
+   "abbreviations": [
+    "DBP",
+    "DIA"
+   ],
+   "lay_terms": [
+    "bottom number",
+    "lower number",
+    "lower blood pressure"
+   ],
+   "misspellings": [
+    "diastolic blood presure",
+    "diastollic",
+    "diastalic",
+    "diastolic presure",
+    "dystolic"
+   ],
+   "confusable_with": [
+    "systolic_blood_pressure",
+    "blood_pressure"
+   ],
+   "notes": ""
+  },
+  "distance": {
+   "description": "Total distance walked/run/moved over the day, from a phone or wearable, in km.",
+   "category": "activity",
+   "synonyms": [
+    "distance",
+    "daily distance",
+    "distance walked",
+    "distance covered",
+    "walking distance",
+    "kilometers",
+    "miles"
+   ],
+   "abbreviations": [
+    "km",
+    "mi"
+   ],
+   "lay_terms": [
+    "how far I walked",
+    "how far I went"
+   ],
+   "misspellings": [
+    "distence",
+    "distanse",
+    "distnace",
+    "distanc"
+   ],
+   "confusable_with": [
+    "workout_distance",
+    "steps"
+   ],
+   "notes": "Daily total; per-workout distance is workout_distance."
+  },
+  "ecg_afib_classification": {
+   "description": "Atrial fibrillation classification result from a single-lead wearable ECG (Apple Watch, Withings, KardiaMobile, Fitbit), a categorical value (e.g. sinus rhythm, AFib, inconclusive).",
+   "category": "heart",
+   "synonyms": [
+    "ECG AFib classification",
+    "ECG result",
+    "ECG classification",
+    "AFib result",
+    "atrial fibrillation classification",
+    "ECG rhythm classification",
+    "EKG result"
+   ],
+   "abbreviations": [
+    "ECG",
+    "EKG",
+    "AFib",
+    "AF",
+    "A-fib"
+   ],
+   "lay_terms": [
+    "heart rhythm check",
+    "irregular heartbeat",
+    "irregular rhythm",
+    "afib check"
+   ],
+   "misspellings": [
+    "ekg afib",
+    "ecg a fib",
+    "atrial fibrilation",
+    "atrial fibulation",
+    "afib clasification"
+   ],
+   "confusable_with": [
+    "heart_rate"
+   ],
+   "notes": "Categorical, not a number. ECG-derived heart rate is in heart_rate (existing alias ecg_heart_rate)."
+  },
+  "egfr": {
+   "description": "Estimated glomerular filtration rate, a kidney-function estimate calculated from creatinine (CKD-EPI equation), in mL/min/1.73m2.",
+   "category": "labs",
+   "synonyms": [
+    "estimated glomerular filtration rate",
+    "glomerular filtration rate",
+    "GFR, estimated",
+    "eGFR CKD-EPI",
+    "filtration rate"
+   ],
+   "abbreviations": [
+    "eGFR",
+    "GFR",
+    "e-GFR",
+    "eGFRcr"
+   ],
+   "lay_terms": [
+    "kidney function",
+    "kidney filtration",
+    "kidney score"
+   ],
+   "misspellings": [
+    "egrf",
+    "e gfr",
+    "glomerula filtration rate",
+    "glomerular filtation rate",
+    "glomerular filtration rat"
+   ],
+   "confusable_with": [
+    "creatinine"
+   ],
+   "notes": "Derived from creatinine (and age/sex). Not EGFR the gene/receptor. Not cystatin-C eGFR unless the source says so."
+  },
+  "electrochemical_skin_conductance": {
+   "description": "Electrochemical skin conductance of the feet/hands measuring sweat-gland (sudomotor) nerve function, from a smart scale (Withings Body Scan) or dedicated device, in microsiemens (uS).",
+   "category": "other",
+   "synonyms": [
+    "electrochemical skin conductance",
+    "ESC",
+    "sudomotor function",
+    "skin conductance",
+    "sweat gland nerve function",
+    "Sudoscan"
+   ],
+   "abbreviations": [
+    "ESC",
+    "EDA"
+   ],
+   "lay_terms": [
+    "foot nerve test",
+    "neuropathy check"
+   ],
+   "misspellings": [
+    "electro chemical skin conductance",
+    "electrochemical skin conductence",
+    "electrochemical skin conductivity"
+   ],
+   "confusable_with": [
+    "nerve_health_score_feet_max",
+    "nerve_health_score_left_foot",
+    "nerve_health_score_right_foot",
+    "nerve_response_score",
+    "stress_summary"
+   ],
+   "notes": "Not wearable EDA stress (e.g. Fitbit EDA scan), which measures something different despite similar wording; EDA listed because users conflate them."
+  },
+  "elevation": {
+   "description": "Elevation gained (climbed) over the day, from a wearable barometer or GPS, in meters.",
+   "category": "activity",
+   "synonyms": [
+    "elevation gain",
+    "elevation",
+    "altitude gain",
+    "ascent",
+    "total ascent",
+    "meters climbed",
+    "vertical gain"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "how much I climbed",
+    "hills",
+    "uphill"
+   ],
+   "misspellings": [
+    "elevaton",
+    "elavation",
+    "elevetion",
+    "elivation"
+   ],
+   "confusable_with": [
+    "distance",
+    "workout_distance"
+   ],
+   "notes": "Not 'floors climbed' (a count of ~3 m floors, no id) and not altitude/location above sea level."
+  },
+  "eosinophils": {
+   "description": "Eosinophils, a white blood cell type from the CBC differential linked to allergy and parasites, reported by a lab as % of WBC and/or absolute count (x10^3/uL).",
+   "category": "labs",
+   "synonyms": [
+    "eosinophil",
+    "eosinophil count",
+    "eosinophil percentage",
+    "eosinophils %",
+    "absolute eosinophils",
+    "eosinophils absolute"
+   ],
+   "abbreviations": [
+    "EOS",
+    "EOS%",
+    "EOS#",
+    "AEC"
+   ],
+   "lay_terms": [
+    "allergy cells"
+   ],
+   "misspellings": [
+    "eosinophills",
+    "eosinofils",
+    "eosinophiles",
+    "esinophils",
+    "eosiniphils"
+   ],
+   "confusable_with": [
+    "basophils",
+    "lymphocytes",
+    "monocytes",
+    "neutrophils",
+    "wbc_count",
+    "white_blood_cells"
+   ],
+   "notes": "Only one eosinophil id; check the unit to tell % from absolute count."
+  },
+  "extracellular_water": {
+   "description": "Water outside cells (plasma and interstitial fluid), estimated by a bioimpedance scale (e.g. Withings Body Scan), in kg.",
+   "category": "body",
+   "synonyms": [
+    "extracellular water",
+    "extracellular body water",
+    "ECW",
+    "extra-cellular water"
+   ],
+   "abbreviations": [
+    "ECW"
+   ],
+   "lay_terms": [
+    "water outside cells",
+    "fluid retention",
+    "swelling water"
+   ],
+   "misspellings": [
+    "extra cellular water",
+    "extracelular water",
+    "extracellular watter"
+   ],
+   "confusable_with": [
+    "intracellular_water",
+    "hydration"
+   ],
+   "notes": ""
+  },
+  "fasting_glucose": {
+   "description": "Blood glucose measured after an overnight fast (typically 8+ hours), usually a lab test, in mg/dL (or mmol/L).",
+   "category": "labs",
+   "synonyms": [
+    "fasting blood glucose",
+    "fasting plasma glucose",
+    "fasting blood sugar",
+    "glucose, fasting",
+    "fasting serum glucose",
+    "glucose fasting",
+    "Fasting glucose",
+    "Glucose (Fasting)"
+   ],
+   "abbreviations": [
+    "FBG",
+    "FPG",
+    "FBS",
+    "FSG"
+   ],
+   "lay_terms": [
+    "fasting sugar",
+    "morning blood sugar",
+    "blood sugar when fasting",
+    "sugar level fasting"
+   ],
+   "misspellings": [
+    "fasting glocose",
+    "fasting gluclose",
+    "fasting glucoze",
+    "fastng glucose",
+    "fasting glucouse"
+   ],
+   "confusable_with": [
+    "glucose",
+    "hba1c",
+    "fasting_insulin",
+    "homa_ir"
+   ],
+   "notes": "Use when 'fasting' is stated or implied (lab panel). Unqualified 'blood sugar'/'glucose' (esp. CGM or random) -> glucose."
+  },
+  "fasting_insulin": {
+   "description": "Serum insulin measured after an overnight fast, a lab marker of insulin resistance, in uIU/mL (or pmol/L).",
+   "category": "labs",
+   "synonyms": [
+    "fasting insulin",
+    "insulin, fasting",
+    "fasting serum insulin",
+    "insulin level",
+    "serum insulin"
+   ],
+   "abbreviations": [
+    "FI",
+    "INS"
+   ],
+   "lay_terms": [
+    "insulin",
+    "insulin levels"
+   ],
+   "misspellings": [
+    "fasting insullin",
+    "fasting insuline",
+    "fasting insolin",
+    "fastin insulin"
+   ],
+   "confusable_with": [
+    "homa_ir",
+    "fasting_glucose",
+    "glucose"
+   ],
+   "notes": "Not insulin dosing (medication). HOMA-IR is computed from fasting insulin x fasting glucose."
+  },
+  "fat_free_mass": {
+   "description": "Fat-free mass (everything except fat: muscle, bone, water, organs), from a bioimpedance scale or DEXA, in kg.",
+   "category": "body",
+   "synonyms": [
+    "fat-free mass",
+    "fat free mass",
+    "lean body mass",
+    "lean mass",
+    "lean weight",
+    "FFM",
+    "LBM"
+   ],
+   "abbreviations": [
+    "FFM",
+    "LBM"
+   ],
+   "lay_terms": [
+    "lean weight",
+    "non-fat weight"
+   ],
+   "misspellings": [
+    "fat-free mas",
+    "fatfree mass",
+    "fat free mas",
+    "lean body mas"
+   ],
+   "confusable_with": [
+    "muscle_mass",
+    "lean_mass_percent",
+    "fat_mass",
+    "bone_mass"
+   ],
+   "notes": "Kilograms; not muscle_mass (FFM also includes bone and water). Percentage -> lean_mass_percent."
+  },
+  "fat_free_mass_left_arm": {
+   "description": "Fat-free (lean) mass of the left arm from segmental bioimpedance analysis (e.g. Withings Body Scan scale), in kg.",
+   "category": "body",
+   "synonyms": [
+    "left arm fat-free mass",
+    "fat-free mass left arm",
+    "fat-free mass of the left arm",
+    "left arm lean mass",
+    "segmental lean mass left arm",
+    "Left-arm fat-free mass"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "left arm lean mass"
+   ],
+   "misspellings": [
+    "lef arm fat-free mass",
+    "left arm fat-free mas"
+   ],
+   "confusable_with": [
+    "fat_free_mass",
+    "fat_free_mass_right_arm",
+    "fat_mass_left_arm",
+    "muscle_mass_left_arm"
+   ],
+   "notes": "Segmental value; whole-body total is fat_free_mass. Match side and limb exactly."
+  },
+  "fat_free_mass_left_leg": {
+   "description": "Fat-free (lean) mass of the left leg from segmental bioimpedance analysis (e.g. Withings Body Scan scale), in kg.",
+   "category": "body",
+   "synonyms": [
+    "left leg fat-free mass",
+    "fat-free mass left leg",
+    "fat-free mass of the left leg",
+    "left leg lean mass",
+    "segmental lean mass left leg",
+    "Left-leg fat-free mass"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "left leg lean mass"
+   ],
+   "misspellings": [
+    "lef leg fat-free mass",
+    "left leg fat-free mas"
+   ],
+   "confusable_with": [
+    "fat_free_mass",
+    "fat_free_mass_right_leg",
+    "fat_mass_left_leg",
+    "muscle_mass_left_leg"
+   ],
+   "notes": "Segmental value; whole-body total is fat_free_mass. Match side and limb exactly."
+  },
+  "fat_free_mass_right_arm": {
+   "description": "Fat-free (lean) mass of the right arm from segmental bioimpedance analysis (e.g. Withings Body Scan scale), in kg.",
+   "category": "body",
+   "synonyms": [
+    "right arm fat-free mass",
+    "fat-free mass right arm",
+    "fat-free mass of the right arm",
+    "right arm lean mass",
+    "segmental lean mass right arm",
+    "Right-arm fat-free mass"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "right arm lean mass"
+   ],
+   "misspellings": [
+    "rigth arm fat-free mass",
+    "right arm fat-free mas"
+   ],
+   "confusable_with": [
+    "fat_free_mass",
+    "fat_free_mass_left_arm",
+    "fat_mass_right_arm",
+    "muscle_mass_right_arm"
+   ],
+   "notes": "Segmental value; whole-body total is fat_free_mass. Match side and limb exactly."
+  },
+  "fat_free_mass_right_leg": {
+   "description": "Fat-free (lean) mass of the right leg from segmental bioimpedance analysis (e.g. Withings Body Scan scale), in kg.",
+   "category": "body",
+   "synonyms": [
+    "right leg fat-free mass",
+    "fat-free mass right leg",
+    "fat-free mass of the right leg",
+    "right leg lean mass",
+    "segmental lean mass right leg",
+    "Right-leg fat-free mass"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "right leg lean mass"
+   ],
+   "misspellings": [
+    "rigth leg fat-free mass",
+    "right leg fat-free mas"
+   ],
+   "confusable_with": [
+    "fat_free_mass",
+    "fat_free_mass_left_leg",
+    "fat_mass_right_leg",
+    "muscle_mass_right_leg"
+   ],
+   "notes": "Segmental value; whole-body total is fat_free_mass. Match side and limb exactly."
+  },
+  "fat_free_mass_torso": {
+   "description": "Fat-free (lean) mass of the torso (trunk) from segmental bioimpedance analysis (e.g. Withings Body Scan scale), in kg.",
+   "category": "body",
+   "synonyms": [
+    "torso fat-free mass",
+    "fat-free mass torso",
+    "fat-free mass of the torso",
+    "torso lean mass",
+    "segmental lean mass torso",
+    "trunk fat-free mass",
+    "fat-free mass trunk"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "core lean mass",
+    "trunk lean mass"
+   ],
+   "misspellings": [
+    "torso fat-free mass",
+    "torso fat-free mas"
+   ],
+   "confusable_with": [
+    "fat_free_mass",
+    "fat_mass_torso",
+    "muscle_mass_torso"
+   ],
+   "notes": "Segmental value; whole-body total is fat_free_mass. Match side and limb exactly."
+  },
+  "fat_mass": {
+   "description": "Total body fat mass in kilograms, from a bioimpedance scale or DEXA scan.",
+   "category": "body",
+   "synonyms": [
+    "fat mass",
+    "fat mass weight",
+    "total fat mass",
+    "body fat mass",
+    "kg of fat"
+   ],
+   "abbreviations": [
+    "FM",
+    "BFM"
+   ],
+   "lay_terms": [
+    "how much fat I have",
+    "fat weight"
+   ],
+   "misspellings": [
+    "fatmass",
+    "fat mas",
+    "fatt mass"
+   ],
+   "confusable_with": [
+    "body_fat",
+    "fat_free_mass",
+    "visceral_fat",
+    "weight"
+   ],
+   "notes": "Kilograms; percentage -> body_fat. Segment values are fat_mass_<segment>."
+  },
+  "fat_mass_left_arm": {
+   "description": "Fat mass of the left arm from segmental bioimpedance analysis (e.g. Withings Body Scan scale), in kg.",
+   "category": "body",
+   "synonyms": [
+    "left arm fat mass",
+    "fat mass left arm",
+    "fat mass of the left arm",
+    "left arm fat",
+    "segmental fat left arm",
+    "Left-arm fat mass"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "left arm fat"
+   ],
+   "misspellings": [
+    "lef arm fat mass",
+    "left arm fat mas"
+   ],
+   "confusable_with": [
+    "fat_mass",
+    "fat_mass_right_arm",
+    "fat_free_mass_left_arm",
+    "muscle_mass_left_arm"
+   ],
+   "notes": "Segmental value; whole-body total is fat_mass. Match side and limb exactly."
+  },
+  "fat_mass_left_leg": {
+   "description": "Fat mass of the left leg from segmental bioimpedance analysis (e.g. Withings Body Scan scale), in kg.",
+   "category": "body",
+   "synonyms": [
+    "left leg fat mass",
+    "fat mass left leg",
+    "fat mass of the left leg",
+    "left leg fat",
+    "segmental fat left leg",
+    "Left-leg fat mass"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "left leg fat"
+   ],
+   "misspellings": [
+    "lef leg fat mass",
+    "left leg fat mas"
+   ],
+   "confusable_with": [
+    "fat_mass",
+    "fat_mass_right_leg",
+    "fat_free_mass_left_leg",
+    "muscle_mass_left_leg"
+   ],
+   "notes": "Segmental value; whole-body total is fat_mass. Match side and limb exactly."
+  },
+  "fat_mass_right_arm": {
+   "description": "Fat mass of the right arm from segmental bioimpedance analysis (e.g. Withings Body Scan scale), in kg.",
+   "category": "body",
+   "synonyms": [
+    "right arm fat mass",
+    "fat mass right arm",
+    "fat mass of the right arm",
+    "right arm fat",
+    "segmental fat right arm",
+    "Right-arm fat mass"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "right arm fat"
+   ],
+   "misspellings": [
+    "rigth arm fat mass",
+    "right arm fat mas"
+   ],
+   "confusable_with": [
+    "fat_mass",
+    "fat_mass_left_arm",
+    "fat_free_mass_right_arm",
+    "muscle_mass_right_arm"
+   ],
+   "notes": "Segmental value; whole-body total is fat_mass. Match side and limb exactly."
+  },
+  "fat_mass_right_leg": {
+   "description": "Fat mass of the right leg from segmental bioimpedance analysis (e.g. Withings Body Scan scale), in kg.",
+   "category": "body",
+   "synonyms": [
+    "right leg fat mass",
+    "fat mass right leg",
+    "fat mass of the right leg",
+    "right leg fat",
+    "segmental fat right leg",
+    "Right-leg fat mass"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "right leg fat"
+   ],
+   "misspellings": [
+    "rigth leg fat mass",
+    "right leg fat mas"
+   ],
+   "confusable_with": [
+    "fat_mass",
+    "fat_mass_left_leg",
+    "fat_free_mass_right_leg",
+    "muscle_mass_right_leg"
+   ],
+   "notes": "Segmental value; whole-body total is fat_mass. Match side and limb exactly."
+  },
+  "fat_mass_torso": {
+   "description": "Fat mass of the torso (trunk) from segmental bioimpedance analysis (e.g. Withings Body Scan scale), in kg.",
+   "category": "body",
+   "synonyms": [
+    "torso fat mass",
+    "fat mass torso",
+    "fat mass of the torso",
+    "torso fat",
+    "segmental fat torso",
+    "trunk fat mass",
+    "fat mass trunk"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "core fat",
+    "trunk fat"
+   ],
+   "misspellings": [
+    "torso fat mass",
+    "torso fat mas"
+   ],
+   "confusable_with": [
+    "fat_mass",
+    "fat_free_mass_torso",
+    "muscle_mass_torso",
+    "visceral_fat"
+   ],
+   "notes": "Segmental value; whole-body total is fat_mass. Match side and limb exactly."
+  },
+  "ferritin": {
+   "description": "Serum ferritin, the storage form of iron and an acute-phase reactant, measured by a lab in ng/mL (or ug/L).",
+   "category": "labs",
+   "synonyms": [
+    "serum ferritin",
+    "ferritin, serum",
+    "plasma ferritin"
+   ],
+   "abbreviations": [
+    "FER",
+    "Ferr"
+   ],
+   "lay_terms": [
+    "iron stores",
+    "iron storage",
+    "stored iron",
+    "iron reserves"
+   ],
+   "misspellings": [
+    "ferriten",
+    "ferritine",
+    "feritin",
+    "ferrtin",
+    "ferratin"
+   ],
+   "confusable_with": [
+    "hemoglobin",
+    "hs_crp",
+    "hscrp"
+   ],
+   "notes": "Not serum iron, transferrin, TIBC or transferrin saturation (no ids). Plain 'iron' questions most often mean ferritin here, but say so. Rises with inflammation."
+  },
+  "free_t4": {
+   "description": "Free thyroxine, the unbound active fraction of the thyroid hormone T4, measured by a lab in ng/dL (or pmol/L).",
+   "category": "labs",
+   "synonyms": [
+    "free thyroxine",
+    "thyroxine, free",
+    "free T4",
+    "unbound thyroxine"
+   ],
+   "abbreviations": [
+    "FT4",
+    "T4 free",
+    "FT-4"
+   ],
+   "lay_terms": [
+    "thyroid hormone",
+    "T4"
+   ],
+   "misspellings": [
+    "free thyroxin",
+    "free thyroxene",
+    "free t 4",
+    "fre t4",
+    "free tyroxine"
+   ],
+   "confusable_with": [
+    "tsh"
+   ],
+   "notes": "Not total T4 or T3/free T3 (no ids). 'Thyroid' generically -> tsh first."
+  },
+  "ggt": {
+   "description": "Gamma-glutamyl transferase, a liver/bile-duct enzyme sensitive to alcohol, measured by a lab in U/L (IU/L).",
+   "category": "labs",
+   "synonyms": [
+    "gamma-glutamyl transferase",
+    "gamma-glutamyltransferase",
+    "gamma-glutamyl transpeptidase",
+    "gamma GT",
+    "gamma glutamyl"
+   ],
+   "abbreviations": [
+    "GGT",
+    "GGTP",
+    "GGTase",
+    "\u03b3-GT"
+   ],
+   "lay_terms": [
+    "alcohol liver marker"
+   ],
+   "misspellings": [
+    "gamma glutamyl transferace",
+    "gama glutamyl transferase",
+    "gamma glutamil transferase",
+    "gtt",
+    "ggtp"
+   ],
+   "confusable_with": [
+    "alt",
+    "ast",
+    "alkaline_phosphatase"
+   ],
+   "notes": "'GTT' is a misspelling here but also means glucose tolerance test - disambiguate by context."
+  },
+  "glucose": {
+   "description": "Blood glucose level from a random/non-fasting lab draw, fingerstick meter or continuous glucose monitor (CGM), in mg/dL (or mmol/L).",
+   "category": "labs",
+   "synonyms": [
+    "blood glucose",
+    "blood sugar",
+    "serum glucose",
+    "plasma glucose",
+    "glucose level",
+    "sensor glucose",
+    "CGM glucose",
+    "interstitial glucose",
+    "random glucose",
+    "random blood sugar",
+    "Glucose"
+   ],
+   "abbreviations": [
+    "BG",
+    "RBG",
+    "CGM"
+   ],
+   "lay_terms": [
+    "sugar",
+    "sugar level",
+    "sugar levels",
+    "glucose levels",
+    "glucose spikes",
+    "blood sugar spikes"
+   ],
+   "misspellings": [
+    "glocose",
+    "gluclose",
+    "glucoze",
+    "glucouse",
+    "glucos",
+    "blood suger"
+   ],
+   "confusable_with": [
+    "fasting_glucose",
+    "hba1c",
+    "fasting_insulin",
+    "homa_ir"
+   ],
+   "notes": "Default for unqualified 'blood sugar'. If the user says 'fasting' -> fasting_glucose; 'average/3-month blood sugar' -> hba1c."
+  },
+  "hba1c": {
+   "description": "Hemoglobin A1c, the percentage of glycated hemoglobin reflecting average blood glucose over ~3 months, measured by a lab in % (or mmol/mol).",
+   "category": "labs",
+   "synonyms": [
+    "hemoglobin A1c",
+    "haemoglobin A1c",
+    "glycated hemoglobin",
+    "glycosylated hemoglobin",
+    "glycohemoglobin",
+    "A1c test",
+    "HbA1c",
+    "a1c"
+   ],
+   "abbreviations": [
+    "HbA1c",
+    "A1c",
+    "HgbA1c",
+    "Hb A1c",
+    "HbA1"
+   ],
+   "lay_terms": [
+    "average blood sugar",
+    "3-month blood sugar",
+    "long-term blood sugar",
+    "sugar average"
+   ],
+   "misspellings": [
+    "hba1",
+    "hbac1",
+    "hb1ac",
+    "hba1-c",
+    "a1-c",
+    "ha1c",
+    "hemoglobin a1",
+    "glycated haemoglobin"
+   ],
+   "confusable_with": [
+    "glucose",
+    "fasting_glucose",
+    "hemoglobin"
+   ],
+   "notes": "Not plain hemoglobin (Hgb/Hb). 'eAG' (estimated average glucose) is derived from this."
+  },
+  "hdl": {
+   "description": "High-density lipoprotein cholesterol from a lipid panel, measured by a lab in mg/dL (or mmol/L).",
+   "category": "labs",
+   "synonyms": [
+    "HDL cholesterol",
+    "high-density lipoprotein cholesterol",
+    "high density lipoprotein",
+    "HDL-C",
+    "cholesterol, HDL"
+   ],
+   "abbreviations": [
+    "HDL",
+    "HDL-C",
+    "HDLc",
+    "HDL-chol"
+   ],
+   "lay_terms": [
+    "good cholesterol",
+    "healthy cholesterol"
+   ],
+   "misspellings": [
+    "hdl cholestrol",
+    "hdl cholesteral",
+    "hld",
+    "hdl colesterol"
+   ],
+   "confusable_with": [
+    "ldl",
+    "cholesterol",
+    "triglycerides",
+    "apob"
+   ],
+   "notes": "'Good cholesterol' -> hdl; 'bad cholesterol' -> ldl; unqualified 'cholesterol' -> cholesterol (total)."
+  },
+  "heart_rate": {
+   "description": "Heart rate at a point in time or over a period from a wearable, ECG or blood-pressure cuff, in beats per minute (bpm).",
+   "category": "heart",
+   "synonyms": [
+    "heart rate",
+    "pulse",
+    "pulse rate",
+    "HR",
+    "heartbeat",
+    "heart beat rate",
+    "cardiac rate",
+    "ECG heart rate",
+    "current heart rate",
+    "heart pulse"
+   ],
+   "abbreviations": [
+    "HR",
+    "BPM"
+   ],
+   "lay_terms": [
+    "pulse",
+    "heartbeat",
+    "how fast my heart beats",
+    "beats per minute"
+   ],
+   "misspellings": [
+    "heart rat",
+    "hart rate",
+    "heartrate",
+    "heart reate",
+    "heaart rate",
+    "puls"
+   ],
+   "confusable_with": [
+    "resting_heart_rate",
+    "day_avg_hr",
+    "day_max_hr",
+    "activity_hr_average",
+    "activity_hr_max",
+    "activity_hr_min",
+    "workout_avg_hr",
+    "workout_max_hr",
+    "sleep_hr_average",
+    "sleep_hr_max",
+    "heart_rate_variability"
+   ],
+   "notes": "Generic/untagged HR. If the user says resting/sleeping/workout/daily max etc., use the specific id. 'Heart rate variability' is NOT this."
+  },
+  "heart_rate_variability": {
+   "description": "Heart rate variability, beat-to-beat variation (usually RMSSD, sometimes SDNN) measured overnight or at rest by a wearable (Oura, Whoop, Apple Watch, Garmin), in milliseconds.",
+   "category": "heart",
+   "synonyms": [
+    "heart rate variability",
+    "HRV RMSSD",
+    "RMSSD",
+    "SDNN",
+    "HRV SDNN",
+    "nightly HRV",
+    "overnight HRV",
+    "average HRV",
+    "hrv",
+    "hrv rmssd milli"
+   ],
+   "abbreviations": [
+    "HRV",
+    "RMSSD",
+    "SDNN"
+   ],
+   "lay_terms": [
+    "heart variability",
+    "nervous system balance",
+    "HRV score",
+    "beat-to-beat variation"
+   ],
+   "misspellings": [
+    "heart rate variabilty",
+    "heart rate varibility",
+    "hrv rmsd",
+    "heartrate variability",
+    "heart rate variablity",
+    "hvr"
+   ],
+   "confusable_with": [
+    "heart_rate",
+    "resting_heart_rate",
+    "day_avg_hr",
+    "day_max_hr",
+    "activity_hr_average",
+    "activity_hr_max",
+    "activity_hr_min",
+    "workout_avg_hr",
+    "workout_max_hr",
+    "sleep_hr_average",
+    "sleep_hr_max",
+    "readiness_score",
+    "recovery_score"
+   ],
+   "notes": "Apple Health reports SDNN; Oura/Whoop report RMSSD - values are not directly comparable. Garmin 'HRV Status' and Oura 'HRV balance' are derived views of this. Not heart rate."
+  },
+  "height": {
+   "description": "Body height (stature) from manual entry or a device profile, in meters.",
+   "category": "body",
+   "synonyms": [
+    "height",
+    "body height",
+    "stature",
+    "standing height"
+   ],
+   "abbreviations": [
+    "ht",
+    "cm"
+   ],
+   "lay_terms": [
+    "how tall I am",
+    "tallness"
+   ],
+   "misspellings": [
+    "hieght",
+    "heigth",
+    "hight",
+    "heigt"
+   ],
+   "confusable_with": [
+    "bmi"
+   ],
+   "notes": "Measured metric; the profile value is height_cm."
+  },
+  "hematocrit": {
+   "description": "Hematocrit, the percentage of blood volume made up of red blood cells, from a CBC lab test, in %.",
+   "category": "labs",
+   "synonyms": [
+    "hematocrit",
+    "haematocrit",
+    "packed cell volume",
+    "erythrocyte volume fraction"
+   ],
+   "abbreviations": [
+    "HCT",
+    "PCV",
+    "EVF"
+   ],
+   "lay_terms": [
+    "red cell percentage",
+    "blood thickness"
+   ],
+   "misspellings": [
+    "hematocit",
+    "hemocrit",
+    "hematocrite",
+    "hemotocrit",
+    "hematacrit",
+    "haematocrite"
+   ],
+   "confusable_with": [
+    "hemoglobin",
+    "rbc_count"
+   ],
+   "notes": "Tracks closely with hemoglobin but is a different measurement (% vs g/dL)."
+  },
+  "hemoglobin": {
+   "description": "Hemoglobin concentration, the oxygen-carrying protein in red blood cells, from a CBC lab test, in g/dL (or g/L).",
+   "category": "labs",
+   "synonyms": [
+    "hemoglobin",
+    "haemoglobin",
+    "blood hemoglobin",
+    "hemoglobin concentration"
+   ],
+   "abbreviations": [
+    "Hgb",
+    "Hb",
+    "Hb conc"
+   ],
+   "lay_terms": [
+    "blood count",
+    "anemia marker",
+    "blood iron level"
+   ],
+   "misspellings": [
+    "hemoglobine",
+    "hemaglobin",
+    "hemoglobim",
+    "heamoglobin",
+    "haemaglobin",
+    "hemogloben"
+   ],
+   "confusable_with": [
+    "hba1c",
+    "hematocrit",
+    "rbc_count",
+    "mch",
+    "mchc",
+    "ferritin"
+   ],
+   "notes": "Not HbA1c (glycated hemoglobin) and not ferritin (iron stores), though lay users sometimes say 'iron' for either."
+  },
+  "homa_ir": {
+   "description": "Homeostatic Model Assessment of Insulin Resistance, a unitless index calculated from fasting glucose and fasting insulin.",
+   "category": "labs",
+   "synonyms": [
+    "homeostatic model assessment of insulin resistance",
+    "HOMA insulin resistance",
+    "HOMA index",
+    "insulin resistance index",
+    "HOMA2-IR"
+   ],
+   "abbreviations": [
+    "HOMA-IR",
+    "HOMA",
+    "HOMAIR",
+    "HOMA IR"
+   ],
+   "lay_terms": [
+    "insulin resistance",
+    "insulin sensitivity score"
+   ],
+   "misspellings": [
+    "homo ir",
+    "homa-ri",
+    "home ir",
+    "homa-1r",
+    "homair score"
+   ],
+   "confusable_with": [
+    "fasting_insulin",
+    "fasting_glucose",
+    "glucose"
+   ],
+   "notes": "Derived value: (fasting insulin uIU/mL x fasting glucose mg/dL) / 405. Not HOMA-B (beta-cell function)."
+  },
+  "homocysteine": {
+   "description": "Plasma total homocysteine, an amino acid linked to B-vitamin status and cardiovascular risk, measured by a lab in umol/L.",
+   "category": "labs",
+   "synonyms": [
+    "total homocysteine",
+    "plasma homocysteine",
+    "serum homocysteine",
+    "homocysteine, plasma",
+    "Homocysteine"
+   ],
+   "abbreviations": [
+    "Hcy",
+    "tHcy"
+   ],
+   "lay_terms": [
+    "methylation marker",
+    "B vitamin marker"
+   ],
+   "misspellings": [
+    "homocystine",
+    "homocystein",
+    "homocysteine level",
+    "homocistine",
+    "homocystiene",
+    "homocysteen"
+   ],
+   "confusable_with": [
+    "vitamin_b12"
+   ],
+   "notes": "'Homocystine' is technically a different molecule but is almost always a misspelling of homocysteine in user text."
+  },
+  "hr_zone_0": {
+   "description": "Time spent in heart-rate below zone 1 (roughly under 50% of max heart rate) - very light / at-rest, from a wearable (e.g. Whoop, Garmin, Polar), in minutes.",
+   "category": "activity",
+   "synonyms": [
+    "zone 0",
+    "HR zone 0",
+    "heart rate zone 0",
+    "time in zone 0",
+    "below zone 1",
+    "Heart-rate zone 0"
+   ],
+   "abbreviations": [
+    "Z0"
+   ],
+   "lay_terms": [
+    "resting zone",
+    "very light"
+   ],
+   "misspellings": [
+    "hr zone0",
+    "heart rate zon 0",
+    "zone0",
+    "hr zome 0"
+   ],
+   "confusable_with": [
+    "hr_zone_1",
+    "hr_zone_2",
+    "hr_zone_3",
+    "hr_zone_4",
+    "hr_zone_5"
+   ],
+   "notes": "Zone boundaries differ by vendor (Whoop uses zones 0-5 by % of max HR; Garmin/Polar use 1-5; Withings reports fewer zones). Match on the zone number the user says."
+  },
+  "hr_zone_1": {
+   "description": "Time spent in heart-rate zone 1 (roughly 50-60% of max heart rate) - very light / recovery, from a wearable (e.g. Whoop, Garmin, Polar), in minutes.",
+   "category": "activity",
+   "synonyms": [
+    "zone 1",
+    "HR zone 1",
+    "heart rate zone 1",
+    "time in zone 1",
+    "recovery zone",
+    "Heart-rate zone 1"
+   ],
+   "abbreviations": [
+    "Z1"
+   ],
+   "lay_terms": [
+    "easy zone",
+    "warm up zone",
+    "very easy"
+   ],
+   "misspellings": [
+    "hr zone1",
+    "heart rate zon 1",
+    "zone1",
+    "hr zome 1"
+   ],
+   "confusable_with": [
+    "hr_zone_0",
+    "hr_zone_2",
+    "hr_zone_3",
+    "hr_zone_4",
+    "hr_zone_5"
+   ],
+   "notes": "Zone boundaries differ by vendor (Whoop uses zones 0-5 by % of max HR; Garmin/Polar use 1-5; Withings reports fewer zones). Match on the zone number the user says."
+  },
+  "hr_zone_2": {
+   "description": "Time spent in heart-rate zone 2 (roughly 60-70% of max heart rate) - light aerobic / fat-burning base, from a wearable (e.g. Whoop, Garmin, Polar), in minutes.",
+   "category": "activity",
+   "synonyms": [
+    "zone 2",
+    "HR zone 2",
+    "heart rate zone 2",
+    "time in zone 2",
+    "zone 2 training",
+    "aerobic base zone",
+    "Heart-rate zone 2"
+   ],
+   "abbreviations": [
+    "Z2"
+   ],
+   "lay_terms": [
+    "zone 2 cardio",
+    "fat burning zone",
+    "easy cardio",
+    "base training"
+   ],
+   "misspellings": [
+    "hr zone2",
+    "heart rate zon 2",
+    "zone2",
+    "hr zome 2"
+   ],
+   "confusable_with": [
+    "hr_zone_0",
+    "hr_zone_1",
+    "hr_zone_3",
+    "hr_zone_4",
+    "hr_zone_5",
+    "moderate_activity_duration"
+   ],
+   "notes": "Zone boundaries differ by vendor (Whoop uses zones 0-5 by % of max HR; Garmin/Polar use 1-5; Withings reports fewer zones). Match on the zone number the user says. 'Zone 2' is also a common name for a training style; still map here."
+  },
+  "hr_zone_3": {
+   "description": "Time spent in heart-rate zone 3 (roughly 70-80% of max heart rate) - moderate aerobic / tempo, from a wearable (e.g. Whoop, Garmin, Polar), in minutes.",
+   "category": "activity",
+   "synonyms": [
+    "zone 3",
+    "HR zone 3",
+    "heart rate zone 3",
+    "time in zone 3",
+    "tempo zone",
+    "aerobic zone",
+    "Heart-rate zone 3"
+   ],
+   "abbreviations": [
+    "Z3"
+   ],
+   "lay_terms": [
+    "tempo",
+    "moderate cardio"
+   ],
+   "misspellings": [
+    "hr zone3",
+    "heart rate zon 3",
+    "zone3",
+    "hr zome 3"
+   ],
+   "confusable_with": [
+    "hr_zone_0",
+    "hr_zone_1",
+    "hr_zone_2",
+    "hr_zone_4",
+    "hr_zone_5",
+    "moderate_activity_duration"
+   ],
+   "notes": "Zone boundaries differ by vendor (Whoop uses zones 0-5 by % of max HR; Garmin/Polar use 1-5; Withings reports fewer zones). Match on the zone number the user says."
+  },
+  "hr_zone_4": {
+   "description": "Time spent in heart-rate zone 4 (roughly 80-90% of max heart rate) - hard / threshold, from a wearable (e.g. Whoop, Garmin, Polar), in minutes.",
+   "category": "activity",
+   "synonyms": [
+    "zone 4",
+    "HR zone 4",
+    "heart rate zone 4",
+    "time in zone 4",
+    "threshold zone",
+    "lactate threshold zone",
+    "Heart-rate zone 4"
+   ],
+   "abbreviations": [
+    "Z4"
+   ],
+   "lay_terms": [
+    "threshold",
+    "hard effort"
+   ],
+   "misspellings": [
+    "hr zone4",
+    "heart rate zon 4",
+    "zone4",
+    "hr zome 4"
+   ],
+   "confusable_with": [
+    "hr_zone_0",
+    "hr_zone_1",
+    "hr_zone_2",
+    "hr_zone_3",
+    "hr_zone_5",
+    "intense_activity_duration"
+   ],
+   "notes": "Zone boundaries differ by vendor (Whoop uses zones 0-5 by % of max HR; Garmin/Polar use 1-5; Withings reports fewer zones). Match on the zone number the user says."
+  },
+  "hr_zone_5": {
+   "description": "Time spent in heart-rate zone 5 (roughly 90-100% of max heart rate) - maximal / VO2 max, from a wearable (e.g. Whoop, Garmin, Polar), in minutes.",
+   "category": "activity",
+   "synonyms": [
+    "zone 5",
+    "HR zone 5",
+    "heart rate zone 5",
+    "time in zone 5",
+    "VO2 max zone",
+    "anaerobic zone",
+    "max effort zone",
+    "Heart-rate zone 5"
+   ],
+   "abbreviations": [
+    "Z5"
+   ],
+   "lay_terms": [
+    "all-out",
+    "max effort",
+    "sprint zone"
+   ],
+   "misspellings": [
+    "hr zone5",
+    "heart rate zon 5",
+    "zone5",
+    "hr zome 5"
+   ],
+   "confusable_with": [
+    "hr_zone_0",
+    "hr_zone_1",
+    "hr_zone_2",
+    "hr_zone_3",
+    "hr_zone_4",
+    "intense_activity_duration",
+    "vo2_max"
+   ],
+   "notes": "Zone boundaries differ by vendor (Whoop uses zones 0-5 by % of max HR; Garmin/Polar use 1-5; Withings reports fewer zones). Match on the zone number the user says."
+  },
+  "hs_crp": {
+   "description": "High-sensitivity C-reactive protein, a low-level systemic inflammation marker used for cardiovascular risk, measured by a lab in mg/L.",
+   "category": "labs",
+   "synonyms": [
+    "high-sensitivity C-reactive protein",
+    "high sensitivity CRP",
+    "cardio CRP",
+    "cardiac C-reactive protein",
+    "ultra-sensitive CRP",
+    "highly sensitive CRP",
+    "hs-CRP",
+    "High-sensitivity CRP",
+    "High-Sensitivity CRP (C-reactive protein)"
+   ],
+   "abbreviations": [
+    "hs-CRP",
+    "hsCRP",
+    "hs CRP",
+    "hCRP",
+    "us-CRP",
+    "CRP-hs"
+   ],
+   "lay_terms": [
+    "inflammation",
+    "inflammation marker",
+    "inflammation level",
+    "systemic inflammation"
+   ],
+   "misspellings": [
+    "hs-crb",
+    "hscrp",
+    "hs crp level",
+    "hi sensitivity crp",
+    "c reactive protien",
+    "c-reactive protien"
+   ],
+   "confusable_with": [
+    "hscrp",
+    "ferritin"
+   ],
+   "notes": "Duplicate concept with hscrp (same assay, different id; hs_crp is the catalog id, hscrp the inventory id). Standard CRP is a different, less sensitive assay with no separate id; plain 'CRP' may resolve here but should be flagged."
+  },
+  "hscrp": {
+   "description": "High-sensitivity C-reactive protein, a low-level systemic inflammation marker used for cardiovascular risk, measured by a lab in mg/L.",
+   "category": "labs",
+   "synonyms": [
+    "high-sensitivity C-reactive protein",
+    "high sensitivity CRP",
+    "cardio CRP",
+    "cardiac C-reactive protein",
+    "ultra-sensitive CRP",
+    "highly sensitive CRP",
+    "hs-CRP",
+    "hs crp",
+    "High-sensitivity CRP",
+    "High-Sensitivity CRP (C-reactive protein)"
+   ],
+   "abbreviations": [
+    "hs-CRP",
+    "hsCRP",
+    "hs CRP",
+    "hCRP",
+    "us-CRP",
+    "CRP-hs"
+   ],
+   "lay_terms": [
+    "inflammation",
+    "inflammation marker",
+    "inflammation level",
+    "systemic inflammation"
+   ],
+   "misspellings": [
+    "hs-crb",
+    "hs crp level",
+    "hi sensitivity crp",
+    "c reactive protien",
+    "c-reactive protien"
+   ],
+   "confusable_with": [
+    "hs_crp",
+    "ferritin"
+   ],
+   "notes": "Duplicate concept with hs_crp (inventory id vs catalog id). Resolve both together. Plain 'CRP' is a different, less sensitive assay; flag if linked here."
+  },
+  "hydration": {
+   "description": "Total body water mass estimated by a bioimpedance scale (e.g. Withings 'hydration'), in kg.",
+   "category": "body",
+   "synonyms": [
+    "body water mass",
+    "total body water",
+    "body water",
+    "water mass",
+    "hydration level",
+    "TBW"
+   ],
+   "abbreviations": [
+    "TBW"
+   ],
+   "lay_terms": [
+    "how hydrated am I",
+    "water weight",
+    "hydration"
+   ],
+   "misspellings": [
+    "hydratation",
+    "hidration",
+    "hydraton",
+    "body watter"
+   ],
+   "confusable_with": [
+    "intracellular_water",
+    "extracellular_water"
+   ],
+   "notes": "Kilograms of body water, not drinking/fluid intake. TBW = intracellular + extracellular water."
+  },
+  "intense_activity_duration": {
+   "description": "Time spent in high-intensity (vigorous) activity during the day, from a wearable, in minutes.",
+   "category": "activity",
+   "synonyms": [
+    "intense activity",
+    "intense activity duration",
+    "vigorous activity",
+    "vigorous minutes",
+    "very active minutes",
+    "high-intensity activity",
+    "high activity time"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "vigorous minutes",
+    "hard exercise time",
+    "time working out hard"
+   ],
+   "misspellings": [
+    "intens activity",
+    "intense activty",
+    "vigourous activity",
+    "vigerous minutes"
+   ],
+   "confusable_with": [
+    "moderate_activity_duration",
+    "light_activity_duration",
+    "hr_zone_4",
+    "hr_zone_5"
+   ],
+   "notes": "Fitbit 'very active minutes', Oura 'high activity', Withings 'intense'."
+  },
+  "intracellular_water": {
+   "description": "Water inside cells, estimated by a bioimpedance scale (e.g. Withings Body Scan), in kg.",
+   "category": "body",
+   "synonyms": [
+    "intracellular water",
+    "intracellular body water",
+    "ICW",
+    "cell water"
+   ],
+   "abbreviations": [
+    "ICW"
+   ],
+   "lay_terms": [
+    "water inside cells"
+   ],
+   "misspellings": [
+    "intra cellular water",
+    "intracelular water",
+    "intracellular watter"
+   ],
+   "confusable_with": [
+    "extracellular_water",
+    "hydration"
+   ],
+   "notes": ""
+  },
+  "ionic_calcium": {
+   "description": "Ionized (free) calcium, the physiologically active fraction of blood calcium, measured by a lab in mmol/L (or mg/dL).",
+   "category": "labs",
+   "synonyms": [
+    "ionized calcium",
+    "ionised calcium",
+    "free calcium",
+    "calcium, ionized",
+    "unbound calcium"
+   ],
+   "abbreviations": [
+    "iCa",
+    "iCa2+",
+    "Ca++",
+    "Ca2+",
+    "ICAL"
+   ],
+   "lay_terms": [
+    "active calcium"
+   ],
+   "misspellings": [
+    "ionic calcuim",
+    "ionized calcuim",
+    "ionzed calcium",
+    "ionic calsium",
+    "ionised calcum"
+   ],
+   "confusable_with": [
+    "1_25_dihydroxy_vitamin_d",
+    "albumin"
+   ],
+   "notes": "Not total serum calcium (no separate id) - plain 'calcium' is ambiguous; total Ca is albumin-dependent, ionized is not."
+  },
+  "ldl": {
+   "description": "Low-density lipoprotein cholesterol from a lipid panel (calculated or direct), measured by a lab in mg/dL (or mmol/L).",
+   "category": "labs",
+   "synonyms": [
+    "LDL cholesterol",
+    "low-density lipoprotein cholesterol",
+    "low density lipoprotein",
+    "LDL-C",
+    "cholesterol, LDL",
+    "LDL calculated",
+    "direct LDL"
+   ],
+   "abbreviations": [
+    "LDL",
+    "LDL-C",
+    "LDLc",
+    "LDL-chol",
+    "dLDL"
+   ],
+   "lay_terms": [
+    "bad cholesterol",
+    "lousy cholesterol"
+   ],
+   "misspellings": [
+    "ldl cholestrol",
+    "ldl cholesteral",
+    "lld",
+    "ldl colesterol"
+   ],
+   "confusable_with": [
+    "hdl",
+    "cholesterol",
+    "apob",
+    "lipoprotein_a",
+    "lp_a",
+    "triglycerides"
+   ],
+   "notes": "Selector alias 'ldl cholesterol' points to 'ldl_cholesterol' (not an id here) - it should resolve to ldl. LDL-P/particle number -> apob is the closest id."
+  },
+  "lean_mass_percent": {
+   "description": "Lean (fat-free) mass as a percentage of body weight, from a bioimpedance scale or DEXA, in %.",
+   "category": "body",
+   "synonyms": [
+    "lean mass percentage",
+    "lean mass percent",
+    "lean body mass percentage",
+    "fat-free mass percentage",
+    "lean %"
+   ],
+   "abbreviations": [
+    "LBM%",
+    "FFM%"
+   ],
+   "lay_terms": [
+    "percent lean"
+   ],
+   "misspellings": [
+    "lean mass percentge",
+    "lean mas percent",
+    "lean mass precent"
+   ],
+   "confusable_with": [
+    "fat_free_mass",
+    "body_fat",
+    "muscle_mass"
+   ],
+   "notes": "Roughly 100 minus body_fat."
+  },
+  "light_activity_duration": {
+   "description": "Time spent in light-intensity activity (e.g. easy walking, chores) during the day, from a wearable, in minutes.",
+   "category": "activity",
+   "synonyms": [
+    "light activity",
+    "light activity duration",
+    "lightly active minutes",
+    "low activity",
+    "low activity time",
+    "soft activity"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "easy movement",
+    "light movement",
+    "pottering around"
+   ],
+   "misspellings": [
+    "lite activity",
+    "light activty",
+    "ligth activity"
+   ],
+   "confusable_with": [
+    "moderate_activity_duration",
+    "sedentary_time",
+    "sleep_light"
+   ],
+   "notes": "Fitbit 'lightly active', Oura 'low activity', Withings 'soft'. Not light sleep."
+  },
+  "lipoprotein_a": {
+   "description": "Lipoprotein(a), a genetically determined LDL-like particle and cardiovascular risk factor, measured by a lab in nmol/L (or mg/dL).",
+   "category": "labs",
+   "synonyms": [
+    "lipoprotein(a)",
+    "lipoprotein a",
+    "lipoprotein little a",
+    "Lp(a) mass",
+    "Lp(a) particle concentration"
+   ],
+   "abbreviations": [
+    "Lp(a)",
+    "LPA",
+    "Lp-a"
+   ],
+   "lay_terms": [
+    "lp little a",
+    "genetic cholesterol",
+    "inherited cholesterol particle"
+   ],
+   "misspellings": [
+    "lipoprotien a",
+    "lipo protein a",
+    "lipoprotein-a",
+    "lp(a )",
+    "lipoprotien(a)",
+    "l p a"
+   ],
+   "confusable_with": [
+    "lp_a",
+    "apob",
+    "ldl"
+   ],
+   "notes": "Duplicate concept with lp_a (same analyte, two ids). nmol/L and mg/dL are not interconvertible exactly. Not the LPA gene; not 'apolipoprotein A' (ApoA1)."
+  },
+  "lp_a": {
+   "description": "Lipoprotein(a), a genetically determined LDL-like particle and cardiovascular risk factor, measured by a lab in nmol/L (or mg/dL).",
+   "category": "labs",
+   "synonyms": [
+    "lipoprotein(a)",
+    "lipoprotein a",
+    "lipoprotein little a",
+    "Lp(a) mass",
+    "Lp(a) particle concentration"
+   ],
+   "abbreviations": [
+    "Lp(a)",
+    "LPA",
+    "Lp-a"
+   ],
+   "lay_terms": [
+    "lp little a",
+    "genetic cholesterol",
+    "inherited cholesterol particle"
+   ],
+   "misspellings": [
+    "lipoprotien a",
+    "lipo protein a",
+    "lipoprotein-a",
+    "lp(a )",
+    "lipoprotien(a)",
+    "l p a"
+   ],
+   "confusable_with": [
+    "lipoprotein_a",
+    "apob",
+    "ldl"
+   ],
+   "notes": "Duplicate concept with lipoprotein_a (same analyte, two ids); resolve both together."
+  },
+  "lymphocytes": {
+   "description": "Lymphocytes (T, B and NK cells), a white blood cell type from the CBC differential, reported by a lab as % of WBC and/or absolute count (x10^3/uL).",
+   "category": "labs",
+   "synonyms": [
+    "lymphocyte",
+    "lymphocyte count",
+    "lymphocyte percentage",
+    "lymphocytes %",
+    "absolute lymphocytes",
+    "lymphocytes absolute"
+   ],
+   "abbreviations": [
+    "LYMPH",
+    "LYM",
+    "LYMPH%",
+    "LYMPH#",
+    "ALC"
+   ],
+   "lay_terms": [
+    "immune cells",
+    "lymph cells"
+   ],
+   "misspellings": [
+    "lymphocites",
+    "lymphocyts",
+    "limphocytes",
+    "lympocytes",
+    "lymphocyes"
+   ],
+   "confusable_with": [
+    "neutrophils",
+    "neutrophils_absolute",
+    "monocytes",
+    "eosinophils",
+    "basophils",
+    "wbc_count",
+    "white_blood_cells"
+   ],
+   "notes": "Only one lymphocyte id; check the unit to tell % from absolute count. Neutrophil-to-lymphocyte ratio uses this."
+  },
+  "magnesium_rbc": {
+   "description": "Red blood cell (intracellular) magnesium, a lab measure of tissue magnesium status, in mg/dL.",
+   "category": "labs",
+   "synonyms": [
+    "RBC magnesium",
+    "red blood cell magnesium",
+    "erythrocyte magnesium",
+    "magnesium, RBC",
+    "intracellular magnesium"
+   ],
+   "abbreviations": [
+    "RBC Mg",
+    "Mg RBC",
+    "RBC-Mg",
+    "Mg"
+   ],
+   "lay_terms": [
+    "magnesium",
+    "magnesium level",
+    "magnesium status"
+   ],
+   "misspellings": [
+    "magnesuim rbc",
+    "magnisium",
+    "magnesium rbc level",
+    "rbc magnesum",
+    "magensium"
+   ],
+   "confusable_with": [
+    "rbc_count"
+   ],
+   "notes": "Only magnesium id available; serum magnesium is a different specimen (no id). 'RBC' here is the specimen, not the red cell count."
+  },
+  "mch": {
+   "description": "Mean corpuscular hemoglobin, the average hemoglobin amount per red blood cell, from a CBC lab test, in pg.",
+   "category": "labs",
+   "synonyms": [
+    "mean corpuscular hemoglobin",
+    "mean cell hemoglobin",
+    "mean corpuscular haemoglobin"
+   ],
+   "abbreviations": [
+    "MCH"
+   ],
+   "lay_terms": [
+    "hemoglobin per red cell"
+   ],
+   "misspellings": [
+    "mean corpuscular hemoglobin",
+    "mean corpusular hemoglobin",
+    "mch value",
+    "mean corpuscular hemoglobine"
+   ],
+   "confusable_with": [
+    "mchc",
+    "mcv",
+    "hemoglobin",
+    "rdw"
+   ],
+   "notes": "Easily confused with MCHC (concentration, g/dL) - match the exact letters."
+  },
+  "mchc": {
+   "description": "Mean corpuscular hemoglobin concentration, the average hemoglobin concentration within red blood cells, from a CBC lab test, in g/dL.",
+   "category": "labs",
+   "synonyms": [
+    "mean corpuscular hemoglobin concentration",
+    "mean cell hemoglobin concentration",
+    "mean corpuscular haemoglobin concentration"
+   ],
+   "abbreviations": [
+    "MCHC"
+   ],
+   "lay_terms": [
+    "red cell hemoglobin concentration"
+   ],
+   "misspellings": [
+    "mean corpusular hemoglobin concentration",
+    "mchc value",
+    "mean corpuscular hemoglobin concentraion"
+   ],
+   "confusable_with": [
+    "mch",
+    "mcv",
+    "hemoglobin",
+    "rdw"
+   ],
+   "notes": "Easily confused with MCH (per-cell amount, pg)."
+  },
+  "mcv": {
+   "description": "Mean corpuscular volume, the average size of red blood cells, from a CBC lab test, in fL.",
+   "category": "labs",
+   "synonyms": [
+    "mean corpuscular volume",
+    "mean cell volume",
+    "average red cell size"
+   ],
+   "abbreviations": [
+    "MCV"
+   ],
+   "lay_terms": [
+    "red blood cell size",
+    "cell size"
+   ],
+   "misspellings": [
+    "mean corpusular volume",
+    "mean corpuscle volume",
+    "mvc",
+    "mean corpuscular volum"
+   ],
+   "confusable_with": [
+    "mch",
+    "mchc",
+    "mpv",
+    "rdw",
+    "rbc_count"
+   ],
+   "notes": "Not MPV (platelet size)."
+  },
+  "moderate_activity_duration": {
+   "description": "Time spent in moderate-intensity activity during the day, from a wearable, in minutes.",
+   "category": "activity",
+   "synonyms": [
+    "moderate activity",
+    "moderate activity duration",
+    "moderate minutes",
+    "fairly active minutes",
+    "medium activity",
+    "medium activity time"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "brisk walking time",
+    "moderate exercise"
+   ],
+   "misspellings": [
+    "moderat activity",
+    "moderate activty",
+    "modarate activity"
+   ],
+   "confusable_with": [
+    "intense_activity_duration",
+    "light_activity_duration",
+    "hr_zone_2",
+    "hr_zone_3"
+   ],
+   "notes": "Fitbit 'fairly active', Oura 'medium activity'."
+  },
+  "monocytes": {
+   "description": "Monocytes, a white blood cell type from the CBC differential, reported by a lab as % of WBC and/or absolute count (x10^3/uL).",
+   "category": "labs",
+   "synonyms": [
+    "monocyte",
+    "monocyte count",
+    "monocyte percentage",
+    "monocytes %",
+    "absolute monocytes",
+    "monocytes absolute"
+   ],
+   "abbreviations": [
+    "MONO",
+    "MONO%",
+    "MONO#",
+    "AMC"
+   ],
+   "lay_terms": [],
+   "misspellings": [
+    "monocites",
+    "monocyts",
+    "monocytes count",
+    "monocyes",
+    "monoctyes"
+   ],
+   "confusable_with": [
+    "lymphocytes",
+    "neutrophils",
+    "eosinophils",
+    "basophils",
+    "wbc_count",
+    "white_blood_cells"
+   ],
+   "notes": "'Mono' can also mean mononucleosis (infection) - disambiguate by context."
+  },
+  "mpv": {
+   "description": "Mean platelet volume, the average size of platelets, from a CBC lab test, in fL.",
+   "category": "labs",
+   "synonyms": [
+    "mean platelet volume",
+    "average platelet size"
+   ],
+   "abbreviations": [
+    "MPV"
+   ],
+   "lay_terms": [
+    "platelet size"
+   ],
+   "misspellings": [
+    "mean platelet volum",
+    "mean platlet volume",
+    "mean plateletvolume",
+    "mvp"
+   ],
+   "confusable_with": [
+    "platelets",
+    "platelet_count",
+    "mcv"
+   ],
+   "notes": "Not the platelet count and not MCV (red cell size)."
+  },
+  "muscle_mass": {
+   "description": "Skeletal/soft-tissue muscle mass from a bioimpedance scale or DEXA, in kg.",
+   "category": "body",
+   "synonyms": [
+    "muscle mass",
+    "skeletal muscle mass",
+    "total muscle mass",
+    "muscle weight",
+    "soft lean mass",
+    "SMM"
+   ],
+   "abbreviations": [
+    "SMM",
+    "MM"
+   ],
+   "lay_terms": [
+    "how much muscle I have",
+    "muscle"
+   ],
+   "misspellings": [
+    "muscel mass",
+    "musle mass",
+    "muscle mas",
+    "mussle mass"
+   ],
+   "confusable_with": [
+    "fat_free_mass",
+    "lean_mass_percent",
+    "bone_mass"
+   ],
+   "notes": "Not fat_free_mass (which includes bone and water). Segment values are muscle_mass_<segment>."
+  },
+  "muscle_mass_left_arm": {
+   "description": "Muscle mass of the left arm from segmental bioimpedance analysis (e.g. Withings Body Scan scale), in kg.",
+   "category": "body",
+   "synonyms": [
+    "left arm muscle mass",
+    "muscle mass left arm",
+    "muscle mass of the left arm",
+    "left arm muscle",
+    "segmental muscle left arm",
+    "Left-arm muscle mass"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "left arm muscle"
+   ],
+   "misspellings": [
+    "lef arm muscle mass",
+    "left arm muscle mas"
+   ],
+   "confusable_with": [
+    "muscle_mass",
+    "muscle_mass_right_arm",
+    "fat_mass_left_arm",
+    "fat_free_mass_left_arm"
+   ],
+   "notes": "Segmental value; whole-body total is muscle_mass. Match side and limb exactly."
+  },
+  "muscle_mass_left_leg": {
+   "description": "Muscle mass of the left leg from segmental bioimpedance analysis (e.g. Withings Body Scan scale), in kg.",
+   "category": "body",
+   "synonyms": [
+    "left leg muscle mass",
+    "muscle mass left leg",
+    "muscle mass of the left leg",
+    "left leg muscle",
+    "segmental muscle left leg",
+    "Left-leg muscle mass"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "left leg muscle"
+   ],
+   "misspellings": [
+    "lef leg muscle mass",
+    "left leg muscle mas"
+   ],
+   "confusable_with": [
+    "muscle_mass",
+    "muscle_mass_right_leg",
+    "fat_mass_left_leg",
+    "fat_free_mass_left_leg"
+   ],
+   "notes": "Segmental value; whole-body total is muscle_mass. Match side and limb exactly."
+  },
+  "muscle_mass_right_arm": {
+   "description": "Muscle mass of the right arm from segmental bioimpedance analysis (e.g. Withings Body Scan scale), in kg.",
+   "category": "body",
+   "synonyms": [
+    "right arm muscle mass",
+    "muscle mass right arm",
+    "muscle mass of the right arm",
+    "right arm muscle",
+    "segmental muscle right arm",
+    "Right-arm muscle mass"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "right arm muscle"
+   ],
+   "misspellings": [
+    "rigth arm muscle mass",
+    "right arm muscle mas"
+   ],
+   "confusable_with": [
+    "muscle_mass",
+    "muscle_mass_left_arm",
+    "fat_mass_right_arm",
+    "fat_free_mass_right_arm"
+   ],
+   "notes": "Segmental value; whole-body total is muscle_mass. Match side and limb exactly."
+  },
+  "muscle_mass_right_leg": {
+   "description": "Muscle mass of the right leg from segmental bioimpedance analysis (e.g. Withings Body Scan scale), in kg.",
+   "category": "body",
+   "synonyms": [
+    "right leg muscle mass",
+    "muscle mass right leg",
+    "muscle mass of the right leg",
+    "right leg muscle",
+    "segmental muscle right leg",
+    "Right-leg muscle mass"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "right leg muscle"
+   ],
+   "misspellings": [
+    "rigth leg muscle mass",
+    "right leg muscle mas"
+   ],
+   "confusable_with": [
+    "muscle_mass",
+    "muscle_mass_left_leg",
+    "fat_mass_right_leg",
+    "fat_free_mass_right_leg"
+   ],
+   "notes": "Segmental value; whole-body total is muscle_mass. Match side and limb exactly."
+  },
+  "muscle_mass_torso": {
+   "description": "Muscle mass of the torso (trunk) from segmental bioimpedance analysis (e.g. Withings Body Scan scale), in kg.",
+   "category": "body",
+   "synonyms": [
+    "torso muscle mass",
+    "muscle mass torso",
+    "muscle mass of the torso",
+    "torso muscle",
+    "segmental muscle torso",
+    "trunk muscle mass",
+    "muscle mass trunk"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "core muscle",
+    "trunk muscle"
+   ],
+   "misspellings": [
+    "torso muscle mass",
+    "torso muscle mas"
+   ],
+   "confusable_with": [
+    "muscle_mass",
+    "fat_mass_torso",
+    "fat_free_mass_torso"
+   ],
+   "notes": "Segmental value; whole-body total is muscle_mass. Match side and limb exactly."
+  },
+  "nerve_health_score_feet_max": {
+   "description": "Best (maximum) of the left and right foot nerve health scores from the Withings Body Scan ESC measurement, as a score.",
+   "category": "other",
+   "synonyms": [
+    "foot nerve health score",
+    "nerve health score",
+    "feet nerve health",
+    "nerve health score max",
+    "overall foot nerve score",
+    "Maximum foot nerve health score"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "nerve health",
+    "foot nerves",
+    "neuropathy score"
+   ],
+   "misspellings": [
+    "nerve helth score",
+    "nerve health scor",
+    "feet nerve helath"
+   ],
+   "confusable_with": [
+    "nerve_health_score_left_foot",
+    "nerve_health_score_right_foot",
+    "nerve_response_score",
+    "electrochemical_skin_conductance"
+   ],
+   "notes": "Default for unqualified 'nerve health'."
+  },
+  "nerve_health_score_left_foot": {
+   "description": "Nerve health score for the left foot from the Withings Body Scan ESC measurement, as a score.",
+   "category": "other",
+   "synonyms": [
+    "left foot nerve health score",
+    "left foot nerve health",
+    "nerve health left foot",
+    "left foot nerve score",
+    "Left-foot nerve health score"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "left foot nerves"
+   ],
+   "misspellings": [
+    "left foot nerve helth",
+    "lef foot nerve health"
+   ],
+   "confusable_with": [
+    "nerve_health_score_right_foot",
+    "nerve_health_score_feet_max",
+    "electrochemical_skin_conductance"
+   ],
+   "notes": ""
+  },
+  "nerve_health_score_right_foot": {
+   "description": "Nerve health score for the right foot from the Withings Body Scan ESC measurement, as a score.",
+   "category": "other",
+   "synonyms": [
+    "right foot nerve health score",
+    "right foot nerve health",
+    "nerve health right foot",
+    "right foot nerve score",
+    "Right-foot nerve health score"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "right foot nerves"
+   ],
+   "misspellings": [
+    "right foot nerve helth",
+    "rigth foot nerve health"
+   ],
+   "confusable_with": [
+    "nerve_health_score_left_foot",
+    "nerve_health_score_feet_max",
+    "electrochemical_skin_conductance"
+   ],
+   "notes": ""
+  },
+  "nerve_response_score": {
+   "description": "Nerve response score summarising peripheral (sudomotor) nerve response from an ESC measurement, as a score.",
+   "category": "other",
+   "synonyms": [
+    "nerve response score",
+    "nerve response",
+    "peripheral nerve response",
+    "nerve function score"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "how my nerves respond",
+    "nerve function"
+   ],
+   "misspellings": [
+    "nerve responce score",
+    "nerve respose score",
+    "nerve response scor"
+   ],
+   "confusable_with": [
+    "nerve_health_score_feet_max",
+    "nerve_health_score_left_foot",
+    "nerve_health_score_right_foot",
+    "electrochemical_skin_conductance"
+   ],
+   "notes": "Exact vendor semantics unclear from the source vocabulary; related to but distinct from the foot nerve health scores."
+  },
+  "neutrophils": {
+   "description": "Neutrophils, the most abundant white blood cell type, from the CBC differential, typically reported as % of WBC.",
+   "category": "labs",
+   "synonyms": [
+    "neutrophil",
+    "neutrophil percentage",
+    "neutrophils %",
+    "segmented neutrophils",
+    "segs",
+    "polymorphonuclear neutrophils",
+    "granulocytes"
+   ],
+   "abbreviations": [
+    "NEUT",
+    "NEUT%",
+    "PMN",
+    "SEG"
+   ],
+   "lay_terms": [
+    "infection-fighting white cells"
+   ],
+   "misspellings": [
+    "neutrophills",
+    "nuetrophils",
+    "neutrofils",
+    "neutrophiles",
+    "netrophils",
+    "neurophils"
+   ],
+   "confusable_with": [
+    "neutrophils_absolute",
+    "lymphocytes",
+    "monocytes",
+    "wbc_count",
+    "white_blood_cells"
+   ],
+   "notes": "Percentage form; the absolute count (ANC) is neutrophils_absolute. If a user gives a x10^3/uL value, prefer neutrophils_absolute."
+  },
+  "neutrophils_absolute": {
+   "description": "Absolute neutrophil count, the number of neutrophils per volume of blood from the CBC differential, in x10^3/uL (10^9/L).",
+   "category": "labs",
+   "synonyms": [
+    "absolute neutrophil count",
+    "absolute neutrophils",
+    "neutrophils absolute",
+    "neutrophil count",
+    "neutrophils (absolute)",
+    "absolute granulocyte count"
+   ],
+   "abbreviations": [
+    "ANC",
+    "NEUT#",
+    "ABS NEUT",
+    "Neut Abs",
+    "AGC"
+   ],
+   "lay_terms": [
+    "neutrophil number"
+   ],
+   "misspellings": [
+    "absolute nuetrophil count",
+    "absolut neutrophils",
+    "neutrophils absolut",
+    "absolute neutrophill count"
+   ],
+   "confusable_with": [
+    "neutrophils",
+    "wbc_count",
+    "white_blood_cells",
+    "lymphocytes"
+   ],
+   "notes": "Absolute count; the percentage is neutrophils."
+  },
+  "platelet_count": {
+   "description": "Number of platelets (thrombocytes) per volume of blood from a CBC lab test, in x10^3/uL (10^9/L).",
+   "category": "labs",
+   "synonyms": [
+    "platelet count",
+    "platelets",
+    "thrombocyte count",
+    "thrombocytes",
+    "blood platelets"
+   ],
+   "abbreviations": [
+    "PLT",
+    "PLT count"
+   ],
+   "lay_terms": [
+    "clotting cells"
+   ],
+   "misspellings": [
+    "platelettes",
+    "platlets",
+    "platelet cout",
+    "plateletts",
+    "platelates",
+    "plaletets"
+   ],
+   "confusable_with": [
+    "platelets",
+    "mpv"
+   ],
+   "notes": "Duplicate concept with platelets (same analyte, two ids); resolve both together."
+  },
+  "platelets": {
+   "description": "Number of platelets (thrombocytes) per volume of blood from a CBC lab test, in x10^3/uL (10^9/L).",
+   "category": "labs",
+   "synonyms": [
+    "platelet count",
+    "platelets",
+    "thrombocyte count",
+    "thrombocytes",
+    "blood platelets"
+   ],
+   "abbreviations": [
+    "PLT",
+    "PLT count"
+   ],
+   "lay_terms": [
+    "clotting cells"
+   ],
+   "misspellings": [
+    "platelettes",
+    "platlets",
+    "platelet cout",
+    "plateletts",
+    "platelates",
+    "plaletets"
+   ],
+   "confusable_with": [
+    "platelet_count",
+    "mpv"
+   ],
+   "notes": "Duplicate concept with platelet_count (same analyte, two ids); resolve both together."
+  },
+  "pulse_wave_velocity": {
+   "description": "Pulse wave velocity, the speed of the arterial pulse wave as a measure of arterial stiffness, from a smart scale (e.g. Withings Body Cardio/Body Scan), in m/s.",
+   "category": "heart",
+   "synonyms": [
+    "pulse wave velocity",
+    "arterial stiffness",
+    "aortic pulse wave velocity",
+    "PWV",
+    "vascular stiffness"
+   ],
+   "abbreviations": [
+    "PWV",
+    "aPWV",
+    "cfPWV"
+   ],
+   "lay_terms": [
+    "artery stiffness",
+    "stiffness of arteries",
+    "arterial health"
+   ],
+   "misspellings": [
+    "pulse wave velocty",
+    "pulse-wave velocity",
+    "pulse wave velosity",
+    "puls wave velocity"
+   ],
+   "confusable_with": [
+    "cardiovascular_age",
+    "blood_pressure"
+   ],
+   "notes": "Cardiovascular/vascular age is derived from this."
+  },
+  "rbc_count": {
+   "description": "Red blood cell (erythrocyte) count per volume of blood from a CBC lab test, in x10^6/uL (10^12/L).",
+   "category": "labs",
+   "synonyms": [
+    "red blood cell count",
+    "red blood cells",
+    "erythrocyte count",
+    "erythrocytes",
+    "red cell count",
+    "RBC count"
+   ],
+   "abbreviations": [
+    "RBC",
+    "RBCs",
+    "Ery"
+   ],
+   "lay_terms": [
+    "red cells",
+    "red count"
+   ],
+   "misspellings": [
+    "red blood cell cout",
+    "erythrocite count",
+    "erythocytes",
+    "red bood cells",
+    "rbc cont"
+   ],
+   "confusable_with": [
+    "hemoglobin",
+    "hematocrit",
+    "mcv",
+    "reticulocytes",
+    "magnesium_rbc"
+   ],
+   "notes": "'RBC magnesium' refers to magnesium_rbc, not this count."
+  },
+  "rdw": {
+   "description": "Red cell distribution width, the variation in red blood cell size, from a CBC lab test, in %.",
+   "category": "labs",
+   "synonyms": [
+    "red cell distribution width",
+    "red blood cell distribution width",
+    "RDW-CV",
+    "RDW-SD",
+    "erythrocyte distribution width"
+   ],
+   "abbreviations": [
+    "RDW",
+    "RDW-CV",
+    "RDW-SD",
+    "RCDW"
+   ],
+   "lay_terms": [
+    "red cell size variation"
+   ],
+   "misspellings": [
+    "red cell distrubution width",
+    "red cell distribution with",
+    "rdw-vc",
+    "red cell distibution width"
+   ],
+   "confusable_with": [
+    "mcv",
+    "mch",
+    "mchc"
+   ],
+   "notes": "RDW-SD is reported in fL rather than %."
+  },
+  "readiness_score": {
+   "description": "Oura Readiness score (0-100) combining HRV, resting heart rate, temperature, sleep and activity balance into a daily readiness estimate, in score points.",
+   "category": "recovery",
+   "synonyms": [
+    "readiness score",
+    "Oura readiness",
+    "readiness",
+    "daily readiness",
+    "training readiness",
+    "Garmin training readiness",
+    "Fitbit daily readiness"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "am I ready to train",
+    "how ready am I",
+    "readiness today",
+    "should I train today"
+   ],
+   "misspellings": [
+    "readyness score",
+    "readines",
+    "readiness scor",
+    "redyness"
+   ],
+   "confusable_with": [
+    "recovery_score",
+    "resilience_level",
+    "heart_rate_variability"
+   ],
+   "notes": "Oura's headline daily score. Whoop's analog is recovery_score (%); prefer readiness_score when 'readiness' is said and recovery_score when 'recovery' is said."
+  },
+  "recovery_high_duration": {
+   "description": "Time during the day spent in a high-recovery (restored) physiological state from Oura daytime stress tracking, in minutes.",
+   "category": "recovery",
+   "synonyms": [
+    "high recovery time",
+    "high-recovery duration",
+    "restored time",
+    "time restored",
+    "daytime recovery minutes",
+    "High-recovery time"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "time relaxed",
+    "time recharging",
+    "chill time"
+   ],
+   "misspellings": [
+    "high recovry",
+    "recovery high durration",
+    "recovery hi duration"
+   ],
+   "confusable_with": [
+    "stress_high_duration",
+    "stress_summary",
+    "recovery_score",
+    "resilience_daytime_recovery"
+   ],
+   "notes": "A duration, not the Whoop recovery_score."
+  },
+  "recovery_score": {
+   "description": "Whoop Recovery score, a daily 0-100% estimate of recovery based on HRV, resting heart rate, respiratory rate and sleep, in %.",
+   "category": "recovery",
+   "synonyms": [
+    "recovery score",
+    "Whoop recovery",
+    "daily recovery",
+    "recovery percentage",
+    "recovery"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "how recovered am I",
+    "am I recovered",
+    "green/yellow/red recovery",
+    "energy level"
+   ],
+   "misspellings": [
+    "recovry score",
+    "recovery scor",
+    "recoverey",
+    "recovey score"
+   ],
+   "confusable_with": [
+    "readiness_score",
+    "recovery_high_duration",
+    "resilience_level",
+    "heart_rate_variability"
+   ],
+   "notes": "Garmin Body Battery (0-100 energy reserve) is the closest vendor analogue, not identical. Not recovery_high_duration (Oura daytime stress 'restored' minutes)."
+  },
+  "resilience_daytime_recovery": {
+   "description": "Oura Resilience contributor for how much you recovered during the daytime, as a score.",
+   "category": "recovery",
+   "synonyms": [
+    "resilience daytime recovery",
+    "daytime recovery",
+    "daytime recovery contributor",
+    "day recovery"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "recovery during the day"
+   ],
+   "misspellings": [
+    "resiliance daytime recovery",
+    "daytime recovry",
+    "day time recovery"
+   ],
+   "confusable_with": [
+    "resilience_sleep_recovery",
+    "resilience_stress",
+    "resilience_level",
+    "recovery_high_duration"
+   ],
+   "notes": ""
+  },
+  "resilience_level": {
+   "description": "Oura Resilience level, a multi-week measure of ability to withstand physiological stress (limited/adequate/solid/strong/exceptional), as a score.",
+   "category": "recovery",
+   "synonyms": [
+    "resilience",
+    "resilience level",
+    "Oura resilience",
+    "stress resilience",
+    "resilience score"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "how resilient am I",
+    "ability to handle stress"
+   ],
+   "misspellings": [
+    "resiliance",
+    "resillience",
+    "resilence level",
+    "resiliency"
+   ],
+   "confusable_with": [
+    "resilience_daytime_recovery",
+    "resilience_sleep_recovery",
+    "resilience_stress",
+    "readiness_score",
+    "recovery_score"
+   ],
+   "notes": "Headline resilience; the three contributors are separate ids."
+  },
+  "resilience_sleep_recovery": {
+   "description": "Oura Resilience contributor for how well you recovered during sleep, as a score.",
+   "category": "recovery",
+   "synonyms": [
+    "resilience sleep recovery",
+    "sleep recovery",
+    "overnight recovery",
+    "sleep recovery contributor"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "recovery while sleeping"
+   ],
+   "misspellings": [
+    "resiliance sleep recovery",
+    "sleep recovry",
+    "slep recovery"
+   ],
+   "confusable_with": [
+    "resilience_daytime_recovery",
+    "resilience_stress",
+    "resilience_level",
+    "recovery_score"
+   ],
+   "notes": ""
+  },
+  "resilience_stress": {
+   "description": "Oura Resilience contributor reflecting the balance of stress versus recovery load, as a score.",
+   "category": "recovery",
+   "synonyms": [
+    "resilience stress",
+    "resilience stress balance",
+    "stress balance",
+    "stress load contributor"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "stress vs recovery balance"
+   ],
+   "misspellings": [
+    "resiliance stress",
+    "resilience stres",
+    "stress ballance"
+   ],
+   "confusable_with": [
+    "resilience_level",
+    "stress_summary",
+    "stress_high_duration"
+   ],
+   "notes": ""
+  },
+  "respiratory_rate": {
+   "description": "Breathing rate, usually averaged overnight, from a wearable or sleep sensor (Oura, Whoop, Apple Watch), in breaths per minute.",
+   "category": "other",
+   "synonyms": [
+    "respiratory rate",
+    "breathing rate",
+    "respiration rate",
+    "breaths per minute",
+    "resp rate",
+    "average respiratory rate",
+    "nightly breathing rate"
+   ],
+   "abbreviations": [
+    "RR",
+    "BPM (breaths)",
+    "RespR"
+   ],
+   "lay_terms": [
+    "breathing",
+    "how fast I breathe",
+    "breaths"
+   ],
+   "misspellings": [
+    "respitory rate",
+    "resperatory rate",
+    "respiratory rat",
+    "respiration rat",
+    "breathing rat"
+   ],
+   "confusable_with": [
+    "sleep_rr_max",
+    "sleep_rr_min",
+    "breathing_disturbance_index",
+    "spo2"
+   ],
+   "notes": "'RR' can also mean R-R interval (HRV context) - disambiguate."
+  },
+  "resting_heart_rate": {
+   "description": "Resting heart rate, the lowest steady heart rate at rest or during sleep, from a wearable (Oura, Whoop, Apple Watch, Garmin, Fitbit), in bpm.",
+   "category": "heart",
+   "synonyms": [
+    "resting heart rate",
+    "resting pulse",
+    "resting HR",
+    "RHR",
+    "lowest resting heart rate",
+    "heart rate at rest",
+    "baseline heart rate"
+   ],
+   "abbreviations": [
+    "RHR",
+    "RestHR"
+   ],
+   "lay_terms": [
+    "resting pulse",
+    "pulse at rest",
+    "morning pulse",
+    "heart rate when relaxed"
+   ],
+   "misspellings": [
+    "resting heart rat",
+    "resting hart rate",
+    "resting heartrate",
+    "restng heart rate",
+    "rest heart rate"
+   ],
+   "confusable_with": [
+    "heart_rate",
+    "day_avg_hr",
+    "day_max_hr",
+    "activity_hr_average",
+    "activity_hr_max",
+    "activity_hr_min",
+    "workout_avg_hr",
+    "workout_max_hr",
+    "sleep_hr_average",
+    "sleep_hr_max",
+    "heart_rate_variability"
+   ],
+   "notes": "Oura 'lowest resting heart rate' and Whoop 'RHR' map here. Not sleep average HR (sleep_hr_average), though close."
+  },
+  "reticulocyte_production_index": {
+   "description": "Reticulocyte production index, the reticulocyte percentage corrected for hematocrit and maturation time, a calculated unitless index of bone-marrow red cell output.",
+   "category": "labs",
+   "synonyms": [
+    "reticulocyte production index",
+    "corrected reticulocyte index",
+    "reticulocyte index",
+    "corrected reticulocyte count"
+   ],
+   "abbreviations": [
+    "RPI",
+    "CRI"
+   ],
+   "lay_terms": [
+    "bone marrow output",
+    "red cell production"
+   ],
+   "misspellings": [
+    "reticulocite production index",
+    "reticulocyte producton index",
+    "retic production index",
+    "reticulocyte prodution index"
+   ],
+   "confusable_with": [
+    "reticulocytes",
+    "hematocrit"
+   ],
+   "notes": "Derived from reticulocytes and hematocrit; not the raw reticulocyte %/count."
+  },
+  "reticulocytes": {
+   "description": "Reticulocytes, immature red blood cells, reported by a lab as % of red cells and/or absolute count.",
+   "category": "labs",
+   "synonyms": [
+    "reticulocyte count",
+    "reticulocyte percentage",
+    "reticulocytes %",
+    "absolute reticulocyte count",
+    "immature red blood cells"
+   ],
+   "abbreviations": [
+    "RETIC",
+    "RET",
+    "RET%",
+    "ARC"
+   ],
+   "lay_terms": [
+    "young red blood cells",
+    "new red cells"
+   ],
+   "misspellings": [
+    "reticulocites",
+    "reticulocyts",
+    "reticlocytes",
+    "reticulosytes",
+    "reticulocyte cout"
+   ],
+   "confusable_with": [
+    "reticulocyte_production_index",
+    "rbc_count"
+   ],
+   "notes": "Raw %/count; the corrected index is reticulocyte_production_index."
+  },
+  "sedentary_time": {
+   "description": "Time spent sitting or inactive (awake) during the day, from a wearable, in minutes.",
+   "category": "activity",
+   "synonyms": [
+    "sedentary time",
+    "inactive time",
+    "sitting time",
+    "sedentary minutes",
+    "inactivity",
+    "non-wear inactive time"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "time sitting",
+    "how long I sat",
+    "couch time",
+    "not moving"
+   ],
+   "misspellings": [
+    "sedentery time",
+    "sedantary time",
+    "sedentry",
+    "sedintary"
+   ],
+   "confusable_with": [
+    "light_activity_duration",
+    "steps"
+   ],
+   "notes": ""
+  },
+  "skin_temp": {
+   "description": "Skin temperature measured by a wearable sensor (e.g. Whoop skin temp), in degrees Celsius.",
+   "category": "other",
+   "synonyms": [
+    "skin temperature",
+    "skin temp",
+    "wrist temperature",
+    "finger temperature",
+    "peripheral temperature"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "skin temp",
+    "how warm my skin is"
+   ],
+   "misspellings": [
+    "skin temprature",
+    "skin temperture",
+    "skin tempreature"
+   ],
+   "confusable_with": [
+    "body_temp_deviation",
+    "body_temperature"
+   ],
+   "notes": "Absolute skin reading (lower than core temperature)."
+  },
+  "sleep_consistency": {
+   "description": "Whoop sleep consistency, how similar your sleep and wake times are day to day, in %.",
+   "category": "sleep",
+   "synonyms": [
+    "sleep consistency",
+    "sleep regularity",
+    "Whoop sleep consistency",
+    "sleep schedule consistency",
+    "sleep regularity index"
+   ],
+   "abbreviations": [
+    "SRI"
+   ],
+   "lay_terms": [
+    "regular bedtime",
+    "consistent sleep schedule",
+    "going to bed at the same time"
+   ],
+   "misspellings": [
+    "sleep consistancy",
+    "sleep consitency",
+    "sleep consistensy",
+    "slep consistency"
+   ],
+   "confusable_with": [
+    "bedtime_hour",
+    "wake_hour",
+    "sleep_performance"
+   ],
+   "notes": "Not Oura 'breathing regularity' and not 'sleep efficiency'."
+  },
+  "sleep_deep": {
+   "description": "Time spent in deep (slow-wave, N3) sleep during a night, from a wearable or sleep sensor, in minutes.",
+   "category": "sleep",
+   "synonyms": [
+    "deep sleep",
+    "slow-wave sleep",
+    "SWS",
+    "N3 sleep",
+    "stage 3 sleep",
+    "deep sleep duration",
+    "slow wave sleep"
+   ],
+   "abbreviations": [
+    "SWS",
+    "N3"
+   ],
+   "lay_terms": [
+    "restorative sleep",
+    "physical recovery sleep",
+    "deep sleep time"
+   ],
+   "misspellings": [
+    "deap sleep",
+    "deep slep",
+    "deepsleep",
+    "deep sleap"
+   ],
+   "confusable_with": [
+    "sleep_light",
+    "sleep_rem",
+    "total_sleep",
+    "awake_time"
+   ],
+   "notes": "Whoop calls it 'SWS (deep)'."
+  },
+  "sleep_efficiency": {
+   "description": "Sleep efficiency, the percentage of time in bed actually spent asleep, from a wearable or sleep sensor, in %.",
+   "category": "sleep",
+   "synonyms": [
+    "sleep efficiency",
+    "sleep efficiency percentage",
+    "time asleep vs time in bed",
+    "sleep quality percentage"
+   ],
+   "abbreviations": [
+    "SE"
+   ],
+   "lay_terms": [
+    "how efficiently I slept",
+    "how well I slept"
+   ],
+   "misspellings": [
+    "sleep efficency",
+    "sleep effeciency",
+    "sleep efficiancy",
+    "slep efficiency"
+   ],
+   "confusable_with": [
+    "sleep_performance",
+    "sleep_score",
+    "awake_time",
+    "sleep_latency"
+   ],
+   "notes": "Not Whoop 'sleep performance' (sleep obtained vs sleep needed). 'Sleep quality' is ambiguous - may also mean sleep_score."
+  },
+  "sleep_hr_average": {
+   "description": "Average heart rate during a sleep session from a wearable or under-mattress sensor (Oura, Whoop, Withings Sleep), in bpm.",
+   "category": "heart",
+   "synonyms": [
+    "sleep average heart rate",
+    "average heart rate during sleep",
+    "nighttime heart rate",
+    "overnight heart rate",
+    "sleeping heart rate",
+    "nocturnal heart rate"
+   ],
+   "abbreviations": [
+    "sleep avg HR",
+    "night HR"
+   ],
+   "lay_terms": [
+    "pulse while sleeping",
+    "heart rate at night"
+   ],
+   "misspellings": [
+    "sleep averge heart rate",
+    "sleeping heartrate",
+    "sleep avg heartrate",
+    "slep heart rate"
+   ],
+   "confusable_with": [
+    "heart_rate",
+    "resting_heart_rate",
+    "day_avg_hr",
+    "day_max_hr",
+    "activity_hr_average",
+    "activity_hr_max",
+    "activity_hr_min",
+    "workout_avg_hr",
+    "workout_max_hr",
+    "sleep_hr_max",
+    "heart_rate_variability"
+   ],
+   "notes": "Close to but not the same as resting_heart_rate (Oura's RHR is the lowest 5-min average during sleep)."
+  },
+  "sleep_hr_max": {
+   "description": "Maximum heart rate during a sleep session from a wearable or under-mattress sensor, in bpm.",
+   "category": "heart",
+   "synonyms": [
+    "sleep maximum heart rate",
+    "sleep max heart rate",
+    "highest heart rate during sleep",
+    "peak nighttime heart rate"
+   ],
+   "abbreviations": [
+    "sleep max HR"
+   ],
+   "lay_terms": [
+    "highest pulse at night"
+   ],
+   "misspellings": [
+    "sleep maxium heart rate",
+    "sleep max heartrate",
+    "slep max heart rate"
+   ],
+   "confusable_with": [
+    "heart_rate",
+    "resting_heart_rate",
+    "day_avg_hr",
+    "day_max_hr",
+    "activity_hr_average",
+    "activity_hr_max",
+    "activity_hr_min",
+    "workout_avg_hr",
+    "workout_max_hr",
+    "sleep_hr_average",
+    "heart_rate_variability"
+   ],
+   "notes": ""
+  },
+  "sleep_latency": {
+   "description": "Sleep latency (sleep onset latency), the time taken to fall asleep after going to bed, from a wearable or sleep sensor, in minutes.",
+   "category": "sleep",
+   "synonyms": [
+    "sleep latency",
+    "sleep onset latency",
+    "time to fall asleep",
+    "time to sleep",
+    "sleep onset time"
+   ],
+   "abbreviations": [
+    "SOL"
+   ],
+   "lay_terms": [
+    "how long to fall asleep",
+    "how long it took me to fall asleep",
+    "trouble falling asleep"
+   ],
+   "misspellings": [
+    "sleep latancy",
+    "sleep latensy",
+    "sleep latentcy",
+    "slep latency"
+   ],
+   "confusable_with": [
+    "wakeup_latency",
+    "bedtime_hour",
+    "awake_time"
+   ],
+   "notes": "Not wakeup_latency (time from waking to getting up)."
+  },
+  "sleep_light": {
+   "description": "Time spent in light (N1/N2) sleep during a night, from a wearable or sleep sensor, in minutes.",
+   "category": "sleep",
+   "synonyms": [
+    "light sleep",
+    "N1 sleep",
+    "N2 sleep",
+    "stage 1 sleep",
+    "stage 2 sleep",
+    "light sleep duration",
+    "core sleep"
+   ],
+   "abbreviations": [
+    "N1",
+    "N2"
+   ],
+   "lay_terms": [
+    "light sleep time"
+   ],
+   "misspellings": [
+    "lite sleep",
+    "light slep",
+    "lightsleep",
+    "ligth sleep"
+   ],
+   "confusable_with": [
+    "sleep_deep",
+    "sleep_rem",
+    "total_sleep",
+    "awake_time"
+   ],
+   "notes": "Apple Health calls this 'Core' sleep. Not 'light activity' (light_activity_duration)."
+  },
+  "sleep_performance": {
+   "description": "Whoop sleep performance, the percentage of the sleep you needed that you actually obtained, in %.",
+   "category": "sleep",
+   "synonyms": [
+    "sleep performance",
+    "Whoop sleep performance",
+    "sleep performance percentage",
+    "sleep need met",
+    "sleep vs need"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "did I get enough sleep",
+    "sleep needed vs sleep got"
+   ],
+   "misspellings": [
+    "sleep preformance",
+    "sleep perfomance",
+    "sleep performence",
+    "slep performance"
+   ],
+   "confusable_with": [
+    "sleep_score",
+    "sleep_efficiency",
+    "total_sleep",
+    "sleep_consistency"
+   ],
+   "notes": "Whoop-specific; not sleep efficiency (asleep/in-bed)."
+  },
+  "sleep_rem": {
+   "description": "Time spent in rapid-eye-movement (REM) sleep during a night, from a wearable or sleep sensor, in minutes.",
+   "category": "sleep",
+   "synonyms": [
+    "REM sleep",
+    "rapid eye movement sleep",
+    "REM duration",
+    "REM sleep time",
+    "dream sleep",
+    "paradoxical sleep"
+   ],
+   "abbreviations": [
+    "REM"
+   ],
+   "lay_terms": [
+    "dream sleep",
+    "dreaming sleep",
+    "mental recovery sleep"
+   ],
+   "misspellings": [
+    "rem slep",
+    "r.e.m. sleep",
+    "remsleep",
+    "rem sleap"
+   ],
+   "confusable_with": [
+    "sleep_deep",
+    "sleep_light",
+    "total_sleep",
+    "awake_time"
+   ],
+   "notes": ""
+  },
+  "sleep_rr_max": {
+   "description": "Highest respiratory (breathing) rate during a sleep session, from a wearable or sleep sensor, in breaths/min.",
+   "category": "sleep",
+   "synonyms": [
+    "sleep maximum respiratory rate",
+    "max breathing rate during sleep",
+    "maximum respiration rate at night",
+    "peak nighttime respiratory rate"
+   ],
+   "abbreviations": [
+    "max RR"
+   ],
+   "lay_terms": [
+    "highest breathing rate at night"
+   ],
+   "misspellings": [
+    "sleep max respitory rate",
+    "sleep max resperatory rate",
+    "sleep rr maximum"
+   ],
+   "confusable_with": [
+    "sleep_rr_min",
+    "respiratory_rate",
+    "breathing_disturbance_index"
+   ],
+   "notes": ""
+  },
+  "sleep_rr_min": {
+   "description": "Lowest respiratory (breathing) rate during a sleep session, from a wearable or sleep sensor, in breaths/min.",
+   "category": "sleep",
+   "synonyms": [
+    "sleep minimum respiratory rate",
+    "min breathing rate during sleep",
+    "minimum respiration rate at night",
+    "lowest nighttime respiratory rate"
+   ],
+   "abbreviations": [
+    "min RR"
+   ],
+   "lay_terms": [
+    "lowest breathing rate at night"
+   ],
+   "misspellings": [
+    "sleep min respitory rate",
+    "sleep min resperatory rate",
+    "sleep rr minimum"
+   ],
+   "confusable_with": [
+    "sleep_rr_max",
+    "respiratory_rate"
+   ],
+   "notes": ""
+  },
+  "sleep_score": {
+   "description": "Vendor composite sleep score (0-100) from a wearable such as Oura, Fitbit, Garmin or Withings, in score points.",
+   "category": "sleep",
+   "synonyms": [
+    "sleep score",
+    "Oura sleep score",
+    "Fitbit sleep score",
+    "Garmin sleep score",
+    "Withings sleep score",
+    "sleep rating",
+    "nightly sleep score"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "how well did I sleep",
+    "sleep quality",
+    "sleep grade"
+   ],
+   "misspellings": [
+    "sleep scor",
+    "slep score",
+    "sleepscore",
+    "sleep socre"
+   ],
+   "confusable_with": [
+    "vita_sleep_score",
+    "sleep_performance",
+    "sleep_efficiency"
+   ],
+   "notes": "Device-reported score. The app's own composite is vita_sleep_score. Whoop's equivalent headline is sleep_performance."
+  },
+  "snoring_duration": {
+   "description": "Total time spent snoring during a night, from an under-mattress sensor or phone/wearable microphone (e.g. Withings Sleep Analyzer), in seconds.",
+   "category": "sleep",
+   "synonyms": [
+    "snoring duration",
+    "snoring time",
+    "time snoring",
+    "total snoring"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "how long I snored",
+    "snoring",
+    "how much I snore"
+   ],
+   "misspellings": [
+    "snorring duration",
+    "snoreing",
+    "snoring durration",
+    "snoaring"
+   ],
+   "confusable_with": [
+    "snoring_episodes",
+    "breathing_disturbance_index"
+   ],
+   "notes": "Unit is seconds (not minutes)."
+  },
+  "snoring_episodes": {
+   "description": "Number of distinct snoring episodes during a night, from an under-mattress sensor or phone/wearable microphone, as a count.",
+   "category": "sleep",
+   "synonyms": [
+    "snoring episodes",
+    "snoring events",
+    "snoring count",
+    "number of snoring episodes"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "how often I snored",
+    "snore count"
+   ],
+   "misspellings": [
+    "snorring episodes",
+    "snoring episods",
+    "snoring epsiodes"
+   ],
+   "confusable_with": [
+    "snoring_duration",
+    "breathing_disturbance_index"
+   ],
+   "notes": ""
+  },
+  "spo2": {
+   "description": "Peripheral blood oxygen saturation from a pulse oximeter or wearable (Oura, Apple Watch, Garmin Pulse Ox, Whoop), in %.",
+   "category": "other",
+   "synonyms": [
+    "blood oxygen",
+    "oxygen saturation",
+    "SpO2",
+    "blood oxygen saturation",
+    "pulse ox",
+    "pulse oximetry",
+    "O2 saturation",
+    "oxygen level",
+    "average SpO2",
+    "Blood oxygen (SpO2)"
+   ],
+   "abbreviations": [
+    "SpO2",
+    "SaO2",
+    "O2 sat",
+    "O2 sats",
+    "Sp02"
+   ],
+   "lay_terms": [
+    "oxygen levels",
+    "blood oxygen level",
+    "oxygen in my blood",
+    "o2"
+   ],
+   "misspellings": [
+    "sp02",
+    "spo 2",
+    "sp o2",
+    "oxigen saturation",
+    "oxygen saturaton",
+    "blod oxygen"
+   ],
+   "confusable_with": [
+    "breathing_disturbance_index",
+    "respiratory_rate"
+   ],
+   "notes": "Selector alias 'spo2'/'oxygen saturation'/'o2 sats' currently point to 'oxygen_saturation', which is not an id here - they should resolve to spo2. SaO2 is technically arterial (blood gas) but users mean this."
+  },
+  "steps": {
+   "description": "Number of steps taken per day (or period), from a phone, watch, ring or fitness tracker, as a step count.",
+   "category": "activity",
+   "synonyms": [
+    "steps",
+    "step count",
+    "daily steps",
+    "steps per day",
+    "step total",
+    "number of steps"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "how much I walked",
+    "walking",
+    "how many steps"
+   ],
+   "misspellings": [
+    "stpes",
+    "setps",
+    "stepts",
+    "step cout",
+    "steeps"
+   ],
+   "confusable_with": [
+    "distance",
+    "calories_active"
+   ],
+   "notes": ""
+  },
+  "strain_score": {
+   "description": "Whoop workout (activity) strain, the cardiovascular load of a single workout on a 0-21 scale, in score points.",
+   "category": "activity",
+   "synonyms": [
+    "workout strain",
+    "activity strain",
+    "Whoop workout strain",
+    "exercise strain",
+    "session strain"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "how hard was my workout",
+    "workout effort"
+   ],
+   "misspellings": [
+    "workout strian",
+    "workout strane",
+    "strain scor"
+   ],
+   "confusable_with": [
+    "day_strain",
+    "workout_intensity"
+   ],
+   "notes": "Per-workout. Vita registry display name 'Workout strain'. Bare 'strain score' is day_strain (spec v1.6 10c)."
+  },
+  "stress_high_duration": {
+   "description": "Time during the day spent in a high-stress physiological state from wearable stress tracking (Oura daytime stress, Garmin stress), in minutes.",
+   "category": "recovery",
+   "synonyms": [
+    "high stress time",
+    "high-stress duration",
+    "stressed time",
+    "time stressed",
+    "stress minutes",
+    "Garmin high stress duration",
+    "High-stress time"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "how long was I stressed",
+    "stressful time today"
+   ],
+   "misspellings": [
+    "high stres",
+    "stress high durration",
+    "stress hi duration",
+    "stess time"
+   ],
+   "confusable_with": [
+    "recovery_high_duration",
+    "stress_summary",
+    "resilience_stress",
+    "cortisol_am"
+   ],
+   "notes": "Wearable physiological stress, not the cortisol lab."
+  },
+  "stress_summary": {
+   "description": "Daily stress state summary from wearable stress tracking (e.g. Oura day summary: restored/normal/stressful; Garmin stress level), as a score/category.",
+   "category": "recovery",
+   "synonyms": [
+    "daily stress",
+    "stress level",
+    "stress state",
+    "stress summary",
+    "Oura daytime stress",
+    "Garmin stress",
+    "Garmin stress score",
+    "all-day stress",
+    "Daily stress state",
+    "stress"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "how stressed was I",
+    "stress today",
+    "stress"
+   ],
+   "misspellings": [
+    "stres level",
+    "stress sumary",
+    "stress summery",
+    "stess"
+   ],
+   "confusable_with": [
+    "stress_high_duration",
+    "recovery_high_duration",
+    "resilience_stress",
+    "cortisol_am",
+    "electrochemical_skin_conductance"
+   ],
+   "notes": "Default for unqualified 'stress' from wearables."
+  },
+  "systolic_blood_pressure": {
+   "description": "Systolic blood pressure, the peak arterial pressure during a heartbeat (the top number), from a cuff or wearable, in mmHg.",
+   "category": "heart",
+   "synonyms": [
+    "systolic blood pressure",
+    "systolic pressure",
+    "systolic",
+    "systolic BP",
+    "SBP"
+   ],
+   "abbreviations": [
+    "SBP",
+    "SYS"
+   ],
+   "lay_terms": [
+    "top number",
+    "upper number",
+    "upper blood pressure"
+   ],
+   "misspellings": [
+    "systolic blood presure",
+    "sistolic",
+    "systollic",
+    "systolic presure",
+    "systalic"
+   ],
+   "confusable_with": [
+    "diastolic_blood_pressure",
+    "blood_pressure"
+   ],
+   "notes": ""
+  },
+  "total_sleep": {
+   "description": "Total time actually asleep in a night (sum of light, deep and REM), from a wearable or sleep sensor, in minutes.",
+   "category": "sleep",
+   "synonyms": [
+    "total sleep",
+    "total sleep time",
+    "sleep duration",
+    "time asleep",
+    "hours of sleep",
+    "sleep time",
+    "sleep length",
+    "amount of sleep"
+   ],
+   "abbreviations": [
+    "TST"
+   ],
+   "lay_terms": [
+    "how long I slept",
+    "how much sleep",
+    "hours slept",
+    "sleep hours",
+    "how much did I sleep"
+   ],
+   "misspellings": [
+    "total slep",
+    "sleep durration",
+    "sleep duraton",
+    "totle sleep",
+    "time a sleep"
+   ],
+   "confusable_with": [
+    "sleep_deep",
+    "sleep_light",
+    "sleep_rem",
+    "awake_time",
+    "sleep_efficiency",
+    "sleep_performance",
+    "bedtime_hour",
+    "wake_hour"
+   ],
+   "notes": "Time asleep, not time in bed. Whoop 'hours of sleep' and Oura 'total sleep' map here."
+  },
+  "total_testosterone": {
+   "description": "Total serum testosterone (free plus SHBG- and albumin-bound), measured by a lab in ng/dL (or nmol/L).",
+   "category": "labs",
+   "synonyms": [
+    "total testosterone",
+    "testosterone, total",
+    "serum testosterone",
+    "testosterone",
+    "testosterone level",
+    "testosterone LC/MS"
+   ],
+   "abbreviations": [
+    "TT",
+    "Total T",
+    "TESTO"
+   ],
+   "lay_terms": [
+    "T levels",
+    "testosterone levels",
+    "male hormone",
+    "low T"
+   ],
+   "misspellings": [
+    "testosteron",
+    "testostrone",
+    "testerone",
+    "testostarone",
+    "testosterone totale",
+    "testosteone"
+   ],
+   "confusable_with": [
+    "bioavailable_testosterone",
+    "dhea_sulfate"
+   ],
+   "notes": "Default for plain 'testosterone'. Free testosterone has no id (closest is bioavailable_testosterone, but they differ)."
+  },
+  "triglycerides": {
+   "description": "Triglycerides, the main blood fat measured on a lipid panel, in mg/dL (or mmol/L).",
+   "category": "labs",
+   "synonyms": [
+    "triglycerides",
+    "triglyceride",
+    "serum triglycerides",
+    "triacylglycerols",
+    "TG level",
+    "triglycerides, fasting"
+   ],
+   "abbreviations": [
+    "TG",
+    "TRIG",
+    "TRIGS",
+    "TAG"
+   ],
+   "lay_terms": [
+    "blood fats",
+    "fats in blood",
+    "trigs"
+   ],
+   "misspellings": [
+    "triglicerides",
+    "triglycerids",
+    "tryglycerides",
+    "triglycerites",
+    "triglycerdies",
+    "triglycirides"
+   ],
+   "confusable_with": [
+    "cholesterol",
+    "hdl",
+    "ldl"
+   ],
+   "notes": ""
+  },
+  "tsh": {
+   "description": "Thyroid-stimulating hormone (thyrotropin), the pituitary signal that drives thyroid output, measured by a lab in mIU/L (uIU/mL).",
+   "category": "labs",
+   "synonyms": [
+    "thyroid-stimulating hormone",
+    "thyroid stimulating hormone",
+    "thyrotropin",
+    "thyrotrophin",
+    "TSH, 3rd generation"
+   ],
+   "abbreviations": [
+    "TSH",
+    "hTSH",
+    "TSH3"
+   ],
+   "lay_terms": [
+    "thyroid",
+    "thyroid level",
+    "thyroid test",
+    "thyroid function"
+   ],
+   "misspellings": [
+    "thyroid stimulationg hormone",
+    "thyroid stimulatng hormone",
+    "thyrotropine",
+    "tsh level",
+    "tyroid"
+   ],
+   "confusable_with": [
+    "free_t4"
+   ],
+   "notes": "Default for plain 'thyroid' questions. Inverse relationship to free T4."
+  },
+  "uric_acid": {
+   "description": "Serum uric acid, the end product of purine metabolism linked to gout, measured by a lab in mg/dL (or umol/L).",
+   "category": "labs",
+   "synonyms": [
+    "uric acid",
+    "serum uric acid",
+    "urate",
+    "serum urate",
+    "uric acid, serum"
+   ],
+   "abbreviations": [
+    "UA",
+    "SUA"
+   ],
+   "lay_terms": [
+    "gout marker",
+    "gout level"
+   ],
+   "misspellings": [
+    "uric asid",
+    "uric acid level",
+    "uricacid",
+    "uirc acid",
+    "yuric acid"
+   ],
+   "confusable_with": [
+    "creatinine"
+   ],
+   "notes": "'UA' also commonly means urinalysis - disambiguate by context."
+  },
+  "visceral_fat": {
+   "description": "Visceral fat index, a unitless rating of fat stored around the abdominal organs, from a bioimpedance scale (Withings, Tanita, Omron).",
+   "category": "body",
+   "synonyms": [
+    "visceral fat",
+    "visceral fat index",
+    "visceral fat rating",
+    "visceral fat level",
+    "abdominal fat",
+    "belly fat index",
+    "VAT"
+   ],
+   "abbreviations": [
+    "VFI",
+    "VAT",
+    "VF"
+   ],
+   "lay_terms": [
+    "belly fat",
+    "fat around organs",
+    "organ fat",
+    "tummy fat"
+   ],
+   "misspellings": [
+    "viseral fat",
+    "visceral fatt",
+    "viceral fat",
+    "visceral fat idex"
+   ],
+   "confusable_with": [
+    "body_fat",
+    "fat_mass",
+    "fat_mass_torso"
+   ],
+   "notes": "Unitless index (typically 1-59); not a percentage or kg."
+  },
+  "vita_sleep_score": {
+   "description": "The assistant's own (Vita) composite sleep score computed across connected devices, in score points.",
+   "category": "sleep",
+   "synonyms": [
+    "Vita sleep score",
+    "Vita score for sleep",
+    "app sleep score",
+    "combined sleep score",
+    "overall sleep score"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "my sleep score in the app"
+   ],
+   "misspellings": [
+    "vita sleep scor",
+    "vitta sleep score",
+    "vita slep score"
+   ],
+   "confusable_with": [
+    "sleep_score",
+    "sleep_performance"
+   ],
+   "notes": "Use when the user names Vita or the app's score; device-native scores are sleep_score."
+  },
+  "vitamin_b12": {
+   "description": "Serum vitamin B12 (cobalamin), measured by a lab in pg/mL (or pmol/L).",
+   "category": "labs",
+   "synonyms": [
+    "vitamin B12",
+    "vitamin B-12",
+    "cobalamin",
+    "cyanocobalamin",
+    "serum B12",
+    "B12 level"
+   ],
+   "abbreviations": [
+    "B12",
+    "B-12",
+    "Cbl",
+    "VB12"
+   ],
+   "lay_terms": [
+    "b twelve",
+    "energy vitamin"
+   ],
+   "misspellings": [
+    "vitamin b 12",
+    "vitamine b12",
+    "vitamin b21",
+    "vit b12",
+    "cobolamin",
+    "cobalamine"
+   ],
+   "confusable_with": [
+    "homocysteine",
+    "mcv"
+   ],
+   "notes": "Not MMA or holotranscobalamin (active B12), which are separate assays."
+  },
+  "vitamin_d": {
+   "description": "25-hydroxyvitamin D (calcidiol), the standard vitamin D status test, measured by a lab in ng/mL (or nmol/L).",
+   "category": "labs",
+   "synonyms": [
+    "25-hydroxyvitamin D",
+    "25-hydroxy vitamin D",
+    "calcidiol",
+    "vitamin D, 25-hydroxy",
+    "vitamin D total",
+    "25-OH vitamin D",
+    "vitamin D3",
+    "vitamin D2+D3",
+    "Vitamin D (25-OH)"
+   ],
+   "abbreviations": [
+    "25(OH)D",
+    "25-OH D",
+    "25OHD",
+    "Vit D",
+    "VD"
+   ],
+   "lay_terms": [
+    "vitamin d level",
+    "sunshine vitamin",
+    "vitamin d status"
+   ],
+   "misspellings": [
+    "vitamine d",
+    "vitamin-d",
+    "vitimin d",
+    "vitamen d",
+    "vitamind",
+    "vitmain d",
+    "25 hydroxy vit d"
+   ],
+   "confusable_with": [
+    "1_25_dihydroxy_vitamin_d"
+   ],
+   "notes": "Default for plain 'vitamin D'. Only '1,25-dihydroxy'/'calcitriol' -> 1_25_dihydroxy_vitamin_d."
+  },
+  "vo2_max": {
+   "description": "Estimated VO2 max, the maximal oxygen uptake / cardiorespiratory fitness, from a wearable (Apple Cardio Fitness, Garmin VO2 max, Oura Cardio Capacity) or lab test, in mL/kg/min.",
+   "category": "activity",
+   "synonyms": [
+    "VO2 max",
+    "VO2max",
+    "maximal oxygen uptake",
+    "maximal oxygen consumption",
+    "cardio fitness",
+    "cardiorespiratory fitness",
+    "aerobic capacity",
+    "cardio capacity",
+    "VO2 max estimate"
+   ],
+   "abbreviations": [
+    "VO2max",
+    "VO2 max",
+    "V\u0307O2max",
+    "CRF"
+   ],
+   "lay_terms": [
+    "fitness level",
+    "cardio fitness",
+    "how fit am I",
+    "aerobic fitness"
+   ],
+   "misspellings": [
+    "vo2 maxx",
+    "v02 max",
+    "vo2max",
+    "v o 2 max",
+    "vo 2 max",
+    "vo2 mx"
+   ],
+   "confusable_with": [
+    "hr_zone_5",
+    "resting_heart_rate"
+   ],
+   "notes": "'V02' with a zero is a very common misspelling."
+  },
+  "wake_hour": {
+   "description": "Clock time you woke up at the end of the main sleep period, from a wearable, expressed as hour of day.",
+   "category": "sleep",
+   "synonyms": [
+    "wake time",
+    "wake-up time",
+    "wakeup time",
+    "sleep end time",
+    "rise time",
+    "time woke up"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "when I woke up",
+    "what time I got up",
+    "getting up time"
+   ],
+   "misspellings": [
+    "wake tme",
+    "wakeup tiem",
+    "wke time",
+    "waketime"
+   ],
+   "confusable_with": [
+    "bedtime_hour",
+    "wakeup_latency",
+    "wakeup_count",
+    "sleep_consistency"
+   ],
+   "notes": "A clock time; not wakeup_count or wakeup_duration."
+  },
+  "wakeup_count": {
+   "description": "Number of times you woke up during a sleep period, from a sleep sensor or wearable (e.g. Withings Sleep), as a count.",
+   "category": "sleep",
+   "synonyms": [
+    "wake-up count",
+    "number of awakenings",
+    "awakenings",
+    "times woken up",
+    "wake ups",
+    "night wakings"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "how many times I woke up",
+    "waking up at night",
+    "interrupted sleep"
+   ],
+   "misspellings": [
+    "wakeup cout",
+    "wake up count",
+    "wakup count",
+    "awakening count"
+   ],
+   "confusable_with": [
+    "awake_time",
+    "wakeup_duration",
+    "wake_hour"
+   ],
+   "notes": "A count; time awake is awake_time / wakeup_duration."
+  },
+  "wakeup_duration": {
+   "description": "Total time spent awake during a sleep period as reported by a sleep sensor (Withings 'wakeup duration'), in minutes.",
+   "category": "sleep",
+   "synonyms": [
+    "wake-up duration",
+    "wakeup duration",
+    "time awake",
+    "awake duration",
+    "Withings wakeup duration"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "time spent awake at night"
+   ],
+   "misspellings": [
+    "wakeup durration",
+    "wake up duraton",
+    "wakup duration"
+   ],
+   "confusable_with": [
+    "awake_time",
+    "wakeup_count",
+    "wakeup_latency"
+   ],
+   "notes": "Near-duplicate of awake_time; comes from Withings. Not wakeup_latency."
+  },
+  "wakeup_latency": {
+   "description": "Time between final wake-up and getting out of bed, from a sleep sensor (Withings 'duration to wake up/get up'), in minutes.",
+   "category": "sleep",
+   "synonyms": [
+    "wake-up latency",
+    "wakeup latency",
+    "time to get up",
+    "time to get out of bed",
+    "duration to get up"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "lying in bed after waking",
+    "how long before I got up"
+   ],
+   "misspellings": [
+    "wakeup latancy",
+    "wake up latensy",
+    "wakup latency"
+   ],
+   "confusable_with": [
+    "sleep_latency",
+    "wake_hour",
+    "wakeup_duration"
+   ],
+   "notes": "Not sleep_latency (time to fall asleep)."
+  },
+  "wbc_count": {
+   "description": "Total white blood cell (leukocyte) count per volume of blood from a CBC lab test, in x10^3/uL (10^9/L).",
+   "category": "labs",
+   "synonyms": [
+    "white blood cell count",
+    "white blood cells",
+    "leukocyte count",
+    "leukocytes",
+    "total leukocyte count",
+    "white cell count",
+    "WBC count",
+    "total WBC"
+   ],
+   "abbreviations": [
+    "WBC",
+    "WBCs",
+    "TLC",
+    "WCC"
+   ],
+   "lay_terms": [
+    "white count",
+    "immune cell count",
+    "infection count"
+   ],
+   "misspellings": [
+    "white blood cell cout",
+    "white bloodcells",
+    "leucocytes",
+    "leukocites",
+    "white blod cells",
+    "leukocyts"
+   ],
+   "confusable_with": [
+    "white_blood_cells",
+    "neutrophils",
+    "neutrophils_absolute",
+    "lymphocytes",
+    "monocytes",
+    "eosinophils",
+    "basophils"
+   ],
+   "notes": "Duplicate concept with white_blood_cells (same analyte, two ids); resolve both together. Differential cell types are separate ids."
+  },
+  "weight": {
+   "description": "Body weight from a scale or manual entry, in kg.",
+   "category": "body",
+   "synonyms": [
+    "weight",
+    "body weight",
+    "body mass",
+    "scale weight",
+    "weigh-in",
+    "mass"
+   ],
+   "abbreviations": [
+    "wt",
+    "BW",
+    "kg",
+    "lbs"
+   ],
+   "lay_terms": [
+    "how much I weigh",
+    "my weight",
+    "pounds",
+    "kilos"
+   ],
+   "misspellings": [
+    "wieght",
+    "weigth",
+    "wight",
+    "waight",
+    "weihgt"
+   ],
+   "confusable_with": [
+    "fat_mass",
+    "fat_free_mass",
+    "muscle_mass",
+    "bmi"
+   ],
+   "notes": "Measured metric; the static profile value is profile field weight_kg."
+  },
+  "white_blood_cells": {
+   "description": "Total white blood cell (leukocyte) count per volume of blood from a CBC lab test, in x10^3/uL (10^9/L).",
+   "category": "labs",
+   "synonyms": [
+    "white blood cell count",
+    "white blood cells",
+    "leukocyte count",
+    "leukocytes",
+    "total leukocyte count",
+    "white cell count",
+    "WBC count",
+    "total WBC"
+   ],
+   "abbreviations": [
+    "WBC",
+    "WBCs",
+    "TLC",
+    "WCC"
+   ],
+   "lay_terms": [
+    "white count",
+    "immune cell count",
+    "infection count"
+   ],
+   "misspellings": [
+    "white blood cell cout",
+    "white bloodcells",
+    "leucocytes",
+    "leukocites",
+    "white blod cells",
+    "leukocyts"
+   ],
+   "confusable_with": [
+    "wbc_count",
+    "neutrophils",
+    "neutrophils_absolute",
+    "lymphocytes",
+    "monocytes",
+    "eosinophils",
+    "basophils"
+   ],
+   "notes": "Duplicate concept with wbc_count (same analyte, two ids); resolve both together."
+  },
+  "workout_avg_hr": {
+   "description": "Average heart rate during a recorded workout session from a wearable or chest strap, in bpm.",
+   "category": "heart",
+   "synonyms": [
+    "workout average heart rate",
+    "exercise average heart rate",
+    "average heart rate during workout",
+    "session average heart rate",
+    "training average heart rate"
+   ],
+   "abbreviations": [
+    "workout avg HR"
+   ],
+   "lay_terms": [
+    "average pulse during exercise",
+    "heart rate during my run",
+    "heart rate while training"
+   ],
+   "misspellings": [
+    "workout averge heart rate",
+    "workout avg heartrate",
+    "excercise average heart rate",
+    "work out average heart rate"
+   ],
+   "confusable_with": [
+    "heart_rate",
+    "resting_heart_rate",
+    "day_avg_hr",
+    "day_max_hr",
+    "activity_hr_average",
+    "activity_hr_max",
+    "activity_hr_min",
+    "workout_max_hr",
+    "sleep_hr_average",
+    "sleep_hr_max",
+    "heart_rate_variability"
+   ],
+   "notes": "Per-workout value (see workouts record)."
+  },
+  "workout_calories": {
+   "description": "Energy burned during a single recorded workout session, from a wearable, in kcal.",
+   "category": "activity",
+   "synonyms": [
+    "workout calories",
+    "exercise calories",
+    "calories burned during workout",
+    "session calories",
+    "training calories"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "calories in my run",
+    "calories from my workout"
+   ],
+   "misspellings": [
+    "workout calores",
+    "work out calories",
+    "excercise calories",
+    "workout calroies"
+   ],
+   "confusable_with": [
+    "calories_active",
+    "calories_burned"
+   ],
+   "notes": "Per-workout value."
+  },
+  "workout_distance": {
+   "description": "Distance covered during a single recorded workout (run, ride, walk), from a wearable/GPS, in km.",
+   "category": "activity",
+   "synonyms": [
+    "workout distance",
+    "run distance",
+    "ride distance",
+    "exercise distance",
+    "session distance",
+    "activity distance"
+   ],
+   "abbreviations": [],
+   "lay_terms": [
+    "how far I ran",
+    "how far I cycled",
+    "how far I walked in my workout"
+   ],
+   "misspellings": [
+    "workout distence",
+    "work out distance",
+    "workout distanse"
+   ],
+   "confusable_with": [
+    "distance",
+    "elevation"
+   ],
+   "notes": "Per-workout; daily total -> distance."
+  },
+  "workout_intensity": {
+   "description": "Intensity rating of a single recorded workout (e.g. Oura easy/moderate/hard), as a score.",
+   "category": "activity",
+   "synonyms": [
+    "workout intensity",
+    "exercise intensity",
+    "training intensity",
+    "session intensity",
+    "effort level"
+   ],
+   "abbreviations": [
+    "RPE"
+   ],
+   "lay_terms": [
+    "how intense was my workout",
+    "how hard I trained"
+   ],
+   "misspellings": [
+    "workout intensty",
+    "workout intesity",
+    "work out intensity"
+   ],
+   "confusable_with": [
+    "strain_score",
+    "day_strain",
+    "workout_avg_hr"
+   ],
+   "notes": "Vendor intensity label/score; RPE listed only for user phrasing (subjective rating)."
+  },
+  "workout_max_hr": {
+   "description": "Maximum heart rate reached during a recorded workout session from a wearable or chest strap, in bpm.",
+   "category": "heart",
+   "synonyms": [
+    "workout maximum heart rate",
+    "workout max heart rate",
+    "exercise max heart rate",
+    "peak heart rate during workout",
+    "session max heart rate"
+   ],
+   "abbreviations": [
+    "workout max HR",
+    "peak HR"
+   ],
+   "lay_terms": [
+    "highest pulse during exercise",
+    "peak heart rate in my run"
+   ],
+   "misspellings": [
+    "workout maxium heart rate",
+    "workout max heartrate",
+    "excercise max heart rate",
+    "work out max heart rate"
+   ],
+   "confusable_with": [
+    "heart_rate",
+    "resting_heart_rate",
+    "day_avg_hr",
+    "day_max_hr",
+    "activity_hr_average",
+    "activity_hr_max",
+    "activity_hr_min",
+    "workout_avg_hr",
+    "sleep_hr_average",
+    "sleep_hr_max",
+    "heart_rate_variability"
+   ],
+   "notes": "Per-workout peak; not age-predicted HRmax."
+  },
+  "panel_lipid": {
+   "description": "Lipid panel: a named group read as its members (spec v1.8 10g.16/10g.18): cholesterol, ldl, hdl, triglycerides, apob, lipoprotein_a, lp_a, nonhdl_cholesterol, non_hdl_cholesterol, vldl_cholesterol.",
+   "category": "panel",
+   "synonyms": [
+    "lipid panel",
+    "lipid profile",
+    "lipids",
+    "cholesterol panel",
+    "lipid test",
+    "lipid labs",
+    "blood lipids"
+   ],
+   "abbreviations": [],
+   "lay_terms": [],
+   "misspellings": [],
+   "confusable_with": [],
+   "panel_members": [
+    "cholesterol",
+    "ldl",
+    "hdl",
+    "triglycerides",
+    "apob",
+    "lipoprotein_a",
+    "lp_a",
+    "nonhdl_cholesterol",
+    "non_hdl_cholesterol",
+    "vldl_cholesterol"
+   ]
+  },
+  "panel_thyroid": {
+   "description": "Thyroid panel: a named group read as its members (spec v1.8 10g.16/10g.18): tsh, free_t4, free_t3, total_t4, total_t3.",
+   "category": "panel",
+   "synonyms": [
+    "thyroid panel",
+    "thyroid labs",
+    "thyroid function tests",
+    "thyroid tests",
+    "TFTs",
+    "thyroid function"
+   ],
+   "abbreviations": [],
+   "lay_terms": [],
+   "misspellings": [],
+   "confusable_with": [],
+   "panel_members": [
+    "tsh",
+    "free_t4",
+    "free_t3",
+    "total_t4",
+    "total_t3"
+   ]
+  },
+  "panel_cbc": {
+   "description": "Complete blood count: a named group read as its members (spec v1.8 10g.16/10g.18): white_blood_cells, wbc_count, rbc_count, hemoglobin, hematocrit, mcv, mch, mchc, rdw, platelets, platelet_count, mpv, neutrophils, neutrophils_absolute, lymphocytes, monocytes, eosinophils, basophils.",
+   "category": "panel",
+   "synonyms": [
+    "CBC",
+    "complete blood count",
+    "full blood count",
+    "FBC",
+    "blood count",
+    "CBC with differential",
+    "hemogram",
+    "blood panel counts"
+   ],
+   "abbreviations": [],
+   "lay_terms": [],
+   "misspellings": [],
+   "confusable_with": [],
+   "panel_members": [
+    "white_blood_cells",
+    "wbc_count",
+    "rbc_count",
+    "hemoglobin",
+    "hematocrit",
+    "mcv",
+    "mch",
+    "mchc",
+    "rdw",
+    "platelets",
+    "platelet_count",
+    "mpv",
+    "neutrophils",
+    "neutrophils_absolute",
+    "lymphocytes",
+    "monocytes",
+    "eosinophils",
+    "basophils"
+   ]
+  },
+  "panel_cbc_basic": {
+   "description": "CBC without differential: a named group read as its members (spec v1.8 10g.16/10g.18): white_blood_cells, wbc_count, rbc_count, hemoglobin, hematocrit, mcv, mch, mchc, rdw, platelets, platelet_count, mpv.",
+   "category": "panel",
+   "synonyms": [
+    "CBC without differential",
+    "CBC w/o diff",
+    "blood count without the differential",
+    "CBC no diff"
+   ],
+   "abbreviations": [],
+   "lay_terms": [],
+   "misspellings": [],
+   "confusable_with": [],
+   "panel_members": [
+    "white_blood_cells",
+    "wbc_count",
+    "rbc_count",
+    "hemoglobin",
+    "hematocrit",
+    "mcv",
+    "mch",
+    "mchc",
+    "rdw",
+    "platelets",
+    "platelet_count",
+    "mpv"
+   ]
+  },
+  "panel_body_comp": {
+   "description": "Body composition: a named group read as its members (spec v1.8 10g.16/10g.18): weight, body_fat, fat_mass, fat_free_mass, lean_mass_percent, muscle_mass, bone_mass, visceral_fat, hydration.",
+   "category": "panel",
+   "synonyms": [
+    "body composition",
+    "body comp",
+    "body composition results",
+    "body composition scan",
+    "composition breakdown"
+   ],
+   "abbreviations": [],
+   "lay_terms": [],
+   "misspellings": [],
+   "confusable_with": [],
+   "panel_members": [
+    "weight",
+    "body_fat",
+    "fat_mass",
+    "fat_free_mass",
+    "lean_mass_percent",
+    "muscle_mass",
+    "bone_mass",
+    "visceral_fat",
+    "hydration"
+   ]
+  },
+  "panel_body_water": {
+   "description": "Body water compartments: a named group read as its members (spec v1.8 10g.16/10g.18): hydration, intracellular_water, extracellular_water.",
+   "category": "panel",
+   "synonyms": [
+    "body water compartments",
+    "body water breakdown",
+    "water compartments",
+    "fluid compartments",
+    "body water split"
+   ],
+   "abbreviations": [],
+   "lay_terms": [],
+   "misspellings": [],
+   "confusable_with": [],
+   "panel_members": [
+    "hydration",
+    "intracellular_water",
+    "extracellular_water"
+   ]
+  },
+  "panel_fat_segments": {
+   "description": "Fat by body segment: a named group read as its members (spec v1.8 10g.16/10g.18): fat_mass_left_arm, fat_mass_right_arm, fat_mass_left_leg, fat_mass_right_leg, fat_mass_torso.",
+   "category": "panel",
+   "synonyms": [
+    "fat by body segment",
+    "segmental fat",
+    "fat per limb",
+    "fat distribution by segment",
+    "segment fat mass"
+   ],
+   "abbreviations": [],
+   "lay_terms": [],
+   "misspellings": [],
+   "confusable_with": [],
+   "panel_members": [
+    "fat_mass_left_arm",
+    "fat_mass_right_arm",
+    "fat_mass_left_leg",
+    "fat_mass_right_leg",
+    "fat_mass_torso"
+   ]
+  },
+  "panel_muscle_segments": {
+   "description": "Muscle by body segment: a named group read as its members (spec v1.8 10g.16/10g.18): muscle_mass_left_arm, muscle_mass_right_arm, muscle_mass_left_leg, muscle_mass_right_leg, muscle_mass_torso.",
+   "category": "panel",
+   "synonyms": [
+    "muscle by body segment",
+    "segmental muscle",
+    "muscle per limb",
+    "segment muscle mass"
+   ],
+   "abbreviations": [],
+   "lay_terms": [],
+   "misspellings": [],
+   "confusable_with": [],
+   "panel_members": [
+    "muscle_mass_left_arm",
+    "muscle_mass_right_arm",
+    "muscle_mass_left_leg",
+    "muscle_mass_right_leg",
+    "muscle_mass_torso"
+   ]
+  },
+  "panel_lean_segments": {
+   "description": "Lean mass by body segment: a named group read as its members (spec v1.8 10g.16/10g.18): fat_free_mass_left_arm, fat_free_mass_right_arm, fat_free_mass_left_leg, fat_free_mass_right_leg, fat_free_mass_torso.",
+   "category": "panel",
+   "synonyms": [
+    "lean mass by segment",
+    "segmental lean mass",
+    "fat-free mass by segment",
+    "lean mass per limb"
+   ],
+   "abbreviations": [],
+   "lay_terms": [],
+   "misspellings": [],
+   "confusable_with": [],
+   "panel_members": [
+    "fat_free_mass_left_arm",
+    "fat_free_mass_right_arm",
+    "fat_free_mass_left_leg",
+    "fat_free_mass_right_leg",
+    "fat_free_mass_torso"
+   ]
+  },
+  "panel_segmental": {
+   "description": "Segmental analysis: a named group read as its members (spec v1.8 10g.16/10g.18): fat_mass_left_arm, fat_mass_right_arm, fat_mass_left_leg, fat_mass_right_leg, fat_mass_torso, muscle_mass_left_arm, muscle_mass_right_arm, muscle_mass_left_leg, muscle_mass_right_leg, muscle_mass_torso, fat_free_mass_left_arm, fat_free_mass_right_arm, fat_free_mass_left_leg, fat_free_mass_right_leg, fat_free_mass_torso.",
+   "category": "panel",
+   "synonyms": [
+    "segmental analysis",
+    "segmental body composition",
+    "segment breakdown"
+   ],
+   "abbreviations": [],
+   "lay_terms": [],
+   "misspellings": [],
+   "confusable_with": [],
+   "panel_members": [
+    "fat_mass_left_arm",
+    "fat_mass_right_arm",
+    "fat_mass_left_leg",
+    "fat_mass_right_leg",
+    "fat_mass_torso",
+    "muscle_mass_left_arm",
+    "muscle_mass_right_arm",
+    "muscle_mass_left_leg",
+    "muscle_mass_right_leg",
+    "muscle_mass_torso",
+    "fat_free_mass_left_arm",
+    "fat_free_mass_right_arm",
+    "fat_free_mass_left_leg",
+    "fat_free_mass_right_leg",
+    "fat_free_mass_torso"
+   ]
+  },
+  "workout_hr": {
+   "description": "Workout heart rate: a named group read as its members (spec v1.8 10g.16/10g.18): workout_avg_hr, workout_max_hr.",
+   "category": "panel",
+   "synonyms": [
+    "workout heart rate",
+    "heart rate during workouts",
+    "exercise heart rate",
+    "training heart rate",
+    "heart rate during exercise",
+    "workout HR"
+   ],
+   "abbreviations": [],
+   "lay_terms": [],
+   "misspellings": [],
+   "confusable_with": [],
+   "panel_members": [
+    "workout_avg_hr",
+    "workout_max_hr"
+   ]
+  }
+ },
+ "records": {
+  "profile": {
+   "description": "The user's stored health profile: demographics, goals, medications, conditions, allergies and preferences.",
+   "synonyms": [
+    "profile",
+    "my profile",
+    "health profile",
+    "goals",
+    "medications",
+    "meds",
+    "my details",
+    "personal info",
+    "about me",
+    "user profile",
+    "my conditions",
+    "my settings"
+   ]
+  },
+  "workouts": {
+   "description": "Individual recorded exercise sessions (type, duration, distance, heart rate, calories, strain) synced from wearables and fitness apps.",
+   "synonyms": [
+    "workouts",
+    "exercise sessions",
+    "workout sessions",
+    "workout log",
+    "training sessions",
+    "activities",
+    "runs",
+    "rides",
+    "gym sessions",
+    "exercise history",
+    "training log",
+    "workout history",
+    "my workouts"
+   ]
+  },
+  "labs": {
+   "description": "Uploaded laboratory reports (blood tests and panels) with their extracted biomarker results.",
+   "synonyms": [
+    "lab reports",
+    "blood test reports",
+    "blood reports",
+    "lab uploads",
+    "lab upload",
+    "uploaded labs",
+    "uploaded lab reports",
+    "lab results",
+    "blood work",
+    "bloodwork",
+    "blood tests",
+    "lab tests",
+    "blood panel",
+    "test results",
+    "biomarker reports",
+    "lab panels"
+   ]
+  },
+  "calendar": {
+   "description": "The user's health calendar: planned screenings, checkups, appointments and health-plan events.",
+   "synonyms": [
+    "health plans",
+    "screening events",
+    "health events",
+    "health calendar",
+    "health appointments",
+    "screenings",
+    "checkups",
+    "calendar",
+    "health plan",
+    "health appointment",
+    "doctor appointments",
+    "medical appointments",
+    "upcoming tests",
+    "check-ups",
+    "reminders",
+    "schedule",
+    "physicals"
+   ]
+  },
+  "overview": {
+   "description": "A curated overview of the user's recent health: sleep, recovery, heart, activity, body composition and key labs (spec v1.8 10g.10).",
+   "synonyms": [
+    "health overview",
+    "overview of my health",
+    "overall health",
+    "health check-in",
+    "health summary",
+    "summary of my health",
+    "how am I doing overall",
+    "how is my health overall",
+    "big picture of my health",
+    "general health snapshot"
+   ]
+  }
+ },
+ "profile_fields": {
+  "allergies": {
+   "description": "Known allergies (drug, food, environmental).",
+   "synonyms": [
+    "allergies",
+    "allergy",
+    "allergic to",
+    "food allergies",
+    "drug allergies",
+    "intolerances"
+   ]
+  },
+  "bio": {
+   "description": "Free-text self-description written by the user.",
+   "synonyms": [
+    "bio",
+    "about me",
+    "description",
+    "self description",
+    "background"
+   ]
+  },
+  "birth_day": {
+   "description": "Day of month of the user's birth date.",
+   "synonyms": [
+    "birth day",
+    "day of birth",
+    "birthday day",
+    "date of birth day"
+   ]
+  },
+  "birth_month": {
+   "description": "Month of the user's birth date.",
+   "synonyms": [
+    "birth month",
+    "month of birth",
+    "born in month"
+   ]
+  },
+  "birth_year": {
+   "description": "Year of birth, used to derive age.",
+   "synonyms": [
+    "birth year",
+    "year of birth",
+    "age",
+    "how old am I",
+    "born in",
+    "DOB year"
+   ]
+  },
+  "bmi": {
+   "description": "Body mass index stored on the profile (static, not the time-series metric).",
+   "synonyms": [
+    "BMI",
+    "body mass index",
+    "profile BMI"
+   ]
+  },
+  "challenges": {
+   "description": "Health challenges or obstacles the user reports (e.g. poor sleep, low energy).",
+   "synonyms": [
+    "challenges",
+    "struggles",
+    "health challenges",
+    "problems",
+    "pain points",
+    "obstacles"
+   ]
+  },
+  "chronic_conditions": {
+   "description": "Diagnosed long-term medical conditions.",
+   "synonyms": [
+    "chronic conditions",
+    "conditions",
+    "diagnoses",
+    "medical conditions",
+    "health conditions",
+    "medical history",
+    "illnesses",
+    "diseases"
+   ]
+  },
+  "ethnicity": {
+   "description": "Self-reported ethnicity/ancestry (relevant to some reference ranges and risk scores).",
+   "synonyms": [
+    "ethnicity",
+    "race",
+    "ancestry",
+    "ethnic background",
+    "heritage"
+   ]
+  },
+  "experience_level": {
+   "description": "Self-reported training/health-tracking experience level (e.g. beginner, intermediate, advanced).",
+   "synonyms": [
+    "experience level",
+    "fitness level",
+    "training experience",
+    "experience",
+    "beginner or advanced"
+   ]
+  },
+  "family_history": {
+   "description": "Health conditions in close relatives (e.g. heart disease, diabetes, cancer).",
+   "synonyms": [
+    "family history",
+    "family medical history",
+    "hereditary conditions",
+    "genetic history",
+    "parents' health",
+    "runs in my family"
+   ]
+  },
+  "goals": {
+   "description": "The user's stated health and fitness goals.",
+   "synonyms": [
+    "goals",
+    "health goals",
+    "fitness goals",
+    "objectives",
+    "targets",
+    "what I want to achieve",
+    "aims"
+   ]
+  },
+  "height_cm": {
+   "description": "Height stored on the profile, in centimeters.",
+   "synonyms": [
+    "height",
+    "height cm",
+    "how tall I am",
+    "stature",
+    "profile height"
+   ]
+  },
+  "homebase": {
+   "description": "The user's home location/region (city or country).",
+   "synonyms": [
+    "homebase",
+    "home base",
+    "location",
+    "where I live",
+    "home city",
+    "country",
+    "region"
+   ]
+  },
+  "medications": {
+   "description": "Medications and supplements the user currently takes.",
+   "synonyms": [
+    "medications",
+    "meds",
+    "medicines",
+    "prescriptions",
+    "drugs",
+    "supplements",
+    "pills",
+    "current medications"
+   ]
+  },
+  "monthly_budget": {
+   "description": "Monthly budget the user is willing to spend on health (tests, supplements, services).",
+   "synonyms": [
+    "monthly budget",
+    "budget",
+    "health budget",
+    "spending limit",
+    "how much I can spend"
+   ]
+  },
+  "no_regular_medications": {
+   "description": "Flag indicating the user takes no regular medications.",
+   "synonyms": [
+    "no regular medications",
+    "no medications",
+    "not on any meds",
+    "no meds",
+    "medication free"
+   ]
+  },
+  "sex": {
+   "description": "Biological sex used for reference ranges and calculations.",
+   "synonyms": [
+    "sex",
+    "gender",
+    "biological sex",
+    "male or female",
+    "sex assigned at birth"
+   ]
+  },
+  "smoking_status": {
+   "description": "Current/former/never smoking status.",
+   "synonyms": [
+    "smoking status",
+    "smoker",
+    "do I smoke",
+    "tobacco use",
+    "smoking",
+    "nicotine use",
+    "vaping"
+   ]
+  },
+  "tracking_methods": {
+   "description": "Devices and methods the user uses to track health (e.g. Oura, Whoop, Apple Watch, labs).",
+   "synonyms": [
+    "tracking methods",
+    "devices",
+    "wearables",
+    "trackers",
+    "connected devices",
+    "apps I use",
+    "how I track"
+   ]
+  },
+  "unit_system": {
+   "description": "Preferred measurement system (metric or imperial).",
+   "synonyms": [
+    "unit system",
+    "units",
+    "metric or imperial",
+    "measurement units",
+    "imperial",
+    "metric"
+   ]
+  },
+  "weight_kg": {
+   "description": "Weight stored on the profile, in kilograms.",
+   "synonyms": [
+    "weight",
+    "weight kg",
+    "profile weight",
+    "body weight",
+    "how much I weigh"
+   ]
+  },
+  "years_smoking": {
+   "description": "Number of years the user has smoked (for pack-year/risk estimates).",
+   "synonyms": [
+    "years smoking",
+    "years smoked",
+    "smoking duration",
+    "how long I smoked",
+    "smoking history",
+    "pack years"
+   ]
+  }
+ }
+}

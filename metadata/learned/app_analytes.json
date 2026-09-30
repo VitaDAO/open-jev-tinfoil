@@ -1,0 +1,240 @@
+{
+ "_doc": "Analytes the app knows (vita-ingest alias table) but the learned catalog does not (spec v1.8 10g.18/10g.23): a request naming one binds to its ids that are in THAT request's inventory, replacing any catalog look-alike the parser linked for the mention; none present -> handoff (requested_metric_unavailable). Also the 10g.23 non-synonyms (LDL-P, apoA1, body battery, HRV status/balance, bone density).",
+ "terms": {
+  "free testosterone": {
+   "ids": [
+    "free_testosterone"
+   ],
+   "instead_of": [
+    "bioavailable_testosterone",
+    "total_testosterone"
+   ]
+  },
+  "free t": {
+   "ids": [
+    "free_testosterone"
+   ],
+   "instead_of": [
+    "bioavailable_testosterone",
+    "total_testosterone"
+   ]
+  },
+  "free testo": {
+   "ids": [
+    "free_testosterone"
+   ],
+   "instead_of": [
+    "bioavailable_testosterone",
+    "total_testosterone"
+   ]
+  },
+  "free t3": {
+   "ids": [
+    "free_t3"
+   ],
+   "instead_of": [
+    "free_t4",
+    "tsh"
+   ]
+  },
+  "free triiodothyronine": {
+   "ids": [
+    "free_t3"
+   ],
+   "instead_of": [
+    "free_t4",
+    "tsh"
+   ]
+  },
+  "total t3": {
+   "ids": [
+    "total_t3"
+   ],
+   "instead_of": [
+    "free_t4",
+    "tsh"
+   ]
+  },
+  "total t4": {
+   "ids": [
+    "total_t4"
+   ],
+   "instead_of": [
+    "free_t4",
+    "tsh"
+   ]
+  },
+  "tpo antibodies": {
+   "ids": [
+    "tpo_antibodies"
+   ],
+   "instead_of": [
+    "tsh",
+    "free_t4"
+   ]
+  },
+  "thyroid peroxidase antibodies": {
+   "ids": [
+    "tpo_antibodies"
+   ],
+   "instead_of": [
+    "tsh",
+    "free_t4"
+   ]
+  },
+  "non-hdl": {
+   "ids": [
+    "nonhdl_cholesterol",
+    "non_hdl_cholesterol"
+   ],
+   "instead_of": [
+    "hdl",
+    "cholesterol"
+   ]
+  },
+  "non hdl": {
+   "ids": [
+    "nonhdl_cholesterol",
+    "non_hdl_cholesterol"
+   ],
+   "instead_of": [
+    "hdl",
+    "cholesterol"
+   ]
+  },
+  "vldl": {
+   "ids": [
+    "vldl_cholesterol"
+   ],
+   "instead_of": [
+    "ldl",
+    "cholesterol"
+   ]
+  },
+  "ldl particle number": {
+   "ids": [
+    "ldl_particle_number",
+    "ldl_p"
+   ],
+   "instead_of": [
+    "ldl",
+    "apob"
+   ]
+  },
+  "ldl-p": {
+   "ids": [
+    "ldl_particle_number",
+    "ldl_p"
+   ],
+   "instead_of": [
+    "ldl",
+    "apob"
+   ]
+  },
+  "ldl p": {
+   "ids": [
+    "ldl_particle_number",
+    "ldl_p"
+   ],
+   "instead_of": [
+    "ldl",
+    "apob"
+   ]
+  },
+  "apoa1": {
+   "ids": [
+    "apoa1",
+    "apo_a1",
+    "apolipoprotein_a1"
+   ],
+   "instead_of": [
+    "apob",
+    "lipoprotein_a",
+    "lp_a"
+   ]
+  },
+  "apo a1": {
+   "ids": [
+    "apoa1",
+    "apo_a1",
+    "apolipoprotein_a1"
+   ],
+   "instead_of": [
+    "apob",
+    "lipoprotein_a",
+    "lp_a"
+   ]
+  },
+  "apolipoprotein a1": {
+   "ids": [
+    "apoa1",
+    "apo_a1",
+    "apolipoprotein_a1"
+   ],
+   "instead_of": [
+    "apob"
+   ]
+  },
+  "apolipoprotein a-1": {
+   "ids": [
+    "apoa1",
+    "apo_a1",
+    "apolipoprotein_a1"
+   ],
+   "instead_of": [
+    "apob"
+   ]
+  },
+  "body battery": {
+   "ids": [
+    "body_battery"
+   ],
+   "instead_of": [
+    "recovery_score"
+   ]
+  },
+  "hrv status": {
+   "ids": [
+    "hrv_status"
+   ],
+   "instead_of": [
+    "heart_rate_variability"
+   ]
+  },
+  "hrv balance": {
+   "ids": [
+    "hrv_balance"
+   ],
+   "instead_of": [
+    "heart_rate_variability"
+   ]
+  },
+  "bone density": {
+   "ids": [
+    "bone_mineral_density",
+    "bmd"
+   ],
+   "instead_of": [
+    "bone_mass"
+   ]
+  },
+  "bone mineral density": {
+   "ids": [
+    "bone_mineral_density",
+    "bmd"
+   ],
+   "instead_of": [
+    "bone_mass"
+   ]
+  },
+  "bmd": {
+   "ids": [
+    "bone_mineral_density",
+    "bmd"
+   ],
+   "instead_of": [
+    "bone_mass"
+   ]
+  }
+ }
+}

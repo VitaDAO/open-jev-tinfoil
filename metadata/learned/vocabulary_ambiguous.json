@@ -1,0 +1,53 @@
+{
+ "_doc": "Catalog-declared ambiguous names: a bare mention of one of these must hand off (ambiguous_metric_alias). Data, not code: add a term here and it is trained and enforced.",
+ "terms": {
+  "crp": {
+   "candidates": [
+    "hs_crp",
+    "hscrp"
+   ],
+   "spec": "v1.5 3.10d: standard CRP is a different, less sensitive assay with no catalog id"
+  },
+  "c-reactive protein": {
+   "candidates": [
+    "hs_crp",
+    "hscrp"
+   ],
+   "spec": "v1.5 3.10d"
+  },
+  "c reactive protein": {
+   "candidates": [
+    "hs_crp",
+    "hscrp"
+   ],
+   "spec": "v1.5 3.10d"
+  },
+  "calcium": {
+   "candidates": [
+    "ionic_calcium"
+   ],
+   "spec": "v1.6 10e: total serum calcium has no id; only ionized calcium exists"
+  },
+  "magnesium": {
+   "candidates": [
+    "magnesium_rbc"
+   ],
+   "spec": "v1.7 10f: only RBC magnesium exists; serum is a different test"
+  },
+  "temperature": {
+   "candidates": [
+    "body_temp_deviation",
+    "skin_temp"
+   ],
+   "spec": "v1.7 10f: bare temperature is ambiguous"
+  },
+  "temp": {
+   "candidates": [
+    "body_temp_deviation",
+    "skin_temp",
+    "body_temperature"
+   ],
+   "spec": "v1.7 10f: bare temperature is ambiguous; \"temp\" is its abbreviation"
+  }
+ }
+}

@@ -1,0 +1,114 @@
+{
+ "_doc": "Named groups (spec v1.8 10g.16 workout heart rate, 10g.18 panels): a group item expands to its members (app canonical ids + spelling variants, not limited to the catalog; analyte groups add every inventory id), intersected with each request's inventory at runtime; empty -> requested_metric_unavailable; a group with a source filter -> handoff (unregistered lab ids take no source). Exempt from the 8-metric cap.",
+ "panel_lipid": [
+  "cholesterol",
+  "ldl",
+  "hdl",
+  "triglycerides",
+  "apob",
+  "lipoprotein_a",
+  "lp_a",
+  "nonhdl_cholesterol",
+  "non_hdl_cholesterol",
+  "vldl_cholesterol"
+ ],
+ "panel_thyroid": [
+  "tsh",
+  "free_t4",
+  "free_t3",
+  "total_t4",
+  "total_t3"
+ ],
+ "panel_cbc": [
+  "white_blood_cells",
+  "wbc_count",
+  "rbc_count",
+  "hemoglobin",
+  "hematocrit",
+  "mcv",
+  "mch",
+  "mchc",
+  "rdw",
+  "platelets",
+  "platelet_count",
+  "mpv",
+  "neutrophils",
+  "neutrophils_absolute",
+  "lymphocytes",
+  "monocytes",
+  "eosinophils",
+  "basophils"
+ ],
+ "panel_cbc_basic": [
+  "white_blood_cells",
+  "wbc_count",
+  "rbc_count",
+  "hemoglobin",
+  "hematocrit",
+  "mcv",
+  "mch",
+  "mchc",
+  "rdw",
+  "platelets",
+  "platelet_count",
+  "mpv"
+ ],
+ "panel_body_comp": [
+  "weight",
+  "body_fat",
+  "fat_mass",
+  "fat_free_mass",
+  "lean_mass_percent",
+  "muscle_mass",
+  "bone_mass",
+  "visceral_fat",
+  "hydration"
+ ],
+ "panel_body_water": [
+  "hydration",
+  "intracellular_water",
+  "extracellular_water"
+ ],
+ "panel_fat_segments": [
+  "fat_mass_left_arm",
+  "fat_mass_right_arm",
+  "fat_mass_left_leg",
+  "fat_mass_right_leg",
+  "fat_mass_torso"
+ ],
+ "panel_muscle_segments": [
+  "muscle_mass_left_arm",
+  "muscle_mass_right_arm",
+  "muscle_mass_left_leg",
+  "muscle_mass_right_leg",
+  "muscle_mass_torso"
+ ],
+ "panel_lean_segments": [
+  "fat_free_mass_left_arm",
+  "fat_free_mass_right_arm",
+  "fat_free_mass_left_leg",
+  "fat_free_mass_right_leg",
+  "fat_free_mass_torso"
+ ],
+ "panel_segmental": [
+  "fat_mass_left_arm",
+  "fat_mass_right_arm",
+  "fat_mass_left_leg",
+  "fat_mass_right_leg",
+  "fat_mass_torso",
+  "muscle_mass_left_arm",
+  "muscle_mass_right_arm",
+  "muscle_mass_left_leg",
+  "muscle_mass_right_leg",
+  "muscle_mass_torso",
+  "fat_free_mass_left_arm",
+  "fat_free_mass_right_arm",
+  "fat_free_mass_left_leg",
+  "fat_free_mass_right_leg",
+  "fat_free_mass_torso"
+ ],
+ "workout_hr": [
+  "workout_avg_hr",
+  "workout_max_hr"
+ ]
+}

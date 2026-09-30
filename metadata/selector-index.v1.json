@@ -14,12 +14,414 @@
     "sleep duration": "total_sleep",
     "time asleep": "total_sleep",
     "ldl cholesterol": "ldl_cholesterol",
-    "step": "steps"
+    "step": "steps",
+    "readiness": "readiness_score",
+    "high recovery": "recovery_high_duration",
+    "trigs": "triglycerides",
+    "good cholesterol": "hdl",
+    "bad cholesterol": "ldl",
+    "ldl-c": "ldl",
+    "daily max heart rate": "day_max_hr",
+    "lp(a)": "lipoprotein_a",
+    "lipoprotein(a)": "lipoprotein_a",
+    "white blood cell count": "wbc_count",
+    "wbc": "wbc_count",
+    "average activity heart rate": "activity_hr_average",
+    "activity average heart rate": "activity_hr_average",
+    "activity heart rate average": "activity_hr_average",
+    "average heart rate during activity": "activity_hr_average",
+    "average active heart rate": "activity_hr_average",
+    "active average heart rate": "activity_hr_average",
+    "active heart rate average": "activity_hr_average",
+    "average heart rate during active": "activity_hr_average",
+    "average activity hr": "activity_hr_average",
+    "activity average hr": "activity_hr_average",
+    "activity hr average": "activity_hr_average",
+    "average hr during activity": "activity_hr_average",
+    "average active hr": "activity_hr_average",
+    "active average hr": "activity_hr_average",
+    "active hr average": "activity_hr_average",
+    "average hr during active": "activity_hr_average",
+    "avg activity heart rate": "activity_hr_average",
+    "activity avg heart rate": "activity_hr_average",
+    "activity heart rate avg": "activity_hr_average",
+    "avg heart rate during activity": "activity_hr_average",
+    "avg active heart rate": "activity_hr_average",
+    "active avg heart rate": "activity_hr_average",
+    "active heart rate avg": "activity_hr_average",
+    "avg heart rate during active": "activity_hr_average",
+    "avg activity hr": "activity_hr_average",
+    "activity avg hr": "activity_hr_average",
+    "activity hr avg": "activity_hr_average",
+    "avg hr during activity": "activity_hr_average",
+    "avg active hr": "activity_hr_average",
+    "active avg hr": "activity_hr_average",
+    "active hr avg": "activity_hr_average",
+    "avg hr during active": "activity_hr_average",
+    "max activity heart rate": "activity_hr_max",
+    "activity max heart rate": "activity_hr_max",
+    "activity heart rate max": "activity_hr_max",
+    "max heart rate during activity": "activity_hr_max",
+    "max active heart rate": "activity_hr_max",
+    "active max heart rate": "activity_hr_max",
+    "active heart rate max": "activity_hr_max",
+    "max heart rate during active": "activity_hr_max",
+    "max activity hr": "activity_hr_max",
+    "activity max hr": "activity_hr_max",
+    "activity hr max": "activity_hr_max",
+    "max hr during activity": "activity_hr_max",
+    "max active hr": "activity_hr_max",
+    "active max hr": "activity_hr_max",
+    "active hr max": "activity_hr_max",
+    "max hr during active": "activity_hr_max",
+    "maximum activity heart rate": "activity_hr_max",
+    "activity maximum heart rate": "activity_hr_max",
+    "activity heart rate maximum": "activity_hr_max",
+    "maximum heart rate during activity": "activity_hr_max",
+    "maximum active heart rate": "activity_hr_max",
+    "active maximum heart rate": "activity_hr_max",
+    "active heart rate maximum": "activity_hr_max",
+    "maximum heart rate during active": "activity_hr_max",
+    "maximum activity hr": "activity_hr_max",
+    "activity maximum hr": "activity_hr_max",
+    "activity hr maximum": "activity_hr_max",
+    "maximum hr during activity": "activity_hr_max",
+    "maximum active hr": "activity_hr_max",
+    "active maximum hr": "activity_hr_max",
+    "active hr maximum": "activity_hr_max",
+    "maximum hr during active": "activity_hr_max",
+    "peak activity heart rate": "activity_hr_max",
+    "activity peak heart rate": "activity_hr_max",
+    "activity heart rate peak": "activity_hr_max",
+    "peak heart rate during activity": "activity_hr_max",
+    "peak active heart rate": "activity_hr_max",
+    "active peak heart rate": "activity_hr_max",
+    "active heart rate peak": "activity_hr_max",
+    "peak heart rate during active": "activity_hr_max",
+    "peak activity hr": "activity_hr_max",
+    "activity peak hr": "activity_hr_max",
+    "activity hr peak": "activity_hr_max",
+    "peak hr during activity": "activity_hr_max",
+    "peak active hr": "activity_hr_max",
+    "active peak hr": "activity_hr_max",
+    "active hr peak": "activity_hr_max",
+    "peak hr during active": "activity_hr_max",
+    "min activity heart rate": "activity_hr_min",
+    "activity min heart rate": "activity_hr_min",
+    "activity heart rate min": "activity_hr_min",
+    "min heart rate during activity": "activity_hr_min",
+    "min active heart rate": "activity_hr_min",
+    "active min heart rate": "activity_hr_min",
+    "active heart rate min": "activity_hr_min",
+    "min heart rate during active": "activity_hr_min",
+    "min activity hr": "activity_hr_min",
+    "activity min hr": "activity_hr_min",
+    "activity hr min": "activity_hr_min",
+    "min hr during activity": "activity_hr_min",
+    "min active hr": "activity_hr_min",
+    "active min hr": "activity_hr_min",
+    "active hr min": "activity_hr_min",
+    "min hr during active": "activity_hr_min",
+    "minimum activity heart rate": "activity_hr_min",
+    "activity minimum heart rate": "activity_hr_min",
+    "activity heart rate minimum": "activity_hr_min",
+    "minimum heart rate during activity": "activity_hr_min",
+    "minimum active heart rate": "activity_hr_min",
+    "active minimum heart rate": "activity_hr_min",
+    "active heart rate minimum": "activity_hr_min",
+    "minimum heart rate during active": "activity_hr_min",
+    "minimum activity hr": "activity_hr_min",
+    "activity minimum hr": "activity_hr_min",
+    "activity hr minimum": "activity_hr_min",
+    "minimum hr during activity": "activity_hr_min",
+    "minimum active hr": "activity_hr_min",
+    "active minimum hr": "activity_hr_min",
+    "active hr minimum": "activity_hr_min",
+    "minimum hr during active": "activity_hr_min",
+    "average daily heart rate": "day_avg_hr",
+    "daily average heart rate": "day_avg_hr",
+    "daily heart rate average": "day_avg_hr",
+    "average heart rate during daily": "day_avg_hr",
+    "average day heart rate": "day_avg_hr",
+    "day average heart rate": "day_avg_hr",
+    "day heart rate average": "day_avg_hr",
+    "average heart rate during day": "day_avg_hr",
+    "average daily hr": "day_avg_hr",
+    "daily average hr": "day_avg_hr",
+    "daily hr average": "day_avg_hr",
+    "average hr during daily": "day_avg_hr",
+    "average day hr": "day_avg_hr",
+    "day average hr": "day_avg_hr",
+    "day hr average": "day_avg_hr",
+    "average hr during day": "day_avg_hr",
+    "avg daily heart rate": "day_avg_hr",
+    "daily avg heart rate": "day_avg_hr",
+    "daily heart rate avg": "day_avg_hr",
+    "avg heart rate during daily": "day_avg_hr",
+    "avg day heart rate": "day_avg_hr",
+    "day avg heart rate": "day_avg_hr",
+    "day heart rate avg": "day_avg_hr",
+    "avg heart rate during day": "day_avg_hr",
+    "avg daily hr": "day_avg_hr",
+    "daily avg hr": "day_avg_hr",
+    "daily hr avg": "day_avg_hr",
+    "avg hr during daily": "day_avg_hr",
+    "avg day hr": "day_avg_hr",
+    "day avg hr": "day_avg_hr",
+    "day hr avg": "day_avg_hr",
+    "avg hr during day": "day_avg_hr",
+    "mean daily heart rate": "day_avg_hr",
+    "daily mean heart rate": "day_avg_hr",
+    "daily heart rate mean": "day_avg_hr",
+    "mean heart rate during daily": "day_avg_hr",
+    "mean day heart rate": "day_avg_hr",
+    "day mean heart rate": "day_avg_hr",
+    "day heart rate mean": "day_avg_hr",
+    "mean heart rate during day": "day_avg_hr",
+    "mean daily hr": "day_avg_hr",
+    "daily mean hr": "day_avg_hr",
+    "daily hr mean": "day_avg_hr",
+    "mean hr during daily": "day_avg_hr",
+    "mean day hr": "day_avg_hr",
+    "day mean hr": "day_avg_hr",
+    "day hr mean": "day_avg_hr",
+    "mean hr during day": "day_avg_hr",
+    "max daily heart rate": "day_max_hr",
+    "daily heart rate max": "day_max_hr",
+    "max heart rate during daily": "day_max_hr",
+    "max day heart rate": "day_max_hr",
+    "day max heart rate": "day_max_hr",
+    "day heart rate max": "day_max_hr",
+    "max heart rate during day": "day_max_hr",
+    "max daily hr": "day_max_hr",
+    "daily max hr": "day_max_hr",
+    "daily hr max": "day_max_hr",
+    "max hr during daily": "day_max_hr",
+    "max day hr": "day_max_hr",
+    "day max hr": "day_max_hr",
+    "day hr max": "day_max_hr",
+    "max hr during day": "day_max_hr",
+    "maximum daily heart rate": "day_max_hr",
+    "daily maximum heart rate": "day_max_hr",
+    "daily heart rate maximum": "day_max_hr",
+    "maximum heart rate during daily": "day_max_hr",
+    "maximum day heart rate": "day_max_hr",
+    "day maximum heart rate": "day_max_hr",
+    "day heart rate maximum": "day_max_hr",
+    "maximum heart rate during day": "day_max_hr",
+    "maximum daily hr": "day_max_hr",
+    "daily maximum hr": "day_max_hr",
+    "daily hr maximum": "day_max_hr",
+    "maximum hr during daily": "day_max_hr",
+    "maximum day hr": "day_max_hr",
+    "day maximum hr": "day_max_hr",
+    "day hr maximum": "day_max_hr",
+    "maximum hr during day": "day_max_hr",
+    "peak daily heart rate": "day_max_hr",
+    "daily peak heart rate": "day_max_hr",
+    "daily heart rate peak": "day_max_hr",
+    "peak heart rate during daily": "day_max_hr",
+    "peak day heart rate": "day_max_hr",
+    "day peak heart rate": "day_max_hr",
+    "day heart rate peak": "day_max_hr",
+    "peak heart rate during day": "day_max_hr",
+    "peak daily hr": "day_max_hr",
+    "daily peak hr": "day_max_hr",
+    "daily hr peak": "day_max_hr",
+    "peak hr during daily": "day_max_hr",
+    "peak day hr": "day_max_hr",
+    "day peak hr": "day_max_hr",
+    "day hr peak": "day_max_hr",
+    "peak hr during day": "day_max_hr",
+    "average sleep heart rate": "sleep_hr_average",
+    "sleep average heart rate": "sleep_hr_average",
+    "sleep heart rate average": "sleep_hr_average",
+    "average heart rate during sleep": "sleep_hr_average",
+    "average overnight heart rate": "sleep_hr_average",
+    "overnight average heart rate": "sleep_hr_average",
+    "overnight heart rate average": "sleep_hr_average",
+    "average heart rate during overnight": "sleep_hr_average",
+    "average sleep hr": "sleep_hr_average",
+    "sleep average hr": "sleep_hr_average",
+    "sleep hr average": "sleep_hr_average",
+    "average hr during sleep": "sleep_hr_average",
+    "average overnight hr": "sleep_hr_average",
+    "overnight average hr": "sleep_hr_average",
+    "overnight hr average": "sleep_hr_average",
+    "average hr during overnight": "sleep_hr_average",
+    "avg sleep heart rate": "sleep_hr_average",
+    "sleep avg heart rate": "sleep_hr_average",
+    "sleep heart rate avg": "sleep_hr_average",
+    "avg heart rate during sleep": "sleep_hr_average",
+    "avg overnight heart rate": "sleep_hr_average",
+    "overnight avg heart rate": "sleep_hr_average",
+    "overnight heart rate avg": "sleep_hr_average",
+    "avg heart rate during overnight": "sleep_hr_average",
+    "avg sleep hr": "sleep_hr_average",
+    "sleep avg hr": "sleep_hr_average",
+    "sleep hr avg": "sleep_hr_average",
+    "avg hr during sleep": "sleep_hr_average",
+    "avg overnight hr": "sleep_hr_average",
+    "overnight avg hr": "sleep_hr_average",
+    "overnight hr avg": "sleep_hr_average",
+    "avg hr during overnight": "sleep_hr_average",
+    "max sleep heart rate": "sleep_hr_max",
+    "sleep max heart rate": "sleep_hr_max",
+    "sleep heart rate max": "sleep_hr_max",
+    "max heart rate during sleep": "sleep_hr_max",
+    "max overnight heart rate": "sleep_hr_max",
+    "overnight max heart rate": "sleep_hr_max",
+    "overnight heart rate max": "sleep_hr_max",
+    "max heart rate during overnight": "sleep_hr_max",
+    "max sleep hr": "sleep_hr_max",
+    "sleep max hr": "sleep_hr_max",
+    "sleep hr max": "sleep_hr_max",
+    "max hr during sleep": "sleep_hr_max",
+    "max overnight hr": "sleep_hr_max",
+    "overnight max hr": "sleep_hr_max",
+    "overnight hr max": "sleep_hr_max",
+    "max hr during overnight": "sleep_hr_max",
+    "maximum sleep heart rate": "sleep_hr_max",
+    "sleep maximum heart rate": "sleep_hr_max",
+    "sleep heart rate maximum": "sleep_hr_max",
+    "maximum heart rate during sleep": "sleep_hr_max",
+    "maximum overnight heart rate": "sleep_hr_max",
+    "overnight maximum heart rate": "sleep_hr_max",
+    "overnight heart rate maximum": "sleep_hr_max",
+    "maximum heart rate during overnight": "sleep_hr_max",
+    "maximum sleep hr": "sleep_hr_max",
+    "sleep maximum hr": "sleep_hr_max",
+    "sleep hr maximum": "sleep_hr_max",
+    "maximum hr during sleep": "sleep_hr_max",
+    "maximum overnight hr": "sleep_hr_max",
+    "overnight maximum hr": "sleep_hr_max",
+    "overnight hr maximum": "sleep_hr_max",
+    "maximum hr during overnight": "sleep_hr_max",
+    "peak sleep heart rate": "sleep_hr_max",
+    "sleep peak heart rate": "sleep_hr_max",
+    "sleep heart rate peak": "sleep_hr_max",
+    "peak heart rate during sleep": "sleep_hr_max",
+    "peak overnight heart rate": "sleep_hr_max",
+    "overnight peak heart rate": "sleep_hr_max",
+    "overnight heart rate peak": "sleep_hr_max",
+    "peak heart rate during overnight": "sleep_hr_max",
+    "peak sleep hr": "sleep_hr_max",
+    "sleep peak hr": "sleep_hr_max",
+    "sleep hr peak": "sleep_hr_max",
+    "peak hr during sleep": "sleep_hr_max",
+    "peak overnight hr": "sleep_hr_max",
+    "overnight peak hr": "sleep_hr_max",
+    "overnight hr peak": "sleep_hr_max",
+    "peak hr during overnight": "sleep_hr_max",
+    "average workout heart rate": "workout_avg_hr",
+    "workout average heart rate": "workout_avg_hr",
+    "workout heart rate average": "workout_avg_hr",
+    "average heart rate during workout": "workout_avg_hr",
+    "average exercise heart rate": "workout_avg_hr",
+    "exercise average heart rate": "workout_avg_hr",
+    "exercise heart rate average": "workout_avg_hr",
+    "average heart rate during exercise": "workout_avg_hr",
+    "average workout hr": "workout_avg_hr",
+    "workout average hr": "workout_avg_hr",
+    "workout hr average": "workout_avg_hr",
+    "average hr during workout": "workout_avg_hr",
+    "average exercise hr": "workout_avg_hr",
+    "exercise average hr": "workout_avg_hr",
+    "exercise hr average": "workout_avg_hr",
+    "average hr during exercise": "workout_avg_hr",
+    "avg workout heart rate": "workout_avg_hr",
+    "workout avg heart rate": "workout_avg_hr",
+    "workout heart rate avg": "workout_avg_hr",
+    "avg heart rate during workout": "workout_avg_hr",
+    "avg exercise heart rate": "workout_avg_hr",
+    "exercise avg heart rate": "workout_avg_hr",
+    "exercise heart rate avg": "workout_avg_hr",
+    "avg heart rate during exercise": "workout_avg_hr",
+    "avg workout hr": "workout_avg_hr",
+    "workout avg hr": "workout_avg_hr",
+    "workout hr avg": "workout_avg_hr",
+    "avg hr during workout": "workout_avg_hr",
+    "avg exercise hr": "workout_avg_hr",
+    "exercise avg hr": "workout_avg_hr",
+    "exercise hr avg": "workout_avg_hr",
+    "avg hr during exercise": "workout_avg_hr",
+    "mean workout heart rate": "workout_avg_hr",
+    "workout mean heart rate": "workout_avg_hr",
+    "workout heart rate mean": "workout_avg_hr",
+    "mean heart rate during workout": "workout_avg_hr",
+    "mean exercise heart rate": "workout_avg_hr",
+    "exercise mean heart rate": "workout_avg_hr",
+    "exercise heart rate mean": "workout_avg_hr",
+    "mean heart rate during exercise": "workout_avg_hr",
+    "mean workout hr": "workout_avg_hr",
+    "workout mean hr": "workout_avg_hr",
+    "workout hr mean": "workout_avg_hr",
+    "mean hr during workout": "workout_avg_hr",
+    "mean exercise hr": "workout_avg_hr",
+    "exercise mean hr": "workout_avg_hr",
+    "exercise hr mean": "workout_avg_hr",
+    "mean hr during exercise": "workout_avg_hr",
+    "max workout heart rate": "workout_max_hr",
+    "workout max heart rate": "workout_max_hr",
+    "workout heart rate max": "workout_max_hr",
+    "max heart rate during workout": "workout_max_hr",
+    "max exercise heart rate": "workout_max_hr",
+    "exercise max heart rate": "workout_max_hr",
+    "exercise heart rate max": "workout_max_hr",
+    "max heart rate during exercise": "workout_max_hr",
+    "max workout hr": "workout_max_hr",
+    "workout max hr": "workout_max_hr",
+    "workout hr max": "workout_max_hr",
+    "max hr during workout": "workout_max_hr",
+    "max exercise hr": "workout_max_hr",
+    "exercise max hr": "workout_max_hr",
+    "exercise hr max": "workout_max_hr",
+    "max hr during exercise": "workout_max_hr",
+    "maximum workout heart rate": "workout_max_hr",
+    "workout maximum heart rate": "workout_max_hr",
+    "workout heart rate maximum": "workout_max_hr",
+    "maximum heart rate during workout": "workout_max_hr",
+    "maximum exercise heart rate": "workout_max_hr",
+    "exercise maximum heart rate": "workout_max_hr",
+    "exercise heart rate maximum": "workout_max_hr",
+    "maximum heart rate during exercise": "workout_max_hr",
+    "maximum workout hr": "workout_max_hr",
+    "workout maximum hr": "workout_max_hr",
+    "workout hr maximum": "workout_max_hr",
+    "maximum hr during workout": "workout_max_hr",
+    "maximum exercise hr": "workout_max_hr",
+    "exercise maximum hr": "workout_max_hr",
+    "exercise hr maximum": "workout_max_hr",
+    "maximum hr during exercise": "workout_max_hr",
+    "peak workout heart rate": "workout_max_hr",
+    "workout peak heart rate": "workout_max_hr",
+    "workout heart rate peak": "workout_max_hr",
+    "peak heart rate during workout": "workout_max_hr",
+    "peak exercise heart rate": "workout_max_hr",
+    "exercise peak heart rate": "workout_max_hr",
+    "exercise heart rate peak": "workout_max_hr",
+    "peak heart rate during exercise": "workout_max_hr",
+    "peak workout hr": "workout_max_hr",
+    "workout peak hr": "workout_max_hr",
+    "workout hr peak": "workout_max_hr",
+    "peak hr during workout": "workout_max_hr",
+    "peak exercise hr": "workout_max_hr",
+    "exercise peak hr": "workout_max_hr",
+    "exercise hr peak": "workout_max_hr",
+    "peak hr during exercise": "workout_max_hr",
+    "high stress time": "stress_high_duration",
+    "high stress duration": "stress_high_duration",
+    "time in high stress": "stress_high_duration",
+    "sleep scores": "sleep_score",
+    "daytime recovery minutes": "recovery_high_duration",
+    "daytime recovery time": "recovery_high_duration",
+    "daytime recovery": "resilience_daytime_recovery"
   },
   "inventory_to_catalog": {
     "ldl_cholesterol": "ldl",
     "oxygen_saturation": "spo2",
-    "hba1c": "hba1c"
+    "hba1c": "hba1c",
+    "hscrp": "hs_crp"
   },
   "records": {
     "profile": {
@@ -205,5 +607,304 @@
     "query_contracts.py": "8a5612694b419842986dc0abe68ee2c335a6c1816460633c4472d0f4ad6fb5ee",
     "query_tool.py": "aa40686a0b1c4b39180eaa9d4a4ce695878ce0c1a5816b7becf0b107e9566bce",
     "full_session_sources.py": "0c330c87235a6091b4389a4460cca3757e2c652edfda49cd0a3e644511843398"
-  }
+  },
+  "metric_alias_overrides": {
+    "strain score": "day_strain",
+    "whoop strain score": "day_strain",
+    "lean mass": "fat_free_mass",
+    "lean mass %": "lean_mass_percent",
+    "lean mass percentage": "lean_mass_percent",
+    "ionized calcium": "ionic_calcium",
+    "ionic calcium": "ionic_calcium",
+    "hr": "heart_rate",
+    "testosterone": "total_testosterone",
+    "cortisol": "cortisol_am",
+    "stress": "stress_summary",
+    "resilience": "resilience_level"
+  },
+  "analyte_groups": {
+    "_provenance": "generated by open-jev-experiments/exp/build_analyte_groups.py from vita-app src/lib/biomarkerMatching.ts NAME_ALIASES + docs/plans/APPLY_prod_biomarker_catalog_dedupe.sql (spec v1.8 10g.1; sampling_split 10g.27)",
+    "spelling": {
+      "neutrophilsabsolute": [
+        "anc",
+        "neutrophils_absolute"
+      ],
+      "hiv12ab": [
+        "anti_hiv_i_and_ii",
+        "hiv_1_2_ab"
+      ],
+      "apoa1": [
+        "apoa1",
+        "apoai"
+      ],
+      "apobapoa1ratio": [
+        "apob_apoa1_ratio",
+        "apobapoai_ratio"
+      ],
+      "bilirubindirect": [
+        "bilirubin_direct",
+        "direct_bilirubin"
+      ],
+      "bilirubinindirect": [
+        "bilirubin_indirect",
+        "indirect_bilirubin"
+      ],
+      "bilirubintotal": [
+        "bilirubin_total",
+        "total_bilirubin"
+      ],
+      "bloodpressurediastolic": [
+        "blood_pressure_diastolic",
+        "diastolic_blood_pressure"
+      ],
+      "bloodpressuresystolic": [
+        "blood_pressure_systolic",
+        "systolic_blood_pressure"
+      ],
+      "buncreatinineratio": [
+        "bun_creatinine_ratio",
+        "buncreatinine_ratio"
+      ],
+      "calcium": [
+        "calcium",
+        "calcium_total",
+        "serum_calcium"
+      ],
+      "cholesterolhdlratio": [
+        "castelli_index_i",
+        "cholesterol_hdl_ratio",
+        "total_hdl_ratio"
+      ],
+      "ldlhdlratio": [
+        "castelli_index_ii",
+        "ldl_cholesterol_hdl_cholesterol_ratio",
+        "ldl_hdl_ratio"
+      ],
+      "ckmb": [
+        "ck_mb_mass",
+        "ckmb"
+      ],
+      "coronaryarterycalcium": [
+        "coronary_artery_calcium",
+        "coronary_artery_calcium_score"
+      ],
+      "cortisoldheasratio": [
+        "cortisol_dheas_ratio",
+        "cortisoldheas_ratio"
+      ],
+      "crphs": [
+        "crp_hs",
+        "hs_crp",
+        "hscrp"
+      ],
+      "dheas": [
+        "dhea_sulfate",
+        "dheas"
+      ],
+      "eag": [
+        "eag",
+        "estimated_average_glucose"
+      ],
+      "egfr": [
+        "egfr",
+        "egfr_ckdepi_creatinine"
+      ],
+      "urineepithelialcells": [
+        "epithelial_cells",
+        "urine_epithelial_cells"
+      ],
+      "fastinginsulin": [
+        "fasting_insulin",
+        "insulin",
+        "insulin_level"
+      ],
+      "folateserum": [
+        "folate_serum",
+        "vitamin_b9"
+      ],
+      "hdlcholesterol": [
+        "hdl",
+        "hdl_cholesterol",
+        "hdlc"
+      ],
+      "hiv12antibodyantigen": [
+        "hiv_1_2_antibody_antigen",
+        "hiv_1_ag_hiv_1_2_ab"
+      ],
+      "homair": [
+        "homa_ir",
+        "homair"
+      ],
+      "hstroponint": [
+        "hstroponin_t",
+        "troponin_t_hs"
+      ],
+      "ige": [
+        "ige",
+        "total_ige"
+      ],
+      "iron": [
+        "iron",
+        "serum_iron"
+      ],
+      "klothosoluble": [
+        "klotho",
+        "klotho_soluble"
+      ],
+      "ldlcholesterol": [
+        "ldl",
+        "ldl_cholesterol",
+        "ldlc"
+      ],
+      "totallipids": [
+        "lipids_total",
+        "total_lipids"
+      ],
+      "lpa": [
+        "lipoprotein_a",
+        "lp_a",
+        "lpa"
+      ],
+      "magnesium": [
+        "magnesium",
+        "serum_magnesium"
+      ],
+      "nlr": [
+        "neutrophil_lymphocyte_ratio",
+        "nlr"
+      ],
+      "nonhdlcholesterol": [
+        "non_hdl_cholesterol",
+        "nonhdl_cholesterol"
+      ],
+      "pth": [
+        "parathyroid_hormone",
+        "pth",
+        "pth_intact"
+      ],
+      "pdw": [
+        "pdw",
+        "platelet_distribution_width",
+        "platelet_volume_distribution"
+      ],
+      "platelets": [
+        "platelet_count",
+        "platelets"
+      ],
+      "plateletcrit": [
+        "plateletcrit",
+        "thrombocrit"
+      ],
+      "psa": [
+        "psa",
+        "psa_total"
+      ],
+      "urinewbc": [
+        "pus_cells",
+        "pyocytes",
+        "urine_leukocytes",
+        "urine_wbc",
+        "urine_white_blood_cells",
+        "wbc_urine"
+      ],
+      "rbc": [
+        "rbc",
+        "rbc_count"
+      ],
+      "rdw": [
+        "rbc_distribution_width",
+        "rdw",
+        "rdw_cv"
+      ],
+      "urinerbc": [
+        "rbc_urine",
+        "urine_rbc",
+        "urine_red_blood_cells"
+      ],
+      "reticulocytecount": [
+        "reticulocyte_count",
+        "reticulocytes"
+      ],
+      "specificgravityurine": [
+        "specific_gravity_urine",
+        "urinary_density",
+        "urine_density"
+      ],
+      "totalt3": [
+        "t3",
+        "total_t3"
+      ],
+      "t3rt3ratio": [
+        "t3_reverse_t3_ratio",
+        "t3rt3_ratio"
+      ],
+      "totalt4": [
+        "t4",
+        "total_t4"
+      ],
+      "tpoantibodies": [
+        "thyroid_peroxidase_antibodies",
+        "tpo_antibodies"
+      ],
+      "tnf": [
+        "tnf",
+        "tnf_alpha"
+      ],
+      "uibc": [
+        "uibc",
+        "unsaturated_iron_binding_capacity"
+      ],
+      "urineph": [
+        "urinary_ph",
+        "urine_ph"
+      ],
+      "urinevolume": [
+        "urinary_volume",
+        "urine_volume"
+      ],
+      "vldlcholesterol": [
+        "vldl_cholesterol",
+        "vldlc"
+      ],
+      "wbc": [
+        "wbc",
+        "wbc_count",
+        "white_blood_cells"
+      ]
+    },
+    "unit_split": {
+      "neutrophils": [
+        "neutrophils",
+        "neutrophils_percent",
+        "neutrophils_absolute"
+      ],
+      "lymphocytes": [
+        "lymphocytes",
+        "lymphocytes_percent",
+        "lymphocytes_absolute"
+      ],
+      "monocytes": [
+        "monocytes",
+        "monocytes_percent",
+        "monocytes_absolute"
+      ],
+      "eosinophils": [
+        "eosinophils",
+        "eosinophils_percent",
+        "eosinophils_absolute"
+      ],
+      "basophils": [
+        "basophils",
+        "basophils_percent",
+        "basophils_absolute"
+      ]
+    },
+    "sampling_split": {
+      "glucose": [
+        "glucose",
+        "fasting_glucose"
+      ]
+    }
+  },
+  "metric_aliases_generated_note": "compound min/max/avg + hr + context aliases generated from catalog id tokens (spec v1.8 10g.5 pattern); stress/sleep-score plurals from v6 dev errors"
 }

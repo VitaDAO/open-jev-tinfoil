@@ -1,0 +1,30 @@
+{
+ "_doc": "Calendar record basis by wording (spec v1.8 10g.19). Matched on the request with its time phrases removed. done -> last_done_date (most recent past occurrence); due -> next_due_date (next occurrence); neither -> both bases over a past/current window, due only for a future window; both -> unresolved_calendar_basis.",
+ "done": [
+  "completed",
+  "complete",
+  "done",
+  "finished",
+  "did i have",
+  "did i do",
+  "did i go",
+  "had",
+  "went to",
+  "attended",
+  "last time i",
+  "past",
+  "previous"
+ ],
+ "due": [
+  "due",
+  "scheduled",
+  "planned",
+  "upcoming",
+  "next",
+  "coming up",
+  "should i book",
+  "booked",
+  "to book",
+  "plan to"
+ ]
+}

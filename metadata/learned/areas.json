@@ -1,0 +1,29 @@
+{
+ "_doc": "Full-area asks (spec v1.8 10g.34 item 5): 'everything about my sleep', 'full breakdown of my sleep' read the whole area, intersected with the request's inventory, exempt from the 8-analyte breadth cap and bounded by this list; a one-night full area uses the 10g.4 two-read split. Data, not rules.",
+ "_source": "vita-agent py/src/vita_agent/health/metric_registry.py PRESENTATION_CATEGORY_BY_METRIC, category 'sleep' (read-only, 2026-09-28; file sha256 fcd2e19ea8d36b89)",
+ "sleep": [
+  "awake_time",
+  "bedtime_hour",
+  "breathing_disturbance_index",
+  "sleep_consistency",
+  "sleep_deep",
+  "sleep_efficiency",
+  "sleep_hr_average",
+  "sleep_hr_max",
+  "sleep_latency",
+  "sleep_light",
+  "sleep_performance",
+  "sleep_rem",
+  "sleep_rr_max",
+  "sleep_rr_min",
+  "sleep_score",
+  "snoring_duration",
+  "snoring_episodes",
+  "total_sleep",
+  "vita_sleep_score",
+  "wake_hour",
+  "wakeup_count",
+  "wakeup_duration",
+  "wakeup_latency"
+ ]
+}

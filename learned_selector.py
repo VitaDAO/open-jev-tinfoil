@@ -1,6 +1,7 @@
 """Experimental one-pass Open-JEV selector; synthetic-trained, not release approved."""
 import hashlib
 import json
+import functools
 import re
 import time
 from datetime import date
@@ -17,6 +18,13 @@ def identity():
     return hashlib.sha256(Path(__file__).read_bytes()+(ROOT/'selector.py').read_bytes()+ADAPTER_SHA256.encode()).hexdigest()
 
 
+@functools.lru_cache(maxsize=4096)
+def label_pattern(label,flags=0):
+    # Compiled once per label; the ~40 label scans per request otherwise overflow
+    # Python's 512-entry regex cache and recompile every pattern on every request.
+    return re.compile(r'(?<!\w)'+re.escape(label)+r'(?!\w)',flags)
+
+
 def dynamic_metrics(text,available):
     """Resolve exact identifiers/known aliases; longer names win overlapping spans."""
     labels={metric.replace('_',' '):[metric] for metric in available}
@@ -28,7 +36,7 @@ def dynamic_metrics(text,available):
     candidates=[]
     for label,metrics in labels.items():
         if not metrics:continue
-        for match in re.finditer(r'(?<!\w)'+re.escape(label)+r'(?!\w)',text):
+        for match in label_pattern(label).finditer(text):
             candidates.append((match.start(),match.end(),metrics))
     occupied=[];selected=set()
     for start,end,metrics in sorted(candidates,key=lambda c:c[1]-c[0],reverse=True):

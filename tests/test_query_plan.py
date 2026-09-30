@@ -95,14 +95,16 @@ def test_out_of_range_record_counts_cannot_become_default_unbounded_reads(count)
 def test_identical_clauses_share_one_read_but_distinct_windows_do_not(monkeypatch):
  from query_selector import QuerySelector
  selector=QuerySelector.__new__(QuerySelector)
+ # Last week and last month on 2026-09-23: relative windows ending today would overlap, a plan that hands off (spec v1.8 10g.38).
  def health(text,req,diagnostics):
-  return [HealthRead(metrics=['steps'],period={'kind':'relative','amount':7 if 'week' in text else 30,'unit':'days'})]
+  start,end=('2026-09-14','2026-09-20') if 'week' in text else ('2026-08-01','2026-08-31')
+  return [HealthRead(metrics=['steps'],period={'kind':'between','start_at':start,'end_at':end})]
  monkeypatch.setattr(selector,'health',health)
  req=request(state={'current_request':'Show my steps last week; show my steps last week; show my steps last month',
                     'reference_date':'2026-09-23','time_zone':'UTC'})
  result=selector.select_query(req)
  assert result['status']=='planned' and len(result['queries'])==2
- assert [q['period']['amount'] for q in result['queries']]==[7,30]
+ assert [q['period']['start_at'] for q in result['queries']]==['2026-09-14','2026-08-01']
 
 def test_catalog_mapping_preserves_hrv_source_eligibility():
  from schema_index import metric_definition,INDEX,CATALOG

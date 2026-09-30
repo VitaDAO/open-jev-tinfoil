@@ -1,0 +1,1726 @@
+{
+ "metrics": {
+  "1_25_dihydroxy_vitamin_d": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "activity_hr_average": {
+   "display_name": "Activity average heart rate",
+   "unit": "bpm",
+   "existing_aliases": [
+    "activity_hr_average"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "activity_hr_max": {
+   "display_name": "Activity maximum heart rate",
+   "unit": "bpm",
+   "existing_aliases": [
+    "activity_hr_max"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "activity_hr_min": {
+   "display_name": "Activity minimum heart rate",
+   "unit": "bpm",
+   "existing_aliases": [
+    "activity_hr_min"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "activity_score": {
+   "display_name": "Activity score",
+   "unit": "score",
+   "existing_aliases": [
+    "activity_score"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "albumin": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "alkaline_phosphatase": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "alt": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "apob": {
+   "display_name": "ApoB",
+   "unit": "mg/dL",
+   "existing_aliases": [
+    "apob",
+    "ApoB",
+    "apo_b"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "ast": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "awake_time": {
+   "display_name": "Awake during sleep",
+   "unit": "min",
+   "existing_aliases": [
+    "awake_time",
+    "sleep_awake"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "basal_metabolic_rate": {
+   "display_name": "Basal metabolic rate",
+   "unit": "kcal/day",
+   "existing_aliases": [
+    "basal_metabolic_rate",
+    "bmr"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "basophils": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "bedtime_hour": {
+   "display_name": "Bedtime",
+   "unit": "hour",
+   "existing_aliases": [
+    "bedtime_hour"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "bioavailable_testosterone": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "blood_pressure": {
+   "display_name": "Blood pressure",
+   "unit": "mmHg",
+   "existing_aliases": [
+    "blood_pressure",
+    "Blood Pressure"
+   ],
+   "in_vita_inventory": false,
+   "in_catalog": true
+  },
+  "bmi": {
+   "display_name": "BMI",
+   "unit": "kg/m\u00b2",
+   "existing_aliases": [
+    "bmi",
+    "BMI"
+   ],
+   "in_vita_inventory": false,
+   "in_catalog": true
+  },
+  "body_fat": {
+   "display_name": "Body fat",
+   "unit": "%",
+   "existing_aliases": [
+    "body_fat",
+    "body_fat_percentage",
+    "Body Fat",
+    "fat_percent"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "body_temp_deviation": {
+   "display_name": "Body temperature deviation",
+   "unit": "\u00b0C",
+   "existing_aliases": [
+    "body_temp_deviation"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "body_temperature": {
+   "display_name": "Body temperature",
+   "unit": "\u00b0C",
+   "existing_aliases": [
+    "body_temperature"
+   ],
+   "in_vita_inventory": false,
+   "in_catalog": true
+  },
+  "bone_mass": {
+   "display_name": "Bone mass",
+   "unit": "kg",
+   "existing_aliases": [
+    "bone_mass"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "breathing_disturbance_index": {
+   "display_name": "Breathing disturbance index",
+   "unit": "events/hour",
+   "existing_aliases": [
+    "breathing_disturbance_index",
+    "breathing_disturbances"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "calories_active": {
+   "display_name": "Active calories",
+   "unit": "kcal",
+   "existing_aliases": [
+    "calories_active",
+    "active_calories"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "calories_burned": {
+   "display_name": "Calories burned",
+   "unit": "kcal",
+   "existing_aliases": [
+    "calories_burned",
+    "day_calories",
+    "calories"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "cardiovascular_age": {
+   "display_name": "Cardiovascular age",
+   "unit": "years",
+   "existing_aliases": [
+    "cardiovascular_age",
+    "vascular_age"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "cholesterol": {
+   "display_name": "Total cholesterol",
+   "unit": "mg/dL",
+   "existing_aliases": [
+    "cholesterol",
+    "total_cholesterol",
+    "Total Cholesterol"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "cortisol_am": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "creatinine": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "day_avg_hr": {
+   "display_name": "Daily average heart rate",
+   "unit": "bpm",
+   "existing_aliases": [
+    "day_avg_hr"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "day_max_hr": {
+   "display_name": "Daily maximum heart rate",
+   "unit": "bpm",
+   "existing_aliases": [
+    "day_max_hr"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "day_strain": {
+   "display_name": "Day strain",
+   "unit": "score",
+   "existing_aliases": [
+    "day_strain"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "dhea_sulfate": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "diastolic_blood_pressure": {
+   "display_name": "Diastolic blood pressure",
+   "unit": "mmHg",
+   "existing_aliases": [
+    "diastolic_blood_pressure",
+    "diastolic_bp"
+   ],
+   "in_vita_inventory": false,
+   "in_catalog": true
+  },
+  "distance": {
+   "display_name": "Distance",
+   "unit": "km",
+   "existing_aliases": [
+    "distance"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "ecg_afib_classification": {
+   "display_name": "ECG AFib classification",
+   "unit": "classification",
+   "existing_aliases": [
+    "ecg_afib_classification"
+   ],
+   "in_vita_inventory": false,
+   "in_catalog": true
+  },
+  "egfr": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "electrochemical_skin_conductance": {
+   "display_name": "Electrochemical skin conductance",
+   "unit": "uS",
+   "existing_aliases": [
+    "electrochemical_skin_conductance"
+   ],
+   "in_vita_inventory": false,
+   "in_catalog": true
+  },
+  "elevation": {
+   "display_name": "Elevation gain",
+   "unit": "m",
+   "existing_aliases": [
+    "elevation"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "eosinophils": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "extracellular_water": {
+   "display_name": "Extracellular water",
+   "unit": "kg",
+   "existing_aliases": [
+    "extracellular_water"
+   ],
+   "in_vita_inventory": false,
+   "in_catalog": true
+  },
+  "fasting_glucose": {
+   "display_name": "Fasting glucose",
+   "unit": "mg/dL",
+   "existing_aliases": [
+    "fasting_glucose",
+    "Glucose (Fasting)",
+    "Fasting Glucose",
+    "Glucose, fasting"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "fasting_insulin": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "fat_free_mass": {
+   "display_name": "Fat-free mass",
+   "unit": "kg",
+   "existing_aliases": [
+    "fat_free_mass"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "fat_free_mass_left_arm": {
+   "display_name": "Left-arm fat-free mass",
+   "unit": "kg",
+   "existing_aliases": [
+    "fat_free_mass_left_arm"
+   ],
+   "in_vita_inventory": false,
+   "in_catalog": true
+  },
+  "fat_free_mass_left_leg": {
+   "display_name": "Left-leg fat-free mass",
+   "unit": "kg",
+   "existing_aliases": [
+    "fat_free_mass_left_leg"
+   ],
+   "in_vita_inventory": false,
+   "in_catalog": true
+  },
+  "fat_free_mass_right_arm": {
+   "display_name": "Right-arm fat-free mass",
+   "unit": "kg",
+   "existing_aliases": [
+    "fat_free_mass_right_arm"
+   ],
+   "in_vita_inventory": false,
+   "in_catalog": true
+  },
+  "fat_free_mass_right_leg": {
+   "display_name": "Right-leg fat-free mass",
+   "unit": "kg",
+   "existing_aliases": [
+    "fat_free_mass_right_leg"
+   ],
+   "in_vita_inventory": false,
+   "in_catalog": true
+  },
+  "fat_free_mass_torso": {
+   "display_name": "Torso fat-free mass",
+   "unit": "kg",
+   "existing_aliases": [
+    "fat_free_mass_torso"
+   ],
+   "in_vita_inventory": false,
+   "in_catalog": true
+  },
+  "fat_mass": {
+   "display_name": "Fat mass",
+   "unit": "kg",
+   "existing_aliases": [
+    "fat_mass",
+    "fat_mass_weight"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "fat_mass_left_arm": {
+   "display_name": "Left-arm fat mass",
+   "unit": "kg",
+   "existing_aliases": [
+    "fat_mass_left_arm"
+   ],
+   "in_vita_inventory": false,
+   "in_catalog": true
+  },
+  "fat_mass_left_leg": {
+   "display_name": "Left-leg fat mass",
+   "unit": "kg",
+   "existing_aliases": [
+    "fat_mass_left_leg"
+   ],
+   "in_vita_inventory": false,
+   "in_catalog": true
+  },
+  "fat_mass_right_arm": {
+   "display_name": "Right-arm fat mass",
+   "unit": "kg",
+   "existing_aliases": [
+    "fat_mass_right_arm"
+   ],
+   "in_vita_inventory": false,
+   "in_catalog": true
+  },
+  "fat_mass_right_leg": {
+   "display_name": "Right-leg fat mass",
+   "unit": "kg",
+   "existing_aliases": [
+    "fat_mass_right_leg"
+   ],
+   "in_vita_inventory": false,
+   "in_catalog": true
+  },
+  "fat_mass_torso": {
+   "display_name": "Torso fat mass",
+   "unit": "kg",
+   "existing_aliases": [
+    "fat_mass_torso"
+   ],
+   "in_vita_inventory": false,
+   "in_catalog": true
+  },
+  "ferritin": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "free_t4": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "ggt": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "glucose": {
+   "display_name": "Glucose",
+   "unit": "mg/dL",
+   "existing_aliases": [
+    "glucose",
+    "Glucose"
+   ],
+   "in_vita_inventory": false,
+   "in_catalog": true
+  },
+  "hba1c": {
+   "display_name": "HbA1c",
+   "unit": "%",
+   "existing_aliases": [
+    "hba1c",
+    "HbA1c",
+    "a1c"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "hdl": {
+   "display_name": "HDL cholesterol",
+   "unit": "mg/dL",
+   "existing_aliases": [
+    "hdl",
+    "HDL",
+    "hdl_cholesterol",
+    "HDL Cholesterol"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "heart_rate": {
+   "display_name": "Heart rate",
+   "unit": "bpm",
+   "existing_aliases": [
+    "heart_rate",
+    "Heart Rate",
+    "heart_pulse",
+    "ecg_heart_rate"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "heart_rate_variability": {
+   "display_name": "Heart rate variability",
+   "unit": "ms",
+   "existing_aliases": [
+    "heart_rate_variability",
+    "hrv",
+    "HRV",
+    "hrv_rmssd_milli"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "height": {
+   "display_name": "Height",
+   "unit": "m",
+   "existing_aliases": [
+    "height",
+    "body_height"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "hematocrit": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "hemoglobin": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "homa_ir": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "homocysteine": {
+   "display_name": "Homocysteine",
+   "unit": "\u00b5mol/L",
+   "existing_aliases": [
+    "homocysteine",
+    "Homocysteine"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "hr_zone_0": {
+   "display_name": "Heart-rate zone 0",
+   "unit": "min",
+   "existing_aliases": [
+    "hr_zone_0"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "hr_zone_1": {
+   "display_name": "Heart-rate zone 1",
+   "unit": "min",
+   "existing_aliases": [
+    "hr_zone_1"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "hr_zone_2": {
+   "display_name": "Heart-rate zone 2",
+   "unit": "min",
+   "existing_aliases": [
+    "hr_zone_2"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "hr_zone_3": {
+   "display_name": "Heart-rate zone 3",
+   "unit": "min",
+   "existing_aliases": [
+    "hr_zone_3"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "hr_zone_4": {
+   "display_name": "Heart-rate zone 4",
+   "unit": "min",
+   "existing_aliases": [
+    "hr_zone_4"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "hr_zone_5": {
+   "display_name": "Heart-rate zone 5",
+   "unit": "min",
+   "existing_aliases": [
+    "hr_zone_5"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "hs_crp": {
+   "display_name": "hs-CRP",
+   "unit": "mg/L",
+   "existing_aliases": [
+    "hs_crp",
+    "hs-CRP",
+    "High-sensitivity CRP",
+    "High-Sensitivity CRP (C-reactive protein)"
+   ],
+   "in_vita_inventory": false,
+   "in_catalog": true
+  },
+  "hscrp": {
+   "display_name": "hs-CRP",
+   "unit": "mg/L",
+   "existing_aliases": [
+    "hs_crp",
+    "hs-CRP",
+    "High-sensitivity CRP",
+    "High-Sensitivity CRP (C-reactive protein)"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "hydration": {
+   "display_name": "Body water mass",
+   "unit": "kg",
+   "existing_aliases": [
+    "hydration"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "intense_activity_duration": {
+   "display_name": "Intense activity",
+   "unit": "min",
+   "existing_aliases": [
+    "intense_activity_duration"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "intracellular_water": {
+   "display_name": "Intracellular water",
+   "unit": "kg",
+   "existing_aliases": [
+    "intracellular_water"
+   ],
+   "in_vita_inventory": false,
+   "in_catalog": true
+  },
+  "ionic_calcium": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "ldl": {
+   "display_name": "LDL cholesterol",
+   "unit": "mg/dL",
+   "existing_aliases": [
+    "ldl",
+    "LDL",
+    "ldl_cholesterol",
+    "LDL Cholesterol"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "lean_mass_percent": {
+   "display_name": "Lean mass percentage",
+   "unit": "%",
+   "existing_aliases": [
+    "lean_mass_percent"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "light_activity_duration": {
+   "display_name": "Light activity",
+   "unit": "min",
+   "existing_aliases": [
+    "light_activity_duration"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "lipoprotein_a": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "lp_a": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "lymphocytes": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "magnesium_rbc": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "mch": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "mchc": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "mcv": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "moderate_activity_duration": {
+   "display_name": "Moderate activity",
+   "unit": "min",
+   "existing_aliases": [
+    "moderate_activity_duration"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "monocytes": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "mpv": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "muscle_mass": {
+   "display_name": "Muscle mass",
+   "unit": "kg",
+   "existing_aliases": [
+    "muscle_mass"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "muscle_mass_left_arm": {
+   "display_name": "Left-arm muscle mass",
+   "unit": "kg",
+   "existing_aliases": [
+    "muscle_mass_left_arm"
+   ],
+   "in_vita_inventory": false,
+   "in_catalog": true
+  },
+  "muscle_mass_left_leg": {
+   "display_name": "Left-leg muscle mass",
+   "unit": "kg",
+   "existing_aliases": [
+    "muscle_mass_left_leg"
+   ],
+   "in_vita_inventory": false,
+   "in_catalog": true
+  },
+  "muscle_mass_right_arm": {
+   "display_name": "Right-arm muscle mass",
+   "unit": "kg",
+   "existing_aliases": [
+    "muscle_mass_right_arm"
+   ],
+   "in_vita_inventory": false,
+   "in_catalog": true
+  },
+  "muscle_mass_right_leg": {
+   "display_name": "Right-leg muscle mass",
+   "unit": "kg",
+   "existing_aliases": [
+    "muscle_mass_right_leg"
+   ],
+   "in_vita_inventory": false,
+   "in_catalog": true
+  },
+  "muscle_mass_torso": {
+   "display_name": "Torso muscle mass",
+   "unit": "kg",
+   "existing_aliases": [
+    "muscle_mass_torso"
+   ],
+   "in_vita_inventory": false,
+   "in_catalog": true
+  },
+  "nerve_health_score_feet_max": {
+   "display_name": "Maximum foot nerve health score",
+   "unit": "score",
+   "existing_aliases": [
+    "nerve_health_score_feet_max"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "nerve_health_score_left_foot": {
+   "display_name": "Left-foot nerve health score",
+   "unit": "score",
+   "existing_aliases": [
+    "nerve_health_score_left_foot"
+   ],
+   "in_vita_inventory": false,
+   "in_catalog": true
+  },
+  "nerve_health_score_right_foot": {
+   "display_name": "Right-foot nerve health score",
+   "unit": "score",
+   "existing_aliases": [
+    "nerve_health_score_right_foot"
+   ],
+   "in_vita_inventory": false,
+   "in_catalog": true
+  },
+  "nerve_response_score": {
+   "display_name": "Nerve response score",
+   "unit": "score",
+   "existing_aliases": [
+    "nerve_response_score"
+   ],
+   "in_vita_inventory": false,
+   "in_catalog": true
+  },
+  "neutrophils": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "neutrophils_absolute": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "platelet_count": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "platelets": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "pulse_wave_velocity": {
+   "display_name": "Pulse wave velocity",
+   "unit": "m/s",
+   "existing_aliases": [
+    "pulse_wave_velocity",
+    "pwv"
+   ],
+   "in_vita_inventory": false,
+   "in_catalog": true
+  },
+  "rbc_count": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "rdw": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "readiness_score": {
+   "display_name": "Readiness score",
+   "unit": "score",
+   "existing_aliases": [
+    "readiness_score"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "recovery_high_duration": {
+   "display_name": "High-recovery time",
+   "unit": "min",
+   "existing_aliases": [
+    "recovery_high_duration"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "recovery_score": {
+   "display_name": "Recovery score",
+   "unit": "%",
+   "existing_aliases": [
+    "recovery_score"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "resilience_daytime_recovery": {
+   "display_name": "Resilience daytime recovery",
+   "unit": "score",
+   "existing_aliases": [
+    "resilience_daytime_recovery"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "resilience_level": {
+   "display_name": "Resilience level",
+   "unit": "score",
+   "existing_aliases": [
+    "resilience_level"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "resilience_sleep_recovery": {
+   "display_name": "Resilience sleep recovery",
+   "unit": "score",
+   "existing_aliases": [
+    "resilience_sleep_recovery"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "resilience_stress": {
+   "display_name": "Resilience stress balance",
+   "unit": "score",
+   "existing_aliases": [
+    "resilience_stress"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "respiratory_rate": {
+   "display_name": "Respiratory rate",
+   "unit": "breaths/min",
+   "existing_aliases": [
+    "respiratory_rate"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "resting_heart_rate": {
+   "display_name": "Resting heart rate",
+   "unit": "bpm",
+   "existing_aliases": [
+    "resting_heart_rate",
+    "resting_hr",
+    "Resting Heart Rate"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "reticulocyte_production_index": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "reticulocytes": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "sedentary_time": {
+   "display_name": "Sedentary time",
+   "unit": "min",
+   "existing_aliases": [
+    "sedentary_time"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "skin_temp": {
+   "display_name": "Skin temperature",
+   "unit": "\u00b0C",
+   "existing_aliases": [
+    "skin_temp"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "sleep_consistency": {
+   "display_name": "Sleep consistency",
+   "unit": "%",
+   "existing_aliases": [
+    "sleep_consistency"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "sleep_deep": {
+   "display_name": "Deep sleep",
+   "unit": "min",
+   "existing_aliases": [
+    "sleep_deep",
+    "deep_sleep"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "sleep_efficiency": {
+   "display_name": "Sleep efficiency",
+   "unit": "%",
+   "existing_aliases": [
+    "sleep_efficiency"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "sleep_hr_average": {
+   "display_name": "Sleep average heart rate",
+   "unit": "bpm",
+   "existing_aliases": [
+    "sleep_hr_average"
+   ],
+   "in_vita_inventory": false,
+   "in_catalog": true
+  },
+  "sleep_hr_max": {
+   "display_name": "Sleep maximum heart rate",
+   "unit": "bpm",
+   "existing_aliases": [
+    "sleep_hr_max"
+   ],
+   "in_vita_inventory": false,
+   "in_catalog": true
+  },
+  "sleep_latency": {
+   "display_name": "Sleep latency",
+   "unit": "min",
+   "existing_aliases": [
+    "sleep_latency"
+   ],
+   "in_vita_inventory": false,
+   "in_catalog": true
+  },
+  "sleep_light": {
+   "display_name": "Light sleep",
+   "unit": "min",
+   "existing_aliases": [
+    "sleep_light",
+    "light_sleep"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "sleep_performance": {
+   "display_name": "Sleep performance",
+   "unit": "%",
+   "existing_aliases": [
+    "sleep_performance"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "sleep_rem": {
+   "display_name": "REM sleep",
+   "unit": "min",
+   "existing_aliases": [
+    "sleep_rem",
+    "rem_sleep"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "sleep_rr_max": {
+   "display_name": "Sleep maximum respiratory rate",
+   "unit": "breaths/min",
+   "existing_aliases": [
+    "sleep_rr_max"
+   ],
+   "in_vita_inventory": false,
+   "in_catalog": true
+  },
+  "sleep_rr_min": {
+   "display_name": "Sleep minimum respiratory rate",
+   "unit": "breaths/min",
+   "existing_aliases": [
+    "sleep_rr_min"
+   ],
+   "in_vita_inventory": false,
+   "in_catalog": true
+  },
+  "sleep_score": {
+   "display_name": "Sleep score",
+   "unit": "score",
+   "existing_aliases": [
+    "sleep_score"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "snoring_duration": {
+   "display_name": "Snoring duration",
+   "unit": "seconds",
+   "existing_aliases": [
+    "snoring_duration"
+   ],
+   "in_vita_inventory": false,
+   "in_catalog": true
+  },
+  "snoring_episodes": {
+   "display_name": "Snoring episodes",
+   "unit": "count",
+   "existing_aliases": [
+    "snoring_episodes"
+   ],
+   "in_vita_inventory": false,
+   "in_catalog": true
+  },
+  "spo2": {
+   "display_name": "Blood oxygen (SpO2)",
+   "unit": "%",
+   "existing_aliases": [
+    "spo2",
+    "SpO2",
+    "blood_oxygen"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "steps": {
+   "display_name": "Steps",
+   "unit": "steps",
+   "existing_aliases": [
+    "steps",
+    "step_count"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "strain_score": {
+   "display_name": "Workout strain",
+   "unit": "score",
+   "existing_aliases": [
+    "strain_score"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "stress_high_duration": {
+   "display_name": "High-stress time",
+   "unit": "min",
+   "existing_aliases": [
+    "stress_high_duration"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "stress_summary": {
+   "display_name": "Daily stress state",
+   "unit": "score",
+   "existing_aliases": [
+    "stress_summary"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "systolic_blood_pressure": {
+   "display_name": "Systolic blood pressure",
+   "unit": "mmHg",
+   "existing_aliases": [
+    "systolic_blood_pressure",
+    "systolic_bp"
+   ],
+   "in_vita_inventory": false,
+   "in_catalog": true
+  },
+  "total_sleep": {
+   "display_name": "Total sleep",
+   "unit": "min",
+   "existing_aliases": [
+    "total_sleep",
+    "sleep_duration"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "total_testosterone": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "triglycerides": {
+   "display_name": "Triglycerides",
+   "unit": "mg/dL",
+   "existing_aliases": [
+    "triglycerides",
+    "Triglycerides"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "tsh": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "uric_acid": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "visceral_fat": {
+   "display_name": "Visceral fat index",
+   "unit": "index",
+   "existing_aliases": [
+    "visceral_fat"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "vita_sleep_score": {
+   "display_name": "Vita sleep score",
+   "unit": "score",
+   "existing_aliases": [
+    "vita_sleep_score"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "vitamin_b12": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "vitamin_d": {
+   "display_name": "Vitamin D (25-OH)",
+   "unit": "ng/mL",
+   "existing_aliases": [
+    "vitamin_d",
+    "Vitamin D",
+    "Vitamin D (25-OH)"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "vo2_max": {
+   "display_name": "VO2 max estimate",
+   "unit": "mL/kg/min",
+   "existing_aliases": [
+    "vo2_max",
+    "vo2_max_estimate"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "wake_hour": {
+   "display_name": "Wake time",
+   "unit": "hour",
+   "existing_aliases": [
+    "wake_hour"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "wakeup_count": {
+   "display_name": "Wake-up count",
+   "unit": "count",
+   "existing_aliases": [
+    "wakeup_count"
+   ],
+   "in_vita_inventory": false,
+   "in_catalog": true
+  },
+  "wakeup_duration": {
+   "display_name": "Wake-up duration",
+   "unit": "min",
+   "existing_aliases": [
+    "wakeup_duration"
+   ],
+   "in_vita_inventory": false,
+   "in_catalog": true
+  },
+  "wakeup_latency": {
+   "display_name": "Wake-up latency",
+   "unit": "min",
+   "existing_aliases": [
+    "wakeup_latency"
+   ],
+   "in_vita_inventory": false,
+   "in_catalog": true
+  },
+  "wbc_count": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "weight": {
+   "display_name": "Weight",
+   "unit": "kg",
+   "existing_aliases": [
+    "weight",
+    "body_weight",
+    "Weight"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "white_blood_cells": {
+   "display_name": null,
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": true,
+   "in_catalog": false
+  },
+  "workout_avg_hr": {
+   "display_name": "Workout average heart rate",
+   "unit": "bpm",
+   "existing_aliases": [
+    "workout_avg_hr"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "workout_calories": {
+   "display_name": "Workout calories",
+   "unit": "kcal",
+   "existing_aliases": [
+    "workout_calories"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "workout_distance": {
+   "display_name": "Workout distance",
+   "unit": "km",
+   "existing_aliases": [
+    "workout_distance"
+   ],
+   "in_vita_inventory": false,
+   "in_catalog": true
+  },
+  "workout_intensity": {
+   "display_name": "Workout intensity",
+   "unit": "score",
+   "existing_aliases": [
+    "workout_intensity"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "workout_max_hr": {
+   "display_name": "Workout maximum heart rate",
+   "unit": "bpm",
+   "existing_aliases": [
+    "workout_max_hr"
+   ],
+   "in_vita_inventory": true,
+   "in_catalog": true
+  },
+  "panel_lipid": {
+   "display_name": "Lipid panel",
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": false,
+   "in_catalog": false,
+   "panel_members": [
+    "cholesterol",
+    "ldl",
+    "hdl",
+    "triglycerides",
+    "apob",
+    "lipoprotein_a",
+    "lp_a",
+    "nonhdl_cholesterol",
+    "non_hdl_cholesterol",
+    "vldl_cholesterol"
+   ]
+  },
+  "panel_thyroid": {
+   "display_name": "Thyroid panel",
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": false,
+   "in_catalog": false,
+   "panel_members": [
+    "tsh",
+    "free_t4",
+    "free_t3",
+    "total_t4",
+    "total_t3"
+   ]
+  },
+  "panel_cbc": {
+   "display_name": "Complete blood count",
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": false,
+   "in_catalog": false,
+   "panel_members": [
+    "white_blood_cells",
+    "wbc_count",
+    "rbc_count",
+    "hemoglobin",
+    "hematocrit",
+    "mcv",
+    "mch",
+    "mchc",
+    "rdw",
+    "platelets",
+    "platelet_count",
+    "mpv",
+    "neutrophils",
+    "neutrophils_absolute",
+    "lymphocytes",
+    "monocytes",
+    "eosinophils",
+    "basophils"
+   ]
+  },
+  "panel_cbc_basic": {
+   "display_name": "CBC without differential",
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": false,
+   "in_catalog": false,
+   "panel_members": [
+    "white_blood_cells",
+    "wbc_count",
+    "rbc_count",
+    "hemoglobin",
+    "hematocrit",
+    "mcv",
+    "mch",
+    "mchc",
+    "rdw",
+    "platelets",
+    "platelet_count",
+    "mpv"
+   ]
+  },
+  "panel_body_comp": {
+   "display_name": "Body composition",
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": false,
+   "in_catalog": false,
+   "panel_members": [
+    "weight",
+    "body_fat",
+    "fat_mass",
+    "fat_free_mass",
+    "lean_mass_percent",
+    "muscle_mass",
+    "bone_mass",
+    "visceral_fat",
+    "hydration"
+   ]
+  },
+  "panel_body_water": {
+   "display_name": "Body water compartments",
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": false,
+   "in_catalog": false,
+   "panel_members": [
+    "hydration",
+    "intracellular_water",
+    "extracellular_water"
+   ]
+  },
+  "panel_fat_segments": {
+   "display_name": "Fat by body segment",
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": false,
+   "in_catalog": false,
+   "panel_members": [
+    "fat_mass_left_arm",
+    "fat_mass_right_arm",
+    "fat_mass_left_leg",
+    "fat_mass_right_leg",
+    "fat_mass_torso"
+   ]
+  },
+  "panel_muscle_segments": {
+   "display_name": "Muscle by body segment",
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": false,
+   "in_catalog": false,
+   "panel_members": [
+    "muscle_mass_left_arm",
+    "muscle_mass_right_arm",
+    "muscle_mass_left_leg",
+    "muscle_mass_right_leg",
+    "muscle_mass_torso"
+   ]
+  },
+  "panel_lean_segments": {
+   "display_name": "Lean mass by body segment",
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": false,
+   "in_catalog": false,
+   "panel_members": [
+    "fat_free_mass_left_arm",
+    "fat_free_mass_right_arm",
+    "fat_free_mass_left_leg",
+    "fat_free_mass_right_leg",
+    "fat_free_mass_torso"
+   ]
+  },
+  "panel_segmental": {
+   "display_name": "Segmental analysis",
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": false,
+   "in_catalog": false,
+   "panel_members": [
+    "fat_mass_left_arm",
+    "fat_mass_right_arm",
+    "fat_mass_left_leg",
+    "fat_mass_right_leg",
+    "fat_mass_torso",
+    "muscle_mass_left_arm",
+    "muscle_mass_right_arm",
+    "muscle_mass_left_leg",
+    "muscle_mass_right_leg",
+    "muscle_mass_torso",
+    "fat_free_mass_left_arm",
+    "fat_free_mass_right_arm",
+    "fat_free_mass_left_leg",
+    "fat_free_mass_right_leg",
+    "fat_free_mass_torso"
+   ]
+  },
+  "workout_hr": {
+   "display_name": "Workout heart rate",
+   "unit": null,
+   "existing_aliases": [],
+   "in_vita_inventory": false,
+   "in_catalog": false,
+   "panel_members": [
+    "workout_avg_hr",
+    "workout_max_hr"
+   ]
+  }
+ },
+ "records": {
+  "profile": [
+   "profile",
+   "goals",
+   "medications"
+  ],
+  "workouts": [
+   "workouts",
+   "exercise sessions",
+   "workout sessions"
+  ],
+  "labs": [
+   "lab reports",
+   "blood test reports",
+   "blood reports",
+   "lab uploads",
+   "lab upload",
+   "uploaded labs",
+   "uploaded lab reports"
+  ],
+  "calendar": [
+   "health plans",
+   "screening events",
+   "health events",
+   "health calendar",
+   "health appointments",
+   "screenings",
+   "checkups",
+   "calendar",
+   "health plan",
+   "health appointment"
+  ],
+  "overview": [
+   "health overview",
+   "overview of my health",
+   "overall health",
+   "health check-in"
+  ]
+ },
+ "profile_fields": [
+  "allergies",
+  "bio",
+  "birth_day",
+  "birth_month",
+  "birth_year",
+  "bmi",
+  "challenges",
+  "chronic_conditions",
+  "ethnicity",
+  "experience_level",
+  "family_history",
+  "goals",
+  "height_cm",
+  "homebase",
+  "medications",
+  "monthly_budget",
+  "no_regular_medications",
+  "sex",
+  "smoking_status",
+  "tracking_methods",
+  "unit_system",
+  "weight_kg",
+  "years_smoking"
+ ],
+ "selector_metric_aliases": {
+  "step count": "steps",
+  "breathing rate": "respiratory_rate",
+  "resp rate": "respiratory_rate",
+  "spo2": "oxygen_saturation",
+  "o2 sats": "oxygen_saturation",
+  "oxygen saturation": "oxygen_saturation",
+  "sleep duration": "total_sleep",
+  "time asleep": "total_sleep",
+  "ldl cholesterol": "ldl_cholesterol",
+  "step": "steps",
+  "readiness": "readiness_score",
+  "high recovery": "recovery_high_duration",
+  "trigs": "triglycerides",
+  "good cholesterol": "hdl",
+  "bad cholesterol": "ldl",
+  "ldl-c": "ldl",
+  "daily max heart rate": "day_max_hr"
+ }
+}

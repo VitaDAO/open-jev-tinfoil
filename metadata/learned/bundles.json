@@ -1,0 +1,39 @@
+{
+ "_doc": "Spec-defined bundles (data). overview = spec v1.8 10g.10: two reads, each intersected with the inventory; both empty -> handoff.",
+ "overview": [
+  {
+   "metrics": [
+    "vita_sleep_score",
+    "total_sleep",
+    "recovery_score",
+    "heart_rate_variability",
+    "resting_heart_rate",
+    "steps"
+   ],
+   "operation": "trend",
+   "period": {
+    "kind": "relative",
+    "amount": 30,
+    "unit": "days"
+   }
+  },
+  {
+   "metrics": [
+    "weight",
+    "body_fat",
+    "systolic_blood_pressure",
+    "diastolic_blood_pressure",
+    "vo2_max",
+    "apob",
+    "ldl",
+    "hba1c",
+    "fasting_glucose",
+    "hscrp"
+   ],
+   "operation": "latest",
+   "period": {
+    "kind": "all_history"
+   }
+  }
+ ]
+}
