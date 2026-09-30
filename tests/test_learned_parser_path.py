@@ -22,6 +22,18 @@ def test_learned_plan_passes_the_contract(monkeypatch, selector):
     assert result['status'] == 'planned' and result['queries'][0]['metrics'] == ['ldl'] and result['diagnostics']['method'] == 'learned_parser'
 
 
+@pytest.mark.parametrize('suffix,eligible', [('', True), (' in a table', False)])
+def test_two_period_plan_keeps_its_presentation_requirement(monkeypatch, selector, suffix, eligible):
+    reads = [{'kind': 'health', 'metrics': ['steps'], 'records': [], 'operation': 'trend',
+              'period': period, 'source': None, 'date_basis': 'observed_at'}
+             for period in [{'kind': 'calendar', 'period': 'week'},
+                            {'kind': 'between', 'start_at': '2026-09-14', 'end_at': '2026-09-20'}]]
+    result = plan_with(monkeypatch, selector, {'status': 'planned', 'queries': reads},
+                       text='Compare my steps this week with last week' + suffix)
+    assert result['status'] == 'planned'
+    assert result['diagnostics']['direct_answer_eligible'] is eligible
+
+
 def test_learned_handoff_codes_are_published(monkeypatch, selector):
     result = plan_with(monkeypatch, selector, {'status': 'handoff', 'reason_codes': ['model_judgement'], 'queries': []})
     assert result['status'] == 'handoff' and result['reason_codes'] == ['model_judgement']

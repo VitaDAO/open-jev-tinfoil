@@ -832,7 +832,25 @@ class _Agreement:
     def __init__(self, parsers,cutoff,verifier=None,verifier_min=0.0):
         self.parsers=parsers;self.cutoff=cutoff;self.verifier=verifier;self.verifier_min=verifier_min
     def select(self,req):
-        results=[p.select(req) for p in self.parsers]
+        raw=[p.select(req) for p in self.parsers]
+        original=self._select(req,raw)
+        # A sentence-ending full stop is presentation, but changing the model
+        # input still requires independent agreement on the exact original
+        # plan. Never normalize dates, dotted initials, capitalized tokens,
+        # ellipses or clauses. An explicitly required checker remains a veto.
+        if (len(self.parsers)<2 or original.get('reason_codes')!=['learned_plan_unverified'] or self.verifier is None
+                or self.verifier_min>0):return original
+        st=req.get('state') or {};text=st.get('current_request','');trimmed=text.rstrip()
+        if not re.search(r'(?<![\w.])[a-z]+\.$',trimmed):return original
+        normalized={**req,'state':{**st,'current_request':trimmed[:-1]}}
+        key=lambda r:json.dumps(sorted(json.dumps(q,sort_keys=True) for q in r.get('queries',[])))
+        if any(r.get('status')!='planned' or r.get('decision_confidence',0)<self.cutoff
+               or key(r)!=key(raw[0]) for r in raw):return original
+        candidate=self._select(normalized)
+        if candidate.get('status')!='planned' or key(candidate)!=key(raw[0]):return original
+        return {**candidate,'diagnostics':{**candidate.get('diagnostics',{}),'sentence_terminator_normalized':True}}
+    def _select(self,req,results=None):
+        results=[p.select(req) for p in self.parsers] if results is None else results
         acute=next((r for r in results if 'acute_or_crisis_requires_model' in r.get('reason_codes', [])),None)
         if acute is not None:return acute
         first=results[0]
@@ -1052,6 +1070,9 @@ class QuerySelector(TrainedProposalSelector):
             # ("side by side", "in a table"; [refined 10g.38]). A request that states fewer than two windows hands off here, before any
             # parser; one that states two is decided on the plan, and a handoff for any other reason keeps its own code.
             style=bool(STYLE.search(canonicalize(request.state.current_request)))
+            # Typed fact presentation cannot satisfy an additional response
+            # format. Clients must compose such plans through their model.
+            diagnostics['direct_answer_eligible']=not style
             if style and len(compared_windows([canonicalize(request.state.current_request)],request,points=True))<2:
                 raise ValueError('text_transformation_requires_native_context')
             # A unit conversion ("my weight in pounds", "convert it to mg/dL"; spec v1.8 10g.36.3) has its own published code.

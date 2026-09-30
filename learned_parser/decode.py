@@ -2391,7 +2391,10 @@ class Parser:
         # "last night" keeps the night basis only for night-capable metrics; others read the reference day (spec v1.7 10f item 5).
         # One night or one named day: NIGHT_METRICS read on the sleep_end_day basis, every other metric on a one-day observed_at
         # window of the same day (spec v1.8 10g.4); longer windows stay a single observed_at read.
-        one_day = night or (period.get('kind') == 'between' and period.get('start_at') == period.get('end_at'))
+        current_period = next((u for u, rx in (('week', WEEK_NOW), ('month', MONTH_NOW))
+                               if rx.search(time_text or '')), None)
+        one_day = night or (current_period is None and period.get('kind') == 'between'
+                            and period.get('start_at') == period.get('end_at'))
         night_part = sorted(set(metrics) & set(NIGHT_METRICS)) if one_day else []
         # No stated window on a trend: the default is explicit (v1.7 10f item 4), from Vita's registry freshness:
         # fresh_days <= 14 (daily/nightly wearables) -> 30 days; sparse (labs, body composition) -> all history.
@@ -2414,8 +2417,10 @@ class Parser:
             # far") is the calendar day, "this week"/"this month" (as worded: "since Monday" stays between) the calendar week/month; a night
             # read (the 10g.4 split), a "since" window and past periods keep whole-day between.
             wtext = ' '.join([time_text or ''] + [cur[a:z] for a, z in self._reading_sentences(cur, runs)])
-            now = 'day' if period == {'kind': 'between', 'start_at': ref.isoformat(), 'end_at': ref.isoformat()} else \
-                  next((u for u, rx in (('week', WEEK_NOW), ('month', MONTH_NOW)) if rx.search(wtext)), None)
+            # The first day of a week/month has the same dates as today, but
+            # must retain the selected period's scope and presentation.
+            now = next((u for u, rx in (('week', WEEK_NOW), ('month', MONTH_NOW)) if rx.search(wtext)), None)
+            if now is None and period == {'kind': 'between', 'start_at': ref.isoformat(), 'end_at': ref.isoformat()}:now = 'day'
             start = {'day': ref, 'week': ref - timedelta(days=ref.weekday()), 'month': ref.replace(day=1)}.get(now)
             shaped = {'kind': 'calendar', 'period': now} if now and not night_part and kind != 'since' and period in (
                 {'kind': 'calendar', 'period': now}, {'kind': 'between', 'start_at': start.isoformat(), 'end_at': ref.isoformat()}) else period
