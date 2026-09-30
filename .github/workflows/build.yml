@@ -25,14 +25,14 @@ jobs:
         run: docker build -t "ghcr.io/vitadao/open-jev-tinfoil:candidate-${{ github.sha }}" .
       - name: Full implementation suite in the Linux image
         run: |
-          docker run --rm --entrypoint sh --user 0 -e OPEN_JEV_PARSER=rules -v "$PWD/tests:/app/tests:ro" -v "$PWD/scripts:/app/scripts:ro" -v "$PWD/evidence:/app/evidence:ro" -v "$PWD/experiments:/app/experiments:ro" "ghcr.io/vitadao/open-jev-tinfoil:candidate-${{ github.sha }}" -c 'pip install pytest==9.1.1 httpx==0.28.1 tinfoil==0.14.0 >/dev/null && PYTHONPATH=/app:/app/vendor python -m pytest -q tests' | tee "$RUNNER_TEMP/unit-tests.txt"
+          docker run --rm --entrypoint sh --user 0 -e OPEN_JEV_PARSER=rules -v "$PWD/learned_models:/tinfoil/models/jev-learned:ro" -v "$PWD/tests:/app/tests:ro" -v "$PWD/scripts:/app/scripts:ro" -v "$PWD/evidence:/app/evidence:ro" -v "$PWD/experiments:/app/experiments:ro" "ghcr.io/vitadao/open-jev-tinfoil:candidate-${{ github.sha }}" -c 'pip install pytest==9.1.1 httpx==0.28.1 tinfoil==0.14.0 >/dev/null && PYTHONPATH=/app:/app/vendor python -m pytest -q tests' | tee "$RUNNER_TEMP/unit-tests.txt"
       - name: Actual learned serving with 8 GB and four CPUs
         shell: bash
         run: |
           set -euo pipefail
           export OPEN_JEV_CANDIDATE_API_KEY=$(openssl rand -hex 32)
           echo "::add-mask::$OPEN_JEV_CANDIDATE_API_KEY"
-          docker run -d --name jev-candidate-smoke --memory 8g --cpus 4 --read-only --cap-drop ALL --security-opt no-new-privileges --tmpfs /tmp:rw,noexec,nosuid,nodev,size=64m,mode=1777 -e ENABLE_EXPERIMENTAL_SELECTOR=1 -e OPEN_JEV_CANDIDATE_API_KEY -p 127.0.0.1:18080:8080 "ghcr.io/vitadao/open-jev-tinfoil:candidate-${{ github.sha }}"
+          docker run -d --name jev-candidate-smoke --memory 8g --cpus 4 --read-only --cap-drop ALL --security-opt no-new-privileges --tmpfs /tmp:rw,noexec,nosuid,nodev,size=64m,mode=1777 -v "$PWD/learned_models:/tinfoil/models/jev-learned:ro" -e ENABLE_EXPERIMENTAL_SELECTOR=1 -e OPEN_JEV_CANDIDATE_API_KEY -p 127.0.0.1:18080:8080 "ghcr.io/vitadao/open-jev-tinfoil:candidate-${{ github.sha }}"
           ready=false
           for i in $(seq 1 180); do
             if curl -fsS http://127.0.0.1:18080/health > "$RUNNER_TEMP/health.json"; then ready=true; break; fi
