@@ -8,7 +8,7 @@ import time
 from contextlib import asynccontextmanager
 from typing import Annotated, Literal
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, ConfigDict, Field, StringConstraints, model_validator
@@ -81,6 +81,75 @@ class RequestGuard:
             return await receive()
         await self.app(scope, bounded_receive, send)
 
+class InferenceQueue:
+    """One running inference, at most 16 FIFO waiters, 500 ms queue deadline."""
+    capacity = 16
+    wait_seconds = 0.5
+
+    def __init__(self):
+        self.lock = asyncio.Lock()
+        self.waiting = 0
+
+    @staticmethod
+    def busy():
+        return HTTPException(429, 'Inference busy; retry later', headers={'Retry-After': '1'})
+
+    async def run(self, request, function, payload):
+        acquired = False
+        try:
+            if not self.lock.locked() and not self.waiting:
+                await self.lock.acquire()
+                acquired = True
+            else:
+                if self.waiting >= self.capacity:
+                    raise self.busy()
+                self.waiting += 1
+                acquire = asyncio.create_task(self.lock.acquire())
+                async def disconnected():
+                    while True:
+                        if (await request.receive())['type'] == 'http.disconnect':
+                            return
+                disconnect = asyncio.create_task(disconnected())
+                try:
+                    done, _ = await asyncio.wait(
+                        (acquire, disconnect), timeout=self.wait_seconds,
+                        return_when=asyncio.FIRST_COMPLETED)
+                    if disconnect in done:
+                        # Client is gone; remove its waiter without running inference.
+                        raise HTTPException(499, 'Client disconnected')
+                    if acquire not in done:
+                        raise self.busy()
+                    acquire.result()
+                finally:
+                    for task in (acquire, disconnect):
+                        if not task.done():
+                            task.cancel()
+                    await asyncio.gather(acquire, disconnect, return_exceptions=True)
+                    acquired = (not acquire.cancelled() and acquire.exception() is None
+                                and acquire.result())
+                    self.waiting -= 1
+
+            # Cancelling a request cannot stop a Python inference thread. Keep the
+            # slot until that thread actually finishes, preventing overlapping work.
+            worker = asyncio.create_task(run_in_threadpool(function, payload))
+            cancelled = False
+            while not worker.done():
+                try:
+                    await asyncio.shield(worker)
+                except asyncio.CancelledError:
+                    cancelled = True
+                except Exception:
+                    break
+            if cancelled:
+                # Retrieve any exception before propagating request cancellation.
+                if not worker.cancelled():
+                    worker.exception()
+                raise asyncio.CancelledError
+            return worker.result()
+        finally:
+            if acquired:
+                self.lock.release()
+
 class Engine:
     def __init__(self):
         import torch
@@ -134,7 +203,8 @@ def create_app(engine_factory=Engine, token=None, selector_enabled=None):
         app.state.engine = None
     app = FastAPI(lifespan=lifespan, docs_url=None, redoc_url=None, openapi_url=None)
     app.add_middleware(RequestGuard, token=token)
-    lock = asyncio.Lock()
+    queue = InferenceQueue()
+    app.state.inference_queue = queue
     @app.exception_handler(RequestValidationError)
     async def invalid_request(request, exc):
         # Pydantic's default error includes raw user inputs; do not echo them.
@@ -142,6 +212,7 @@ def create_app(engine_factory=Engine, token=None, selector_enabled=None):
     @app.get('/health')
     async def health():
         return {'status': 'ready', 'model_revision': MODEL_REVISION, 'device': 'cpu',
+                'inference_queue_capacity': queue.capacity, 'inference_queue_wait_ms': int(queue.wait_seconds * 1000),
                 'max_state_tokens': 256, 'max_sequence_tokens': 512, 'adapter_sha256': ADAPTER_SHA256,
                 'selector_enabled': selector_enabled, 'selector_schema': 'vita-selector/v2',
                 'selector_sha256': selector_identity(), 'selector_adapter_sha256': INTENT_SHA256,
@@ -150,39 +221,36 @@ def create_app(engine_factory=Engine, token=None, selector_enabled=None):
                 'learned_parser_sha256': getattr(app.state.engine, 'learned_parser_sha256', None)}
 
     @app.post('/v1/select', response_model=QueryPlan)
-    async def select_reads(request: QueryRequest):
+    async def select_reads(request: QueryRequest, http_request: Request):
         if not selector_enabled:
             raise HTTPException(503, "Experimental selector has not passed acceptance")
-        if lock.locked():
-            raise HTTPException(429, 'Inference busy; retry later', headers={'Retry-After': '1'})
-        async with lock:
-            try:
-                return await run_in_threadpool(app.state.engine.select, request)
-            except ValueError:
-                raise HTTPException(422, 'Input exceeds model token limits') from None
-            except Exception:
-                raise HTTPException(500, 'Inference failed') from None
+        try:
+            return await queue.run(http_request, app.state.engine.select, request)
+        except HTTPException:
+            raise
+        except ValueError:
+            raise HTTPException(422, 'Input exceeds model token limits') from None
+        except Exception:
+            raise HTTPException(500, 'Inference failed') from None
 
     @app.post('/decide')
-    async def decide(request: DecisionRequest):
-        if lock.locked():
-            raise HTTPException(429, 'Inference busy; retry later', headers={'Retry-After': '1'})
-        async with lock:
-            try:
-                return await run_in_threadpool(app.state.engine.decide, request)
-            except ValueError:
-                raise HTTPException(422, 'Input exceeds model token limits') from None
-            except Exception:
-                raise HTTPException(500, 'Inference failed') from None
+    async def decide(request: DecisionRequest, http_request: Request):
+        try:
+            return await queue.run(http_request, app.state.engine.decide, request)
+        except HTTPException:
+            raise
+        except ValueError:
+            raise HTTPException(422, 'Input exceeds model token limits') from None
+        except Exception:
+            raise HTTPException(500, 'Inference failed') from None
     @app.post('/route')
-    async def route(request: RouteRequest):
-        if lock.locked():
-            raise HTTPException(429, 'Inference busy; retry later', headers={'Retry-After': '1'})
-        async with lock:
-            try:
-                return await run_in_threadpool(app.state.engine.route, request)
-            except ValueError:
-                raise HTTPException(422, 'Input exceeds model token limits') from None
-            except Exception:
-                raise HTTPException(500, 'Inference failed') from None
+    async def route(request: RouteRequest, http_request: Request):
+        try:
+            return await queue.run(http_request, app.state.engine.route, request)
+        except HTTPException:
+            raise
+        except ValueError:
+            raise HTTPException(422, 'Input exceeds model token limits') from None
+        except Exception:
+            raise HTTPException(500, 'Inference failed') from None
     return app

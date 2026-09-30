@@ -1,4 +1,4 @@
-"""The serving image holds every module server.py imports and serves the learned parser from weights baked into it.
+"""The serving image holds every module server.py imports and serves the learned parser from a verified model mount.
 
 Model-free: reads the Dockerfile and walks the imports with ast, function-level ones included (server.py loads the learned
 parser lazily). The CI image runs this suite with only tests/, scripts/ and evidence/ mounted: no Dockerfile to read there.
@@ -111,7 +111,7 @@ def test_every_module_the_server_imports_is_copied_into_the_image():
     assert not missing, f'server.py imports these, but the image has no {root}/<path>: {missing}'
 
 
-def test_learned_parser_env_points_at_the_baked_in_models():
+def test_learned_parser_env_points_at_the_mounted_models():
     from scripts.stage_learned_models import MODELS
     env = image_env()
     assert env.get('OPEN_JEV_PARSER') == 'learned'
@@ -124,14 +124,15 @@ def test_learned_parser_env_points_at_the_baked_in_models():
         assert 0 <= float(env.get(key, 'nan')) <= 1, key
 
 
-def test_learned_models_copy_is_followed_by_a_manifest_check():
+def test_model_mount_uses_verified_candidate_entrypoint():
     steps = instructions()
-    at = [i for i, (name, args) in enumerate(steps)
-          if name == 'COPY' and 'learned_models' in [word.rstrip('/') for word in args.split()[:-1]]]
-    assert len(at) == 1, 'learned_models/ is copied into the image once'
-    assert PurePosixPath(steps[at[0]][1].split()[-1]) == LEARNED
-    name, run = steps[at[0] + 1]
-    assert name == 'RUN' and re.match(rf'cd {LEARNED}/? &&', run), 'the next step checks the copied files'
-    checks = re.findall(r'\bsha256sum((?: --?[a-z]+)+) MANIFEST\.sha256\b', run)
-    assert any({'-c', '--check'} & set(flags.split()) for flags in checks), 'every file against MANIFEST.sha256'
-    assert re.search(r'\b[0-9a-f]{64}  MANIFEST\.sha256\b', run), 'the manifest itself pinned by digest'
+    assert ('RUN', 'ln -s /tinfoil/models/jev-learned /opt/learned') in steps
+    assert not any(name == 'COPY' and 'learned_models' in args for name, args in steps)
+    assert ('CMD', '["python", "/app/scripts/run_candidate.py"]') in steps
+    # Integrity checks must execute before starting the serving process.
+    tree = ast.parse((ROOT / 'scripts/run_candidate.py').read_text())
+    entrypoint = next(node for node in tree.body if isinstance(node, ast.If))
+    calls = [node.value for node in entrypoint.body if isinstance(node, ast.Expr)
+             and isinstance(node.value, ast.Call)]
+    assert isinstance(calls[0].func, ast.Name) and calls[0].func.id == 'verify_models'
+    assert isinstance(calls[-1].func, ast.Attribute) and calls[-1].func.attr == 'execvp'
