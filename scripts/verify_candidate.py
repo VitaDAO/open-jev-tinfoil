@@ -21,7 +21,14 @@ def main():
         if not args.release_digest:
             raise ValueError('A reviewed candidate release digest is required')
         from tinfoil import SecureClient
-        verifier = SecureClient(enclave=args.enclave, repo='VitaDAO/open-jev-candidate-tinfoil-config', transport='tls')
+        class ReleasePinnedClient(SecureClient):
+            def verify(self):
+                result = super().verify()
+                document = self.get_verification_document()
+                if not document or document.security_verified is not True or document.release_digest != args.release_digest:
+                    raise RuntimeError('Candidate attestation or release pin mismatch')
+                return result
+        verifier = ReleasePinnedClient(enclave=args.enclave, repo='VitaDAO/open-jev-candidate-tinfoil-config', transport='tls')
         verifier.verify()
         document = verifier.get_verification_document()
         if not document or document.security_verified is not True or document.release_digest != args.release_digest:

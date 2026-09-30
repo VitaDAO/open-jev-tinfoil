@@ -6,6 +6,7 @@ No sealed datasets are accepted by the recorder.
 import copy
 import hashlib
 import json
+import math
 from pathlib import Path
 
 import torch
@@ -77,10 +78,22 @@ def load(directory):
     return parser, json.loads((directory / 'cases.json').read_text())
 
 
+def same_output(actual, expected):
+    """Plans stay exact; recorded softmax scores permit CPU rounding only."""
+    actual, expected = dict(actual), dict(expected)
+    for name in ('confidence', 'decision_confidence'):
+        if name in actual or name in expected:
+            if name not in actual or name not in expected:
+                return False
+            if not math.isclose(actual.pop(name), expected.pop(name), rel_tol=1e-6, abs_tol=1e-7):
+                return False
+    return actual == expected
+
+
 def verify(directory):
     parser, cases = load(directory)
     with torch.inference_mode():
         for request, expected in cases:
             actual = parser.select(request)
-            assert actual == expected, (request['state']['current_request'], expected, actual)
+            assert same_output(actual, expected), (request['state']['current_request'], expected, actual)
     return len(cases)
