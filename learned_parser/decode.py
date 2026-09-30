@@ -725,7 +725,7 @@ class InputTokenBudgetExceeded(ValueError):
 class Parser:
     def __init__(self, path, vocab=DATA / 'vocabulary_enriched.json', acute=True, plan_threshold=None):
         self.tok = AutoTokenizer.from_pretrained(path); enc = AutoModel.from_pretrained(path)
-        self.model = JevParser(enc, enc.config.hidden_size); load_parser_state(self.model, torch.load(path / 'heads.pt')); self.model.eval()
+        self.model = JevParser(enc, enc.config.hidden_size); load_parser_state(self.model, torch.load(path / 'heads.pt', map_location='cpu', weights_only=True)); self.model.eval()
         self.items = json.load(open(path / 'items.json'))
         with torch.inference_mode():
             self.I = torch.cat([self.model.item_embeddings(self.tok([t for _, _, t in self.items[i:i + 64]], return_tensors='pt', padding=True, truncation=True, max_length=96)) for i in range(0, len(self.items), 64)])

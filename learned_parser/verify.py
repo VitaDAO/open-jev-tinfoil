@@ -84,7 +84,7 @@ class Verifier:
         path = Path(path); self.v = json.load(open(path / 'verifier.json'))['text_version'] if (path / 'verifier.json').exists() else 1
         if self.v > TEXT_VERSION: raise ValueError(f'checker text version {self.v} is newer than this code ({TEXT_VERSION})')
         self.tok = AutoTokenizer.from_pretrained(path); enc = AutoModel.from_pretrained(path)
-        self.m = Model(enc); self.m.head.load_state_dict(torch.load(path / head_file(self.v))); self.m.eval()
+        self.m = Model(enc); self.m.head.load_state_dict(torch.load(path / head_file(self.v), map_location='cpu', weights_only=True)); self.m.eval()
     @torch.inference_mode()
     def score(self, req, queries):
         st = req['state']; row = (st['current_request'], st.get('recent_user_requests'), queries, st.get('reference_date'))
