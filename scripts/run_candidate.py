@@ -1,4 +1,4 @@
-"""Candidate-only verified model mount and secret mapping; inference is unchanged."""
+"""Candidate-only verified model mount behind an authenticated Tinfoil shim."""
 import hashlib
 import os
 from pathlib import Path
@@ -23,7 +23,9 @@ def verify_models(root=Path('/opt/learned'), expected_manifest=MANIFEST_SHA256):
 
 if __name__ == '__main__':
     verify_models()
-    os.environ['OPEN_JEV_API_KEY'] = os.environ.pop('OPEN_JEV_CANDIDATE_API_KEY')
+    if os.environ.get('OPEN_JEV_AUTH_MODE') != 'tinfoil':
+        raise RuntimeError('Candidate requires Tinfoil shim authentication')
     os.execvp('uvicorn', ['uvicorn', 'server:create_app', '--factory', '--host',
         '0.0.0.0', '--port', '8080', '--workers', '1', '--no-access-log',
+        '--no-proxy-headers',
         '--limit-concurrency', '64', '--timeout-keep-alive', '5'])

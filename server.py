@@ -49,8 +49,8 @@ class DecisionRequest(BaseModel):
 
 class RequestGuard:
     """Authenticate before reading bodies, and cap even chunked request bodies."""
-    def __init__(self, app, token):
-        self.app, self.token = app, token
+    def __init__(self, app, token, auth_mode='api_key'):
+        self.app, self.token, self.auth_mode = app, token, auth_mode
 
     async def __call__(self, scope, receive, send):
         if scope['type'] != 'http':
@@ -58,10 +58,17 @@ class RequestGuard:
         async def reject(status, detail):
             await JSONResponse({'detail': detail}, status_code=status)(scope, receive, send)
         if scope['path'] != '/health':
-            headers = dict(scope['headers'])
-            expected = ('Bearer ' + self.token).encode()
-            if not hmac.compare_digest(headers.get(b'authorization', b''), expected):
-                return await reject(401, 'Unauthorized')
+            if self.auth_mode == 'tinfoil':
+                # CVM 0.14.7 reserves this private address for the authenticated
+                # shim-to-upstream hop. Do not trust forwarded client headers.
+                peer = scope.get('client')
+                if not peer or peer[0] != '172.31.255.1':
+                    return await reject(403, 'Authenticated shim required')
+            else:
+                headers = dict(scope['headers'])
+                expected = ('Bearer ' + self.token).encode()
+                if not hmac.compare_digest(headers.get(b'authorization', b''), expected):
+                    return await reject(401, 'Unauthorized')
         body = bytearray()
         while True:
             message = await receive()
@@ -190,11 +197,14 @@ class Engine:
                 'inference_ms': round((time.perf_counter() - started) * 1000, 2),
                 'weight_storage_dtype': self.weight_storage_dtype, 'backbone_compute_dtype': 'float32'}
 
-def create_app(engine_factory=Engine, token=None, selector_enabled=None):
+def create_app(engine_factory=Engine, token=None, selector_enabled=None, auth_mode=None):
     selector_enabled = (os.environ.get("ENABLE_EXPERIMENTAL_SELECTOR") == "1"
                         if selector_enabled is None else selector_enabled)
+    auth_mode = auth_mode if auth_mode is not None else os.environ.get('OPEN_JEV_AUTH_MODE', 'api_key')
+    if auth_mode not in ('api_key', 'tinfoil'):
+        raise RuntimeError('Unsupported Open-JEV authentication mode')
     token = token if token is not None else os.environ.get('OPEN_JEV_API_KEY', '')
-    if len(token) < 32:
+    if auth_mode == 'api_key' and len(token) < 32:
         raise RuntimeError('OPEN_JEV_API_KEY must contain at least 32 characters')
     @asynccontextmanager
     async def lifespan(app):
@@ -202,7 +212,7 @@ def create_app(engine_factory=Engine, token=None, selector_enabled=None):
         yield
         app.state.engine = None
     app = FastAPI(lifespan=lifespan, docs_url=None, redoc_url=None, openapi_url=None)
-    app.add_middleware(RequestGuard, token=token)
+    app.add_middleware(RequestGuard, token=token, auth_mode=auth_mode)
     queue = InferenceQueue()
     app.state.inference_queue = queue
     @app.exception_handler(RequestValidationError)

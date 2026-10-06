@@ -1,0 +1,4 @@
+# Only the authentication boundary changes; retain the exact deployed runtime.
+FROM ghcr.io/vitadao/open-jev-tinfoil@sha256:3541c5ca189f227eed456f7f8a9872ab8f7b2369a82b76b8a4b0345f7133ea18
+COPY server.py /app/server.py
+COPY scripts/run_candidate.py /app/scripts/run_candidate.py
