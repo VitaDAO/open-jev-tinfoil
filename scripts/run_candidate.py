@@ -27,5 +27,4 @@ if __name__ == '__main__':
         raise RuntimeError('Candidate requires Tinfoil shim authentication')
     os.execvp('uvicorn', ['uvicorn', 'server:create_app', '--factory', '--host',
         '0.0.0.0', '--port', '8080', '--workers', '1', '--no-access-log',
-        '--no-proxy-headers',
         '--limit-concurrency', '64', '--timeout-keep-alive', '5'])

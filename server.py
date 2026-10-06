@@ -58,17 +58,13 @@ class RequestGuard:
         async def reject(status, detail):
             await JSONResponse({'detail': detail}, status_code=status)(scope, receive, send)
         if scope['path'] != '/health':
-            if self.auth_mode == 'tinfoil':
-                # CVM 0.14.7 reserves this private address for the authenticated
-                # shim-to-upstream hop. Do not trust forwarded client headers.
-                peer = scope.get('client')
-                if not peer or peer[0] != '172.31.255.1':
-                    return await reject(403, 'Authenticated shim required')
-            else:
+            if self.auth_mode == 'api_key':
                 headers = dict(scope['headers'])
                 expected = ('Bearer ' + self.token).encode()
                 if not hmac.compare_digest(headers.get(b'authorization', b''), expected):
                     return await reject(401, 'Unauthorized')
+            # In Tinfoil mode the measured deployment's authenticated shim owns
+            # admission. Its upstream has no published application port.
         body = bytearray()
         while True:
             message = await receive()
