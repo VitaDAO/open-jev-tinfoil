@@ -1,7 +1,7 @@
 name: Build candidate with Tinfoil authentication
 on:
   push:
-    branches: [codex/candidate-tinfoil-auth]
+    branches: [codex/candidate-tinfoil-auth, codex/candidate-tinfoil-auth-v2]
     paths:
       - server.py
       - scripts/run_candidate.py
@@ -21,6 +21,9 @@ jobs:
       - name: Authentication and inference queue regressions
         run: |
           docker run --rm --user 0 --entrypoint sh -e OPEN_JEV_PARSER=rules -v "$PWD/tests:/app/tests:ro" ghcr.io/vitadao/open-jev-tinfoil:candidate-auth-${{ github.sha }} -c 'pip install pytest==9.1.1 httpx==0.28.1 >/dev/null && PYTHONPATH=/app:/app/vendor python -m pytest -q tests/test_server.py tests/test_tinfoil_auth.py tests/test_inference_queue.py tests/test_candidate_model_mount.py'
+      - name: Preserve the deployed learned selector identity
+        run: |
+          docker run --rm --entrypoint python -e OPEN_JEV_PARSER=learned ghcr.io/vitadao/open-jev-tinfoil:candidate-auth-${{ github.sha }} -c 'from query_selector import identity, INTENT_SHA256; assert identity() == "e3aa40abe0285ff0abdb8af76b946b7a7c6eb2734766bc4192cf5a280c4a3398"; assert INTENT_SHA256 == "79057d0e2673aa2813a8ea64193d74182a33392b1221c7c06d4afc7afe18dc36"; print("Deployed selector identity preserved")'
       - name: Push tested candidate image
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
