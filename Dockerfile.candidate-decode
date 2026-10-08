@@ -1,0 +1,3 @@
+# Only the learned decoder changes; retain the exact deployed runtime (v0.1.9).
+FROM ghcr.io/vitadao/open-jev-tinfoil@sha256:88e92243c4c2d42dc96a052633a5715a6ca231e5201bde8eeb2e3164d85c54e8
+COPY --chmod=0644 learned_parser/decode.py /app/learned_parser/decode.py

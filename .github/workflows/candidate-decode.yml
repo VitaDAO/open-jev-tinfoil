@@ -1,0 +1,78 @@
+name: Build candidate with the inventory-alias decoder
+on:
+  push:
+    branches: [agent/claude/hscrp-inventory-alias]
+  workflow_dispatch:
+defaults:
+  run:
+    shell: bash
+permissions:
+  contents: read
+  packages: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      IMAGE: ghcr.io/vitadao/open-jev-tinfoil:candidate-decode-${{ github.sha }}
+    steps:
+      - uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8
+      - name: Fetch exact pinned candidate model build input
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release download jev-r8-v4-build-input-20260930 --repo "$GITHUB_REPOSITORY" --pattern jev-r8-v4-models.tar.gz --dir "$RUNNER_TEMP"
+          printf '%s  %s\n' '7fef7fdf0f89fd08f2eb5f541b34486f533ee16cc640622168cf6c28f744dbd3' "$RUNNER_TEMP/jev-r8-v4-models.tar.gz" | sha256sum --check --strict
+          tar -xzf "$RUNNER_TEMP/jev-r8-v4-models.tar.gz"
+          rm "$RUNNER_TEMP/jev-r8-v4-models.tar.gz"
+      - name: Build from the exact deployed image
+        run: docker build -f Dockerfile.candidate-decode -t "$IMAGE" .
+      - name: Only the decoder differs from the deployed file set
+        run: |
+          docker run --rm --entrypoint sh "$IMAGE" -c 'sha256sum /app/learned_parser/decode.py; stat -c %a /app/learned_parser/decode.py' | tee "$RUNNER_TEMP/decode-in-image.txt"
+          test "$(head -1 "$RUNNER_TEMP/decode-in-image.txt" | cut -d' ' -f1)" = "$(sha256sum learned_parser/decode.py | cut -d' ' -f1)"
+          test "$(tail -1 "$RUNNER_TEMP/decode-in-image.txt")" = 644
+      - name: Decoder regressions with the learned models (the alias tests fail rather than skip)
+        run: |
+          docker run --rm --entrypoint sh --user 0 -e OPEN_JEV_PARSER=rules -e REQUIRE_LEARNED_MODELS=1 -v "$PWD/learned_models:/tinfoil/models/jev-learned:ro" -v "$PWD/tests:/app/tests:ro" -v "$PWD/scripts:/app/scripts:ro" -v "$PWD/evidence:/app/evidence:ro" -v "$PWD/experiments:/app/experiments:ro" "$IMAGE" -c 'pip install pytest==9.1.1 httpx==0.28.1 tinfoil==0.14.0 >/dev/null && PYTHONPATH=/app:/app/vendor python -m pytest -q -rs tests/test_inventory_alias_metrics.py tests/test_learned_parser_path.py' | tee "$RUNNER_TEMP/decode-tests.txt"
+      - name: Selector and intent identity
+        run: |
+          docker run --rm --entrypoint python -e OPEN_JEV_PARSER=learned "$IMAGE" -c 'from query_selector import identity, INTENT_SHA256; assert identity() == "1429af1a79a5142aa7fdacd03a790c78335bf7c50fddc492115306886a308e84", identity(); assert INTENT_SHA256 == "79057d0e2673aa2813a8ea64193d74182a33392b1221c7c06d4afc7afe18dc36"; print("Candidate decoder identity as pinned")'
+      - name: Actual learned serving and release parity
+        run: |
+          set -euo pipefail
+          export OPEN_JEV_CANDIDATE_API_KEY=$(openssl rand -hex 32)
+          echo "::add-mask::$OPEN_JEV_CANDIDATE_API_KEY"
+          docker run -d --name jev-candidate-smoke --memory 8g --cpus 4 --read-only --cap-drop ALL --security-opt no-new-privileges --tmpfs /tmp:rw,noexec,nosuid,nodev,size=64m,mode=1777 -v "$PWD/learned_models:/tinfoil/models/jev-learned:ro" -e ENABLE_EXPERIMENTAL_SELECTOR=1 -e OPEN_JEV_CANDIDATE_API_KEY -p 127.0.0.1:18080:8080 "$IMAGE"
+          ready=false
+          for i in $(seq 1 180); do
+            if curl -fsS http://127.0.0.1:18080/health > "$RUNNER_TEMP/health.json"; then ready=true; break; fi
+            if [ "$(docker inspect -f '{{.State.Running}}' jev-candidate-smoke)" != true ]; then docker logs jev-candidate-smoke; exit 1; fi
+            sleep 2
+          done
+          if [ "$ready" != true ]; then docker logs jev-candidate-smoke; exit 1; fi
+          python -m pip install pydantic==2.13.5 httpx==0.28.1
+          PYTHONPATH=.:vendor python scripts/verify_candidate.py --base-url http://127.0.0.1:18080 --output "$RUNNER_TEMP/linux-parity.json"
+          docker rm -f jev-candidate-smoke
+      - name: Push tested candidate image
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          printf '%s' "$GH_TOKEN" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
+          docker push "$IMAGE"
+          docker image inspect "$IMAGE" --format '{{index .RepoDigests 0}}' > "$RUNNER_TEMP/candidate-decode-image.txt"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: candidate-decode-image
+          path: ${{ runner.temp }}/candidate-decode-image.txt
+      - name: Preserve candidate evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: candidate-decode-evidence-${{ github.sha }}
+          if-no-files-found: warn
+          path: |
+            ${{ runner.temp }}/decode-tests.txt
+            ${{ runner.temp }}/decode-in-image.txt
+            ${{ runner.temp }}/health.json
+            ${{ runner.temp }}/linux-parity.json
