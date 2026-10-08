@@ -49,7 +49,7 @@ class HealthRead(Closed):
     kind: Literal['health']='health'
     metrics: list[Metric]=Field(default_factory=list,max_length=MAX_METRICS_PER_READ)
     records: list[Literal['profile','workouts','labs','calendar']]=Field(default_factory=list,max_length=1)
-    operation: Literal['latest','trend']='trend'
+    operation: Literal['latest','trend','summary']='trend'
     period: dict
     source: Source|None=None
     profile_fields: list[str]=Field(default_factory=list,max_length=32)
@@ -75,7 +75,9 @@ class HealthRead(Closed):
         if len(self.metrics)!=len(set(self.metrics)):raise ValueError('Duplicate metric')
         if self.limit is not None and (not self.records or self.records==['profile'] or self.operation!='latest'):
             raise ValueError('Limit requires latest records')
-        if self.records and self.operation!='latest':raise ValueError('Record reads require latest ordering')
+        if self.records and self.operation not in ('latest','summary'):raise ValueError('Record reads require latest ordering or a summary')
+        # A summary counts and covers one record type over the period. It carries no page, no metric and never the profile snapshot.
+        if self.operation=='summary' and (not self.records or self.records==['profile']):raise ValueError('Summaries are record reads')
         if self.source and self.records:raise ValueError('Record source contract unavailable')
         if self.records==['profile']:
             if self.operation!='latest':raise ValueError('Profile snapshot only')
@@ -217,7 +219,7 @@ def compile_batch(plan, request):
             operations=[];field='health_reads'
             for i in range(0,max(1,len(query.metrics)),MAX_METRICS_PER_READ):
                 op={'concepts':list(dict.fromkeys(canonical_metric(m) for m in query.metrics[i:i+MAX_METRICS_PER_READ])),'record_types':query.records,
-                    'profile_fields':query.profile_fields,'purpose':query.operation,
+                    'profile_fields':query.profile_fields,'purpose':'trend' if query.operation=='summary' else query.operation,
                     'range':query.period,'time_zone':plan.time_zone,'grouping':'none' if query.operation=='latest' else 'auto',
                     'result_view':'summary'}
                 if query.source:op['source']=query.source
@@ -226,7 +228,7 @@ def compile_batch(plan, request):
                     # must prove raw all-history coverage and project episodes;
                     # this batch alone is NOT a completed user query.
                     op.update(range={'kind':'all_history'},purpose='trend',grouping='none',result_view='detail')
-                if query.records and query.records!=['profile']:
+                if query.records and query.records!=['profile'] and query.operation!='summary':
                     op.update(record_detail_dataset=INDEX['records'][query.records[0]]['dataset'],record_detail_limit=query.limit or 200)
                 if query.records==['calendar']:op['calendar_date_basis']=query.date_basis
                 operations.append(op)

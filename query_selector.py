@@ -955,7 +955,7 @@ def learned_queries(request,diagnostics):
             period={'kind':'all_history'} if record=='profile' else q['period']
             # calendar reads carry their own basis (due/done wording, spec v1.8 10g.19); other records use the record's basis
             basis=q.get('date_basis') if record=='calendar' and q.get('date_basis') else RECORD_BASIS[record]
-            queries.append(HealthRead(records=[record],operation='latest',period=period,date_basis=basis,
+            queries.append(HealthRead(records=[record],operation='summary' if q.get('operation')=='summary' else 'latest',period=period,date_basis=basis,
                                       profile_fields=q.get('profile_fields') or []))
         else:
             queries.append(HealthRead(metrics=q['metrics'],operation=q['operation'],period=q['period'],source=q.get('source'),

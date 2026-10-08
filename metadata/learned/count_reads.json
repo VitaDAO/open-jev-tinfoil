@@ -1,0 +1,12 @@
+{
+ "_doc": "Which counts the plan contract can serve as a record summary (operation 'summary'): how many records of ONE whole record type exist in a stated window. A summary has no filter, unit or comparison, so only a request made of nothing but the count cue, the record's own generic name, a window and the fillers below is planned; anything else (a filter such as 'strength' or 'over 30 minutes', days instead of sessions, a metric, a second window) keeps the model's count handoff. Data, not rules: adding a record type or a name needs an entry here and a test, not decoder code.",
+ "records": {
+  "workouts": ["workouts", "workout", "workout sessions", "exercise sessions", "training sessions", "gym sessions", "sessions of exercise"]
+ },
+ "cue": "^(?:how many|(?:the |a )?(?:total )?(?:number|count) of|what(?:'s| is) the (?:total )?(?:number|count) of|total (?:number|count) of|count(?: up)?|tally(?: up)?)\\b",
+ "lead_in": ["my", "the", "all", "all of my", "all my", "of my", "of", "total", "overall"],
+ "all_time": ["ever", "all time", "all-time", "in total", "altogether", "in all", "to date", "on record", "in my history"],
+ "filler": ["how", "many", "number", "of", "the", "a", "total", "count", "tally", "up", "my", "i", "ive", "i've", "we", "did", "do", "does", "done", "have", "has", "had", "been", "is", "are", "was", "were", "there",
+            "recorded", "logged", "completed", "finished", "tracked", "performed", "log", "record", "complete", "track", "in", "on", "during", "over", "for", "from", "between", "and", "to", "through",
+            "since", "until", "till", "so", "far", "ever", "all", "time", "altogether", "overall", "date", "history", "on", "record", "what", "s", "me", "give", "show", "tell", "please"]
+}
