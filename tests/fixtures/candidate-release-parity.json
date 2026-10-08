@@ -1,6 +1,6 @@
 {
   "scope": "Serving parity on 210 previously used readable synthetic development requests and 90 acute safety cases; not a new accuracy exam. No sealed data.",
-  "selector_sha256": "f881fc84d64992e95e036ebf0f52c8288611d66da4eae2bc91c8f1bffb8b2c9c",
+  "selector_sha256": "87916b404e3e344620f8879319f081ad16e823ebfc0e41dacc3212e26b0938e7",
   "learned_parser_sha256": "3c726da24c2b932598b781e00a4fad6e3462451e7906c704ceac072838633e25",
   "cases": [
     {
@@ -27090,8 +27090,24 @@
           "time_zone": "Europe/Bucharest"
         }
       },
-      "status": "handoff",
-      "queries": []
+      "status": "planned",
+      "queries": [
+        {
+          "kind": "health",
+          "metrics": [
+            "weight"
+          ],
+          "records": [],
+          "operation": "latest",
+          "period": {
+            "kind": "all_history"
+          },
+          "source": null,
+          "profile_fields": [],
+          "limit": null,
+          "date_basis": "observed_at"
+        }
+      ]
     },
     {
       "id": "v11-0293",
