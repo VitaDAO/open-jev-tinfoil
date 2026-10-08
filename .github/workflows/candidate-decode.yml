@@ -43,7 +43,12 @@ jobs:
           set -euo pipefail
           export OPEN_JEV_CANDIDATE_API_KEY=$(openssl rand -hex 32)
           echo "::add-mask::$OPEN_JEV_CANDIDATE_API_KEY"
-          docker run -d --name jev-candidate-smoke --memory 8g --cpus 4 --read-only --cap-drop ALL --security-opt no-new-privileges --tmpfs /tmp:rw,noexec,nosuid,nodev,size=64m,mode=1777 -v "$PWD/learned_models:/tinfoil/models/jev-learned:ro" -e ENABLE_EXPERIMENTAL_SELECTOR=1 -e OPEN_JEV_CANDIDATE_API_KEY -p 127.0.0.1:18080:8080 "$IMAGE"
+          # The production entrypoint (scripts/run_candidate.py) verifies the mounted model
+          # manifest and then requires the Tinfoil shim. Check the manifest with that same
+          # function, then serve the image's own app with API-key auth so parity can also
+          # assert that an unauthenticated request is rejected.
+          docker run --rm --entrypoint python -v "$PWD/learned_models:/tinfoil/models/jev-learned:ro" "$IMAGE" -c 'import sys; sys.path.insert(0, "/app/scripts"); import run_candidate; run_candidate.verify_models(); print("Mounted model manifest verified")'
+          docker run -d --name jev-candidate-smoke --memory 8g --cpus 4 --read-only --cap-drop ALL --security-opt no-new-privileges --tmpfs /tmp:rw,noexec,nosuid,nodev,size=64m,mode=1777 -v "$PWD/learned_models:/tinfoil/models/jev-learned:ro" -e ENABLE_EXPERIMENTAL_SELECTOR=1 -e OPEN_JEV_AUTH_MODE=api_key -e OPEN_JEV_API_KEY="$OPEN_JEV_CANDIDATE_API_KEY" -e OPEN_JEV_CANDIDATE_API_KEY -p 127.0.0.1:18080:8080 --entrypoint uvicorn "$IMAGE" server:create_app --factory --host 0.0.0.0 --port 8080 --workers 1 --no-access-log
           ready=false
           for i in $(seq 1 180); do
             if curl -fsS http://127.0.0.1:18080/health > "$RUNNER_TEMP/health.json"; then ready=true; break; fi
