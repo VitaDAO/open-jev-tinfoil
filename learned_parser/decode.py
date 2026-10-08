@@ -844,6 +844,15 @@ class Parser:
                 g = setlink(hist); chosen = set(above(g, self.GROUP_THR))
         return chosen
 
+    @torch.inference_mode()
+    def _named(self, out, offs, lo, hi):
+        """Items the current request's own tokens link above LINK_THR, whether or not the inventory has them (out['link'] is a max over
+        the history tokens too)."""
+        t = F.normalize(self.model.tok_proj(out['hidden'][0]), dim=-1)
+        cur = [j for j, (a, z) in enumerate(offs.tolist()) if z > a and a >= lo and z <= hi]
+        if not cur: return []
+        return above((t[cur] @ self.I.T).max(0).values * self.model.link_scale + self.model.link_bias, self.LINK_THR)
+
     @staticmethod
     def _prior_window(p, ref):
         """(granularity, first day, last day) of a read window that a relative window shifts (10g.25): a current calendar period is the whole
@@ -2043,6 +2052,17 @@ class Parser:
                    'source': None, 'profile_fields': [], 'date_basis': 'observed_at'} for r in BUNDLE_DEFS[bundles[0]]]
             qs = [q for q in qs if q['metrics']]
             return {'status': 'planned', 'reason_codes': [], 'queries': qs, 'confidence': float(probs[0]), 'decision_confidence': float(probs[0])} if qs else H('unresolved_metric_or_record')
+        # A metric or record the request itself names (its own tokens link it above the whole-input threshold; history links do not count)
+        # that this inventory lacks is not a smaller plan of the rest: hand off. The same analyte under another id, a profile twin and
+        # the competing look-alikes of a read item are not other names.
+        if not full_area:
+            got = {ANALYTE.get(resolve.get(self.items[i][1], self.items[i][1]), resolve.get(self.items[i][1], self.items[i][1])) for i in chosen if self.items[i][0] == 'metric'}
+            twin_ids = {m for m, f in [*TWINS.items(), ('bmi', 'bmi')] if 'profile' in recs}
+            for i in self._named(out, offs, base, cur_end):
+                k, key, _ = self.items[i]
+                if ok(k, key) or key in narrow or any(key in e.get('instead_of', ()) for e in APP_ANALYTES.values()): continue
+                if k == 'metric' and (key in twin_ids or ANALYTE.get(key, key) in got): continue
+                return H('requested_metric_unavailable')
         panel_keys = {self.items[i][1] for i in chosen if self.items[i][0] == 'metric' and self.items[i][1] in PANELS}
         if {'panel_cbc', 'panel_cbc_basic'} <= panel_keys:      # the basic count is inside the full one: "CBC without differential drops the differential" (10g.18)
             if not re.search(r'\b(?:without|w/o|no|minus)\s+(?:the\s+)?diff', cur, re.I): return H('unresolved_health_scope')

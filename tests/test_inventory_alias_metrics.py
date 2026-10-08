@@ -74,3 +74,36 @@ def test_overview_reads_the_inventory_ids_of_its_labs(agreement):
     assert plan['status'] == 'planned', plan
     assert {'hs_crp', 'ldl_cholesterol', 'hba1c', 'fasting_glucose', 'apob', 'weight'} <= read(plan)
     assert not read(plan) & {'hscrp', 'ldl'}
+
+
+# A metric the question names but the inventory lacks is a handoff, not a plan of the rest (the user would get an answer that silently omits it).
+def ask_h(agreement, text, history, metrics=VITA_METRICS):
+    return agreement.select({'schema_version': 'vita-selector/v2',
+        'state': {'current_request': text, 'recent_user_requests': history, 'reference_date': '2026-09-26', 'time_zone': 'Europe/Bucharest'},
+        'reference_time': '2026-09-25T22:41:32Z', 'available_metrics': metrics, 'available_record_types': ['profile', 'workouts', 'labs', 'calendar'],
+        'available_sources': [], 'literature_available': True})
+
+
+@pytest.mark.parametrize('text', [
+    'What are my fasting glucose and ferritin?',
+    'Show my HbA1c, ferritin, and steps.',
+])
+def test_a_named_metric_missing_from_the_inventory_hands_off(agreement, text):
+    plan = ask(agreement, text)
+    assert plan['status'] == 'handoff' and plan['reason_codes'] == ['requested_metric_unavailable'], plan
+
+
+def test_the_same_question_plans_when_the_metric_is_available(agreement):
+    plan = ask(agreement, 'What are my fasting glucose and ferritin?', [*VITA_METRICS, 'ferritin'])
+    assert plan['status'] == 'planned' and read(plan) == {'fasting_glucose', 'ferritin'}
+
+
+def test_overview_still_plans_when_a_bundle_member_is_absent(agreement):
+    # the bundle intersects with the inventory on purpose: no apob, weight or resting_heart_rate here
+    plan = ask(agreement, 'Give me an overview of my health.')
+    assert plan['status'] == 'planned' and {'hs_crp', 'hba1c', 'fasting_glucose'} <= read(plan), plan
+
+
+def test_a_metric_named_only_in_history_does_not_hand_off(agreement):
+    plan = ask_h(agreement, 'What is my fasting glucose?', ['What is my ferritin?'])
+    assert plan['status'] == 'planned' and read(plan) == {'fasting_glucose'}, plan
