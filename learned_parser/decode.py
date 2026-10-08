@@ -574,6 +574,53 @@ def one_night_split(qs):
             and p.get('kind') == 'between' and p.get('start_at') == p.get('end_at'))
 
 
+# Count questions (record summaries). The handoff head classifies "how many ..." as a count; the link head, trained on plan rows only,
+# binds nothing on such a row (its logits for the record are ~0), so the count is read in two views that both rest on trained heads:
+# the count head decides the intent on the request as written, and the record and window are decoded from the same request as a
+# plain read ("Show my workouts this month"), with that decode's own confidences. A count is only served when the WHOLE request is the
+# count cue, one record type's own generic name, one window (a stated one, or ever / in total) and fillers (count_reads.json): any other
+# word is a filter, unit or comparison a summary cannot carry, and keeps the model's count handoff.
+_COUNT = json.load(open(DATA / 'count_reads.json'))
+COUNT_CUE = re.compile(_COUNT['cue'], re.I)
+COUNT_ALL_TIME = re.compile(r'(?<![\w-])(?:' + '|'.join(re.escape(w) for w in sorted(_COUNT['all_time'], key=len, reverse=True)) + r')(?![\w-])', re.I)
+COUNT_LEAD = re.compile(r'^(?:(?:' + '|'.join(re.escape(w) for w in sorted(_COUNT['lead_in'], key=len, reverse=True)) + r')\s+)+', re.I)
+COUNT_FILLER = frozenset(_COUNT['filler'])
+
+
+def count_template(cur, mentions, time_spans):
+    """(record, name, window text or None) of a request that is only the count of one record type in one window, else None.
+    mentions: [(start, end)] of the tagged record/metric mentions; time_spans: [(start, end)] of the tagged windows (cur-relative)."""
+    text = cur.strip().rstrip('?!. ').lower()
+    if not COUNT_CUE.match(text) or re.search(r'[.?!;\n]', text) or len(mentions) != 1: return None
+    a, z = mentions[0]
+    name = COUNT_LEAD.sub('', cur[a:z].strip().lower())
+    record = next((r for r, names in _COUNT['records'].items() if name in names), None)
+    if record is None: return None
+    time_spans = [(x, y) for x, y in time_spans if not COUNT_ALL_TIME.fullmatch(cur[x:y].strip())]      # "ever" or "in total" tagged as a time
+    if len(time_spans) > 1: return None
+    rest = list(cur.lower())
+    for x, y in [(a, z), *time_spans]:
+        rest[x:y] = ' ' * (y - x)
+    rest = ''.join(rest)
+    all_time = COUNT_ALL_TIME.search(rest)
+    if bool(all_time) == bool(time_spans): return None      # exactly one window: a stated one, or ever / in total (never both, never none)
+    rest = COUNT_ALL_TIME.sub(' ', rest)
+    words = re.findall(r"[a-z0-9]+(?:['\u2019-][a-z0-9]+)*|[^\s\w]", rest)
+    if any(not re.fullmatch(r'[^\w\s]', w) and w.replace('\u2019', "'") not in COUNT_FILLER for w in words): return None
+    return record, name, (cur[time_spans[0][0]:time_spans[0][1]].strip() if time_spans else None)
+
+
+def role_spans(roles, offs, lo, hi, role):
+    """Character spans (cur-relative to lo) of the contiguous tokens tagged role, widened to whole words."""
+    runs, last = [], None
+    for j, ((a, z), r) in enumerate(zip(offs.tolist(), roles)):
+        if z > a and ROLES[r] == role and a >= lo and z <= hi:
+            if last == j - 1: runs[-1][1] = z
+            else: runs.append([a, z])
+            last = j
+    return [(a - lo, z - lo) for a, z in runs]
+
+
 def contract_period(p, ref, records=()):
     """Period shapes the repo contract takes (compat/health_range_input.py: relative days/months; calendar day/week/month):
     a rolling N weeks is 7N days; the current calendar year is Jan 1 .. the reference date (year to date, spec item 10).
@@ -1743,7 +1790,23 @@ class Parser:
                         if not (LIST_GAP.fullmatch(g) or (re.search(r'[A-Za-z]', g) and (CLAUSE_WORDS.search(g) or CLAUSE_BOUNDARY.search(g)))): return set(), 'unresolved_health_scope'
         return drop, None
 
-    INTERNAL = ('_prev', '_clause', '_split', '_standalone', '_ctx', '_cmp')
+    INTERNAL = ('_prev', '_clause', '_split', '_standalone', '_ctx', '_cmp', '_count_read')
+
+    def count_read(self, req, cur, roles, offs, base, cur_end, p_count):
+        """The summary plan of a count request (count_template), or None: the record and window are read as the plain request they
+        spell, and only the weakest of that read and the count decision is claimed."""
+        mentions = [(int(offs[r[0]][0]) - base, int(offs[r[-1]][1]) - base) for r in mention_runs(roles, offs, base, cur_end)]
+        template = count_template(cur, mentions, role_spans(roles, offs, base, cur_end, 'time'))
+        if template is None: return None
+        record, name, window = template
+        plain_read = self.select({**req, '_count_read': True, 'state': {**req['state'], 'current_request': f'Show my {name}' + (f' {window}' if window else ''),
+                                                                         'recent_user_requests': []}})
+        queries = plain_read['queries']
+        if (plain_read['status'] != 'planned' or len(queries) != 1 or queries[0].get('kind') != 'health' or queries[0].get('records') != [record]
+                or queries[0].get('metrics') or queries[0].get('source') or queries[0].get('profile_fields')
+                or (queries[0]['period'] == {'kind': 'all_history'}) != (window is None)): return None
+        return {**plain_read, 'queries': [{**queries[0], 'operation': 'summary'}], 'confidence': min(plain_read['confidence'], p_count),
+                'decision_confidence': min(plain_read['decision_confidence'], p_count)}
 
     def select(self, req):
         try: return self._select_bounded(req)
@@ -1866,6 +1929,11 @@ class Parser:
         if status == 'handoff':
             cls = HANDOFF[out['handoff'][0].argmax()] or 'handoff'
             res = H(MODEL_CODES['model_' + cls])
+            # A request that is only the count of one record type in one window is a summary read. It needs a complete request of its
+            # own (no history to inherit from, no clause or re-read).
+            if cls == 'count' and not hist and not any(req.get(k) for k in self.INTERNAL if k != '_standalone'):
+                counted = self.count_read(req, cur, roles, offs, base, cur_end, float(probs[1]) * float(out['handoff'][0].softmax(-1)[HANDOFF.index('count')]))
+                return counted if counted else res
             # Older heads classify every comparison as unsupported. A closed,
             # explicit window comparison can instead compile into independently
             # decoded reads. window_compare checks the complete comparative,
