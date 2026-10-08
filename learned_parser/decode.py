@@ -31,6 +31,7 @@ SPELLING = {m: set(g) for g in _AG['spelling'].values() for m in g}
 _SPLITS = list(_AG['unit_split'].values()) + list(_AG['sampling_split'].values())   # 10g.1 unit variants, 10g.27 glucose
 UNIT_SPLIT = {g[0]: set(g) for g in _SPLITS}          # legacy/bare id -> its variants (read every present one; a variant stays specific)
 ANALYTE = {m: min(g) for g in list(_AG['spelling'].values()) + _SPLITS for m in g}   # id -> one name per analyte
+SPELLING_ANALYTE = {m: min(g) for g in _AG['spelling'].values() for m in g}   # same, spellings only: a unit variant (lymphocytes_percent) is not its absolute twin
 # A measured metric and its self-reported profile twin (spec v1.8 10g.2): bare names read the metric.
 TWINS = {'weight': 'weight_kg', 'height': 'height_cm'}
 BUNDLE_DEFS = {k: v for k, v in json.load(open(DATA / 'bundles.json')).items() if not k.startswith('_')}
@@ -2045,6 +2046,18 @@ class Parser:
         app_terms = [t for t in APP_ANALYTES if re.search(r'(?<![\w-])' + re.escape(t) + r'(?![\w-])', cur.lower())]
         if not chosen and not app_terms and not full_area: return H('unresolved_metric_or_record')   # an app-known analyte binds below
         bundles = [self.items[i][1] for i in chosen if self.items[i][0] == 'record' and self.items[i][1] in BUNDLE_DEFS]
+        # A metric or record the request itself names (its own tokens link it above the whole-input threshold; history links do not count)
+        # that this inventory lacks is not a smaller plan of the rest: hand off. The same analyte under another id, a profile twin and
+        # the competing look-alikes of a read item are not other names.
+        if not full_area:
+            got = {SPELLING_ANALYTE.get(resolve.get(self.items[i][1], self.items[i][1]), resolve.get(self.items[i][1], self.items[i][1])) for i in chosen if self.items[i][0] == 'metric'}
+            members = {m for b in bundles for r in BUNDLE_DEFS[b] for m in r['metrics']}      # a bundle reads what the inventory has of its members
+            twin_ids = {m for m, f in [*TWINS.items(), ('bmi', 'bmi')] if 'profile' in recs}
+            for i in self._named(out, offs, base, cur_end):
+                k, key, _ = self.items[i]
+                if ok(k, key) or key in narrow or key in members or SPELLING.get(key, set()) & members or any(key in APP_ANALYTES[t].get('instead_of', ()) for t in app_terms): continue
+                if k == 'metric' and (key in twin_ids or SPELLING_ANALYTE.get(key, key) in got): continue
+                return H('requested_metric_unavailable')
         if bundles:   # a bundle (health overview) is the whole plan: its defined reads intersected with the inventory
             if len(chosen) > 1: return H('plan_breadth_exceeded')
             if span('time') or self._has_window_words(cur, ref): return H('unbound_request_constraint')
@@ -2052,17 +2065,6 @@ class Parser:
                    'source': None, 'profile_fields': [], 'date_basis': 'observed_at'} for r in BUNDLE_DEFS[bundles[0]]]
             qs = [q for q in qs if q['metrics']]
             return {'status': 'planned', 'reason_codes': [], 'queries': qs, 'confidence': float(probs[0]), 'decision_confidence': float(probs[0])} if qs else H('unresolved_metric_or_record')
-        # A metric or record the request itself names (its own tokens link it above the whole-input threshold; history links do not count)
-        # that this inventory lacks is not a smaller plan of the rest: hand off. The same analyte under another id, a profile twin and
-        # the competing look-alikes of a read item are not other names.
-        if not full_area:
-            got = {ANALYTE.get(resolve.get(self.items[i][1], self.items[i][1]), resolve.get(self.items[i][1], self.items[i][1])) for i in chosen if self.items[i][0] == 'metric'}
-            twin_ids = {m for m, f in [*TWINS.items(), ('bmi', 'bmi')] if 'profile' in recs}
-            for i in self._named(out, offs, base, cur_end):
-                k, key, _ = self.items[i]
-                if ok(k, key) or key in narrow or any(key in e.get('instead_of', ()) for e in APP_ANALYTES.values()): continue
-                if k == 'metric' and (key in twin_ids or ANALYTE.get(key, key) in got): continue
-                return H('requested_metric_unavailable')
         panel_keys = {self.items[i][1] for i in chosen if self.items[i][0] == 'metric' and self.items[i][1] in PANELS}
         if {'panel_cbc', 'panel_cbc_basic'} <= panel_keys:      # the basic count is inside the full one: "CBC without differential drops the differential" (10g.18)
             if not re.search(r'\b(?:without|w/o|no|minus)\s+(?:the\s+)?diff', cur, re.I): return H('unresolved_health_scope')
