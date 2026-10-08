@@ -1975,7 +1975,9 @@ class Parser:
                 if a or self._has_window_words(h, ref): break
         avail = set(req.get('available_metrics') or []); recs = set(req.get('available_record_types') or [])
         # Inventory ids and catalog ids name the same measurement (selector index inventory_to_catalog, e.g. hscrp -> hs_crp).
-        resolve = {**{INV2CAT.get(m, m): m for m in avail}, **{m: m for m in avail}}
+        # ... and the other way: a catalog-side id of a linked item the inventory names differently ("hscrp" when Vita's id is hs_crp) reads that id.
+        alias = {inv: cat for inv, cat in INV2CAT.items() if cat in avail and inv not in avail}
+        resolve = {**{INV2CAT.get(m, m): m for m in avail}, **{m: m for m in avail}, **alias}
         panel_ok = lambda key: any(m in resolve or SPELLING.get(m, set()) & avail for m in PANELS[key])
         # A bare split id ("glucose") links when any of its ids is in the inventory, and reads those (spec v1.8 10g.27, 10g.1).
         ok = lambda k, key: (k == 'metric' and (key in resolve or (key in PANELS and panel_ok(key)) or bool(UNIT_SPLIT.get(key, set()) & avail))) or (k == 'record' and (key in recs or key in BUNDLE_DEFS)) or (k == 'profile_field' and 'profile' in recs)
@@ -2037,7 +2039,7 @@ class Parser:
         if bundles:   # a bundle (health overview) is the whole plan: its defined reads intersected with the inventory
             if len(chosen) > 1: return H('plan_breadth_exceeded')
             if span('time') or self._has_window_words(cur, ref): return H('unbound_request_constraint')
-            qs = [{'kind': 'health', 'metrics': sorted(set(r['metrics']) & avail), 'records': [], 'operation': r['operation'], 'period': dict(r['period']),
+            qs = [{'kind': 'health', 'metrics': sorted({resolve.get(m, m) for m in r['metrics']} & avail), 'records': [], 'operation': r['operation'], 'period': dict(r['period']),
                    'source': None, 'profile_fields': [], 'date_basis': 'observed_at'} for r in BUNDLE_DEFS[bundles[0]]]
             qs = [q for q in qs if q['metrics']]
             return {'status': 'planned', 'reason_codes': [], 'queries': qs, 'confidence': float(probs[0]), 'decision_confidence': float(probs[0])} if qs else H('unresolved_metric_or_record')
@@ -2362,6 +2364,8 @@ class Parser:
         rest[[i for i, (_, key, _) in enumerate(self.items) if full_area or key in narrow]] = 0   # accounted for by the wording (10g.34 items 4, 5)
         for i, (k, key, _) in enumerate(self.items):   # a bare split id outside the inventory reads only its present ids: once the plan
             if k == 'metric' and key in UNIT_SPLIT and key not in resolve and UNIT_SPLIT[key] & avail <= set(metrics): rest[i] = 0   # reads them it is no alternative
+        for i, (k, key, _) in enumerate(self.items):   # the same analyte under its other id (alias, above) is no alternative to the id that is read
+            if k == 'metric' and key in alias and alias[key] in metrics: rest[i] = 0
         link_in = float(lp[list(chosen)].min()) if chosen else 1.0      # an app-bound analyte has no catalog link
         link_conf = link_in * (1 - float(rest.max()))
         # A one-night decode rests on the model's mixed_windows decision (the trained target for those reads), not on a plan decision.
