@@ -856,7 +856,7 @@ class Parser:
         h = out['hidden'][0]; t = F.normalize(self.model.tok_proj(h), dim=-1)
         allowed = torch.tensor([ok(k, key) for k, key, _ in self.items])
         setlink = lambda toks: ((t[toks] @ self.I.T).max(0).values * self.model.link_scale + self.model.link_bias).masked_fill(~allowed, -1e4)
-        chosen = set(); self._runs = []; self._spans = []
+        chosen = set(); self._runs = []; self._spans = []; self._cur_link = None
         def within(items, toks):   # confusable pairs compete only inside one mention; items the user names separately both stay
             sc = {i: float(self.I[i] @ F.normalize(t[toks].mean(0), dim=-1)) for i in items}
             for i in sorted(items, key=lambda i: -sc[i]):
@@ -880,7 +880,7 @@ class Parser:
             self._spans.append((int(offs[run[0]][0]) - lo, int(offs[run[-1]][1]) - lo))
         cur = [j for j, (a, z) in enumerate(offs.tolist()) if z > a and a >= lo and z <= hi]
         if cur:   # strong matches the tagger missed (list items, short names)
-            g = setlink(cur)
+            g = setlink(cur); self._cur_link = g
             for i in above(g, self.CATCH_THR):
                 if not (self.confuse.get(i, set()) & chosen): chosen.add(i)
             if not chosen:
@@ -2062,8 +2062,14 @@ class Parser:
         # Agreement check: plan only if two independent views of the model pick the same items
         # (whole-input late interaction vs. per-mention spans). Disagreement means "not sure" -> hand off.
         linked = set(above(out['link'][0], self.LINK_THR))
-        full = {i for i, (k, key, _) in enumerate(self.items) if ok(k, key) and i in linked}
         chosen = self.link(out, roles, offs, base, cur_end, ok, INHERIT[int(out['inherit'][0].argmax())])
+        # out['link'] is a max over every token: earlier requests and the "request:" / "earlier:" frame included. When the request's own tokens
+        # link every chosen item, history decides nothing: only those tokens vote in the agreement check and count as competitors (an item
+        # an unrelated earlier request mentions is no second opinion; "When was my last lab test?" after a recovery question).
+        cl = self._cur_link
+        cur_link = cl if cl is not None and chosen and not self._inherit_read and all(float(cl[i]) > self.LINK_THR for i in chosen) else None
+        if cur_link is not None: linked = {i for i in linked if float(cur_link[i]) > self.LINK_THR}
+        full = {i for i, (k, key, _) in enumerate(self.items) if ok(k, key) and i in linked}
         profile_named = bool(re.search(r'\bprofile\b', cur.lower()))      # the user said "profile" (not a whole-input link guess)
         # ... in the clause of the weight/height ("profile weight", "weight in my profile"; not "my profile and my latest weight", 10g.2)
         profile_twin = any(re.search(r'\bprofile\b', c, re.I) and re.search(r'\b(?:weigh\w*|height|tall)\b', c, re.I) for c in CLAUSE_BOUNDARY.split(cur))
@@ -2450,7 +2456,7 @@ class Parser:
         pmax = lambda n: float(out[n][0].softmax(-1).max())
         heads = ['operation', 'kind', 'source', 'inherit'] + (['unit', 'offset', 'amount'] if kind in ('rolling', 'calendar', 'to_date') else [])
         lp = torch.sigmoid(out['link'][0]); allowed = torch.tensor([ok(k, key) for k, key, _ in self.items])
-        rest = lp.masked_fill(~allowed, 0); rest[list(chosen)] = 0
+        rest = (lp if cur_link is None else torch.sigmoid(cur_link)).masked_fill(~allowed, 0); rest[list(chosen)] = 0   # competitors: the request's own tokens when it names its items
         rest[[i for i, (_, key, _) in enumerate(self.items) if full_area or key in narrow]] = 0   # accounted for by the wording (10g.34 items 4, 5)
         for i, (k, key, _) in enumerate(self.items):   # a bare split id outside the inventory reads only its present ids: once the plan
             if k == 'metric' and key in UNIT_SPLIT and key not in resolve and UNIT_SPLIT[key] & avail <= set(metrics): rest[i] = 0   # reads them it is no alternative
