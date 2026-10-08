@@ -1,7 +1,7 @@
-name: Build candidate with the inventory-alias decoder
+name: Build candidate v0.1.10 (alias fix, named-metric handoff, count plans)
 on:
   push:
-    branches: [agent/claude/hscrp-inventory-alias]
+    branches: [agent/claude/open-jev-v0.1.10]
   workflow_dispatch:
 defaults:
   run:
@@ -34,10 +34,10 @@ jobs:
           test "$(tail -1 "$RUNNER_TEMP/decode-in-image.txt")" = 644
       - name: Decoder regressions with the learned models (the alias tests fail rather than skip)
         run: |
-          docker run --rm --entrypoint sh --user 0 -e OPEN_JEV_PARSER=rules -e REQUIRE_LEARNED_MODELS=1 -v "$PWD/learned_models:/tinfoil/models/jev-learned:ro" -v "$PWD/tests:/app/tests:ro" -v "$PWD/scripts:/app/scripts:ro" -v "$PWD/evidence:/app/evidence:ro" -v "$PWD/experiments:/app/experiments:ro" "$IMAGE" -c 'pip install pytest==9.1.1 httpx==0.28.1 tinfoil==0.14.0 >/dev/null && PYTHONPATH=/app:/app/vendor python -m pytest -q -rs tests/test_inventory_alias_metrics.py tests/test_learned_parser_path.py' | tee "$RUNNER_TEMP/decode-tests.txt"
+          docker run --rm --entrypoint sh --user 0 -e OPEN_JEV_PARSER=rules -e REQUIRE_LEARNED_MODELS=1 -v "$PWD/learned_models:/tinfoil/models/jev-learned:ro" -v "$PWD/tests:/app/tests:ro" -v "$PWD/scripts:/app/scripts:ro" -v "$PWD/evidence:/app/evidence:ro" -v "$PWD/experiments:/app/experiments:ro" "$IMAGE" -c 'pip install pytest==9.1.1 httpx==0.28.1 tinfoil==0.14.0 >/dev/null && PYTHONPATH=/app:/app/vendor python -m pytest -q -rs tests/test_inventory_alias_metrics.py tests/test_learned_parser_path.py tests/test_count_plans.py' | tee "$RUNNER_TEMP/decode-tests.txt"
       - name: Selector and intent identity
         run: |
-          docker run --rm --entrypoint python -e OPEN_JEV_PARSER=learned "$IMAGE" -c 'from query_selector import identity, INTENT_SHA256; assert identity() == "1429af1a79a5142aa7fdacd03a790c78335bf7c50fddc492115306886a308e84", identity(); assert INTENT_SHA256 == "79057d0e2673aa2813a8ea64193d74182a33392b1221c7c06d4afc7afe18dc36"; print("Candidate decoder identity as pinned")'
+          docker run --rm --entrypoint python -e OPEN_JEV_PARSER=learned "$IMAGE" -c 'from query_selector import identity, INTENT_SHA256; assert identity() == "f881fc84d64992e95e036ebf0f52c8288611d66da4eae2bc91c8f1bffb8b2c9c", identity(); assert INTENT_SHA256 == "79057d0e2673aa2813a8ea64193d74182a33392b1221c7c06d4afc7afe18dc36"; print("Candidate decoder identity as pinned")'
       - name: Actual learned serving and release parity
         run: |
           set -euo pipefail
