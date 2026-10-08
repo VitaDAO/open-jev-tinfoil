@@ -18,7 +18,7 @@ class Parser:
 
     def select(self, req):
         text = req['state']['current_request']
-        self.seen.append(text)
+        if req['state']['recent_user_requests']: self.seen.append(text)     # not the history-free probe of _Agreement._history_free
         return self.original if text.endswith('.') else self.normalized
 
 

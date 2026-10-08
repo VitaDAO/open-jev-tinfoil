@@ -849,6 +849,14 @@ class _Agreement:
         candidate=self._select(normalized)
         if candidate.get('status')!='planned' or key(candidate)!=key(raw[0]):return original
         return {**candidate,'diagnostics':{**candidate.get('diagnostics',{}),'sentence_terminator_normalized':True}}
+    @staticmethod
+    def _without_history(req):
+        return {**req,'state':{**req['state'],'recent_user_requests':[]}}
+    def _history_free(self,req,key,first):
+        """True when the request has earlier turns and every parser, given none, plans exactly the agreed plan."""
+        if not (req.get('state') or {}).get('recent_user_requests'):return False
+        bare=self._without_history(req)
+        return all((r:=p.select(bare))['status']=='planned' and key(r)==key(first) for p in self.parsers)
     def _select(self,req,results=None):
         results=[p.select(req) for p in self.parsers] if results is None else results
         acute=next((r for r in results if 'acute_or_crisis_requires_model' in r.get('reason_codes', [])),None)
@@ -869,6 +877,10 @@ class _Agreement:
             if self.verifier is None or not health or None in decision or min(decision)<self.cutoff:
                 return {'status':'handoff','reason_codes':['low_joint_confidence'],'queries':[]}
             score=self.verifier.score(req,health)
+            if score<self.cutoff and self._history_free(req,key,first):
+                # The checker was trained mostly on requests whose earlier turns matter; unrelated earlier requests alone can sink its
+                # score. When the parsers plan the same reads without the history, the history decided nothing: check the request alone.
+                score=max(score,self.verifier.score(self._without_history(req),health))
             if score<self.cutoff:
                 return {'status':'handoff','reason_codes':['learned_plan_unverified'],'queries':[]}
             return accepted('tier2',score)
